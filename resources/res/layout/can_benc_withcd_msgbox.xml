@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_benc_withcd_box" android:background="@drawable/can_benc_wait_bk" android:layout_width="630px" android:layout_height="151px"/>

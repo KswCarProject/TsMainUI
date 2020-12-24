@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="30px">
+    <TextView android:textSize="25px" android:textColor="@android:color/black" android:gravity="center" android:id="@+id/filter_tv_flag" android:background="@android:color/white" android:layout_width="0px" android:layout_height="match_parent" android:layout_weight="3"/>
+    <SeekBar android:id="@+id/filter_seekbar" android:layout_width="0px" android:layout_height="match_parent" android:layout_marginTop="2px" android:layout_weight="5"/>
+    <TextView android:textSize="25px" android:textColor="@android:color/black" android:gravity="center" android:id="@+id/filter_tv_value" android:background="@android:color/white" android:layout_width="0px" android:layout_height="match_parent" android:text="100" android:layout_weight="1"/>
+</LinearLayout>

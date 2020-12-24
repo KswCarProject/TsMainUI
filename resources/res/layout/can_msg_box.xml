@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/can_popup_box" android:layout_width="527px" android:layout_height="260px">
+    <com.ts.other.ParamButton android:textSize="30px" android:id="@+id/box_ok" android:layout_width="142px" android:layout_height="68px" android:layout_marginLeft="101px" android:layout_marginTop="160px"/>
+    <com.ts.other.ParamButton android:textSize="30px" android:id="@+id/box_cancel" android:layout_width="142px" android:layout_height="68px" android:layout_marginLeft="283px" android:layout_marginTop="160px"/>
+    <TextView android:textSize="30px" android:textColor="@android:color/black" android:gravity="center" android:id="@+id/box_text" android:layout_width="400px" android:layout_height="100px" android:layout_marginLeft="63px" android:layout_marginTop="20px" android:text="123" android:lines="2"/>
+</RelativeLayout>

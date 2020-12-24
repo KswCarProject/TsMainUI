@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center_vertical" android:id="@+id/activity_avin_mainid" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <com.ts.backcar.AutoFitTextureView android:id="@+id/textureView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentBottom="true" android:layout_alignParentStart="true"/>
+    <TextView android:textSize="30sp" android:textColor="#ffffffff" android:id="@+id/avinvideoState" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="223px" android:text="" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="25sp" android:textColor="#ffffffff" android:id="@+id/avinHomeName" android:layout_width="300px" android:layout_height="60px" android:layout_marginLeft="85px" android:layout_marginTop="15px" android:text="" android:layout_alignParentTop="true"/>
+    <ProgressBar android:id="@+id/loading_progress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" style="@style/Widget.ProgressBar.Inverse"/>
+</RelativeLayout>

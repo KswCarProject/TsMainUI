@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>Allgemein</item>
+        <item>Bildschirm</item>
+        <item>Lautstärke</item>
+        <item>Sound</item>
+        <item>Video</item>
+        <item>Navigation</item>
+        <item>Bluetooth</item>
+        <item>Lenkradsteuerung</item>
+        <item>Geräte Informationen</item>
+    </array>
+    <array name="set_genera_options">
+        <item>Standby-Zeit</item>
+        <item>Speech Recognition</item>
+        <item>Assistive Touch</item>
+        <item>Reverse Volume Suppression</item>
+        <item>Start Logo</item>
+        <item>Virtual CD Storage Device</item>
+        <item>Auf Werkseinstellungen zurücksetzen</item>
+        <item>Alle Inhalte löschen</item>
+    </array>
+    <array name="set_display_options">
+        <item>Hintergrundbeleuchtung Tag-Modus</item>
+        <item>Hintergrundbeleuchtung Nacht-Modus</item>
+        <item>Automatisch</item>
+        <item>Tastenbeleuchtung</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Media Lautstärke</item>
+        <item>Navigations Lautstärke</item>
+        <item>Bluetooth Lautstärke</item>
+        <item>Ruftonlautstärke</item>
+        <item>Alarm Lautstärke</item>
+        <item>System Lautstärke</item>
+    </array>
+    <array name="set_video_options">
+        <item>Es ist Verboten Videos während der Fahrt zu sehen.</item>
+        <item>Reversing Assistant Line</item>
+        <item>Parklinien aktivieren</item>
+        <item>Rückfahrkamera spiegeln</item>
+        <item>Air Conditioner</item>
+        <item>Hinteres Video</item>
+        <item>Frontkamea</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Autostart Navigation</item>
+        <item>Dateipfad</item>
+        <item>GPS Mix</item>
+    </array>
+    <array name="set_bt_options">
+        <item>Pin Code</item>
+        <item>Automatisch verbinden</item>
+        <item>Automatisch Antworten</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Gewinnen</item>
+        <item>Niederfrequenz</item>
+        <item>Harmonisch</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Niederfrequenz</item>
+        <item>Gewinnen</item>
+        <item>Hochfrequenz</item>
+        <item>Gewinnen</item>
+    </array>
+    <array name="mcu_update_msg">
+        <item>Kein Update</item>
+        <item>Update fehlgeschlagen</item>
+        <item>Update läuft nicht ausschalten !!!</item>
+        <item>Chip encryption!</item>
+        <item>Chip erase failure!</item>
+        <item>Chip erase success!</item>
+        <item>Upgrade successfully, please restart the device!</item>
+    </array>
+    <array name="can_iap_updata_sta">
+        <item />
+        <item>Update Fertig</item>
+        <item>Canbus Update Status</item>
+        <item>Update Daten Error</item>
+    </array>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="90px">
+    <Button android:textSize="30px" android:textColor="@android:color/white" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/btn" android:background="@drawable/can_comm_rect" android:paddingLeft="90px" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="16px" android:layout_marginRight="31px"/>
+    <ImageView android:textColor="@android:color/white" android:id="@+id/ico" android:layout_width="55px" android:layout_height="55px" android:layout_marginLeft="35px" android:layout_marginTop="13px"/>
+    <ImageView android:textColor="@android:color/white" android:id="@+id/arrow" android:background="@drawable/can_comm_rt_arrow" android:duplicateParentState="true" android:layout_width="47px" android:layout_height="47px" android:layout_marginTop="17px" android:layout_marginRight="60px" android:layout_alignParentRight="true"/>
+</RelativeLayout>

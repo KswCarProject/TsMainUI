@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="344px" android:layout_height="78px" android:minWidth="344px" android:minHeight="78px">
+    <TextView android:textSize="25px" android:textColor="#ffffffff" android:ellipsize="end" android:gravity="center_vertical" android:id="@+id/item_remote_device_name" android:layout_width="200px" android:layout_height="80px" android:layout_marginLeft="20px" android:singleLine="true" android:layout_centerVertical="true"/>
+    <TextView android:textSize="25px" android:textColor="#ffffffff" android:gravity="right|center_vertical|center_horizontal|center" android:id="@+id/item_remote_connect_status" android:layout_width="120px" android:layout_height="80px" android:layout_marginRight="10px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="314px" android:layout_height="65px">
+    <TextView android:textSize="32px" android:textColor="#ffffffff" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/btn_tvlist" android:layout_width="314px" android:layout_height="65px" android:layout_marginLeft="25px"/>
+</RelativeLayout>

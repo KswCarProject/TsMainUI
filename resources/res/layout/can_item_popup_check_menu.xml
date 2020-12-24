@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:focusable="true" android:clickable="true" android:layout_width="400px" android:layout_height="84px">
+    <CheckBox android:textSize="30px" android:textColor="@drawable/can_item_popup_menu_color" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/val" android:paddingLeft="10px" android:paddingRight="10px" android:clickable="false" android:layout_width="match_parent" android:layout_height="84px" android:button="@null" android:singleLine="true" android:drawableRight="@drawable/btn_checkbox_selector"/>
+    <ImageView android:background="@drawable/can_comm_msgbox_textline" android:layout_width="361px" android:layout_height="2px" android:layout_marginLeft="20px" android:layout_marginTop="82px"/>
+</RelativeLayout>

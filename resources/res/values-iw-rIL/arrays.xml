@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>כללי</item>
+        <item>תצוגה</item>
+        <item>עוצמה</item>
+        <item>שמע</item>
+        <item>וידאו</item>
+        <item>ניווט</item>
+        <item>בלוטות</item>
+        <item>שליטה מההגה</item>
+        <item>אודות ההתקן</item>
+    </array>
+    <array name="set_genera_options">
+        <item>זמן המתנה</item>
+        <item>זיהוי דיבור</item>
+        <item>AssistiveTouch</item>
+        <item>עוצמה בנסיעה לאחור</item>
+        <item>לוגו אתחול</item>
+        <item>Virtual CD Storage Device</item>
+        <item>איפוס כל הגדרות</item>
+        <item>למחוק את כל התוכן</item>
+    </array>
+    <array name="set_display_options">
+        <item>תאורה אחורית בלילה</item>
+        <item>תאורה אחורית בלילה</item>
+        <item>אוטומטי</item>
+        <item>צבע כפתורים</item>
+    </array>
+    <array name="set_volume_options">
+        <item>עוצמה מדיה</item>
+        <item>עוצמה ניווט</item>
+        <item>עוצמה בלוטות</item>
+        <item>עוצמה צלצול</item>
+        <item>עוצמה שעון מעורר</item>
+        <item>עוצמה מערכת</item>
+    </array>
+    <array name="set_video_options">
+        <item>צפייה בוידאו אסורה בנהיגה</item>
+        <item>קו עזרה בנסיעה לאחור</item>
+        <item>קו אזהרה בנסיעה לאחור</item>
+        <item>מצלמת רוורס</item>
+        <item>מזגן</item>
+        <item>וידאו אחורי</item>
+        <item>מצלמה קדמית</item>
+    </array>
+    <array name="set_navi_options">
+        <item>הפעלה אוטומטית ניווט</item>
+        <item>נתיב קובץ</item>
+        <item>תערובת ניווט</item>
+    </array>
+    <array name="set_bt_options">
+        <item>קוד פין</item>
+        <item>התחבר אוטומטית</item>
+        <item>מענה אוטומטי</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>רווח</item>
+        <item>תדירות נמוכה</item>
+        <item>הרמוני</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>תדירות נמוכה</item>
+        <item>רווח</item>
+        <item>תדר גבוה</item>
+        <item>רווח</item>
+    </array>
+</resources>

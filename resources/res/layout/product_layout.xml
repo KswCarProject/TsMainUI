@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="#ffffff" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/iv" android:layout_width="match_parent" android:layout_height="300px"/>
+    <TextView android:textSize="20px" android:textColor="#000000" android:gravity="center" android:id="@+id/txt" android:layout_width="match_parent" android:layout_height="35px" android:layout_marginBottom="20px" android:layout_alignParentBottom="true"/>
+</RelativeLayout>

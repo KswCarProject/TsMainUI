@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>ทั่วไป</item>
+        <item>จอภาพ</item>
+        <item>โวลลุ่ม</item>
+        <item>เสียง</item>
+        <item>วีดีโอ</item>
+        <item>นำทาง</item>
+        <item>บลูทูธ</item>
+        <item>SWC</item>
+        <item>เกี่ยวกับอุปกรณ์</item>
+    </array>
+    <array name="set_genera_options">
+        <item>ระยะเวลาสแตนด์บาย</item>
+        <item>Speech Recognition</item>
+        <item>AssistiveTouch</item>
+        <item>กลับค่าเสียง</item>
+        <item>โลโก้ตั้งต้น</item>
+        <item>Virtual CD Storage Device</item>
+        <item>รีเซ็ทการตั้งค่าทั้งหมด</item>
+        <item>ลบเนื้อหาทั้งหมด</item>
+    </array>
+    <array name="set_display_options">
+        <item>ตั้งค่าหน้าจอเวลากลางวัน</item>
+        <item>ตั้งค่าหน้าจอเวลากลางคืน</item>
+        <item>โหมดอัตโนมัติ</item>
+        <item>คีย์ความสว่างของสี</item>
+    </array>
+    <array name="set_volume_options">
+        <item>เสียงสื่อ</item>
+        <item>เสียงนำทาง</item>
+        <item>เสียงบลูทูธ</item>
+        <item>เสียงเรียกเข้า</item>
+        <item>เสียงเตือน</item>
+        <item>เสียงระบบ</item>
+    </array>
+    <array name="set_video_options">
+        <item>ไม่ควรดูวิดีโอขณะขับรถ</item>
+        <item>สายผู้ช่วย</item>
+        <item>สายคำเตือน</item>
+        <item>กล้องด้านหลังกระจก</item>
+        <item>เครื่องปรับอากาศ</item>
+        <item>วิดีโอด้านหลัง</item>
+        <item>กล้องด้านหน้า</item>
+    </array>
+    <array name="set_navi_options">
+        <item>เริ่มนำทางอัตโนมัติ</item>
+        <item>เส้นทางของไฟล์</item>
+        <item>ส่วนผสมการนำทาง</item>
+    </array>
+    <array name="set_bt_options">
+        <item>รหัส</item>
+        <item>เชื่อมต่ออัตโนมัติ</item>
+        <item>ตอบรับอัตโนมัติ</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>ได้รับ</item>
+        <item>ความถี่ต่ำ</item>
+        <item>สอดคล้องกัน</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>ความถี่ต่ำ</item>
+        <item>ได้รับ</item>
+        <item>ความถี่สูง</item>
+        <item>ได้รับ</item>
+    </array>
+</resources>

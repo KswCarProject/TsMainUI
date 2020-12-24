@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="can_ent_aux_arrays">
+        <item>Панель быстрого доступа</item>
+        <item>Меню включение Idrive интерфейса</item>
+        <item>Интерфейс управления Idrive на панели</item>
+    </array>
+    <array name="can_iap_updata_sta">
+        <item />
+        <item>Обновлено</item>
+        <item>Состояние обновления</item>
+        <item>Ошибка обновления</item>
+    </array>
+    <array name="WeekDay">
+        <item>星期天</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </array>
+</resources>

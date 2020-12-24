@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="set_main_options">
+        <item>일반</item>
+        <item>화면 설정</item>
+        <item>음량 조절</item>
+        <item>사운드 이퀄라이저</item>
+        <item>비디오</item>
+        <item>내비게이션</item>
+        <item>블루투스</item>
+        <item>핸들리모컨 설정</item>
+        <item>소프트웨어 버전</item>
+    </array>
+    <array name="set_genera_options">
+        <item>대기 시간</item>
+        <item>Speech Recognition</item>
+        <item>AssistiveTouch</item>
+        <item>후진 시 경고음 음량 조절</item>
+        <item>부팅 시 로고 표시</item>
+        <item>Virtual CD Storage Device</item>
+        <item>설정 초기화</item>
+        <item>초기화</item>
+    </array>
+    <array name="set_display_options">
+        <item>낮시간 백라이트 세팅</item>
+        <item>저녁시간 백라이트 세팅</item>
+        <item>자동 모드</item>
+        <item>버튼 조명 설정</item>
+    </array>
+    <array name="set_volume_options">
+        <item>미디어 음량</item>
+        <item>내비게이션 음량</item>
+        <item>블루투스 음량</item>
+        <item>벨소리 음량</item>
+        <item>알람 음량</item>
+        <item>시스템 음량</item>
+    </array>
+    <array name="set_video_options">
+        <item>운전 중 영상 표시 금지</item>
+        <item>후방 보조선</item>
+        <item>후방 경고선</item>
+        <item>Mirror Rear Camera</item>
+        <item>에어컨</item>
+        <item>후방 영상</item>
+        <item>전면 카메라</item>
+    </array>
+    <array name="set_navi_options">
+        <item>지도 자동 실행</item>
+        <item>실행 지도</item>
+        <item>음성 안내 시 미디어 음량 조절(%)</item>
+    </array>
+    <array name="set_bt_options">
+        <item>핀 코드</item>
+        <item>자동 연결</item>
+        <item>자동 응답</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>이득</item>
+        <item>낮은 빈도</item>
+        <item>고조파</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>낮은 빈도</item>
+        <item>이득</item>
+        <item>고주파</item>
+        <item>이득</item>
+    </array>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/bt_calling_box" android:layout_width="660px" android:layout_height="228px">
+    <RelativeLayout android:id="@+id/bt_rv" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="68px">
+        <Button android:id="@+id/btn_calling_answer" android:background="@drawable/bt_calling_call_s" android:visibility="gone" android:layout_width="92px" android:layout_height="92px" android:layout_marginLeft="29px"/>
+        <Button android:id="@+id/btn_calling_kb" android:background="@drawable/bt_calling_kb_s" android:layout_width="92px" android:layout_height="92px" android:layout_marginLeft="29px"/>
+        <Button android:id="@+id/btn_calling_hang" android:background="@drawable/bt_calling_hang_s" android:layout_width="92px" android:layout_height="92px" android:layout_marginLeft="538px"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/bt_rv1" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:background="@drawable/bt_calling_line_l_8" android:layout_width="143px" android:layout_height="228px" android:layout_marginLeft="0px" android:layout_marginTop="0px"/>
+        <ImageView android:background="@drawable/bt_calling_line_r_8" android:layout_width="143px" android:layout_height="228px" android:layout_marginLeft="517px" android:layout_marginTop="0px"/>
+        <Button android:id="@+id/btn_calling_answer_s" android:background="@drawable/bt_calling_call_s1" android:visibility="gone" android:layout_width="138px" android:layout_height="109px" android:layout_marginLeft="3px" android:layout_marginTop="3px"/>
+        <Button android:id="@+id/btn_calling_kb_s" android:background="@drawable/bt_calling_kb_s1" android:layout_width="138px" android:layout_height="109px" android:layout_marginLeft="3px" android:layout_marginTop="3px"/>
+        <Button android:id="@+id/btn_calling_hang_s" android:background="@drawable/bt_calling_hang_s1" android:layout_width="138px" android:layout_height="109px" android:layout_marginLeft="519px" android:layout_marginTop="3px"/>
+        <Button android:id="@+id/btn_calling_add" android:background="@drawable/bt_calling_add" android:layout_width="138px" android:layout_height="109px" android:layout_marginLeft="3px" android:layout_marginTop="116px"/>
+        <Button android:id="@+id/btn_calling_merge" android:background="@drawable/bt_calling_merge" android:layout_width="69px" android:layout_height="108px" android:layout_marginLeft="518px" android:layout_marginTop="117px"/>
+        <Button android:id="@+id/btn_calling_exchange" android:background="@drawable/bt_calling_exchange" android:layout_width="69px" android:layout_height="108px" android:layout_marginLeft="589px" android:layout_marginTop="117px"/>
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@+id/bt_call_lv" android:layout_width="375px" android:layout_height="wrap_content" android:layout_marginLeft="143px" android:layout_centerVertical="true">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/bt_call_lv1" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="30px" android:textColor="@android:color/white" android:ellipsize="middle" android:gravity="center" android:id="@+id/bt_calling_name" android:layout_width="match_parent" android:layout_height="44px" android:text="name" android:singleLine="true" android:layout_weight="1"/>
+            <TextView android:textSize="30px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:id="@+id/bt_calling_state" android:layout_width="match_parent" android:layout_height="44px" android:text="state" android:singleLine="true" android:layout_weight="1"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@+id/bt_call_lv2" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="30px" android:textColor="@android:color/white" android:ellipsize="middle" android:gravity="center" android:id="@+id/bt_calling_name1" android:layout_width="match_parent" android:layout_height="44px" android:text="name1" android:singleLine="true" android:layout_weight="1"/>
+            <TextView android:textSize="30px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:id="@+id/bt_calling_state1" android:layout_width="match_parent" android:layout_height="44px" android:text="state1" android:singleLine="true" android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="35px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:id="@+id/bt_calling_no" android:visibility="gone" android:layout_width="416px" android:layout_height="55px" android:layout_marginLeft="133px" android:text="no" android:singleLine="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

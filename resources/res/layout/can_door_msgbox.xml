@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_door_box" android:background="@drawable/can_door2_box_bg" android:layout_width="272px" android:layout_height="296px"/>

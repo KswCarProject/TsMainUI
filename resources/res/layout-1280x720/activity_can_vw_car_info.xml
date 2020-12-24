@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/layout_vw_carinfo" android:background="@drawable/can_vw_carinfo_bg_1280x720" android:layout_width="match_parent" android:layout_height="match_parent">
+    <Button android:id="@+id/can_btn_dw" android:background="@drawable/btn_can_show_vw_dw" android:layout_width="60px" android:layout_height="50px" android:layout_marginLeft="10px" android:layout_marginTop="10px"/>
+</RelativeLayout>

@@ -1,0 +1,1468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="mcu_update_msg">
+        <item>Nessun processo di aggiornamento</item>
+        <item>Aggiornamento fallito!</item>
+        <item>Aggiornamento in corso, per favore non spegnere o scollegare l&apos;alimentazione!</item>
+        <item>Crittografia dei chip!</item>
+        <item>Errore nella cancellazione del chip!</item>
+        <item>Chip cancellato con successo!</item>
+        <item>Aggiornamento eseguito con successo, per favore riavvia il dispositivo!</item>
+    </array>
+    <array name="can_cam_yh_title">
+        <item>Velocità media</item>
+        <item>Tempo percorso</item>
+        <item>Miglia</item>
+        <item>AVG Fule</item>
+        <item>Optimum Fuel</item>
+    </array>
+    <array name="can_car_play_sta">
+        <item>Off/Stop</item>
+        <item>Caricamento</item>
+        <item>Non connesso</item>
+        <item>Connesso</item>
+        <item>Oynatma</item>
+        <item>Durdurma</item>
+        <item>Diğer durum</item>
+    </array>
+    <array name="can_fist_set_title">
+        <item>Unità di misura miglia</item>
+        <item>Attiva segnale delle frecce</item>
+        <item>Avviso</item>
+        <item>Informazioni da ricordare</item>
+        <item>Settaggi luci ambiente</item>
+    </array>
+    <array name="can_fist_l_c">
+        <item>Km</item>
+        <item>Miglia</item>
+    </array>
+    <array name="can_fist_zxd">
+        <item>Flash 1 volta</item>
+        <item>Flash 3 volte</item>
+    </array>
+    <array name="can_tpms_warn_array">
+        <item>High pressure</item>
+        <item>Low pressure</item>
+        <item>Check pressure</item>
+        <item>Normal pressure</item>
+    </array>
+    <array name="can_bcfs_array">
+        <item>Reversing into the garage</item>
+        <item>Roadside parking</item>
+    </array>
+    <array name="can_psa_wc_syfb_array">
+        <item>Drive position</item>
+        <item>All passengers</item>
+    </array>
+    <array name="can_psa_wc_yxxz">
+        <item>Pop/Rock</item>
+        <item>Classic</item>
+        <item>Electronics</item>
+        <item>Jazz/Blues</item>
+        <item>Vocal Music</item>
+        <item>Custom</item>
+    </array>
+    <array name="can_psa_wc_temperature_array">
+        <item>F</item>
+        <item>DegC</item>
+    </array>
+    <array name="can_psa_wc_consumption_array">
+        <item>l/100km</item>
+        <item>km/l</item>
+        <item>mpg(us)</item>
+    </array>
+    <array name="can_psa_wc_ztyssz_array">
+        <item>Gemma blu</item>
+        <item>Marrone ambrato</item>
+    </array>
+    <array name="can_psa_wc_fwmsxz_array">
+        <item>Disabled mode</item>
+        <item>Comfort mode</item>
+        <item>Normal mode</item>
+    </array>
+    <array name="can_psa_wc_jsms_array">
+        <item>Normale</item>
+        <item>Sportivo</item>
+    </array>
+    <array name="can_psa_wc_lzjhq_array">
+        <item>OFF</item>
+        <item>Clean</item>
+        <item>Comfort</item>
+    </array>
+    <array name="can_psa_wc_xxlx_array">
+        <item>Forest fragrance</item>
+        <item>Pure cortex</item>
+        <item>fresh air</item>
+    </array>
+    <array name="can_psa_wc_xxnd_array">
+        <item>OFF</item>
+        <item>Low</item>
+        <item>Middle</item>
+        <item>High</item>
+    </array>
+    <array name="can_psa_wc_ybxssz_array">
+        <item>None</item>
+        <item>Drive assistance,Engine Information</item>
+        <item>Drive assistance,Accelerated Tables</item>
+        <item>Drive assistance,Temperature</item>
+        <item>Drive assistance,Tachometer</item>
+        <item>Drive assistance,Trip Computer</item>
+        <item>Engine Information,Accelerated Tables</item>
+        <item>Engine Information,Temperature</item>
+        <item>Engine Information,Tachometer</item>
+        <item>Engine Information,Trip Computer</item>
+        <item>Accelerated Tables,Temperature</item>
+        <item>Accelerated Tables,Tachometer</item>
+        <item>Accelerated Tables,Trip Computer</item>
+        <item>Temperature,Tachometer</item>
+        <item>Temperature,Trip Computer</item>
+        <item>Tachometer,Trip Computer</item>
+    </array>
+    <array name="can_conv_tips">
+        <item />
+        <item>Aria condizionata</item>
+        <item>Riscaldamento ausiliario</item>
+        <item>Sbrinatore lunotto posteriore</item>
+        <item>Riscaldamento sedile sinistro</item>
+        <item>Riscaldamento sedile destro</item>
+        <item>Ventilazione sedile sinistro</item>
+        <item>Riscaldamento superiore destro</item>
+        <item>Riscaldamento superiore sinistro</item>
+        <item>Riscaldamento superiore destro</item>
+        <item>Fendinebbia anteriori</item>
+        <item>Fendinebbia posteriori</item>
+        <item>Sbrinatore parabrezza</item>
+        <item>Riscaldamento pneumatici</item>
+        <item>Riscaldamento specchieti retrovisori</item>
+        <item>Riscaldamento sedili posteriori</item>
+        <item>Ventilazione sedili posteriori</item>
+        <item>Presa di corrente</item>
+        <item>Portabevande</item>
+    </array>
+    <array name="can_golf_wc_vehicle_warn">
+        <item>Error : brake.Workshop!</item>
+        <item>Error：electric parking brake</item>
+        <item>Brake fluid : owner&apos;s manual!</item>
+        <item>Engine overheated. Stop! Owner&apos;s manual!</item>
+        <item>Check coolant! Owner&apos;s manual</item>
+        <item>Oil pressure:Stop!Owner&apos;s manual!</item>
+        <item>Steering lock faulty.Stop、</item>
+        <item>Error: not charging battery.</item>
+        <item>Loss of pressure：please check tyre pressure</item>
+        <item>Loss of pressure：check front-left tyre pressure!</item>
+        <item>Loss of pressure：check front-right tyre pressure!</item>
+        <item>Loss of pressure：check rear-left tyre pressure!</item>
+        <item>Loss of pressure：check rear-right tyre pressure!</item>
+        <item>Error：Tyre Pressure Monitoring System</item>
+        <item>Error：gearbox.</item>
+        <item>Error：gearbox.Reverse gear not available</item>
+        <item>Error：gearbox.</item>
+        <item>Error：electric parking brake</item>
+        <item>Check front-left side light!</item>
+        <item>Check left dipped headlight beam!</item>
+        <item>Check left main headlight beam!</item>
+        <item>Check left fog light!</item>
+        <item>Check left side turn signal!</item>
+        <item>Check left daytime running light!</item>
+        <item>Check left daytime running light/dipped beam!</item>
+        <item>Check left daytime running light/fog light!</item>
+        <item>Check left daytime running light/side light!</item>
+        <item>Check left dipped/main headlight beams!</item>
+        <item>Check front-right turn signal!</item>
+        <item>Check front-right side light!</item>
+        <item>Check right dipped headlight beam!</item>
+        <item>Check right main headlight beam!</item>
+        <item>Check right fog light!</item>
+        <item>Check right side turn signal!</item>
+        <item>Check right daytime running light!</item>
+        <item>Check right daytime running light/dipped beam!</item>
+        <item>Check right daytime running light/fog light!</item>
+        <item>Check right daytime running light/side light!</item>
+        <item>Check right dipped/main headlights beams!</item>
+        <item>Error：vehicle lighting</item>
+        <item>Check rear-left turn signal!</item>
+        <item>Check left brake light!</item>
+        <item>Check left tail light!</item>
+        <item>Check left reversing light!</item>
+        <item>Check left rear fog light!</item>
+        <item>Check left brake/tail lights!</item>
+        <item>Check left rear fog/tail lights!</item>
+        <item>Check left turn signal/brake/tail lights!</item>
+        <item>Check left brake light/turn signals!</item>
+        <item>Check rear-right turn signal!</item>
+        <item>Check right brake light!</item>
+        <item>Check right tail light!</item>
+        <item>Check right reversing light!</item>
+        <item>Check right rear fog light!</item>
+        <item>Check right brake/tail light!</item>
+        <item>Check right rear fog/tail lights!</item>
+        <item>Check right turn signal/brake/tail lights!</item>
+        <item>Check right brake light/turn signals!</item>
+        <item>Check nunmber plate lighting!</item>
+        <item>Check third brake light!</item>
+        <item>Check rear fog light!</item>
+        <item>Check reversing light!</item>
+        <item>Trailer:check left turn signal!</item>
+        <item>Trailer:check right turn signal!</item>
+        <item>Trailer:Check left tail light!</item>
+        <item>Trailer:check right tail light!</item>
+        <item>Trailer:check brake lights!</item>
+        <item>Trailer:</item>
+        <item>Check front-right cornering light!</item>
+        <item>Check front-left conrnering light!</item>
+        <item>Check left headlight!</item>
+        <item>Check right headlight!</item>
+        <item>Error：start-stop system</item>
+        <item>Brake servo failure</item>
+        <item>Error：stabilisation control(ESC)</item>
+        <item>Error：ABS/stabilistation control(ESC)</item>
+        <item>Stabilisation control(ESC) deactivated</item>
+        <item>Traction control(ASR) deactivated</item>
+        <item>ESC off-road : directional stability restricted.</item>
+        <item>ESC sport : directional stability restricted.</item>
+        <item>Error：Auto Hold</item>
+        <item>Error：Hill Hold Assist</item>
+        <item>Parking brake：inspection mode</item>
+        <item>Please note:：operating temperature not yet reached.</item>
+        <item>Door(s)/bonnet/boot lid open.See vehicle status in MFD</item>
+        <item>Battery low</item>
+        <item>Error : Fuel tank system!Service vehicle</item>
+        <item>Please refuel.Note range!</item>
+        <item>Reduce oil level</item>
+        <item>Check oil level!</item>
+        <item>Oil sensor:Service vehicle</item>
+        <item>Diesel particulate filter:See owner&apos;s manual.</item>
+        <item>Top up washer fluid!</item>
+        <item>Error: Hybrid system!Service vehicle.</item>
+        <item>please check vehicle status in instrument cluster</item>
+        <item>Oil Level: top up oil</item>
+        <item>Top up AdBlue! Engine cannot be started</item>
+        <item>Error:AdBlue.Engine start disabled.</item>
+        <item>Error:hybird system.Stop vehicle!</item>
+        <item>Engine fault:Service vehicle.</item>
+        <item>Transmission overheated: Stop! See owner&apos;s manual.</item>
+        <item>Transmission faulty!Service vehicle</item>
+        <item>Error:Brakes! Stop vehicle.Service vehicle.</item>
+        <item>Error:12V power system</item>
+        <item>Error:electrical system.Do not continue driving.</item>
+        <item>Error: system overheated.Stop!See owner&apos;s manual.</item>
+        <item>Check trailer coupling!</item>
+        <item>Starter system faulty!Service vehicle.</item>
+        <item>Steering lock:Service vehicle.</item>
+        <item>Error:Adaptive Front Lighting System(AFS)</item>
+        <item>Error:Headlight range adjustment</item>
+        <item>Fault:Windshield wipers</item>
+        <item>Keyless start faulty.</item>
+        <item>Replace key battery!</item>
+        <item>Battery low.</item>
+        <item>Error:Fuel tank system!Service vehicle.</item>
+        <item>Please refuel.Range;</item>
+        <item>Reduce oil level!</item>
+        <item>Check oil level!</item>
+        <item>Oil sensor:Service vehicle</item>
+        <item>Diesel particulate filter:See owener&apos;s manual.</item>
+        <item>Top up washer fluid!</item>
+        <item>Hybird system!Service vehicle.</item>
+        <item>Speed of 120 Km/h exceeded</item>
+        <item>Fault:Damper control</item>
+        <item>TOP Up AdBlue!Engine will not start in.</item>
+        <item>AdBlue.Engine will not start in.</item>
+        <item>Check brake pads!</item>
+        <item>Engine speed max. rpm.</item>
+        <item>Error:Brakes!Service vehicle、</item>
+        <item>Fault:Rain sensor</item>
+        <item>Fault:Automatic light control</item>
+        <item>Roll Mode</item>
+        <item>Button for driver assistance systems defective.</item>
+        <item>Error:electrical system!Service vehicle.</item>
+        <item>Transmission overheated</item>
+        <item>Check brake pads!</item>
+        <item>Warm engine to an oil temperature of!</item>
+        <item>Water in fuel fitter!See owner&apos;s manual.</item>
+        <item>Please refuel LPG. Range:</item>
+        <item>Error:LPG!Service vehicle.</item>
+        <item>Please refill CNG. Range</item>
+        <item>Error:CNG! Service vehicle</item>
+        <item>Please charge battery.Range:</item>
+        <item>Error:range</item>
+        <item>Exterior sound faulty.Drive carefully!</item>
+        <item>Pressure loss:Please check tire pressures</item>
+        <item>Pressure loss:Check front left tire pressure!</item>
+        <item>Pressure loss:Check front right tire pressure!</item>
+        <item>Pressure loss:Check rear left tire pressure!</item>
+        <item>Pressure loss:Check rear right tire pressure!</item>
+        <item>Fault:Light Assist</item>
+        <item>Light Assist:Clean windshield!</item>
+        <item>ACC and Front Assist not available.</item>
+        <item>ACC and Front Assist:No sensor data.</item>
+        <item>Side Assist is currently not available.</item>
+        <item>Error:Side Assist</item>
+        <item>Lane Assist is currently not available.</item>
+        <item>Error:Lane Assist</item>
+        <item>Lane Assist unavailable.No sensor data.</item>
+        <item>Proactive occupant protection not available.</item>
+        <item>Proactive occupant protection:Function restrited.</item>
+        <item>Driver alert.Take a break!.</item>
+        <item>Driver alert.Take a break!</item>
+        <item>Error:ABS</item>
+        <item>Error:Traction control</item>
+        <item>Error:ABS/traction control(ASR)</item>
+        <item>Error:Traffic sign recognition</item>
+        <item>Traffic sign recognition:Clean windshield!</item>
+        <item>Traffic sign recognition:Currently limited.</item>
+        <item>Traction control(ASR) deactivated</item>
+        <item>Error:Instrument cluster!Service vehicle.</item>
+        <item>Battery low.</item>
+        <item>Check battery!</item>
+        <item>Error:Battery diagnosis</item>
+        <item>Front Assist not available.</item>
+        <item>No restart.Do not open hood</item>
+        <item>Engage gearshift level in P position!</item>
+        <item>Error:Driver&apos;s door contact switch</item>
+        <item>Error:Service vehicle.Only leave vehicle in P position!</item>
+        <item>Front Assist:No sensor data</item>
+        <item>Unable to charge!Service vehicle</item>
+        <item>Quick-charge not possible!Service vehicle</item>
+        <item>Dealer diagnostics active</item>
+        <item>Coasting mode Brakes</item>
+        <item>Front Assist not available.</item>
+        <item>Front Assist:No sensor data</item>
+        <item>Convertible top not function!See owner&apos;s manual.</item>
+        <item>Error:convertible top!Service vehicle.</item>
+        <item>Service!See service settings or vehicle status in the MFD</item>
+        <item>Service now!</item>
+        <item>Oil change in</item>
+        <item>Oil change in days</item>
+        <item>Inspection in days</item>
+        <item>Inspection in</item>
+        <item>Oil change and inspection in</item>
+        <item>Oil change and inspection in days</item>
+        <item>Inspection now!</item>
+        <item>Oil change now!</item>
+        <item>Oil change and inspection now!</item>
+        <item>Rear Traffic Alert/Blind Spot Alert not available.</item>
+        <item>Error:Rear Traffic Alert/Blind Spot Alert</item>
+        <item>Rear Traffic Alert/Blind Spot Alert not available.</item>
+        <item>Towing:Rear Traffic Alert/Blind Spot Alert not</item>
+        <item>Rear Traffic Alert currently not available.</item>
+        <item>Exterior sound manually deactivated. Drive carefully!</item>
+    </array>
+    <array name="can_golf_wc_start_stop_msg">
+        <item>Windscreen could become fogged</item>
+        <item>Operating temperature not maintained</item>
+        <item>No driver detected</item>
+        <item>Gearbox requires engine to be running</item>
+        <item>Vehicle energy requirement is high</item>
+        <item>Starting start-stop system</item>
+        <item>Engine must be running</item>
+        <item>Gradient too steep</item>
+        <item>Start-stop system is currently not available</item>
+        <item>Emergency brake function intervention</item>
+        <item>Brake requires engine to be running</item>
+        <item>Power consumption is high</item>
+        <item>Start-stop system requires engine to be running</item>
+        <item>Vehicle energy requirement is high</item>
+        <item>No driver detected</item>
+        <item>Driver door is open</item>
+        <item>Bonnet has been opened</item>
+        <item>System protection intervention</item>
+        <item>No engine start due to system requirement</item>
+        <item>Trailer mode</item>
+        <item>Steering angle too wide</item>
+        <item>Manoeuvering mode</item>
+        <item>Defrost function is switched on</item>
+        <item>Driver seatbelt is not fastened</item>
+        <item>Driver door is open</item>
+        <item>Accelerator is depressed</item>
+        <item>Windscreen heating is switched on</item>
+        <item>Manximum air conditioning requires engine to be running</item>
+        <item>Bonnet has been opened</item>
+        <item>Engine stop currently not possible</item>
+        <item>Off-road mode is activated</item>
+        <item>System protection intervention. Button/lever activated too often</item>
+        <item>Gear is engaged</item>
+        <item>Start-stop button pressed</item>
+        <item>Air condition requires engine to be running</item>
+        <item>ACC intervention</item>
+        <item>Park Assist is activated</item>
+        <item>ESC is switched off</item>
+        <item>Vehicle energy requirement is high</item>
+        <item>Driver seatbelt is not fastened</item>
+        <item>No driver detected</item>
+        <item>Please start the engine manually</item>
+        <item>Start-stop system is activated</item>
+        <item>Start-stop system is available</item>
+        <item>Engine stop active</item>
+        <item>Start-stop system is not available</item>
+        <item>Driver door opened.Driver not properly detected</item>
+        <item>Please press the brake pedal</item>
+        <item>Release the clutch to stop the engine</item>
+        <item>Start-stop system deactivated</item>
+        <item>Error:start-stop system</item>
+    </array>
+    <array name="can_start_stop_msg">
+        <item>Modalità rimorchio</item>
+        <item>Il parabrezza potrebbe appannarsi</item>
+        <item>Temperatura consigliata non mantenuta</item>
+        <item>Nessun guidatore rilevato</item>
+        <item>Il cambio richiede che il motore sia in funzione</item>
+        <item>Il consumo del motore è elevato</item>
+        <item>Accensione start&amp;stop system</item>
+        <item>Il motore deve essere acceso</item>
+        <item>Pendenza troppo ripida</item>
+        <item>Il sistema Start&amp;Stop non è al momento disponibile</item>
+        <item>Intervento del freno di emergenza</item>
+        <item>Il freno richiede che il motore sia acceso</item>
+        <item>Il consumo è elevato</item>
+        <item>L&apos;aria condizionata richiede che il motore sia acceso</item>
+        <item>Angolo di sterzo troppo elevato</item>
+        <item>Modalità di manovra</item>
+        <item>La funzione di sbrinamento è attiva</item>
+        <item>La cintura del guidatore non è chiusa</item>
+        <item>Portiera guidatore aperta</item>
+        <item>Problema all&apos;acceleratore</item>
+        <item>Lo sbrinatore del parabrezza è attivato</item>
+        <item>L&apos;aria condizionata al massimo richiede che il motore sia acceso</item>
+        <item>Il cofano è stato aperto</item>
+        <item>Non è possibile spegnere il motore al moment</item>
+        <item>Modalità fuoristrada attivata</item>
+        <item>Sistema di protezione intervento attivato troppo spesso</item>
+        <item>Il cambio è in funzione</item>
+        <item>Pulsante Start&amp;stop premuto</item>
+        <item>L&apos;aria condizionata richiede che il motore sia acceso</item>
+        <item>Intervento ACC</item>
+        <item>Il Park Assist è attio</item>
+        <item>ESC è disattivato</item>
+        <item>Il consumo è elevato</item>
+        <item>Il sistema Start&amp;Stop richiede che il motore sia acceso</item>
+    </array>
+    <array name="can_start_stop_other_msg">
+        <item>Il sistema Start-Stop è attivo</item>
+        <item>Il sistema Start-Stop è disponibile</item>
+        <item>Il blocco motore è attivo</item>
+        <item>Sportello guidatore aperto. Guidatore non presente</item>
+        <item>Per favore premere il pedale dell&apos;acceleratore</item>
+        <item>Rilasciare la frizione per spegnere il motore</item>
+        <item>Sistema Start-Stop disattivato</item>
+        <item>Il sistema Start-stop non è disponibile</item>
+        <item>Il sistema Start-stop non è disponibile</item>
+    </array>
+    <array name="can_battery_arrays">
+        <item>Off</item>
+        <item>3 volte</item>
+        <item>5 volte</item>
+        <item>7 volte</item>
+        <item>Highest battery temp:</item>
+        <item>Lowest battery temp:</item>
+        <item>Highest temp group num:</item>
+        <item>Lowest temp group num:</item>
+        <item>Remaining battery:</item>
+    </array>
+    <array name="can_error_arrays">
+        <item>Severe overpressure</item>
+        <item>Severe over-temp</item>
+        <item>Overcurrent</item>
+        <item>IGBT fault</item>
+        <item>Main connection failure</item>
+        <item>Precharge failure</item>
+        <item>Bus fault</item>
+        <item>Speeding</item>
+        <item>Seriously blocked</item>
+        <item>Severe undervoltage</item>
+        <item>IGBT over-temp</item>
+        <item>Rotary hardware</item>
+        <item>Rotation angle</item>
+        <item>Midpoint voltage</item>
+        <item>Throttle failure</item>
+        <item>Gear failure</item>
+        <item>Communication abnormal</item>
+        <item>Low insulation</item>
+        <item>Discharge overcurrent</item>
+        <item>Battery temp is too high</item>
+        <item>Monomer over discharge</item>
+        <item>Short circuit protection</item>
+        <item>Temp rises too fast</item>
+        <item>Pressure difference too large</item>
+        <item>Temp difference too large</item>
+        <item>Low temp</item>
+        <item>Charging overcurrent</item>
+        <item>Total pressure too low</item>
+        <item>Total pressure too high</item>
+    </array>
+    <array name="can_eps_turn_mode">
+        <item>Comfortable mode</item>
+        <item>Sports mode</item>
+    </array>
+    <array name="can_teramont_eco_array">
+        <item>Eco</item>
+        <item>Normal</item>
+        <item>Spor</item>
+        <item>Individual</item>
+    </array>
+    <array name="can_teramont_drive_profile_array">
+        <item>Snow</item>
+        <item>economic</item>
+        <item>Fuori strada</item>
+        <item>Fuori strada personalizzato</item>
+    </array>
+    <array name="can_golf_teramont_tyres_array">
+        <item>Comfort</item>
+        <item>Standard</item>
+        <item>Pieno carico</item>
+    </array>
+    <array name="can_golf_teramont_tyres_warn_array">
+        <item>La pressione degli pneumatici è normale</item>
+        <item>Per favore verifica la pressione delgi pneumatici</item>
+        <item>La pressione degli pneumatici è troppo bassa</item>
+        <item>Perdita di rpessione pneumatici</item>
+    </array>
+    <array name="can_jyx5_car_type_array">
+        <item>High ver</item>
+        <item>low ver/Middle ver</item>
+    </array>
+    <array name="can_kadjar_car_type_array">
+        <item>Altro tipo</item>
+        <item>Koleos（Low、</item>
+    </array>
+    <array name="can_qc_t70_car_type_array">
+        <item>T70 2015</item>
+        <item>T70 2016</item>
+        <item>T90 2017</item>
+        <item>D60 2018</item>
+        <item>T70 2018</item>
+    </array>
+    <array name="can_df_jyx5_jdsj">
+        <item>10 minutes</item>
+        <item>20 minutes</item>
+        <item>30 minutes</item>
+    </array>
+    <array name="can_df_jyx5_ddys">
+        <item>off</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_geely_boy_mode">
+        <item>Comfort</item>
+        <item>Sport</item>
+    </array>
+    <array name="can_geely_boy_yklsfk">
+        <item>Korna ses yok</item>
+        <item>Korna sesi var</item>
+    </array>
+    <array name="can_kaiyi_3x_tdjd">
+        <item>angle 0</item>
+        <item>angle 1</item>
+        <item>angle 2</item>
+        <item>angle 3</item>
+    </array>
+    <array name="can_kaiyi_3x_aqkz">
+        <item>Economical</item>
+        <item>Comfortable</item>
+        <item>sport</item>
+    </array>
+    <array name="can_kaiyi_3x_bdsg">
+        <item>OFF</item>
+        <item>3 times</item>
+        <item>5 times</item>
+        <item>7 times</item>
+    </array>
+    <array name="can_h6_car_type_array">
+        <item>Altra tipologia auto</item>
+        <item>Coupe 2016</item>
+    </array>
+    <array name="can_ht_car_type_array">
+        <item>Altro tipo</item>
+        <item>HT X7（Low、</item>
+        <item>HT X5（Low、</item>
+        <item>HT X5（Mid,High)</item>
+    </array>
+    <array name="can_b50_car_type_array">
+        <item>Altro tipo</item>
+        <item>X80 2017 Low</item>
+    </array>
+    <array name="can_cch6_dd_delay_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>60s</item>
+    </array>
+    <array name="can_cch6_dd_delay_2017_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_cch6_hj_delay_array">
+        <item>30s</item>
+        <item>1 minuto</item>
+        <item>2 minuti</item>
+        <item>3 minuti</item>
+    </array>
+    <array name="can_landwind_bnhj">
+        <item>30s</item>
+        <item>1min</item>
+        <item>3min</item>
+        <item>5min</item>
+        <item>turn off</item>
+    </array>
+    <array name="can_cch6_jd_setup_array">
+        <item>10 minuti</item>
+        <item>20 minuti</item>
+        <item>30 minuti</item>
+    </array>
+    <array name="can_cch9_anti_theft_prevention">
+        <item>turn off</item>
+        <item>10min</item>
+        <item>20min</item>
+        <item>30min</item>
+    </array>
+    <array name="can_cch9_with_the_volume_array">
+        <item>Off</item>
+        <item>On</item>
+        <item>Low</item>
+        <item>Middle</item>
+        <item>High</item>
+    </array>
+    <array name="can_tigger7_car_type_array">
+        <item>ARRIZO 5</item>
+        <item>Tiggo 7 2016</item>
+        <item>tigger3x 2017</item>
+        <item>tigger3 2017</item>
+        <item>Arrizo7 2016</item>
+    </array>
+    <array name="can_tigger7_language_array">
+        <item>Cinese</item>
+        <item>Englese</item>
+    </array>
+    <array name="can_tigger7_tip_array">
+        <item>Söyleme</item>
+        <item>Luci</item>
+        <item>Altoparlanti e luci</item>
+    </array>
+    <array name="can_tigger7_car_line_array">
+        <item>off</item>
+        <item>Statico</item>
+        <item>Statico + dinamico</item>
+    </array>
+    <array name="can_service_notice_array">
+        <item>Care tips</item>
+        <item>In scadenza</item>
+        <item>Verifica la data scaduta</item>
+        <item>Per favore effettuare manutenzione il prima possibile</item>
+    </array>
+    <array name="can_by_service_array">
+        <item>Olio motore</item>
+        <item>Ispezione veicolo</item>
+        <item>Liquido freni</item>
+        <item>Ispezione dello scarico</item>
+        <item>Ispezione stato veicolo</item>
+        <item>Disco freno anteriore</item>
+        <item>Disco freno posteriore</item>
+        <item>Benzina a velocità variabile</item>
+        <item>Funzionamento in controllo</item>
+    </array>
+    <array name="can_psa_check">
+        <item>Verificare lato luci</item>
+        <item>Foratura: sostituisci o ripara la gomma</item>
+        <item>Foratura: sostituisci o ripara la gomma</item>
+        <item>Foratura: sostituisci o ripara la gomma</item>
+        <item>Foratura: sostituisci o ripara la gomma</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Verificare la luce freno posteriore destra</item>
+        <item>Controllare le luci principali</item>
+        <item>Controllare le luci principali</item>
+        <item>Controllare le lampade anabbaglianti</item>
+        <item>Controllare le lampade anabbaglianti</item>
+        <item>Controllare le luci laterali</item>
+        <item>Controllare le luci laterali</item>
+        <item>Controllare le luci laterali</item>
+        <item>Controllare le frecce</item>
+        <item>Controllare le frecce</item>
+        <item>Controllare le frecce</item>
+        <item>Controllare le luci posteriori antinebbia</item>
+        <item>Controllare le luci posteriori antinebbia</item>
+        <item>Controllare le luci anteriori antinebbia</item>
+        <item>Controllare le luci anteriori antinebbia</item>
+        <item>Controllare la luce del freno posteriore sinistra</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Verificare le luci di retromarcia</item>
+        <item>Verificare le luci di retromarcia</item>
+        <item>Verificare le frecce</item>
+        <item>Regola la pressione dei pneumatici</item>
+        <item>Regola la pressione dei pneumatici</item>
+        <item>ritenzione</item>
+        <item>ritenzione</item>
+        <item>Sistema di assistenza al parcheggio non funzionante</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Errore di emissione</item>
+        <item>Errore di emissioni: avvio impedito</item>
+        <item>Errore di emissione</item>
+        <item>Riserva</item>
+        <item>Spegni le luci</item>
+        <item>Regola la pressione dei pneumatici</item>
+        <item>Regola la pressione dei pneumatici</item>
+        <item>Porta posteriore sinistra aperta</item>
+        <item>Porta posteriore destra aperta</item>
+        <item>Porta anteriore sinistra aperta</item>
+        <item>Porta anteriore destra aperta</item>
+        <item>Rischio di ghiaccio</item>
+        <item />
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Schermo posteriore attivo</item>
+        <item>Rilevamento del rischio di collisione attivo</item>
+        <item>Boot aperto</item>
+        <item>Riserva</item>
+        <item>Errore luci direzionali</item>
+        <item>Errore sistema automatico di frenata</item>
+        <item>Errore regolazione laterale, velocità ridotta, vedere manuale d&apos;uso</item>
+        <item>Errore freno di stazionamento: ripara il veicolo</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Filtro dell&apos;aria guasta: riparazione necessaria</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Sospensione rotta: limita la velocità a 90 km/h</item>
+        <item>Errore motore: necessaria la riparazione</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Guasto sensore: pressione del pneumatico posteriore sinistro non monitorata</item>
+        <item>Guasto sensore: pressione del pneumatico posteriore destro non monitorata</item>
+        <item>Guasto sensore: pressione del pneumatico anteriore destro non monitorata</item>
+        <item>Guasto sensore: pressione del pneumatico anteriore sinistro non monitorata</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Allarme rilevazione pressione pneumatico</item>
+        <item>Riserva</item>
+        <item>Errore motore: fermare il veicolo</item>
+        <item>Errore misurazione tempo tra veicoli</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Guasto al servosterzo: far riparare il veicolo</item>
+        <item>Guasto alla sospensione: far riparare il veicolo</item>
+        <item>Ricarica additivo per le emissioni: prevenzione</item>
+        <item>Ricarica additivo per le emissioni</item>
+        <item>Ricarica additivo per le emissioni</item>
+        <item>Riserva</item>
+        <item>Pneumatico anteriore sinistro non gonfiato: regolare la pressione dei pneumatici, quindi reinizializzare</item>
+        <item>Pneumatico anteriore destro non gonfiato: regolare la pressione dei pneumatici, quindi reinizializzare</item>
+        <item>Pneumatico posteriore sinistro non gonfiato: regolare la pressione dei pneumatici, quindi reinizializzare</item>
+        <item>Pneumatico posteriore destro non gonfiato: regolare la pressione dei pneumatici, quindi reinizializzare</item>
+        <item>Riserva</item>
+        <item>Rabboccare il livello del liquido di raffreddamento</item>
+        <item>Guasto al servosterzo: fermare il veicolo</item>
+        <item>Riserva</item>
+        <item>Guasto all&apos;impianto frenante: fermare il veicolo</item>
+        <item>Riserva</item>
+        <item>Guasto temperatura motore: fermare il veicolo</item>
+        <item>Guasto pressione olio motore: fermare il veicolo</item>
+        <item>Bagagliaio aperto</item>
+        <item>Riserva</item>
+        <item>Sportello posteriore destro aperto</item>
+        <item>Porta posteriore sinistra aperta</item>
+        <item>Porta anteriore destra aperta</item>
+        <item>Porta anteriore sinistra aperta</item>
+        <item>Riserva</item>
+        <item>Rabboccare il livello dell&apos;olio motore</item>
+        <item>Errore air bag o tensione cinture di sicurezza</item>
+        <item>Livello benzina troppo basso</item>
+        <item>Pastiglie freni cambiate</item>
+        <item>Presenza dia cqua nel filtro del diesel: riparazione necessaria</item>
+        <item>Riserva</item>
+        <item>Guasto nella carica della batteria: arresta il veicolo</item>
+        <item>Errore sistema ESP/ASR: riparazione veicolo richiesta</item>
+        <item>Schermo posteriore attivo</item>
+        <item>Problema sospensione: necessaria la riparazione</item>
+        <item>Riserva</item>
+        <item>Livello dell&apos;additivo del filtro antiparticolato troppo basso: riparazione necessaria</item>
+        <item>Riserva</item>
+        <item>Rischio di intasamento del filtro antiparticolato: consultare il manuale</item>
+        <item>Guasto all&apos;ABS: far riparare il veicolo</item>
+        <item>Guasto del motore: riparazione necessaria</item>
+        <item>Riserva</item>
+        <item>Operazione sul tetto impossibile: la temperatura del sistema è troppo alta</item>
+        <item>Riserva</item>
+        <item>Guasto al motore elettronico dell&apos;immobiliser</item>
+        <item>Guasto del bloccasterzo: far riparare il veicolo</item>
+        <item>Guasto al meccanisco del tetto</item>
+        <item>Controllare la spia STOP centrale</item>
+        <item>Pre-riscaldamento / pre-ventilazione disattivato: livello carburante basso</item>
+        <item>Pre-riscaldamento / pre-ventilazione disattivato: carica della batteria bassa</item>
+        <item>Kumanda l pilini değiştirin</item>
+        <item>Ricarica il liquido lavavetro</item>
+        <item>Errore sistema ibrido: velocità limitata, riparazione richiesta</item>
+        <item>Guasto del sistema ibrido: riparazione necessaria</item>
+        <item>Guasto regolazione altezza proiettore automatico</item>
+        <item>Guasto al sistema ibrido: fermare il veicolo, vedere il manuale</item>
+        <item>Azione sul tetto impossibile: attivare il freno a mano</item>
+        <item>Azione sul tetto impossibile: accendere il motore</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Riserva</item>
+        <item>Guasto nel monitoraffio della pressione pneumatici</item>
+        <item>Riserva</item>
+        <item>Errore di connessione del rimorchio: riparazione necessaria</item>
+        <item>Pre-riscaldamento / pre-ventilazione disattivata: impostare l&apos;orologio</item>
+        <item>Riserva</item>
+    </array>
+    <array name="can_psa_rzc_check">
+        <item>Nessuna informazione sul funzionamento, nessuna registrazione di allarme, la diagnosi è normale</item>
+        <item>Assistente al parcheggio abilitata</item>
+        <item>Assistente al parcheggio disabilitato</item>
+        <item>Air bag frontale passeggero abilitato</item>
+        <item>Air bag frontale passeggero disabilitato</item>
+        <item>Blocco porta abilitato</item>
+        <item>Blocco portiere automatiche disabilitato</item>
+        <item>La porta è bloccata</item>
+        <item>La porta è sbloccata</item>
+        <item>Il tergicristallo posteriore viene attivato in retromarcia</item>
+        <item>Tergilunotto disabilitato in retromarcia</item>
+        <item>Guasto alla temperatura del motore, si prega di fermarsi</item>
+        <item>Si prega di aggiungere liquido di raffreddamento</item>
+        <item>Si prega di aggiungere olio motore</item>
+        <item>Mancanza di pressione olio motore, si prega di fermarsi</item>
+        <item>Guasto al sistema di frenata</item>
+        <item>Tamir edilemez</item>
+        <item>Porta, bagagliaio, cofano, lunotto o serbatoio non chiusi</item>
+        <item>Foratura pneumatici multipla</item>
+        <item>Rischio di intasamento del filtro particolato: fare riferimento alle istruzioni</item>
+        <item>Sospensione limite di velocità fallita: 90 km/h</item>
+        <item>Errore del sistema di sospensione</item>
+        <item>Guasto al servosterzo</item>
+        <item>10km/h</item>
+        <item>Freno di stazionamento abilitato</item>
+        <item>Freno di stazionamento rilasciato</item>
+        <item>Errore controllo freno, il freno di parcheggio si attiva automaticamente</item>
+        <item>Rettifica pastiglie freno</item>
+        <item>Guasto del freno di stazionamento</item>
+        <item>Limite di velocità mancante della funzione di coda variabile, fare riferimento al manuale</item>
+        <item>Errore ABS</item>
+        <item>Errore sistema ESP/ASR</item>
+        <item>Errore del sistema di trasmissione</item>
+        <item>Errore nella trasmissione: si prega di riparare il veicolo</item>
+        <item>Problema al sistema Cruise</item>
+        <item>Additivo del filtro antiparticolato inadeguato: si prega di prestare assistenza al veicolo</item>
+        <item>Errore del sistema di sicurezza elettronico</item>
+        <item>Errore del sistema di assistenza al parcheggio</item>
+        <item>Errore nel sistema di misurazione del parcheggio</item>
+        <item>Akü şarjı veya güç kaynağı sistemi hatası</item>
+        <item>La pressione dei pneumatici non è sufficiente</item>
+        <item>Kısa far ampülü hatası</item>
+        <item>Uzun far ampülü hatası</item>
+        <item>Fren ampulleri hatası</item>
+        <item>Sis lambası ampülü hatası</item>
+        <item>Sinyal ampülleri hatası</item>
+        <item>Geri vites ampülleri hatası</item>
+        <item>Luci di posizione in cattivo stato</item>
+        <item>Spostare la leva del cambio nella posizione P</item>
+        <item>Buzlanma yola dikkat et</item>
+        <item>Attenzione al freno a mano</item>
+        <item>Liquido lavavetri sufficiente</item>
+        <item>Benzina insufficiente</item>
+        <item>Sostituzione olio</item>
+        <item>Il telecomando è scarico</item>
+        <item>La pressione dei pneumatici non è monitorata</item>
+        <item>Velocità elevata, è consigliato un test della pressione pneumatici</item>
+        <item>La pressione penumatici è bassa</item>
+        <item>Diagnosi</item>
+        <item>Diagnosi completata</item>
+        <item>Left and right seat belts are not made</item>
+        <item>Arka emniyet kemeri takılı değil</item>
+        <item>Sol arka emniyet kemeri takılmadı</item>
+        <item>Sağ emniyet kemeri takılmadı</item>
+        <item>Tergicristallo automatico abilitato</item>
+        <item>Tergicristallo automatico disabilitato</item>
+        <item>I fari si accendono automaticamente</item>
+        <item>La luce automatica del faro si spegne</item>
+        <item>Impossibile aprire l&apos;hard-top: partizione non inserita</item>
+        <item>Il funzionamento hard top è completato</item>
+        <item>Terminare immediatamente l&apos;operazione hard-top</item>
+        <item>Operazione non riuscita: hardtop bloccato</item>
+        <item>Guasto al meccanismo hard top</item>
+        <item>Operazione non riuscita: il lunotto non è chiuso</item>
+        <item>Sistema antiscivolo guasto</item>
+        <item>Modalità di guida: modalità normale</item>
+        <item>Modalità di guida: modalità fango</item>
+        <item>Modalità di guida: modalità neve</item>
+        <item>Modalità di guida: modalità sabbia</item>
+        <item>Sistema ESP disabilitato</item>
+        <item>La distanza di guida non è misurabile: la visibilità è troppo bassa</item>
+        <item>Distanza di viaggio imprevedibile: inizializzazione</item>
+        <item>Operazione di chiusura fallita: rigonfiamento non in posizione</item>
+        <item>Il cofano del bagagliaio non è chiuso</item>
+        <item>L&apos;aletta del serbatoio del carburante non è bloccata</item>
+        <item>La porta posteriore destra non è chiusa</item>
+        <item>La porta posteriore sinistra non è chiusa</item>
+        <item>La porta anteriore destra non è chiusa</item>
+        <item>La porta anteriore sinistra non è chiusa</item>
+        <item>Attenzione al freno a mano</item>
+        <item>Guasto all&apos;airbag o pretensionamento della cintura di sicurezza</item>
+        <item>Acqua nel filtro del diesel: per favore riparare il veicolo</item>
+        <item>Guasto al sistema di monitoraggio della pressione dei pneumatici</item>
+        <item>Impossibile attivare l&apos;hard-top: surriscaldamento del sistema (insufficiente pressione dell&apos;aria sul pneumatico posteriore sinistro: gonfiare e reinizializzare)</item>
+        <item>Impossibile attivare l&apos;hard-top: surriscaldamento del sistema (insufficiente pressione dell&apos;aria sul pneumatico posteriore sinistro: gonfiare e reinizializzare)</item>
+        <item>Avaria elettronica anti-avvio</item>
+        <item>Guasto al volante: riparare il veicolo</item>
+        <item>Controllare la luce del freno centrale</item>
+        <item>Disattivazione preriscaldamento / pre-ventilazione: carburante insufficiente (guasto al sistema di guida</item>
+        <item>Preriscaldamento / pre-ventilazione disabilitata: batteria scarica</item>
+        <item>Guasto al sistema ibrido: per favore ridurre la velocità, effettuare la manutenzione</item>
+        <item>Problema al sistema ibrido: per favore riparare il veicolo</item>
+        <item>Guasto al sistema di regolazione automatica del faro</item>
+        <item>Errore sistema ibrido: si prega di fermarsi e fare riferimento al manuale</item>
+        <item>Impossibile attivare l&apos;hard-top: surriscaldamento del sistema (insufficiente pressione dell&apos;aria sul pneumatico anteriore sinistro: gonfiare e reinizializzare)</item>
+        <item>Impossibile attivare l&apos;hard-top: surriscaldamento del sistema (insufficiente pressione dell&apos;aria nel pneumatico anteriore destro: gonfiare e reinizializzare)</item>
+        <item>Guasto del sistema di rilevamento della pressione dei pneumatici (pressione del pneumatico non monitorata)</item>
+        <item>Errore di connessione del rimorchio: riparare il veicolo (guasto del sensore fotosensibile)</item>
+        <item>Preriscaldamento / Pre-ventilazione disabilitata: regolare l&apos;orologio</item>
+        <item>Guasto di rilevamento del rischio di collisione (cofano non chiuso)</item>
+        <item>Guasto alle luci di direzione</item>
+        <item>Guasto al sistema di freno a mano automatico (il cofano del motore non è chiuso)</item>
+        <item>Allarme guasto deviazione corsia</item>
+        <item>Errore sensore: la pressione del pneumatico posteriore sinistro non viene monitorata</item>
+        <item>Guasto del sensore: la pressione del pneumatico posteriore destra non viene monitorata</item>
+        <item>Errore del sensore: la pressione del pneumatico anteriore destra non viene monitorata</item>
+        <item>La pressione del pneumatico anteriore sinistra non è monitorata</item>
+        <item>Guasto al sistema di rilevamento della pressione dei pneumatici (riempito con additivi anti-inquinamento)</item>
+        <item>Guasto del motore (motore): si prega di fermarsi</item>
+        <item>Problema del motore (motore): riparare il veicolo</item>
+        <item>Errore di misurazione della distanza di guida</item>
+        <item>Aggiungere gli additivi anti-inquinamento: non partire</item>
+        <item>Riempire con additivi anti-inquinamento</item>
+        <item>Pressione dell&apos;aria insufficiente sul pneumatico anteriore sinistro: gonfiare e reinizializzare (guasto del sistema: non partire)</item>
+        <item>Pressione dell&apos;aria inadeguata sul pneumatico anteriore destro: si prega di gonfiare, quindi reinizializzare</item>
+        <item>Pressione dell&apos;aria insufficiente sul pneumatico posteriore sinistro: gonfiare, quindi reinizializzare</item>
+        <item>Pressione dell&apos;aria insufficiente sul pneumatico posteriore destro gonfiare, quindi reinizializzare</item>
+        <item>Pneumatico posteriore sinistro rotto: Sostituire o riparare il pneumatico</item>
+        <item>Scoppio del pneumatico posteriore destro: sostituire o riparare il pneumatico</item>
+        <item>Scoppio del pneumatico anteriore destro: sostituire o riparare il pneumatico</item>
+        <item>Sağ arka fren ampül hatası</item>
+        <item>Sol arka fren ampül hatası</item>
+        <item>Luce posteriore sinistra del freno difettosa</item>
+        <item>Guasto al sistema antinquinamento</item>
+        <item>Guasto al sistema antinquinamento: non partire</item>
+        <item>Spegni i fari</item>
+    </array>
+    <array name="can_psa_warn">
+        <item>Guasto temperatura motore: fermare il veicolo</item>
+        <item>Rabboccare il livello del liquido di raffreddamento</item>
+        <item>Rabboccare il livello dell&apos;olio motore</item>
+        <item>Guasto pressione olio motore: fermare il veicolo</item>
+        <item>Guasto all&apos;impianto frenante: fermare il veicolo</item>
+        <item>Rischio di intasamento del filtro antiparticolato: consultare il manuale</item>
+        <item>Errore alla sospensione: limitare la velocità a 90 km / h</item>
+        <item>Guasto al servosterzo: far riparare il veicolo</item>
+        <item>Guasto del freno di stazionamento: far riparare il veicolo</item>
+        <item>Pastiglie del freno sostituite</item>
+        <item>Guasto del freno di stazionamento: far riparare il veicolo</item>
+        <item>Guasto specchietto laterale, ridurre la velocità, vedere il manuale d&apos;uso</item>
+        <item>Guasto all&apos;ABS: far riparare il veicolo</item>
+        <item>Guasto al sistema ESP / ASR: far riparare il veicolo</item>
+        <item>Errore alla sospensione: far riparare il veicolo</item>
+        <item>Guasto al servosterzo: far riparare il veicolo</item>
+        <item>Guasto regolazione altezza proiettore automatico</item>
+        <item>Guasto delle luci di direzione</item>
+        <item>Errore air bag o cinture di sicurezza</item>
+        <item>Guasto al sensore di apertura coperchio del motore</item>
+        <item>Guasto al cambio: riparazione necessaria</item>
+        <item>Avviare il motore, posizionare il cambio automatico in posizione N</item>
+        <item>Presenza di acqua nel filtro del gasolio: riparazione necessaria</item>
+        <item>Presenza di acqua nel filtro del gasolio: riparazione necessaria</item>
+        <item>NULL</item>
+        <item>Livello dell&apos;additivo del filtro antiparticolato troppo basso: riparazione necessaria</item>
+        <item>Errore del sistema di assistenza al parcheggio</item>
+        <item>Guasto alla carica della batteria: arresta il veicolo</item>
+        <item>Il veicolo si sta chiudendo</item>
+        <item>La distanza di guida non è misurabile, la funzione cruise è attivata</item>
+        <item>Impossibile attivare</item>
+        <item>Funzione cruise sospesa, ri-test</item>
+        <item>Velocità&gt; 150 km / h, la regolazione della velocità è disattivata</item>
+        <item>Registrare la pressione dei pneumatici</item>
+        <item>Guasto di rilevamento del pneumatico</item>
+        <item>Si prega di chiudere la porta, in modo da attivare l&apos;attivazione automatica della funzione freno a mano</item>
+        <item>Si prega di frenare!</item>
+        <item>Guasto al sistema di frenata automatico</item>
+        <item>Riempi gli additivi, inizia entro 0 km</item>
+        <item>NULL</item>
+        <item>Ricarica additivo per le emissioni</item>
+        <item>Difetto di emissioni</item>
+        <item>Errore nel controllo delle emissioni, iniziare entro 0 km</item>
+        <item>Errore di emissioni: avvio impedito</item>
+        <item>Funzione di arresto motore disabilitata, la temperatura ambiente non si applica</item>
+        <item>Non può essere reinizializzato durante la guida</item>
+        <item>La modalità dinamica è disattivata</item>
+        <item>Nessuna modalità dinamica</item>
+        <item>Spegni le lampade</item>
+        <item>Estrarre la chiave</item>
+        <item>Il sistema di controllo della velocità non può essere attivato, la velocità è troppo bassa</item>
+        <item>Il sistema di controllo della velocità non può essere attivato, impostare la velocità</item>
+        <item>Posizionare il cambio automatico in posizione P</item>
+        <item>Rischio di ghiaccio</item>
+        <item>Rilasciare il freno a mano</item>
+        <item>Per favore regolare il liquido lavavetri</item>
+        <item>Livello benzina troppo basso</item>
+        <item>Olio</item>
+        <item>Sostituire la batteria del telecomando</item>
+        <item>Posizionare il cambio automatico in posizione N</item>
+        <item>Tenere premuto il pedale del freno quando si preme il pulsante di arresto del freno a mano</item>
+        <item>Azione sul tetto impossibile: temperatura esterna troppo alta</item>
+        <item>Azione sul tetto impossibile: velocità troppo alta</item>
+        <item>Azione sul tetto impossibile: bagagliaio aperto</item>
+        <item>Impossibile aprire l&apos;hard-top, partizione non inserita</item>
+        <item>Azione sul tetto impossibile: controllo completo</item>
+        <item>Interrompere l&apos;operazione sul tetto in questo momento</item>
+        <item>Guasto nel meccanismo del tetto</item>
+        <item>L&apos;operazione è fallita, il lunotto non è stato chiuso</item>
+        <item>Errore del sistema anti-ritorno</item>
+        <item>La distanza di guida non è misurabile, la visibilità è troppo bassa</item>
+        <item>La distanza di guida non è misurabile, inizializzazione in corso</item>
+        <item>Preriscaldamento / pre-ventilazione disattivata regolare l&apos;orologio</item>
+        <item>Pre-riscaldamento / per-ventilazione disattivata: livello carburante basso</item>
+        <item>Pre-riscaldamento / per-ventilazione disattivata: carica della batteria bassa</item>
+        <item>Ruota il volante per sbloccare</item>
+        <item>La chiave è stata estratta, premi e spegni il motore</item>
+        <item>Per avviare il motore, inserire la chiave</item>
+        <item>Per avviare il motore, inserire la chiave</item>
+        <item>Per avviare il motore, premere il pedale del freno + premere START</item>
+        <item>Per avviare il motore, tenere premuto il pedale della frizione + premere START</item>
+        <item>Nessun tasto rilevato</item>
+        <item>Rimuovere la chiave</item>
+        <item>Nessuna chiave della macchina</item>
+        <item>Per rilasciare il freno a mano, premere il pedale del freno</item>
+        <item>Cruise control sospeso</item>
+        <item>Errore cruise control</item>
+        <item>Si prega di premere completamente la frizione</item>
+        <item>Calcolo, la velocità massima di 20 km / h</item>
+        <item>Seleziona la direzione con l&apos;indicatore di direzione</item>
+        <item>Guasto del volante, si prega di riparare il veicolo</item>
+        <item>Si prega di impostare freno a mano alla posizione massima</item>
+        <item>Guasto del circuito, si prega di riparare il veicolo</item>
+        <item>Stringere il freno a mano</item>
+        <item>Guasto al motore elettronico dell&apos;immobiliser</item>
+        <item>Guasto nel motore: fermare il veicolo</item>
+        <item>Azione sul tetto impossibile: temepratura del sistema troppo alta</item>
+        <item>Azione sul tetto impossibile: accendere il motore</item>
+        <item>Azione sul tetto impossibile: inserire ilf reno a mano</item>
+        <item>Guasto al sistema ibrido: fermare il veicolo, vedere il manuale</item>
+        <item>Guasto al sistema ibrido: riparazione necessaria</item>
+        <item>Guasto al sistema ibrido: velocità limitata, riparazione necessaria</item>
+        <item>Posizionare il cambio automatico in posizione N e scollegare la chiave</item>
+        <item>Sistema ibrido attivo</item>
+        <item>La modalità elettrica non è temporaneamente in grado di cambiare</item>
+        <item>Errore di connessione del rimorchio: riparazione necessaria</item>
+        <item>Reset manuale</item>
+    </array>
+    <array name="can_psa_func">
+        <item>Freno a mano disattivato</item>
+        <item>Freno a mano attivato</item>
+        <item>Tergicristalli automatici attivati</item>
+        <item>Tergicristalli automatici disattivati</item>
+        <item>Illuminazione automatica dei fari attivata</item>
+        <item>Illuminazione automatica dei fari disattivata</item>
+        <item>Blocco automatico della porta attivato</item>
+        <item>Chiusura automatica della porta disattivata</item>
+        <item>Sicurezza dei bambini attivata</item>
+        <item>Sicurezza dei bambini disattivata</item>
+        <item>Sistema ESP attivato</item>
+        <item>Sistema ESP disattivato</item>
+        <item>Sistema di guida anti collisione attivato: modalità normale</item>
+        <item>Sistema di guida anti collisione attivato: modalità fango</item>
+        <item>Sistema di guida anti collisione attivato: modalità neve</item>
+        <item>Sistema di guida anti collisione attivato: modalità sabbia</item>
+        <item>Sistema Start-Stop attivato</item>
+        <item>Sistema Start-Stop disattivato</item>
+        <item>Sistema di controllo della trazione attivato</item>
+        <item>Sistema di controllo della trazione disattivato</item>
+    </array>
+    <array name="can_psa_wc_warn">
+        <item>Diagnosis is normal</item>
+        <item>Engine temperature failure, please park</item>
+        <item>Please add coolant</item>
+        <item>Please fill engine oil</item>
+        <item>Engine oil pressure failure, please park</item>
+        <item>Brake system failures</item>
+        <item>Inoperative</item>
+        <item>Car doors, trunks, hoods, rear windscreens and fuel tanks are not closed</item>
+        <item>Multiple tire bursts</item>
+        <item>Particulate filter risk of clogging: Please refer to the instructions</item>
+        <item>Suspension Fault Speed ​、�Limit: 90km/h</item>
+        <item>Suspension System Failures</item>
+        <item>Power steering failure</item>
+        <item>10km/h</item>
+        <item>Parking brake enabled</item>
+        <item>Parking brake release</item>
+        <item>Brake Manipulation Fault Parking Brake Automatic Activation</item>
+        <item>Brake pad wear</item>
+        <item>Parking brake failure</item>
+        <item>Missing speed limit for variable tail function, please refer to the manual</item>
+        <item>ABS system failure</item>
+        <item>ESP/ASR system failures</item>
+        <item>Suspension System Failures</item>
+        <item>Power steering failure</item>
+        <item>Gearbox failure: Please repair the vehicle</item>
+        <item>Failure of the voyage system</item>
+        <item>Insufficient particulate filter additive: Please repair vehicle</item>
+        <item>Electronic Security System Failures</item>
+        <item>Parking Assist System Failure</item>
+        <item>Fault of parking measurement system</item>
+        <item>Battery charging or power supply system failure</item>
+        <item>Insufficient tire pressure</item>
+        <item>Short light bulb is broken</item>
+        <item>Far light bulb is broken</item>
+        <item>Brake light bulb is broken</item>
+        <item>Fog lamp bulb is broken</item>
+        <item>Bad turn signal</item>
+        <item>Reversing light bulb is broken</item>
+        <item>Location light bulb is bad</item>
+        <item>Change lever to P position</item>
+        <item>Beware of road ice</item>
+        <item>Beware of handbrake</item>
+        <item>Doors, suitcases, boot, rear fan and fuel tank are not closed</item>
+        <item>Wind washer fluid shortage</item>
+        <item>Insufficient fuel volume</item>
+        <item>Oil cut-off</item>
+        <item>Remote controller power shortage</item>
+        <item>Tyre pressure is not monitored</item>
+        <item>High speed, check tire pressure is appropriate</item>
+        <item>Insufficient tire pressure</item>
+        <item>Diagnosis</item>
+        <item>Diagnosis completed</item>
+        <item>The rear left seat belt is not tied</item>
+        <item>The rear seat belt is not tied</item>
+        <item>Right rear seat belt is not tied</item>
+        <item>Automatic wiper activation</item>
+        <item>Automatic wiper deactivation</item>
+        <item>Headlights automatically light up enabled</item>
+        <item>Headlights are automatically turned off and disabled</item>
+        <item>Door self-locking enabled</item>
+        <item>Door self-locking disabled</item>
+        <item>Could not open hardtop: Partition not placed</item>
+        <item>Hardtop operation completed</item>
+        <item>End hardtop operation now</item>
+        <item>Operation failed: Hardtop has been locked</item>
+        <item>Hardtop folding mechanical failure</item>
+        <item>Operation Failed: Rear Window Not Closed</item>
+        <item>Failed to operate the canopy: Buried body is not in place</item>
+        <item>Anti-slide system failures</item>
+        <item>Drive Mode: Normal Mode</item>
+        <item>Drive Mode: Dirt Mode</item>
+        <item>Drive mode:Snow mode</item>
+        <item>Drive mode: Sandy mode</item>
+        <item>Disabled ESP system</item>
+        <item>Driving distance not measurable: Visibility too low</item>
+        <item>Driving distance not measurable; initializing</item>
+        <item>No information</item>
+        <item>Unknown Information Number</item>
+    </array>
+    <array name="can_ford_warn_text">
+        <item>NULL</item>
+        <item>Sovratemperatura della trasmissione, arresta l&apos;auto in maniera sicura</item>
+        <item>Malfunzionamento della trasmissione, richiesta manutenzione immediata</item>
+        <item>Malfunzionamento del motore, richiesta manutenzione ora</item>
+        <item>Filtro diesel sovraccaricato fare riferimento al manuale</item>
+        <item>Cambio dell&apos;olio motore a causa del servizio richiesto</item>
+        <item>Pressione olio motore bassa, arresta l&apos;auto in maniera sicura</item>
+        <item>Sistema di assistenza in salita non disponibile</item>
+        <item>Malfunzionamento degli airbag, richiesta manutenzione immediata</item>
+        <item>Malfunzionamento al sistema di frenata, arresta l&apos;auto in maniera sicura</item>
+        <item>Livello del liquido dei freni basso, manutenzione richiesta ora.</item>
+        <item>Malfunzionamento dell&apos;ABS, manutenzione richiesta ora</item>
+        <item>ESP off</item>
+        <item>Malfunzionamento ESP, manutenzione richiesta</item>
+        <item>Malfunzionamento del servosterzo, manutenzione richiesta ora</item>
+        <item>NULL</item>
+        <item>Bagagliaio aperto</item>
+        <item>Cofano aperto</item>
+        <item>Porta posteriore lato passeggero aperta</item>
+        <item>Porta posteriore lato conducente aperta</item>
+        <item>Porta del passeggero aperta</item>
+        <item>Porta del conducente aperta</item>
+        <item>NULL</item>
+        <item>Il sistema automatico di Start&amp;Stop si sta avviando</item>
+        <item>Malfunzionamento dell&apos;indicatore sinistro, sostituire la lampadina.</item>
+        <item>Malfunzionamento dell&apos;indicatore destro, sostituire la lampadina</item>
+        <item>Cofano aperto</item>
+        <item>Bagagliaio aperto</item>
+        <item>Porta posteriore lato passeggero aperta</item>
+        <item>Porta posteriore lato conducente aperta</item>
+        <item>Porta del passeggero aperta</item>
+        <item>Porta del conducente aperta</item>
+        <item>Premere la frizione per partire</item>
+        <item>Premere il freno per partire</item>
+        <item>Livello batteria chiavi basso, sostituire la batteria</item>
+        <item>Sistema Start&amp;Stop automatico, premere il pedale per avviare il motore</item>
+        <item>Malfunzionamento del sistema di allarme, manutenzione richiesta</item>
+        <item>Livello batteria chiavi basso, sostituire la batteria</item>
+        <item>Scansione interna disattivata.</item>
+        <item>Tergicristallo automatico / malfunzionamento luci, servizio richiesto</item>
+        <item>Avvio automatico, Avvio manuale richiesto.</item>
+        <item>Chiudere il cofano oppure utilizzare chiave di ricambio</item>
+        <item>Bloccasterzo innestato, girare il volante</item>
+        <item>Malfunzionamento del bloccasterzo, fermarsi in sicurezza</item>
+        <item>Malfunzionamento del bloccasterzo, manutenzione richiesta</item>
+        <item>Chiave fuori dalla macchina</item>
+        <item>Chiave non rilevata</item>
+        <item>Spegnere l&apos;accensione, usare il tasto POWER</item>
+        <item>Porte aperte, azionare il freno</item>
+        <item>Selezionare N per partire</item>
+        <item>Premere il freno per partire</item>
+        <item>Start&amp;Stop automatico, selezionare Neutral</item>
+        <item>Selezionare N o P per partire</item>
+        <item>Veicolo non in parcheggio, selezionare P</item>
+        <item>StartStop automatico, disattiva l&apos;accensione</item>
+        <item>Malfunzionamento dell&apos;immobiliser, richiesta assistenza ora</item>
+        <item>Allarme attivato, controllare veicolo</item>
+        <item>Allarme attivato, controllare veicolo</item>
+        <item>Allarme attivato, controllare veicolo</item>
+        <item>Allarme attivato, controllare veicolo</item>
+        <item>Temperatura trasmissione elevata, fermarsi o ridurre la velocità</item>
+        <item>Temperatura trasmissione elevata, fermarsi o ridurre la velocità</item>
+        <item>Trasmissione pronta</item>
+        <item>Temperatura trasmissione elevate, attendere 4 minuti</item>
+        <item>Premere il freno e la frizione per partire</item>
+        <item>Premere il freno per partire</item>
+        <item>Premere la frizione per partire</item>
+        <item>Active City Stop, frenata automatica</item>
+        <item>Active City Stop non disponibile</item>
+        <item>Sensore Active City Stop bloccato, pulire lo schermo</item>
+        <item>Verificare pressione pneumatici</item>
+        <item>Malfunzionamento sistema pressione pneumatici, manutenzione richiesta</item>
+        <item>Motore in funzione</item>
+        <item>MyKey attivo, guida in sicurezza</item>
+        <item>La velocità MyKey è limitata a 160 km / h.</item>
+        <item>Veicolo MyKey alla massima velocità</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>MyKey controlla la velocità, guida in sicurezza</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>MyKey park non può essere disattivato</item>
+        <item>MyKey ESC non può essere disattivato.</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Premere il freno per sbloccare la leva del cambio</item>
+        <item>Tempo di avviamento superato</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Cambio non in Park</item>
+        <item>Leva selettrice sbloccata</item>
+        <item>Freno di stazionamento applicato</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Veicolo MyKey vicino alla massima velocità</item>
+        <item>NULL</item>
+        <item>Freno di stazionamento applicato</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_tsy">
+        <item>BOŞ</item>
+        <item>Manevra yapmadan önce güvenli olduğundan emin olun</item>
+        <item>Park Yardımı mevcut değil</item>
+        <item>Tarafı değiştirmek için sinyal kullanın</item>
+        <item>İleri vites seç</item>
+        <item>Uzay bulundu, öne geç</item>
+        <item>Boş park yerinin yanında dur</item>
+        <item>Park pozisyonunu ayarlamak için △ ▽ tuşuna basın.</item>
+        <item>Park pozisyonunu ayarla</item>
+        <item>Park Yardımı İptal Edildi</item>
+        <item>Geriye doğru sür</item>
+        <item>Durdur ve geri vites seç</item>
+        <item>İleri sür</item>
+        <item>Durdur ve ileri vites seç</item>
+        <item>Park yardımı tamamlandı</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Merkezi direksiyon</item>
+        <item>Fragmanı kaldır</item>
+        <item>VDC AÇIK olmalıdır</item>
+        <item>Başlamak için kapıyı kapatın</item>
+        <item>Sistem hatası</item>
+        <item>Park Yardımı hatası</item>
+        <item>Aşırı Hız</item>
+        <item>Yönlendirilmiş Direksiyon</item>
+        <item>Treyler AÇIK</item>
+        <item>VDC Aktif</item>
+        <item>Kapı Açık / Emniyet kemeri kapalı</item>
+        <item>Zaman aşımı</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Motor aktif değil</item>
+        <item>Alamayan</item>
+        <item>FWD dişlisi park yerinin dışında</item>
+        <item>Özgeçmiş mümkün değil</item>
+        <item>BOŞ</item>
+        <item>durdurmak</item>
+        <item>Geri vites seç</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Çevreyi kontrol et</item>
+        <item>Park yardımına başlamak için park yuvasının yanında durun</item>
+        <item>BOŞ</item>
+        <item>Hızını azaltın</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Direksiyon dönen</item>
+        <item>Dikkatli ilerleyin</item>
+        <item>Geriye doğru dikkatli sürün</item>
+        <item>Engeli kontrol edin</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_declare">
+        <item>Come usare Bay Parking</item>
+        <item>Posiziona la casella blu nello spazio vuoto</item>
+        <item>La linea rossa segnala i limiti del sistema</item>
+        <item>Premere Start per iniziare lo sterzo automatico</item>
+        <item>* Nessuna funzione di prevenzione degli ostacoli, controllare sempre i dintorni</item>
+        <item>Frenare manualmente</item>
+        <item>Rilascia lo sterzo durante la manovra automatica</item>
+    </array>
+    <array name="can_a_s_l_arrays">
+        <item>faro anteriore, fari fendinebbia, fanalino posteriore</item>
+        <item>faro anteriore, luce guida</item>
+        <item>Portellone</item>
+        <item>Level 3</item>
+        <item>Level 4</item>
+        <item>Level 5</item>
+    </array>
+    <array name="can_auto_speed_lock_array">
+        <item>Close</item>
+        <item>Lock at 15km/h</item>
+        <item>Lock at 40km/h</item>
+    </array>
+    <array name="can_dgkz">
+        <item>headlight , driving light , taillight</item>
+        <item>headlight , driving light</item>
+        <item>taillight</item>
+    </array>
+    <array name="can_ybtsy">
+        <item>Sound 1</item>
+        <item>Sound 2</item>
+        <item>Sound 3</item>
+    </array>
+    <array name="can_psa_rzc_cartype">
+        <item>Mod basso</item>
+        <item>Mod medio</item>
+        <item>Mod alta (con GPS)</item>
+    </array>
+    <array name="can_ford_active_park">
+        <item>Scorri in basso per continuare</item>
+        <item>Scorri in basso per continuare</item>
+        <item>In ricerca di un posto auto</item>
+        <item>In ricerca di un posto auto</item>
+        <item>Malfunzionamento</item>
+        <item>Trovato parcheggioguidare avanti</item>
+        <item>Trovato parcheggioguidare avanti</item>
+        <item>Parcheggio trovatostop</item>
+        <item>Parcheggio trovatostop</item>
+        <item>Rilasciare sterzo e inserire retromarcia</item>
+        <item>Rilasciare sterzo e inserire retromarcia</item>
+        <item>Verificare suono, effettuare retromarcia</item>
+        <item>Verificare suono, effettuare retromarcia</item>
+        <item>Verificare suono, guidare in avanti</item>
+        <item>Verificare suono, guidare in avanti</item>
+        <item>Verificare suono, effettuare retromarcia</item>
+        <item>Verificare suono, effettuare retromarcia</item>
+        <item>Finito</item>
+        <item>Ripresa disponibile</item>
+        <item>Cancellato</item>
+        <item>Cancellato con velocità</item>
+        <item>Cancellato con sterzo</item>
+        <item>Non disponibile</item>
+        <item>Cancellato con ESC</item>
+        <item>Cancellato con ABS</item>
+    </array>
+    <array name="can_gm_wc_pantype">
+        <item>Reserved</item>
+        <item>Aveo、Cruze、GT、Malibu、Regal</item>
+        <item>LaCrosse、GL8</item>
+        <item>Reserved</item>
+        <item>Reserved</item>
+        <item>Encore</item>
+    </array>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/activity_cstudy_mainid" android:layout_width="match_parent" android:layout_height="match_parent">
+    <SeekBar android:id="@+id/Touch_seekBar1" android:layout_width="300px" android:layout_height="wrap_content" android:layout_marginLeft="200px" android:layout_marginTop="450px" android:max="60" android:progress="30"/>
+    <TextView android:textSize="20sp" android:textColor="@color/fs_title" android:layout_width="200px" android:layout_height="50px" android:layout_marginLeft="50px" android:layout_marginTop="450px" android:text="按钮范围"/>
+    <TextView android:textSize="20sp" android:textColor="@color/fs_title" android:id="@+id/Touch_seekBarsize" android:layout_width="200px" android:layout_height="50px" android:layout_marginLeft="510px" android:layout_marginTop="450px" android:text=""/>
+    <TextView android:textSize="25sp" android:layout_width="800px" android:layout_height="50px" android:layout_marginLeft="50px" android:layout_marginTop="400px" android:text="蓝色:已学习 绿色:未学习 闪烁:学习中"/>
+</RelativeLayout>

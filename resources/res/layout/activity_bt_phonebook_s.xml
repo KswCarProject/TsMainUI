@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/phonebook_bg_s" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/bt_sub_items_s"/>
+    <EditText android:textSize="35px" android:textColor="#ffffffff" android:gravity="right|center_vertical|center_horizontal|center" android:id="@+id/search" android:background="@android:color/transparent" android:paddingLeft="20px" android:paddingRight="90px" android:layout_width="512px" android:layout_height="64px" android:layout_marginLeft="0px" android:layout_marginTop="3px" android:text="" android:singleLine="true" android:imeOptions="actionUnspecified|actionNone|actionGo|actionSearch|flagNoExtractUi"/>
+    <ListView android:scrollbarStyle="outsideInset" android:id="@+id/phonebook_listview" android:layout_width="497px" android:layout_height="360px" android:layout_marginLeft="5px" android:layout_marginTop="78px" android:listSelector="@android:color/transparent" android:divider="@android:color/transparent" android:dividerHeight="0px" android:choiceMode="singleChoice"/>
+</RelativeLayout>

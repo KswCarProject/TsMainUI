@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/factory_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/fs_top_item" layout="@layout/fs_top_item"/>
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="10px" android:layout_below="@+id/fs_top_item" android:layout_centerHorizontal="true">
+        <ListView android:scrollbarStyle="outsideOverlay" android:id="@+id/fsicon_list" android:background="@drawable/factory_icon_bg" android:layout_width="249px" android:layout_height="match_parent" android:listSelector="@android:color/transparent" android:divider="@android:color/transparent"/>
+        <GridView android:gravity="center" android:id="@+id/fsicon_grid" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:horizontalSpacing="5px" android:verticalSpacing="4px" android:stretchMode="columnWidth" android:columnWidth="@dimen/fs_icon_column_width" android:numColumns="@integer/fs_icon_num_per_row"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,111 @@
+package com.ts.can;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import com.lgb.canmodule.CanJni;
+import com.ts.MainUI.MainTask;
+import com.ts.MainUI.R;
+import com.ts.MainUI.UserCallBack;
+import com.ts.canview.CanItemCarType;
+import com.ts.canview.CanItemPopupList;
+import com.ts.canview.CanItemSwitchList;
+import com.ts.canview.CanScrollList;
+import com.yyw.ts70xhw.FtSet;
+import com.yyw.ts70xhw.Mcu;
+
+public class CanToyotaCarTypeActivity extends CanToyotaBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
+    private static final int ITEM_MAX = 1;
+    private static final int ITEM_MIN = 1;
+    public static final int ITEM_TYPE = 1;
+    public static final String TAG = "CanToyotaCarTypeActivity";
+    private static final int[] mTypeArr = {R.string.can_type_other, R.string.can_toyota_rav4_2016, R.string.can_camery_2018, R.string.can_toyota_corolla_od};
+    private static final int[] mTypeRzcArr = {R.string.can_type_other, R.string.can_toyota_rav4_2016, R.string.can_camery_2018};
+    private CanItemCarType mItemCarType;
+    private CanScrollList mManager;
+
+    /* access modifiers changed from: protected */
+    public void onCreate(Bundle arg0) {
+        super.onCreate(arg0);
+        setContentView(R.layout.activity_can_comm_list);
+        InitUI();
+    }
+
+    /* access modifiers changed from: protected */
+    public void ResetData(boolean check) {
+    }
+
+    /* access modifiers changed from: protected */
+    public void QueryData() {
+    }
+
+    /* access modifiers changed from: protected */
+    public void onResume() {
+        super.onResume();
+        MainTask.GetInstance().SetUserCallBack(this);
+        ResetData(false);
+        QueryData();
+        Log.d("CanToyotaCarTypeActivity", "subtype = " + CanJni.GetSubType());
+        this.mItemCarType.GetPopItem().SetSel(CanJni.GetSubType());
+    }
+
+    /* access modifiers changed from: protected */
+    public void onPause() {
+        MainTask.GetInstance().SetUserCallBack((UserCallBack) null);
+        super.onPause();
+    }
+
+    /* access modifiers changed from: protected */
+    public void InitUI() {
+        this.mManager = new CanScrollList(this);
+        if (CanJni.GetCanType() == 128) {
+            this.mItemCarType = new CanItemCarType((Context) this, R.string.can_car_type_select, mTypeRzcArr, 1, (CanItemPopupList.onPopItemClick) this);
+        } else {
+            this.mItemCarType = new CanItemCarType((Context) this, R.string.can_car_type_select, mTypeArr, 1, (CanItemPopupList.onPopItemClick) this);
+        }
+        this.mManager.AddView(this.mItemCarType.GetView());
+    }
+
+    /* access modifiers changed from: protected */
+    public void LayoutUI() {
+        for (int i = 1; i <= 1; i++) {
+            ShowItem(i);
+        }
+    }
+
+    /* access modifiers changed from: protected */
+    public boolean IsHaveItem(int item) {
+        return i2b(0);
+    }
+
+    /* access modifiers changed from: protected */
+    public void ShowItem(int item) {
+        boolean IsHaveItem = IsHaveItem(item);
+    }
+
+    /* access modifiers changed from: protected */
+    public CanItemSwitchList AddCheckItem(int resId, int Id) {
+        CanItemSwitchList item = new CanItemSwitchList(this, resId);
+        item.SetIdClickListener(this, Id);
+        this.mManager.AddView(item.GetView());
+        item.ShowGone(false);
+        return item;
+    }
+
+    public void onClick(View v) {
+        int intValue = ((Integer) v.getTag()).intValue();
+    }
+
+    public void UserAll() {
+        ResetData(true);
+    }
+
+    public void onItem(int id, int item) {
+        if (id == 1) {
+            Log.d("CanToyotaCarTypeActivity", "Select = " + item);
+            FtSet.SetCanSubT(item);
+            Mcu.SendXKey(20);
+        }
+    }
+}

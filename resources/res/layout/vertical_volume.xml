@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/progrecess" android:background="@drawable/vol_popup_box">
+    <Button android:id="@+id/volmodename" android:background="@drawable/vol_popup_music" android:layout_width="82px" android:layout_height="83px" android:layout_marginLeft="42px" android:layout_marginTop="35px" android:text=""/>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/lv" android:background="@drawable/vol_popup_rect" android:layout_width="121px" android:layout_height="6px" android:layout_marginLeft="23px" android:layout_marginTop="135px"/>
+    <TextView android:textSize="32px" android:textColor="#fff" android:id="@+id/volsize" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="730px" android:layout_marginTop="19px" android:text="10"/>
+</RelativeLayout>

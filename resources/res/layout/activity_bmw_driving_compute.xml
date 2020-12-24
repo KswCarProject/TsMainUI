@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_drive_layout" android:background="@drawable/can_driving_bg01" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/iv_back" android:focusable="true" android:layout_width="138px" android:layout_height="122px" android:layout_marginLeft="39px" android:layout_marginTop="203px" android:src="@drawable/btn_bmw_back_bg"/>
+    <TextView android:textSize="18sp" android:textColor="#fff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="140px" android:layout_marginTop="12px" android:text="@string/can_czdn"/>
+    <ImageView android:id="@+id/iv_driving_icon" android:layout_width="1072px" android:layout_height="336px" android:layout_marginLeft="169px" android:layout_marginTop="75px" android:src="@drawable/can_driving_di1"/>
+    <ImageView android:id="@+id/iv_speed_circle" android:layout_width="300px" android:layout_height="300px" android:layout_marginLeft="194px" android:layout_marginTop="89px" android:src="@drawable/can_driving_sudu_pan_01"/>
+    <ImageView android:id="@+id/iv_speed_pointer" android:layout_width="300px" android:layout_height="300px" android:layout_marginLeft="194px" android:layout_marginTop="89px" android:src="@drawable/can_driving_sudu_posters"/>
+    <ImageView android:id="@+id/iv_rate_circle" android:layout_width="300px" android:layout_height="300px" android:layout_marginLeft="917px" android:layout_marginTop="89px" android:src="@drawable/can_driving_zhuansu_pan_01"/>
+    <ImageView android:id="@+id/iv_rate_pointer" android:layout_width="300px" android:layout_height="300px" android:layout_marginLeft="917px" android:layout_marginTop="89px" android:src="@drawable/can_driving_zhuansu_posters"/>
+    <ImageView android:id="@+id/iv_speed_value1" android:layout_width="56px" android:layout_height="112px" android:layout_marginLeft="605px" android:layout_marginTop="181px" android:src="@drawable/can_driving_numb_00"/>
+    <ImageView android:id="@+id/iv_speed_value2" android:layout_width="56px" android:layout_height="112px" android:layout_marginLeft="667px" android:layout_marginTop="181px" android:src="@drawable/can_driving_numb_00"/>
+    <ImageView android:id="@+id/iv_speed_value3" android:layout_width="56px" android:layout_height="112px" android:layout_marginLeft="728px" android:layout_marginTop="181px" android:src="@drawable/can_driving_numb_00"/>
+    <ImageView android:id="@+id/iv_speed_unit" android:layout_width="76px" android:layout_height="26px" android:layout_marginLeft="660px" android:layout_marginTop="280px" android:src="@drawable/can_driving_kmh_01"/>
+    <ImageView android:id="@+id/iv_safe_seat" android:layout_width="50px" android:layout_height="50px" android:layout_marginLeft="565px" android:layout_marginTop="397px" android:src="@drawable/can_driving_anquandai_up"/>
+    <ImageView android:id="@+id/iv_foot_break" android:layout_width="50px" android:layout_height="50px" android:layout_marginLeft="680px" android:layout_marginTop="398px" android:src="@drawable/can_driving_p"/>
+    <ImageView android:id="@+id/iv_hand_break" android:layout_width="50px" android:layout_height="50px" android:layout_marginLeft="796px" android:layout_marginTop="398px" android:src="@drawable/can_driving_shousha_up"/>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="#000000" android:layout_width="match_parent" android:layout_height="80px" android:minHeight="80px">
+    <ImageView android:id="@+id/imgApp" android:layout_width="50px" android:layout_height="50px" android:layout_marginLeft="30px" android:layout_centerVertical="true"/>
+    <TextView android:textColor="#ffd700" android:ellipsize="end" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/tvAppName" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginLeft="100px" android:text="Label" android:singleLine="true" android:layout_centerVertical="true"/>
+    <CheckBox android:id="@+id/btn_check" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="30px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

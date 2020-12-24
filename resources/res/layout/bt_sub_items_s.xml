@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="512px" android:layout_height="84px" android:layout_alignParentBottom="true">
+    <Button android:id="@+id/btBtnSubConnect" android:background="@drawable/bt_sub_connect_s" android:layout_width="102px" android:layout_height="84px" android:layout_marginLeft="0px"/>
+    <Button android:id="@+id/btBtnSubDial" android:background="@drawable/bt_sub_dial_s" android:layout_width="102px" android:layout_height="84px" android:layout_marginLeft="103px"/>
+    <Button android:id="@+id/btBtnSubPb" android:background="@drawable/bt_sub_pb_s" android:layout_width="102px" android:layout_height="84px" android:layout_marginLeft="205px"/>
+    <Button android:id="@+id/btBtnSubLog" android:background="@drawable/bt_sub_log_s" android:layout_width="102px" android:layout_height="84px" android:layout_marginLeft="308px"/>
+    <Button android:id="@+id/btBtnSubMusic" android:background="@drawable/bt_sub_music_s" android:layout_width="102px" android:layout_height="84px" android:layout_marginLeft="410px"/>
+</RelativeLayout>

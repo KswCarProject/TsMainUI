@@ -1,0 +1,54 @@
+package com.txznet.sdk.tongting;
+
+/* compiled from: Proguard */
+public interface IConstantData {
+    public static final String CALLBACK_ONBUFFERPROGRESSUPDATED = "onBufferProgressUpdated";
+    public static final String CALLBACK_ONFAVOURSTATUSUPDATED = "onFavourStatusUpdated";
+    public static final String CALLBACK_ONPLAYERMODEUPDATED = "onPlayerModeUpdated";
+    public static final String CALLBACK_ONPLAYERSTATUSUPDATED = "onPlayerStatusUpdated";
+    public static final String CALLBACK_ONPLAYINFOUPDATED = "onPlayInfoUpdated";
+    public static final String CALLBACK_ONPLAYLISTCHANGED = "onPlayListChanged";
+    public static final String CALLBACK_ONPROGRESSUPDATED = "onProgressUpdated";
+    public static final String KEY_ALBUMNAME = "albumName";
+    public static final String KEY_ALBUM_FLAG = "albumFlag";
+    public static final String KEY_ALBUM_ID = "album_id";
+    public static final String KEY_ALBUM_ID_SID = "albumIDSID";
+    public static final String KEY_ARTISTS = "artists";
+    public static final String KEY_AUDIO_FLAG = "audioFlag";
+    public static final String KEY_AUDIO_ID_SID = "audioIDSID";
+    public static final String KEY_AUDIO_MODE = "audioMode";
+    public static final String KEY_AUDIO_MODE_SUPPORT = "supportAudioMode";
+    public static final String KEY_CATEGORYID = "categoryId";
+    public static final String KEY_DATA = "data";
+    public static final String KEY_DESC = "desc";
+    public static final String KEY_DIRECTION = "direction";
+    public static final String KEY_DURATION = "duration";
+    public static final String KEY_ERRORCODE = "errorCode";
+    public static final String KEY_FAVOUR = "favour";
+    public static final String KEY_FLAG = "flag";
+    public static final String KEY_ID = "id";
+    public static final String KEY_ISADD = "isAdd";
+    public static final String KEY_ISFAVOUR = "isFavour";
+    public static final String KEY_ISSUBSCRIBE = "isSubscribe";
+    public static final String KEY_LIMIT = "limit";
+    public static final String KEY_LOGO = "logo";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_PROGRESS = "progress";
+    public static final String KEY_SEQUENCE = "sequence";
+    public static final String KEY_SID = "sid";
+    public static final String KEY_SOURCE_FROM = "source";
+    public static final String KEY_STATE = "state";
+    public static final String KEY_TITLE = "title";
+    public static final String KEY_TYPE = "type";
+    public static final int PARAM_TYPE_RECOMMAND = 0;
+    public static final int PARAM_TYPE_SUBSCRIBE = 1;
+    public static final String REC_CALLBACK_PERFIX = "manufactor.callback.";
+    public static final String REC_CMD_GETRECOMMENDALBUM = "getRecommendAlbum";
+    public static final String REC_CMD_GETSUBSCRIBELIST = "getSubscribeList";
+    public static final String REC_CMD_PERFIX = "com.txznet.manufactor.";
+    public static final String REC_CMD_PLAYINFO = "playInfo";
+    public static final String REC_CMD_PLAYLIST = "playList";
+    public static final String REC_CMD_SETFAVOUR = "setFavour";
+    public static final String REC_CMD_SETSUBSCRIBE = "setSubscribe";
+    public static final String REC_CMD_STATUS = "status";
+}

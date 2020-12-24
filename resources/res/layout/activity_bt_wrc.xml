@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/rv_layout" android:background="@drawable/watch_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/iv_watch_code" android:layout_width="217px" android:layout_height="217px" android:layout_marginLeft="140px" android:layout_marginTop="112px" android:src="@drawable/watch_qr_code"/>
+    <ImageView android:id="@+id/iv_watch_small_pic" android:visibility="gone" android:layout_width="217px" android:layout_height="152px" android:layout_marginLeft="137px" android:layout_marginTop="148px" android:src="@drawable/watch_pic_l01"/>
+    <Switch android:id="@+id/switch_watch" android:layout_width="94px" android:layout_height="54px" android:layout_marginLeft="464px" android:layout_marginTop="193px" android:textOn="" android:textOff="" android:thumb="@drawable/watch_thumb" android:track="@drawable/watch_helm"/>
+    <ImageView android:id="@+id/iv_watch_break" android:layout_width="66px" android:layout_height="34px" android:layout_marginLeft="696px" android:layout_marginTop="349px" android:src="@drawable/watch_break"/>
+    <ImageView android:id="@+id/iv_watch_pic" android:layout_width="434px" android:layout_height="343px" android:layout_marginLeft="547px" android:layout_marginTop="48px" android:src="@drawable/watch_pic_r_up"/>
+    <ImageView android:id="@+id/iv_watch_label1" android:layout_width="434px" android:layout_height="343px" android:layout_marginLeft="547px" android:layout_marginTop="48px" android:src="@drawable/watch_pic_r_label"/>
+    <ImageView android:id="@+id/iv_watch_label2" android:layout_width="72px" android:layout_height="158px" android:layout_marginLeft="692px" android:layout_marginTop="48px" android:src="@drawable/watch_pic_label01"/>
+    <Button android:id="@+id/btn_connect" android:background="@drawable/btn_watch_connect" android:layout_width="148px" android:layout_height="147px" android:layout_marginLeft="438px" android:layout_marginTop="373px"/>
+</RelativeLayout>

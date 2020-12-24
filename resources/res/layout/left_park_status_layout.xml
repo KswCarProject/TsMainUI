@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/left_park_layout" android:background="@drawable/can_focus_park_bg" android:layout_width="796px" android:layout_height="374px">
+    <ImageView android:id="@+id/iv_left_area_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/can_focus_park_lparking" android:layout_alignParentLeft="true"/>
+    <ImageView android:id="@+id/iv_left_scan_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="140px" android:layout_marginTop="60px" android:src="@drawable/can_focus_park_lv"/>
+    <ImageView android:id="@+id/iv_left_line" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="60px" android:layout_marginTop="290px" android:src="@drawable/can_focus_park_xline02"/>
+    <ImageView android:id="@+id/iv_left_arc_line" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="50px" android:layout_marginTop="70px" android:src="@drawable/can_focus_park_lline"/>
+    <ImageView android:id="@+id/iv_left_half_car" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="140px" android:src="@drawable/can_focus_park_car03"/>
+    <ImageView android:id="@+id/iv_left_car" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="180px" android:src="@drawable/can_focus_park_car" android:layout_centerVertical="true"/>
+    <ImageView android:id="@+id/iv_left_car_xie" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20px" android:layout_marginTop="80px" android:src="@drawable/can_focus_park_car01"/>
+    <ImageView android:id="@+id/iv_left_gou_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="24px" android:src="@drawable/can_focus_park_hook" android:layout_centerVertical="true"/>
+    <ImageView android:id="@+id/iv_left_arrow_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="300px" android:src="@drawable/can_focus_park_sarrow" android:layout_centerVertical="true"/>
+    <ImageView android:id="@+id/iv_left_warnning_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2px" android:layout_marginTop="50px" android:src="@drawable/can_focus_park_warn"/>
+    <TextView android:textSize="30px" android:textColor="#fff" android:id="@+id/tv_left_park_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="400px" android:layout_centerVertical="true" android:lineSpacingExtra="4dp"/>
+</RelativeLayout>

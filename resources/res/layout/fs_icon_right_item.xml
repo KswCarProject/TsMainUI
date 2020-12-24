@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="134px" android:layout_height="70px">
+    <com.ts.other.ParamButton android:textSize="@dimen/fs_subtv_btn_text_size" android:textColor="@color/fs_btn_text_color" android:id="@+id/fsicon_rtbtn" android:background="@drawable/factory_icon" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+</RelativeLayout>

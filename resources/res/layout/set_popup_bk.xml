@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_popup_bk" android:layout_width="400px" android:layout_height="wrap_content">
+    <ScrollView android:id="@+id/can_comm_scrview" android:layout_width="400px" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@+id/can_comm_lineview" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+</RelativeLayout>

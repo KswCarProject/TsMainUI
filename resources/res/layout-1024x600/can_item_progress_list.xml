@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="85px">
+    <Button android:textSize="30px" android:textColor="@android:color/white" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/btn" android:background="@drawable/can_comm_rect" android:paddingLeft="30px" android:paddingRight="600px" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="16px" android:layout_marginRight="31px"/>
+    <com.ts.other.ParamButton android:id="@+id/btn_sub" android:layout_width="70px" android:layout_height="70px" android:layout_marginLeft="400px" android:layout_marginTop="5px"/>
+    <com.ts.other.CustomImgView android:id="@+id/img_progress" android:clickable="true" android:layout_width="340px" android:layout_height="80px" android:layout_marginLeft="470px" android:layout_marginTop="0px"/>
+    <com.ts.other.ParamButton android:id="@+id/btn_add" android:layout_width="70px" android:layout_height="70px" android:layout_marginLeft="810px" android:layout_marginTop="5px"/>
+    <TextView android:textSize="28px" android:textColor="@android:color/white" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/val" android:clickable="false" android:layout_width="120px" android:layout_height="50px" android:layout_marginLeft="885px" android:layout_marginTop="15px" android:singleLine="true"/>
+</RelativeLayout>

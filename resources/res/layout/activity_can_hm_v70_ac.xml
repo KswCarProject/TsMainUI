@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_hm_v70_ac_layout" android:background="@drawable/can_haima_bg" android:layout_width="match_parent" android:layout_height="match_parent"/>

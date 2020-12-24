@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/activity_tpms_mainid" android:background="@drawable/tpms_bg" android:layout_width="match_parent" android:layout_height="555px"/>

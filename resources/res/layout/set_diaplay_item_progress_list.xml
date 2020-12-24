@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center_vertical" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <Button android:textSize="28px" android:textColor="@android:color/black" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/btn" android:background="@drawable/ripple_bg" android:paddingLeft="50px" android:paddingRight="600px" android:clickable="false" android:layout_width="match_parent" android:layout_height="111px"/>
+    <SeekBar android:id="@+id/img_progress" android:clickable="true" android:layout_width="329px" android:layout_height="50px" android:layout_marginLeft="856px" android:layout_marginTop="17px" android:maxHeight="50px" android:progressDrawable="@drawable/setup_sound_seekbar_bg" android:minHeight="50px" android:thumb="@drawable/setup_general_seekbar_dot" android:thumbOffset="0dp"/>
+    <TextView android:textSize="28px" android:textColor="#717476" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/val" android:clickable="false" android:layout_width="50px" android:layout_height="match_parent" android:layout_marginLeft="1204px" android:layout_marginTop="0px" android:singleLine="true"/>
+    <ImageView android:background="@drawable/setup_main_line" android:layout_width="match_parent" android:layout_height="2px" android:layout_alignParentBottom="true"/>
+</RelativeLayout>

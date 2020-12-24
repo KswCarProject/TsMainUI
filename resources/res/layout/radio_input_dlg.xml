@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/radio_input_layout" android:background="@drawable/radio_popup" android:layout_width="599px" android:layout_height="352px"/>

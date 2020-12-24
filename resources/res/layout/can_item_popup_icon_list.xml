@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="200px">
+    <Button android:textSize="30px" android:textColor="@android:color/white" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/btn" android:background="@drawable/can_comm_rect" android:paddingLeft="90px" android:paddingRight="500px" android:clickable="false" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="16px" android:layout_marginRight="31px"/>
+    <ImageView android:id="@+id/ico" android:layout_width="55px" android:layout_height="55px" android:layout_marginLeft="35px" android:layout_marginTop="13px"/>
+    <TextView android:textSize="30px" android:textColor="@android:color/white" android:gravity="right|center_vertical|center_horizontal|center" android:id="@+id/val" android:paddingLeft="90px" android:clickable="false" android:layout_width="340px" android:layout_height="81px" android:layout_marginRight="160px" android:layout_alignParentRight="true"/>
+    <ImageView android:textColor="@android:color/white" android:id="@+id/delta" android:background="@drawable/can_comm_rt_delta" android:duplicateParentState="true" android:layout_width="40px" android:layout_height="30px" android:layout_marginTop="25px" android:layout_marginRight="84px" android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_ac_cadillax_xt5_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/imageView1" android:background="@drawable/xt5_ac_bg" android:layout_width="800px" android:layout_height="269px" android:layout_marginLeft="0px" android:layout_marginTop="0px"/>
+</RelativeLayout>

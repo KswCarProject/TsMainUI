@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:background="@drawable/can_radar_bg" android:layout_width="766px" android:layout_height="600px"/>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@+id/big_radar_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="149px" android:layout_marginTop="105px">
+        <com.ts.can.RadarUIView android:id="@+id/big_fore_radar" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <com.ts.other.CustomImgView android:id="@+id/big_car" android:layout_width="194px" android:layout_height="384px"/>
+        <com.ts.can.RadarUIView android:id="@+id/big_rear_radar" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <include layout="@layout/can_right_radar"/>
+    <com.ts.can.RadarUIView android:id="@+id/big_left_side_radar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="170px" android:layout_marginTop="400px"/>
+    <com.ts.can.RadarUIView android:id="@+id/big_right_side_radar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="510px" android:layout_marginTop="400px"/>
+    <com.ts.can.RadarUIView android:id="@+id/left_side_radar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="190px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+    <com.ts.can.RadarUIView android:id="@+id/right_side_radar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="32px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

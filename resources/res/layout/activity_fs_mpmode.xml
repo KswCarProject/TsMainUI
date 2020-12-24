@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/factory_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/fs_top_item"/>
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+        <com.ts.other.ParamButton android:textSize="@dimen/fs_subtv_btn_text_size" android:textColor="@color/fs_btn_text_color" android:id="@+id/fsmp_export_sd" android:background="@drawable/fs_btn_mp_export" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <com.ts.other.ParamButton android:textSize="@dimen/fs_subtv_btn_text_size" android:textColor="@color/fs_btn_text_color" android:id="@+id/fsmp_export_usb" android:background="@drawable/fs_btn_mp_export_usb" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</RelativeLayout>

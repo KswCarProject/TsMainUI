@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/left_line" android:layout_width="403px" android:layout_height="346px" android:layout_marginLeft="61px" android:layout_marginTop="145px" android:src="@drawable/can_back_line_left_korea" android:layout_alignParentLeft="true"/>
+    <ImageView android:id="@+id/right_line" android:layout_width="403px" android:layout_height="346px" android:layout_marginTop="145px" android:layout_marginRight="61px" android:src="@drawable/can_back_line_right_korea" android:layout_alignParentRight="true"/>
+    <Button android:id="@+id/left_arrow" android:background="@drawable/btn_back_line_left_background" android:layout_width="112px" android:layout_height="112px" android:layout_marginLeft="20px" android:layout_marginTop="244px" android:layout_alignParentLeft="true"/>
+    <Button android:id="@+id/right_arrow" android:background="@drawable/btn_back_line_right_background" android:layout_width="112px" android:layout_height="112px" android:layout_marginTop="244px" android:layout_marginRight="20px" android:layout_alignParentRight="true"/>
+    <Button android:id="@+id/top_arrow" android:background="@drawable/btn_back_line_top_background" android:layout_width="112px" android:layout_height="112px" android:layout_marginLeft="456px" android:layout_marginTop="20px" android:layout_alignParentTop="true"/>
+    <Button android:id="@+id/bottom_arrow" android:background="@drawable/btn_back_line_bottom_background" android:layout_width="112px" android:layout_height="112px" android:layout_marginLeft="456px" android:layout_marginTop="468px"/>
+    <Button android:id="@+id/scale_down" android:background="@drawable/btn_back_line_narrow_background" android:layout_width="112px" android:layout_height="112px" android:layout_marginLeft="388px" android:layout_marginTop="244px"/>
+    <Button android:id="@+id/scale_up" android:background="@drawable/btn_back_line_wide_background" android:layout_width="112px" android:layout_height="112px" android:layout_marginLeft="524px" android:layout_marginTop="244px"/>
+</RelativeLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:background="@drawable/main_clxx_bg" android:layout_width="430px" android:layout_height="266px" android:layout_marginLeft="16px" android:layout_marginTop="67px"/>
+    <ImageView android:id="@+id/iv_weather" android:layout_width="175px" android:layout_height="120px" android:layout_marginLeft="143px" android:layout_marginTop="20px" android:src="@drawable/weather_no"/>
+    <Button android:id="@+id/btn_refresh" android:background="@drawable/ic_menu_refresh" android:layout_width="72px" android:layout_height="72px" android:layout_marginLeft="330px" android:layout_marginTop="20px"/>
+    <TextView android:textSize="14sp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center" android:id="@+id/tv_city" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="176px" android:text="" android:singleLine="true" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="16sp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center" android:id="@+id/tv_weather" android:layout_width="250px" android:layout_height="36px" android:layout_marginLeft="30px" android:layout_marginTop="140px" android:text="" android:singleLine="true"/>
+    <TextView android:textSize="16sp" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center" android:id="@+id/tv_temperature" android:layout_width="110px" android:layout_height="36px" android:layout_marginLeft="270px" android:layout_marginTop="140px" android:text="" android:singleLine="true"/>
+    <RelativeLayout android:id="@+id/show_time" android:layout_width="400px" android:layout_height="110px" android:layout_marginLeft="70px" android:layout_marginTop="210px">
+        <ImageView android:id="@+id/time1" android:background="@drawable/main_time_num00" android:layout_width="35px" android:layout_height="51px" android:layout_marginLeft="70px" android:layout_marginTop="6px"/>
+        <ImageView android:id="@+id/time2" android:background="@drawable/main_time_num00" android:layout_width="35px" android:layout_height="51px" android:layout_marginLeft="110px" android:layout_marginTop="6px"/>
+        <ImageView android:id="@+id/time_colon" android:background="@drawable/main_time_colon" android:layout_width="35px" android:layout_height="51px" android:layout_marginLeft="140px" android:layout_marginTop="6px"/>
+        <ImageView android:id="@+id/time3" android:background="@drawable/main_time_num00" android:layout_width="35px" android:layout_height="51px" android:layout_marginLeft="172px" android:layout_marginTop="6px"/>
+        <ImageView android:id="@+id/time4" android:background="@drawable/main_time_num00" android:layout_width="35px" android:layout_height="51px" android:layout_marginLeft="211px" android:layout_marginTop="6px"/>
+        <TextView android:textSize="20px" android:textColor="#ffffff" android:gravity="center" android:id="@+id/time_ap" android:layout_width="75px" android:layout_height="34px" android:layout_marginLeft="240px" android:layout_marginTop="25px" android:text="AM"/>
+        <TextView android:textSize="25px" android:textColor="#fff" android:gravity="center" android:id="@+id/date" android:layout_width="150px" android:layout_height="34px" android:layout_marginLeft="50px" android:layout_marginTop="76px"/>
+        <TextView android:textSize="25px" android:textColor="#fff" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/week" android:layout_width="150px" android:layout_height="34px" android:layout_marginLeft="225px" android:layout_marginTop="76px"/>
+    </RelativeLayout>
+</RelativeLayout>

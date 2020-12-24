@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_width">512px</dimen>
+    <dimen name="tv_height">64px</dimen>
+    <dimen name="tv_top">0px</dimen>
+    <dimen name="tv_paried_left">0px</dimen>
+    <dimen name="tv_unparied_left">640px</dimen>
+    <dimen name="iv_loading_left">900px</dimen>
+    <dimen name="iv_loading_top">17px</dimen>
+    <dimen name="lv_width">460px</dimen>
+    <dimen name="lv_height">240px</dimen>
+    <dimen name="lv_paired_left">45px</dimen>
+    <dimen name="lv_unpaired_left">685px</dimen>
+    <dimen name="lv_top">80px</dimen>
+    <dimen name="btn_delete_left">40px</dimen>
+    <dimen name="btn_search_left">680px</dimen>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center_vertical" android:id="@+id/navi_root" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:layout_width="430px" android:layout_height="260px" android:layout_marginLeft="20px" android:layout_marginTop="67px" android:src="@drawable/right_navi_bg"/>
+    <TextView android:textSize="18sp" android:textColor="#fff" android:id="@+id/tv_distance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="70px" android:text="300 m" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="20sp" android:textColor="#fff" android:id="@+id/tv_next_load" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="116px" android:text="泰然五路" android:layout_centerHorizontal="true"/>
+    <ImageView android:id="@+id/iv_navi_direction" android:layout_width="120px" android:layout_height="105px" android:layout_marginTop="160px" android:src="@drawable/right_navi_island" android:layout_centerHorizontal="true"/>
+    <ImageView android:id="@+id/iv_navi_gps" android:layout_width="120px" android:layout_height="105px" android:layout_marginTop="160px" android:src="@drawable/right_navi_gps" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="20sp" android:textColor="#fff" android:id="@+id/tv_current_load" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="274px" android:text="幸福南路" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="20sp" android:textColor="#fff" android:id="@+id/tv_round_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="188px" android:text="4" android:layout_centerHorizontal="true"/>
+</RelativeLayout>

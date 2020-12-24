@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="101px" android:layout_height="56px">
+    <com.ts.other.ParamButton android:textSize="28px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:id="@+id/sync_skey_btn" android:layout_width="101px" android:layout_height="56px" android:singleLine="true"/>
+    <com.ts.other.CustomImgView android:id="@+id/sync_skey_ico" android:clickable="false" android:layout_width="45px" android:layout_height="44px" android:layout_marginLeft="28px" android:layout_marginTop="6px"/>
+</RelativeLayout>

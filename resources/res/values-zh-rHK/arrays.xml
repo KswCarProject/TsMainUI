@@ -1,0 +1,2318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="str_fs_rev_volarr">
+        <item>無</item>
+        <item>弱</item>
+        <item>中</item>
+        <item>強</item>
+    </array>
+    <array name="str_fsrad_zonearray">
+        <item>亞洲</item>
+        <item>歐洲</item>
+        <item>美洲1</item>
+        <item>美洲2</item>
+        <item>巴西</item>
+        <item>日本</item>
+        <item>巴西2</item>
+        <item>日本2</item>
+        <item>巴西3</item>
+    </array>
+    <array name="str_fsdoor_title">
+        <item>前門反</item>
+        <item>后門反</item>
+        <item>后備箱</item>
+        <item>前蓋</item>
+        <item>方控上下曲</item>
+        <item>車內溫度</item>
+        <item>溫度單位</item>
+        <item>全景圖標</item>
+        <item>車外溫度</item>
+        <item>P檔雷達顯示</item>
+    </array>
+    <array name="str_fsother_title">
+        <item>顯示屏類型</item>
+        <item>手剎設置</item>
+        <item>外部UART</item>
+        <item>DVR類型</item>
+        <item>DTV類型</item>
+        <item>電容屏類型</item>
+        <item>倒車音量抑制</item>
+        <item>倒車檢測</item>
+        <item>倒車鏡像</item>
+        <item>開機啟動導航</item>
+        <item>多彩燈選項</item>
+        <item>開機畫面選項</item>
+        <item>方控學習選項</item>
+        <item>開機警告畫面</item>
+        <item>插拔記憶</item>
+        <item>USB1速度</item>
+        <item>USB2速度</item>
+        <item>USB2調試</item>
+        <item>編碼器左右交換</item>
+        <item>調試信息輸出</item>
+        <item>電視輸出格式</item>
+        <item>藍牙名字</item>
+        <item>SD交換</item>
+        <item>衛星定位模式</item>
+    </array>
+    <array name="str_fsother_arrayoff">
+        <item>不檢測</item>
+        <item>不鏡像</item>
+        <item>不啟動</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>不記憶</item>
+        <item>high</item>
+        <item>high</item>
+        <item>關閉</item>
+        <item>不交換</item>
+        <item>關閉</item>
+        <item>NTSC</item>
+        <item>藍牙名字</item>
+        <item>不交換</item>
+        <item>GPS+BD</item>
+    </array>
+    <array name="str_fsother_arrayon">
+        <item>檢測</item>
+        <item>鏡像</item>
+        <item>啟動</item>
+        <item>有</item>
+        <item>有</item>
+        <item>有</item>
+        <item>有</item>
+        <item>記憶</item>
+        <item>low</item>
+        <item>low</item>
+        <item>開啟</item>
+        <item>交換</item>
+        <item>開啟</item>
+        <item>PAL</item>
+        <item>藍牙名字</item>
+        <item>交換</item>
+        <item>GPS+GNS</item>
+    </array>
+    <array name="str_fsother_arraylcmstype">
+        <item>10-IPS</item>
+        <item>7-IPS</item>
+        <item>9-IPS</item>
+        <item>LVDS</item>
+    </array>
+    <array name="str_fsother_arraybrake">
+        <item>用戶選擇默認關</item>
+        <item>強制忽略</item>
+        <item>強制開啟</item>
+        <item>用戶選擇默認開</item>
+    </array>
+    <array name="str_fsother_arrparkmute">
+        <item>無</item>
+        <item>弱</item>
+        <item>中</item>
+        <item>強</item>
+    </array>
+    <array name="menu_ico_arr">
+        <item>導航</item>
+        <item>收音機</item>
+        <item>DVD</item>
+        <item>外掛DVD</item>
+        <item>視頻</item>
+        <item>音頻</item>
+        <item>藍牙音樂</item>
+        <item>數字電視</item>
+        <item>模擬電視</item>
+        <item>AVIN</item>
+        <item>OBD</item>
+        <item>IPOD</item>
+        <item>POD</item>
+        <item>虛擬六碟</item>
+        <item>原車設備</item>
+        <item>原車收音</item>
+        <item>360全景</item>
+        <item>藍牙</item>
+        <item>設置</item>
+        <item>安吉星</item>
+        <item>SYNC</item>
+        <item>車輛信息</item>
+        <item>胎壓</item>
+        <item>行車記錄</item>
+        <item>前置攝像</item>
+        <item>空調</item>
+        <item>DSP</item>
+        <item>電話</item>
+        <item>藍牙方控</item>
+        <item>Carplay</item>
+    </array>
+    <array name="can_type_array">
+        <item>無協議</item>
+        <item>大眾</item>
+        <item>高爾夫</item>
+        <item>豐田</item>
+        <item>12款思域、CRV</item>
+        <item>本田DA系統(杰德、凌派、繽智...)</item>
+        <item>日產天籟，奇駿，樓蘭</item>
+        <item>14款霸道</item>
+        <item>通用全系</item>
+        <item>雅閣9代</item>
+        <item>賽歐3（睿志誠）</item>
+        <item>標雪</item>
+        <item>TS全系</item>
+        <item>福特全系</item>
+        <item>現代全系</item>
+        <item>克萊斯勒車系</item>
+        <item>寶駿</item>
+        <item>廣汽傳祺系列</item>
+        <item>榮威550</item>
+        <item>榮威系列</item>
+        <item>14款歌詩圖</item>
+        <item>老馬自達，歐寶</item>
+        <item>11款B70</item>
+        <item>14款B70</item>
+        <item>奔騰X80</item>
+        <item>榮威950</item>
+        <item>15款名爵銳騰</item>
+        <item>江淮瑞風S2,S3</item>
+        <item>江鈴</item>
+        <item>16款吉普自由光</item>
+        <item>眾泰云100</item>
+    </array>
+    <array name="fs_vol_item_arr">
+        <item>收音機</item>
+        <item>DISC</item>
+        <item>USB</item>
+        <item>SD</item>
+        <item>藍牙音樂</item>
+        <item>數字電視</item>
+        <item>模擬電視</item>
+        <item>AUX1</item>
+        <item>AUX2</item>
+        <item>IPOD</item>
+        <item>虛擬六碟</item>
+        <item>原車音源</item>
+        <item>默認導航音量</item>
+        <item>默認電話音量</item>
+        <item>開機最大增益</item>
+        <item>藍牙MIC增益</item>
+        <item>藍牙音量增益</item>
+    </array>
+    <array name="tpms_general_mode">
+        <item>關閉報警</item>
+        <item>單次報警</item>
+        <item>持續報警</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>溫度單位</item>
+        <item>壓力單位</item>
+        <item>溫度上限</item>
+        <item>壓力上限</item>
+        <item>壓力下限</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>漏氣</item>
+        <item>低電壓</item>
+        <item>無信號</item>
+        <item>氣壓低</item>
+        <item>氣壓高</item>
+        <item>開始學習</item>
+        <item>學習中</item>
+    </array>
+    <array name="ctouch_general">
+        <item>電源</item>
+        <item>主頁</item>
+        <item>返回</item>
+        <item>音量+</item>
+        <item>音量-</item>
+        <item>導航</item>
+        <item>接聽</item>
+        <item>掛斷</item>
+        <item>上曲</item>
+        <item>下曲</item>
+        <item>出碟</item>
+        <item>搜台</item>
+        <item>模式</item>
+        <item>靜音</item>
+        <item>停止</item>
+        <item>暫停</item>
+        <item>收音</item>
+        <item>DVD</item>
+        <item>音樂</item>
+        <item>應用</item>
+        <item>亮度</item>
+        <item>清除</item>
+    </array>
+    <array name="set_main_options">
+        <item>通用設定</item>
+        <item>顯示設定</item>
+        <item>音量設定</item>
+        <item>音效設定</item>
+        <item>影像輔助設定</item>
+        <item>導航設定</item>
+        <item>藍牙設定</item>
+        <item>快撥設定</item>
+        <item>關於設備</item>
+    </array>
+    <array name="set_genera_options">
+        <item>待機時間</item>
+        <item>聲控設定</item>
+        <item>輔助觸點</item>
+        <item>倒車時音量抑制</item>
+        <item>開機畫面</item>
+        <item>語音靈敏度</item>
+        <item>恢復預設值</item>
+        <item>系統還原</item>
+    </array>
+    <array name="set_display_options">
+        <item>日間亮度</item>
+        <item>夜間亮度</item>
+        <item>大燈自動檢測</item>
+        <item>七彩燈</item>
+    </array>
+    <array name="set_volume_options">
+        <item>媒體音量</item>
+        <item>導航音量</item>
+        <item>藍牙音量</item>
+        <item>鈴聲音量</item>
+        <item>鬧鐘音量</item>
+        <item>系统音量</item>
+    </array>
+    <array name="set_video_options">
+        <item>行車影像</item>
+        <item>倒車軌跡線</item>
+        <item>倒車警告線</item>
+        <item>倒車鏡像</item>
+        <item>空調顯示</item>
+        <item>后視輸出</item>
+        <item>前置攝像</item>
+    </array>
+    <array name="set_navi_options">
+        <item>開機自動進入導航</item>
+        <item>導航程序選擇</item>
+        <item>導航混音</item>
+    </array>
+    <array name="set_bt_options">
+        <item>配對密碼</item>
+        <item>自動配對</item>
+        <item>自動接聽</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>韌體版本</item>
+        <item>軟體版本</item>
+        <item>媒體版本</item>
+        <item>協議版本</item>
+        <item>藍牙版本</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="mcu_update_msg">
+        <item>未進入升級流程</item>
+        <item>升級文件打開失敗!</item>
+        <item>升級中，升級完成之前請不要斷電!</item>
+        <item>芯片已加密!</item>
+        <item>芯片擦除失敗!</item>
+        <item>芯片擦除成功!</item>
+        <item>升級成功，請重啟本設備!</item>
+    </array>
+    <array name="can_cam_yh_title">
+        <item>平均車速</item>
+        <item>行駛時間</item>
+        <item>可持續行駛裡程</item>
+    </array>
+    <array name="can_car_play_sta">
+        <item>關閉/停止播放</item>
+        <item>加載中</item>
+        <item>沒有連接</item>
+        <item>已經連接</item>
+        <item>播放中</item>
+        <item>暫停</item>
+        <item>其他狀態</item>
+    </array>
+    <array name="can_fist_set_title">
+        <item>裡程單位</item>
+        <item>轉向燈閃爍指示</item>
+        <item>警告提示</item>
+        <item>信息提示</item>
+        <item>環境燈設定</item>
+    </array>
+    <array name="can_fist_l_c">
+        <item>公裡</item>
+        <item>英裡</item>
+    </array>
+    <array name="can_fist_zxd">
+        <item>閃爍一次</item>
+        <item>Flash 3 times</item>
+    </array>
+    <array name="can_bcfs_array">
+        <item>倒車入庫有效</item>
+        <item>路邊停車有效</item>
+    </array>
+    <array name="can_conv_tips">
+        <item />
+        <item>空調</item>
+        <item>輔助加熱器</item>
+        <item>後窗加熱</item>
+        <item>左邊座椅加熱</item>
+        <item>右邊座椅加熱</item>
+        <item>左座椅通風</item>
+        <item>右前區域加熱</item>
+        <item>左前區域加熱</item>
+        <item>右前區域加熱</item>
+        <item>前霧燈</item>
+        <item>後霧燈</item>
+        <item>前窗加熱</item>
+        <item>方向盤加熱</item>
+        <item>後視鏡加熱</item>
+        <item>後座椅加熱</item>
+        <item>後座椅通風</item>
+        <item>插座</item>
+        <item>飲料架</item>
+    </array>
+    <array name="can_golf_wc_vehicle_warn">
+        <item>故障：制動器。維修站</item>
+        <item>故障：電子駐車制動器</item>
+        <item>制動液：參閱用戶手冊</item>
+        <item>制動液：停車！參閱用戶手冊</item>
+        <item>請檢查冷卻液！參閱用戶手冊</item>
+        <item>機油壓力：停車！參閱用戶手冊</item>
+        <item>方向盤鎖止裝置損壞。停車！</item>
+        <item>故障：蓄電池未充電</item>
+        <item>壓力損失：請檢查輪胎壓力</item>
+        <item>壓力損失：請檢查左前輪胎充氣壓力</item>
+        <item>壓力損失：請檢查右前輪胎充氣壓力</item>
+        <item>壓力損失：請檢查左後輪胎充氣壓力</item>
+        <item>壓力損失：請檢查右後輪胎充氣壓力</item>
+        <item>故障：輪胎壓力監控顯示</item>
+        <item>故障：變速箱</item>
+        <item>故障：變速箱。無法挂入倒車檔</item>
+        <item>故障：變速箱</item>
+        <item>故障：電子駐車制動器</item>
+        <item>請檢查左前停車燈!</item>
+        <item>請檢查左側近光燈!</item>
+        <item>請檢查左側遠光燈!</item>
+        <item>請檢查左側霧燈!</item>
+        <item>請檢查左側側面轉向信號燈!</item>
+        <item>請檢查左側日間行車燈!</item>
+        <item>請檢查左側日間行車燈/近光燈!</item>
+        <item>請檢查左側日間行車燈/霧燈!</item>
+        <item>請檢查左側日間行車燈/停車燈!</item>
+        <item>請檢查左側近光燈/遠光燈!</item>
+        <item>請檢查右前轉向信號燈!</item>
+        <item>請檢查右前停車燈!</item>
+        <item>請檢查右側近光燈!</item>
+        <item>請檢查右側遠光燈!</item>
+        <item>請檢查右側霧燈!</item>
+        <item>請檢查右側側面轉向信號燈!</item>
+        <item>請檢查右側日間行車燈!</item>
+        <item>請檢查右側日間行車燈/近光燈!</item>
+        <item>請檢查右側日間行車燈/霧燈!</item>
+        <item>請檢查右側日間行車燈/停車燈!</item>
+        <item>請檢查右側近光燈/遠光燈!</item>
+        <item>故障：汽車照明</item>
+        <item>請檢查左後轉向信號燈</item>
+        <item>請檢查左側制動燈</item>
+        <item>請檢查左側尾燈</item>
+        <item>請檢查左側倒車燈</item>
+        <item>請檢查左側後霧燈</item>
+        <item>請檢查左側制動燈/尾燈</item>
+        <item>請檢查左側後霧燈/尾燈</item>
+        <item>請檢查左側轉向信號燈/制動燈/尾燈</item>
+        <item>請檢查左側制動燈/轉向信號燈</item>
+        <item>請檢查右後轉向信號燈</item>
+        <item>請檢查右側制動燈</item>
+        <item>請檢查右側尾燈</item>
+        <item>請檢查右側倒車燈</item>
+        <item>請檢查右側後霧燈</item>
+        <item>請檢查右側制動燈/尾燈</item>
+        <item>請檢查右側後霧燈/尾燈</item>
+        <item>請檢查右側轉向信號燈/制動燈/尾燈</item>
+        <item>請檢查右側制動燈/轉向信號燈</item>
+        <item>請檢查牌照燈</item>
+        <item>請檢查第三制動燈</item>
+        <item>請檢查後霧燈</item>
+        <item>請檢查倒車燈</item>
+        <item>挂車:請檢查左側轉向信號燈</item>
+        <item>挂車:請檢查右側轉向信號燈</item>
+        <item>挂車:請檢查左側尾燈</item>
+        <item>挂車:請檢查右側尾燈</item>
+        <item>挂車:請檢查制動燈</item>
+        <item>挂車:</item>
+        <item>請檢查右前轉彎燈!</item>
+        <item>請檢查左前轉彎燈!</item>
+        <item>請檢查左側大燈!</item>
+        <item>請檢查右側大燈!</item>
+        <item>故障：起動停止系統</item>
+        <item>制動助力系統失效</item>
+        <item>故障：車身穩定控制系統(ESC)</item>
+        <item>故障：ABS/車身穩定控制系統(ESC)</item>
+        <item>車身穩定控制系統(ESC)已關閉</item>
+        <item>驅動防滑控制系統(ASR)已停用</item>
+        <item>車身穩定控制系統(ESC)越野模式:行駛穩定性受限</item>
+        <item>車身穩定控制系統(ESC)運動模式:行駛穩定性受限</item>
+        <item>故障：自動駐車功能</item>
+        <item>故障：坡道起步輔助</item>
+        <item>駐車制動器：檢查模式</item>
+        <item>請注意：尚未達到工作溫度</item>
+        <item>車門/發動機艙蓋/行李箱蓋未關閉.參見多功能顯示中的汽車狀態</item>
+        <item>蓄電池電量不足</item>
+        <item>故障：油箱系統.維修站!</item>
+        <item>請加注燃油。</item>
+        <item>降低油位</item>
+        <item>請檢查機油油位</item>
+        <item>機油傳感器:維修站</item>
+        <item>柴油顆粒過濾器:參閱用戶手冊</item>
+        <item>加注清洗液!</item>
+        <item>故障：混合動力系統.維修站</item>
+        <item>故障：請檢查組合儀表中的汽車狀態</item>
+        <item>油位：加注機油！</item>
+        <item>加注: AdBlue! 發動機無法再啓動</item>
+        <item>故障：AdBlue! 發動機無法再啓動</item>
+        <item>故障：混合動力系統。停車！</item>
+        <item>發動機故障：維修站！</item>
+        <item>變速箱過熱. 停車！參閱用戶手冊</item>
+        <item>變速箱損壞. 維修站！</item>
+        <item>故障：制動器.停車.維修站！</item>
+        <item>故障：12V能量系統</item>
+        <item>故障：電力驅動系統.停車！</item>
+        <item>電力驅動系統過熱.停車！參閱用戶手冊！</item>
+        <item>請檢查挂車連接器</item>
+        <item>起動機系統損壞.維修站！</item>
+        <item>方形盤鎖止系統損壞：維修站！</item>
+        <item>故障：隨動轉向大燈(AFS)</item>
+        <item>故障：大燈照明距離調節</item>
+        <item>故障：車窗玻璃雨刮器</item>
+        <item>無鑰匙功能障礙</item>
+        <item>更換鑰匙蓄電池</item>
+        <item>蓄電池電量不足</item>
+        <item>故障：油箱系統.維修站！</item>
+        <item>請加注燃油.</item>
+        <item>降低油位</item>
+        <item>請檢查機油油位！</item>
+        <item>機油傳感器：維修站</item>
+        <item>柴油顆粒過濾器：參閱用戶手冊！</item>
+        <item>加注清洗液</item>
+        <item>故障：混合動力系統. 維修站！</item>
+        <item>車速超過120Km/h</item>
+        <item>故障：減震調節系統</item>
+        <item>加注AdBlue！後不能啓動發動機</item>
+        <item>故障：加注AdBlue後不能啓動發動機.</item>
+        <item>請檢查制動摩擦片！</item>
+        <item>發動機轉速最大 rpm.</item>
+        <item>故障：制動器.維修站！</item>
+        <item>故障：雨量傳感器</item>
+        <item>故障：自動行車燈控制</item>
+        <item>Roll Mode</item>
+        <item>駕駛員輔助系統按鈕故障</item>
+        <item>故障：電力驅動系統.維修站！</item>
+        <item>變速箱過熱</item>
+        <item>請檢查自動摩擦片！</item>
+        <item>發動機預熱到機油溫度！</item>
+        <item>燃油過濾器中有水分.參閱用戶手冊！</item>
+        <item>請添加液化氣.續駛裏程;</item>
+        <item>故障:液化氣.維修站！</item>
+        <item>請添加天然氣.續駛裏程</item>
+        <item>故障：天然氣.維修站！</item>
+        <item>請給蓄電池充電 續駛裏程;</item>
+        <item>故障：續駛裏程</item>
+        <item>行車聲音故障.謹慎駕駛！</item>
+        <item>壓力損失：請檢查輪胎壓力</item>
+        <item>壓力損失：請檢查左前輪胎充氣壓力！</item>
+        <item>壓力損失：請檢查右前輪胎充氣壓力！</item>
+        <item>壓力損失：請檢查左後輪胎充氣壓力！</item>
+        <item>壓力損失：請檢查右後輪胎充氣壓力！</item>
+        <item>故障：燈光輔助系統</item>
+        <item>燈光輔助系統：清潔擋風玻璃</item>
+        <item>自適應巡航(ACC)和前部輔助系統不可用.</item>
+        <item>ACC和前部輔助系統：無傳感器視圖.</item>
+        <item>變道輔助系統當前不可用.</item>
+        <item>變道輔助系統</item>
+        <item>車道保持輔助系統當前不可用</item>
+        <item>故障：車道保持輔助系統</item>
+        <item>車道保持輔助系統不可用.無傳感器視圖</item>
+        <item>主動成員保護系統不可用</item>
+        <item>主動成員保護系統：功能受限.</item>
+        <item>識別到疲勞駕駛.請稍作休息.</item>
+        <item>識別到疲勞駕駛.請稍作休息.</item>
+        <item>故障：ABS.</item>
+        <item>故障：驅動防滑控制系統.</item>
+        <item>故障：ABS/驅動防滑控制系統(ASR)</item>
+        <item>故障：交通標志識別</item>
+        <item>交通標志識別：清潔擋風玻璃！</item>
+        <item>交通標志識別：目前受限.</item>
+        <item>驅動防滑控制系統(ASR)已停用.</item>
+        <item>故障：組合儀表.維修站!</item>
+        <item>蓄電池電量不足</item>
+        <item>檢查蓄電池！</item>
+        <item>故障：蓄電池診斷</item>
+        <item>前部輔助系統不可用</item>
+        <item>無法重新啓動.請勿打開發動機罩.</item>
+        <item>請將選檔杆置于P位置！</item>
+        <item>故障：駕駛員側車門觸點</item>
+        <item>故障：維修站！請將選檔杆置于P位置後再離開車輛.</item>
+        <item>前部輔助系統：無傳感器視圖.</item>
+        <item>不能充電.維修站！</item>
+        <item>不能快速充電.維修站！</item>
+        <item>維修站診斷 激活</item>
+        <item>制動器滾動模式</item>
+        <item>前部輔助系統不可用.</item>
+        <item>前部輔助系統：無傳感器視圖.</item>
+        <item>折疊式車頂功能失靈.參閱用戶手冊！</item>
+        <item>故障：折疊式車頂.維修站！</item>
+        <item>進行保養！參見保養設置或者多功能顯示中的汽車狀態.</item>
+        <item>現在進行保養</item>
+        <item>更換機油後</item>
+        <item>更換機油 天後</item>
+        <item>檢查 天後</item>
+        <item>檢查 後</item>
+        <item>更換機油和檢查 後</item>
+        <item>更換機油和檢查 天後</item>
+        <item>立即檢查車況！</item>
+        <item>立即更換機油</item>
+        <item>立即更換機油並檢查車況！</item>
+        <item>倒車側視輔助/盲區監控 傳感器當前不可用</item>
+        <item>故障：倒車側視輔助/盲區監控 傳感器</item>
+        <item>倒車側視輔助/盲區監控 傳感器不可用.傳感器無數據.</item>
+        <item>挂車:倒車側視輔助/盲區監控 傳感器不可用</item>
+        <item>倒車側視輔助當前不可用.</item>
+        <item>行車聲音已手動停用.謹慎駕駛！</item>
+    </array>
+    <array name="can_golf_wc_start_stop_msg">
+        <item>擋風玻璃可能蒙上了霧</item>
+        <item>未遵守工作溫度</item>
+        <item>未識別到駕駛員</item>
+        <item>變速箱需要發動機運行</item>
+        <item>車輛能量要求高</item>
+        <item>啟動停止系統正在啟動</item>
+        <item>需要發動機運行</item>
+        <item>過於傾斜</item>
+        <item>啟動停止系統目前不可用</item>
+        <item>緊急制動功能干預</item>
+        <item>制動器需要發動機運行</item>
+        <item>車輛能量需求高</item>
+        <item>啟動停止系統需要發動機運行</item>
+        <item>空調器需要發動機運行</item>
+        <item>未識別駕駛員</item>
+        <item>駕駛座廁門打開</item>
+        <item>安全帶已達開</item>
+        <item>系統保護干預</item>
+        <item>因系統需求發動機不啟動</item>
+        <item>帶掛車行駛</item>
+        <item>轉向角度過大</item>
+        <item>調車模式</item>
+        <item>除霜功能已打開</item>
+        <item>駕駛員安全帶鎖未扣上</item>
+        <item>駕駛員側車門敞開</item>
+        <item>已踩下油門踏板</item>
+        <item>擋風玻璃加熱裝置已接通</item>
+        <item>空調滿功率功能已打開</item>
+        <item>發動機艙蓋已打開</item>
+        <item>目前無法停止發動機</item>
+        <item>越野模式已激活</item>
+        <item>系統保護干預.操作/啟動進程過多</item>
+        <item>已掛檔</item>
+        <item>已按下自動啟停按鈕</item>
+        <item>空調器需要發動機運行</item>
+        <item>ACC干預</item>
+        <item>自動泊車系統已激活</item>
+        <item>車身穩定控制系統(ESC)已關閉</item>
+        <item>車輛能量要求高</item>
+        <item>駕駛員安全帶鎖未扣上</item>
+        <item>沒有駕駛員</item>
+        <item>請手動啟動發動機</item>
+        <item>自動啟停系統已激活</item>
+        <item>自動啟停系統可用</item>
+        <item>發動機停止已激活</item>
+        <item>自動啟停系統不可用</item>
+        <item>駕駛員車門已打開.未準確識別駕駛員</item>
+        <item>請踩下制動踏板</item>
+        <item>要停止發動機.請鬆開離合器</item>
+        <item>自動啟停系統已關閉</item>
+        <item>故障:自動啟停系統</item>
+    </array>
+    <array name="can_start_stop_msg">
+        <item>拖車模式</item>
+        <item>小心檔風玻璃起霧</item>
+        <item>不能維持工作溫度</item>
+        <item>未發現駕駛員</item>
+        <item>操作變速箱需要發動機運行</item>
+        <item>功耗高</item>
+        <item>啓用啓-停系統</item>
+        <item>引擎必須運行</item>
+        <item>坡度太陡</item>
+        <item>啓-停系統當前不可用</item>
+        <item>緊急制動功能幹預</item>
+        <item>制動器需要發動機運行</item>
+        <item>功耗高</item>
+        <item>空調開啓需要發動機運行</item>
+        <item>轉向角太大</item>
+        <item>操縱模式</item>
+        <item>除霜功能開啓</item>
+        <item>駕駛員未系安全帶</item>
+        <item>駕駛室門打開</item>
+        <item>加速踏板被踩下</item>
+        <item>前窗加熱開啓</item>
+        <item>空調最大制冷需要發動機運行</item>
+        <item>引擎蓋未關好</item>
+        <item>發動機當前無法停止</item>
+        <item>越野模式已啓用</item>
+        <item>手刹按鈕/ 杆使用太頻繁</item>
+        <item>齒輪齧合</item>
+        <item>啓-停按鈕已按下</item>
+        <item>空調開啓需要發動機運行</item>
+        <item>ACC 狀態</item>
+        <item>駐車輔助已啓動</item>
+        <item>ESC 關閉</item>
+        <item>功耗高</item>
+        <item>啓-停系統需要發動機運行</item>
+    </array>
+    <array name="can_start_stop_other_msg">
+        <item>啟-停系統已經激活</item>
+        <item>啟-停系統可用</item>
+        <item>引擎已經停止</item>
+        <item>駕駛側門打開，駕駛員不在</item>
+        <item>請按下油門踏板</item>
+        <item>請踩離合器，停止引擎</item>
+        <item>啟-停系統未激活</item>
+        <item>錯誤：啟-停系統不可用</item>
+        <item>啟-停系統不可用</item>
+    </array>
+    <array name="can_battery_arrays">
+        <item>單體最高電壓:</item>
+        <item>單體最高電壓組號:</item>
+        <item>單體最低電壓:</item>
+        <item>單體最低電壓組號:</item>
+        <item>電池組最高溫度:</item>
+        <item>電池組最低溫度:</item>
+        <item>電池組最高溫度組號:</item>
+        <item>電池組最低溫度組號:</item>
+        <item>剩餘電量:</item>
+    </array>
+    <array name="can_error_arrays">
+        <item>嚴重過壓</item>
+        <item>嚴重過溫</item>
+        <item>過流</item>
+        <item>IGBT故障</item>
+        <item>主接故障</item>
+        <item>預充故障</item>
+        <item>總線故障</item>
+        <item>超速</item>
+        <item>嚴重堵轉</item>
+        <item>嚴重欠壓</item>
+        <item>IGBT過溫</item>
+        <item>旋變硬件</item>
+        <item>旋變角度</item>
+        <item>中點電壓</item>
+        <item>油門故障</item>
+        <item>檔位故障</item>
+        <item>通訊異常</item>
+        <item>絕緣過低</item>
+        <item>放電過流</item>
+        <item>電池溫度過高</item>
+        <item>單體過放</item>
+        <item>短路保護</item>
+        <item>溫升過快</item>
+        <item>壓差過大</item>
+        <item>溫差過大</item>
+        <item>溫度過低</item>
+        <item>充電過流</item>
+        <item>總壓過低</item>
+        <item>總壓過高</item>
+    </array>
+    <array name="can_eps_turn_mode">
+        <item>舒適模式</item>
+        <item>運動模式</item>
+    </array>
+    <array name="can_teramont_eco_array">
+        <item>經濟</item>
+        <item>標準</item>
+        <item>運動</item>
+        <item>個性化</item>
+    </array>
+    <array name="can_teramont_drive_profile_array">
+        <item>雪地</item>
+        <item>經濟</item>
+        <item>越野</item>
+        <item>越野個性化</item>
+    </array>
+    <array name="can_golf_teramont_tyres_array">
+        <item>舒適</item>
+        <item>標準</item>
+        <item>滿載</item>
+    </array>
+    <array name="can_golf_teramont_tyres_warn_array">
+        <item>輪胎壓力正常</item>
+        <item>請檢查輪胎壓力</item>
+        <item>輪胎壓力過低</item>
+        <item>輪胎失壓</item>
+    </array>
+    <array name="can_jyx5_car_type_array">
+        <item>高配</item>
+        <item>低配、中配</item>
+    </array>
+    <array name="can_kadjar_car_type_array">
+        <item>其他車型</item>
+        <item>科雷傲（低配）</item>
+    </array>
+    <array name="can_qc_t70_car_type_array">
+        <item>2015款 T70</item>
+        <item>2016款 T70</item>
+        <item>2017款 T90</item>
+        <item>2018款 D60</item>
+        <item>2018款 T70</item>
+    </array>
+    <array name="can_df_jyx5_jdsj">
+        <item>10分鐘</item>
+        <item>20分鐘</item>
+        <item>30分鐘</item>
+    </array>
+    <array name="can_df_jyx5_ddys">
+        <item>無</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_geely_boy_mode">
+        <item>舒適</item>
+        <item>運動</item>
+    </array>
+    <array name="can_geely_boy_yklsfk">
+        <item>喇叭不響</item>
+        <item>喇叭響</item>
+    </array>
+    <array name="can_kaiyi_3x_tdjd">
+        <item>角度 0</item>
+        <item>角度 1</item>
+        <item>角度 2</item>
+        <item>角度 3</item>
+    </array>
+    <array name="can_kaiyi_3x_aqkz">
+        <item>經濟型</item>
+        <item>舒適型</item>
+        <item>運動型</item>
+    </array>
+    <array name="can_kaiyi_3x_bdsg">
+        <item>關</item>
+        <item>3 次</item>
+        <item>5 次</item>
+        <item>7 次</item>
+    </array>
+    <array name="can_h6_car_type_array">
+        <item>其他车型</item>
+        <item>2016款 Coupe</item>
+    </array>
+    <array name="can_ht_car_type_array">
+        <item>其他车型</item>
+        <item>漢騰 X7（低配）</item>
+        <item>漢騰X5（低配）</item>
+        <item>漢騰 X5（中高配）</item>
+    </array>
+    <array name="can_b50_car_type_array">
+        <item>其他車型</item>
+        <item>17款X80低配</item>
+    </array>
+    <array name="can_cch6_dd_delay_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>60s</item>
+    </array>
+    <array name="can_cch6_dd_delay_2017_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_cch6_hj_delay_array">
+        <item>30s</item>
+        <item>1min</item>
+        <item>2min</item>
+        <item>3min</item>
+    </array>
+    <array name="can_cch6_jd_setup_array">
+        <item>10min</item>
+        <item>20min</item>
+        <item>30min</item>
+    </array>
+    <array name="can_tigger7_car_type_array">
+        <item>艾瑞澤5</item>
+        <item>瑞虎7 2016</item>
+        <item>瑞虎3x 2017</item>
+        <item>瑞虎3 2017</item>
+        <item>艾瑞澤7 2016</item>
+    </array>
+    <array name="can_tigger7_language_array">
+        <item>中文</item>
+        <item>English</item>
+    </array>
+    <array name="can_tigger7_tip_array">
+        <item>喇叭</item>
+        <item>燈光</item>
+        <item>燈光和喇叭</item>
+    </array>
+    <array name="can_tigger7_car_line_array">
+        <item>關</item>
+        <item>靜態</item>
+        <item>靜態+動態</item>
+    </array>
+    <array name="can_service_notice_array">
+        <item>保養提示</item>
+        <item>即將到期</item>
+        <item>檢查日期已過</item>
+        <item>請儘快保養</item>
+    </array>
+    <array name="can_by_service_array">
+        <item>機油</item>
+        <item>車輛檢查</item>
+        <item>制動液</item>
+        <item>法定尾氣檢查</item>
+        <item>法定車輛檢查</item>
+        <item>前部製動摩擦片</item>
+        <item>後部製動摩擦片</item>
+        <item>變速汽油</item>
+        <item>磨合檢查</item>
+    </array>
+    <array name="can_psa_check">
+        <item>檢測位置燈</item>
+        <item>輪胎破裂：更換或修理輪胎</item>
+        <item>輪胎破裂：更換或修理輪胎</item>
+        <item>輪胎破裂：更換或修理輪胎</item>
+        <item>輪胎破裂：更換或修理輪胎</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>檢測右后制動燈</item>
+        <item>檢測遠光燈</item>
+        <item>檢測遠光燈</item>
+        <item>檢測近光燈</item>
+        <item>檢測近光燈</item>
+        <item>檢測位置燈</item>
+        <item>檢測位置燈</item>
+        <item>檢測位置燈</item>
+        <item>檢測轉向燈</item>
+        <item>檢測轉向燈</item>
+        <item>檢測轉向燈</item>
+        <item>檢測后霧燈</item>
+        <item>檢測后霧燈</item>
+        <item>檢測前霧燈</item>
+        <item>檢測前霧燈</item>
+        <item>檢測左后制動燈</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>檢測倒車燈</item>
+        <item>檢測倒車燈</item>
+        <item>檢測轉向燈</item>
+        <item>請給輪胎充氣</item>
+        <item>請給輪胎充氣</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>駐車輔助系統故障</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>防污染系統故障</item>
+        <item>防污染系統故障：禁止啟動</item>
+        <item>防污染系統故障</item>
+        <item>保留</item>
+        <item>關閉大燈</item>
+        <item>請給輪胎充氣</item>
+        <item>請給輪胎充氣</item>
+        <item>左后門未關</item>
+        <item>右后門未關</item>
+        <item>左前門未關</item>
+        <item>右前門未關</item>
+        <item>當心路面結冰</item>
+        <item>換擋桿到“p位”</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>后風擋未關</item>
+        <item>碰撞風險探測故障</item>
+        <item>李箱未關</item>
+        <item>保留</item>
+        <item>隨動轉向前大燈故障</item>
+        <item>自動手剎系統故障</item>
+        <item>可變尾翼功能故障請限速并參考說明書</item>
+        <item>駐車制動故障：請維修車輛</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>變速箱故障：請維修車輛</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>懸架系統故障：請限速90KM</item>
+        <item>發動機故障：請維修車輛</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>傳感器故障：左后輪胎氣壓未監控</item>
+        <item>傳感器故障：右后輪胎氣壓未監控</item>
+        <item>傳感器故障：右前輪胎氣壓未監控</item>
+        <item>傳感器故障：左前輪胎氣壓未監控</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>胎壓監測系統故障</item>
+        <item>保留</item>
+        <item>發動車故障：請停車</item>
+        <item>行車間距測量故障</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>助力轉向系統故障：請維修車輛</item>
+        <item>懸架系統故障：請維修車輛</item>
+        <item>填充防污染添加劑，禁止啟動</item>
+        <item>填充防污染添加劑</item>
+        <item>填充防污染添加劑</item>
+        <item>保留</item>
+        <item>左前輪胎氣壓不足：請充氣，然后重新開始初始化</item>
+        <item>右前輪胎氣壓不足：請充氣，然后重新開始初始化</item>
+        <item>左后輪胎氣壓不足：請充氣，然后重新開始初始化</item>
+        <item>右后輪胎氣壓不足：請充氣，然后重新開始初始化</item>
+        <item>保留</item>
+        <item>請加注冷卻液</item>
+        <item>助力轉向系統故障：請停車</item>
+        <item>保留</item>
+        <item>制動系統故障：請停車</item>
+        <item>保留</item>
+        <item>發動機溫度故障：請停車</item>
+        <item>發動機機油壓力故障：請停車</item>
+        <item>行李箱未關</item>
+        <item>保留</item>
+        <item>右后門未關</item>
+        <item>左后門未關</item>
+        <item>右前門未關</item>
+        <item>左前門未關</item>
+        <item>保留</item>
+        <item>請加注發動機機油</item>
+        <item>安全氣囊或安全帶預張緊故障</item>
+        <item>燃油量不足</item>
+        <item>請更換制動片</item>
+        <item>柴油濾清器進水：請維修車輛</item>
+        <item>保留</item>
+        <item>蓄電池充電故障：請停車</item>
+        <item>ESP/ASR系統故障：請維修車輛</item>
+        <item>后風擋未關</item>
+        <item>懸架系統故障：請維修車輛</item>
+        <item>保留</item>
+        <item>微粒過濾器添加劑不足：請維修車輛</item>
+        <item>保留</item>
+        <item>微粒過濾器有堵塞風險：請參考說明書</item>
+        <item>ABS制動系統故障：請維修車輛</item>
+        <item>發動機故障：請維修車輛</item>
+        <item>保留</item>
+        <item>無法開啟硬頂：系統溫度過高</item>
+        <item>保留</item>
+        <item>電子防啟動系統故障</item>
+        <item>轉向柱鎖故障：請維修車輛</item>
+        <item>硬頂折疊機械故障</item>
+        <item>檢測中間制動燈</item>
+        <item>預熱/預通風停用：油量不足</item>
+        <item>預熱/預通風停用：電量不足</item>
+        <item>更換遙控器電池</item>
+        <item>請添加玻璃清洗液</item>
+        <item>混合動力系統故障：請限速，維修車輛</item>
+        <item>混合動力系統故障：請維修車輛</item>
+        <item>大燈自動調節系統故障</item>
+        <item>混合動力系統故障：請停車并參考說明書</item>
+        <item>無法開啟硬頂：拉緊手剎</item>
+        <item>無法開啟硬頂：啟動發動機</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>胎壓檢測系統故障</item>
+        <item>保留</item>
+        <item>拖車連接故障：請維修車輛</item>
+        <item>預熱/預通風停用：設置時鐘</item>
+        <item>保留</item>
+    </array>
+    <array name="can_psa_rzc_check">
+        <item>无功能状态信息、无报警记录、诊断正常</item>
+        <item>驻车辅助启用</item>
+        <item>驻车辅助停止</item>
+        <item>乘客正面气囊启用</item>
+        <item>乘客正面气囊停用</item>
+        <item>车门自锁启用</item>
+        <item>车门自锁停用</item>
+        <item>车门已锁</item>
+        <item>车门已解锁</item>
+        <item>倒车时后雨刷器启用</item>
+        <item>倒车时后雨刷器停用</item>
+        <item>引擎温度故障，请停车</item>
+        <item>请加注冷却液</item>
+        <item>请加引擎机油</item>
+        <item>引擎机油压力故障，请停车</item>
+        <item>制动系统故障</item>
+        <item>不可操作</item>
+        <item>车门、行李箱、引擎盖、后风窗或油箱未关</item>
+        <item>多个轮胎爆裂</item>
+        <item>微粒过滤器有堵塞风险：请参考说明书</item>
+        <item>悬架故障 限速：90km/h</item>
+        <item>悬架系统故障</item>
+        <item>助力转向故障</item>
+        <item>10km/h</item>
+        <item>驻车制动启用</item>
+        <item>驻车制动解除</item>
+        <item>制动操控故障驻车制动自动激活</item>
+        <item>制动片磨碎</item>
+        <item>驻车制动故障</item>
+        <item>可变尾翼功能缺失限速，请参考说明书</item>
+        <item>ABS 故障</item>
+        <item>ESP/ASR 系统故障</item>
+        <item>变速箱系统故障</item>
+        <item>变速箱故障：请维修车辆</item>
+        <item>巡航系统故障</item>
+        <item>微粒过滤器添加剂不足：请维修车辆</item>
+        <item>电子防盗系统故障</item>
+        <item>驻车辅助系统故障</item>
+        <item>车位测量系统故障</item>
+        <item>蓄电池充电或供电系统故障</item>
+        <item>轮胎气压不足</item>
+        <item>近光灯泡坏</item>
+        <item>远光灯泡坏</item>
+        <item>制动灯泡坏</item>
+        <item>雾灯灯泡坏</item>
+        <item>转向灯灯泡坏</item>
+        <item>倒车灯炮坏</item>
+        <item>位置灯灯泡坏</item>
+        <item>换挡杠换到“P档</item>
+        <item>当心路面结冰</item>
+        <item>当心手刹</item>
+        <item>风窗洗涤液不足</item>
+        <item>燃油不足</item>
+        <item>供油切断</item>
+        <item>遥控器电量不足</item>
+        <item>轮胎气压未监控</item>
+        <item>高速、检测胎压是否合适</item>
+        <item>轮胎气压不足</item>
+        <item>诊断中</item>
+        <item>诊断完成</item>
+        <item>左右安全带未系</item>
+        <item>后座中间安全带未系</item>
+        <item>左后安全带未系</item>
+        <item>右后安全带未系</item>
+        <item>自动雨刮器启用</item>
+        <item>自动雨刮器停用</item>
+        <item>大灯自动点亮启用</item>
+        <item>大灯自动点亮停用</item>
+        <item>无法开启硬顶：隔板未放</item>
+        <item>硬顶操作完成</item>
+        <item>立即结束硬顶操作</item>
+        <item>操作失败：硬顶已锁</item>
+        <item>硬顶折叠机械故障</item>
+        <item>操作失败：后风窗未关</item>
+        <item>防倒滑系统故障</item>
+        <item>驾驶模式：正常模式</item>
+        <item>驾驶模式：泥地模式</item>
+        <item>驾驶模式：雪地模式</item>
+        <item>驾驶模式：沙地模式</item>
+        <item>ESP 系统停用</item>
+        <item>行车间距不可测量：能见度过低</item>
+        <item>行车间距不可测量：正在初始化</item>
+        <item>活动顶棚操作失败：膨体未到位</item>
+        <item>行李箱盖未关</item>
+        <item>油箱口盖未锁好</item>
+        <item>右后车门未关</item>
+        <item>左后车门未关</item>
+        <item>右前车门未关</item>
+        <item>左前车门未关</item>
+        <item>当心手刹</item>
+        <item>安全气囊或安全带预张紧故障</item>
+        <item>柴油滤清器进水：请维修车辆</item>
+        <item>胎压监测系统故障</item>
+        <item>无法开启硬顶：系统温度过高（左后轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>无法开启硬顶：系统温度过高（左后轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>电子防起动故障</item>
+        <item>方向盘锁故障：请维修车辆</item>
+        <item>检测中间制动灯</item>
+        <item>预热/预通风停用:油量不足（巡航系统故障）</item>
+        <item>预热/预通风停用:电量不足</item>
+        <item>混合动力系统故障:请限速,维修车辆</item>
+        <item>混合动力系统故障:请维修车辆</item>
+        <item>大灯自动调节系统故障</item>
+        <item>混合动力系统故障:请停车并参考说明书</item>
+        <item>无法开启硬顶：系统温度过高（左前轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>无法开启硬顶：系统温度过高（右前轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>胎压检测系统故障(轮胎气压未监控)</item>
+        <item>拖车连接故障:请维修车辆(光敏传感器故障)</item>
+        <item>预热/预通风停用:调节时钟</item>
+        <item>碰撞风险探测故障（发动机罩未关）</item>
+        <item>随动转向前大灯故障</item>
+        <item>自动手刹系统故障（发动机罩未关）</item>
+        <item>车道偏离报警故障</item>
+        <item>传感器故障:左后轮胎气压未监控</item>
+        <item>传感器故障:右后轮胎气压未监控</item>
+        <item>传感器故障:右前轮胎气压未监控</item>
+        <item>传感器故障:左前轮胎气压未监控</item>
+        <item>胎压检测系统故障（填充防污染添加剂）</item>
+        <item>发动机（引擎）故障:请停车</item>
+        <item>发动机（引擎）故障:请维修车辆</item>
+        <item>行车间距测量故障</item>
+        <item>填充防污染添加剂:禁止启动</item>
+        <item>填充防污染添加剂</item>
+        <item>左前轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>右前轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>左后轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>右后轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>左后轮胎破裂:更换或修理轮胎</item>
+        <item>右后轮胎破裂:更换或修理轮胎</item>
+        <item>右前轮胎破裂:更换或修理轮胎</item>
+        <item>左前轮胎破裂:更换或修理轮胎</item>
+        <item>右后制动灯灯泡坏</item>
+        <item>左后制动灯灯泡坏</item>
+        <item>防污染系统故障</item>
+        <item>防污染系统故障:禁止启动</item>
+        <item>关闭大灯</item>
+    </array>
+    <array name="can_psa_warn">
+        <item>發動機油溫故障，請停車</item>
+        <item>請加注冷卻液</item>
+        <item>請加注發動機機油</item>
+        <item>發動機機油壓力故障，請停車</item>
+        <item>制動系統故障，請停車</item>
+        <item>微粒過濾器有堵塞風險，請參考說明書</item>
+        <item>懸架系統故障，限速：90km/h</item>
+        <item>助力轉向系統故障，請維修車輛</item>
+        <item>駐車制動故障，請維修車輛</item>
+        <item>請更換制動片</item>
+        <item>駐車制動故障，請維修車輛</item>
+        <item>可變尾翼故障 請限速，請參考說明書</item>
+        <item>ABS制動系統故障，請維修車輛</item>
+        <item>ESP/ASR系統故障，請維修車輛</item>
+        <item>懸架系統故障，請維修車輛</item>
+        <item>助力轉向系統故障，請停車</item>
+        <item>大燈自動調節系統故障</item>
+        <item>隨動轉向前大燈故障</item>
+        <item>安全氣囊或安全帶預張緊故障</item>
+        <item>發動機罩開啟傳感器故障</item>
+        <item>變速箱故障，請維修車輛</item>
+        <item>啟動發動機，請踩住剎車踏板并將換擋桿置于N位置</item>
+        <item>柴油濾清器進水，請維修車輛</item>
+        <item>發動機故障，請維修車輛</item>
+        <item>NULL</item>
+        <item>微粒過濾器添加劑不足，請維修車輛</item>
+        <item>駐車輔助系統故障</item>
+        <item>蓄電池充電故障，請停車</item>
+        <item>車輛靠近</item>
+        <item>行車間距不可測量，巡航功能已激活</item>
+        <item>條件不足，無法激活</item>
+        <item>巡航功能暫停，重新檢測</item>
+        <item>速度&gt;150km/h，速度調節關閉</item>
+        <item>記錄胎壓</item>
+        <item>胎壓監測系統故障</item>
+        <item>請關門，以便啟動自動釋放手剎功能</item>
+        <item>請剎車！</item>
+        <item>自動手剎系統關閉</item>
+        <item>加注添加劑，在0km內禁止開始</item>
+        <item>NULL</item>
+        <item>填充防污染添加劑，禁止啟動</item>
+        <item>防污染系統故障</item>
+        <item>排放控制故障，在0km內禁止開始</item>
+        <item>防污染系統故障，禁止啟動</item>
+        <item>發動機啟停功能停用，環境溫度不適</item>
+        <item>行駛時無法重新初始化</item>
+        <item>動態模式關閉</item>
+        <item>無動態模式</item>
+        <item>關閉大燈</item>
+        <item>請拔鑰匙</item>
+        <item>定速巡航系統不能啟用，速度過低</item>
+        <item>定速巡航系統不能啟用，設定車速</item>
+        <item>換擋桿換到P位</item>
+        <item>當心路面結冰</item>
+        <item>松開手剎</item>
+        <item>請調整玻璃清洗液</item>
+        <item>燃油量不足</item>
+        <item>供油切斷</item>
+        <item>更換遙控器電池</item>
+        <item>將換擋桿置于N位置</item>
+        <item>按下手剎停車按鈕時請踩住制動踏板</item>
+        <item>無法開啟硬頂，室外溫度過低</item>
+        <item>無法開啟硬頂，車速過高</item>
+        <item>無法開啟硬頂，行李箱蓋未關</item>
+        <item>無法開啟硬頂，隔板未放</item>
+        <item>硬頂操作完成</item>
+        <item>立即結束硬頂操作</item>
+        <item>硬頂折疊機械故障</item>
+        <item>操作失敗，后風窗未關</item>
+        <item>防倒退系統故障</item>
+        <item>行車間距不可測量，能見度過低</item>
+        <item>行車間距不可測量，正在初始化</item>
+        <item>預熱/預通風停用，調節時鐘</item>
+        <item>預熱/預通風停用，燃油不足</item>
+        <item>預熱/預通風停用，電量不足</item>
+        <item>轉動方向盤以解鎖</item>
+        <item>鑰匙已拔出，請長按關閉發動機</item>
+        <item>為關閉發動機，請將換擋桿置于P位置</item>
+        <item>為啟動發動機，請將鑰匙插入</item>
+        <item>為啟動發動機，請踩住制動踏板+按START</item>
+        <item>為啟動發動機，請踩住離合踏板+按START</item>
+        <item>未檢測到鑰匙</item>
+        <item>取出鑰匙</item>
+        <item>無車鑰匙</item>
+        <item>為松開手剎，請踩住制動踏板</item>
+        <item>定速巡航功能暫停</item>
+        <item>定速巡航故障</item>
+        <item>請完全踩下離合器</item>
+        <item>測算中，最大車速20km/h</item>
+        <item>通過轉向燈選擇方向</item>
+        <item>方向盤故障，請維修車輛</item>
+        <item>請將手剎拉至最大位置</item>
+        <item>電路故障，請維修車輛</item>
+        <item>拉緊手剎</item>
+        <item>電子防啟動故障</item>
+        <item>發動機故障，請停車</item>
+        <item>無法開啟硬頂，系統溫度過高</item>
+        <item>無法開啟硬頂，啟動發動機</item>
+        <item>無法開啟硬頂，拉緊手剎</item>
+        <item>混合動力系統故障，請停車并參考說明書</item>
+        <item>混合動力系統故障，請維修車輛</item>
+        <item>混合動力系統故障，請限速，維修車輛</item>
+        <item>將換擋桿置于N位置并斷開鑰匙連接</item>
+        <item>混合動力系統激活</item>
+        <item>電動力模式暫時無法切換</item>
+        <item>拖車連接故障，請維修車輛</item>
+        <item>請手動重新啟動</item>
+    </array>
+    <array name="can_psa_func">
+        <item>駐車制動啟用</item>
+        <item>駐車制動解除</item>
+        <item>自動雨刷啟用</item>
+        <item>自動雨刷停用</item>
+        <item>大燈自動點亮啟用</item>
+        <item>大燈自動點亮停用</item>
+        <item>車門自鎖啟用</item>
+        <item>車門自鎖停用</item>
+        <item>兒童安全裝置啟用</item>
+        <item>兒童安全裝置停用</item>
+        <item>ESP系統啟用</item>
+        <item>ESP系統停用</item>
+        <item>驅動防滑系統：正常模式</item>
+        <item>驅動防滑系統：泥地模式</item>
+        <item>驅動防滑系統：雪地模式</item>
+        <item>驅動防滑系統：沙地模式</item>
+        <item>發動機啟停功能啟用</item>
+        <item>發動機啟停功能停用</item>
+        <item>牽引控制開啟</item>
+        <item>牽引控制關閉</item>
+    </array>
+    <array name="can_ford_warn_text">
+        <item>無</item>
+        <item>變速箱過熱請安全停車</item>
+        <item>變速箱故障請立即檢修</item>
+        <item>引擎故障請立即檢修</item>
+        <item>柴油濾清器阻塞請參考用戶手冊</item>
+        <item>引擎機油需要更換請檢修</item>
+        <item>引擎機油油量低請安全停車</item>
+        <item>坡道起步輔助不可用</item>
+        <item>安全氣囊故障請立即檢修</item>
+        <item>剎車系統故障請安全停車</item>
+        <item>剎車油油量低請立即檢修</item>
+        <item>ABS故障請立即檢修</item>
+        <item>ESP關閉</item>
+        <item>ESP關閉</item>
+        <item>助力轉向故障請立即檢修</item>
+        <item>無</item>
+        <item>后備箱未關好</item>
+        <item>引擎蓋未關好</item>
+        <item>后排右側車門未關好</item>
+        <item>后排左側車門未關好</item>
+        <item>副駕駛座車門未關好</item>
+        <item>駕駛座車門未關好</item>
+        <item>無</item>
+        <item>自動 啟-停 啟動引擎</item>
+        <item>左轉提示燈故障更換燈泡</item>
+        <item>左轉提示燈故障更換燈泡</item>
+        <item>引擎蓋未關好</item>
+        <item>后備箱未關好</item>
+        <item>后排右側車門未關好</item>
+        <item>后排左側車門未關好</item>
+        <item>副駕駛座車門未關好</item>
+        <item>駕駛座車門未關好</item>
+        <item>踩離合器啟動</item>
+        <item>踩剎車啟動</item>
+        <item>鑰匙電池電量低更換電池</item>
+        <item>自動 啟-停 請踩踏板 啟動引擎</item>
+        <item>防盜系統故障請檢修</item>
+        <item>鑰匙電池電量低更換電池</item>
+        <item>內部掃描已取消</item>
+        <item>自動雨刷/燈故障請檢修</item>
+        <item>自動 啟-停 請手動啟動引擎</item>
+        <item>關閉后備箱或使用備用鑰匙</item>
+        <item>轉向鎖已啟用請轉動方向盤</item>
+        <item>轉向鎖故障請安全停車</item>
+        <item>轉向鎖故障請立即檢修</item>
+        <item>鑰匙不在車內</item>
+        <item>未發現鑰匙</item>
+        <item>按POWER鍵關閉引擎</item>
+        <item>車門未關好請踩剎車減速</item>
+        <item>選擇空擋啟動</item>
+        <item>踩剎車啟動</item>
+        <item>自動 啟-停 選擇空擋</item>
+        <item>選擇空擋或P檔啟動</item>
+        <item>變速箱不在P檔請選擇P檔</item>
+        <item>自動 啟-停 關閉點火開關</item>
+        <item>引擎防盜鎖故障請立即檢修</item>
+        <item>防盜系統已啟動請檢查車輛</item>
+        <item>防盜系統已啟動請檢查車輛</item>
+        <item>防盜系統已啟動請檢查車輛</item>
+        <item>防盜系統已啟動請檢查車輛</item>
+        <item>變速箱溫度高請停車或加速</item>
+        <item>變速箱溫度高請停車或加速</item>
+        <item>變速箱準備就緒</item>
+        <item>變速箱溫度高請等候4分鐘</item>
+        <item>踩剎車和離合器啟動</item>
+        <item>踩剎車啟動</item>
+        <item>踩離合器啟動</item>
+        <item>城市安全系統 自動剎車</item>
+        <item>城市安全系統不可用</item>
+        <item>城市安全系統 感應器阻塞 請清理鏡頭</item>
+        <item>請檢車輪胎壓力</item>
+        <item>輪胎壓力系統故障請檢修</item>
+        <item>引擎運轉中</item>
+        <item>MyKey 已啟用請安全駕駛</item>
+        <item>MyKey 限速至160KM/H</item>
+        <item>MyKey 車速已達最高車速</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>MyKey 注意車速 請安全駕駛</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>MyKey 泊車輔助不能解除</item>
+        <item>MyKey 電子穩定控制不能解除</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>踩剎車解鎖變速桿</item>
+        <item>啟動 時間超時</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>變速箱 不在P檔</item>
+        <item>變速桿已解鎖</item>
+        <item>手剎未松</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>無</item>
+        <item>MyKey 車速接近最高車速</item>
+        <item>無</item>
+        <item>手剎未松</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_tsy">
+        <item>NULL</item>
+        <item>確保在操縱之前是安全</item>
+        <item>泊車輔助不可用</item>
+        <item>使用轉向信號改變方向</item>
+        <item>選擇前進擋</item>
+        <item>發現空間，向前行駛</item>
+        <item>停在空的車位旁邊</item>
+        <item>按“△▽”設置泊車位置</item>
+        <item>調整停車位置</item>
+        <item>泊車輔助取消</item>
+        <item>向後行駛</item>
+        <item>停止并選擇倒擋</item>
+        <item>前行</item>
+        <item>停止并選擇前進擋</item>
+        <item>泊車輔助完成</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>中心方向盤</item>
+        <item>解除拖車</item>
+        <item>VDC 必須為ON</item>
+        <item>關門開始</item>
+        <item>系統故障</item>
+        <item>泊車輔助故障</item>
+        <item>超速</item>
+        <item>轉向干預</item>
+        <item>拖車ON</item>
+        <item>VDC 有效</item>
+        <item>門打開/為系安全帶</item>
+        <item>超時</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>引擎未激活</item>
+        <item>Esp 未激活</item>
+        <item>前輪驅動到泊車位外</item>
+        <item>不可恢復</item>
+        <item>NULL</item>
+        <item>停止</item>
+        <item>選擇倒擋</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>檢查周圍環境</item>
+        <item>在停車位旁停下并啟動泊車輔助</item>
+        <item>NULL</item>
+        <item>降低速度</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>方向盤轉動</item>
+        <item>小心駕駛</item>
+        <item>小心倒車</item>
+        <item>檢查障礙物</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_declare">
+        <item>How to Use Bay Parking</item>
+        <item>① Position blue box in empty target space</item>
+        <item>② Red lines show limits of the system</item>
+        <item>③ Push‘Start’,to initiate auto steering</item>
+        <item>* No obstacle avoidance function,always check surroundings</item>
+        <item>* Brake manually</item>
+        <item>* Release steering wheel during auto steer</item>
+    </array>
+    <array name="can_dgkz">
+        <item>頭燈/日間行車燈和尾燈</item>
+        <item>僅頭燈/日間行車燈</item>
+        <item>僅尾燈</item>
+    </array>
+    <array name="can_ybtsy">
+        <item>聲音1</item>
+        <item>聲音2</item>
+        <item>聲音3</item>
+    </array>
+    <array name="can_psa_rzc_cartype">
+        <item>低配（原車方控為手柄式）</item>
+        <item>中配（原車方控非手柄式）</item>
+        <item>高配（帶導航配置）</item>
+    </array>
+    <array name="can_ford_active_park">
+        <item>減速繼續泊車輔助</item>
+        <item>減速</item>
+        <item>從右側搜索泊車位置</item>
+        <item>從左側搜索泊車位置</item>
+        <item>主動泊車輔助錯誤\10請參考用戶手冊</item>
+        <item>左側發現泊車位置\10繼續前進，準備泊車</item>
+        <item>右側發現泊車位置\10繼續前進，準備泊車</item>
+        <item>左側發現泊車位置\10停車，準備開始泊車</item>
+        <item>右側發現泊車位置\10停車，準備開始泊車</item>
+        <item>請將手離開方向盤\10換至R檔，準備左側泊車</item>
+        <item>請將手離開方向盤\10換至R檔，準備右側泊車</item>
+        <item>請注意檢車車輛四周環境\10正在左側泊車\10請掛R檔，緩慢後退</item>
+        <item>請注意檢車車輛四周環境\10正在右側泊車\10請掛R檔，緩慢後退</item>
+        <item>請注意檢車車輛四周環境\10停車\10請掛前進擋，緩慢前進</item>
+        <item>請注意檢車車輛四周環境\10請小心\10請掛前進擋，緩慢前進</item>
+        <item>請注意檢車車輛四周環境\10停車\10請掛R檔，緩慢後退</item>
+        <item>請注意檢車車輛四周環境\10請小心\10請掛R檔，緩慢後退</item>
+        <item>主動泊車輔助已完成</item>
+        <item>按按鈕恢復泊車</item>
+        <item>主動泊車輔助已取消</item>
+        <item>因為速度過快主動泊車輔助已取消</item>
+        <item>主動泊車輔助已被駕駛員取消</item>
+        <item>主動泊車輔助不可用</item>
+        <item>因為ESC主動泊車輔助已取消</item>
+        <item>因為ASB系統事件主動泊車輔助已取消</item>
+    </array>
+    <array name="can_fs_declare_1">
+        <item>大眾老平台（邁騰、昊銳、途觀、高爾夫6等）</item>
+    </array>
+    <array name="can_fs_declare_2">
+        <item>大眾MQB平台（高爾夫7、明銳、西雅特Leon、凌渡等）</item>
+        <item>17款邁騰,18款邁騰</item>
+        <item>17款途觀L *需選空調</item>
+        <item>17款途昂，科迪亞克 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_3">
+        <item>12款,15款凱美瑞、13款RAV4、13款新銳志、14款卡羅拉、14款雷凌、15款漢蘭達</item>
+        <item>16款RAV4 *需專用MCU</item>
+        <item>18款凱美瑞</item>
+    </array>
+    <array name="can_fs_declare_4">
+        <item>12款思域、14款思域低配、12款CRV *需選原車設備</item>
+    </array>
+    <array name="can_fs_declare_5">
+        <item>傑德、凌派、飛度、繽智、14款思域中高配等</item>
+        <item>15款鋒範，16款凌派</item>
+        <item>15款CRV高配</item>
+        <item>16款思域 需選空調,17款CRV</item>
+        <item>16款思域 需選空調,17款CRV（*右視）</item>
+        <item>2009~2014款奧德賽（不拆原車主機，比納瑞）*需選原車設備</item>
+        <item>17款CRV（*右视，睿志诚）</item>
+        <item>冠道（比納瑞）</item>
+        <item>冠道（*右視，比纳瑞）</item>
+        <item>15款鋒範（*右视)</item>
+    </array>
+    <array name="can_fs_declare_6">
+        <item>新天籟、逍客等</item>
+        <item>奇駿(*全景，欣樸)</item>
+        <item>奇駿(*全景，睿志诚)</item>
+        <item>樓蘭</item>
+        <item>Juke(睿志诚)</item>
+        <item>奇駿高配（*倒車輔助，欣樸）</item>
+        <item>奇駿高配（*倒車輔助，睿志诚）</item>
+    </array>
+    <array name="can_fs_declare_7">
+        <item>14款霸道</item>
+    </array>
+    <array name="can_fs_declare_8">
+        <item>賽歐3（欣樸）新君威、威朗、科魯茲、愛唯歐、奧蘭多、邁瑞寶、Insignia,09~13款老君威（欣樸）等 *需選安吉星</item>
+        <item>君越 *需選安吉星</item>
+        <item>GL8 *需選安吉星 空調</item>
+        <item>昂科拉低配 *需選安吉星</item>
+        <item>15款英朗 *需選安吉星</item>
+        <item>Mokka Navi950 *需選安吉星</item>
+        <item>Astra J CD600 *需選安吉星</item>
+        <item>邁瑞寶XL低配 *需選安吉星</item>
+        <item>邁瑞寶XL高配 *需選安吉星</item>
+        <item>17款GL8（睿志诚） *需選安吉星</item>
+        <item>通用全系（道俊） *需選安吉星</item>
+        <item>17款探界者 通用全系（睿志诚自己協議）*需選安吉星</item>
+    </array>
+    <array name="can_fs_declare_9">
+        <item>雅閣九代,16款雅閣九代（欣樸）*高配需選原車收音機</item>
+    </array>
+    <array name="can_fs_declare_10">
+        <item>賽歐3（睿志诚）</item>
+    </array>
+    <array name="can_fs_declare_11">
+        <item>標致301、308、、雪鐵龍愛麗舍等</item>
+        <item>標致2008</item>
+        <item>14款408,308s *需選空調</item>
+        <item>雪鐵龍C3-XR</item>
+        <item>雪鐵龍C4L</item>
+        <item>13款3008（保留原車小屏）</item>
+        <item>13款3008（拆原車小屏）</item>
+        <item>16款308 *需選空調</item>
+        <item>17款4008</item>
+        <item>05款407</item>
+        <item>508</item>
+        <item>15款3008高配</item>
+    </array>
+    <array name="can_fs_declare_12">
+        <item>TS全系</item>
+    </array>
+    <array name="can_fs_declare_13">
+        <item>福克斯等 *需選sync</item>
+        <item>翼虎*需選sync</item>
+        <item>翼博 *需選sync</item>
+        <item>13款嘉年華 *需選sync</item>
+        <item>蒙迪歐 *需選sync</item>
+        <item>銳界低配 *需選sync</item>
+        <item>銳界低配(帶攝像頭) *需選sync</item>
+        <item>福特系列（睿志诚自己協議） *需選sync</item>
+        <item>17款翼虎 拆SYNC（睿志诚）*需選空調</item>
+    </array>
+    <array name="can_fs_declare_14">
+        <item>IX35、索納塔8代,9代、新雅尊、IX45（新勝達）、索蘭托、索蘭托L，名圖,KX5低配,K5等</item>
+        <item>起亞KX5中配</item>
+        <item>起亞KX5高配</item>
+        <item>16款領動</item>
+        <item>IX45 原車帶功放</item>
+    </array>
+    <array name="can_fs_declare_15">
+        <item>10款大切基諾，10款指南者，10款酷博、14款指南者、14款自由客、10款牧馬人、10款酷威</item>
+    </array>
+    <array name="can_fs_declare_16">
+        <item>寶駿730</item>
+        <item>寶駿560，15款，17款寶駿730</item>
+        <item>寶駿530</item>
+    </array>
+    <array name="can_fs_declare_17">
+        <item>GA3</item>
+        <item>GS4</item>
+        <item>GS5</item>
+        <item>GS5速博</item>
+        <item>GA6</item>
+        <item>16款GS4</item>
+        <item>17款GS8 *需選空調</item>
+        <item>GS3 *需選空調</item>
+        <item>GS7 *需選空調</item>
+        <item>GA4 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_18">
+        <item>榮威550方控類型1</item>
+        <item>榮威550方控類型2</item>
+    </array>
+    <array name="can_fs_declare_19">
+        <item>榮威550方控類型1</item>
+        <item>榮威550方控類型2</item>
+        <item>榮威360</item>
+    </array>
+    <array name="can_fs_declare_20">
+        <item>14款歌詩圖 *需選原車收音機</item>
+    </array>
+    <array name="can_fs_declare_21">
+        <item>老馬自達，09款B70</item>
+        <item>歐寶</item>
+        <item>歐寶（豪正）</item>
+    </array>
+    <array name="can_fs_declare_22">
+        <item>11款B70</item>
+    </array>
+    <array name="can_fs_declare_23">
+        <item>14款B70</item>
+    </array>
+    <array name="can_fs_declare_24">
+        <item>X80</item>
+    </array>
+    <array name="can_fs_declare_25">
+        <item>榮威950</item>
+    </array>
+    <array name="can_fs_declare_26">
+        <item>銳騰</item>
+        <item>名爵ZS</item>
+        <item>榮威RX5,I6</item>
+        <item>17款銳騰</item>
+    </array>
+    <array name="can_fs_declare_27">
+        <item>瑞風S2 S3 17款瑞風S3 16款瑞風M4</item>
+        <item>17款S2 MINI</item>
+    </array>
+    <array name="can_fs_declare_28">
+        <item>江鈴</item>
+    </array>
+    <array name="can_fs_declare_29">
+        <item>16款自由光低配 *原車設備 空調</item>
+        <item>16款自由光中配 *原車設備 空調</item>
+        <item>16款自由俠</item>
+        <item>16款菲亞特Aegea</item>
+        <item>15款菲亞特多寶（Doblo）</item>
+    </array>
+    <array name="can_fs_declare_30">
+        <item>眾泰云100</item>
+    </array>
+    <array name="can_fs_declare_31">
+        <item>16奔騰B30</item>
+    </array>
+    <array name="can_fs_declare_32">
+        <item>B200</item>
+    </array>
+    <array name="can_fs_declare_33">
+        <item>奔馳系列</item>
+    </array>
+    <array name="can_fs_declare_34">
+        <item>標致508</item>
+    </array>
+    <array name="can_fs_declare_35">
+        <item>梅甘娜風朗</item>
+    </array>
+    <array name="can_fs_declare_36">
+        <item>菲亞特全系 *需選原車設備</item>
+    </array>
+    <array name="can_fs_declare_37">
+        <item>菲亞特博悅 *需選原車設備</item>
+    </array>
+    <array name="can_fs_declare_38">
+        <item>16款自由光低配</item>
+        <item>16款自由光中配</item>
+        <item>16款自由俠</item>
+        <item>17款指南者</item>
+    </array>
+    <array name="can_fs_declare_39">
+        <item>馬3昂克賽拉 *需選原車設備</item>
+    </array>
+    <array name="can_fs_declare_40">
+        <item>SMART</item>
+    </array>
+    <array name="can_fs_declare_41">
+        <item>卡宴（巴谷，路征）</item>
+    </array>
+    <array name="can_fs_declare_42">
+        <item>BMW E90（和馳，豪正，路征）</item>
+    </array>
+    <array name="can_fs_declare_43">
+        <item>A3（欣樸，路征）</item>
+    </array>
+    <array name="can_fs_declare_44">
+        <item>標致301國外版及其他</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>標致C4L</item>
+    </array>
+    <array name="can_fs_declare_45">
+        <item>標致3008保留原車屏幕</item>
+    </array>
+    <array name="can_fs_declare_46">
+        <item>海馬M3/S7/S5</item>
+        <item>17款S5（全全景）</item>
+    </array>
+    <array name="can_fs_declare_47">
+        <item>15款T70</item>
+        <item>16款T70</item>
+        <item>17款T90 *需選空調</item>
+        <item>18款D60 *需選空調</item>
+        <item>18款T70 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_48">
+        <item>13款B50</item>
+    </array>
+    <array name="can_fs_declare_49">
+        <item>紳寶X55 X25 紳寶X35 昌河Q35</item>
+        <item>D60</item>
+        <item>BJ20</item>
+        <item>M50F *需選空調</item>
+    </array>
+    <array name="can_fs_declare_50">
+        <item>海馬M5及其他</item>
+        <item>16款海馬M3</item>
+        <item>16款海馬V70 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_51">
+        <item>老蒙迪歐致勝</item>
+    </array>
+    <array name="can_fs_declare_52">
+        <item>15款AX7</item>
+        <item>16款，17款AX5，AX7，MX5低配</item>
+        <item>16款，17款AX5，AX7，MX5中高配</item>
+    </array>
+    <array name="can_fs_declare_53">
+        <item>老嘉年華</item>
+    </array>
+    <array name="can_fs_declare_54">
+        <item>瑞虎5</item>
+    </array>
+    <array name="can_fs_declare_55">
+        <item>科雷嘉，卡繽,科雷傲</item>
+        <item>科雷傲低配</item>
+    </array>
+    <array name="can_fs_declare_56">
+        <item>歐藍德 原車無功放</item>
+        <item>歐藍德 原車有功放</item>
+    </array>
+    <array name="can_fs_declare_57">
+        <item>艾瑞澤5</item>
+        <item>16款瑞虎7 *需選空調</item>
+        <item>17款瑞虎3X</item>
+        <item>17款瑞虎3</item>
+        <item>16款艾瑞澤7</item>
+    </array>
+    <array name="can_fs_declare_58">
+        <item>標致301、308、、雪鐵龍愛麗舍等</item>
+        <item>標致2008</item>
+        <item>14款408,308s *需選空調</item>
+        <item>雪鐵龍C3-XR</item>
+        <item>雪鐵龍C4L</item>
+        <item>13款3008（保留原車小屏）</item>
+        <item>13款3008（拆原車小屏）</item>
+        <item>16款308 *需選空調</item>
+        <item>17款4008</item>
+        <item>2005款407</item>
+        <item>508</item>
+        <item>15款3008高配</item>
+    </array>
+    <array name="can_fs_declare_59">
+        <item>中華V3高配（鑫巴斯,睿志诚兼容）,H3（睿志诚）</item>
+    </array>
+    <array name="can_fs_declare_60">
+        <item>大邁X5,17款大邁X5</item>
+        <item>T600</item>
+        <item>大迈X7 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_61">
+    </array>
+    <array name="can_fs_declare_62">
+        <item>奔馳C200</item>
+    </array>
+    <array name="can_fs_declare_63">
+        <item>奔馳威霆</item>
+    </array>
+    <array name="can_fs_declare_64">
+        <item>2015款菲亞特DOBLO</item>
+    </array>
+    <array name="can_fs_declare_65">
+    </array>
+    <array name="can_fs_declare_66">
+    </array>
+    <array name="can_fs_declare_67">
+        <item>風光580</item>
+    </array>
+    <array name="can_fs_declare_68">
+        <item>歐藍德2009~2011</item>
+    </array>
+    <array name="can_fs_declare_69">
+        <item>CX-4，昂科塞拉 *需選原車設備（ 鑫巴斯，比納瑞）</item>
+    </array>
+    <array name="can_fs_declare_70">
+        <item>風光360 330S 580 ,370，五十鈴D-MAX,瑞邁</item>
+    </array>
+    <array name="can_fs_declare_71">
+        <item>16款B50,17款X80,17款X40</item>
+        <item>17款X80低配</item>
+    </array>
+    <array name="can_fs_declare_72">
+        <item>EC7，GS，GL,遠景</item>
+        <item>遠景X6（带全景需專用MCU）</item>
+        <item>遠景X1 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_73">
+        <item>CS75,17款CS75,歐尚</item>
+        <item>CS55</item>
+        <item>CS15</item>
+        <item>CS75(全景)</item>
+        <item>A800</item>
+        <item>X70a</item>
+        <item>長安凌軒 2018</item>
+    </array>
+    <array name="can_fs_declare_74">
+        <item>力帆720/820</item>
+    </array>
+    <array name="can_fs_declare_75">
+        <item>雅閣7代國內版 *MCU專用</item>
+    </array>
+    <array name="can_fs_declare_76">
+        <item>比亞迪系列</item>
+    </array>
+    <array name="can_fs_declare_77">
+        <item>馬自達CX-7</item>
+    </array>
+    <array name="can_fs_declare_78">
+        <item>14款哈弗H2</item>
+        <item>哈佛H2藍標</item>
+        <item>哈佛H2紅標</item>
+        <item>17款哈佛H2S紅標 *需選空調</item>
+        <item>17款哈弗H6</item>
+        <item>17款哈弗H6 Couple 红标</item>
+        <item>17款哈弗H6 Couple 蓝标</item>
+        <item>18款哈弗H6</item>
+    </array>
+    <array name="can_fs_declare_79">
+    </array>
+    <array name="can_fs_declare_80">
+        <item>哈弗H6</item>
+        <item>16款Coupe</item>
+    </array>
+    <array name="can_fs_declare_81">
+        <item>2017款威霆</item>
+    </array>
+    <array name="can_fs_declare_82">
+        <item>福美來2017款</item>
+        <item>17款海馬S7</item>
+        <item>17款海馬S5 Young</item>
+    </array>
+    <array name="can_fs_declare_83">
+        <item>比亞迪S6,F3 *MCU專用</item>
+    </array>
+    <array name="can_fs_declare_84">
+        <item>榮威RX5</item>
+    </array>
+    <array name="can_fs_declare_85">
+    </array>
+    <array name="can_fs_declare_86">
+        <item>X7</item>
+        <item>X7 低配</item>
+        <item>X5 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_87">
+        <item>克萊斯勒個別車型</item>
+    </array>
+    <array name="can_fs_declare_88">
+        <item>通用車系</item>
+        <item>15款英朗</item>
+        <item>17款GL8 *需選空調</item>
+        <item>凱迪拉克XT5（原車屏升級）</item>
+        <item>林肯MKC</item>
+        <item>林肯MKZ</item>
+        <item>凱迪拉克 ATS 低配</item>
+        <item>凱迪拉克 ATS 高配</item>
+        <item>凱迪拉克 XTS</item>
+        <item>凱迪拉克 SRX</item>
+        <item>預留</item>
+        <item>18款凱迪拉克 ATS 高配</item>
+    </array>
+    <array name="can_fs_declare_89">
+    </array>
+    <array name="can_fs_declare_90">
+        <item>比亞迪F6 *MCU專用</item>
+    </array>
+    <array name="can_fs_declare_91">
+        <item>博越</item>
+    </array>
+    <array name="can_fs_declare_92">
+        <item>景逸X5 高配</item>
+        <item>低配，中配</item>
+    </array>
+    <array name="can_fs_declare_93">
+    </array>
+    <array name="can_fs_declare_94">
+        <item>一汽B50(老款)</item>
+    </array>
+    <array name="can_fs_declare_95">
+        <item>福美來</item>
+    </array>
+    <array name="can_fs_declare_96">
+        <item>雅阁九代 2.4 *需選原車收音機</item>
+    </array>
+    <array name="can_fs_declare_97">
+        <item>M3,T3</item>
+    </array>
+    <array name="can_fs_declare_98">
+        <item>EC180</item>
+    </array>
+    <array name="can_fs_declare_99">
+        <item>15款悅翔V7,16款悦翔V7</item>
+    </array>
+    <array name="can_fs_declare_100">
+        <item>雅阁九代 2.0</item>
+    </array>
+    <array name="can_fs_declare_101">
+        <item>標致408（*需選原車設備），標致3008不拆原車小屏</item>
+    </array>
+    <array name="can_fs_declare_102">
+        <item>韓系IX40，IX35，K7，雅尊，8代索納塔,9代索納塔,索蘭托，15款嘉華，16款起亞K5,16款起亞KX5,16款現代名圖，16款现代領動，16款起亞K3,17款起亞KX7 *波特率38400</item>
+        <item>KX5 高配</item>
+        <item>K4</item>
+    </array>
+    <array name="can_fs_declare_103">
+        <item>大眾老平台（邁騰、昊銳、途觀、高爾夫6等）</item>
+    </array>
+    <array name="can_fs_declare_104">
+        <item>標致206/207</item>
+    </array>
+    <array name="can_fs_declare_105">
+        <item>14款，17款風駿6</item>
+    </array>
+    <array name="can_fs_declare_106">
+        <item>北汽威望M20</item>
+    </array>
+    <array name="can_fs_declare_107">
+        <item>08老天籟 *需選原車設備</item>
+    </array>
+    <array name="can_fs_declare_108">
+        <item>標致206/207/307</item>
+    </array>
+    <array name="can_fs_declare_109">
+        <item>T60</item>
+    </array>
+    <array name="can_fs_declare_110">
+        <item>瑞風S2_Mini/S3/S5</item>
+    </array>
+    <array name="can_fs_declare_111">
+    </array>
+    <array name="can_fs_declare_112">
+        <item>CX5</item>
+    </array>
+    <array name="can_fs_declare_113">
+    </array>
+    <array name="can_fs_declare_114">
+        <item>吉普系列指南者，自由客，牧馬人，自由光*需選空調 原車設備，大切諾基*需選空調 原車設備，自由俠，17款指南者*需選空調</item>
+    </array>
+    <array name="can_fs_declare_115">
+        <item>IS250 *需選空調 原車設備</item>
+    </array>
+    <array name="can_fs_declare_116">
+        <item>雅閣8代</item>
+    </array>
+    <array name="can_fs_declare_117">
+        <item>雷諾，達西亞車系</item>
+    </array>
+    <array name="can_fs_declare_118">
+        <item>ATS低配（豎屏）</item>
+        <item>ATS高配（豎屏）</item>
+        <item>XTS（豎屏）</item>
+        <item>SRX（豎屏）</item>
+        <item>ATS低配（8寸）</item>
+        <item>ATS高配（8寸）</item>
+        <item>2018款高配（8寸）</item>
+        <item>2018款高配（豎屏）</item>
+    </array>
+    <array name="can_fs_declare_119">
+    </array>
+    <array name="can_fs_declare_120">
+        <item>啟辰 D60(歐迪) *需選空調</item>
+    </array>
+    <array name="can_fs_declare_121">
+        <item>14款霸道（原車功放音量可調）</item>
+    </array>
+    <array name="can_fs_declare_122">
+        <item>大眾MQB平台（高爾夫7、明銳、西雅特Leon、凌渡等）</item>
+        <item>17款邁騰,18款邁騰</item>
+        <item>17款途觀L *需選空調</item>
+        <item>17款途昂，科迪亞克 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_123">
+    </array>
+    <array name="can_fs_declare_124">
+        <item>2011款馬自達6，,2012款馬自達6手動空調，2013款馬自達6</item>
+    </array>
+    <array name="can_fs_declare_125">
+    </array>
+    <array name="can_fs_declare_126">
+    </array>
+    <array name="can_fs_declare_127">
+        <item>其他車型</item>
+        <item>14款408,308s，16款308 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_128">
+        <item>12款,15款凱美瑞、13款RAV4、13款新銳志、14款卡羅拉、14款雷凌、15款漢蘭達 ,18款凱美瑞</item>
+        <item>16款RAV4</item>
+    </array>
+    <array name="can_fs_declare_129">
+        <item>途銳 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_130">
+        <item>觀致3、觀致5</item>
+    </array>
+    <array name="can_fs_declare_131">
+        <item>長安悅翔V7 中高配</item>
+        <item>長安悦翔V7 低配</item>
+    </array>
+    <array name="can_fs_declare_132">
+        <item>低配</item>
+        <item>中配</item>
+        <item>高配</item>
+    </array>
+    <array name="can_fs_declare_133">
+        <item>17款科雷傲 自動空調*需選空調</item>
+        <item>17款科雷傲 手動空調*需選空調</item>
+    </array>
+    <array name="can_fs_declare_134">
+        <item>X7 中高配</item>
+        <item>X7 低配</item>
+        <item>X5 低配 *需選空調</item>
+        <item>X5 中高配 *需選空調</item>
+    </array>
+    <array name="can_fs_declare_135">
+        <item>奔馳B200,Viano,Vito,Sprinter,S350(02款)，ML350</item>
+    </array>
+    <array name="can_fs_declare_136">
+        <item>ATS低配（8寸）</item>
+        <item>ATS高配（8寸）</item>
+    </array>
+    <array name="can_fs_declare_137">
+    </array>
+    <array name="can_fs_declare_138">
+    </array>
+    <array name="can_fs_declare_139">
+        <item>蒙迪歐致勝(威馳) *需選空調</item>
+    </array>
+    <array name="can_fs_declare_140">
+    </array>
+    <array name="can_fs_declare_141">
+    </array>
+    <array name="can_fs_declare_142">
+        <item>大眾MQB(威馳)（高爾夫7、明銳、13/18速派、凌渡,17/18脈騰 ,17途觀L,途昂,科迪亞克，18途安L等） *需選空調</item>
+    </array>
+    <array name="can_fs_declare_143">
+        <item>大眾老平台（邁騰、昊銳、途觀、高爾夫6等）</item>
+    </array>
+    <array name="can_fs_declare_144">
+        <item>霸道</item>
+        <item>銳志</item>
+        <item>Rav4</item>
+        <item>凱美瑞</item>
+        <item>卡羅拉</item>
+    </array>
+    <array name="can_fs_declare_145">
+        <item>馬自達系列（馬自達5，CX7），奔騰（奔騰B50，B70),奇瑞（A3）,海南馬自達（福美來，M3，S7,S5），比亞迪（F3,速銳），傳祺（GA3）,</item>
+        <item>馬自達3</item>
+        <item>馬自達6（老馬六），睿翼</item>
+        <item>海馬S5(全景)</item>
+        <item>傳祺GA3 低配</item>
+    </array>
+    <array name="can_auto_array">
+        <item>無協議</item>
+        <item>大眾</item>
+        <item>大眾MQB平臺(高爾夫7)</item>
+        <item>豐田</item>
+        <item>12款思域、CRV</item>
+        <item>本田DA系統(杰德、凌派、繽智...)</item>
+        <item>日產天籟，奇駿，樓蘭</item>
+        <item>14款霸道</item>
+        <item>通用全系</item>
+        <item>雅閣9代</item>
+        <item>賽歐3（睿志誠）</item>
+        <item>標雪</item>
+        <item>TS全系</item>
+        <item>福特全系</item>
+        <item>現代全系</item>
+        <item>克萊斯勒車系</item>
+        <item>寶駿</item>
+        <item>廣汽傳祺系列</item>
+        <item>榮威550</item>
+        <item>榮威系列</item>
+        <item>14款歌詩圖</item>
+        <item>老馬自達，歐寶</item>
+        <item>11款B70</item>
+        <item>14款B70</item>
+        <item>奔騰X80</item>
+        <item>榮威950</item>
+        <item>15款名爵銳騰</item>
+        <item>江淮瑞風S2,S3</item>
+        <item>江鈴</item>
+        <item>16款吉普自由光</item>
+        <item>眾泰云100</item>
+        <item>2016款奔騰B30</item>
+        <item>奔馳B200</item>
+        <item>和馳奔馳</item>
+        <item>標致508</item>
+        <item>梅甘娜</item>
+        <item>菲亞特全系</item>
+        <item>菲亞特博悅</item>
+        <item>16款吉普自由光(睿志誠)</item>
+        <item>馬自達3昂克賽拉</item>
+        <item>奔馳 SMART</item>
+        <item>保時捷卡宴（巴谷，路征）</item>
+        <item>寶馬E90系列（和馳，豪正，路征）</item>
+        <item>奧迪A3（欣樸，路征）</item>
+        <item>標致（和馳）</item>
+        <item>標致3008保留原車屏(和馳)</item>
+        <item>海馬M3,S7</item>
+        <item>啟辰T70</item>
+        <item>13款B50</item>
+        <item>北汽紳寶</item>
+        <item>海馬M5</item>
+        <item>蒙迪歐致勝</item>
+        <item>東風風神AX7</item>
+        <item>老嘉年華</item>
+        <item>奇瑞瑞虎5(和馳)</item>
+        <item>雷諾科雷嘉</item>
+        <item>三菱 歐藍德</item>
+        <item>奇瑞艾瑞澤5,瑞虎7,瑞虎3x,瑞虎3</item>
+        <item>標雪 國外版</item>
+        <item>中華 V3</item>
+        <item>眾泰大邁X5</item>
+        <item>NULL</item>
+        <item>奔馳C200 （巴谷）</item>
+        <item>奔馳威霆</item>
+        <item>菲亞特DOBLO</item>
+        <item>寶馬MINI</item>
+        <item>啟辰ER70</item>
+        <item>東風風光 580</item>
+        <item>三菱歐藍德 09-11</item>
+        <item>馬自達 CX-4(鑫巴斯，比納瑞)</item>
+        <item>东风风光 360,330s,580</item>
+        <item>奔腾B50 2016</item>
+        <item>吉利 EC7</item>
+        <item>長安CS75</item>
+        <item>力帆720/820</item>
+        <item>雅閣7（國內版）</item>
+        <item>比亞迪系列（安盛）</item>
+        <item>馬自達 CX-7</item>
+        <item>長城 H2</item>
+        <item>CW</item>
+        <item>長城哈弗 H6</item>
+        <item>2017 奔馳威霆(巴谷)</item>
+        <item>海馬 福美來 2017款</item>
+        <item>比亞迪S6,F3（長遠通）</item>
+        <item>榮威 RX5（威馳）</item>
+        <item>寶馬 MINI （FSTT）</item>
+        <item>漢騰 X7</item>
+        <item>克萊斯勒個別車系(巴谷)</item>
+        <item>通用（思博）</item>
+        <item>凱翼3X</item>
+        <item>比亞迪F6（道俊）</item>
+        <item>吉利博越</item>
+        <item>東風景逸X5</item>
+        <item>BS M3</item>
+        <item>奔騰B50 （老款）</item>
+        <item>福美來</item>
+        <item>雅閣9 2.4（鑫巴斯）</item>
+        <item>比速M3（睿志誠）</item>
+        <item>北汽EC180</item>
+        <item>長安悅翔V7（2015）</item>
+        <item>雅閣9 2.0（鑫巴斯）</item>
+        <item>標致408</item>
+        <item>韓系車型</item>
+        <item>大眾(開景現代)</item>
+        <item>標致206/207（和馳）</item>
+        <item>長城風駿6</item>
+        <item>北汽威望M20</item>
+        <item>08天籟</item>
+        <item>標致206/207/307（欣樸）</item>
+        <item>大通T60(歐迪)</item>
+        <item>江淮瑞風S5(威馳)</item>
+        <item>馬自達特別版</item>
+        <item>馬自達CX5</item>
+        <item>丰田特别版(开景)</item>
+        <item>克萊斯勒系列（鑫巴斯）</item>
+        <item>雷克薩斯IS250</item>
+        <item>雅閣8代</item>
+        <item>雷諾（欣樸）</item>
+        <item>凱迪拉克 ATS</item>
+        <item>OBD(睿志誠)</item>
+        <item>啟辰D60(歐迪)</item>
+        <item>14款霸道（功放音量可調）</item>
+        <item>大眾MQB平臺(欣樸)</item>
+        <item>吉利 GC7（睿志誠）</item>
+        <item>馬自達6（鑫巴斯）</item>
+        <item>別克昂科雷GMC</item>
+        <item>大通T60(睿志誠)</item>
+        <item>標雪(睿志誠)</item>
+        <item>豐田(睿志誠)</item>
+        <item>途銳（威馳）</item>
+        <item>觀緻 (道俊)</item>
+        <item>長安悦翔V7(威馳)</item>
+        <item>觀緻</item>
+        <item>科雷傲 (欣樸)</item>
+        <item>漢騰(歐迪)</item>
+        <item>奔馳系列(路征)</item>
+        <item>凱迪拉克 ATS(中碼易通)</item>
+        <item>大通G10(歐迪)</item>
+        <item>寶馬不拆原車主機</item>
+        <item>蒙迪歐致勝(威馳)</item>
+        <item>奔馳系列(中碼易通)</item>
+        <item>現代系列(鑫巴斯)</item>
+        <item>大眾MQB（威馳）</item>
+        <item>大眾（威馳）</item>
+        <item>NULL</item>
+        <item>馬自達，奔騰，奇瑞，比亞迪，傳祺系列（睿志誠）</item>
+    </array>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/progressbar_root" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <Button android:id="@+id/btn_decrease" android:background="@drawable/btn_decrease_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20px"/>
+    <TextView android:textSize="21px" android:textColor="#fff" android:id="@+id/value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5px" android:text="10" android:layout_centerHorizontal="true"/>
+    <ProgressBar android:id="@+id/progress_bar" android:paddingLeft="0px" android:paddingRight="0px" android:layout_width="209px" android:layout_height="33px" android:layout_marginLeft="20px" android:layout_marginRight="20px" android:maxHeight="33px" android:progressDrawable="@drawable/seekbar_progress_drawable" android:minHeight="33px" android:layout_toRightOf="@+id/btn_decrease" android:layout_below="@+id/value" style="?android:attr/progressBarStyleHorizontal"/>
+    <Button android:id="@+id/btn_increase" android:background="@drawable/btn_increase_selector" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20px" android:layout_toRightOf="@+id/progress_bar"/>
+</RelativeLayout>

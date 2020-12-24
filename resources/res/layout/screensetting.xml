@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <Button android:id="@+id/screensettings_brightnessid" android:background="@drawable/screensettings_brightness" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="0px" android:layout_marginTop="0px"/>
+    <Button android:id="@+id/screensettings_contrastid" android:background="@drawable/screensettings_contrast" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="94px" android:layout_marginTop="0px"/>
+    <Button android:id="@+id/screensettings_hueid" android:background="@drawable/screensettings_sharpness" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="188px" android:layout_marginTop="0px"/>
+    <Button android:id="@+id/screensettings_saturationid" android:background="@drawable/screensettings_saturation" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="282px" android:layout_marginTop="0px"/>
+    <Button android:id="@+id/screensettings_defaultid" android:background="@drawable/screensettings_default" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="376px" android:layout_marginTop="0px"/>
+    <Button android:id="@+id/screensettings_cancelid" android:background="@drawable/screensettings_cancel" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="470px" android:layout_marginTop="0px"/>
+    <ImageView android:id="@+id/screensettings_popupid" android:background="@drawable/screensettings_popup" android:layout_width="566px" android:layout_height="69px" android:layout_marginLeft="0px" android:layout_marginTop="58px"/>
+    <Button android:id="@+id/screensettings_addingid" android:background="@drawable/screensettings_adding" android:layout_width="40px" android:layout_height="40px" android:layout_marginLeft="506px" android:layout_marginTop="70px"/>
+    <Button android:id="@+id/screensettings_reduceid" android:background="@drawable/screensettings_reduce" android:layout_width="40px" android:layout_height="40px" android:layout_marginLeft="16px" android:layout_marginTop="70px"/>
+    <SeekBar android:id="@+id/screenset_seekBar" android:layout_width="387px" android:layout_height="21px" android:layout_marginLeft="65px" android:layout_marginTop="80px" android:maxHeight="21px" android:max="100" android:progress="30" android:progressDrawable="@drawable/screensetting_progress_bar" android:thumb="@drawable/screensettings_point"/>
+    <TextView android:textSize="28px" android:textColor="#fff" android:id="@+id/screenset_showinfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="460px" android:layout_marginTop="70px" android:text="10"/>
+</RelativeLayout>

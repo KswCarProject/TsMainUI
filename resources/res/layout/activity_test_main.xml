@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/activity_test_mainid" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.ts.main.auth.TsImageView android:id="@+id/satellite_signal" android:background="@drawable/satellite_box" android:layout_width="656px" android:layout_height="188px" android:layout_marginTop="300px" android:layout_alignTop="@+id/satellite_select" android:layout_toEndOf="@+id/satellite_select"/>
+</RelativeLayout>

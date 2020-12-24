@@ -1,0 +1,3736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="str_fs_rev_volarr">
+        <item>无</item>
+        <item>弱</item>
+        <item>中</item>
+        <item>强</item>
+    </array>
+    <array name="str_fsrad_zonearray">
+        <item>亚洲</item>
+        <item>欧洲</item>
+        <item>美洲1</item>
+        <item>美洲2</item>
+        <item>巴西</item>
+        <item>日本</item>
+        <item>巴西2</item>
+        <item>日本2</item>
+        <item>巴西3</item>
+    </array>
+    <array name="str_fsdoor_title">
+        <item>前门反</item>
+        <item>后门反</item>
+        <item>后备箱</item>
+        <item>前盖</item>
+        <item>方控上下曲</item>
+        <item>车内温度</item>
+        <item>温度单位</item>
+        <item>全景图标</item>
+        <item>车外温度</item>
+        <item>P档雷达显示</item>
+    </array>
+    <array name="str_fsother_title">
+        <item>显示屏类型</item>
+        <item>手刹设置</item>
+        <item>外部UART</item>
+        <item>DVR类型</item>
+        <item>DTV类型</item>
+        <item>电容屏类型</item>
+        <item>倒车音量抑制</item>
+        <item>倒车检测</item>
+        <item>倒车镜像</item>
+        <item>开机启动导航</item>
+        <item>多彩灯选项</item>
+        <item>开机画面选项</item>
+        <item>方控学习选项</item>
+        <item>开机警告画面</item>
+        <item>插拔记忆</item>
+        <item>USB1速度</item>
+        <item>USB2速度</item>
+        <item>USB2调试</item>
+        <item>编码器左右交换</item>
+        <item>调试信息输出</item>
+        <item>电视输出格式</item>
+        <item>蓝牙名字</item>
+        <item>SD交换</item>
+        <item>卫星定位模式</item>
+    </array>
+    <array name="str_fsother_arrayoff">
+        <item>不检测</item>
+        <item>不镜像</item>
+        <item>不启动</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>不记忆</item>
+        <item>high</item>
+        <item>high</item>
+        <item>关闭</item>
+        <item>不交换</item>
+        <item>关闭</item>
+        <item>NTSC</item>
+        <item>蓝牙名字</item>
+        <item>不交换</item>
+        <item>GPS+BD</item>
+    </array>
+    <array name="str_fsother_arrayon">
+        <item>检测</item>
+        <item>镜像</item>
+        <item>启动</item>
+        <item>有</item>
+        <item>有</item>
+        <item>有</item>
+        <item>有</item>
+        <item>记忆</item>
+        <item>low</item>
+        <item>low</item>
+        <item>开启</item>
+        <item>交换</item>
+        <item>开启</item>
+        <item>PAL</item>
+        <item>蓝牙名字</item>
+        <item>交换</item>
+        <item>GPS+GNS</item>
+    </array>
+    <array name="str_fsother_arraylcmstype">
+        <item>10-IPS</item>
+        <item>7-IPS</item>
+        <item>9-IPS</item>
+        <item>LVDS</item>
+    </array>
+    <array name="str_fsother_arraybrake">
+        <item>用户选择默认关</item>
+        <item>强制忽略</item>
+        <item>强制开启</item>
+        <item>用户选择默认开</item>
+    </array>
+    <array name="str_fsother_arrparkmute">
+        <item>无</item>
+        <item>弱</item>
+        <item>中</item>
+        <item>强</item>
+    </array>
+    <array name="menu_ico_arr">
+        <item>导航</item>
+        <item>收音机</item>
+        <item>DVD</item>
+        <item>外挂DVD</item>
+        <item>视频</item>
+        <item>音频</item>
+        <item>蓝牙音乐</item>
+        <item>数字电视</item>
+        <item>模拟电视</item>
+        <item>AVIN</item>
+        <item>OBD</item>
+        <item>IPOD</item>
+        <item>POD</item>
+        <item>虚拟六碟</item>
+        <item>原车设备</item>
+        <item>原车收音</item>
+        <item>360全景</item>
+        <item>蓝牙</item>
+        <item>设置</item>
+        <item>安吉星</item>
+        <item>SYNC</item>
+        <item>车辆信息</item>
+        <item>胎压</item>
+        <item>行车记录</item>
+        <item>前置摄像</item>
+        <item>空调</item>
+        <item>DSP</item>
+        <item>电话</item>
+        <item>蓝牙方控</item>
+        <item>Carplay</item>
+    </array>
+    <array name="can_type_array">
+        <item>无协议</item>
+        <item>大众</item>
+        <item>高尔夫</item>
+        <item>丰田</item>
+        <item>12款思域、CRV</item>
+        <item>本田DA系统(杰德、凌派、缤智...)</item>
+        <item>日产天籁，奇骏，楼兰</item>
+        <item>14款霸道</item>
+        <item>通用全系</item>
+        <item>雅阁9代</item>
+        <item>赛欧3（睿志诚）</item>
+        <item>标雪</item>
+        <item>TS全系</item>
+        <item>福特全系</item>
+        <item>现代全系</item>
+        <item>克莱斯勒车系</item>
+        <item>宝骏</item>
+        <item>广汽传祺系列</item>
+        <item>荣威550</item>
+        <item>荣威系列</item>
+        <item>14款歌诗图</item>
+        <item>老马自达，欧宝</item>
+        <item>11款B70</item>
+        <item>14款B70</item>
+        <item>奔腾X80</item>
+        <item>荣威950</item>
+        <item>15款名爵锐腾</item>
+        <item>江淮瑞风S2,S3</item>
+        <item>江铃</item>
+        <item>16款吉普自由光</item>
+        <item>众泰云100</item>
+    </array>
+    <array name="fs_vol_item_arr">
+        <item>收音机</item>
+        <item>DISC</item>
+        <item>USB</item>
+        <item>SD</item>
+        <item>蓝牙音乐</item>
+        <item>数字电视</item>
+        <item>模拟电视</item>
+        <item>AUX1</item>
+        <item>AUX2</item>
+        <item>IPOD</item>
+        <item>虚拟六碟</item>
+        <item>原车音源</item>
+        <item>默认导航音量</item>
+        <item>默认电话音量</item>
+        <item>开机最大增益</item>
+        <item>蓝牙MIC增益</item>
+        <item>通话音量增益</item>
+    </array>
+    <array name="tpms_general_mode">
+        <item>关闭报警</item>
+        <item>单次报警</item>
+        <item>持续报警</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>温度单位</item>
+        <item>压力单位</item>
+        <item>温度上限</item>
+        <item>压力上限</item>
+        <item>压力下限</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>漏气</item>
+        <item>低电压</item>
+        <item>无信号</item>
+        <item>气压低</item>
+        <item>气压高</item>
+        <item>开始学习</item>
+        <item>学习中</item>
+    </array>
+    <array name="ctouch_general">
+        <item>电源</item>
+        <item>主页</item>
+        <item>返回</item>
+        <item>音量+</item>
+        <item>音量-</item>
+        <item>导航</item>
+        <item>接听</item>
+        <item>挂断</item>
+        <item>上曲</item>
+        <item>下曲</item>
+        <item>出碟</item>
+        <item>搜台</item>
+        <item>模式</item>
+        <item>静音</item>
+        <item>停止</item>
+        <item>暂停</item>
+        <item>收音</item>
+        <item>DVD</item>
+        <item>音乐</item>
+        <item>应用</item>
+        <item>亮度</item>
+        <item>电源静音</item>
+        <item>清除</item>
+    </array>
+    <array name="set_main_options">
+        <item>通用设置</item>
+        <item>显示设置</item>
+        <item>音量设置</item>
+        <item>音效选项</item>
+        <item>视频选项</item>
+        <item>导航设置</item>
+        <item>蓝牙设置</item>
+        <item>方控学习</item>
+        <item>关于设备</item>
+    </array>
+    <array name="set_genera_options">
+        <item>待机时间</item>
+        <item>语音识别</item>
+        <item>悬浮球</item>
+        <item>倒车音量抑制</item>
+        <item>开机图片</item>
+        <item>语音灵敏度</item>
+        <item>恢复出厂设置</item>
+        <item>系统还原</item>
+    </array>
+    <array name="set_display_options">
+        <item>白天亮度</item>
+        <item>夜晚亮度</item>
+        <item>大灯自动检测</item>
+        <item>七彩灯</item>
+    </array>
+    <array name="set_volume_options">
+        <item>媒体音量</item>
+        <item>导航音量</item>
+        <item>蓝牙音量</item>
+        <item>铃声音量</item>
+        <item>闹钟音量</item>
+        <item>系统音量</item>
+    </array>
+    <array name="set_video_options">
+        <item>行车视频</item>
+        <item>倒车轨迹线</item>
+        <item>倒车警告线</item>
+        <item>倒车镜像</item>
+        <item>空调显示</item>
+        <item>后视输出</item>
+        <item>前置摄像</item>
+    </array>
+    <array name="set_navi_options">
+        <item>开机自动进入导航</item>
+        <item>导航程序选择</item>
+        <item>导航混音</item>
+    </array>
+    <array name="set_bt_options">
+        <item>配对码</item>
+        <item>自动连接</item>
+        <item>自动接听</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>界面软件版本</item>
+        <item>主控软件版本</item>
+        <item>媒体软件版本</item>
+        <item>协议软件版本</item>
+        <item>蓝牙模块版本</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>增益</item>
+        <item>低频分量</item>
+        <item>谐波分量</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>低频点</item>
+        <item>低频增益</item>
+        <item>高频点</item>
+        <item>高频增益</item>
+    </array>
+    <array name="mcu_update_msg">
+        <item>未进入升级流程</item>
+        <item>升级文件打开失败!</item>
+        <item>升级中，升级完成之前请不要断电!</item>
+        <item>芯片已加密!</item>
+        <item>芯片擦除失败!</item>
+        <item>芯片擦除成功!</item>
+        <item>升级成功，请重启本设备!</item>
+    </array>
+    <array name="can_cam_yh_title">
+        <item>平均车速</item>
+        <item>行驶时间</item>
+        <item>可持续行驶里程</item>
+        <item>平均油耗</item>
+        <item>最佳油耗</item>
+    </array>
+    <array name="can_byds6s7_voltext">
+        <item />
+        <item>蓄电池电压低，三分钟后将关闭多媒体系统</item>
+        <item>请常按启动按钮启动</item>
+        <item>请将档位切换至 P档域</item>
+        <item>请常按启动按钮退电</item>
+        <item>请停止车辆再按启动按钮</item>
+        <item>请将钥匙紧贴启动按钮</item>
+        <item>请确认钥匙是否在车内</item>
+        <item>为了您的爱车，请解除驻车制动</item>
+        <item>请关好车门</item>
+        <item>钥匙电池电量低，请及时更换</item>
+        <item>请轻轻转动方向盘，再尝试启动</item>
+        <item>请专心驾驶</item>
+        <item>自动灯光已开启</item>
+        <item>自动灯光已关闭</item>
+        <item>疲劳预警系统已开启</item>
+        <item>疲劳预警系统已关闭</item>
+        <item>疲劳预警系统已进入演示模式</item>
+        <item>疲劳预警系统已进入工作模式</item>
+        <item>学习完毕</item>
+        <item>为了您的安全，请系好安全带</item>
+        <item>燃油不足，是否导航至加油站</item>
+        <item>无法启动，请联系服务店维修</item>
+    </array>
+    <array name="can_car_play_sta">
+        <item>关闭/停止播放</item>
+        <item>加载中</item>
+        <item>没有连接</item>
+        <item>已经连接</item>
+        <item>播放中</item>
+        <item>暂停</item>
+        <item>其他状态</item>
+    </array>
+    <array name="can_civic_car_play_sta">
+        <item>暂停</item>
+        <item>播放</item>
+        <item>上一曲</item>
+        <item>停止</item>
+        <item>下一曲</item>
+        <item>Eject</item>
+        <item>加载中</item>
+    </array>
+    <array name="can_fist_set_title">
+        <item>里程单位</item>
+        <item>转向灯闪烁指示</item>
+        <item>警告提示</item>
+        <item>信息提示</item>
+        <item>环境灯设置</item>
+    </array>
+    <array name="can_fist_l_c">
+        <item>公里</item>
+        <item>英里</item>
+    </array>
+    <array name="can_fist_zxd">
+        <item>闪烁一次</item>
+        <item>闪烁三次</item>
+    </array>
+    <array name="can_lhotwind_array">
+        <item>关闭</item>
+        <item>左侧座椅加热-低</item>
+        <item>左侧座椅加热-中</item>
+        <item>左侧座椅加热-高</item>
+        <item>左侧座椅通风-低</item>
+        <item>左侧座椅通风-中</item>
+        <item>左侧座椅通风-高</item>
+    </array>
+    <array name="can_tpms_warn_array">
+        <item>轮胎压力过高</item>
+        <item>轮胎压力过低</item>
+        <item>请检查轮胎压力</item>
+        <item>轮胎压力正常</item>
+    </array>
+    <array name="can_bcfs_array">
+        <item>倒车入库有效</item>
+        <item>路边停车有效</item>
+    </array>
+    <array name="can_psa_wc_syfb_array">
+        <item>驾驶位</item>
+        <item>全部乘客</item>
+    </array>
+    <array name="can_byds6s7_musicstyle">
+        <item>默认</item>
+        <item>爵士</item>
+        <item>古典</item>
+        <item>乡村</item>
+        <item>电子</item>
+        <item>怀旧</item>
+        <item>流行</item>
+        <item>摇滚</item>
+        <item>舞曲</item>
+        <item>歌剧</item>
+    </array>
+    <array name="can_psa_wc_yxxz">
+        <item>流行/摇滚</item>
+        <item>经典</item>
+        <item>电子</item>
+        <item>爵士/蓝调</item>
+        <item>声乐</item>
+        <item>自定义</item>
+    </array>
+    <array name="can_psa_wc_temperature_array">
+        <item>F</item>
+        <item>DegC</item>
+    </array>
+    <array name="can_psa_wc_consumption_array">
+        <item>l/100km</item>
+        <item>km/l</item>
+        <item>mpg(us)</item>
+    </array>
+    <array name="can_psa_wc_ztyssz_array">
+        <item>宝石蓝</item>
+        <item>鹿皮棕</item>
+    </array>
+    <array name="can_psa_wc_fwmsxz_array">
+        <item>停用模式</item>
+        <item>舒适模式</item>
+        <item>正常模式</item>
+    </array>
+    <array name="can_psa_wc_jsms_array">
+        <item>标准</item>
+        <item>运动</item>
+    </array>
+    <array name="can_psa_wc_lzjhq_array">
+        <item>OFF</item>
+        <item>清洁</item>
+        <item>舒适</item>
+    </array>
+    <array name="can_psa_wc_xxlx_array">
+        <item>林木清香</item>
+        <item>纯净皮质</item>
+        <item>清新空气</item>
+    </array>
+    <array name="can_psa_wc_xxnd_array">
+        <item>OFF</item>
+        <item>低</item>
+        <item>中</item>
+        <item>高</item>
+    </array>
+    <array name="can_psa_wc_ybxssz_array">
+        <item>无 ,无</item>
+        <item>驾驶辅助,发动机信息</item>
+        <item>驾驶辅助,加速表</item>
+        <item>驾驶辅助,温度</item>
+        <item>驾驶辅助,转速表</item>
+        <item>驾驶辅助,行车电脑</item>
+        <item>发动机信息,加速表</item>
+        <item>发动机信息,温度</item>
+        <item>发动机信息,转速表</item>
+        <item>发动机信息,行车电脑</item>
+        <item>加速表,温度</item>
+        <item>加速表,转速表</item>
+        <item>加速表,行车电脑</item>
+        <item>温度,转速表</item>
+        <item>温度,行车电脑</item>
+        <item>转速表,行车电脑</item>
+    </array>
+    <array name="can_conv_tips">
+        <item />
+        <item>空调</item>
+        <item>辅助加热器</item>
+        <item>后窗加热</item>
+        <item>左边座椅加热</item>
+        <item>右边座椅加热</item>
+        <item>左座椅通风</item>
+        <item>右前区域加热</item>
+        <item>左前区域加热</item>
+        <item>右前区域加热</item>
+        <item>前雾灯</item>
+        <item>后雾灯</item>
+        <item>前窗加热</item>
+        <item>方向盘加热</item>
+        <item>后视镜加热</item>
+        <item>后座椅加热</item>
+        <item>后座椅通风</item>
+        <item>插座</item>
+        <item>饮料架</item>
+    </array>
+    <array name="can_golf_wc_vehicle_warn">
+        <item>故障：制动器。维修站</item>
+        <item>故障：电子驻车制动器</item>
+        <item>制动液：参阅用户手册</item>
+        <item>制动液：停车！参阅用户手册</item>
+        <item>请检查冷却液！参阅用户手册</item>
+        <item>机油压力：停车！参阅用户手册</item>
+        <item>方向盘锁止装置损坏。停车！</item>
+        <item>故障：蓄电池未充电</item>
+        <item>压力损失：请检查轮胎压力</item>
+        <item>压力损失：请检查左前轮胎充气压力</item>
+        <item>压力损失：请检查右前轮胎充气压力</item>
+        <item>压力损失：请检查左后轮胎充气压力</item>
+        <item>压力损失：请检查右后轮胎充气压力</item>
+        <item>故障：轮胎压力监控显示</item>
+        <item>故障：变速箱</item>
+        <item>故障：变速箱。无法挂入倒车档</item>
+        <item>故障：变速箱</item>
+        <item>故障：电子驻车制动器</item>
+        <item>请检查左前停车灯!</item>
+        <item>请检查左侧近光灯!</item>
+        <item>请检查左侧远光灯!</item>
+        <item>请检查左侧雾灯!</item>
+        <item>请检查左侧侧面转向信号灯!</item>
+        <item>请检查左侧日间行车灯!</item>
+        <item>请检查左侧日间行车灯/近光灯!</item>
+        <item>请检查左侧日间行车灯/雾灯!</item>
+        <item>请检查左侧日间行车灯/停车灯!</item>
+        <item>请检查左侧近光灯/远光灯!</item>
+        <item>请检查右前转向信号灯!</item>
+        <item>请检查右前停车灯!</item>
+        <item>请检查右侧近光灯!</item>
+        <item>请检查右侧远光灯!</item>
+        <item>请检查右侧雾灯!</item>
+        <item>请检查右侧侧面转向信号灯!</item>
+        <item>请检查右侧日间行车灯!</item>
+        <item>请检查右侧日间行车灯/近光灯!</item>
+        <item>请检查右侧日间行车灯/雾灯!</item>
+        <item>请检查右侧日间行车灯/停车灯!</item>
+        <item>请检查右侧近光灯/远光灯!</item>
+        <item>故障：汽车照明</item>
+        <item>请检查左后转向信号灯</item>
+        <item>请检查左侧制动灯</item>
+        <item>请检查左侧尾灯</item>
+        <item>请检查左侧倒车灯</item>
+        <item>请检查左侧后雾灯</item>
+        <item>请检查左侧制动灯/尾灯</item>
+        <item>请检查左侧后雾灯/尾灯</item>
+        <item>请检查左侧转向信号灯/制动灯/尾灯</item>
+        <item>请检查左侧制动灯/转向信号灯</item>
+        <item>请检查右后转向信号灯</item>
+        <item>请检查右侧制动灯</item>
+        <item>请检查右侧尾灯</item>
+        <item>请检查右侧倒车灯</item>
+        <item>请检查右侧后雾灯</item>
+        <item>请检查右侧制动灯/尾灯</item>
+        <item>请检查右侧后雾灯/尾灯</item>
+        <item>请检查右侧转向信号灯/制动灯/尾灯</item>
+        <item>请检查右侧制动灯/转向信号灯</item>
+        <item>请检查牌照灯</item>
+        <item>请检查第三制动灯</item>
+        <item>请检查后雾灯</item>
+        <item>请检查倒车灯</item>
+        <item>挂车:请检查左侧转向信号灯</item>
+        <item>挂车:请检查右侧转向信号灯</item>
+        <item>挂车:请检查左侧尾灯</item>
+        <item>挂车:请检查右侧尾灯</item>
+        <item>挂车:请检查制动灯</item>
+        <item>挂车:</item>
+        <item>请检查右前转弯灯!</item>
+        <item>请检查左前转弯灯!</item>
+        <item>请检查左侧大灯!</item>
+        <item>请检查右侧大灯!</item>
+        <item>故障：起动停止系统</item>
+        <item>制动助力系统失效</item>
+        <item>故障：车身稳定控制系统(ESC)</item>
+        <item>故障：ABS/车身稳定控制系统(ESC)</item>
+        <item>车身稳定控制系统(ESC)已关闭</item>
+        <item>驱动防滑控制系统(ASR)已停用</item>
+        <item>车身稳定控制系统(ESC)越野模式:行驶稳定性受限</item>
+        <item>车身稳定控制系统(ESC)运动模式:行驶稳定性受限</item>
+        <item>故障：自动驻车功能</item>
+        <item>故障：坡道起步辅助</item>
+        <item>驻车制动器：检查模式</item>
+        <item>请注意：尚未达到工作温度</item>
+        <item>车门/发动机舱盖/行李箱盖未关闭.参见多功能显示中的汽车状态</item>
+        <item>蓄电池电量不足</item>
+        <item>故障：油箱系统.维修站!</item>
+        <item>请加注燃油。</item>
+        <item>降低油位</item>
+        <item>请检查机油油位</item>
+        <item>机油传感器:维修站</item>
+        <item>柴油颗粒过滤器:参阅用户手册</item>
+        <item>加注清洗液!</item>
+        <item>故障：混合动力系统.维修站</item>
+        <item>故障：请检查组合仪表中的汽车状态</item>
+        <item>油位：加注机油！</item>
+        <item>加注: AdBlue! 发动机无法再启动</item>
+        <item>故障：AdBlue! 发动机无法再启动</item>
+        <item>故障：混合动力系统。停车！</item>
+        <item>发动机故障：维修站！</item>
+        <item>变速箱过热. 停车！参阅用户手册</item>
+        <item>变速箱损坏. 维修站！</item>
+        <item>故障：制动器.停车.维修站！</item>
+        <item>故障：12V能量系统</item>
+        <item>故障：电力驱动系统.停车！</item>
+        <item>电力驱动系统过热.停车！参阅用户手册！</item>
+        <item>请检查挂车连接器</item>
+        <item>起动机系统损坏.维修站！</item>
+        <item>方形盘锁止系统损坏：维修站！</item>
+        <item>故障：随动转向大灯(AFS)</item>
+        <item>故障：大灯照明距离调节</item>
+        <item>故障：车窗玻璃雨刮器</item>
+        <item>无钥匙功能障碍</item>
+        <item>更换钥匙蓄电池</item>
+        <item>蓄电池电量不足</item>
+        <item>故障：油箱系统.维修站！</item>
+        <item>请加注燃油.</item>
+        <item>降低油位</item>
+        <item>请检查机油油位！</item>
+        <item>机油传感器：维修站</item>
+        <item>柴油颗粒过滤器：参阅用户手册！</item>
+        <item>加注清洗液</item>
+        <item>故障：混合动力系统. 维修站！</item>
+        <item>车速超过120Km/h</item>
+        <item>故障：减震调节系统</item>
+        <item>加注AdBlue！后不能启动发动机</item>
+        <item>故障：加注AdBlue后不能启动发动机.</item>
+        <item>请检查制动摩擦片！</item>
+        <item>发动机转速最大 rpm.</item>
+        <item>故障：制动器.维修站！</item>
+        <item>故障：雨量传感器</item>
+        <item>故障：自动行车灯控制</item>
+        <item>Roll Mode</item>
+        <item>驾驶员辅助系统按钮故障</item>
+        <item>故障：电力驱动系统.维修站！</item>
+        <item>变速箱过热</item>
+        <item>请检查自动摩擦片！</item>
+        <item>发动机预热到机油温度！</item>
+        <item>燃油过滤器中有水分.参阅用户手册！</item>
+        <item>请添加液化气.续驶里程;</item>
+        <item>故障:液化气.维修站！</item>
+        <item>请添加天然气.续驶里程</item>
+        <item>故障：天然气.维修站！</item>
+        <item>请给蓄电池充电 续驶里程;</item>
+        <item>故障：续驶里程</item>
+        <item>行车声音故障.谨慎驾驶！</item>
+        <item>压力损失：请检查轮胎压力</item>
+        <item>压力损失：请检查左前轮胎充气压力！</item>
+        <item>压力损失：请检查右前轮胎充气压力！</item>
+        <item>压力损失：请检查左后轮胎充气压力！</item>
+        <item>压力损失：请检查右后轮胎充气压力！</item>
+        <item>故障：灯光辅助系统</item>
+        <item>灯光辅助系统：清洁挡风玻璃</item>
+        <item>自适应巡航(ACC)和前部辅助系统不可用.</item>
+        <item>ACC和前部辅助系统：无传感器视图.</item>
+        <item>变道辅助系统当前不可用.</item>
+        <item>变道辅助系统</item>
+        <item>车道保持辅助系统当前不可用</item>
+        <item>故障：车道保持辅助系统</item>
+        <item>车道保持辅助系统不可用.无传感器视图</item>
+        <item>主动成员保护系统不可用</item>
+        <item>主动成员保护系统：功能受限.</item>
+        <item>识别到疲劳驾驶.请稍作休息.</item>
+        <item>识别到疲劳驾驶.请稍作休息.</item>
+        <item>故障：ABS.</item>
+        <item>故障：驱动防滑控制系统.</item>
+        <item>故障：ABS/驱动防滑控制系统(ASR)</item>
+        <item>故障：交通标志识别</item>
+        <item>交通标志识别：清洁挡风玻璃！</item>
+        <item>交通标志识别：目前受限.</item>
+        <item>驱动防滑控制系统(ASR)已停用.</item>
+        <item>故障：组合仪表.维修站!</item>
+        <item>蓄电池电量不足</item>
+        <item>检查蓄电池！</item>
+        <item>故障：蓄电池诊断</item>
+        <item>前部辅助系统不可用</item>
+        <item>无法重新启动.请勿打开发动机罩.</item>
+        <item>请将选档杆置于P位置！</item>
+        <item>故障：驾驶员侧车门触点</item>
+        <item>故障：维修站！请将选档杆置于P位置后再离开车辆.</item>
+        <item>前部辅助系统：无传感器视图.</item>
+        <item>不能充电.维修站！</item>
+        <item>不能快速充电.维修站！</item>
+        <item>维修站诊断 激活</item>
+        <item>制动器滚动模式</item>
+        <item>前部辅助系统不可用.</item>
+        <item>前部辅助系统：无传感器视图.</item>
+        <item>折叠式车顶功能失灵.参阅用户手册！</item>
+        <item>故障：折叠式车顶.维修站！</item>
+        <item>进行保养！参见保养设置或者多功能显示中的汽车状态.</item>
+        <item>现在进行保养</item>
+        <item>更换机油后</item>
+        <item>更换机油 天后</item>
+        <item>检查 天后</item>
+        <item>检查 后</item>
+        <item>更换机油和检查 后</item>
+        <item>更换机油和检查 天后</item>
+        <item>立即检查车况！</item>
+        <item>立即更换机油</item>
+        <item>立即更换机油并检查车况！</item>
+        <item>倒车侧视辅助/盲区监控 传感器当前不可用</item>
+        <item>故障：倒车侧视辅助/盲区监控 传感器</item>
+        <item>倒车侧视辅助/盲区监控 传感器不可用.传感器无数据.</item>
+        <item>挂车:倒车侧视辅助/盲区监控 传感器不可用</item>
+        <item>倒车侧视辅助当前不可用.</item>
+        <item>行车声音已手动停用.谨慎驾驶！</item>
+    </array>
+    <array name="can_golf_wc_start_stop_msg">
+        <item>挡风玻璃可能蒙上了雾</item>
+        <item>未遵守工作温度</item>
+        <item>未识别到驾驶员</item>
+        <item>变速箱需要发动机运行</item>
+        <item>车辆能量需求高</item>
+        <item>启动停止系统正在启动…</item>
+        <item>需要发动机运行</item>
+        <item>过于倾斜</item>
+        <item>起动停止系统目前不可用</item>
+        <item>紧急制动功能干预</item>
+        <item>制动器需要发动机运行</item>
+        <item>车辆能量需求高</item>
+        <item>启动停止系统需要发动机运行</item>
+        <item>空调器需要发动机运行</item>
+        <item>未识别到驾驶员</item>
+        <item>驾驶座侧门打开</item>
+        <item>安全带已打开</item>
+        <item>系统保护干预</item>
+        <item>因系统需求发动机不启动</item>
+        <item>带挂车行驶</item>
+        <item>转向角度过大</item>
+        <item>调车模式</item>
+        <item>除霜功能已打开</item>
+        <item>驾驶员安全带锁未扣上</item>
+        <item>驾驶员侧车门敞开</item>
+        <item>已踩下油门踏板</item>
+        <item>挡风玻璃加热装置已接通</item>
+        <item>空调满功率功能已打开</item>
+        <item>发动机舱盖已打开</item>
+        <item>目前无法停止发动机</item>
+        <item>越野模式已激活</item>
+        <item>系统保护干预.操作/启动进程过多</item>
+        <item>已挂档</item>
+        <item>已按下自动起停按钮</item>
+        <item>空调器需要发动机运行</item>
+        <item>ACC干预</item>
+        <item>自动泊车系统已激活</item>
+        <item>车身稳定控制系统(ESC)已关闭</item>
+        <item>车辆能量需求高</item>
+        <item>驾驶员安全带锁未扣上</item>
+        <item>没有驾驶员</item>
+        <item>请手动启动发动机</item>
+        <item>自动起停系统已激活</item>
+        <item>自动起停系统可用</item>
+        <item>发动机停止已激活</item>
+        <item>自动起停系统不可用</item>
+        <item>驾驶员车门已打开.未准确识别到驾驶员</item>
+        <item>请踩下制动踏板</item>
+        <item>要停止发动机.请松开离合器</item>
+        <item>自动起停系统已关闭</item>
+        <item>故障:自动起停系统</item>
+    </array>
+    <array name="can_start_stop_msg">
+        <item>拖车模式</item>
+        <item>小心档风玻璃起雾</item>
+        <item>不能维持工作温度</item>
+        <item>未发现驾驶员</item>
+        <item>操作变速箱需要发动机运行</item>
+        <item>功耗高</item>
+        <item>启用启-停系统</item>
+        <item>引擎必须运行</item>
+        <item>坡度太陡</item>
+        <item>启-停系统当前不可用</item>
+        <item>紧急制动功能干预</item>
+        <item>制动器需要发动机运行</item>
+        <item>功耗高</item>
+        <item>空调开启需要发动机运行</item>
+        <item>转向角太大</item>
+        <item>操纵模式</item>
+        <item>除霜功能开启</item>
+        <item>驾驶员未系安全带</item>
+        <item>驾驶室门打开</item>
+        <item>加速踏板被踩下</item>
+        <item>前窗加热开启</item>
+        <item>空调最大制冷需要发动机运行</item>
+        <item>引擎盖未关好</item>
+        <item>发动机当前无法停止</item>
+        <item>越野模式已启用</item>
+        <item>手刹按钮/ 杆使用太频繁</item>
+        <item>齿轮啮合</item>
+        <item>启-停按钮已按下</item>
+        <item>空调开启需要发动机运行</item>
+        <item>ACC 状态</item>
+        <item>驻车辅助已启动</item>
+        <item>ESC 关闭</item>
+        <item>功耗高</item>
+        <item>启-停系统需要发动机运行</item>
+    </array>
+    <array name="can_start_stop_other_msg">
+        <item>启-停系统已经激活</item>
+        <item>启-停系统可用</item>
+        <item>引擎已经停止</item>
+        <item>驾驶侧门打开，驾驶员不在</item>
+        <item>请按下油门踏板</item>
+        <item>请踩离合器，停止引擎</item>
+        <item>启-停系统未激活</item>
+        <item>错误：启-停系统不可用</item>
+        <item>启-停系统不可用</item>
+    </array>
+    <array name="can_dcxtgzzt_array">
+        <item>初始化</item>
+        <item>待命</item>
+        <item>预充</item>
+        <item>输出</item>
+        <item>等待主正闭合</item>
+        <item>后运行</item>
+        <item>充电</item>
+        <item>预留</item>
+        <item>充电开始</item>
+        <item>充电结束</item>
+        <item>快充就绪</item>
+        <item>慢充故障</item>
+        <item>快充故障</item>
+        <item>RTC唤醒</item>
+        <item>故障</item>
+        <item>预留</item>
+    </array>
+    <array name="can_gc_week_arrays">
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+        <item>周日</item>
+    </array>
+    <array name="can_battery_arrays">
+        <item>单体最高电压:</item>
+        <item>单体最高电压组号:</item>
+        <item>单体最低电压:</item>
+        <item>单体最低电压组号:</item>
+        <item>电池组最高温度:</item>
+        <item>电池组最低温度:</item>
+        <item>电池组最高温度组号:</item>
+        <item>电池组最低温度组号:</item>
+        <item>剩余电量:</item>
+    </array>
+    <array name="can_error_arrays">
+        <item>严重过压</item>
+        <item>严重过温</item>
+        <item>过流</item>
+        <item>IGBT故障</item>
+        <item>主接故障</item>
+        <item>预充故障</item>
+        <item>总线故障</item>
+        <item>超速</item>
+        <item>严重堵转</item>
+        <item>严重欠压</item>
+        <item>IGBT过温</item>
+        <item>旋变硬件</item>
+        <item>旋变角度</item>
+        <item>中点电压</item>
+        <item>油门故障</item>
+        <item>档位故障</item>
+        <item>通讯异常</item>
+        <item>绝缘过低</item>
+        <item>放电过流</item>
+        <item>电池温度过高</item>
+        <item>单体过放</item>
+        <item>短路保护</item>
+        <item>温升过快</item>
+        <item>压差过大</item>
+        <item>温差过大</item>
+        <item>温度过低</item>
+        <item>充电过流</item>
+        <item>总压过低</item>
+        <item>总压过高</item>
+    </array>
+    <array name="can_mzd_car_radio_sta">
+        <item>停止</item>
+        <item>播放</item>
+        <item>更新电台清单中</item>
+        <item>扫描中</item>
+        <item>扫描到电台播放中</item>
+        <item>向上搜索中</item>
+        <item>向下搜索中</item>
+    </array>
+    <array name="can_istop_tszf">
+        <item>--</item>
+        <item>i-stop不可用</item>
+        <item>请应用更多的制动压力</item>
+        <item>请转换到空挡</item>
+        <item>无法激活 请将方向盘转到中心</item>
+    </array>
+    <array name="can_mzd_cx4_jsfz">
+        <item>+0 Km/h</item>
+        <item>+5 Km/h</item>
+        <item>+10 Km/h</item>
+    </array>
+    <array name="can_eps_turn_mode">
+        <item>舒适模式</item>
+        <item>运动模式</item>
+    </array>
+    <array name="can_teramont_eco_array">
+        <item>经济</item>
+        <item>标准</item>
+        <item>运动</item>
+        <item>个性化</item>
+    </array>
+    <array name="can_teramont_drive_profile_array">
+        <item>雪地</item>
+        <item>经济</item>
+        <item>越野</item>
+        <item>越野个性化</item>
+    </array>
+    <array name="can_golf_teramont_tyres_array">
+        <item>舒适</item>
+        <item>标准</item>
+        <item>满载</item>
+    </array>
+    <array name="can_golf_teramont_tyres_warn_array">
+        <item>轮胎压力正常</item>
+        <item>请检查轮胎压力</item>
+        <item>轮胎压力过低</item>
+        <item>轮胎失压</item>
+    </array>
+    <array name="can_jyx5_car_type_array">
+        <item>高配</item>
+        <item>低配、中配</item>
+    </array>
+    <array name="can_kadjar_car_type_array">
+        <item>其他车型</item>
+        <item>科雷傲（低配）</item>
+        <item>科雷傲（高配）</item>
+    </array>
+    <array name="can_qc_t70_car_type_array">
+        <item>2015款 T70</item>
+        <item>2016款 T70</item>
+        <item>2017款 T90</item>
+        <item>2018款 D60</item>
+        <item>2018款 T70</item>
+    </array>
+    <array name="can_df_jyx5_jdsj">
+        <item>10分钟</item>
+        <item>20分钟</item>
+        <item>30分钟</item>
+    </array>
+    <array name="can_baic_hss6_zmys">
+        <item>关闭</item>
+        <item>10S</item>
+        <item>20S</item>
+        <item>30S</item>
+        <item>40S</item>
+        <item>50S</item>
+        <item>60S</item>
+    </array>
+    <array name="can_df_jyx5_ddys">
+        <item>无</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_geely_boy_mode">
+        <item>舒适</item>
+        <item>运动</item>
+    </array>
+    <array name="can_geely_boy_yklsfk">
+        <item>喇叭不响</item>
+        <item>喇叭响</item>
+    </array>
+    <array name="can_kaiyi_3x_tdjd">
+        <item>角度 0</item>
+        <item>角度 1</item>
+        <item>角度 2</item>
+        <item>角度 3</item>
+    </array>
+    <array name="can_kaiyi_3x_aqkz">
+        <item>经济型</item>
+        <item>舒适型</item>
+        <item>运动型</item>
+    </array>
+    <array name="can_kaiyi_3x_bdsg">
+        <item>关</item>
+        <item>3 次</item>
+        <item>5 次</item>
+        <item>7 次</item>
+    </array>
+    <array name="can_h6_car_type_array">
+        <item>其他车型</item>
+        <item>2016款 Coupe</item>
+    </array>
+    <array name="can_ht_car_type_array">
+        <item>其他车型</item>
+        <item>汉腾 X7（低配）</item>
+        <item>汉腾 X5（低配）</item>
+        <item>汉腾 X5（中高配）</item>
+    </array>
+    <array name="can_b50_car_type_array">
+        <item>其他车型</item>
+        <item>17款X80低配</item>
+    </array>
+    <array name="can_cch6_dd_delay_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>60s</item>
+    </array>
+    <array name="can_cch6_dd_delay_2017_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_cch6_hj_delay_array">
+        <item>30s</item>
+        <item>1min</item>
+        <item>2min</item>
+        <item>3min</item>
+    </array>
+    <array name="can_landwind_bnhj">
+        <item>30s</item>
+        <item>1min</item>
+        <item>3min</item>
+        <item>5min</item>
+        <item>关</item>
+    </array>
+    <array name="can_cch6_jd_setup_array">
+        <item>10min</item>
+        <item>20min</item>
+        <item>30min</item>
+    </array>
+    <array name="can_cch9_anti_theft_prevention">
+        <item>关</item>
+        <item>10min</item>
+        <item>20min</item>
+        <item>30min</item>
+    </array>
+    <array name="can_cch9_with_the_volume_array">
+        <item>关</item>
+        <item>开</item>
+        <item>低</item>
+        <item>中</item>
+        <item>高</item>
+    </array>
+    <array name="can_tigger7_car_type_array">
+        <item>艾瑞泽5</item>
+        <item>瑞虎7 2016</item>
+        <item>瑞虎3x 2017</item>
+        <item>瑞虎3 2017</item>
+        <item>艾瑞泽7 2016</item>
+    </array>
+    <array name="can_tigger7_language_array">
+        <item>中文</item>
+        <item>English</item>
+    </array>
+    <array name="can_tigger7_tip_array">
+        <item>喇叭</item>
+        <item>灯光</item>
+        <item>灯光和喇叭</item>
+    </array>
+    <array name="can_tigger7_car_line_array">
+        <item>关</item>
+        <item>静态</item>
+        <item>静态+动态</item>
+    </array>
+    <array name="can_mggs_avm_array">
+        <item>关</item>
+        <item>静态</item>
+        <item>动态</item>
+        <item>静态+动态</item>
+    </array>
+    <array name="can_service_notice_array">
+        <item>保养提示</item>
+        <item>即将到期</item>
+        <item>检查日期已过</item>
+        <item>请尽快保养</item>
+    </array>
+    <array name="can_by_service_array">
+        <item>机油</item>
+        <item>车辆检查</item>
+        <item>制动液</item>
+        <item>法定尾气检查</item>
+        <item>法定车辆检查</item>
+        <item>前部制动摩擦片</item>
+        <item>后部制动摩擦片</item>
+        <item>变速汽油</item>
+        <item>磨合检查</item>
+    </array>
+    <array name="can_sgmw_warn_array">
+        <item>机油压力报警</item>
+        <item>制动报警</item>
+        <item>安全气囊报警</item>
+        <item>发动机故障报警</item>
+        <item>ABS故障报警</item>
+        <item>EPS故障报警</item>
+        <item>安全带未系警告</item>
+    </array>
+    <array name="can_psa_check">
+        <item>检测位置灯</item>
+        <item>轮胎破裂：更换或修理轮胎</item>
+        <item>轮胎破裂：更换或修理轮胎</item>
+        <item>轮胎破裂：更换或修理轮胎</item>
+        <item>轮胎破裂：更换或修理轮胎</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>检测右后制动灯</item>
+        <item>检测远光灯</item>
+        <item>检测远光灯</item>
+        <item>检测近光灯</item>
+        <item>检测近光灯</item>
+        <item>检测位置灯</item>
+        <item>检测位置灯</item>
+        <item>检测位置灯</item>
+        <item>检测转向灯</item>
+        <item>检测转向灯</item>
+        <item>检测转向灯</item>
+        <item>检测后雾灯</item>
+        <item>检测后雾灯</item>
+        <item>检测前雾灯</item>
+        <item>检测前雾灯</item>
+        <item>检测左后制动灯</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>检测倒车灯</item>
+        <item>检测倒车灯</item>
+        <item>检测转向灯</item>
+        <item>请给轮胎充气</item>
+        <item>请给轮胎充气</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>驻车辅助系统故障</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>防污染系统故障</item>
+        <item>防污染系统故障：禁止启动</item>
+        <item>防污染系统故障</item>
+        <item>保留</item>
+        <item>关闭大灯</item>
+        <item>请给轮胎充气</item>
+        <item>请给轮胎充气</item>
+        <item>左后门未关</item>
+        <item>右后门未关</item>
+        <item>左前门未关</item>
+        <item>右前门未关</item>
+        <item>当心路面结冰</item>
+        <item>换挡杆到“p位”</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>后风挡未关</item>
+        <item>碰撞风险探测故障</item>
+        <item>李箱未关</item>
+        <item>保留</item>
+        <item>随动转向前大灯故障</item>
+        <item>自动手刹系统故障</item>
+        <item>可变尾翼功能故障请限速并参考说明书</item>
+        <item>驻车制动故障：请维修车辆</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>变速箱故障：请维修车辆</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>悬架系统故障：请限速90KM</item>
+        <item>发动机故障：请维修车辆</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>传感器故障：左后轮胎气压未监控</item>
+        <item>传感器故障：右后轮胎气压未监控</item>
+        <item>传感器故障：右前轮胎气压未监控</item>
+        <item>传感器故障：左前轮胎气压未监控</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>胎压监测系统故障</item>
+        <item>保留</item>
+        <item>发动车故障：请停车</item>
+        <item>行车间距测量故障</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>助力转向系统故障：请维修车辆</item>
+        <item>悬架系统故障：请维修车辆</item>
+        <item>填充防污染添加剂，禁止启动</item>
+        <item>填充防污染添加剂</item>
+        <item>填充防污染添加剂</item>
+        <item>保留</item>
+        <item>左前轮胎气压不足：请充气，然后重新开始初始化</item>
+        <item>右前轮胎气压不足：请充气，然后重新开始初始化</item>
+        <item>左后轮胎气压不足：请充气，然后重新开始初始化</item>
+        <item>右后轮胎气压不足：请充气，然后重新开始初始化</item>
+        <item>保留</item>
+        <item>请加注冷却液</item>
+        <item>助力转向系统故障：请停车</item>
+        <item>保留</item>
+        <item>制动系统故障：请停车</item>
+        <item>保留</item>
+        <item>发动机温度故障：请停车</item>
+        <item>发动机机油压力故障：请停车</item>
+        <item>行李箱未关</item>
+        <item>保留</item>
+        <item>右后门未关</item>
+        <item>左后门未关</item>
+        <item>右前门未关</item>
+        <item>左前门未关</item>
+        <item>保留</item>
+        <item>请加注发动机机油</item>
+        <item>安全气囊或安全带预张紧故障</item>
+        <item>燃油量不足</item>
+        <item>请更换制动片</item>
+        <item>柴油滤清器进水：请维修车辆</item>
+        <item>保留</item>
+        <item>蓄电池充电故障：请停车</item>
+        <item>ESP/ASR系统故障：请维修车辆</item>
+        <item>后风挡未关</item>
+        <item>悬架系统故障：请维修车辆</item>
+        <item>保留</item>
+        <item>微粒过滤器添加剂不足：请维修车辆</item>
+        <item>保留</item>
+        <item>微粒过滤器有堵塞风险：请参考说明书</item>
+        <item>ABS制动系统故障：请维修车辆</item>
+        <item>发动机故障：请维修车辆</item>
+        <item>保留</item>
+        <item>无法开启硬顶：系统温度过高</item>
+        <item>保留</item>
+        <item>电子防启动系统故障</item>
+        <item>转向柱锁故障：请维修车辆</item>
+        <item>硬顶折叠机械故障</item>
+        <item>检测中间制动灯</item>
+        <item>预热/预通风停用：油量不足</item>
+        <item>预热/预通风停用：电量不足</item>
+        <item>更换遥控器电池</item>
+        <item>请添加玻璃清洗液</item>
+        <item>混合动力系统故障：请限速，维修车辆</item>
+        <item>混合动力系统故障：请维修车辆</item>
+        <item>大灯自动调节系统故障</item>
+        <item>混合动力系统故障：请停车并参考说明书</item>
+        <item>无法开启硬顶：拉紧手刹</item>
+        <item>无法开启硬顶：启动发动机</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>胎压检测系统故障</item>
+        <item>保留</item>
+        <item>拖车连接故障：请维修车辆</item>
+        <item>预热/预通风停用：设置时钟</item>
+        <item>保留</item>
+    </array>
+    <array name="can_psa_rzc_check">
+        <item>无功能状态信息、无报警记录、诊断正常</item>
+        <item>驻车辅助启用</item>
+        <item>驻车辅助停止</item>
+        <item>乘客正面气囊启用</item>
+        <item>乘客正面气囊停用</item>
+        <item>车门自锁启用</item>
+        <item>车门自锁停用</item>
+        <item>车门已锁</item>
+        <item>车门已解锁</item>
+        <item>倒车时后雨刷器启用</item>
+        <item>倒车时后雨刷器停用</item>
+        <item>引擎温度故障，请停车</item>
+        <item>请加注冷却液</item>
+        <item>请加引擎机油</item>
+        <item>引擎机油压力故障，请停车</item>
+        <item>制动系统故障</item>
+        <item>不可操作</item>
+        <item>车门、行李箱、引擎盖、后风窗或油箱未关</item>
+        <item>多个轮胎爆裂</item>
+        <item>微粒过滤器有堵塞风险：请参考说明书</item>
+        <item>悬架故障 限速：90km/h</item>
+        <item>悬架系统故障</item>
+        <item>助力转向故障</item>
+        <item>10km/h</item>
+        <item>驻车制动启用</item>
+        <item>驻车制动解除</item>
+        <item>制动操控故障驻车制动自动激活</item>
+        <item>制动片磨碎</item>
+        <item>驻车制动故障</item>
+        <item>可变尾翼功能缺失限速，请参考说明书</item>
+        <item>ABS 故障</item>
+        <item>ESP/ASR 系统故障</item>
+        <item>变速箱系统故障</item>
+        <item>变速箱故障：请维修车辆</item>
+        <item>巡航系统故障</item>
+        <item>微粒过滤器添加剂不足：请维修车辆</item>
+        <item>电子防盗系统故障</item>
+        <item>驻车辅助系统故障</item>
+        <item>车位测量系统故障</item>
+        <item>蓄电池充电或供电系统故障</item>
+        <item>轮胎气压不足</item>
+        <item>近光灯泡坏</item>
+        <item>远光灯泡坏</item>
+        <item>制动灯泡坏</item>
+        <item>雾灯灯泡坏</item>
+        <item>转向灯灯泡坏</item>
+        <item>倒车灯炮坏</item>
+        <item>位置灯灯泡坏</item>
+        <item>换挡杠换到“P档</item>
+        <item>当心路面结冰</item>
+        <item>当心手刹</item>
+        <item>风窗洗涤液不足</item>
+        <item>燃油不足</item>
+        <item>供油切断</item>
+        <item>遥控器电量不足</item>
+        <item>轮胎气压未监控</item>
+        <item>高速、检测胎压是否合适</item>
+        <item>轮胎气压不足</item>
+        <item>诊断中</item>
+        <item>诊断完成</item>
+        <item>左右安全带未系</item>
+        <item>后座中间安全带未系</item>
+        <item>左后安全带未系</item>
+        <item>右后安全带未系</item>
+        <item>自动雨刮器启用</item>
+        <item>自动雨刮器停用</item>
+        <item>大灯自动点亮启用</item>
+        <item>大灯自动点亮停用</item>
+        <item>无法开启硬顶：隔板未放</item>
+        <item>硬顶操作完成</item>
+        <item>立即结束硬顶操作</item>
+        <item>操作失败：硬顶已锁</item>
+        <item>硬顶折叠机械故障</item>
+        <item>操作失败：后风窗未关</item>
+        <item>防倒滑系统故障</item>
+        <item>驾驶模式：正常模式</item>
+        <item>驾驶模式：泥地模式</item>
+        <item>驾驶模式：雪地模式</item>
+        <item>驾驶模式：沙地模式</item>
+        <item>ESP 系统停用</item>
+        <item>行车间距不可测量：能见度过低</item>
+        <item>行车间距不可测量：正在初始化</item>
+        <item>活动顶棚操作失败：膨体未到位</item>
+        <item>行李箱盖未关</item>
+        <item>油箱口盖未锁好</item>
+        <item>右后车门未关</item>
+        <item>左后车门未关</item>
+        <item>右前车门未关</item>
+        <item>左前车门未关</item>
+        <item>当心手刹</item>
+        <item>安全气囊或安全带预张紧故障</item>
+        <item>柴油滤清器进水：请维修车辆</item>
+        <item>胎压监测系统故障</item>
+        <item>无法开启硬顶：系统温度过高（左后轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>无法开启硬顶：系统温度过高（左后轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>电子防起动故障</item>
+        <item>方向盘锁故障：请维修车辆</item>
+        <item>检测中间制动灯</item>
+        <item>预热/预通风停用:油量不足（巡航系统故障）</item>
+        <item>预热/预通风停用:电量不足</item>
+        <item>混合动力系统故障:请限速,维修车辆</item>
+        <item>混合动力系统故障:请维修车辆</item>
+        <item>大灯自动调节系统故障</item>
+        <item>混合动力系统故障:请停车并参考说明书</item>
+        <item>无法开启硬顶：系统温度过高（左前轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>无法开启硬顶：系统温度过高（右前轮胎气压不足：请充气，然后重新初始化）</item>
+        <item>胎压检测系统故障(轮胎气压未监控)</item>
+        <item>拖车连接故障:请维修车辆(光敏传感器故障)</item>
+        <item>预热/预通风停用:调节时钟</item>
+        <item>碰撞风险探测故障（发动机罩未关）</item>
+        <item>随动转向前大灯故障</item>
+        <item>自动手刹系统故障（发动机罩未关）</item>
+        <item>车道偏离报警故障</item>
+        <item>传感器故障:左后轮胎气压未监控</item>
+        <item>传感器故障:右后轮胎气压未监控</item>
+        <item>传感器故障:右前轮胎气压未监控</item>
+        <item>传感器故障:左前轮胎气压未监控</item>
+        <item>胎压检测系统故障（填充防污染添加剂）</item>
+        <item>发动机（引擎）故障:请停车</item>
+        <item>发动机（引擎）故障:请维修车辆</item>
+        <item>行车间距测量故障</item>
+        <item>填充防污染添加剂:禁止启动</item>
+        <item>填充防污染添加剂</item>
+        <item>左前轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>右前轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>左后轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>右后轮胎气压不足:请充气,然后重新初始化(防污染系统故障：禁止启动)</item>
+        <item>左后轮胎破裂:更换或修理轮胎</item>
+        <item>右后轮胎破裂:更换或修理轮胎</item>
+        <item>右前轮胎破裂:更换或修理轮胎</item>
+        <item>左前轮胎破裂:更换或修理轮胎</item>
+        <item>右后制动灯灯泡坏</item>
+        <item>左后制动灯灯泡坏</item>
+        <item>防污染系统故障</item>
+        <item>防污染系统故障:禁止启动</item>
+        <item>关闭大灯</item>
+    </array>
+    <array name="can_psa_warn">
+        <item>发动机油温故障，请停车</item>
+        <item>请加注冷却液</item>
+        <item>请加注发动机机油</item>
+        <item>发动机机油压力故障，请停车</item>
+        <item>制动系统故障，请停车</item>
+        <item>微粒过滤器有堵塞风险，请参考说明书</item>
+        <item>悬架系统故障，限速：90km/h</item>
+        <item>助力转向系统故障，请维修车辆</item>
+        <item>驻车制动故障，请维修车辆</item>
+        <item>请更换制动片</item>
+        <item>驻车制动故障，请维修车辆</item>
+        <item>可变尾翼故障 请限速，请参考说明书</item>
+        <item>ABS制动系统故障，请维修车辆</item>
+        <item>ESP/ASR系统故障，请维修车辆</item>
+        <item>悬架系统故障，请维修车辆</item>
+        <item>助力转向系统故障，请停车</item>
+        <item>大灯自动调节系统故障</item>
+        <item>随动转向前大灯故障</item>
+        <item>安全气囊或安全带预张紧故障</item>
+        <item>发动机罩开启传感器故障</item>
+        <item>变速箱故障，请维修车辆</item>
+        <item>启动发动机，请踩住刹车踏板并将换挡杆置于N位置</item>
+        <item>柴油滤清器进水，请维修车辆</item>
+        <item>发动机故障，请维修车辆</item>
+        <item>NULL</item>
+        <item>微粒过滤器添加剂不足，请维修车辆</item>
+        <item>驻车辅助系统故障</item>
+        <item>蓄电池充电故障，请停车</item>
+        <item>车辆靠近</item>
+        <item>行车间距不可测量，巡航功能已激活</item>
+        <item>条件不足，无法激活</item>
+        <item>巡航功能暂停，重新检测</item>
+        <item>速度&gt;150km/h，速度调节关闭</item>
+        <item>记录胎压</item>
+        <item>胎压监测系统故障</item>
+        <item>请关门，以便启动自动释放手刹功能</item>
+        <item>请刹车！</item>
+        <item>自动手刹系统关闭</item>
+        <item>加注添加剂，在0km内禁止开始</item>
+        <item>NULL</item>
+        <item>填充防污染添加剂，禁止启动</item>
+        <item>防污染系统故障</item>
+        <item>排放控制故障，在0km内禁止开始</item>
+        <item>防污染系统故障，禁止启动</item>
+        <item>发动机启停功能停用，环境温度不适</item>
+        <item>行驶时无法重新初始化</item>
+        <item>动态模式关闭</item>
+        <item>无动态模式</item>
+        <item>关闭大灯</item>
+        <item>请拔钥匙</item>
+        <item>定速巡航系统不能启用，速度过低</item>
+        <item>定速巡航系统不能启用，设定车速</item>
+        <item>换挡杆换到P位</item>
+        <item>当心路面结冰</item>
+        <item>松开手刹</item>
+        <item>请调整玻璃清洗液</item>
+        <item>燃油量不足</item>
+        <item>供油切断</item>
+        <item>更换遥控器电池</item>
+        <item>将换挡杆置于N位置</item>
+        <item>按下手刹停车按钮时请踩住制动踏板</item>
+        <item>无法开启硬顶，室外温度过低</item>
+        <item>无法开启硬顶，车速过高</item>
+        <item>无法开启硬顶，行李箱盖未关</item>
+        <item>无法开启硬顶，隔板未放</item>
+        <item>硬顶操作完成</item>
+        <item>立即结束硬顶操作</item>
+        <item>硬顶折叠机械故障</item>
+        <item>操作失败，后风窗未关</item>
+        <item>防倒退系统故障</item>
+        <item>行车间距不可测量，能见度过低</item>
+        <item>行车间距不可测量，正在初始化</item>
+        <item>预热/预通风停用，调节时钟</item>
+        <item>预热/预通风停用，燃油不足</item>
+        <item>预热/预通风停用，电量不足</item>
+        <item>转动方向盘以解锁</item>
+        <item>钥匙已拔出，请长按关闭发动机</item>
+        <item>为关闭发动机，请将换挡杆置于P位置</item>
+        <item>为启动发动机，请将钥匙插入</item>
+        <item>为启动发动机，请踩住制动踏板+按START</item>
+        <item>为启动发动机，请踩住离合踏板+按START</item>
+        <item>未检测到钥匙</item>
+        <item>取出钥匙</item>
+        <item>无车钥匙</item>
+        <item>为松开手刹，请踩住制动踏板</item>
+        <item>定速巡航功能暂停</item>
+        <item>定速巡航故障</item>
+        <item>请完全踩下离合器</item>
+        <item>测算中，最大车速20km/h</item>
+        <item>通过转向灯选择方向</item>
+        <item>方向盘故障，请维修车辆</item>
+        <item>请将手刹拉至最大位置</item>
+        <item>电路故障，请维修车辆</item>
+        <item>拉紧手刹</item>
+        <item>电子防启动故障</item>
+        <item>发动机故障，请停车</item>
+        <item>无法开启硬顶，系统温度过高</item>
+        <item>无法开启硬顶，启动发动机</item>
+        <item>无法开启硬顶，拉紧手刹</item>
+        <item>混合动力系统故障，请停车并参考说明书</item>
+        <item>混合动力系统故障，请维修车辆</item>
+        <item>混合动力系统故障，请限速，维修车辆</item>
+        <item>将换挡杆置于N位置并断开钥匙连接</item>
+        <item>混合动力系统激活</item>
+        <item>电动力模式暂时无法切换</item>
+        <item>拖车连接故障，请维修车辆</item>
+        <item>请手动重新启动</item>
+    </array>
+    <array name="can_psa_func">
+        <item>驻车制动启用</item>
+        <item>驻车制动解除</item>
+        <item>自动雨刷启用</item>
+        <item>自动雨刷停用</item>
+        <item>大灯自动点亮启用</item>
+        <item>大灯自动点亮停用</item>
+        <item>车门自锁启用</item>
+        <item>车门自锁停用</item>
+        <item>儿童安全装置启用</item>
+        <item>儿童安全装置停用</item>
+        <item>ESP系统启用</item>
+        <item>ESP系统停用</item>
+        <item>驱动防滑系统：正常模式</item>
+        <item>驱动防滑系统：泥地模式</item>
+        <item>驱动防滑系统：雪地模式</item>
+        <item>驱动防滑系统：沙地模式</item>
+        <item>发动机启停功能启用</item>
+        <item>发动机启停功能停用</item>
+        <item>牵引控制开启</item>
+        <item>牵引控制关闭</item>
+    </array>
+    <array name="can_psa_wc_warn">
+        <item>诊断正常</item>
+        <item>引擎温度故障，请停车</item>
+        <item>请加注冷却液</item>
+        <item>请加注引擎机油</item>
+        <item>引擎机油压力故障，请停车</item>
+        <item>制动系统故障</item>
+        <item>不可操作</item>
+        <item>车门，行李箱，发动机罩，后风窗和油箱未关</item>
+        <item>多个轮胎爆裂</item>
+        <item>微粒过滤器有堵塞风险：请参考说明书</item>
+        <item>悬架故障 限速：90km/h</item>
+        <item>悬架系统故障</item>
+        <item>助力转向故障</item>
+        <item>10km/h</item>
+        <item>驻车制动启用</item>
+        <item>驻车制动解除</item>
+        <item>制动操控故障驻车制动自动激活</item>
+        <item>制动片磨损</item>
+        <item>驻车制动故障</item>
+        <item>可变尾翼功能缺失限速，请参考说明书</item>
+        <item>ABS 系统故障</item>
+        <item>ESP/ASR 系统故障</item>
+        <item>悬架系统故障</item>
+        <item>助力转向故障</item>
+        <item>变速箱故障：请维修车辆</item>
+        <item>系航系统故障</item>
+        <item>微粒过滤器添加剂不足：请维修车辆</item>
+        <item>电子防盗系统故障</item>
+        <item>驻车辅助系统故障</item>
+        <item>车位测量系统故障</item>
+        <item>蓄电池充电或供电系统故障</item>
+        <item>轮胎气压不足</item>
+        <item>近光灯泡坏</item>
+        <item>远光灯泡坏</item>
+        <item>制动灯泡坏</item>
+        <item>雾灯灯泡坏</item>
+        <item>转向灯坏</item>
+        <item>倒车灯灯泡坏</item>
+        <item>位置灯灯泡坏</item>
+        <item>换档杆换到“P”位</item>
+        <item>当心路面结冰</item>
+        <item>当心手刹</item>
+        <item>车门、行李箱、发动罩、后风扇和油箱未关</item>
+        <item>风窗洗涤液不足</item>
+        <item>燃油量不足</item>
+        <item>供油切断</item>
+        <item>遥控器电量不足</item>
+        <item>轮胎气压未监控</item>
+        <item>高速、检测胎压是否合适</item>
+        <item>轮胎气压不足</item>
+        <item>诊断中</item>
+        <item>诊断完成</item>
+        <item>左后安全带未系</item>
+        <item>后座中间安全带未系</item>
+        <item>右后安全带未系</item>
+        <item>自动雨刮启用</item>
+        <item>自动雨刮停用</item>
+        <item>大灯自动点亮启用</item>
+        <item>大灯自动点亮停用</item>
+        <item>车门自锁启用</item>
+        <item>车门自锁停用</item>
+        <item>无法开启硬顶：隔板未放</item>
+        <item>硬顶操作完成</item>
+        <item>立即结束硬顶操作</item>
+        <item>操作失败：硬顶已锁</item>
+        <item>硬顶折叠机械故障</item>
+        <item>操作失败：后风窗未关</item>
+        <item>活动顶蓬操作失败：蓬体未到位</item>
+        <item>防倒滑系统故障</item>
+        <item>驾驶模式：正常模式</item>
+        <item>驾驶模式：泥地模式</item>
+        <item>驾驶模式：雪地模式</item>
+        <item>驾驶模式：沙地模式</item>
+        <item>ESP 系统停用</item>
+        <item>行车间距不可测量：能见度过低</item>
+        <item>行车间距不可测量；正在初始化</item>
+        <item>无信息</item>
+        <item>未知信息号</item>
+    </array>
+    <array name="can_df_wc_warn">
+        <item>请注意车辆保养</item>
+        <item>请加注机油</item>
+        <item>请关闭灯光</item>
+        <item>发动机温度过高，请停车</item>
+        <item>请松开手刹</item>
+        <item>燃油量低，请及时加油</item>
+        <item>请关闭电源</item>
+        <item>钥匙未拔</item>
+        <item>请维修车辆</item>
+        <item>已超过设定车速</item>
+    </array>
+    <array name="can_ford_warn_text">
+        <item>无</item>
+        <item>变速箱过热请安全停车</item>
+        <item>变速箱故障请立即检修</item>
+        <item>引擎故障请立即检修</item>
+        <item>柴油滤清器阻塞请参考用户手册</item>
+        <item>引擎机油需要更换请检修</item>
+        <item>引擎机油油量低请安全停车</item>
+        <item>坡道起步辅助不可用</item>
+        <item>安全气囊故障请立即检修</item>
+        <item>刹车系统故障请安全停车</item>
+        <item>刹车油油量低请立即检修</item>
+        <item>ABS故障请立即检修</item>
+        <item>ESP关闭</item>
+        <item>ESP关闭</item>
+        <item>助力转向故障请立即检修</item>
+        <item>无</item>
+        <item>后备箱未关好</item>
+        <item>引擎盖未关好</item>
+        <item>后排右侧车门未关好</item>
+        <item>后排左侧车门未关好</item>
+        <item>副驾驶座车门未关好</item>
+        <item>驾驶座车门未关好</item>
+        <item>无</item>
+        <item>自动 启-停 启动引擎</item>
+        <item>左转提示灯故障更换灯泡</item>
+        <item>左转提示灯故障更换灯泡</item>
+        <item>引擎盖未关好</item>
+        <item>后备箱未关好</item>
+        <item>后排右侧车门未关好</item>
+        <item>后排左侧车门未关好</item>
+        <item>副驾驶座车门未关好</item>
+        <item>驾驶座车门未关好</item>
+        <item>踩离合器启动</item>
+        <item>踩刹车启动</item>
+        <item>钥匙电池电量低更换电池</item>
+        <item>自动 启-停 请踩踏板 启动引擎</item>
+        <item>防盗系统故障请检修</item>
+        <item>钥匙电池电量低更换电池</item>
+        <item>内部扫描已取消</item>
+        <item>自动雨刷/灯故障请检修</item>
+        <item>自动 启-停 请手动启动引擎</item>
+        <item>关闭后备箱或使用备用钥匙</item>
+        <item>转向锁已启用请转动方向盘</item>
+        <item>转向锁故障请安全停车</item>
+        <item>转向锁故障请立即检修</item>
+        <item>钥匙不在车内</item>
+        <item>未发现钥匙</item>
+        <item>按POWER键关闭引擎</item>
+        <item>车门未关好请踩刹车减速</item>
+        <item>选择空挡启动</item>
+        <item>踩刹车启动</item>
+        <item>自动 启-停 选择空挡</item>
+        <item>选择空挡或P档启动</item>
+        <item>变速箱不在P档请选择P档</item>
+        <item>自动 启-停 关闭点火开关</item>
+        <item>引擎防盗锁故障请立即检修</item>
+        <item>防盗系统已启动请检查车辆</item>
+        <item>防盗系统已启动请检查车辆</item>
+        <item>防盗系统已启动请检查车辆</item>
+        <item>防盗系统已启动请检查车辆</item>
+        <item>变速箱温度高请停车或加速</item>
+        <item>变速箱温度高请停车或加速</item>
+        <item>变速箱准备就绪</item>
+        <item>变速箱温度高请等候4分钟</item>
+        <item>踩刹车和离合器启动</item>
+        <item>踩刹车启动</item>
+        <item>踩离合器启动</item>
+        <item>城市安全系统 自动刹车</item>
+        <item>城市安全系统不可用</item>
+        <item>城市安全系统 感应器阻塞 请清理镜头</item>
+        <item>请检车轮胎压力</item>
+        <item>轮胎压力系统故障请检修</item>
+        <item>引擎运转中</item>
+        <item>MyKey 已启用请安全驾驶</item>
+        <item>MyKey 限速至160KM/H</item>
+        <item>MyKey 车速已达最高车速</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>MyKey 注意车速 请安全驾驶</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>MyKey 泊车辅助不能解除</item>
+        <item>MyKey 电子稳定控制不能解除</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>踩刹车解锁变速杆</item>
+        <item>启动 时间超时</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>变速箱 不在P档</item>
+        <item>变速杆已解锁</item>
+        <item>手刹未松</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>无</item>
+        <item>MyKey 车速接近最高车速</item>
+        <item>无</item>
+        <item>手刹未松</item>
+    </array>
+    <array name="can_pm25_check_array">
+        <item>关</item>
+        <item>上电检测</item>
+        <item>开门检测</item>
+        <item>30分钟定时检测</item>
+    </array>
+    <array name="can_cs15_tpmsmsg">
+        <item>胎压将在行驶过程中进行重置</item>
+        <item>胎压重置失败，请停车重试</item>
+        <item>胎压重置成功</item>
+    </array>
+    <array name="can_zotyedm_X5_wc">
+        <item>请寻找钥匙</item>
+        <item>钥匙尾端按下启动按钮</item>
+        <item>切换到P档或N档启动</item>
+        <item>踩下离合按下启动按钮</item>
+        <item>踩刹车按启动按钮</item>
+        <item>切换到P档按启动按钮</item>
+        <item>按下启动按钮切换到N档启动</item>
+        <item>按下启动按钮启动</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_tsy">
+        <item />
+        <item>确保在操纵之前是安全</item>
+        <item>泊车辅助不可用</item>
+        <item>使用转向信号改变方向</item>
+        <item>选择前进档</item>
+        <item>发现空间，向前行驶</item>
+        <item>停在空的车位旁边</item>
+        <item>按“△▽”设置泊车位置</item>
+        <item>调整停车位置</item>
+        <item>泊车辅助取消</item>
+        <item>向后行驶</item>
+        <item>停止并选择倒档</item>
+        <item>前行</item>
+        <item>停止并选择前进档</item>
+        <item>泊车辅助完成</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>中心方向盘</item>
+        <item>解除拖车</item>
+        <item>VDC 必须为ON</item>
+        <item>关门开始</item>
+        <item>系统故障</item>
+        <item>泊车辅助故障</item>
+        <item>超速</item>
+        <item>转向干预</item>
+        <item>拖车ON</item>
+        <item>VDC 有效</item>
+        <item>门打开/未系安全带</item>
+        <item>超时</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>引擎未激活</item>
+        <item>Esp 未激活</item>
+        <item>前轮驱动到泊车位外</item>
+        <item>不可恢复</item>
+        <item>NULL</item>
+        <item>停止</item>
+        <item>选择倒档</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>检查周围环境</item>
+        <item>在停车位旁停下并启动泊车辅助</item>
+        <item>NULL</item>
+        <item>降低速度</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>方向盘转动</item>
+        <item>小心驾驶</item>
+        <item>小心倒车</item>
+        <item>检查障碍物</item>
+    </array>
+    <array name="can_nissan_wc_xtral_rvs_tsy">
+        <item />
+        <item>确保在操纵之前是安全</item>
+        <item>在停车位旁停下并启动泊车辅助</item>
+        <item>停止并选择倒档</item>
+        <item>停止并选择前进档</item>
+        <item>停在空的车位旁边</item>
+        <item>检查周围环境</item>
+        <item>前行</item>
+        <item>向后行驶</item>
+        <item>小心驾驶</item>
+        <item>小心倒车</item>
+        <item>降低速度</item>
+        <item>按“△▽”设置泊车位置</item>
+        <item>调整停车位置</item>
+        <item>方向盘转动</item>
+        <item>检查障碍物</item>
+        <item />
+        <item>选择前进档</item>
+        <item>解除拖车</item>
+        <item>系统故障</item>
+        <item>泊车辅助故障</item>
+        <item>转向干预</item>
+        <item>中心方向盘</item>
+        <item>VDC 必须为ON</item>
+        <item>超速</item>
+        <item>超时</item>
+        <item />
+        <item>关门开始</item>
+        <item>拖车ON</item>
+        <item>VDC 有效</item>
+        <item>门打开/未系安全带</item>
+        <item />
+        <item>泊车辅助完成</item>
+        <item>泊车辅助不可用</item>
+        <item>Esp 未激活</item>
+        <item>发现空间，向前行驶</item>
+        <item>停止</item>
+        <item />
+        <item>引擎未激活</item>
+        <item>前轮驱动到泊车位外</item>
+        <item>选择倒档</item>
+        <item />
+        <item />
+        <item>不可恢复</item>
+        <item />
+        <item />
+        <item>泊车辅助取消</item>
+        <item />
+        <item>使用转向信号改变方向</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_declare">
+        <item>How to Use Bay Parking</item>
+        <item>① Position blue box in empty target space</item>
+        <item>② Red lines show limits of the system</item>
+        <item>③ Push‘Start’,to initiate auto steering</item>
+        <item>* No obstacle avoidance function,always check surroundings</item>
+        <item>* Brake manually</item>
+        <item>* Release steering wheel during auto steer</item>
+    </array>
+    <array name="can_cdzt_arrays">
+        <item>未充电</item>
+        <item>行驶充电</item>
+        <item>停车充电</item>
+        <item>充电完成</item>
+    </array>
+    <array name="can_soctbbj_arrays">
+        <item>无故障</item>
+        <item>二级故障</item>
+    </array>
+    <array name="can_xdcgcbj_arrays">
+        <item>正常</item>
+        <item>一级故障</item>
+        <item>二级报警</item>
+        <item>三级报警</item>
+    </array>
+    <array name="can_bmszjztbj_arrays">
+        <item>无故障</item>
+        <item>三级故障</item>
+    </array>
+    <array name="can_dcxkl_arrays">
+        <item>正常</item>
+        <item>开路</item>
+    </array>
+    <array name="can_cdczwdbj_arrays">
+        <item>正常</item>
+        <item>二级报警</item>
+    </array>
+    <array name="can_s6s7_pm25_arrays">
+        <item>无效</item>
+        <item>优</item>
+        <item>良</item>
+        <item>轻度污染</item>
+        <item>中度污染</item>
+        <item>重度污染</item>
+        <item>严重污染</item>
+    </array>
+    <array name="can_pm25_arrays">
+        <item>优</item>
+        <item>良</item>
+        <item>轻度污染</item>
+        <item>中度污染</item>
+        <item>重度污染</item>
+        <item>严重污染</item>
+        <item>--</item>
+    </array>
+    <array name="can_ent_aux_arrays">
+        <item>面板快捷键</item>
+        <item>菜单式界面，使用IDRIVER切换</item>
+        <item>九宫格界面，使用IDRIVER切换</item>
+    </array>
+    <array name="can_a_s_l_arrays">
+        <item>关</item>
+        <item>1等级</item>
+        <item>2等级</item>
+        <item>3等级</item>
+        <item>4等级</item>
+        <item>5等级</item>
+    </array>
+    <array name="can_wc_a_s_l_arrays">
+        <item>关</item>
+        <item>1等级</item>
+        <item>2等级</item>
+        <item>3等级</item>
+    </array>
+    <array name="can_lexus_lz_psel">
+        <item>POS ALL</item>
+        <item>POS FRONT</item>
+        <item>POS REAR</item>
+        <item>POS DRIVER</item>
+    </array>
+    <array name="can_auto_speed_lock_array">
+        <item>关闭</item>
+        <item>15km/h 上锁</item>
+        <item>40km/h 上锁</item>
+    </array>
+    <array name="can_dgkz">
+        <item>头灯/日间行车灯和尾灯</item>
+        <item>仅头灯/日间行车灯</item>
+        <item>仅尾灯</item>
+    </array>
+    <array name="can_ybtsy">
+        <item>声音1</item>
+        <item>声音2</item>
+        <item>声音3</item>
+    </array>
+    <array name="can_psa_rzc_cartype">
+        <item>低配（原车方控为手柄式）</item>
+        <item>中配（原车方控非手柄式）</item>
+        <item>高配（带导航配置）</item>
+    </array>
+    <array name="can_ford_active_park">
+        <item>减速继续泊车辅助</item>
+        <item>减速</item>
+        <item>从右侧搜索泊车位置</item>
+        <item>从左侧搜索泊车位置</item>
+        <item>主动泊车辅助错误\10请参考用户手册</item>
+        <item>左侧发现泊车位置\10继续前进，准备泊车</item>
+        <item>右侧发现泊车位置\10继续前进，准备泊车</item>
+        <item>左侧发现泊车位置\10停车，准备开始泊车</item>
+        <item>右侧发现泊车位置\10停车，准备开始泊车</item>
+        <item>请将手离开方向盘\10换至R档，准备左侧泊车</item>
+        <item>请将手离开方向盘\10换至R档，准备右侧泊车</item>
+        <item>请注意检查车辆四周环境\10正在左侧泊车\10请挂R档，缓慢后退</item>
+        <item>请注意检查车辆四周环境\10正在右侧泊车\10请挂R档，缓慢后退</item>
+        <item>请注意检查车辆四周环境\10停车\10请挂前进档，缓慢前进</item>
+        <item>请注意检查车辆四周环境\10请小心\10请挂前进档，缓慢前进</item>
+        <item>请注意检查车辆四周环境\10停车\10请挂R档，缓慢后退</item>
+        <item>请注意检查车辆四周环境\10请小心\10请挂R档，缓慢后退</item>
+        <item>主动泊车辅助已完成</item>
+        <item>按按钮恢复泊车</item>
+        <item>主动泊车辅助已取消</item>
+        <item>因为速度过快主动泊车辅助已取消</item>
+        <item>主动泊车辅助已被驾驶员取消</item>
+        <item>主动泊车辅助不可用</item>
+        <item>因为ESC主动泊车辅助已取消</item>
+        <item>因为ASB系统事件主动泊车辅助已取消</item>
+    </array>
+    <array name="can_gmrzc_active_park">
+        <item>正在搜索右侧平行的泊车位置</item>
+        <item>正在搜索左侧平行的泊车位置</item>
+        <item>自动泊车辅助\10请减速\10接近最高时速</item>
+        <item>自动控制起动\10随时准备刹车</item>
+        <item>自动控制系统启动\10紧急制动功能关闭</item>
+        <item>已完成\10进入驻车档</item>
+        <item>停止\10进入倒车档(右侧方位)</item>
+        <item>缓慢前进\10随时准备刹车</item>
+        <item>缓慢倒车\10随时准备刹车</item>
+        <item>停止</item>
+        <item>停止\10进入倒车档(左侧方位)</item>
+        <item>搜索右侧垂直泊车位</item>
+        <item>搜索左侧垂直泊车位</item>
+        <item>停止\10进入倒车档(右倒车入库)</item>
+        <item>停止\10进入倒车档(左倒车入库)</item>
+        <item>已取消-请阅读说明书</item>
+        <item>已取消</item>
+        <item>驶离泊车位\10挂入倒车档已开始(左)</item>
+        <item>驶离泊车位\10挂入倒车档已开始(右)</item>
+        <item>退出泊车位置已取消</item>
+        <item>已完成\10请接管车辆</item>
+        <item>已取消\10未能泊车至指定空间</item>
+        <item>已取消\10超速</item>
+        <item>已取消\10驾驶员接入</item>
+        <item>已取消\10请阅读说明书</item>
+        <item>已发现泊车位(右侧方位)</item>
+        <item>已发现泊车位(左侧方位)</item>
+        <item>已发现泊车位(右垂直方位)</item>
+        <item>已发现泊车位(左垂直方位)</item>
+        <item>向前行驶(右侧方位)</item>
+        <item>向前行驶(左侧方位)</item>
+        <item>向前行驶(右垂直方位)</item>
+        <item>向前行驶(左垂直方位)</item>
+    </array>
+    <array name="can_gm_wc_pantype">
+        <item>其他车型</item>
+        <item>爱唯欧、克鲁兹、英朗、迈锐宝、君威</item>
+        <item>君越、GL8</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>昂科拉</item>
+        <item>16款迈锐宝XL,探界者</item>
+        <item>17款 GL8 25S</item>
+        <item>14款 GL8</item>
+    </array>
+    <array name="can_golf_scr_zdmsfl">
+        <item>自动模式风量：轻</item>
+        <item>自动模式风量：中</item>
+        <item>自动模式风量：强</item>
+    </array>
+    <array name="can_golf_scr_zdnwxh">
+        <item>自动内外循环：关闭</item>
+        <item>自动内外循环：打开</item>
+    </array>
+    <array name="can_psa_scr_car_type">
+        <item>马来西亚508</item>
+        <item>RZC</item>
+    </array>
+    <array name="can_fs_declare_162_direction">
+        <item>北</item>
+        <item>东北</item>
+        <item>东</item>
+        <item>东南</item>
+        <item>南</item>
+        <item>西南</item>
+        <item>西</item>
+        <item>西北</item>
+        <item>无信号</item>
+    </array>
+    <array name="can_porsche_tyres_warn_array">
+        <item>轮胎压力正常</item>
+        <item />
+        <item>请检查轮胎压力</item>
+        <item>轮胎压力过低</item>
+        <item>轮胎失压</item>
+    </array>
+    <array name="can_iap_updata_sta">
+        <item />
+        <item>升级完成</item>
+        <item>CAN box进入升级状态</item>
+        <item>升级文件错误</item>
+    </array>
+    <array name="can_mzd_car_play_sta">
+        <item>停止</item>
+        <item>暂停</item>
+        <item>播放</item>
+        <item>出碟</item>
+        <item>读取中</item>
+    </array>
+    <array name="can_mzd_car_disc_sta">
+        <item>CD错误</item>
+        <item>正常</item>
+        <item>无CD</item>
+    </array>
+    <array name="can_ford_fiesta_wc_warninfo">
+        <item>发动机机油油压低，请安全停车</item>
+        <item>发动机机油更换机油，请立即保养</item>
+        <item>柴油滤清器超过负荷，请参考用户手册</item>
+        <item>引擎故障，请立即保养</item>
+        <item>变速箱故障，请立即保养</item>
+        <item>变速箱温度过高 请安全停车</item>
+        <item>动力转向系统故障，请立即保养</item>
+        <item>电子稳定系统关</item>
+        <item>ABS故障，请立即保养</item>
+        <item>制动液液量低</item>
+        <item>制动系统故障，请安全停车</item>
+        <item>安全气囊故障</item>
+        <item>左前门未关</item>
+        <item>右前门未关</item>
+        <item>左后门未关</item>
+        <item>右后门未关</item>
+        <item>发动机盖未关</item>
+        <item>后备箱未关</item>
+        <item>左前门未关（是）</item>
+        <item>右前门未关（是）</item>
+        <item>左后门未关（是）</item>
+        <item>右后门未关（是）</item>
+        <item>后备箱未关（是）</item>
+        <item>发动机盖未关（是）</item>
+        <item>右转向灯故障请换灯泡</item>
+        <item>左转向灯故障请换灯泡</item>
+        <item>自动雨刮/大灯故障，请立即保养</item>
+        <item>内部扫描停止</item>
+        <item>钥匙电池电量低，请更换电池</item>
+        <item>防盗系统故障，请立即保养</item>
+        <item>要启动，请踩制动踏板</item>
+        <item>要启动，请踩离合器</item>
+        <item>熄火请按 POWER按钮</item>
+        <item>钥匙未检测到</item>
+        <item>钥匙在车外</item>
+        <item>转向系统故障，请立即保养</item>
+        <item>转向系统故障，请立即停车</item>
+        <item>转向系统锁定，使用中…</item>
+        <item>请关后备箱或使用备用钥匙</item>
+        <item>被动防盗系统故障</item>
+        <item>车辆档位不在 P档，请置 P档</item>
+        <item>要启动，请放 N或 P档</item>
+        <item>要启动，请踩制动踏板</item>
+        <item>要启动，请选择 N档</item>
+        <item>车门开启，请实施制动</item>
+        <item>防盗系统被触发请检查车辆</item>
+    </array>
+    <array name="can_fs_declare_1">
+        <item>大众老平台（迈腾、昊锐、途观、高尔夫6等）（睿志诚）</item>
+    </array>
+    <array name="can_fs_declare_2">
+        <item>大众MQB平台（高尔夫7、明锐、西雅特Leon、凌渡,探歌等）</item>
+        <item>17款迈腾,18款迈腾</item>
+        <item>17款途观L *需选空调</item>
+        <item>17款途昂，柯迪亚克 *需选空调</item>
+        <item>帕萨特(混动)</item>
+    </array>
+    <array name="can_fs_declare_3">
+        <item>12款,15款凯美瑞、13款RAV4、13款新锐志、14款卡罗拉、14款雷凌、15款汉兰达</item>
+        <item>16款RAV4 *需专用MCU</item>
+        <item>18款凯美瑞</item>
+        <item>竖屏专用老款卡罗拉（欧迪）</item>
+    </array>
+    <array name="can_fs_declare_4">
+        <item>12款思域、14款思域低配、12款CRV *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_5">
+        <item>杰德、凌派、飞度、缤智、14款思域中高配，12~15款艾力绅（睿志诚）等</item>
+        <item>15款锋范,16款凌派</item>
+        <item>15款CRV高配</item>
+        <item>16款思域 需选空调,17款CRV</item>
+        <item>16款思域 需选空调,17款CRV（*右视）</item>
+        <item>2009~2014款奥德赛（不拆原车主机，比纳瑞）*需选原车设备</item>
+        <item>17款CRV,19款凌派（睿志诚）</item>
+        <item>17款CRV（*右视，睿志诚）</item>
+        <item>冠道（比纳瑞）</item>
+        <item>冠道（*右视，比纳瑞）</item>
+        <item>15款锋范（*右视)</item>
+        <item>雅阁10/19款英斯派(睿志诚)</item>
+        <item>雅阁9(睿志诚)</item>
+        <item>2015~2018款奥德赛(台湾版.全景.睿志诚)</item>
+    </array>
+    <array name="can_fs_declare_6">
+        <item>新天籁、逍客等</item>
+        <item>奇骏(*欣朴 全景，方控OK键及触摸关机键,长按方控上一曲默认为全景键 )</item>
+        <item>奇骏(*睿志诚 全景，方控OK键及触摸关机键,长按方控上一曲默认为全景键 )</item>
+        <item>楼兰</item>
+        <item>Juke(睿志诚)</item>
+        <item>奇骏高配（*欣朴 倒车辅助，方控OK键及触摸关机键,长按方控上一曲默认为全景键 ）</item>
+        <item>奇骏高配（*睿志诚 倒车辅助，方控OK键及触摸关机键,长按方控上一曲默认为全景键）</item>
+        <item>奇骏(*全景，xzc特别版)</item>
+        <item>15款奇骏自动空调(*专用竖屏UI,欣朴)</item>
+        <item>15款奇骏自动空调(*倒车辅助 专用竖屏UI,欣朴)</item>
+        <item>15款途乐低配(*专用竖屏UI,欣朴)</item>
+        <item>奇骏(*xzc特别版)</item>
+    </array>
+    <array name="can_fs_declare_7">
+        <item>14款霸道</item>
+    </array>
+    <array name="can_fs_declare_8">
+        <item>赛欧3（欣朴）新君威、威朗、科鲁兹、爱唯欧、奥兰多、迈瑞宝、Insignia,09~13款老君威（欣朴）等 *需选安吉星</item>
+        <item>君越 *需选安吉星</item>
+        <item>GL8 *需选安吉星 空调</item>
+        <item>昂科拉低配 *需选安吉星</item>
+        <item>15款英朗 *需选安吉星</item>
+        <item>Mokka Navi950 *需选安吉星</item>
+        <item>Astra J CD600 *需选安吉星</item>
+        <item>迈瑞宝XL低配 *需选安吉星</item>
+        <item>迈瑞宝XL高配 *需选安吉星</item>
+        <item>17款GL8（睿志诚） *需选安吉星</item>
+        <item>通用全系（道俊） *需选安吉星</item>
+        <item>通用全系（睿志诚自己协议）*需选安吉星</item>
+    </array>
+    <array name="can_fs_declare_9">
+        <item>国产低配</item>
+        <item>美版低配</item>
+        <item>国产中配 *原车收音机</item>
+        <item>国产2016</item>
+    </array>
+    <array name="can_fs_declare_10">
+        <item>赛欧3（睿志诚）</item>
+    </array>
+    <array name="can_fs_declare_11">
+        <item>标致301、308、、雪铁龙爱丽舍等</item>
+        <item>标致2008</item>
+        <item>14款408,308s *需选空调</item>
+        <item>雪铁龙C3-XR</item>
+        <item>雪铁龙C4L</item>
+        <item>13款3008（保留原车小屏）</item>
+        <item>13款3008（拆原车小屏）</item>
+        <item>16款308 *需选空调</item>
+        <item>17款4008</item>
+        <item>05款407</item>
+        <item>508</item>
+        <item>15款3008高配</item>
+    </array>
+    <array name="can_fs_declare_12">
+        <item>TS全系</item>
+    </array>
+    <array name="can_fs_declare_13">
+        <item>福克斯等 *需选sync</item>
+        <item>翼虎 *需选sync</item>
+        <item>翼博 *需选sync</item>
+        <item>13款嘉年华 *需选sync</item>
+        <item>蒙迪欧 *需选sync</item>
+        <item>锐界低配 *需选sync</item>
+        <item>锐界低配(带摄像头) *需选sync</item>
+        <item>福特系列（睿志诚自己协议） *需选sync</item>
+        <item>17款翼虎 拆SYNC（睿志诚）*需选空调</item>
+        <item>嘉年华 09~12款</item>
+        <item>12款F150 *需选sync</item>
+        <item>F150 高配</item>
+        <item>马自达BT50 （欧迪）</item>
+        <item>睿晟威OBD</item>
+    </array>
+    <array name="can_fs_declare_14">
+        <item>IX35、索纳塔8代,9代、新雅尊、IX45（新胜达）、索兰托、索兰托L，名图,KX5低配,K5等</item>
+        <item>起亚KX5中配</item>
+        <item>起亚KX5高配</item>
+        <item>16款领动</item>
+        <item>IX45 原车带功放</item>
+        <item>索纳塔9 6按键 2018款</item>
+        <item>索纳塔9 8按键 2018款</item>
+        <item>索纳塔9 10按键 2018款</item>
+        <item>睿晟威OBD</item>
+        <item>现代(*xzc特别版)</item>
+        <item>19款起亚智跑高配</item>
+    </array>
+    <array name="can_fs_declare_15">
+        <item>10款大切基诺，10款指南者，10款酷博、14款指南者、14款自由客、10款牧马人、10款酷威(欣朴，比纳瑞)</item>
+    </array>
+    <array name="can_fs_declare_16">
+        <item>宝骏730</item>
+        <item>宝骏560，15款，17款宝骏730</item>
+        <item>宝骏530,五菱宏光S3 2018</item>
+    </array>
+    <array name="can_fs_declare_17">
+        <item>GA3</item>
+        <item>GS4</item>
+        <item>GS5</item>
+        <item>GS5速博</item>
+        <item>GA6</item>
+        <item>16款GS4</item>
+        <item>17款GS8 *需选空调</item>
+        <item>GS3 *需选空调</item>
+        <item>GS7 *需选空调</item>
+        <item>GA4 *需选空调</item>
+        <item>18款GE3 *需选空调</item>
+        <item>18款GS4,19款GS4 *需选空调</item>
+        <item>18款混动GS4 *需选空调</item>
+        <item>19款祺智EV</item>
+        <item>19款GM6</item>
+        <item>19款GA6</item>
+        <item>20款GS4</item>
+    </array>
+    <array name="can_fs_declare_18">
+        <item>荣威550方控类型1</item>
+        <item>荣威550方控类型2</item>
+    </array>
+    <array name="can_fs_declare_19">
+        <item>荣威550方控类型1</item>
+        <item>荣威550方控类型2</item>
+        <item>荣威360</item>
+    </array>
+    <array name="can_fs_declare_20">
+        <item>14款歌诗图 *需选原车收音机</item>
+    </array>
+    <array name="can_fs_declare_21">
+        <item>老马自达，09款B70</item>
+        <item>欧宝</item>
+        <item>欧宝（豪正）</item>
+    </array>
+    <array name="can_fs_declare_22">
+        <item>11款B70</item>
+    </array>
+    <array name="can_fs_declare_23">
+        <item>14款B70</item>
+    </array>
+    <array name="can_fs_declare_24">
+        <item>X80</item>
+    </array>
+    <array name="can_fs_declare_25">
+        <item>荣威950</item>
+    </array>
+    <array name="can_fs_declare_26">
+        <item>锐腾</item>
+        <item>名爵ZS</item>
+        <item>荣威RX5,I6</item>
+        <item>17款锐腾</item>
+        <item>名爵ZS特殊版</item>
+        <item>荣威RX3</item>
+        <item>荣威Ei5低配</item>
+        <item>荣威Ei5中配</item>
+        <item>19款名爵HS</item>
+        <item>19款荣威i5</item>
+        <item>19款荣威i6</item>
+        <item>19款名爵EZS</item>
+        <item>19款荣威RX8</item>
+    </array>
+    <array name="can_fs_declare_27">
+        <item>瑞风S2 S3 17款瑞风S3 16款瑞风M4,17款M5</item>
+        <item>17款S2 MINI</item>
+        <item>18款S3（全景）</item>
+        <item>IEV6E</item>
+        <item>19款S4（全景）</item>
+        <item>19款IEV6E</item>
+    </array>
+    <array name="can_fs_declare_28">
+        <item>江铃</item>
+    </array>
+    <array name="can_fs_declare_29">
+        <item>16款自由光低配 *原车设备 空调</item>
+        <item>16款自由光中配 *原车设备 空调</item>
+        <item>16款,18款自由侠</item>
+        <item>16款菲亚特Aegea</item>
+        <item>15款菲亚特多宝（Doblo）</item>
+        <item>大切诺基</item>
+        <item>吉普指南者</item>
+        <item>18款牧马人 *手动空调</item>
+        <item>18款牧马人 *自动空调</item>
+    </array>
+    <array name="can_fs_declare_30">
+        <item>众泰云100</item>
+    </array>
+    <array name="can_fs_declare_31">
+        <item>16奔腾B30</item>
+    </array>
+    <array name="can_fs_declare_32">
+        <item>B200</item>
+    </array>
+    <array name="can_fs_declare_33">
+        <item>奔驰系列</item>
+    </array>
+    <array name="can_fs_declare_34">
+        <item>标致508</item>
+    </array>
+    <array name="can_fs_declare_35">
+        <item>梅甘娜风朗</item>
+    </array>
+    <array name="can_fs_declare_36">
+        <item>菲亚特全系 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_37">
+        <item>菲亚特博悦 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_38">
+        <item>16款自由光低配</item>
+        <item>16款自由光中配</item>
+        <item>16款自由侠</item>
+        <item>17款指南者</item>
+        <item>18款牧马人</item>
+        <item>17款大切诺基</item>
+        <item>挑战者（进口）</item>
+        <item>指挥官</item>
+        <item>19款自由光</item>
+    </array>
+    <array name="can_fs_declare_39">
+        <item>马3昂克赛拉 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_40">
+        <item>SMART</item>
+    </array>
+    <array name="can_fs_declare_41">
+        <item>卡宴（巴谷，路征）</item>
+    </array>
+    <array name="can_fs_declare_42">
+        <item>BMW E90（和驰，豪正，路征）</item>
+    </array>
+    <array name="can_fs_declare_43">
+        <item>A3（欣朴，路征）</item>
+    </array>
+    <array name="can_fs_declare_44">
+        <item>标致301国外版及其他</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>标志C4L</item>
+    </array>
+    <array name="can_fs_declare_45">
+        <item>标致3008保留原车屏幕</item>
+    </array>
+    <array name="can_fs_declare_46">
+        <item>海马M3/S7/S5</item>
+        <item>17款S5（带全景）</item>
+    </array>
+    <array name="can_fs_declare_47">
+        <item>15款T70</item>
+        <item>16款T70</item>
+        <item>17款T90 *需选空调</item>
+        <item>18款D60 *需选空调</item>
+        <item>18款T70 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_48">
+        <item>13款B50</item>
+    </array>
+    <array name="can_fs_declare_49">
+        <item>绅宝X55 X25 绅宝X35 昌河Q35</item>
+        <item>D60</item>
+        <item>BJ20</item>
+        <item>M50F *需选空调</item>
+        <item>BJ40</item>
+        <item>18款北汽幻速S7</item>
+    </array>
+    <array name="can_fs_declare_50">
+        <item>海马M5,F5及其他</item>
+        <item>16款海马M3</item>
+        <item>16款海马V70 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_51">
+        <item>老蒙迪欧智胜</item>
+    </array>
+    <array name="can_fs_declare_52">
+        <item>15款AX7</item>
+        <item>16款，17款AX5，AX7，MX5低配</item>
+        <item>16款，17款AX5，AX7，MX5中高配</item>
+        <item>18款AX7</item>
+        <item>18款AX7全景</item>
+        <item>19款AX7</item>
+    </array>
+    <array name="can_fs_declare_53">
+        <item>老嘉年华</item>
+    </array>
+    <array name="can_fs_declare_54">
+        <item>瑞虎5</item>
+    </array>
+    <array name="can_fs_declare_55">
+        <item>科雷嘉,卡缤,巴西版 SANDERO,DUSTER,CAPTUR</item>
+        <item>科雷傲低配,土耳其MEGANE低配</item>
+        <item>科雷傲中配,土耳其MEGANE中配</item>
+        <item>科雷傲高配,土耳其MEGANE高配</item>
+        <item>2009~2016款科雷傲（保留原车主机）*需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_56">
+        <item>欧蓝德 原车无功放</item>
+        <item>欧蓝德 原车有功放</item>
+    </array>
+    <array name="can_fs_declare_57">
+        <item>艾瑞泽5</item>
+        <item>16款瑞虎7 *需选空调</item>
+        <item>17款瑞虎3X</item>
+        <item>17款瑞虎3</item>
+        <item>16款艾瑞泽7</item>
+        <item>18款艾瑞泽GX/EX,19款艾瑞泽5 *需选空调</item>
+        <item>19款瑞虎5X *需选空调</item>
+        <item>捷途X70</item>
+        <item>18款瑞虎7</item>
+        <item>18款瑞虎8</item>
+    </array>
+    <array name="can_fs_declare_58">
+        <item>标致301、308、、雪铁龙爱丽舍等</item>
+        <item>标致2008</item>
+        <item>14款408,308s *需选空调</item>
+        <item>雪铁龙C3-XR</item>
+        <item>雪铁龙C4L</item>
+        <item>13款3008（保留原车小屏）</item>
+        <item>13款3008（拆原车小屏）</item>
+        <item>16款308 *需选空调</item>
+        <item>17款4008</item>
+        <item>2005款407</item>
+        <item>508</item>
+        <item>15款3008高配</item>
+    </array>
+    <array name="can_fs_declare_59">
+        <item>中华V3高配（鑫巴斯,睿志诚兼容）,H3（睿志诚）</item>
+    </array>
+    <array name="can_fs_declare_60">
+        <item>大迈X5,17款大迈X5,黄海N2,18款君马S70</item>
+        <item>T600</item>
+        <item>大迈X7 *需选空调</item>
+        <item>T500 *需选空调</item>
+        <item>SR9 *需选空调</item>
+        <item>T300 *需选空调</item>
+        <item>19款野马博骏 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_61">
+    </array>
+    <array name="can_fs_declare_62">
+        <item>奔驰C200</item>
+    </array>
+    <array name="can_fs_declare_63">
+        <item>奔驰威霆</item>
+    </array>
+    <array name="can_fs_declare_64">
+        <item>2015款菲亚特DOBLO</item>
+    </array>
+    <array name="can_fs_declare_65">
+    </array>
+    <array name="can_fs_declare_66">
+    </array>
+    <array name="can_fs_declare_67">
+        <item>风光580</item>
+        <item>风光S560</item>
+    </array>
+    <array name="can_fs_declare_68">
+        <item>欧蓝德2009~2011</item>
+    </array>
+    <array name="can_fs_declare_69">
+        <item>CX-4，昂科塞拉 ,CX-5,阿特兹*需选原车设备（鑫巴斯，比纳瑞,欧迪）</item>
+    </array>
+    <array name="can_fs_declare_70">
+        <item>风光360 330S 580 ,370，五十铃D-MAX,瑞迈，18款330S，16款金杯X30L(海狮)</item>
+        <item>18款580（全景）*需选空调</item>
+        <item>易至EV3</item>
+        <item>18款S560</item>
+    </array>
+    <array name="can_fs_declare_71">
+        <item>16款B50,17款X80,17款X40</item>
+        <item>17款X80低配</item>
+        <item>18款森雅R9</item>
+        <item>18款CX65</item>
+        <item>19款B50 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_72">
+        <item>16款GS，GL,远景</item>
+        <item>16款远景SUV,X6</item>
+        <item>远景X1 *需选空调</item>
+        <item>博瑞，博越 *需选空调</item>
+        <item>18款GS,GL *需选空调</item>
+        <item>18款远景SUV,X6</item>
+        <item>18款远景X3</item>
+        <item>EC7</item>
+        <item>15款远景</item>
+        <item>18款远景</item>
+        <item>博越 .全景 *需选空调</item>
+        <item>19款帝豪</item>
+        <item>19款帝豪电动版</item>
+        <item>19款帝豪GL混动</item>
+        <item>18款帝豪</item>
+    </array>
+    <array name="can_fs_declare_73">
+        <item>CS75,17款CS75,欧尚</item>
+        <item>CS55</item>
+        <item>CS15</item>
+        <item>CS75(全景，长按方控模式切换全景)</item>
+        <item>A800</item>
+        <item>X70a</item>
+        <item>长安凌轩 2018</item>
+        <item>长安逸动DT 2018</item>
+        <item>18款长安欧尚A600</item>
+        <item>17款CX70</item>
+        <item>CS75(右视，长按方控模式切换右视)</item>
+        <item>科赛</item>
+        <item>18款CS75(右视，长按方控模式切换右视)</item>
+        <item>长安悦翔2019</item>
+        <item>19款CS15</item>
+    </array>
+    <array name="can_fs_declare_74">
+        <item>力帆720/820/650EV</item>
+    </array>
+    <array name="can_fs_declare_75">
+        <item>雅阁7代 双驱空调</item>
+        <item>雅阁7代 单驱空调</item>
+    </array>
+    <array name="can_fs_declare_76">
+        <item>比亚迪系列</item>
+    </array>
+    <array name="can_fs_declare_77">
+        <item>马自达CX-7</item>
+    </array>
+    <array name="can_fs_declare_78">
+        <item>2014款哈弗H2</item>
+        <item>哈弗H2蓝标</item>
+        <item>哈弗H2红标</item>
+        <item>17款哈弗H2S红标 *需选空调</item>
+        <item>17款哈弗H6,17款M6</item>
+        <item>17款哈弗H6 Couple 红标</item>
+        <item>17款哈弗H6 Couple 蓝标</item>
+        <item>18款哈弗H6</item>
+        <item>18款哈弗H9</item>
+        <item>16款哈弗H6 Couple</item>
+        <item>19款哈弗H6 Couple</item>
+        <item>19款哈弗H6</item>
+    </array>
+    <array name="can_fs_declare_79">
+        <item>其他</item>
+        <item>LT</item>
+    </array>
+    <array name="can_fs_declare_80">
+        <item>哈弗H6</item>
+        <item>16款Coupe</item>
+    </array>
+    <array name="can_fs_declare_81">
+        <item>2017款威霆</item>
+    </array>
+    <array name="can_fs_declare_82">
+        <item>福美来 2017款 ,海马S5 2019款</item>
+        <item>17款海马S7</item>
+        <item>17款海马S5 Young 高配带全景</item>
+        <item>17款海马S5 Young 低配</item>
+    </array>
+    <array name="can_fs_declare_83">
+        <item>比亚迪S6,F3 *MCU专用</item>
+    </array>
+    <array name="can_fs_declare_84">
+        <item>16款荣威RX5，17款荣威i6,17MG6</item>
+    </array>
+    <array name="can_fs_declare_85">
+    </array>
+    <array name="can_fs_declare_86">
+        <item>X7 中高配</item>
+        <item>X7 低配</item>
+        <item>X5 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_87">
+        <item>克莱斯勒个别车系</item>
+    </array>
+    <array name="can_fs_declare_88">
+        <item>通用车系</item>
+        <item>15款英朗</item>
+        <item>17款GL8 *需选空调</item>
+        <item>凯迪拉克XT5（原车屏升级）</item>
+        <item>林肯MKC</item>
+        <item>林肯MKZ</item>
+        <item>凯迪拉克 ATS 低配</item>
+        <item>凯迪拉克 ATS 高配</item>
+        <item>凯迪拉克 XTS</item>
+        <item>凯迪拉克 SRX</item>
+        <item>昂科威高配（原车屏升级） *需选原车设备</item>
+        <item>18款凯迪拉克 ATS 高配</item>
+    </array>
+    <array name="can_fs_declare_89">
+    </array>
+    <array name="can_fs_declare_90">
+        <item>比亚迪F6 *MCU专用</item>
+    </array>
+    <array name="can_fs_declare_91">
+        <item>博越</item>
+    </array>
+    <array name="can_fs_declare_92">
+        <item>景逸X5 高配</item>
+        <item>低配，中配</item>
+    </array>
+    <array name="can_fs_declare_93">
+    </array>
+    <array name="can_fs_declare_94">
+        <item>一汽B50(老款)</item>
+    </array>
+    <array name="can_fs_declare_95">
+        <item>福美来</item>
+    </array>
+    <array name="can_fs_declare_96">
+        <item>雅阁九代 2.4 *需选原车收音机</item>
+    </array>
+    <array name="can_fs_declare_97">
+        <item>M3,T3</item>
+    </array>
+    <array name="can_fs_declare_98">
+        <item>EC180</item>
+        <item>EC5 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_99">
+        <item>15款悦翔V7,16款悦翔V7</item>
+    </array>
+    <array name="can_fs_declare_100">
+        <item>雅阁九代 2.0</item>
+    </array>
+    <array name="can_fs_declare_101">
+        <item>标志408（*原车设备），标致3008不拆原车小屏</item>
+    </array>
+    <array name="can_fs_declare_102">
+        <item>韩系IX40，IX35，K7，雅尊，8代索纳塔,9代索纳塔,索兰托，15款嘉华，16款起亚K5,16款起亚KX5,16款现代名图，16款现代领动，16款起亚K3,17款起亚KX7 *波特率19200</item>
+        <item>KX5 高配</item>
+        <item>K4凯绅</item>
+        <item>18款起亚智跑</item>
+        <item>10~15款现代IX35低配</item>
+        <item>18款索纳塔9低配</item>
+        <item>18款索纳塔9中配</item>
+        <item>18款索纳塔9高配</item>
+        <item>19款现代菲斯塔</item>
+        <item>19款现代胜达IX45 全景</item>
+        <item>19款现代胜达IX45</item>
+        <item>19款现代途胜 全景</item>
+        <item>19款起亚KX5</item>
+        <item>19款起亚K3</item>
+    </array>
+    <array name="can_fs_declare_103">
+        <item>大众老平台（迈腾、昊锐、途观、高尔夫6等）</item>
+    </array>
+    <array name="can_fs_declare_104">
+        <item>标致206/207</item>
+    </array>
+    <array name="can_fs_declare_105">
+        <item>14款，17款风骏6</item>
+    </array>
+    <array name="can_fs_declare_106">
+        <item>北汽威旺M20</item>
+    </array>
+    <array name="can_fs_declare_107">
+        <item>08老天籁 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_108">
+        <item>标致206/207/307</item>
+    </array>
+    <array name="can_fs_declare_109">
+        <item>T60</item>
+    </array>
+    <array name="can_fs_declare_110">
+        <item>瑞风S2_Mini/S3/S5</item>
+        <item>Iev6e</item>
+        <item>T8</item>
+    </array>
+    <array name="can_fs_declare_111">
+    </array>
+    <array name="can_fs_declare_112">
+        <item>CX5</item>
+    </array>
+    <array name="can_fs_declare_113">
+    </array>
+    <array name="can_fs_declare_114">
+        <item>吉普系列指南者，自由客，牧马人，自由光*需选空调 原车设备，大切诺基*需选空调 原车设备，自由侠，17款指南者*需选空调</item>
+    </array>
+    <array name="can_fs_declare_115">
+        <item>IS250 *需选空调 原车设备</item>
+    </array>
+    <array name="can_fs_declare_116">
+        <item>雅阁8代 *原车设备</item>
+    </array>
+    <array name="can_fs_declare_117">
+        <item>雷诺，达西亚车系</item>
+        <item>雷诺，达西亚车系(全景)</item>
+    </array>
+    <array name="can_fs_declare_118">
+        <item>ATS低配4.3寸(竖屏)</item>
+        <item>ATS高配 (竖屏)</item>
+        <item>XTS(竖屏)</item>
+        <item>SRX(竖屏)</item>
+        <item>ATS低配 4.3 寸 (8寸)</item>
+        <item>8寸高配 (8寸)</item>
+        <item>2018款高配 (8寸)</item>
+        <item>2018款高配 (竖屏)</item>
+        <item>ATS低配 4.3 寸 (8寸124版)</item>
+        <item>ATS低配4.3寸(竖屏124版)</item>
+    </array>
+    <array name="can_fs_declare_119">
+    </array>
+    <array name="can_fs_declare_120">
+        <item>启辰 D60(欧迪) *需选空调</item>
+    </array>
+    <array name="can_fs_declare_121">
+        <item>14款霸道（原车功放音量可调）</item>
+    </array>
+    <array name="can_fs_declare_122">
+        <item>大众MQB平台（高尔夫7、明锐、西雅特Leon、凌渡等）</item>
+        <item>17款迈腾,18款迈腾</item>
+        <item>17款途观L *需选空调</item>
+        <item>17款途昂，柯迪亚克 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_123">
+    </array>
+    <array name="can_fs_declare_124">
+        <item>2011款马自达6,2012款马自达6手动空调，2013款马自达6</item>
+    </array>
+    <array name="can_fs_declare_125">
+    </array>
+    <array name="can_fs_declare_126">
+        <item>G10,EV30等</item>
+        <item>大通 T60</item>
+        <item>大通 V80</item>
+        <item>大通 G50</item>
+    </array>
+    <array name="can_fs_declare_127">
+        <item>其他车型</item>
+        <item>14款408,308s，16款308 *需选空调</item>
+        <item>19款408 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_128">
+        <item>12~17款凯美瑞、13~15款RAV4、09~13款新锐志、13~19款卡罗拉、14~19款雷凌、15~18款汉兰达,08~18霸道，15~18塞纳 ,18款奕泽，18款CHR，19款亚洲龙， (台湾版:19款卡罗拉，19款RAV4,06~15款大霸王(Previa),98~05款雷克萨斯RX300), (日规/马来西亚版：98~05款雷克萨斯RX300,06~15款大霸王(Previa))</item>
+        <item>16款RAV4</item>
+        <item>18款凯美瑞 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_129">
+        <item>途锐 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_130">
+        <item>观致3、观致5</item>
+    </array>
+    <array name="can_fs_declare_131">
+        <item>长安悦翔V7 中高配</item>
+        <item>长安悦翔V7 低配</item>
+    </array>
+    <array name="can_fs_declare_132">
+        <item>领先版</item>
+        <item>尊贵版</item>
+        <item>旗舰版</item>
+    </array>
+    <array name="can_fs_declare_133">
+        <item>17款科雷傲 自动空调*需选空调</item>
+        <item>17款科雷傲 手动空调*需选空调</item>
+    </array>
+    <array name="can_fs_declare_134">
+        <item>X7 中高配</item>
+        <item>X7 低配</item>
+        <item>X5 低配 *需选空调</item>
+        <item>X5 中高配 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_135">
+        <item>奔驰B200,Viano,Vito,Sprinter,S350(02款)，ML350</item>
+    </array>
+    <array name="can_fs_declare_136">
+        <item>ATS低配 (8寸)</item>
+        <item>ATS高配 (8寸)</item>
+        <item>18款ATS高配 (8寸)</item>
+    </array>
+    <array name="can_fs_declare_137">
+    </array>
+    <array name="can_fs_declare_138">
+    </array>
+    <array name="can_fs_declare_139">
+        <item>蒙迪欧致胜(威驰) *需选空调</item>
+    </array>
+    <array name="can_fs_declare_140">
+        <item>普通车型</item>
+        <item>奔驰新A换屏</item>
+    </array>
+    <array name="can_fs_declare_141">
+    </array>
+    <array name="can_fs_declare_142">
+        <item>大众MQB平台(威驰)（高尔夫7、明锐、13/18速派、凌渡,17/18迈腾,17途观L,途昂,柯迪亚克，18途安L等） *需选空调</item>
+        <item>混动</item>
+    </array>
+    <array name="can_fs_declare_143">
+        <item>大众老平台（威驰）（迈腾、昊锐、途观、高尔夫6等） 奔驰（A级 2004-2012，B级 2005-2011，欧雅诺 2010-至今，威霆 2003-2013，Sprinter 2006-2018，R级 2006-2014）</item>
+    </array>
+    <array name="can_fs_declare_144">
+        <item>霸道</item>
+        <item>锐志</item>
+        <item>RAV4</item>
+        <item>凯美瑞</item>
+        <item>卡罗拉</item>
+    </array>
+    <array name="can_fs_declare_145">
+        <item>马自达系列（马自达5，CX7），奔腾（奔腾B50，B70),奇瑞（A3）,海南马自达（福美来，M3，S7,S5），比亚迪（F3,速锐），传祺（GA3）,</item>
+        <item>马自达3</item>
+        <item>马自达6（老马六），睿翼</item>
+        <item>海马S5（全景）</item>
+        <item>传祺GA3 低配</item>
+    </array>
+    <array name="can_fs_declare_146">
+        <item>12款福克斯，翼博，翼虎，13款嘉年华,F150等</item>
+        <item>17款翼虎 *需选sync,空调</item>
+        <item>拆SYNC</item>
+        <item>19款福克斯</item>
+        <item>19款金牛座</item>
+        <item>19款领界</item>
+        <item>19款探险者</item>
+    </array>
+    <array name="can_fs_declare_148">
+        <item>世嘉</item>
+        <item>C4</item>
+        <item>C4L</item>
+        <item>C5</item>
+        <item>2013款C5</item>
+        <item>307</item>
+        <item>308</item>
+        <item>408</item>
+        <item>低配508</item>
+        <item>高配508</item>
+        <item>3008全拆</item>
+        <item>低配DS5</item>
+        <item>高配DS5</item>
+        <item>低配DS5LS</item>
+        <item>高配DS5LS</item>
+        <item>2008</item>
+        <item>低配DS4</item>
+        <item>高配DS4</item>
+        <item>2014款408/308S/2016款308</item>
+        <item>3008留小屏</item>
+        <item>301爱丽舍</item>
+        <item>C3-XR</item>
+        <item>2017款4008</item>
+        <item>2015款508带功效</item>
+        <item>DS6低配</item>
+        <item>DS6高配</item>
+        <item>海外19款301</item>
+        <item>海外19款Rifter高配</item>
+        <item>海外19款Rifter低配</item>
+        <item>天逸C5</item>
+    </array>
+    <array name="can_fs_declare_149">
+        <item>天籁、Altima,奇骏，Rogue,逍客，蓝鸟，骐达，轩逸，劲客 *带全景车型长按方控上一曲为全景按键</item>
+        <item>楼兰西玛车型</item>
+        <item>奇骏 17款，楼兰17款 *带全景车型长按方控上一曲为全景按键</item>
+        <item>19款天籁,20款轩逸</item>
+        <item>奇骏 19款 *带全景车型长按方控上一曲为全景按键</item>
+        <item>20款纳瓦拉</item>
+    </array>
+    <array name="can_fs_declare_150">
+        <item>瑞风S2 S3 17款瑞风S3 16款瑞风M4</item>
+        <item>17款S2 MINI</item>
+        <item>18款R3</item>
+    </array>
+    <array name="can_fs_declare_152">
+        <item>A4,Q5 09~16中低配</item>
+        <item>A3,A4 17年至今</item>
+    </array>
+    <array name="can_fs_declare_153">
+        <item>Ix35</item>
+        <item>Ix45</item>
+        <item>索纳塔 8</item>
+        <item>索纳塔 9</item>
+        <item>名图</item>
+        <item>途胜</item>
+        <item>领动</item>
+        <item>16K5</item>
+        <item>16KX5</item>
+        <item>索兰托</item>
+        <item>17款索纳塔9</item>
+        <item>15款IX45高配</item>
+        <item>17款起亚 KX7</item>
+        <item>18款索纳塔 9中配</item>
+        <item>18款索纳塔 9低配</item>
+        <item>18款欧西诺</item>
+        <item>18款智跑</item>
+        <item>19款胜达(全景)</item>
+        <item>KX5(海外)</item>
+    </array>
+    <array name="can_fs_declare_154">
+        <item>哈弗H6 Coupe</item>
+        <item>哈弗18款 H6 Copue</item>
+    </array>
+    <array name="can_fs_declare_156">
+        <item>凌派，杰德，XR-V,缤智，15款奥德赛，14款飞度，哥瑞，艾力绅</item>
+        <item>15款锋范 16款哥瑞 16款凌派</item>
+        <item>17款冠道</item>
+        <item>17款crv</item>
+        <item>crv带全景</item>
+        <item>艾立绅带全景</item>
+        <item>16款思域 *需选空调</item>
+        <item>15款思铂睿 *需选原车设备</item>
+        <item>12款思域 CRV，14款思域低配，15款CRV低配（全兼容） *需选原车设备</item>
+        <item>14款高配思域，15款CRV高配（全兼容）</item>
+        <item>15款奥德赛(台版)</item>
+        <item>18款奥德赛,19款艾力绅(台版)</item>
+        <item>18款十代雅阁</item>
+    </array>
+    <array name="can_fs_declare_157">
+        <item>15款锐界，12/15款福克斯，16款撼路者，翼虎翼博，新嘉年华（13-至今），老款嘉年华（08-12）</item>
+        <item>福克斯 2019款</item>
+        <item>锐界 2018款</item>
+        <item>撼路者 低配 2018款</item>
+        <item>撼路者 高配 2018款</item>
+    </array>
+    <array name="can_fs_declare_159">
+        <item>AX7(16-20低配) *20款需选空调</item>
+        <item>AX5</item>
+        <item>AX7(16-20中配) *20款需选空调</item>
+        <item>AX7(16-20高配，全景) *长按方控上一曲默认为全景键 20款需选空调</item>
+    </array>
+    <array name="can_fs_declare_160">
+        <item>14款CS75</item>
+        <item>17款CS75</item>
+        <item>18款逸动DT</item>
+    </array>
+    <array name="can_fs_declare_161">
+        <item>GA6</item>
+        <item>GS4</item>
+        <item>GS5</item>
+        <item>GS3</item>
+        <item>GA4,18款GS4</item>
+        <item>GE3</item>
+        <item>20款GS4</item>
+    </array>
+    <array name="can_fs_declare_162">
+        <item>自由光低配(领先版)</item>
+        <item>自由光中配(专业版，专业版智能包)</item>
+        <item>自由光高配(优越版，全能版)</item>
+        <item>自由侠（国内）</item>
+        <item>19款自由侠（国外）</item>
+        <item>19款菲亚特500L（国外）</item>
+    </array>
+    <array name="can_fs_declare_164">
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>马自达6睿翼</item>
+        <item>马自达3</item>
+        <item>马自达5</item>
+        <item>马自达8</item>
+        <item>CX7（高配带功放）</item>
+        <item>昂克赛拉</item>
+        <item>CX5</item>
+        <item>马自达7</item>
+        <item>CX4</item>
+        <item>阿特兹</item>
+        <item>CX7低配</item>
+    </array>
+    <array name="can_fs_declare_165">
+        <item>16款威霆,Metris,Spinter 2019</item>
+    </array>
+    <array name="can_fs_declare_166">
+        <item>启辰(T90)</item>
+        <item>启辰(T60)</item>
+    </array>
+    <array name="can_fs_declare_167">
+        <item>车型1</item>
+        <item>车型2</item>
+        <item>车型3</item>
+    </array>
+    <array name="can_fs_declare_168">
+        <item>本田皇冠（威驰） *需选空调,原车设备</item>
+    </array>
+    <array name="can_fs_declare_169">
+        <item>老指南者，牧马人(威驰)</item>
+    </array>
+    <array name="can_fs_declare_171">
+        <item>12款CRV,思域(威驰) *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_172">
+        <item>13~16款哈弗H6,M6,14~18款哈弗H6运动版</item>
+        <item>17款哈弗H6 *需选空调</item>
+        <item>19款哈弗H6 Coupe</item>
+        <item>19款哈弗F7 *需选空调</item>
+        <item>20款风骏7</item>
+    </array>
+    <array name="can_fs_declare_173">
+        <item>吉普 指南者 2017(威驰)</item>
+    </array>
+    <array name="can_fs_declare_174">
+        <item>长城哈弗H2，H2S(威驰,H2S需选空调)</item>
+        <item>18款长城哈弗H2</item>
+    </array>
+    <array name="can_fs_declare_176">
+        <item>其他车型</item>
+        <item>老款X1 低配车型</item>
+    </array>
+    <array name="can_fs_declare_177">
+        <item>荣威550 (老款)</item>
+        <item>荣威550 (新款)</item>
+        <item>名爵6 *需选空调</item>
+        <item>荣威360</item>
+        <item>锐腾(2015)</item>
+        <item>锐腾(2017)</item>
+        <item>RX5 *需选空调</item>
+        <item>名爵 ZS</item>
+    </array>
+    <array name="can_fs_declare_179">
+        <item>F3/速锐</item>
+        <item>S6</item>
+        <item>元</item>
+    </array>
+    <array name="can_fs_declare_180">
+        <item>瑞虎 3X</item>
+        <item>艾瑞泽 5</item>
+        <item>瑞虎 3</item>
+        <item>瑞虎 5</item>
+        <item>瑞虎 7 *需选空调</item>
+        <item>艾瑞泽 7</item>
+        <item>艾瑞泽 GX,EX *需选空调</item>
+        <item>瑞虎 5X *需选空调</item>
+        <item>捷途X70 *DVR需选原车设备,长按方控上一曲默认为全景键</item>
+    </array>
+    <array name="can_fs_declare_181">
+        <item>03~08款奧德賽，雅閣8，12~14款歌詩圖 (欧迪) *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_182">
+        <item>宝骏730(2014)</item>
+        <item>宝骏730(2016)</item>
+        <item>宝骏560(2015)</item>
+        <item>宝骏510(2017)</item>
+        <item>宝骏730(2017)</item>
+        <item>宝骏530(2018)</item>
+    </array>
+    <array name="can_fs_declare_183">
+        <item>08款天籁（威驰）*需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_192">
+        <item>海马V70 2016(威驰) *需选空调</item>
+    </array>
+    <array name="can_fs_declare_193">
+        <item>海马福美来 2017(威驰) *需选空调</item>
+    </array>
+    <array name="can_fs_declare_194">
+        <item>13款蒙迪欧，18款翼博(手动空调) *需选空调</item>
+        <item>13款蒙迪欧，18款翼博(自动空调) *需选空调</item>
+    </array>
+    <array name="can_fs_declare_199">
+        <item>04~07款天籁,奇骏不带全景等其他车型</item>
+        <item>楼兰</item>
+        <item>Juke</item>
+        <item>奇骏360全景 *方控OK键及触摸关机键,长按方控上一曲默认为全景键</item>
+        <item>08~12款天籁 *需选原车设备</item>
+        <item>奇骏高配（*倒车辅助）</item>
+        <item>2020款轩逸（欧迪）</item>
+        <item>08~12款天籁 （台湾版）原车显示从倒车视频输入 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_200">
+        <item>速锐，S6 *S6需选空调</item>
+    </array>
+    <array name="can_fs_declare_201">
+        <item>雅阁7，比亚迪F6,S6 公版(长远通)</item>
+    </array>
+    <array name="can_fs_declare_205">
+        <item>雷克萨斯 06~12款 IS横屏（拆面板不拆CD） *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_206">
+        <item>荣威550，名爵6 2011~2013</item>
+        <item>荣威550，名爵6 2013~2015</item>
+    </array>
+    <array name="can_fs_declare_207">
+        <item>RX经典(09~14款)</item>
+        <item>ES(13款)</item>
+        <item>ES(06~12款)</item>
+        <item>IS(06~11款)</item>
+        <item>CT200(11~17款)</item>
+    </array>
+    <array name="can_fs_declare_210">
+        <item>英朗、新君威、新君越、威朗、科鲁兹、爱唯欧、迈瑞宝、昂科拉、迈瑞宝XL,GL8 2017 *GL8 需选空调</item>
+        <item>GL8（商务版）</item>
+        <item>昂科拉（低配）</item>
+        <item>18款君威 *需选空调</item>
+        <item>沃兰多中低配</item>
+        <item>沃兰多中顶配</item>
+    </array>
+    <array name="can_fs_declare_211">
+        <item>比亚迪宋，E5, G5,奔驰 B200 （欧迪）</item>
+    </array>
+    <array name="can_fs_declare_213">
+        <item>CLK300,A180,14款ML350CDI，16款ML320,04~12 A级，05~11款B级，06~14款R级，05~11款ML级，05~13款GL级，03~13款威霆，威雅诺</item>
+    </array>
+    <array name="can_fs_declare_214">
+        <item>长安欧尚，X70a(威驰)</item>
+    </array>
+    <array name="can_fs_declare_215">
+        <item>东风风光360,330S,370,580,560(欧迪)</item>
+    </array>
+    <array name="can_fs_declare_216">
+        <item>卡缤，科雷嘉,达斯特，CLIO4低配,DUSTER,Megane2,Megane3,Megane4,Fluence(威驰)</item>
+    </array>
+    <array name="can_fs_declare_217">
+        <item>纳智捷(欧迪) *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_218">
+        <item>M50v(威驰) *长按上一曲切换全景</item>
+    </array>
+    <array name="can_fs_declare_219">
+        <item>绅宝X35 2016款</item>
+        <item>M50F *需选空调</item>
+        <item>绅宝X35 2018款</item>
+        <item>幻速S3L</item>
+    </array>
+    <array name="can_fs_declare_220">
+        <item>CX70(威驰) *需选空调</item>
+    </array>
+    <array name="can_fs_declare_221">
+        <item>2011~2017保时捷,11款卡宴（路征）</item>
+    </array>
+    <array name="can_fs_declare_222">
+        <item>X55、X25</item>
+        <item>D60</item>
+        <item>BJ20</item>
+        <item>M50f</item>
+        <item>BJ40</item>
+        <item>X35 2015款</item>
+        <item>X35 2016款</item>
+        <item>X35 2017款</item>
+        <item>X35 2018款</item>
+    </array>
+    <array name="can_fs_declare_223">
+        <item>奔腾X80,38400,FD（睿志诚）</item>
+    </array>
+    <array name="can_fs_declare_226">
+        <item>福克斯等 *需选sync</item>
+        <item>翼虎 *需选sync</item>
+        <item>翼博 *需选sync</item>
+        <item>13款嘉年华 *需选sync</item>
+        <item>蒙迪欧 *需选sync</item>
+        <item>锐界低配 *需选sync</item>
+        <item>锐界低配(带摄像头) *需选sync</item>
+        <item>null</item>
+        <item>null</item>
+        <item>嘉年华 09~12款</item>
+        <item>12款F150 *需选sync</item>
+        <item>F150 高配</item>
+    </array>
+    <array name="can_fs_declare_227">
+        <item>江铃牧游侠 （欧迪） *需选空调</item>
+    </array>
+    <array name="can_fs_declare_228">
+        <item>天籁低配 *需选原车设备</item>
+        <item>天籁高配 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_229">
+        <item>沃尔沃 保留原车主机 倒车模式（加装摄像头从CAMERA输入，原车影像从AVIN输入） （馨飞扬） *需选原车设备</item>
+        <item>沃尔沃 保留原车主机 倒车模式（原车摄像头,原车影像从CAMERA输入）（馨飞扬） *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_230">
+        <item>哈弗H6,H7 *H7需选原车设备</item>
+        <item>哈弗H8,H9</item>
+    </array>
+    <array name="can_fs_declare_231">
+        <item>比亚迪速锐/G5/S6/S7(华宇科技)</item>
+        <item>比亚迪速锐/G5/S6/S7(华宇科技) *帶全景</item>
+    </array>
+    <array name="can_fs_declare_240">
+        <item>大众老平台（迈腾、昊锐、途观、高尔夫6等）（欣朴）</item>
+    </array>
+    <array name="can_fs_declare_241">
+        <item>新特</item>
+        <item>云度</item>
+        <item>E300</item>
+        <item>E1</item>
+    </array>
+    <array name="can_fs_declare_245">
+        <item>专用竖屏UI支持</item>
+    </array>
+    <array name="can_fs_declare_247">
+        <item>专用竖屏UI支持</item>
+    </array>
+    <array name="can_fs_declare_248">
+        <item>17款2.0L两驱舒适版 专用竖屏UI支持</item>
+        <item>17款2.0L两驱领先版 专用竖屏UI支持</item>
+        <item>18款2.0L两驱舒适版 专用竖屏UI支持</item>
+        <item>18款2.0L两驱领先版 专用竖屏UI支持</item>
+    </array>
+    <array name="can_fs_declare_250">
+        <item>专用竖屏UI支持</item>
+    </array>
+    <array name="can_fs_declare_251">
+        <item>名爵ZS</item>
+        <item>大通T60</item>
+    </array>
+    <array name="can_fs_declare_252">
+        <item>12款凯美瑞，16款酷路泽 专用竖屏UI支持</item>
+        <item>15款凯美瑞 专用竖屏UI支持</item>
+        <item>18款凯美瑞 专用竖屏UI支持</item>
+        <item>15款汉兰达手动空调 专用竖屏UI支持</item>
+        <item>15款汉兰达自动空调 专用竖屏UI支持</item>
+        <item>14款坦途手动空调 专用竖屏UI支持</item>
+        <item>14款坦途自动空调 专用竖屏UI支持</item>
+        <item>10款霸道自动空调 专用竖屏UI支持</item>
+    </array>
+    <array name="can_fs_declare_254">
+        <item>12~15款菲翔，14~15款致悦，TORO,DOBLO,EGE,FLORLNO *方控类型1</item>
+        <item>12~15款菲翔，14~15款致悦，TORO,DOBLO,EGE,FLORLNO *方控类型2</item>
+    </array>
+    <array name="can_fs_declare_255">
+        <item>19款科赛高配 *需选空调</item>
+        <item>19款科赛低配</item>
+        <item>19款欧尚A800 *需选空调</item>
+        <item>18款长安CS55</item>
+    </array>
+    <array name="can_fs_declare_259">
+        <item>其他车型</item>
+        <item>T5 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_260">
+        <item>MZD 3 *原车设备</item>
+        <item>CX-4 *原车设备</item>
+        <item>MZD3 CX-3 CX-4(台湾) *原车设备</item>
+        <item>MZD3 CX-3 CX-4(台湾) 保留原车功放 *原车设备</item>
+    </array>
+    <array name="can_fs_declare_263">
+        <item>英朗、新君威、新君越、威朗、科鲁兹、爱唯欧、迈瑞宝、昂科拉、迈瑞宝XL,GL8 2017 *GL8 需选空调</item>
+        <item>GL8（商务版）</item>
+        <item>昂科拉（低配）</item>
+        <item>18款君威 *需选空调</item>
+        <item>沃兰多中低配</item>
+        <item>沃兰多中顶配</item>
+    </array>
+    <array name="can_fs_declare_264">
+        <item>Fiorino 2016</item>
+        <item>Doblo 2016</item>
+        <item>Aegea 2016</item>
+        <item>Aegea 2018</item>
+        <item>Aegea 2019</item>
+        <item>500l 2013</item>
+        <item>500l 2019</item>
+    </array>
+    <array name="can_fs_declare_265">
+        <item>18款奕歌，19款欧蓝德，18款帕杰罗,20款帕杰罗运动版</item>
+        <item>19款奕歌(台湾版)</item>
+    </array>
+    <array name="can_fs_declare_266">
+        <item>12款皇冠低配</item>
+        <item>12款皇冠高配</item>
+        <item>13款皇冠</item>
+    </array>
+    <array name="can_fs_declare_267">
+        <item>18款风神AX7（欧迪） *长按方控上一曲切换全景</item>
+    </array>
+    <array name="can_fs_declare_268">
+        <item>2012~2018款速锐（PM2.5）,2014~2015款G5,2010~2015款M6,2013~2017款S7,2016~2019款宋，2017~2019款宋MAX,2012~2017款E6 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_269">
+        <item>18款长安悦翔低配</item>
+        <item>18款长安悦翔中配</item>
+    </array>
+    <array name="can_fs_declare_270">
+        <item>国产低配</item>
+        <item>美版低配</item>
+        <item>国产中配 *原车收音机</item>
+        <item>国产2016</item>
+    </array>
+    <array name="can_fs_declare_272">
+        <item>雷诺（megane 2007）</item>
+    </array>
+    <array name="can_fs_declare_273">
+        <item>马自达2</item>
+        <item>马自达3</item>
+        <item>马自达5</item>
+        <item>马自达6</item>
+        <item>睿翼</item>
+        <item>Mx5</item>
+        <item>Cx7</item>
+        <item>马自达8</item>
+        <item>马自达9</item>
+    </array>
+    <array name="can_fs_declare_274">
+        <item>低配 *需选原车设备</item>
+        <item>高配 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_275">
+        <item>X7劲越</item>
+        <item>逍遥 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_276">
+        <item>其他车型</item>
+        <item>20款RX</item>
+    </array>
+    <array name="can_fs_declare_278">
+        <item>HEXA,NWXON</item>
+    </array>
+    <array name="can_fs_declare_281">
+        <item>低配</item>
+        <item>高配</item>
+    </array>
+    <array name="can_fs_declare_284">
+        <item>MPV Tepee,04~13款307，10~13款408，408SW,408CC,13~19款3008，马来西亚508</item>
+    </array>
+    <array name="can_fs_declare_285">
+        <item>2015-2017 FORESTER，2015-2016 IMPREZA，2015-2017 XV CROSSTREK，2015-2019 OUTBACK， 2015-2019 LEGACY 2017-2019 IMPREZA，2018-2019 XV CROSSTREK，2019 FORESTER</item>
+    </array>
+    <array name="can_fs_declare_287">
+        <item>K150 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_288">
+        <item>杰德、凌派、飞度、缤智、14款思域中高配，12~15款艾力绅（睿志诚）等</item>
+        <item>15款锋范,16款凌派</item>
+        <item>16款思域 需选空调,17款CRV</item>
+        <item>雅阁10/19款英斯派</item>
+        <item>2015~2018款奥德赛(台湾版.全景)</item>
+        <item>晧影</item>
+    </array>
+    <array name="can_auto_array">
+        <item>无协议</item>
+        <item>大众（睿志诚）</item>
+        <item>大众MQB平台（睿志诚）</item>
+        <item>丰田</item>
+        <item>12款思域、CRV</item>
+        <item>本田DA系统</item>
+        <item>日产全系</item>
+        <item>14款霸道</item>
+        <item>通用全系</item>
+        <item>雅阁9代（欣朴）</item>
+        <item>赛欧3（睿志诚）</item>
+        <item>标雪</item>
+        <item>TS全系</item>
+        <item>福特全系</item>
+        <item>现代全系（欣朴）</item>
+        <item>克莱斯勒车系（欣朴）</item>
+        <item>宝骏（睿志诚）</item>
+        <item>广汽传祺系列（睿志诚）</item>
+        <item>荣威550（密训）</item>
+        <item>荣威系列(睿志诚)</item>
+        <item>14款歌诗图（鑫巴斯）</item>
+        <item>老马自达，欧宝</item>
+        <item>11款B70（睿志诚）</item>
+        <item>14款B70（睿志诚）</item>
+        <item>奔腾X80（睿志诚）</item>
+        <item>荣威950（和驰）</item>
+        <item>名爵系列（睿志诚）</item>
+        <item>江淮系列（睿志诚）</item>
+        <item>江铃</item>
+        <item>克莱斯勒，菲亚特（欣朴）</item>
+        <item>众泰云100</item>
+        <item>2016款奔腾B30（金鹰）</item>
+        <item>奔驰B200（欣朴，路征）</item>
+        <item>和驰奔驰（和驰）</item>
+        <item>标致508（密训）</item>
+        <item>梅甘娜（欣朴）</item>
+        <item>菲亚特全系（和驰）</item>
+        <item>菲亚特博悦（和驰）</item>
+        <item>克莱斯勒系列(睿志诚)</item>
+        <item>马自达3昂克赛拉（欣朴）</item>
+        <item>奔驰 SMART（豪正）</item>
+        <item>保时捷卡宴（巴谷，路征）</item>
+        <item>宝马E90系列（和驰，豪正，路征,欧迪）</item>
+        <item>奥迪A3（欣朴,路征）</item>
+        <item>标致（和驰）</item>
+        <item>标致3008保留原车屏(和驰)</item>
+        <item>海马系列（睿志诚）</item>
+        <item>东风启辰（睿志诚）</item>
+        <item>13款B50（睿志诚）</item>
+        <item>北汽绅宝（睿志诚）</item>
+        <item>海马系列（睿志诚）</item>
+        <item>蒙迪欧致胜</item>
+        <item>东风风神系列（睿志诚）</item>
+        <item>老嘉年华（和驰）</item>
+        <item>奇瑞瑞虎5(和驰)</item>
+        <item>雷诺科雷嘉（睿志诚）</item>
+        <item>三菱 欧蓝德（欣朴）</item>
+        <item>奇瑞系列（睿志诚）</item>
+        <item>标雪 国外版</item>
+        <item>中华 V3</item>
+        <item>众泰系列（睿志诚）</item>
+        <item>NULL</item>
+        <item>奔驰C200 (巴谷)</item>
+        <item>奔驰 威霆（欣朴）</item>
+        <item>菲亚特 DOBLO（欣朴）</item>
+        <item>宝马 MINI</item>
+        <item>启辰ER70</item>
+        <item>东风 风光 580（威驰）</item>
+        <item>三菱欧蓝德 09-11（欣朴）</item>
+        <item>马自达CX-4（鑫巴斯，比纳瑞,欧迪）</item>
+        <item>东风风光系列（睿志诚）</item>
+        <item>一汽奔腾（睿志诚）</item>
+        <item>吉利系列（睿志诚）</item>
+        <item>长安系列（睿志诚）</item>
+        <item>力帆720/820（睿志诚）</item>
+        <item>雅阁 7（国内版，道俊）</item>
+        <item>比亚迪系列（安盛）</item>
+        <item>马自达 CX-7（睿志诚）</item>
+        <item>长城 系列（睿志诚）</item>
+        <item>CW</item>
+        <item>长城哈弗 H6（鑫巴斯）</item>
+        <item>2017 奔驰威霆(巴谷)</item>
+        <item>海马 福美来 系列（睿志诚）</item>
+        <item>比亚迪S6,F3(长远通)</item>
+        <item>荣威RX5（威驰）</item>
+        <item>宝马 MINI （FSTT）</item>
+        <item>汉腾 X7（睿志诚）</item>
+        <item>克莱斯勒个别车系(巴谷)</item>
+        <item>通用（思博）</item>
+        <item>凯翼3x</item>
+        <item>比亚迪F6（道俊）</item>
+        <item>吉利博越（睿志诚）</item>
+        <item>东风景逸X5（睿志诚）</item>
+        <item>BS M3</item>
+        <item>奔腾B50 （老款，欣朴）</item>
+        <item>福美来（欣朴）</item>
+        <item>雅阁9 2.4（鑫巴斯）</item>
+        <item>比速系列（睿志诚）</item>
+        <item>北汽EC180</item>
+        <item>长安悦翔（睿志诚）</item>
+        <item>雅阁9 2.0（鑫巴斯）</item>
+        <item>标志车型（密训）</item>
+        <item>韩系车型（睿志诚）</item>
+        <item>大众（开景现代）</item>
+        <item>标志206/207（和驰）</item>
+        <item>长城风骏6（睿志诚）</item>
+        <item>北汽威望M20（睿志诚）</item>
+        <item>08天籁（欣朴）</item>
+        <item>标志206/207/307（欣朴）</item>
+        <item>大通T60（欧迪）</item>
+        <item>江淮瑞风车型(威驰)</item>
+        <item>马自达特别版</item>
+        <item>马自达CX5（欣朴）</item>
+        <item>丰田特别版（开景）</item>
+        <item>克莱斯勒系列（鑫巴斯）</item>
+        <item>雷克萨斯IS250（欧迪）</item>
+        <item>雅阁8代（和驰）</item>
+        <item>雷諾，达西亚车系（欣朴）</item>
+        <item>凯迪拉克ATS</item>
+        <item>OBD(睿志诚)</item>
+        <item>启辰D60(欧迪)</item>
+        <item>14款霸道（功放音量可调）</item>
+        <item>大众MQB平台(欣朴)</item>
+        <item>吉利 GC7（睿志诚）</item>
+        <item>马自达6（鑫巴斯）</item>
+        <item>别克昂科雷GMC（欣朴）</item>
+        <item>大通T60,G10（睿志诚）</item>
+        <item>标雪(睿志诚)</item>
+        <item>丰田系列(睿志诚)</item>
+        <item>途锐(威驰)</item>
+        <item>观致 (道俊)</item>
+        <item>长安悦翔V7(威驰)</item>
+        <item>观致</item>
+        <item>科雷傲 (欣朴)</item>
+        <item>汉腾(欧迪)</item>
+        <item>奔驰系列(路征)</item>
+        <item>凯迪拉克ATS(中码易通)</item>
+        <item>大通G10(欧迪)</item>
+        <item>宝马不拆原车主机</item>
+        <item>蒙迪欧致胜(威驰)</item>
+        <item>奔驰系列(中码易通)</item>
+        <item>现代系列(鑫巴斯)</item>
+        <item>大众MQB（威驰）</item>
+        <item>大众/奔驰（威驰）</item>
+        <item>丰田（威驰）</item>
+        <item>马自达，奔腾，奇瑞，比亚迪，传祺系列（睿志诚）</item>
+        <item>福特系列（睿志诚）</item>
+        <item>陆风逍遥（睿志诚）</item>
+        <item>标雪（威驰）</item>
+        <item>日产（威驰）</item>
+        <item>江淮瑞风（欧迪）</item>
+        <item>通用系列（威驰）</item>
+        <item>奥迪（中码易通）</item>
+        <item>现代（威驰）</item>
+        <item>长城哈弗（威驰）</item>
+        <item>东风风光S560（睿志诚）</item>
+        <item>本田（威驰）</item>
+        <item>福特（威驰）</item>
+        <item>BJ20（威驰）</item>
+        <item>东风风神（威驰）</item>
+        <item>长安CS75（威驰）</item>
+        <item>传祺（威驰）</item>
+        <item>克莱斯勒（威驰）</item>
+        <item>宝马X1（威驰）</item>
+        <item>马自达（威驰）</item>
+        <item>奔驰（威驰）</item>
+        <item>东风启辰（威驰）</item>
+        <item>大通V80</item>
+        <item>丰田皇冠（威驰）</item>
+        <item>吉普（威馳）</item>
+        <item>12~15款艾力绅（威驰）</item>
+        <item>12Crv 思域（威驰）</item>
+        <item>哈弗H6（威驰）</item>
+        <item>JEEP指南者（威驰）</item>
+        <item>哈弗H2（威驰）</item>
+        <item>Volvo（路征）</item>
+        <item>宝马系列（中码易通）</item>
+        <item>荣威名爵（威驰）</item>
+        <item>09~12款奔腾B50(威驰)</item>
+        <item>比亚迪(威驰)</item>
+        <item>奇瑞(威驰)</item>
+        <item>03~08款奧德賽，雅閣8，12~14款歌詩圖（欧迪）</item>
+        <item>宝骏(威驰)</item>
+        <item>08款天籁（威驰）</item>
+        <item>哈弗H1(威驰)</item>
+        <item>吉利远景(威驰)</item>
+        <item>13款奔腾B50(威驰)</item>
+        <item>13款奔腾X80(威驰)</item>
+        <item>17款奔腾X40(威驰)</item>
+        <item>16款奔腾B50(威驰)</item>
+        <item>17款奔腾X80(威驰)</item>
+        <item>众泰大迈X5(威驰)</item>
+        <item>16款海马V70(威驰)</item>
+        <item>17款福美来(威驰)</item>
+        <item>福特13款蒙迪欧，18款翼博(威驰)</item>
+        <item>海马M3,S7(威驰)</item>
+        <item>本田雅阁9(威驰)</item>
+        <item>幻速S6(威驰)</item>
+        <item>保时捷(欧迪)</item>
+        <item>日产(睿志诚)</item>
+        <item>比亚迪(道俊)</item>
+        <item>雅阁7,比亚迪F6,S6(长远通)</item>
+        <item>比亚迪S6,F3(华宇科技)</item>
+        <item>DST OBD</item>
+        <item>马自达 （路征）</item>
+        <item>雷克萨斯（路征）</item>
+        <item>荣威550,名爵6(威驰)</item>
+        <item>雷克萨斯(中码易通)</item>
+        <item>雅阁8，思铂睿（路征）</item>
+        <item>OBD(比纳瑞)</item>
+        <item>通用车系（睿志诚）</item>
+        <item>比亚迪,奔驰（欧迪）</item>
+        <item>汉唐(电动车)</item>
+        <item>奔驰系列（睿志诚）</item>
+        <item>长安商用（威驰）</item>
+        <item>东风风光（欧迪）</item>
+        <item>雷诺（威驰）</item>
+        <item>纳智捷（欧迪）</item>
+        <item>启辰M50V（威驰）</item>
+        <item>启辰M50F，X35（威驰）</item>
+        <item>长安CX70（威驰）</item>
+        <item>保时捷（路征）</item>
+        <item>北汽绅宝（欧迪）</item>
+        <item>奔腾X80（睿志诚）</item>
+        <item>中华H530（和驰）</item>
+        <item>奔驰SMART（欧迪）</item>
+        <item>福特系列 SYNC3（欣朴）</item>
+        <item>江铃牧游侠（欧迪）</item>
+        <item>03~07款天籁（道俊）</item>
+        <item>沃尔沃（馨飞扬）</item>
+        <item>长城哈弗系列（道俊）</item>
+        <item>比亚迪(华宇科技)</item>
+        <item>菲亚特（威驰）</item>
+        <item>五菱宏光（威驰）</item>
+        <item>长丰猎豹（威驰）</item>
+        <item>中华V3,H3（威驰）</item>
+        <item>克莱斯勒个别车型（和驰）</item>
+        <item>郑州日产锐琪6（威驰）</item>
+        <item>东南DX7,DX3,DX5（睿志诚）</item>
+        <item>雪佛兰科帕奇（欧迪）</item>
+        <item>大众(欣朴)</item>
+        <item>Dev1（CW）</item>
+        <item>Mzd(LM)</item>
+        <item>Mzd Obd(TXB)</item>
+        <item>比亚迪M6(道俊)</item>
+        <item>10款蒙迪欧致胜(馨飞扬)</item>
+        <item>吉普牧马人（TXB）</item>
+        <item>福特锐界（馨飞扬）</item>
+        <item>雷诺科雷傲（馨飞扬）</item>
+        <item>纳智捷(威驰)</item>
+        <item>日产（馨飞扬）</item>
+        <item>名爵ZS，大通（威驰）</item>
+        <item>丰田竖屏（欣朴）</item>
+        <item>福睿斯（辂元）</item>
+        <item>菲亚特（睿志诚）</item>
+        <item>长安（威驰）</item>
+        <item>马自达CX4（比纳瑞）</item>
+        <item>沃尔沃XC60（路征）</item>
+        <item>东风景逸（威驰）</item>
+        <item>比速（欧迪）</item>
+        <item>马自达（睿志诚）</item>
+        <item>雅阁8（鑫巴斯）</item>
+        <item>08~12款嘉年华（威驰）</item>
+        <item>通用系列（TXB）</item>
+        <item>菲亚特全兼容（威驰）</item>
+        <item>三菱（睿志诚）</item>
+        <item>丰田（道俊）</item>
+        <item>东风风神AX7(欧迪)</item>
+        <item>比亚迪系列(睿晟威)</item>
+        <item>长安悦翔(欧迪)</item>
+        <item>雅阁9代（比纳瑞）</item>
+        <item>阿尔法罗密欧（巴谷）</item>
+        <item>雷诺（巴谷）</item>
+        <item>马自达（和驰）</item>
+        <item>宝马E46（路征）</item>
+        <item>陆风（欧迪）</item>
+        <item>雷克萨斯高配（中码易通）</item>
+        <item>宝马（路征）</item>
+        <item>TATA（威驰）</item>
+        <item>T3</item>
+        <item>马恒达（威驰）</item>
+        <item>依维柯（睿志诚）</item>
+        <item>斯威（睿志诚）</item>
+        <item>H5</item>
+        <item>标雪保留屏（睿志诚）</item>
+        <item>斯巴鲁（欣朴）</item>
+        <item>一汽B30-T3</item>
+        <item>卡威（威驰）</item>
+        <item>本田DA(睿志诚)</item>
+    </array>
+    <array name="can_car_kinds_array">
+        <item>全部车型</item>
+        <item>欣朴</item>
+        <item>睿志诚</item>
+        <item>鑫巴斯</item>
+        <item>威驰</item>
+        <item>欧迪</item>
+    </array>
+    <array name="WeekDay">
+        <item>星期天</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </array>
+</resources>

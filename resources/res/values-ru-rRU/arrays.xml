@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="set_main_options">
+        <item>Общие</item>
+        <item>Дисплей</item>
+        <item>Громкость</item>
+        <item>Звук</item>
+        <item>Настройки видео</item>
+        <item>Навигация</item>
+        <item>Блютус</item>
+        <item>Кнопки на руле</item>
+        <item>Версия ПО</item>
+    </array>
+    <array name="set_genera_options">
+        <item>Время ожидания</item>
+        <item>Распознавание речи</item>
+        <item>Тач ассистент</item>
+        <item>Громкость при заднем ходе</item>
+        <item>Лого загрузки</item>
+        <item>Память для виртуальных CD</item>
+        <item>Сброс всех настроек</item>
+        <item>Удаление всего содержимого</item>
+    </array>
+    <array name="set_display_options">
+        <item>Яркость экрана днём</item>
+        <item>Яркость экрана ночью</item>
+        <item>Авто режим</item>
+        <item>Цвет подсветки клавиш</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Громкость медиа</item>
+        <item>Громкость навигации</item>
+        <item>Громкость BT</item>
+        <item>Громкость звонка</item>
+        <item>Громкость будильн.</item>
+        <item>Громкость системная</item>
+    </array>
+    <array name="set_video_options">
+        <item>Запрет видео в движении</item>
+        <item>Линии ассистента парковки</item>
+        <item>Линии парковки</item>
+        <item>Камера зеркально</item>
+        <item>Кондиционер</item>
+        <item>Камера заднего вида</item>
+        <item>Камера переднего вида</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Автостарт навигации</item>
+        <item>Путь к файлу навигации</item>
+        <item>Микширование</item>
+    </array>
+    <array name="set_bt_options">
+        <item>Пин код</item>
+        <item>Автом.Соединение</item>
+        <item>Автом.Поднятие</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Усиление</item>
+        <item>Низкая частота</item>
+        <item>Гармоника</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Низкая частота</item>
+        <item>Усиление</item>
+        <item>Высокая частота</item>
+        <item>Усиление</item>
+    </array>
+</resources>

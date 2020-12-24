@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/iv_car" android:layout_width="453px" android:layout_height="333px" android:layout_marginLeft="14px" android:layout_marginTop="9px"/>
+    <ImageView android:id="@+id/iv_lf_door" android:layout_width="453px" android:layout_height="333px" android:layout_marginLeft="14px" android:layout_marginTop="9px"/>
+    <ImageView android:id="@+id/iv_rf_door" android:layout_width="453px" android:layout_height="333px" android:layout_marginLeft="14px" android:layout_marginTop="9px"/>
+    <ImageView android:id="@+id/iv_lr_door" android:layout_width="453px" android:layout_height="333px" android:layout_marginLeft="14px" android:layout_marginTop="9px"/>
+    <ImageView android:id="@+id/iv_rr_door" android:layout_width="453px" android:layout_height="333px" android:layout_marginLeft="14px" android:layout_marginTop="9px"/>
+    <ImageView android:id="@+id/iv_rear_door" android:layout_width="453px" android:layout_height="333px" android:layout_marginLeft="14px" android:layout_marginTop="9px"/>
+</RelativeLayout>

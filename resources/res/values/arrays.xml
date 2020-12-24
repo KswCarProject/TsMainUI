@@ -1,0 +1,4569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="str_fs_rev_volarr">
+        <item>No</item>
+        <item>Weak</item>
+        <item>Mid</item>
+        <item>Strong</item>
+    </array>
+    <array name="str_fsrad_zonearray">
+        <item>Asia</item>
+        <item>Europ</item>
+        <item>USA1</item>
+        <item>USA2</item>
+        <item>Brazil</item>
+        <item>Japan</item>
+        <item>Brazil2</item>
+        <item>Japan2</item>
+        <item>Brazil3</item>
+    </array>
+    <array name="str_fsdoor_title">
+        <item>Swap F-Door</item>
+        <item>Swap R-Door</item>
+        <item>Trunk</item>
+        <item>Hood</item>
+        <item>∧∨ Key</item>
+        <item>Inside Temp</item>
+        <item>Temp Unit</item>
+        <item>AVM Icon</item>
+        <item>Outside Temp</item>
+        <item>P Radar</item>
+    </array>
+    <array name="str_fsother_title">
+        <item>LCM type</item>
+        <item>Brake</item>
+        <item>Ext UART</item>
+        <item>DVR type</item>
+        <item>DTV type</item>
+        <item>Capacitive scr.</item>
+        <item>Park mute</item>
+        <item>Camera detect</item>
+        <item>Camera mirror</item>
+        <item>Auto NAVI</item>
+        <item>Color light</item>
+        <item>Logo option</item>
+        <item>SWC option</item>
+        <item>Boot warn</item>
+        <item>Last memory</item>
+        <item>USB1 speed</item>
+        <item>USB2 speed</item>
+        <item>USB2 Debug</item>
+        <item>Ecd swap</item>
+        <item>Debug output</item>
+        <item>Video out</item>
+        <item>BT name</item>
+        <item>SD swap</item>
+        <item>GPS mode</item>
+    </array>
+    <array name="str_fsother_arrayoff">
+        <item>Not detect</item>
+        <item>Normal</item>
+        <item>Off</item>
+        <item>Disable</item>
+        <item>Disable</item>
+        <item>Disable</item>
+        <item>Disable</item>
+        <item>Unremember</item>
+        <item>high</item>
+        <item>high</item>
+        <item>Off</item>
+        <item>Not swap</item>
+        <item>Off</item>
+        <item>NTSC</item>
+        <item>BT name</item>
+        <item>Not swap</item>
+        <item>GPS+BD</item>
+    </array>
+    <array name="str_fsother_arrayon">
+        <item>Detect</item>
+        <item>Mirror</item>
+        <item>On</item>
+        <item>Enable</item>
+        <item>Enable</item>
+        <item>Enable</item>
+        <item>Enable</item>
+        <item>Remember</item>
+        <item>low</item>
+        <item>low</item>
+        <item>Enable</item>
+        <item>Swap</item>
+        <item>Enable</item>
+        <item>PAL</item>
+        <item>BT name</item>
+        <item>Swap</item>
+        <item>GPS+GNS</item>
+    </array>
+    <array name="str_fsother_arraylcmstype">
+        <item>10-IPS</item>
+        <item>7-IPS</item>
+        <item>9-IPS</item>
+        <item>LVDS</item>
+    </array>
+    <array name="str_fsother_arraybrake">
+        <item>User off</item>
+        <item>Force off</item>
+        <item>Force on</item>
+        <item>User on</item>
+    </array>
+    <array name="str_fsother_arrparkmute">
+        <item>No</item>
+        <item>Weak</item>
+        <item>Mid</item>
+        <item>Strong</item>
+    </array>
+    <array name="menu_ico_arr">
+        <item>NAVI</item>
+        <item>Radio</item>
+        <item>DVD</item>
+        <item>Ext DVD</item>
+        <item>Video</item>
+        <item>Audio</item>
+        <item>BT Music</item>
+        <item>CMMB</item>
+        <item>ATV</item>
+        <item>AVIN</item>
+        <item>OBD</item>
+        <item>IPOD</item>
+        <item>POD</item>
+        <item>VMCD</item>
+        <item>Car Device</item>
+        <item>Car Radio</item>
+        <item>360 View</item>
+        <item>Bluetooth</item>
+        <item>Setup</item>
+        <item>OnStar</item>
+        <item>SYNC</item>
+        <item>Car Info</item>
+        <item>TPMS</item>
+        <item>DVR</item>
+        <item>F-Camera</item>
+        <item>Air Condition</item>
+        <item>DSP</item>
+        <item>Phone</item>
+        <item>BT SWC</item>
+        <item>Carplay</item>
+    </array>
+    <array name="can_type_array">
+        <item>NULL</item>
+        <item>Volkswagen</item>
+        <item>VW(MQB System)</item>
+        <item>Toyota</item>
+        <item>Civic、CRV2012</item>
+        <item>Honda DA System</item>
+        <item>Nissan</item>
+        <item>Prado 2014</item>
+        <item>GM</item>
+        <item>Accord 9</item>
+        <item>Sail 3</item>
+        <item>PSA</item>
+        <item>TS</item>
+        <item>Ford</item>
+        <item>Hyundai</item>
+        <item>Chrysler</item>
+        <item>Baojun</item>
+        <item>Trumpchi</item>
+        <item>Roewe 550</item>
+        <item>Roewe(RZ)</item>
+        <item>Crosstour 2014</item>
+        <item>Old MZD, Opel</item>
+        <item>B70 2011</item>
+        <item>B70 2014</item>
+        <item>X80</item>
+        <item>Roewe 950</item>
+        <item>MG GS 15</item>
+        <item>Refine S2,S3</item>
+        <item>Jiangling</item>
+        <item>Cherokee 2016</item>
+        <item>ZTY 100</item>
+    </array>
+    <array name="fs_vol_item_arr">
+        <item>Radio</item>
+        <item>DISC</item>
+        <item>USB</item>
+        <item>SD</item>
+        <item>BT Music</item>
+        <item>CMMB</item>
+        <item>ATV</item>
+        <item>AUX1</item>
+        <item>AUX2</item>
+        <item>IPOD</item>
+        <item>VMCD</item>
+        <item>Car Audio</item>
+        <item>Navi default</item>
+        <item>Phone default</item>
+        <item>Boot max vol</item>
+        <item>BT mic gain</item>
+        <item>BT Vol</item>
+    </array>
+    <array name="tpms_general_mode">
+        <item>Alarm off</item>
+        <item>Alarm once</item>
+        <item>Alarm always</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="ctouch_general">
+        <item>Power</item>
+        <item>Home</item>
+        <item>Back</item>
+        <item>Vol+</item>
+        <item>Vol-</item>
+        <item>Navi</item>
+        <item>Answer</item>
+        <item>Hang</item>
+        <item>Prev</item>
+        <item>Next</item>
+        <item>Eject</item>
+        <item>Search</item>
+        <item>Mode</item>
+        <item>Mute</item>
+        <item>Stop</item>
+        <item>Pause</item>
+        <item>Radio</item>
+        <item>DVD</item>
+        <item>MUSIC</item>
+        <item>APP</item>
+        <item>Brightness</item>
+        <item>P/MUTE</item>
+        <item>Clear</item>
+    </array>
+    <array name="txz_sdk_init_wakeup_keywords">
+        <item>你好美芯</item>
+        <item>美芯你好</item>
+    </array>
+    <array name="open_radio">
+        <item>打开收音机</item>
+        <item>听收音机</item>
+        <item>打开收音</item>
+        <item>听收音</item>
+        <item>收音机</item>
+        <item>收音</item>
+        <item>启动收音机</item>
+        <item>开启收音机</item>
+    </array>
+    <array name="open_navi">
+        <item>打开导航</item>
+        <item>我要导航</item>
+        <item>打开地图导航</item>
+        <item>打开导航地图</item>
+    </array>
+    <array name="close_radio">
+        <item>关闭收音机</item>
+        <item>关闭收音</item>
+        <item>退出收音</item>
+        <item>退出收音机</item>
+    </array>
+    <array name="open_bt">
+        <item>打开蓝牙</item>
+        <item>播放蓝牙</item>
+        <item>打电话</item>
+        <item>电话</item>
+        <item>蓝牙</item>
+        <item>开启蓝牙</item>
+        <item>启动蓝牙</item>
+    </array>
+    <array name="close_bt">
+        <item>关闭蓝牙</item>
+        <item>退出蓝牙</item>
+    </array>
+    <array name="open_cmmb">
+        <item>打开数字电视</item>
+        <item>打开数位电视</item>
+        <item>数字电视</item>
+        <item>电视</item>
+    </array>
+    <array name="close_cmmb">
+        <item>关闭数字电视</item>
+        <item>关闭数位电视</item>
+    </array>
+    <array name="open_audio">
+        <item>打开音乐</item>
+        <item>进入音乐</item>
+        <item>打开歌曲</item>
+        <item>进入歌曲</item>
+        <item>听音乐</item>
+    </array>
+    <array name="close_audio">
+        <item>关闭音乐</item>
+        <item>退出音乐</item>
+        <item>关闭歌曲</item>
+        <item>退出歌曲</item>
+        <item>关闭酷我音乐</item>
+        <item>退出酷我音乐</item>
+        <item>关闭滴滴音乐</item>
+        <item>退出滴滴音乐</item>
+    </array>
+    <array name="open_video">
+        <item>打开视频</item>
+        <item>播放视频</item>
+        <item>看视频</item>
+        <item>视频</item>
+        <item>打开视频播放器</item>
+        <item>启动视频播放器</item>
+        <item>启动视频</item>
+        <item>开始视频</item>
+    </array>
+    <array name="close_video">
+        <item>关闭视频</item>
+        <item>退出视频</item>
+        <item>关闭视频播放器</item>
+        <item>退出视频播放器</item>
+    </array>
+    <array name="open_dvd">
+        <item>打开DVD</item>
+        <item>打开光碟</item>
+        <item>打开光盘</item>
+        <item>打开dvd</item>
+        <item>播放DVD</item>
+        <item>播放光碟</item>
+        <item>播放光盘</item>
+        <item>播放dvd</item>
+        <item>看DVD</item>
+        <item>看光碟</item>
+        <item>看光盘</item>
+        <item>看dvd</item>
+        <item>光盘</item>
+    </array>
+    <array name="close_dvd">
+        <item>关闭DVD</item>
+        <item>关闭光盘</item>
+        <item>关闭光碟</item>
+        <item>关闭dvd</item>
+        <item>退出DVD</item>
+        <item>退出光盘</item>
+        <item>退出光碟</item>
+        <item>退出dvd</item>
+    </array>
+    <array name="open_dvr">
+        <item>打开行车记录仪</item>
+        <item>打开行车记录</item>
+        <item>打开行车录像</item>
+        <item>行车记录仪</item>
+        <item>记录仪</item>
+    </array>
+    <array name="close_dvr">
+        <item>关闭行车记录仪</item>
+        <item>关闭行车记录</item>
+    </array>
+    <array name="open_xmly">
+        <item>打开喜马拉雅</item>
+        <item>进入喜马拉雅</item>
+        <item>打开电台</item>
+        <item>进入电台</item>
+    </array>
+    <array name="close_xmly">
+        <item>退出喜马拉雅</item>
+        <item>关闭喜马拉雅</item>
+        <item>退出电台</item>
+        <item>关闭电台</item>
+    </array>
+    <array name="single_loop">
+        <item>单曲循环</item>
+        <item>单曲循环模式</item>
+        <item>单曲模式</item>
+        <item>循环播放</item>
+        <item>循环模式</item>
+        <item>循环播放模式</item>
+        <item>重复播放</item>
+        <item>单曲播放</item>
+        <item>单曲播放模式</item>
+    </array>
+    <array name="loop_all">
+        <item>顺序播放</item>
+        <item>顺序播放模式</item>
+        <item>顺序模式</item>
+        <item>全部循环</item>
+        <item>全部循环模式</item>
+        <item>全部循环播放</item>
+    </array>
+    <array name="random_all">
+        <item>随机播放</item>
+        <item>随机播放模式</item>
+        <item>随机模式</item>
+    </array>
+    <array name="music_favourite">
+        <item>收藏</item>
+        <item>收藏歌曲</item>
+        <item>收藏音乐</item>
+        <item>收藏当前歌曲</item>
+        <item>收藏当前音乐</item>
+        <item>收藏这首歌</item>
+        <item>喜欢这首歌</item>
+    </array>
+    <array name="cancel_music_favourite">
+        <item>取消收藏</item>
+        <item>取消收藏这首歌</item>
+        <item>取消收藏当前歌曲</item>
+    </array>
+    <array name="open_wenavi">
+        <item>打开一键导航</item>
+        <item>我要一键导航</item>
+        <item>一键导航</item>
+        <item>打开弗凡导航</item>
+        <item>导航辅助</item>
+    </array>
+    <array name="navi_to_aim">
+        <item>导航到目的地</item>
+        <item>导航到汇合点</item>
+        <item>我要去接朋友</item>
+        <item>我去接朋友</item>
+        <item>我要接朋友</item>
+        <item>接朋友</item>
+        <item>去接朋友</item>
+        <item>去朋友那</item>
+        <item>我要接人</item>
+    </array>
+    <array name="navi_to_sharer">
+        <item>导航到他</item>
+        <item>导航到朋友</item>
+    </array>
+    <array name="open_glsx_ddbox">
+        <item>打开滴滴虎</item>
+        <item>我想打开滴滴虎</item>
+        <item>我要打开滴滴虎</item>
+        <item>我想开启滴滴虎</item>
+        <item>我要开启滴滴虎</item>
+        <item>我想启动滴滴虎</item>
+        <item>我要启动滴滴虎</item>
+    </array>
+    <array name="open_glsx_ddbox_music">
+        <item>打开滴滴音乐</item>
+        <item>进入滴滴音乐</item>
+        <item>打开酷我音乐</item>
+        <item>进入酷我音乐</item>
+    </array>
+    <array name="open_glsx_ddbox_lk">
+        <item>打开滴滴路况</item>
+        <item>启动滴滴路况</item>
+    </array>
+    <array name="open_czdh">
+        <item>打开车载电话</item>
+        <item>启动车载电话</item>
+    </array>
+    <array name="open_wzch">
+        <item>打开违章查询</item>
+        <item>启动违章查询</item>
+    </array>
+    <array name="open_glsx_ddbox_ddbx">
+        <item>打开嘀嘀保险</item>
+        <item>我想打开嘀嘀保险</item>
+        <item>我想开启嘀嘀保险</item>
+        <item>我想启动嘀嘀保险</item>
+        <item>我要打开嘀嘀保险</item>
+        <item>我要打开嘀嘀保险</item>
+        <item>我要开启嘀嘀保险</item>
+        <item>我要启动嘀嘀保险</item>
+    </array>
+    <array name="open_glsx_ddbox_hcz">
+        <item>打开好车主</item>
+        <item>启动好车主</item>
+    </array>
+    <array name="open_glsx_ddbox_dljy">
+        <item>打开滴滴商城</item>
+        <item>打开套餐管家</item>
+        <item>启动滴滴商城</item>
+        <item>启动套餐管家</item>
+    </array>
+    <array name="open_glsx_ddbox_HumNavi">
+        <item>打开人工导航</item>
+        <item>启动人工导航</item>
+        <item>打开一键导航</item>
+        <item>启动一键导航</item>
+    </array>
+    <array name="glsx_ddbox_qflk">
+        <item>打开前方路况</item>
+        <item>启动前方路况</item>
+    </array>
+    <array name="ac_power_on">
+        <item>打开空调</item>
+        <item>我想开一下空调</item>
+        <item>把空调打开一下</item>
+    </array>
+    <array name="ac_power_off">
+        <item>关闭空调</item>
+        <item>把空调关上吧</item>
+        <item>请帮我关掉空调</item>
+    </array>
+    <array name="ac_temp_inc">
+        <item>调高一点空调温度</item>
+        <item>把温度升高一些</item>
+        <item>空调温度太低了</item>
+        <item>我要冻死了</item>
+    </array>
+    <array name="ac_temp_dec">
+        <item>降低空调温度</item>
+        <item>把温度调低一点</item>
+        <item>请帮我调小温度</item>
+        <item>空调太热了</item>
+    </array>
+    <array name="ac_temp_inc_valset">
+        <item>帮我把空调温度调高 5 度</item>
+        <item>我想把温度升高 6 度</item>
+        <item>增加 3 度</item>
+    </array>
+    <array name="ac_temp_dec_valset">
+        <item>帮我把空调温度降低 4度</item>
+        <item>我想把温度减少 5 度</item>
+        <item>调低 8 度</item>
+    </array>
+    <array name="ac_temp_val_set">
+        <item>把空调温度调成23度</item>
+        <item>温度25度</item>
+        <item>空调设置为26度</item>
+        <item>空调升高成27度</item>
+        <item>温度降低到16度</item>
+    </array>
+    <array name="ac_temp_max">
+        <item>空调调到最高温度</item>
+        <item>温度最高</item>
+        <item>空调温度调成最大</item>
+        <item>我想调整成最高温度</item>
+    </array>
+    <array name="ac_temp_min">
+        <item>空调调到最低温度</item>
+        <item>温度最低</item>
+        <item>空调温度调成最小</item>
+        <item>我想调整成最低温度</item>
+    </array>
+    <array name="ac_wind_inc">
+        <item>增大风量</item>
+        <item>空调风量调大一点</item>
+        <item>我需要增加一些空调风量</item>
+        <item>空调风速太弱了</item>
+    </array>
+    <array name="ac_wind_dec">
+        <item>减小风量</item>
+        <item>空调风量调小一点</item>
+        <item>我想调低一点空调风量</item>
+        <item>空调风太大了</item>
+    </array>
+    <array name="ac_wind_max">
+        <item>风量最大</item>
+        <item>把风量调到最大</item>
+        <item>空调风量调节成最高</item>
+    </array>
+    <array name="ac_wind_min">
+        <item>风量最小</item>
+        <item>把风量减到最小</item>
+        <item>空调风量调成最低</item>
+    </array>
+    <array name="ac_open_skywid">
+        <item>打开天窗</item>
+        <item>帮我把天窗敞开</item>
+        <item>天窗开开</item>
+    </array>
+    <array name="ac_close_skywid">
+        <item>关闭天窗</item>
+        <item>帮我把天窗关上</item>
+    </array>
+    <array name="ac_open_hostwid">
+        <item>打开车窗</item>
+        <item>开开主驾的车窗</item>
+        <item>我想把左前车窗打开</item>
+    </array>
+    <array name="ac_open_copwid">
+        <item>开开副驾车窗</item>
+        <item>我想把右前窗户摇下来</item>
+    </array>
+    <array name="ac_close_hostwid">
+        <item>关闭车窗</item>
+        <item>关掉主驾车窗</item>
+        <item>我要把前排左边的窗户关上</item>
+    </array>
+    <array name="ac_close_copwid">
+        <item>关掉副驾车窗</item>
+        <item>我要把前排右边的窗户关上</item>
+    </array>
+    <array name="tw_open_kkbox">
+        <item>打开KK巴士</item>
+        <item>打开KK盒子</item>
+    </array>
+    <array name="tw_open_mixer">
+        <item>打开米蛇巴士</item>
+        <item>打开米蛇盒子</item>
+        <item>打开米色盒子</item>
+        <item>打开米色巴士</item>
+        <item>打开米熟巴士</item>
+    </array>
+    <array name="tw_open_youtube">
+        <item>打开优兔</item>
+        <item>打开优兔毕</item>
+    </array>
+    <array name="tw_open_ltv">
+        <item>打开立TV</item>
+    </array>
+    <array name="tw_open_tpms">
+        <item>打开胎压</item>
+    </array>
+    <array name="tw_open_sijitv">
+        <item>打开4GTV</item>
+        <item>打开四季电视</item>
+    </array>
+    <array name="tw_open_google">
+        <item>打开谷狗</item>
+        <item>打开谷歌</item>
+    </array>
+    <array name="tw_open_googlemap">
+        <item>打开谷狗妹</item>
+        <item>打开谷歌妹</item>
+        <item>打开谷歌地图</item>
+        <item>打开谷狗地图</item>
+    </array>
+    <array name="set_main_options">
+        <item>Common</item>
+        <item>Display</item>
+        <item>Volume</item>
+        <item>Sound</item>
+        <item>Video</item>
+        <item>Navigation</item>
+        <item>Bluetooth</item>
+        <item>SWC</item>
+        <item>About Device</item>
+    </array>
+    <array name="set_genera_options">
+        <item>Standby time</item>
+        <item>Speech Recognition</item>
+        <item>AssistiveTouch</item>
+        <item>Reverse Volume Suppression</item>
+        <item>Boot Logo</item>
+        <item>Virtual CD Storage Device</item>
+        <item>Reset All Settings</item>
+        <item>Erase All Content</item>
+    </array>
+    <array name="set_display_options">
+        <item>Daytime Backlight Set</item>
+        <item>Nighttime Backlight Set</item>
+        <item>Auto Mode</item>
+        <item>Key Light Color</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Media Volume</item>
+        <item>Navi Volume</item>
+        <item>BT Volume</item>
+        <item>Ring Volume</item>
+        <item>Alarm Volume</item>
+        <item>System Volume</item>
+    </array>
+    <array name="set_video_options">
+        <item>Disable Video In Motion</item>
+        <item>Reversing Assistant Line</item>
+        <item>Reversing Warning Line</item>
+        <item>Mirror Rear Camera</item>
+        <item>Air Conditioner</item>
+        <item>Rear Video</item>
+        <item>Front Cam</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Autostart Navigation</item>
+        <item>File Path</item>
+        <item>Navi Mixed</item>
+    </array>
+    <array name="set_bt_options">
+        <item>Pin Code</item>
+        <item>Auto Connect</item>
+        <item>Auto Answer</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_flags">
+        <item>32</item>
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+        <item>1k</item>
+        <item>1.5k</item>
+        <item>2k</item>
+        <item>2.5k</item>
+        <item>3k</item>
+        <item>3.5k</item>
+        <item>4k</item>
+        <item>4.5k</item>
+        <item>5k</item>
+        <item>5.5k</item>
+        <item>6k</item>
+        <item>7k</item>
+        <item>8k</item>
+        <item>9k</item>
+        <item>10k</item>
+        <item>11k</item>
+        <item>12k</item>
+        <item>13k</item>
+        <item>14k</item>
+        <item>15k</item>
+        <item>16k</item>
+        <item>17k</item>
+        <item>18k</item>
+        <item>19k</item>
+        <item>20k</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Gain</item>
+        <item>Low frequency</item>
+        <item>Harmonic</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Low frequency</item>
+        <item>Gain</item>
+        <item>High frequency</item>
+        <item>Gain</item>
+    </array>
+    <array name="fs_languages">
+        <item>简体中文</item>
+        <item>繁體中文</item>
+        <item>English</item>
+        <item>Türkçe</item>
+        <item>Pусский</item>
+        <item>عربية‎</item>
+        <item>עִבְרִית</item>
+        <item>ภาษาไทย</item>
+        <item>Deutsch</item>
+        <item>Français</item>
+        <item>Português</item>
+        <item>日本語</item>
+        <item>Español</item>
+        <item>Itanliano</item>
+        <item>Polski</item>
+        <item>فارسی‎</item>
+        <item>한국어</item>
+        <item>Português-Brasil</item>
+        <item>Tiếng việt</item>
+        <item>Українська</item>
+    </array>
+    <array name="mcu_update_msg">
+        <item>No update process</item>
+        <item>Failed to update file!</item>
+        <item>Upgrade, please do not power off before complete!</item>
+        <item>Chip encryption!</item>
+        <item>Chip erase failure!</item>
+        <item>Chip erase success!</item>
+        <item>Upgrade successfully, please restart the device!</item>
+    </array>
+    <array name="can_cam_yh_title">
+        <item>AVG Speed</item>
+        <item>Trip Time</item>
+        <item>Trip Mileage</item>
+        <item>AVG Fule</item>
+        <item>Optimum Fuel</item>
+    </array>
+    <array name="can_byds6s7_voltext">
+        <item />
+        <item>The battery voltage is low and the multimedia system will be turned off after three minutes</item>
+        <item>Please press the start button to start</item>
+        <item>Please switch the gear to P domain</item>
+        <item>Please press the start button to power off</item>
+        <item>Please stop the vehicle and press the start button</item>
+        <item>Please put the key on the start button</item>
+        <item>Please confirm if the key is in the car</item>
+        <item>For your car, please lift the parking brake</item>
+        <item>Please close the door</item>
+        <item>The key battery is low, please change it in time</item>
+        <item>Please turn the steering wheel gently and try to start</item>
+        <item>Please concentrate on driving</item>
+        <item>Auto light is turned on</item>
+        <item>Auto light is off</item>
+        <item>Fatigue warning system is turned on</item>
+        <item>Fatigue warning system has been closed</item>
+        <item>Fatigue warning system has entered demo mode</item>
+        <item>Fatigue warning system has entered working mode</item>
+        <item>Finished learning</item>
+        <item>For your safety, please fasten your seat belt</item>
+        <item>Insufficient fuel, navigate to gas station</item>
+        <item>Could not be started, please contact the service store for repair</item>
+    </array>
+    <array name="can_car_play_sta">
+        <item>Off/Stop</item>
+        <item>Loading</item>
+        <item>Not connected</item>
+        <item>Connected</item>
+        <item>Playing</item>
+        <item>Pause</item>
+        <item>Other status</item>
+    </array>
+    <array name="can_civic_car_play_sta">
+        <item>Pause</item>
+        <item>Play</item>
+        <item>FF</item>
+        <item>Stop</item>
+        <item>FR</item>
+        <item>Eject</item>
+        <item>Loading</item>
+    </array>
+    <array name="can_fist_set_title">
+        <item>Mileage unit</item>
+        <item>Turn signal flashing indicator</item>
+        <item>warning reminding</item>
+        <item>information reminding</item>
+        <item>Ambient light setting</item>
+    </array>
+    <array name="can_fist_l_c">
+        <item>KM</item>
+        <item>Mile</item>
+    </array>
+    <array name="can_fist_zxd">
+        <item>Flash 1 time</item>
+        <item>Flash 3 times</item>
+    </array>
+    <array name="can_lhotwind_array">
+        <item>Close</item>
+        <item>Left seat heating - low</item>
+        <item>Left seat heating - medium</item>
+        <item>Left seat heating - high</item>
+        <item>Left seat ventilation - low</item>
+        <item>Left seat ventilation - medium</item>
+        <item>Left seat ventilation - high</item>
+    </array>
+    <array name="can_launch_control_array">
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+    </array>
+    <array name="can_tpms_warn_array">
+        <item>High pressure</item>
+        <item>Low pressure</item>
+        <item>Check pressure</item>
+        <item>Normal pressure</item>
+    </array>
+    <array name="can_bcfs_array">
+        <item>Reversing into the garage</item>
+        <item>Roadside parking</item>
+    </array>
+    <array name="can_psa_wc_syfb_array">
+        <item>Drive position</item>
+        <item>All passengers</item>
+    </array>
+    <array name="can_byds6s7_musicstyle">
+        <item>Default</item>
+        <item>Jazz</item>
+        <item>Classical</item>
+        <item>Country</item>
+        <item>Electronics</item>
+        <item>Nostalgic</item>
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>Dance music</item>
+        <item>Opera</item>
+    </array>
+    <array name="can_psa_wc_yxxz">
+        <item>Pop/Rock</item>
+        <item>Classic</item>
+        <item>Electronics</item>
+        <item>Jazz/Blues</item>
+        <item>Vocal Music</item>
+        <item>Custom</item>
+    </array>
+    <array name="can_psa_wc_temperature_array">
+        <item>F</item>
+        <item>DegC</item>
+    </array>
+    <array name="can_psa_wc_consumption_array">
+        <item>l/100km</item>
+        <item>km/l</item>
+        <item>mpg(us)</item>
+    </array>
+    <array name="can_psa_wc_ztyssz_array">
+        <item>Sapphire blue</item>
+        <item>buckskin brown</item>
+    </array>
+    <array name="can_psa_wc_fwmsxz_array">
+        <item>Disabled mode</item>
+        <item>Comfort mode</item>
+        <item>Normal mode</item>
+    </array>
+    <array name="can_psa_wc_jsms_array">
+        <item>Standard</item>
+        <item>Sports</item>
+    </array>
+    <array name="can_psa_wc_lzjhq_array">
+        <item>OFF</item>
+        <item>Clean</item>
+        <item>Comfort</item>
+    </array>
+    <array name="can_psa_wc_xxlx_array">
+        <item>Forest fragrance</item>
+        <item>Pure cortex</item>
+        <item>fresh air</item>
+    </array>
+    <array name="can_psa_wc_xxnd_array">
+        <item>OFF</item>
+        <item>Low</item>
+        <item>Middle</item>
+        <item>High</item>
+    </array>
+    <array name="can_psa_wc_ybxssz_array">
+        <item>None</item>
+        <item>Drive assistance,Engine Information</item>
+        <item>Drive assistance,Accelerated Tables</item>
+        <item>Drive assistance,Temperature</item>
+        <item>Drive assistance,Tachometer</item>
+        <item>Drive assistance,Trip Computer</item>
+        <item>Engine Information,Accelerated Tables</item>
+        <item>Engine Information,Temperature</item>
+        <item>Engine Information,Tachometer</item>
+        <item>Engine Information,Trip Computer</item>
+        <item>Accelerated Tables,Temperature</item>
+        <item>Accelerated Tables,Tachometer</item>
+        <item>Accelerated Tables,Trip Computer</item>
+        <item>Temperature,Tachometer</item>
+        <item>Temperature,Trip Computer</item>
+        <item>Tachometer,Trip Computer</item>
+    </array>
+    <array name="can_psa_wc_lang">
+        <item>English</item>
+        <item>中文</item>
+        <item>Deutsche</item>
+        <item>Italiano</item>
+        <item>Français</item>
+        <item>Svenska</item>
+        <item>Español</item>
+        <item>Nederlands</item>
+        <item>Português</item>
+        <item>日本語</item>
+        <item>Norsk</item>
+        <item>Suomi</item>
+        <item>Dansk</item>
+        <item>Ελλάδα</item>
+        <item>العربية</item>
+        <item>Türk</item>
+        <item>Reserved</item>
+        <item>Russian</item>
+        <item>Reserved</item>
+        <item>Romanian</item>
+        <item>Reserved</item>
+        <item>Ykpaihcbka</item>
+        <item>Polski</item>
+        <item>Reserved</item>
+        <item>Cesky</item>
+        <item>Magyar</item>
+        <item>Reserved</item>
+        <item>Srpski</item>
+        <item>Portugues do Brasil</item>
+        <item>Viet</item>
+        <item>Hrvatski</item>
+        <item>Bulgarian</item>
+        <item>Eesti</item>
+    </array>
+    <array name="can_conv_tips">
+        <item />
+        <item>Air conditioning</item>
+        <item>Auxiliary heater</item>
+        <item>Rear window heating</item>
+        <item>Left seat heating</item>
+        <item>Right seat heating</item>
+        <item>Left seat ventilation</item>
+        <item>Right head area heating</item>
+        <item>Left head area heating</item>
+        <item>Right head area heating</item>
+        <item>Front fog light</item>
+        <item>Rear fog light</item>
+        <item>Windscreen heating</item>
+        <item>Steering wheel heating</item>
+        <item>Mirror heating</item>
+        <item>Rear seat heating</item>
+        <item>Rear seat ventilation</item>
+        <item>Socket</item>
+        <item>Drink holder</item>
+    </array>
+    <array name="can_golf_wc_vehicle_warn">
+        <item>Error : brake.Workshop!</item>
+        <item>Error：electric parking brake</item>
+        <item>Brake fluid : owner&apos;s manual!</item>
+        <item>Engine overheated. Stop! Owner&apos;s manual!</item>
+        <item>Check coolant! Owner&apos;s manual</item>
+        <item>Oil pressure:Stop!Owner&apos;s manual!</item>
+        <item>Steering lock faulty.Stop！</item>
+        <item>Error: not charging battery.</item>
+        <item>Loss of pressure：please check tyre pressure</item>
+        <item>Loss of pressure：check front-left tyre pressure!</item>
+        <item>Loss of pressure：check front-right tyre pressure!</item>
+        <item>Loss of pressure：check rear-left tyre pressure!</item>
+        <item>Loss of pressure：check rear-right tyre pressure!</item>
+        <item>Error：Tyre Pressure Monitoring System</item>
+        <item>Error：gearbox.</item>
+        <item>Error：gearbox.Reverse gear not available</item>
+        <item>Error：gearbox.</item>
+        <item>Error：electric parking brake</item>
+        <item>Check front-left side light!</item>
+        <item>Check left dipped headlight beam!</item>
+        <item>Check left main headlight beam!</item>
+        <item>Check left fog light!</item>
+        <item>Check left side turn signal!</item>
+        <item>Check left daytime running light!</item>
+        <item>Check left daytime running light/dipped beam!</item>
+        <item>Check left daytime running light/fog light!</item>
+        <item>Check left daytime running light/side light!</item>
+        <item>Check left dipped/main headlight beams!</item>
+        <item>Check front-right turn signal!</item>
+        <item>Check front-right side light!</item>
+        <item>Check right dipped headlight beam!</item>
+        <item>Check right main headlight beam!</item>
+        <item>Check right fog light!</item>
+        <item>Check right side turn signal!</item>
+        <item>Check right daytime running light!</item>
+        <item>Check right daytime running light/dipped beam!</item>
+        <item>Check right daytime running light/fog light!</item>
+        <item>Check right daytime running light/side light!</item>
+        <item>Check right dipped/main headlights beams!</item>
+        <item>Error：vehicle lighting</item>
+        <item>Check rear-left turn signal!</item>
+        <item>Check left brake light!</item>
+        <item>Check left tail light!</item>
+        <item>Check left reversing light!</item>
+        <item>Check left rear fog light!</item>
+        <item>Check left brake/tail lights!</item>
+        <item>Check left rear fog/tail lights!</item>
+        <item>Check left turn signal/brake/tail lights!</item>
+        <item>Check left brake light/turn signals!</item>
+        <item>Check rear-right turn signal!</item>
+        <item>Check right brake light!</item>
+        <item>Check right tail light!</item>
+        <item>Check right reversing light!</item>
+        <item>Check right rear fog light!</item>
+        <item>Check right brake/tail light!</item>
+        <item>Check right rear fog/tail lights!</item>
+        <item>Check right turn signal/brake/tail lights!</item>
+        <item>Check right brake light/turn signals!</item>
+        <item>Check nunmber plate lighting!</item>
+        <item>Check third brake light!</item>
+        <item>Check rear fog light!</item>
+        <item>Check reversing light!</item>
+        <item>Trailer:check left turn signal!</item>
+        <item>Trailer:check right turn signal!</item>
+        <item>Trailer:Check left tail light!</item>
+        <item>Trailer:check right tail light!</item>
+        <item>Trailer:check brake lights!</item>
+        <item>Trailer:</item>
+        <item>Check front-right cornering light!</item>
+        <item>Check front-left conrnering light!</item>
+        <item>Check left headlight!</item>
+        <item>Check right headlight!</item>
+        <item>Error：start-stop system</item>
+        <item>Brake servo failure</item>
+        <item>Error：stabilisation control(ESC)</item>
+        <item>Error：ABS/stabilistation control(ESC)</item>
+        <item>Stabilisation control(ESC) deactivated</item>
+        <item>Traction control(ASR) deactivated</item>
+        <item>ESC off-road : directional stability restricted.</item>
+        <item>ESC sport : directional stability restricted.</item>
+        <item>Error：Auto Hold</item>
+        <item>Error：Hill Hold Assist</item>
+        <item>Parking brake：inspection mode</item>
+        <item>Please note:：operating temperature not yet reached.</item>
+        <item>Door(s)/bonnet/boot lid open.See vehicle status in MFD</item>
+        <item>Battery low</item>
+        <item>Error : Fuel tank system!Service vehicle</item>
+        <item>Please refuel.Note range!</item>
+        <item>Reduce oil level</item>
+        <item>Check oil level!</item>
+        <item>Oil sensor:Service vehicle</item>
+        <item>Diesel particulate filter:See owner&apos;s manual.</item>
+        <item>Top up washer fluid!</item>
+        <item>Error: Hybrid system!Service vehicle.</item>
+        <item>please check vehicle status in instrument cluster</item>
+        <item>Oil Level: top up oil</item>
+        <item>Top up AdBlue! Engine cannot be started</item>
+        <item>Error:AdBlue.Engine start disabled.</item>
+        <item>Error:hybird system.Stop vehicle!</item>
+        <item>Engine fault:Service vehicle.</item>
+        <item>Transmission overheated: Stop! See owner&apos;s manual.</item>
+        <item>Transmission faulty!Service vehicle</item>
+        <item>Error:Brakes! Stop vehicle.Service vehicle.</item>
+        <item>Error:12V power system</item>
+        <item>Error:electrical system.Do not continue driving.</item>
+        <item>Error: system overheated.Stop!See owner&apos;s manual.</item>
+        <item>Check trailer coupling!</item>
+        <item>Starter system faulty!Service vehicle.</item>
+        <item>Steering lock:Service vehicle.</item>
+        <item>Error:Adaptive Front Lighting System(AFS)</item>
+        <item>Error:Headlight range adjustment</item>
+        <item>Fault:Windshield wipers</item>
+        <item>Keyless start faulty.</item>
+        <item>Replace key battery!</item>
+        <item>Battery low.</item>
+        <item>Error:Fuel tank system!Service vehicle.</item>
+        <item>Please refuel.Range;</item>
+        <item>Reduce oil level!</item>
+        <item>Check oil level!</item>
+        <item>Oil sensor:Service vehicle</item>
+        <item>Diesel particulate filter:See owener&apos;s manual.</item>
+        <item>Top up washer fluid!</item>
+        <item>Hybird system!Service vehicle.</item>
+        <item>Speed of 120 Km/h exceeded</item>
+        <item>Fault:Damper control</item>
+        <item>TOP Up AdBlue!Engine will not start in.</item>
+        <item>AdBlue.Engine will not start in.</item>
+        <item>Check brake pads!</item>
+        <item>Engine speed max. rpm.</item>
+        <item>Error:Brakes!Service vehicle！</item>
+        <item>Fault:Rain sensor</item>
+        <item>Fault:Automatic light control</item>
+        <item>Roll Mode</item>
+        <item>Button for driver assistance systems defective.</item>
+        <item>Error:electrical system!Service vehicle.</item>
+        <item>Transmission overheated</item>
+        <item>Check brake pads!</item>
+        <item>Warm engine to an oil temperature of!</item>
+        <item>Water in fuel fitter!See owner&apos;s manual.</item>
+        <item>Please refuel LPG. Range:</item>
+        <item>Error:LPG!Service vehicle.</item>
+        <item>Please refill CNG. Range</item>
+        <item>Error:CNG! Service vehicle</item>
+        <item>Please charge battery.Range:</item>
+        <item>Error:range</item>
+        <item>Exterior sound faulty.Drive carefully!</item>
+        <item>Pressure loss:Please check tire pressures</item>
+        <item>Pressure loss:Check front left tire pressure!</item>
+        <item>Pressure loss:Check front right tire pressure!</item>
+        <item>Pressure loss:Check rear left tire pressure!</item>
+        <item>Pressure loss:Check rear right tire pressure!</item>
+        <item>Fault:Light Assist</item>
+        <item>Light Assist:Clean windshield!</item>
+        <item>ACC and Front Assist not available.</item>
+        <item>ACC and Front Assist:No sensor data.</item>
+        <item>Side Assist is currently not available.</item>
+        <item>Error:Side Assist</item>
+        <item>Lane Assist is currently not available.</item>
+        <item>Error:Lane Assist</item>
+        <item>Lane Assist unavailable.No sensor data.</item>
+        <item>Proactive occupant protection not available.</item>
+        <item>Proactive occupant protection:Function restrited.</item>
+        <item>Driver alert.Take a break!.</item>
+        <item>Driver alert.Take a break!</item>
+        <item>Error:ABS</item>
+        <item>Error:Traction control</item>
+        <item>Error:ABS/traction control(ASR)</item>
+        <item>Error:Traffic sign recognition</item>
+        <item>Traffic sign recognition:Clean windshield!</item>
+        <item>Traffic sign recognition:Currently limited.</item>
+        <item>Traction control(ASR) deactivated</item>
+        <item>Error:Instrument cluster!Service vehicle.</item>
+        <item>Battery low.</item>
+        <item>Check battery!</item>
+        <item>Error:Battery diagnosis</item>
+        <item>Front Assist not available.</item>
+        <item>No restart.Do not open hood</item>
+        <item>Engage gearshift level in P position!</item>
+        <item>Error:Driver&apos;s door contact switch</item>
+        <item>Error:Service vehicle.Only leave vehicle in P position!</item>
+        <item>Front Assist:No sensor data</item>
+        <item>Unable to charge!Service vehicle</item>
+        <item>Quick-charge not possible!Service vehicle</item>
+        <item>Dealer diagnostics active</item>
+        <item>Coasting mode Brakes</item>
+        <item>Front Assist not available.</item>
+        <item>Front Assist:No sensor data</item>
+        <item>Convertible top not function!See owner&apos;s manual.</item>
+        <item>Error:convertible top!Service vehicle.</item>
+        <item>Service!See service settings or vehicle status in the MFD</item>
+        <item>Service now!</item>
+        <item>Oil change in</item>
+        <item>Oil change in days</item>
+        <item>Inspection in days</item>
+        <item>Inspection in</item>
+        <item>Oil change and inspection in</item>
+        <item>Oil change and inspection in days</item>
+        <item>Inspection now!</item>
+        <item>Oil change now!</item>
+        <item>Oil change and inspection now!</item>
+        <item>Rear Traffic Alert/Blind Spot Alert not available.</item>
+        <item>Error:Rear Traffic Alert/Blind Spot Alert</item>
+        <item>Rear Traffic Alert/Blind Spot Alert not available.</item>
+        <item>Towing:Rear Traffic Alert/Blind Spot Alert not</item>
+        <item>Rear Traffic Alert currently not available.</item>
+        <item>Exterior sound manually deactivated. Drive carefully!</item>
+    </array>
+    <array name="can_golf_wc_start_stop_msg">
+        <item>Windscreen could become fogged</item>
+        <item>Operating temperature not maintained</item>
+        <item>No driver detected</item>
+        <item>Gearbox requires engine to be running</item>
+        <item>Vehicle energy requirement is high</item>
+        <item>Starting start-stop system</item>
+        <item>Engine must be running</item>
+        <item>Gradient too steep</item>
+        <item>Start-stop system is currently not available</item>
+        <item>Emergency brake function intervention</item>
+        <item>Brake requires engine to be running</item>
+        <item>Power consumption is high</item>
+        <item>Start-stop system requires engine to be running</item>
+        <item>Vehicle energy requirement is high</item>
+        <item>No driver detected</item>
+        <item>Driver door is open</item>
+        <item>Bonnet has been opened</item>
+        <item>System protection intervention</item>
+        <item>No engine start due to system requirement</item>
+        <item>Trailer mode</item>
+        <item>Steering angle too wide</item>
+        <item>Manoeuvering mode</item>
+        <item>Defrost function is switched on</item>
+        <item>Driver seatbelt is not fastened</item>
+        <item>Driver door is open</item>
+        <item>Accelerator is depressed</item>
+        <item>Windscreen heating is switched on</item>
+        <item>Manximum air conditioning requires engine to be running</item>
+        <item>Bonnet has been opened</item>
+        <item>Engine stop currently not possible</item>
+        <item>Off-road mode is activated</item>
+        <item>System protection intervention. Button/lever activated too often</item>
+        <item>Gear is engaged</item>
+        <item>Start-stop button pressed</item>
+        <item>Air condition requires engine to be running</item>
+        <item>ACC intervention</item>
+        <item>Park Assist is activated</item>
+        <item>ESC is switched off</item>
+        <item>Vehicle energy requirement is high</item>
+        <item>Driver seatbelt is not fastened</item>
+        <item>No driver detected</item>
+        <item>Please start the engine manually</item>
+        <item>Start-stop system is activated</item>
+        <item>Start-stop system is available</item>
+        <item>Engine stop active</item>
+        <item>Start-stop system is not available</item>
+        <item>Driver door opened.Driver not properly detected</item>
+        <item>Please press the brake pedal</item>
+        <item>Release the clutch to stop the engine</item>
+        <item>Start-stop system deactivated</item>
+        <item>Error:start-stop system</item>
+    </array>
+    <array name="can_start_stop_msg">
+        <item>Trailer mode</item>
+        <item>Windscreen could become fogged</item>
+        <item>Operating temperature not maintained</item>
+        <item>No driver detected</item>
+        <item>Gearbox requires engine to be running</item>
+        <item>Power consumption is high</item>
+        <item>Starting start-stop system</item>
+        <item>Engine must be running</item>
+        <item>Gradient too steep</item>
+        <item>Start-stop system is currently not available</item>
+        <item>Emergency brake function intervention</item>
+        <item>Brake requires engine to be running</item>
+        <item>Power consumption is high</item>
+        <item>Air conditioning requires engine to be running</item>
+        <item>Steering angle too great</item>
+        <item>Manoeuvering mode</item>
+        <item>Defrost function is switched on</item>
+        <item>Driver seatbelt not fastened</item>
+        <item>Driver door open</item>
+        <item>Accelerator is depressed</item>
+        <item>Windscreen heating is switched on</item>
+        <item>Maximum air conditioning requires engine to be running</item>
+        <item>Bonnet has been opened</item>
+        <item>Engine stop currently not possible</item>
+        <item>Off- road mode is activated</item>
+        <item>System protection intervention Button/lever activated too often</item>
+        <item>Gear is engaged</item>
+        <item>Start-stop button pressed</item>
+        <item>Air conditioning requires engine to be running</item>
+        <item>ACC intervention</item>
+        <item>Park Assist is activated</item>
+        <item>ESC is switched off</item>
+        <item>Power consumption is high</item>
+        <item>Start-stop system requires engine to be running</item>
+    </array>
+    <array name="can_start_stop_other_msg">
+        <item>Start-stop system is activated</item>
+        <item>The Start-stop system is available</item>
+        <item>Engine stop is active</item>
+        <item>Driver door open.Driver not present</item>
+        <item>Please press gas pedal</item>
+        <item>Release clutch to stop engine</item>
+        <item>Start-stop system deactivated</item>
+        <item>Error: Start-Stop system is not available</item>
+        <item>The Start-stop system is not available</item>
+    </array>
+    <array name="can_dcxtgzzt_array">
+        <item>Initialization</item>
+        <item>Stand by</item>
+        <item>Precharge</item>
+        <item>Output</item>
+        <item>Waiting for the main to close</item>
+        <item>Running</item>
+        <item>Charging</item>
+        <item>Precharge</item>
+        <item>Charging starts</item>
+        <item>Charging end</item>
+        <item>Fast-filled</item>
+        <item>Slow charging failure</item>
+        <item>Fast charge failure</item>
+        <item>RTC wake up</item>
+        <item>Malfunction</item>
+        <item>Precharge</item>
+    </array>
+    <array name="can_gc_week_arrays">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </array>
+    <array name="can_battery_arrays">
+        <item>Max voltage:</item>
+        <item>Max voltage group num:</item>
+        <item>Min voltage:</item>
+        <item>Min voltage group num:</item>
+        <item>Highest battery temp:</item>
+        <item>Lowest battery temp:</item>
+        <item>Highest temp group num:</item>
+        <item>Lowest temp group num:</item>
+        <item>Remaining battery:</item>
+    </array>
+    <array name="can_error_arrays">
+        <item>Severe overpressure</item>
+        <item>Severe over-temp</item>
+        <item>Overcurrent</item>
+        <item>IGBT fault</item>
+        <item>Main connection failure</item>
+        <item>Precharge failure</item>
+        <item>Bus fault</item>
+        <item>Speeding</item>
+        <item>Seriously blocked</item>
+        <item>Severe undervoltage</item>
+        <item>IGBT over-temp</item>
+        <item>Rotary hardware</item>
+        <item>Rotation angle</item>
+        <item>Midpoint voltage</item>
+        <item>Throttle failure</item>
+        <item>Gear failure</item>
+        <item>Communication abnormal</item>
+        <item>Low insulation</item>
+        <item>Discharge overcurrent</item>
+        <item>Battery temp is too high</item>
+        <item>Monomer over discharge</item>
+        <item>Short circuit protection</item>
+        <item>Temp rises too fast</item>
+        <item>Pressure difference too large</item>
+        <item>Temp difference too large</item>
+        <item>Low temp</item>
+        <item>Charging overcurrent</item>
+        <item>Total pressure too low</item>
+        <item>Total pressure too high</item>
+    </array>
+    <array name="can_mzd_car_radio_sta">
+        <item>Stop</item>
+        <item>Play</item>
+        <item>Update the list of stations</item>
+        <item>Scanning</item>
+        <item>Scan to radio play</item>
+        <item>Search up</item>
+        <item>Searching down</item>
+    </array>
+    <array name="can_istop_tszf">
+        <item>--</item>
+        <item>i-stop is not available</item>
+        <item>Please apply more brake pressure</item>
+        <item>Please switch to neutral</item>
+        <item>Could not be activated Please turn the steering wheel to the center</item>
+    </array>
+    <array name="can_mzd_cx4_jsfz">
+        <item>+0 Km/h</item>
+        <item>+5 Km/h</item>
+        <item>+10 Km/h</item>
+    </array>
+    <array name="can_eps_turn_mode">
+        <item>Comfortable mode</item>
+        <item>Sports mode</item>
+    </array>
+    <array name="can_teramont_eco_array">
+        <item>ECO</item>
+        <item>Normal</item>
+        <item>Sport</item>
+        <item>Individual</item>
+    </array>
+    <array name="can_teramont_drive_profile_array">
+        <item>Snow</item>
+        <item>economic</item>
+        <item>Off-road</item>
+        <item>Off-road personalization</item>
+    </array>
+    <array name="can_golf_teramont_tyres_array">
+        <item>Comfortable</item>
+        <item>standard</item>
+        <item>Full load</item>
+    </array>
+    <array name="can_golf_teramont_tyres_warn_array">
+        <item>Tire pressure is normal</item>
+        <item>Please check tire pressure</item>
+        <item>Tire pressure is too low</item>
+        <item>Tire pressure loss</item>
+    </array>
+    <array name="can_jyx5_car_type_array">
+        <item>High ver</item>
+        <item>low ver/Middle ver</item>
+    </array>
+    <array name="can_kadjar_car_type_array">
+        <item>Others Type</item>
+        <item>Koleos（Low）</item>
+        <item>Koleos（High）</item>
+    </array>
+    <array name="can_qc_t70_car_type_array">
+        <item>T70 2015</item>
+        <item>T70 2016</item>
+        <item>T90 2017</item>
+        <item>D60 2018</item>
+        <item>T70 2018</item>
+    </array>
+    <array name="can_df_jyx5_jdsj">
+        <item>10 minutes</item>
+        <item>20 minutes</item>
+        <item>30 minutes</item>
+    </array>
+    <array name="can_baic_hss6_zmys">
+        <item>Closed</item>
+        <item>10S</item>
+        <item>20S</item>
+        <item>30S</item>
+        <item>40S</item>
+        <item>50S</item>
+        <item>60S</item>
+    </array>
+    <array name="can_df_jyx5_ddys">
+        <item>off</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_geely_boy_mode">
+        <item>Comfort</item>
+        <item>Sport</item>
+    </array>
+    <array name="can_geely_boy_yklsfk">
+        <item>Horn not sound</item>
+        <item>Horn blared</item>
+    </array>
+    <array name="can_kaiyi_3x_tdjd">
+        <item>angle 0</item>
+        <item>angle 1</item>
+        <item>angle 2</item>
+        <item>angle 3</item>
+    </array>
+    <array name="can_kaiyi_3x_aqkz">
+        <item>Economical</item>
+        <item>Comfortable</item>
+        <item>sport</item>
+    </array>
+    <array name="can_kaiyi_3x_bdsg">
+        <item>OFF</item>
+        <item>3 times</item>
+        <item>5 times</item>
+        <item>7 times</item>
+    </array>
+    <array name="can_h6_car_type_array">
+        <item>Other car type</item>
+        <item>Coupe 2016</item>
+    </array>
+    <array name="can_ht_car_type_array">
+        <item>Others Type</item>
+        <item>HT X7（Low）</item>
+        <item>HT X5（Low）</item>
+        <item>HT X5（Mid,High Ver）</item>
+    </array>
+    <array name="can_b50_car_type_array">
+        <item>Others Type</item>
+        <item>X80 2017 Low</item>
+    </array>
+    <array name="can_cch6_dd_delay_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>60s</item>
+    </array>
+    <array name="can_cch6_dd_delay_2017_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_cch6_hj_delay_array">
+        <item>30s</item>
+        <item>1min</item>
+        <item>2min</item>
+        <item>3min</item>
+    </array>
+    <array name="can_landwind_bnhj">
+        <item>30s</item>
+        <item>1min</item>
+        <item>3min</item>
+        <item>5min</item>
+        <item>turn off</item>
+    </array>
+    <array name="can_cch6_jd_setup_array">
+        <item>10min</item>
+        <item>20min</item>
+        <item>30min</item>
+    </array>
+    <array name="can_cch9_anti_theft_prevention">
+        <item>turn off</item>
+        <item>10min</item>
+        <item>20min</item>
+        <item>30min</item>
+    </array>
+    <array name="can_cch9_with_the_volume_array">
+        <item>Off</item>
+        <item>On</item>
+        <item>Low</item>
+        <item>Middle</item>
+        <item>High</item>
+    </array>
+    <array name="can_tigger7_car_type_array">
+        <item>ARRIZO 5</item>
+        <item>Tiggo 7 2016</item>
+        <item>tigger3x 2017</item>
+        <item>tigger3 2017</item>
+        <item>Arrizo7 2016</item>
+    </array>
+    <array name="can_tigger7_language_array">
+        <item>中文</item>
+        <item>English</item>
+    </array>
+    <array name="can_tigger7_tip_array">
+        <item>speaker</item>
+        <item>light</item>
+        <item>speaker and light</item>
+    </array>
+    <array name="can_tigger7_car_line_array">
+        <item>off</item>
+        <item>Static</item>
+        <item>Static + dynamic</item>
+    </array>
+    <array name="can_mggs_avm_array">
+        <item>off</item>
+        <item>Static</item>
+        <item>dynamic</item>
+        <item>Static + dynamic</item>
+    </array>
+    <array name="can_service_notice_array">
+        <item>Care tips</item>
+        <item>Expiring</item>
+        <item>Check the date has passed</item>
+        <item>Please maintain as soon as possible</item>
+    </array>
+    <array name="can_by_service_array">
+        <item>Engine oil</item>
+        <item>Vehicle inspection</item>
+        <item>Brake fluid</item>
+        <item>Statutory exhaust inspection</item>
+        <item>Statutory vehicle inspection</item>
+        <item>Front brake friction plate</item>
+        <item>Rear brake friction plate</item>
+        <item>Variable speed gasoline</item>
+        <item>Running in check</item>
+    </array>
+    <array name="can_sgmw_warn_array">
+        <item>Oil pressure alarm</item>
+        <item>Brake alarm</item>
+        <item>Airbag alarm</item>
+        <item>Engine failure alarm</item>
+        <item>ABS fault alarm</item>
+        <item>EPS fault alarm</item>
+        <item>Seat belt is not warning</item>
+    </array>
+    <array name="can_psa_check">
+        <item>Check the side lamps</item>
+        <item>Puncture:Replace or repair the wheel</item>
+        <item>Puncture:Replace or repair the wheel</item>
+        <item>Puncture:Replace or repair the wheel</item>
+        <item>Puncture:Replace or repair the wheel</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Check the rear right brake lamp</item>
+        <item>Check the main beam lamps</item>
+        <item>Check the main beam lamps</item>
+        <item>Check the dipped beam lamps</item>
+        <item>Check the dipped beam lamps</item>
+        <item>Check the side lamps</item>
+        <item>Check the side lamps</item>
+        <item>Check the side lamps</item>
+        <item>Check the direction indicators</item>
+        <item>Check the direction indicators</item>
+        <item>Check the direction indicators</item>
+        <item>Check the rear fog lamps</item>
+        <item>Check the rear fog lamps</item>
+        <item>Check the front fog lamps</item>
+        <item>Check the front fog lamps</item>
+        <item>Check the rear left breake lamp</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Check the reversing lamp(s)</item>
+        <item>Check the reversing lamp(s)</item>
+        <item>Check the direction indicators</item>
+        <item>Adjust the pressure of the tyres</item>
+        <item>Adjust the pressure of the tyres</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Parking assistance system fault</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Emissions fault</item>
+        <item>Emissions fault:starting prevented</item>
+        <item>Emissions fault</item>
+        <item>保留</item>
+        <item>Switch off the lamps</item>
+        <item>Adjust the pressure of the tyres</item>
+        <item>Adjust the pressure of the tyres</item>
+        <item>Rear left hand door open</item>
+        <item>Rear right hand door open</item>
+        <item>Front left hand door open</item>
+        <item>Front right hand door open</item>
+        <item>Risk of ice</item>
+        <item>Place automatic gearbox in position P</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Rear screen open</item>
+        <item>Collision risk detection open</item>
+        <item>Boot open</item>
+        <item>保留</item>
+        <item>Directional headlamps fault</item>
+        <item>Automatic braking system fault</item>
+        <item>Adjustable wing fault,Speed restricted.see handbook</item>
+        <item>Parking brake fault:Have the vehicle repaired</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Gearbox fault:Repair needed</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Suspension fault:Limit your speed to 90 km/h</item>
+        <item>Engine fault:Repair needed</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Sensor fault:Rear left tyre pressure not monitored</item>
+        <item>Sensor fault:Rear right tyre pressure not monitored</item>
+        <item>Sensor fault:Front right tyre pressure not monitored</item>
+        <item>Sensor fault:Front left tyre pressure not monitored</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Tyre under-intflagtion detection fault</item>
+        <item>保留</item>
+        <item>Engine fault:Stop the vehicle</item>
+        <item>Inter-vehicles time measuring fault</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Power steering fault:Have the vehicle repaired</item>
+        <item>Suspension fault:Hanve the vehicle repaired</item>
+        <item>Refill emissions additive:Staring prevented</item>
+        <item>Refill emissions additive</item>
+        <item>Refill emissions additive</item>
+        <item>保留</item>
+        <item>Left hand front tyre under-inflated:adjust tyre pressures,then reinitialise</item>
+        <item>Right hand front tyre under-inflated:adjust tyre pressures,then reinitialise</item>
+        <item>Left hand rear tyre under-inflated:adjust tyre pressures,then reinitialise</item>
+        <item>Right hand rear tyre under-inflated:adjust tyre pressures,then reinitialise</item>
+        <item>保留</item>
+        <item>Top up coolant level</item>
+        <item>Power steering fault:Stop the vehicle</item>
+        <item>保留</item>
+        <item>Braking system fault:Stop the vehicle</item>
+        <item>保留</item>
+        <item>Engine temperature fault:Stop the vehicle</item>
+        <item>Engine oil pressure fault:Stop the vehicle</item>
+        <item>Boot open</item>
+        <item>保留</item>
+        <item>Rear right hand door open</item>
+        <item>Rear left hand door open</item>
+        <item>Front right hand door open</item>
+        <item>Front left hand door open</item>
+        <item>保留</item>
+        <item>Top up engine oil level</item>
+        <item>Air bag(s) or pretensioning seat belt(s) fault</item>
+        <item>fule level too low</item>
+        <item>Have the brake pads changed</item>
+        <item>Presence of water in diesel filter:Repair needed</item>
+        <item>保留</item>
+        <item>Battery charge fault:Stop the vehicle</item>
+        <item>ESP/ASR system fault:Have the vehicle repaired</item>
+        <item>Rear screen open</item>
+        <item>Suspension fault:Hanve the vehicle repaired</item>
+        <item>保留</item>
+        <item>Particle filter additive level too low:Repair needed</item>
+        <item>保留</item>
+        <item>Risk of particle filter clogging:See handbook</item>
+        <item>ABS fault:Have the vehicle repaired</item>
+        <item>Engine fault:Repair needed</item>
+        <item>保留</item>
+        <item>Roof manoeuvre impossible:System temperature too high</item>
+        <item>保留</item>
+        <item>Electronic engine immobiliser fault</item>
+        <item>Steering lock fault:Have the vehicle repaired</item>
+        <item>Retractabie roof mechanism fault</item>
+        <item>Check the central STOP lamp</item>
+        <item>Pre-heating/per-ventilation deactivated:Fuel level low</item>
+        <item>Pre-heating/per-ventilation deactivated:Battery charge low</item>
+        <item>Replace the rmote control battery</item>
+        <item>Top up the screenwash</item>
+        <item>Hybrid system fault:Speed restricted,repair needed</item>
+        <item>Hybrid system fault:Repair needed</item>
+        <item>Automatic headlamp height adjustment fault</item>
+        <item>Hybrid system fault:Stop the vehicle,see handbook</item>
+        <item>Roof manoeuvre impossble:Apply the handbrake</item>
+        <item>Roof manoeuvre impossble:Start the engine</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Tyre under-inflation monitoring fault</item>
+        <item>保留</item>
+        <item>Trailer connection fault:Repair needed</item>
+        <item>Pre-heating/pre-ventilation deactivated:Set the clock</item>
+        <item>保留</item>
+    </array>
+    <array name="can_psa_rzc_check">
+        <item>No functional status information, no alarm record, the diagnosis is normal</item>
+        <item>Parking assistance enabled</item>
+        <item>Parking assistance stopped</item>
+        <item>Passenger front air bag enabled</item>
+        <item>Passenger front air bag disabled</item>
+        <item>Door lock enabled</item>
+        <item>Self-locking door disabled</item>
+        <item>The door is locked</item>
+        <item>The door is unlocked</item>
+        <item>Rear wiper is activated when reversing</item>
+        <item>Rear wiper disabled when reversing</item>
+        <item>Engine temperature failure, please stop</item>
+        <item>Please add coolant</item>
+        <item>Please add engine oil</item>
+        <item>Engine oil pressure failure, please stop</item>
+        <item>Braking system failure</item>
+        <item>Inoperable</item>
+        <item>Door, trunk, hood, rear window or tank not closed</item>
+        <item>Multiple tires burst</item>
+        <item>Particulate filter clogging risk: please refer to the instructions</item>
+        <item>Suspension failure speed limit: 90km / h</item>
+        <item>Suspension system failure</item>
+        <item>Power steering fault</item>
+        <item>10km/h</item>
+        <item>Parking brake enabled</item>
+        <item>Parking brake released</item>
+        <item>Brake control error Parking brake is automatically activated</item>
+        <item>Brake pad grinding</item>
+        <item>Parking brake failure</item>
+        <item>Variable tail function missing speed limit, please refer to the manual</item>
+        <item>ABS fault</item>
+        <item>ESP/ASR system error</item>
+        <item>Transmission system failure</item>
+        <item>Transmission failure: Please repair the vehicle</item>
+        <item>Cruise system problem</item>
+        <item>Inadequate particulate filter additive: Please service the vehicle</item>
+        <item>Electronic security system failure</item>
+        <item>Parking assistance system fault</item>
+        <item>Parking measurement system failure</item>
+        <item>Battery charging or power supply system failure</item>
+        <item>Tire pressure is not enough</item>
+        <item>Near light bulbs bad</item>
+        <item>High light bulbs bad</item>
+        <item>Bad brake light bulbs</item>
+        <item>Fog lamp bulbs bad</item>
+        <item>Turn light bulbs bad</item>
+        <item>Reversing light bulbs bad</item>
+        <item>Location light bulbs bad</item>
+        <item>Shift lever to P file</item>
+        <item>Watch out for the road to freeze</item>
+        <item>Beware of handbrake</item>
+        <item>Window wash liquid enough</item>
+        <item>Insufficient fuel</item>
+        <item>Oil cut off</item>
+        <item>Remote control is low</item>
+        <item>Tire pressure is not monitored</item>
+        <item>High-speed, tire pressure test is appropriate</item>
+        <item>Tire pressure is not enough</item>
+        <item>Diagnosis</item>
+        <item>Diagnosis completed</item>
+        <item>Left and right seat belts are not made</item>
+        <item>The rear seat belt was not fastened</item>
+        <item>The left rear seat belt is not made</item>
+        <item>Right seatbelt not made</item>
+        <item>Automatic wiper enabled</item>
+        <item>Automatic wiper disabled</item>
+        <item>Headlights automatically lit enable</item>
+        <item>Headlight auto light off</item>
+        <item>Can not open the hard top: partition not put</item>
+        <item>Hard top operation is completed</item>
+        <item>End hard-top operation immediately</item>
+        <item>Operation failed: Hardtop locked</item>
+        <item>Hard top folding machinery failure</item>
+        <item>Operation failed: rear window is not closed</item>
+        <item>Anti-slip system failure</item>
+        <item>Driving mode: normal mode</item>
+        <item>Driving mode: mud mode</item>
+        <item>Driving mode: snow mode</item>
+        <item>Driving mode: Sand mode</item>
+        <item>ESP System disabled</item>
+        <item>Driving distance is not measurable: Visibility is too low</item>
+        <item>Unpredictable travel distance: Initializing</item>
+        <item>Ceiling operation failed: bulge not in place</item>
+        <item>The trunk lid is not closed</item>
+        <item>Fuel tank flap is not locked</item>
+        <item>The right rear door is not closed</item>
+        <item>The left rear door is not closed</item>
+        <item>The front right door is not closed</item>
+        <item>Left front door is not closed</item>
+        <item>Beware of handbrake</item>
+        <item>Airbag or seat belt pretension failure</item>
+        <item>Diesel filter water: Please repair the vehicle</item>
+        <item>Tire pressure monitoring system failure</item>
+        <item>Unable to turn on hard top: system over temperature (insufficient air pressure on left rear tire: inflate and reinitialize)</item>
+        <item>Unable to turn on hard top: system over temperature (insufficient air pressure on left rear tire: inflate and reinitialize)</item>
+        <item>Electronic anti-start failure</item>
+        <item>Steering wheel lock failure: Please repair the vehicle</item>
+        <item>Check the middle brake light</item>
+        <item>Preheating / pre-ventilation deactivation: insufficient fuel (cruise system failure)</item>
+        <item>Preheat / pre-ventilation disabled: Low battery</item>
+        <item>Hybrid system failure: please speed, maintenance vehicles</item>
+        <item>Hybrid System Problem: Please repair the vehicle</item>
+        <item>Headlight automatic adjustment system failure</item>
+        <item>Hybrid system failure: Please stop and refer to the manual</item>
+        <item>Unable to turn on hard top: system over temperature (insufficient air pressure on front left tire: inflate and reinitialize)</item>
+        <item>Unable to turn on hard top: system over temperature (insufficient air pressure in front right tire: inflate and reinitialize)</item>
+        <item>Tire Pressure Detection System Failure (tire pressure not monitored)</item>
+        <item>Trailer connection failure: Please repair the vehicle (photosensitive sensor failure)</item>
+        <item>Preheat / pre-ventilation disabled: Adjust the clock</item>
+        <item>Collision risk detection fault (hood not closed)</item>
+        <item>Followed by the steering headlamps failure</item>
+        <item>Automatic handbrake system failure (engine hood is not closed)</item>
+        <item>Lane deviation alarm failure</item>
+        <item>Sensor Failure: Left rear tire pressure is not monitored</item>
+        <item>Sensor failure: The right rear tire pressure is not monitored</item>
+        <item>Sensor failure: The right front tire pressure is not monitored</item>
+        <item>Sensor failure: Left front tire pressure is not monitored</item>
+        <item>Tire pressure detection system failure (filled with anti-pollution additives)</item>
+        <item>Engine (engine) fault: please stop</item>
+        <item>Engine (Engine) Problem: Please repair the vehicle</item>
+        <item>Driving distance measurement fault</item>
+        <item>Fill anti-pollution additives: Do not start</item>
+        <item>Fill with anti-pollution additives</item>
+        <item>Insufficient air pressure on the left front tire: inflate and reinitialize (anti-contamination system fault: no start)</item>
+        <item>Inadequate air pressure at front right tire: Please inflate, then reinitialize (Antifouling System Failure: Do not start)</item>
+        <item>Insufficient air pressure on left rear tire: Please inflate, then reinitialize (anti-contamination system fault: no start)</item>
+        <item>Right tire pressure is not enough: Please inflate, then re-initialize (anti-pollution system failure: Do not start)</item>
+        <item>Left rear tire is broken: Replace or repair the tire</item>
+        <item>Right rear tire burst: Change or repair tire</item>
+        <item>Right front tire burst: Change or repair tire</item>
+        <item>Left front tire burst: Change or repair tire</item>
+        <item>Right rear brake light bulbs bad</item>
+        <item>Left brake light bulbs bad</item>
+        <item>Anti-pollution system failure</item>
+        <item>Anti-pollution system failure: Do not start</item>
+        <item>Turn off the headlights</item>
+    </array>
+    <array name="can_psa_warn">
+        <item>Engine temperature fault:Stop the vehicle</item>
+        <item>Top up coolant level</item>
+        <item>Top up engine oil level</item>
+        <item>Engine oil pressure fault:Stop the vehicle</item>
+        <item>Braking system fault:Stop the vehicle</item>
+        <item>Risk of particle filter clogging:See handbook</item>
+        <item>Suspension fault:Limit your speed to 90 km/h</item>
+        <item>Power steering fault:Have the vehicle repaired</item>
+        <item>Parking brake fault:Have the vehicle repaired</item>
+        <item>Have the brake pads changed</item>
+        <item>Parking brake fault:Have the vehicle repaired</item>
+        <item>Adjustable wing fault,Speed restricted.see handbook</item>
+        <item>ABS fault:Have the vehicle repaired</item>
+        <item>ESP/ASR system fault:Have the vehicle repaired</item>
+        <item>Suspension fault:Hanve the vehicle repaired</item>
+        <item>Power steering fault:Have the vehicle repaired</item>
+        <item>Automatic headlamp height adjustment fault</item>
+        <item>Directional headlamps fault</item>
+        <item>Air bag(s) or pretensioning seat belt(s) fault</item>
+        <item>Engine cover open sensor fault</item>
+        <item>Gearbox fault:Repair needed</item>
+        <item>Start engine,place automatic gearbox in position P</item>
+        <item>Presence of water in diesel filter:Repair needed</item>
+        <item>Presence of water in diesel filter:Repair needed</item>
+        <item>NULL</item>
+        <item>Particle filter additive level too low:Repair needed</item>
+        <item>Parking assistance system fault</item>
+        <item>Battery charge fault:Stop the vehicle</item>
+        <item>The vehicle is closing</item>
+        <item>Driving distance is not measurable, cruise function is activated</item>
+        <item>Can not activate</item>
+        <item>Cruise function suspended, re-test</item>
+        <item>Speed&gt; 150km / h, speed adjustment is off</item>
+        <item>Record tire pressure</item>
+        <item>Tyre under-intflagtion detection fault</item>
+        <item>Please close the door, in order to activate the automatic release of handbrake function</item>
+        <item>Please brake！</item>
+        <item>Automatic braking system fault</item>
+        <item>Fill additives, start within 0km</item>
+        <item>NULL</item>
+        <item>Refill emissions additive:Staring prevented</item>
+        <item>Emissions fault</item>
+        <item>Emission control failure, start within 0km</item>
+        <item>Emissions fault:starting prevented</item>
+        <item>Engine stop function disabled, the ambient temperature does not apply</item>
+        <item>Can not be reinitialized while driving</item>
+        <item>Dynamic mode is off</item>
+        <item>No dynamic mode</item>
+        <item>Switch off the lamps</item>
+        <item>Pull out key</item>
+        <item>Cruise control system can not be activated, the speed is too low</item>
+        <item>Cruise control system can not be activated, set the speed</item>
+        <item>Place automatic gearbox in position P</item>
+        <item>Risk of ice</item>
+        <item>Release the handbrake</item>
+        <item>Please adjust the glass cleaning solution</item>
+        <item>Fule level too low</item>
+        <item>Oil cut off</item>
+        <item>Replace the rmote control battery</item>
+        <item>Place automatic gearbox in position N</item>
+        <item>Hold down the brake pedal when pressing the handbrake stop button</item>
+        <item>Roof manoeuvre impossible:Out temperature too high</item>
+        <item>Roof manoeuvre impossible:Speed too high</item>
+        <item>Roof manoeuvre impossible:Boot open</item>
+        <item>Unable to open the hard top, partition not put</item>
+        <item>Roof manoeuvre impossible control complete</item>
+        <item>Stop Roof manoeuvre operation right now</item>
+        <item>Retractabie roof mechanism fault</item>
+        <item>The operation failed, the rear window was not closed</item>
+        <item>Anti-back system failure</item>
+        <item>Driving distance is not measurable, visibility is too low</item>
+        <item>Driving distance is not measurable, initializing</item>
+        <item>Preheat / pre-ventilation disabled, adjust the clock</item>
+        <item>Pre-heating/per-ventilation deactivated:Fuel level low</item>
+        <item>Pre-heating/per-ventilation deactivated:Battery charge low</item>
+        <item>Turn the steering wheel to unlock</item>
+        <item>Key has been pulled out, please press and shut down the engine</item>
+        <item>To switch off the engine, place the selector lever in the P position</item>
+        <item>To start the engine, insert the key</item>
+        <item>To start the engine, press on the brake pedal + press START</item>
+        <item>To start the engine, hold the clutch pedal + press START</item>
+        <item>No key detected</item>
+        <item>Remove the key</item>
+        <item>No car keys</item>
+        <item>To release the handbrake, press on the brake pedal</item>
+        <item>Cruise control suspended</item>
+        <item>Cruise cruise failure</item>
+        <item>Please fully depress the clutch</item>
+        <item>Calculation, the maximum speed of 20km / h</item>
+        <item>Select the direction with the turn signal</item>
+        <item>Steering wheel failure, please repair the vehicle</item>
+        <item>Please handbrake to the maximum position</item>
+        <item>Circuit failure, please repair the vehicle</item>
+        <item>Tighten the handbrake</item>
+        <item>Electronic engine immobiliser fault</item>
+        <item>Engine fault:Stop the vehicle</item>
+        <item>Roof manoeuvre impossible:System temperature too high</item>
+        <item>Roof manoeuvre impossble:Start the engine</item>
+        <item>Roof manoeuvre impossble:Apply the handbrake</item>
+        <item>Hybrid system fault:Stop the vehicle,see handbook</item>
+        <item>Hybrid system fault:Repair needed</item>
+        <item>Hybrid system fault:Speed restricted,repair needed</item>
+        <item>Place automatic gearbox in position N and disconnect key</item>
+        <item>Hybrid system activate</item>
+        <item>Electric mode is temporarily unable to switch</item>
+        <item>Trailer connection fault:Repair needed</item>
+        <item>Reset manualy</item>
+    </array>
+    <array name="can_psa_func">
+        <item>Parking brake deactivated</item>
+        <item>Parking brake activated</item>
+        <item>Automatic screen wipe activated</item>
+        <item>Automatic screen wipe deactivated</item>
+        <item>Automatic headlamp lighting activated</item>
+        <item>Automatic headlamp lighting deactivated</item>
+        <item>Automatic door locking activated</item>
+        <item>Automatic door locking deactivated</item>
+        <item>Child safety activated</item>
+        <item>Child safety deactivated</item>
+        <item>ESP system activated</item>
+        <item>ESP system deactivated</item>
+        <item>Drive anti-skid system: normal mode</item>
+        <item>Drive anti-skid system: mud mode</item>
+        <item>Drive anti-skid system: snow mode</item>
+        <item>Drive anti-skid system: sand mode</item>
+        <item>Start-Stop system activated</item>
+        <item>Start-Stop system deactivated</item>
+        <item>Traction control system on</item>
+        <item>Traction control system off</item>
+    </array>
+    <array name="can_psa_wc_warn">
+        <item>Diagnosis is normal</item>
+        <item>Engine temperature failure, please park</item>
+        <item>Please add coolant</item>
+        <item>Please fill engine oil</item>
+        <item>Engine oil pressure failure, please park</item>
+        <item>Brake system failures</item>
+        <item>Inoperative</item>
+        <item>Car doors, trunks, hoods, rear windscreens and fuel tanks are not closed</item>
+        <item>Multiple tire bursts</item>
+        <item>Particulate filter risk of clogging: Please refer to the instructions</item>
+        <item>Suspension Fault Speed ​​Limit: 90km/h</item>
+        <item>Suspension System Failures</item>
+        <item>Power steering failure</item>
+        <item>10km/h</item>
+        <item>Parking brake enabled</item>
+        <item>Parking brake release</item>
+        <item>Brake Manipulation Fault Parking Brake Automatic Activation</item>
+        <item>Brake pad wear</item>
+        <item>Parking brake failure</item>
+        <item>Missing speed limit for variable tail function, please refer to the manual</item>
+        <item>ABS system failure</item>
+        <item>ESP/ASR system failures</item>
+        <item>Suspension System Failures</item>
+        <item>Power steering failure</item>
+        <item>Gearbox failure: Please repair the vehicle</item>
+        <item>Failure of the voyage system</item>
+        <item>Insufficient particulate filter additive: Please repair vehicle</item>
+        <item>Electronic Security System Failures</item>
+        <item>Parking Assist System Failure</item>
+        <item>Fault of parking measurement system</item>
+        <item>Battery charging or power supply system failure</item>
+        <item>Insufficient tire pressure</item>
+        <item>Short light bulb is broken</item>
+        <item>Far light bulb is broken</item>
+        <item>Brake light bulb is broken</item>
+        <item>Fog lamp bulb is broken</item>
+        <item>Bad turn signal</item>
+        <item>Reversing light bulb is broken</item>
+        <item>Location light bulb is bad</item>
+        <item>Change lever to P position</item>
+        <item>Beware of road ice</item>
+        <item>Beware of handbrake</item>
+        <item>Doors, suitcases, boot, rear fan and fuel tank are not closed</item>
+        <item>Wind washer fluid shortage</item>
+        <item>Insufficient fuel volume</item>
+        <item>Oil cut-off</item>
+        <item>Remote controller power shortage</item>
+        <item>Tyre pressure is not monitored</item>
+        <item>High speed, check tire pressure is appropriate</item>
+        <item>Insufficient tire pressure</item>
+        <item>Diagnosis</item>
+        <item>Diagnosis completed</item>
+        <item>The rear left seat belt is not tied</item>
+        <item>The rear seat belt is not tied</item>
+        <item>Right rear seat belt is not tied</item>
+        <item>Automatic wiper activation</item>
+        <item>Automatic wiper deactivation</item>
+        <item>Headlights automatically light up enabled</item>
+        <item>Headlights are automatically turned off and disabled</item>
+        <item>Door self-locking enabled</item>
+        <item>Door self-locking disabled</item>
+        <item>Could not open hardtop: Partition not placed</item>
+        <item>Hardtop operation completed</item>
+        <item>End hardtop operation now</item>
+        <item>Operation failed: Hardtop has been locked</item>
+        <item>Hardtop folding mechanical failure</item>
+        <item>Operation Failed: Rear Window Not Closed</item>
+        <item>Failed to operate the canopy: Buried body is not in place</item>
+        <item>Anti-slide system failures</item>
+        <item>Drive Mode: Normal Mode</item>
+        <item>Drive Mode: Dirt Mode</item>
+        <item>Drive mode:Snow mode</item>
+        <item>Drive mode: Sandy mode</item>
+        <item>Disabled ESP system</item>
+        <item>Driving distance not measurable: Visibility too low</item>
+        <item>Driving distance not measurable; initializing</item>
+        <item>No information</item>
+        <item>Unknown Information Number</item>
+    </array>
+    <array name="can_df_wc_warn">
+        <item>Please pay attention to vehicle maintenance</item>
+        <item>Please add oil</item>
+        <item>Please turn off the light</item>
+        <item>Engine temperature is too high, please stop</item>
+        <item>Please release the handbrake</item>
+        <item>Low fuel quantity, please refuel in time</item>
+        <item>Please turn off the power</item>
+        <item>The key is not pulled</item>
+        <item>Please repair the vehicle</item>
+        <item>Has exceeded the set speed</item>
+    </array>
+    <array name="can_ford_warn_text">
+        <item>NULL</item>
+        <item>Transmission overtemperature, Stop safely.</item>
+        <item>Transmission malfunction, Service now.</item>
+        <item>Engine malfunction, Service now.</item>
+        <item>Dlesel filter overloaded refer to manual.</item>
+        <item>Engine oil change due service required.</item>
+        <item>Engine oil pressure low, Stop safely.</item>
+        <item>Hill start assist not available.</item>
+        <item>Airbag malfunction, Service now.</item>
+        <item>Brake system malfunction, Stop safely.</item>
+        <item>Brake fluid level low, Service now.</item>
+        <item>ABS malfunciton, Service now.</item>
+        <item>ESP off.</item>
+        <item>ESP malfunction, Next service.</item>
+        <item>Power steering malfunction, Service now.</item>
+        <item>NULL</item>
+        <item>Boot open.</item>
+        <item>Bonnet open.</item>
+        <item>Passenger side rear door open.</item>
+        <item>Driver side rear door open.</item>
+        <item>Passenger door open.</item>
+        <item>Driver door open.</item>
+        <item>NULL</item>
+        <item>Auto startstop engine starting.</item>
+        <item>Left indicator malfunction, Change bulb.</item>
+        <item>Right indicator malfunction, Change bulb.</item>
+        <item>Bonnet open.</item>
+        <item>Boot open.</item>
+        <item>Passenger side rear door open.</item>
+        <item>Driver side rear door open.</item>
+        <item>Passenger door open.</item>
+        <item>Driver door open.</item>
+        <item>Press clutch to start.</item>
+        <item>Press brake to start.</item>
+        <item>Key battery low, Replace battery.</item>
+        <item>Auto startstop, Press a pedal to start engine.</item>
+        <item>Alarm system malfunction, Service required.</item>
+        <item>Key battery low, Replace battery.</item>
+        <item>Interior scan deactivated.</item>
+        <item>Auto wiper/lights malfunction, Service required.</item>
+        <item>Auto startstop, Manual start required.</item>
+        <item>Close boot or use spare key.</item>
+        <item>Steering lock engaged, Turn steering wheel.</item>
+        <item>Steering lock malfunction, Stop safely.</item>
+        <item>Steering lock malfunction, Service now.</item>
+        <item>Key outside car.</item>
+        <item>Key not detected.</item>
+        <item>Turn ignition off, Use POWER button.</item>
+        <item>Door open apply brake.</item>
+        <item>Select N to start.</item>
+        <item>Press brake to start.</item>
+        <item>Auto StartStop, Select neutral.</item>
+        <item>Select N or P to start.</item>
+        <item>Vehicle not in Park, Select P.</item>
+        <item>Auto StartStop, Switch ignition off.</item>
+        <item>Immobiliser malfunction, Service now.</item>
+        <item>Alarm triggered, Check vehicle.</item>
+        <item>Alarm triggered, Check vehicle.</item>
+        <item>Alarm triggered, Check vehicle.</item>
+        <item>Alarm triggered, Check vehicle.</item>
+        <item>Transmission hot, Stop or speed up.</item>
+        <item>Transmission hot, Stop or speed up.</item>
+        <item>Transmission ready.</item>
+        <item>Transmission hot, Wait 4 mins.</item>
+        <item>Press brake and clutch to start.</item>
+        <item>Press brake to start.</item>
+        <item>Press clutch to start.</item>
+        <item>Active City Stop, Auto braking.</item>
+        <item>Active City Stop not available.</item>
+        <item>Active City Stop sensor blocked, Clean screen</item>
+        <item>Check tyre pressures.</item>
+        <item>Tyre pressures sys malfunction, Service required.</item>
+        <item>Engine runing.</item>
+        <item>MyKey active, Drive safely.</item>
+        <item>MyKey speed limited to 160 km/h.</item>
+        <item>MyKey vehicle at top speed.</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>MyKey check speed, Drive safely.</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>MyKey park ald cannot be deactivated.</item>
+        <item>MyKey ESC cannot be deactivated.</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Press brake to unlock selecor lever.</item>
+        <item>Cranking time exceeded.</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Transmission not in Park.</item>
+        <item>Selector lever unlocked.</item>
+        <item>Park brake applied.</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>MyKey vehicle near top speed.</item>
+        <item>NULL</item>
+        <item>Park brake applied.</item>
+    </array>
+    <array name="can_pm25_check_array">
+        <item>Off</item>
+        <item>Power-on detection</item>
+        <item>Open door detection</item>
+        <item>30 minute timing detection</item>
+    </array>
+    <array name="can_cs15_tpmsmsg">
+        <item>TPMS will be reset during driving</item>
+        <item>TPMS reset failed, please stop and try again</item>
+        <item>TPMS reset success</item>
+    </array>
+    <array name="can_zotyedm_X5_wc">
+        <item>Please look for the key</item>
+        <item>Press the start button at the end of the key</item>
+        <item>Switch to P or N file to start</item>
+        <item>Press the clutch and press the start button</item>
+        <item>Tread the brakes and press the start button</item>
+        <item>Switch to P file and press the start button</item>
+        <item>Press the start button to switch to the N file to start</item>
+        <item>Press the start button to start</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_tsy">
+        <item>NULL</item>
+        <item>Ensure it is safe before manoeuvring</item>
+        <item>Park Assist not available</item>
+        <item>Use turn signal to change side</item>
+        <item>Select forward gear</item>
+        <item>Space found,drive forward</item>
+        <item>Stop next to empty parking space</item>
+        <item>Press △▽to set parking position</item>
+        <item>Adjust park position</item>
+        <item>Park Assist Cancelled</item>
+        <item>Drive backwards</item>
+        <item>Stop and select reverse gear</item>
+        <item>Drive forwards</item>
+        <item>Stop and select forward gear</item>
+        <item>Park assist finished</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Centre steering wheel</item>
+        <item>Remove trailer</item>
+        <item>VDC must be ON</item>
+        <item>Close door to start</item>
+        <item>System Fault</item>
+        <item>Park Assist fault</item>
+        <item>Over Speed</item>
+        <item>Steering Intervened</item>
+        <item>Trailer ON</item>
+        <item>VDC Active</item>
+        <item>Door Open/Belt OFF</item>
+        <item>Time Out</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Engine not active</item>
+        <item>Esp not ative</item>
+        <item>Fwd gear outside of park slot</item>
+        <item>Resume not possible</item>
+        <item>NULL</item>
+        <item>Stop</item>
+        <item>Select reverse gear</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Check surroundings</item>
+        <item>Stop beside park slot to start park assist</item>
+        <item>NULL</item>
+        <item>Reduce speed</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Steering rotating</item>
+        <item>Drive forward with care</item>
+        <item>Drive backward with care</item>
+        <item>Check obstacle</item>
+    </array>
+    <array name="can_nissan_wc_xtral_rvs_tsy">
+        <item />
+        <item>Ensure it is safe before manoeuvring</item>
+        <item>Stop beside park slot to start park assist</item>
+        <item>Stop and select reverse gear</item>
+        <item>Stop and select forward gear</item>
+        <item>Stop next to empty parking space</item>
+        <item>Check surroundings</item>
+        <item>Drive forwards</item>
+        <item>Drive backwards</item>
+        <item>Drive forward with care</item>
+        <item>Drive backward with care</item>
+        <item>Reduce speed</item>
+        <item>Press △▽to set parking position</item>
+        <item>Adjust park position</item>
+        <item>Steering rotating</item>
+        <item>Check obstacle</item>
+        <item />
+        <item>Select forward gear</item>
+        <item>Remove trailer</item>
+        <item>System Fault</item>
+        <item>Park Assist fault</item>
+        <item>Steering Intervened</item>
+        <item>Centre steering wheel</item>
+        <item>VDC must be ON</item>
+        <item>Over Speed</item>
+        <item>Time Out</item>
+        <item />
+        <item>Close door to start</item>
+        <item>Trailer ON</item>
+        <item>VDC Active</item>
+        <item>Door Open/Belt OFF</item>
+        <item />
+        <item>Park assist finished</item>
+        <item>Park Assist not available</item>
+        <item>Esp not ative</item>
+        <item>Space found,drive forward</item>
+        <item>Stop</item>
+        <item />
+        <item>Engine not active</item>
+        <item>Fwd gear outside of park slot</item>
+        <item>Select reverse gear</item>
+        <item />
+        <item />
+        <item>Resume not possible</item>
+        <item />
+        <item />
+        <item>Park Assist Cancelled</item>
+        <item />
+        <item>Use turn signal to change side</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_declare">
+        <item>How to Use Bay Parking</item>
+        <item>① Position blue box in empty target space</item>
+        <item>② Red lines show limits of the system</item>
+        <item>③ Push‘Start’,to initiate auto steering</item>
+        <item>* No obstacle avoidance function,always check surroundings</item>
+        <item>* Brake manually</item>
+        <item>* Release steering wheel during auto steer</item>
+    </array>
+    <array name="can_cdzt_arrays">
+        <item>Not charged</item>
+        <item>Driving charging</item>
+        <item>Parking Charging</item>
+        <item>Charging completed</item>
+    </array>
+    <array name="can_soctbbj_arrays">
+        <item>No fault</item>
+        <item>Secondary fault</item>
+    </array>
+    <array name="can_xdcgcbj_arrays">
+        <item>Normal</item>
+        <item>Level 1 fault</item>
+        <item>Secondary alarm</item>
+        <item>Three-level alarm</item>
+    </array>
+    <array name="can_bmszjztbj_arrays">
+        <item>No fault</item>
+        <item>Level 3 fault</item>
+    </array>
+    <array name="can_dcxkl_arrays">
+        <item>Normal</item>
+        <item>Open</item>
+    </array>
+    <array name="can_cdczwdbj_arrays">
+        <item>Normal</item>
+        <item>Secondary alarm</item>
+    </array>
+    <array name="can_s6s7_pm25_arrays">
+        <item>Invalid</item>
+        <item>Excellent</item>
+        <item>Good</item>
+        <item>Mild pollution</item>
+        <item>Moderately polluted</item>
+        <item>Severe pollution</item>
+        <item>Serious pollution</item>
+    </array>
+    <array name="can_pm25_arrays">
+        <item>excellent</item>
+        <item>good</item>
+        <item>Mild pollution</item>
+        <item>Moderately polluted</item>
+        <item>Severe pollution</item>
+        <item>Serious pollution</item>
+        <item>--</item>
+    </array>
+    <array name="can_ent_aux_arrays">
+        <item>Panel shortcut</item>
+        <item>Menu interface with IDRIVER switching</item>
+        <item>Jiugong grid interface, using IDRIVER switch</item>
+    </array>
+    <array name="can_ent_aux_para_arrays">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </array>
+    <array name="can_ent_aux_para2_arrays">
+        <item>@null</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </array>
+    <array name="can_hant_ygzts">
+        <item>Close</item>
+        <item>HI</item>
+        <item>LO</item>
+        <item>INT</item>
+        <item>MIST</item>
+    </array>
+    <array name="can_a_s_l_arrays">
+        <item>Close</item>
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
+        <item>Level 4</item>
+        <item>Level 5</item>
+    </array>
+    <array name="can_wc_a_s_l_arrays">
+        <item>Close</item>
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
+    </array>
+    <array name="can_lexus_lz_psel">
+        <item>POS ALL</item>
+        <item>POS FRONT</item>
+        <item>POS REAR</item>
+        <item>POS DRIVER</item>
+    </array>
+    <array name="can_auto_speed_lock_array">
+        <item>Close</item>
+        <item>Lock at 15km/h</item>
+        <item>Lock at 40km/h</item>
+    </array>
+    <array name="can_dgkz">
+        <item>headlight , driving light , taillight</item>
+        <item>headlight , driving light</item>
+        <item>taillight</item>
+    </array>
+    <array name="can_ybtsy">
+        <item>Sound 1</item>
+        <item>Sound 2</item>
+        <item>Sound 3</item>
+    </array>
+    <array name="can_psa_rzc_cartype">
+        <item>low ver</item>
+        <item>mid ver</item>
+        <item>high ver（with gps）</item>
+    </array>
+    <array name="can_ford_active_park">
+        <item>Slow down to continue</item>
+        <item>Slow down</item>
+        <item>Searching for parking spot</item>
+        <item>Searching for parking spot</item>
+        <item>Malfunction</item>
+        <item>Park spot found\10 Drive forward</item>
+        <item>Park spot found\10 Drive forward</item>
+        <item>Park spot found\10 Stop</item>
+        <item>Park spot found\10 Stop</item>
+        <item>Release steering Engage R</item>
+        <item>Release steering Engage R</item>
+        <item>Check surround, Drive back.</item>
+        <item>Check surround, Drive back.</item>
+        <item>Check surround, Drive forward.</item>
+        <item>Check surround, Drive forward.</item>
+        <item>Check surround, Drive background.</item>
+        <item>Check surround, Drive background.</item>
+        <item>Finished</item>
+        <item>Resume available</item>
+        <item>Cancelled</item>
+        <item>Cancelled by speeding</item>
+        <item>Cancelled by steering</item>
+        <item>Not available</item>
+        <item>Cancelled by ESC event</item>
+        <item>Cancelled by ABS event</item>
+    </array>
+    <array name="can_gmrzc_active_park">
+        <item>Is searching for parallel parking position on the right side</item>
+        <item>Is searching for parallel parking locations on the left</item>
+        <item>Automatic parking assist\10 please slow down\10 close to the top speed</item>
+        <item>Automatic control start\10 ready to brake</item>
+        <item>Automatic control system start\10 emergency brake function off</item>
+        <item>Has been completed\10 enter parking</item>
+        <item>Stop\10Enter reverse gear (right orientation)</item>
+        <item>Slow forward\10 ready to brake</item>
+        <item>Slowly reversing\10 ready to brake</item>
+        <item>Stop</item>
+        <item>Stop \10 enter the reverse gear (left position)</item>
+        <item>Search for vertical parking spaces on the right</item>
+        <item>Search for vertical parking spaces on the left</item>
+        <item>Stop \10 enter the reverse gear (right reversing into the warehouse)</item>
+        <item>Stop\10 enter the reverse gear (left reversing)</item>
+        <item>Has been canceled - please read the manual</item>
+        <item>Canceled</item>
+        <item>Driving off the parking space\10 hangs into the reverse gear has started (left)</item>
+        <item>Driving off the parking space\10 hangs into the reverse gear has started (right)</item>
+        <item>Exit parking location cancelled</item>
+        <item>Is completed\10 please take over the vehicle</item>
+        <item>Canceled \10 failed to park to the specified space</item>
+        <item>Canceled \10 speeding</item>
+        <item>Canceled \10 driver access</item>
+        <item>Has been canceled\10 please read the manual</item>
+        <item>Has found parking space (right side orientation)</item>
+        <item>Has found parking space (left side orientation)</item>
+        <item>Has found parking space (right vertical orientation)</item>
+        <item>Has found parking space (left vertical orientation)</item>
+        <item>Driving forward (right side orientation)</item>
+        <item>Driving forward (left side orientation)</item>
+        <item>Driving forward (right vertical orientation)</item>
+        <item>Driving forward (left vertical orientation)</item>
+    </array>
+    <array name="can_gm_wc_pantype">
+        <item>other types</item>
+        <item>Aveo、Cruze、GT、Malibu、Regal</item>
+        <item>LaCrosse、GL8</item>
+        <item>Reserved</item>
+        <item>Reserved</item>
+        <item>Encore</item>
+        <item>Malibu XL 2016，Equinox</item>
+        <item>GL8 25S 2017</item>
+        <item>GL8 2014</item>
+    </array>
+    <array name="can_AuxConfigArr">
+        <item>1</item>
+        <item>2</item>
+    </array>
+    <array name="can_AuxLine1Arr">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+    </array>
+    <array name="can_AuxLine2Arr">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </array>
+    <array name="can_golf_scr_zdmsfl">
+        <item>Air con profile：Light</item>
+        <item>Air con profile：Medium</item>
+        <item>Air con profile：Strong</item>
+    </array>
+    <array name="can_golf_scr_zdnwxh">
+        <item>Automatic air recirculation：Off</item>
+        <item>Automatic air recirculation：On</item>
+    </array>
+    <array name="can_psa_scr_car_type">
+        <item>MAS 508</item>
+        <item>RZC</item>
+    </array>
+    <array name="can_fs_declare_162_direction">
+        <item>North</item>
+        <item>Northeast</item>
+        <item>East</item>
+        <item>Southeast</item>
+        <item>South</item>
+        <item>Southwest</item>
+        <item>West</item>
+        <item>Northwest</item>
+        <item>No Signal</item>
+    </array>
+    <array name="can_digital_arr">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+    </array>
+    <array name="can_door_ui_arr">
+        <item>Car</item>
+        <item>Suv</item>
+    </array>
+    <array name="can_door_audi_ui_arr">
+        <item>Car</item>
+        <item>Suv</item>
+        <item>A3</item>
+    </array>
+    <array name="can_porsche_tyres_warn_array">
+        <item>Tire pressure is normal</item>
+        <item />
+        <item>Please check tire pressure</item>
+        <item>Tire pressure is too low</item>
+        <item>Tire pressure loss</item>
+    </array>
+    <array name="can_iap_updata_sta">
+        <item />
+        <item>update completed</item>
+        <item>CANBUS enters upgrade status</item>
+        <item>Upgrade file error</item>
+    </array>
+    <array name="can_mzd_car_play_sta">
+        <item>STOP</item>
+        <item>PAUSE</item>
+        <item>PLAY</item>
+        <item>EJECT</item>
+        <item>READING</item>
+    </array>
+    <array name="can_mzd_car_disc_sta">
+        <item>CD ERR</item>
+        <item>NORMAL</item>
+        <item>NO CD</item>
+    </array>
+    <array name="can_ford_fiesta_wc_warninfo">
+        <item>Engine oil oil pressure is low, please park safely</item>
+        <item>Change engine oil, please take care now</item>
+        <item>Diesel filter exceeds load, please refer to the user manual</item>
+        <item>Engine failure, please take care now</item>
+        <item>Transmission failure, please take care now</item>
+        <item>The gearbox temperature is too high Please park safely</item>
+        <item>Power steering system malfunction, please take care now</item>
+        <item>Electronic stability system off</item>
+        <item>ABS failure, please take care now</item>
+        <item>low brake fluid volume</item>
+        <item>The brake system is faulty, please stop safely</item>
+        <item>Airbag failure</item>
+        <item>Left front door is not closed</item>
+        <item>Right front door is not closed</item>
+        <item>Left rear door is not closed</item>
+        <item>The right back door is not closed</item>
+        <item>The engine cover is not closed</item>
+        <item>Trunk not closed</item>
+        <item>Left front door is not closed (Yes)</item>
+        <item>The right front door is not closed (Yes)</item>
+        <item>Left back door is not closed (Yes)</item>
+        <item>The right back door is not closed (Yes)</item>
+        <item>Trunk is not closed (yes)</item>
+        <item>The engine cover is not closed (Yes)</item>
+        <item>Please change the light bulb when the right turn signal fails</item>
+        <item>Please change the light bulb to the left turn signal</item>
+        <item>Automatic wiper/headlight failure, please take care now</item>
+        <item>Internal scan stop</item>
+        <item>The key battery is low, please replace the battery</item>
+        <item>Theft system is faulty, please take care now</item>
+        <item>To start, please brake the pedal</item>
+        <item>To start, please step on the clutch</item>
+        <item>Press the POWER button to turn off the fire.</item>
+        <item>Key not detected</item>
+        <item>Key outside the car</item>
+        <item>Steering system failure, please take care now</item>
+        <item>Steering system failure, please stop immediately</item>
+        <item>Steering system lock, in use...</item>
+        <item>Please close the trunk or use the spare key</item>
+        <item>Passive anti-theft system failure</item>
+        <item>Vehicle gear is not in P file, please set P file</item>
+        <item>To start, please put N or P file</item>
+        <item>To start, please brake the pedal</item>
+        <item>To start, please select N file</item>
+        <item>The door is open, please apply brake</item>
+        <item>Theft system is triggered, please check the vehicle</item>
+    </array>
+    <array name="can_fs_declare_1">
+        <item>Volkswagen（Magotan、Superb、Tiguan、golf6 ）（RZC）</item>
+    </array>
+    <array name="can_fs_declare_2">
+        <item>VW MQB Platform（golf7 、Octavia、Seat Leon、Lamando，T-Roc）</item>
+        <item>Magotan 2017,Magotan 2018</item>
+        <item>TiguanL 2017 *Air</item>
+        <item>Teramont 2017，KODIAQ *Air</item>
+        <item>Passat(Mix)</item>
+    </array>
+    <array name="can_fs_declare_3">
+        <item>Camry 2012、2015,RAV4 2013,Reiz 2013,Carola 2014,Levin 2014、Highlander 2015</item>
+        <item>RAV4 2016 *Special MCU</item>
+        <item>Camery 2018</item>
+        <item>Vertical screen Carolla （OD）</item>
+    </array>
+    <array name="can_fs_declare_4">
+        <item>Civic 2012,Civic with low ver 2014,CRV 2012 *Car Device</item>
+    </array>
+    <array name="can_fs_declare_5">
+        <item>Jed、Crider、Honda Fit、VEZEL、Civic with Mid,High Ver 2014，Elysion 12~15(Rzc)</item>
+        <item>City 2015，Crider 2016</item>
+        <item>CRV with High Ver 2015</item>
+        <item>Civic 2016 *Air,CRV 2017</item>
+        <item>Civic 2016 *Air,CRV 2017（*R Camera）</item>
+        <item>Odyssey 2009~2014（bnr）*Car Device</item>
+        <item>CRV 2017,Crider 2019（rzc）</item>
+        <item>CRV 2017（*R Camera，rzc）</item>
+        <item>Crown（bnr）</item>
+        <item>Crown（*R Camera，bnr）</item>
+        <item>City 2015（*R Camera)</item>
+        <item>Accord10/InSpire 2019(rzc)</item>
+        <item>Accord9(rzc)</item>
+        <item>2015~2018 Odyssey(Taiwan.avm。rzc)</item>
+    </array>
+    <array name="can_fs_declare_6">
+        <item>Teana、Qashqai</item>
+        <item>X-Trail(*xp.Panorama，Sw OK button and the touch Power,Sw Pre Long press default to the panorama button.)</item>
+        <item>X-Trail(*rzc.Panorama，Sw OK button and the touch Power,Sw Pre Long press default to the panorama button.)</item>
+        <item>Loulan</item>
+        <item>Juke(rzc)</item>
+        <item>X-Trail With High Ver（*xp.Reversing aid，Sw OK button and the touch Power,Sw Pre Long press default to the panorama button.）</item>
+        <item>X-Trail With High Ver（*rzc.Reversing aid，Sw OK button and the touch Power,Sw Pre Long press default to the panorama button.）</item>
+        <item>X-Trail(*Panorama，UART)</item>
+        <item>X-Trail 2015(*Dedicated vertical screen UI support，xp)</item>
+        <item>X-Trail 2015(*Panorama ，Dedicated vertical screen UI support，xp)</item>
+        <item>Patrol 2015(*Dedicated vertical screen UI support，xp)</item>
+        <item>X-Trail(*UART)</item>
+    </array>
+    <array name="can_fs_declare_7">
+        <item>Prado 2014</item>
+    </array>
+    <array name="can_fs_declare_8">
+        <item>Sail3（xp）Regal、Verano、Cruze、Aveo、Orlando、Malibu、Insignia,Regal 09~13（xp）*Onstar</item>
+        <item>LaCrosse *Onstar</item>
+        <item>GL8 *Onstar Air</item>
+        <item>Encore with low ver *Onstar</item>
+        <item>GT 2015 *Onstar</item>
+        <item>Mokka Navi950 *Onstar</item>
+        <item>Astra J CD600 *Onstar</item>
+        <item>Malibu XL With Low Ver *Onstar</item>
+        <item>Malibu XL With High Ver *Onstar</item>
+        <item>GL8 2017（rzc）*Onstar</item>
+        <item>GM（dj） *Onstar</item>
+        <item>GM（rzc）*Onstar</item>
+    </array>
+    <array name="can_fs_declare_9">
+        <item>Chinese low config</item>
+        <item>USA low config</item>
+        <item>Chinese high config *Car Radio</item>
+        <item>Chinese 2016</item>
+    </array>
+    <array name="can_fs_declare_10">
+        <item>Sail 3（rzc）</item>
+    </array>
+    <array name="can_fs_declare_11">
+        <item>Peugeot 301、308、Elysee</item>
+        <item>Peugeot 2008</item>
+        <item>Peugeot 408 14,308s *air</item>
+        <item>C3-XR</item>
+        <item>C4L</item>
+        <item>Peugeot 3008 2013（with Scr.）</item>
+        <item>Peugeot 3008 2013（without Scr.）</item>
+        <item>Peugeot 308 2016*Air</item>
+        <item>Peugeot 4008 2017</item>
+        <item>Peugeot 407 2005</item>
+        <item>Peugeot 508</item>
+        <item>Peugeot 3008 With High Ver 2015</item>
+    </array>
+    <array name="can_fs_declare_12">
+        <item>TS</item>
+    </array>
+    <array name="can_fs_declare_13">
+        <item>Focus *sync</item>
+        <item>Kuga *sync</item>
+        <item>Ecosport *sync</item>
+        <item>Fiesta 2013 *sync</item>
+        <item>Mondeo *sync</item>
+        <item>Edge With Low Ver *sync</item>
+        <item>Edge With Low Ver(*Camera) *sync</item>
+        <item>Ford（rzc） *sync</item>
+        <item>Escape 2017 *Air(rzc)</item>
+        <item>Fiesta 2009~2012</item>
+        <item>F150 2012 *sync</item>
+        <item>F150 With High Ver</item>
+        <item>Mzd BT50 （Od）</item>
+        <item>RSW OBD</item>
+    </array>
+    <array name="can_fs_declare_14">
+        <item>IX35、Sonata 8,9、AZERA、IX45（New Santa Fe）、Sorento、Sorento L，MISTRA,KX5 With Low Ver,K5</item>
+        <item>Kia KX5 With Mid Ver</item>
+        <item>Kia KX5 With High Ver</item>
+        <item>Leadong 2016</item>
+        <item>IX45 .with AMP</item>
+        <item>Sonata9 6Key 2018</item>
+        <item>Sonata9 8Key 2018</item>
+        <item>Sonata9 10Key 2018</item>
+        <item>RSW OBD</item>
+        <item>Hyundai(*UART)</item>
+        <item>Kia Sportage With High Ver。2019</item>
+    </array>
+    <array name="can_fs_declare_15">
+        <item>Grand Cherokee 2010，Compass 2010,2014，Caliber 2010、Patriot 2014、Wrangler 2010、JCUV 2010（Xp,Bnr）</item>
+    </array>
+    <array name="can_fs_declare_16">
+        <item>Baojun 730</item>
+        <item>Baojun 560，Baojun 730 2015,2017</item>
+        <item>Baojun 530,SGMW S3 2018</item>
+    </array>
+    <array name="can_fs_declare_17">
+        <item>GA3</item>
+        <item>GS4</item>
+        <item>GS5</item>
+        <item>GS5 Sparq</item>
+        <item>GA6</item>
+        <item>GS4 2016</item>
+        <item>GS8 2017 *Air</item>
+        <item>GS3 *Air</item>
+        <item>GS7 *Air</item>
+        <item>GA4 *Air</item>
+        <item>GE3 2018 *Air</item>
+        <item>GS4 2018,GS4 2019 *Air</item>
+        <item>GS4 MIX 2018 *Air</item>
+        <item>QZ EV.2019</item>
+        <item>GM6.2019</item>
+        <item>GA6.2019</item>
+        <item>GS4.2020</item>
+    </array>
+    <array name="can_fs_declare_18">
+        <item>Roewe 550 Steering wheel key1</item>
+        <item>Roewe 550 Steering wheel key2</item>
+    </array>
+    <array name="can_fs_declare_19">
+        <item>Roewe 550 Steering wheel key1</item>
+        <item>Roewe 550 Steering wheel key2</item>
+        <item>Roewe 360</item>
+    </array>
+    <array name="can_fs_declare_20">
+        <item>Crosstour 2014*Car Radio</item>
+    </array>
+    <array name="can_fs_declare_21">
+        <item>Old MZD，B70 09</item>
+        <item>Opel</item>
+        <item>Opel（hz）</item>
+    </array>
+    <array name="can_fs_declare_22">
+        <item>B70 2011</item>
+    </array>
+    <array name="can_fs_declare_23">
+        <item>B70 2014</item>
+    </array>
+    <array name="can_fs_declare_24">
+        <item>X80</item>
+    </array>
+    <array name="can_fs_declare_25">
+        <item>Roewe 950</item>
+    </array>
+    <array name="can_fs_declare_26">
+        <item>MG GS</item>
+        <item>MG ZS</item>
+        <item>Roewe RX5,I6</item>
+        <item>MG GS 2017</item>
+        <item>MG ZS sp</item>
+        <item>Roewe RX3</item>
+        <item>Roewe Ei5(Lower)</item>
+        <item>Roewe Ei5(Mid)</item>
+        <item>MG HS 2019</item>
+        <item>Roewe i5 2019</item>
+        <item>Roewe i6 2019</item>
+        <item>MG EZS 2019</item>
+        <item>Roewe RX8 2019</item>
+    </array>
+    <array name="can_fs_declare_27">
+        <item>Refine S2 S3 Refine S3 2017,Refine m4 2016,M5 2017</item>
+        <item>Refine S2 MINI 。2017</item>
+        <item>Refine S3(AVM) 。2018</item>
+        <item>Refine IEV6E</item>
+        <item>Refine S4(AVM) 。2019</item>
+        <item>Refine IEV6E 。2019</item>
+    </array>
+    <array name="can_fs_declare_28">
+        <item>Jiang Ling</item>
+    </array>
+    <array name="can_fs_declare_29">
+        <item>Cherokee With Low Ver 2016 *Air Car Device</item>
+        <item>Cherokee With Mid Ver 2016 *Air Car Device</item>
+        <item>Renegade 2016，2018</item>
+        <item>Fiat Aegea 2016</item>
+        <item>Fiat Doblo 2015</item>
+        <item>Grand Cherokee</item>
+        <item>Jeep Compass</item>
+        <item>Wrangler 2018 *ManualAir</item>
+        <item>Wrangler 2018 *AutoAir</item>
+    </array>
+    <array name="can_fs_declare_30">
+        <item>Zotye 100</item>
+    </array>
+    <array name="can_fs_declare_31">
+        <item>B30 2016</item>
+    </array>
+    <array name="can_fs_declare_32">
+        <item>B200</item>
+    </array>
+    <array name="can_fs_declare_33">
+        <item>Benz</item>
+    </array>
+    <array name="can_fs_declare_34">
+        <item>Peugeot 508</item>
+    </array>
+    <array name="can_fs_declare_35">
+        <item>Megane</item>
+    </array>
+    <array name="can_fs_declare_36">
+        <item>FIAT All *Car Device</item>
+    </array>
+    <array name="can_fs_declare_37">
+        <item>FIAT Bravo *Car Device</item>
+    </array>
+    <array name="can_fs_declare_38">
+        <item>Cherokee With Low Ver 2016</item>
+        <item>Cherokee With Mid Ver 2016</item>
+        <item>Renegade 2016</item>
+        <item>Compass 2017</item>
+        <item>Wrangler 2018</item>
+        <item>Grand Cherokee 2017</item>
+        <item>Challenger(Import)</item>
+        <item>Commander</item>
+        <item>Cherokee 2019</item>
+    </array>
+    <array name="can_fs_declare_39">
+        <item>MZD3 Axela *Car Device</item>
+    </array>
+    <array name="can_fs_declare_40">
+        <item>SMART</item>
+    </array>
+    <array name="can_fs_declare_41">
+        <item>Porsche Cyenne</item>
+    </array>
+    <array name="can_fs_declare_42">
+        <item>BMW E90</item>
+    </array>
+    <array name="can_fs_declare_43">
+        <item>A3</item>
+    </array>
+    <array name="can_fs_declare_44">
+        <item>Peugeot 301 and so on</item>
+        <item>reserve</item>
+        <item>reserve</item>
+        <item>reserve</item>
+        <item>Peugeot C4L</item>
+    </array>
+    <array name="can_fs_declare_45">
+        <item>Peugot 3008 with Scr.</item>
+    </array>
+    <array name="can_fs_declare_46">
+        <item>HM M3/S7/S5</item>
+        <item>HM S5 2017（*Panorama）</item>
+    </array>
+    <array name="can_fs_declare_47">
+        <item>Venucia T70 2015</item>
+        <item>Venucia T70 2016</item>
+        <item>Venucia T90 2017 *Air</item>
+        <item>Venucia D60 2018 *Air</item>
+        <item>Venucia T70 2018 *Air</item>
+    </array>
+    <array name="can_fs_declare_48">
+        <item>B50 2013</item>
+    </array>
+    <array name="can_fs_declare_49">
+        <item>Senova X55 X25 X35 Changhe Q35</item>
+        <item>D60</item>
+        <item>BJ20</item>
+        <item>M50F *Air</item>
+        <item>BJ40</item>
+        <item>S7。2018</item>
+    </array>
+    <array name="can_fs_declare_50">
+        <item>HM M5,F5 and so on</item>
+        <item>HM M3 2016</item>
+        <item>HM V70 2016 *Air</item>
+    </array>
+    <array name="can_fs_declare_51">
+        <item>Mondeo Chiax</item>
+    </array>
+    <array name="can_fs_declare_52">
+        <item>AX7 2015</item>
+        <item>AX5，AX7，MX5 With Low Ver 2016，2017</item>
+        <item>AX5，AX7，MX5 With Mid,High Ver 2016，2017</item>
+        <item>AX7 2018</item>
+        <item>AX7_AVM 2018</item>
+        <item>AX7 2019</item>
+    </array>
+    <array name="can_fs_declare_53">
+        <item>Old Fiesta</item>
+    </array>
+    <array name="can_fs_declare_54">
+        <item>Chery Tiggo5</item>
+    </array>
+    <array name="can_fs_declare_55">
+        <item>Kadjar，Captur，Brazil： SANDERO,DUSTER,CAPTUR</item>
+        <item>Koleos With LowVer，Turkey‘s MEGANE LowVer</item>
+        <item>Koleos With MidVer，Turkey‘s MEGANE MidVer</item>
+        <item>Koleos With HighVer，Turkey‘s MEGANE HighVer</item>
+        <item>09~16 Koleos With CD *Car Device</item>
+    </array>
+    <array name="can_fs_declare_56">
+        <item>Outlander Without AMP.</item>
+        <item>Outlander With AMP.</item>
+    </array>
+    <array name="can_fs_declare_57">
+        <item>AiRuize5</item>
+        <item>Tigger7 2016 *Air</item>
+        <item>Tigger3X 2017</item>
+        <item>Tigger3 2017</item>
+        <item>AiRuize7 2016</item>
+        <item>AiRuize7 GX/EX 2018，AiRuize5 2019 *Air</item>
+        <item>Tigger5X 2019 *Air</item>
+        <item>JieTu X70</item>
+        <item>Tigger7 2018</item>
+        <item>Tigger8 2018</item>
+    </array>
+    <array name="can_fs_declare_58">
+        <item>Peugeot 301、308、Elysee</item>
+        <item>Peugeot 2008</item>
+        <item>Peugeot 408 2014,308s *air</item>
+        <item>C3-XR</item>
+        <item>C4L</item>
+        <item>Peugeot 3008 2013（with Scr.）</item>
+        <item>Peugeot 3008 2013（without Scr.）</item>
+        <item>Peugeot 308 2016*Air</item>
+        <item>Peugeot 4008 2017</item>
+        <item>Peugeot 407 2005</item>
+        <item>Peugeot 508</item>
+        <item>Peugeot 3008 With High Ver 2015</item>
+    </array>
+    <array name="can_fs_declare_59">
+        <item>ZH V3 With High Ver（xbs,rzc）,H3（rzc）</item>
+    </array>
+    <array name="can_fs_declare_60">
+        <item>Zotye DM X5,Zotye DM X5 2017,HH N2,JM S70 。2018</item>
+        <item>T600</item>
+        <item>Zotye DM X7 *Air</item>
+        <item>T500 *Air</item>
+        <item>SR9 *Air</item>
+        <item>T300 *Air</item>
+        <item>Bojun 2019 *Air</item>
+    </array>
+    <array name="can_fs_declare_61">
+    </array>
+    <array name="can_fs_declare_62">
+        <item>Benz C200</item>
+    </array>
+    <array name="can_fs_declare_63">
+        <item>Benz Vito</item>
+    </array>
+    <array name="can_fs_declare_64">
+        <item>FIAT Doblo 2015</item>
+    </array>
+    <array name="can_fs_declare_65">
+    </array>
+    <array name="can_fs_declare_66">
+    </array>
+    <array name="can_fs_declare_67">
+        <item>FG 580</item>
+        <item>FG S560</item>
+    </array>
+    <array name="can_fs_declare_68">
+        <item>Mitsubishi Outlander 2009~2011</item>
+    </array>
+    <array name="can_fs_declare_69">
+        <item>CX-4，Axela，CX-5,Artzt *Car Device(Xbs,Bnr,Od)</item>
+    </array>
+    <array name="can_fs_declare_70">
+        <item>FG 360 330S 580 ,370，D-MAX,Remex，330S 2018,JINBEI X30L(Hs) 2016</item>
+        <item>FG580 2018（AVM） *Air</item>
+        <item>EV3</item>
+        <item>S560 .2018</item>
+    </array>
+    <array name="can_fs_declare_71">
+        <item>B50 2016,X80 2017,X40 2017</item>
+        <item>X80 With Low Ver 2017</item>
+        <item>SY R9 2018</item>
+        <item>CX65 2018</item>
+        <item>B50 2019 *Air</item>
+    </array>
+    <array name="can_fs_declare_72">
+        <item>GS，GL 2016,Yuanjing</item>
+        <item>Yuanjing SUV.X6 2016</item>
+        <item>Yuanjing X1 *Air</item>
+        <item>BR，BY *Air</item>
+        <item>GS,GL 2018 *Air</item>
+        <item>Yuanjing SUV.X6 2018</item>
+        <item>Yuanjing X3 2018</item>
+        <item>EC7</item>
+        <item>Yuanjing 2015</item>
+        <item>Yuanjing 2018</item>
+        <item>BY .AVM *Air</item>
+        <item>Emperor 2019</item>
+        <item>Emperor Ele 2019</item>
+        <item>Emperor GL Mix 2019</item>
+        <item>Emperor 2018</item>
+    </array>
+    <array name="can_fs_declare_73">
+        <item>CS75,CS75 2017,Auchan</item>
+        <item>CS55</item>
+        <item>CS15</item>
+        <item>CS75（*Panorama ,Sw MODE Long press default to the panorama button.）</item>
+        <item>A800</item>
+        <item>X70a</item>
+        <item>ChanA LingXuan 2018</item>
+        <item>ChanA YiDong DT 2018</item>
+        <item>ChanA A600 2018</item>
+        <item>CX70 2017</item>
+        <item>CS75（*R Camera,Sw MODE Long press default to the RCamera button.）</item>
+        <item>Cos1</item>
+        <item>CS75 。2018（*R Camera,Sw MODE Long press default to the RCamera button.）</item>
+        <item>ChanA YueXiang .2019</item>
+        <item>CS15 .2019</item>
+    </array>
+    <array name="can_fs_declare_74">
+        <item>LiFan 720/820/650EV</item>
+    </array>
+    <array name="can_fs_declare_75">
+        <item>Accord 7 Double drive air conditioner</item>
+        <item>Accord 7 Single drive air conditioner</item>
+    </array>
+    <array name="can_fs_declare_76">
+        <item>BYD</item>
+    </array>
+    <array name="can_fs_declare_77">
+        <item>MZD CX-7</item>
+    </array>
+    <array name="can_fs_declare_78">
+        <item>H2 2014</item>
+        <item>H2 Blue</item>
+        <item>H2 Red</item>
+        <item>H2S Red 2017 *Air</item>
+        <item>H6 2017,M6 2017</item>
+        <item>H6 Couple Red 2017</item>
+        <item>H6 Couple Blue 2017</item>
+        <item>H6 2018</item>
+        <item>H9 2018</item>
+        <item>H6 Couple 2016</item>
+        <item>H6 Couple 2019</item>
+        <item>H6 2019</item>
+    </array>
+    <array name="can_fs_declare_79">
+        <item>Other</item>
+        <item>LT</item>
+    </array>
+    <array name="can_fs_declare_80">
+        <item>H6</item>
+        <item>Coupe 2016</item>
+    </array>
+    <array name="can_fs_declare_81">
+        <item>Vito 2017</item>
+    </array>
+    <array name="can_fs_declare_82">
+        <item>Family 2017 ,HM S5 2019</item>
+        <item>HM S7 2017</item>
+        <item>hm S5 Young 2017 HighVer</item>
+        <item>hm S5 Young 2017 LowVer</item>
+    </array>
+    <array name="can_fs_declare_83">
+        <item>BYD S6,F3 *Special MCU</item>
+    </array>
+    <array name="can_fs_declare_84">
+        <item>Roewe RX5 2016，Roewe I6 2017,MG6 2017</item>
+    </array>
+    <array name="can_fs_declare_85">
+    </array>
+    <array name="can_fs_declare_86">
+        <item>X7</item>
+        <item>X7 With Low Ver</item>
+        <item>X5 *Air</item>
+    </array>
+    <array name="can_fs_declare_87">
+        <item>Chrysler</item>
+    </array>
+    <array name="can_fs_declare_88">
+        <item>GM</item>
+        <item>Excelle 2015</item>
+        <item>GL8 2017*Air</item>
+        <item>Cadillac XT5</item>
+        <item>Lincoln MKC</item>
+        <item>Lincoln MKZ</item>
+        <item>Cadillac ATS Low Ver</item>
+        <item>Cadillac ATS High Ver</item>
+        <item>Cadillac XTS</item>
+        <item>Cadillac SRX</item>
+        <item>Envision High Ver（with cd）</item>
+        <item>Cadillac ATS High Ver 2018</item>
+    </array>
+    <array name="can_fs_declare_89">
+    </array>
+    <array name="can_fs_declare_90">
+        <item>BYD F6 *Special MCU</item>
+    </array>
+    <array name="can_fs_declare_91">
+        <item>Geely Boy</item>
+    </array>
+    <array name="can_fs_declare_92">
+        <item>Plaza X5 With High Ver</item>
+        <item>Plaza X5 With Low Mid Ver</item>
+    </array>
+    <array name="can_fs_declare_93">
+    </array>
+    <array name="can_fs_declare_94">
+        <item>B50 2011</item>
+    </array>
+    <array name="can_fs_declare_95">
+        <item>Family</item>
+    </array>
+    <array name="can_fs_declare_96">
+        <item>Accord 9 2.4 *Car Radio</item>
+    </array>
+    <array name="can_fs_declare_97">
+        <item>M3,T3</item>
+    </array>
+    <array name="can_fs_declare_98">
+        <item>EC180</item>
+        <item>EC5 *Air</item>
+    </array>
+    <array name="can_fs_declare_99">
+        <item>Alsvin V7 2015,2016</item>
+    </array>
+    <array name="can_fs_declare_100">
+        <item>Accord 9 2.0</item>
+    </array>
+    <array name="can_fs_declare_101">
+        <item>Peugot 408（*Car Device），Peugeot 3008 2013（with Scr.）</item>
+    </array>
+    <array name="can_fs_declare_102">
+        <item>IX40，IX35，K7，AZERA，Sonata 8,Sonata 9,Sorento，Carnival 2015，Kia K5 2016,Kia KX5 16,MISTRA 2016，Leadong 2016，Kia K3 2016,Kia KX7 2017 *Baud rate 19200</item>
+        <item>KX5 High Ver</item>
+        <item>K4</item>
+        <item>Kia SportAge 2018</item>
+        <item>IX35 LowVer 10~15</item>
+        <item>Sonata 9 LowVer .2018</item>
+        <item>Sonata 9 MidVer .2018</item>
+        <item>Sonata 9 HighVer .2018</item>
+        <item>Lafesta .2019</item>
+        <item>Santafe AVM .2019</item>
+        <item>Santafe .2019</item>
+        <item>Tucson AVM .2019</item>
+        <item>Kia KX5 .2019</item>
+        <item>Kia K3 .2019</item>
+    </array>
+    <array name="can_fs_declare_103">
+        <item>Volkswagen（Magotan、Superb、Tiguan、golf6 ）</item>
+    </array>
+    <array name="can_fs_declare_104">
+        <item>Peugeot 206/207</item>
+    </array>
+    <array name="can_fs_declare_105">
+        <item>CC Wingle6 2014，2017</item>
+    </array>
+    <array name="can_fs_declare_106">
+        <item>BAW WEIWANG M20</item>
+    </array>
+    <array name="can_fs_declare_107">
+        <item>Teana 2008 *Car Device</item>
+    </array>
+    <array name="can_fs_declare_108">
+        <item>Peugeot 206/207/307</item>
+    </array>
+    <array name="can_fs_declare_109">
+        <item>T60</item>
+    </array>
+    <array name="can_fs_declare_110">
+        <item>Refine S2_Mini/S3/S5</item>
+        <item>Iev6e</item>
+        <item>T8</item>
+    </array>
+    <array name="can_fs_declare_111">
+    </array>
+    <array name="can_fs_declare_112">
+        <item>CX5</item>
+    </array>
+    <array name="can_fs_declare_113">
+    </array>
+    <array name="can_fs_declare_114">
+        <item>Compass，Compass，Wrangler，Cherokee*Air,Car Device，Grand Cherokee*Air,Car Device，Renegade，Compass 2017*Air</item>
+    </array>
+    <array name="can_fs_declare_115">
+        <item>IS250 *Air,Car Device</item>
+    </array>
+    <array name="can_fs_declare_116">
+        <item>Accord 8 *Car Device</item>
+    </array>
+    <array name="can_fs_declare_117">
+        <item>Renault，Duster</item>
+        <item>Renault，Duster（AVM）</item>
+    </array>
+    <array name="can_fs_declare_118">
+        <item>Ats Low Ver 4.3-inch(Sp)</item>
+        <item>Ats Hogh Ver(Sp)</item>
+        <item>Xts(Sp)</item>
+        <item>Srx(Sp)</item>
+        <item>Ats Low Ver 4.3-inch(8-inch)</item>
+        <item>High Ver(8-inch)</item>
+        <item>2018 High Ver(8-inch)</item>
+        <item>2018 High Ver(Sp)</item>
+        <item>Ats Low Ver 4.3-inch(8-inch 124)</item>
+        <item>Ats Low Ver 4.3-inch(Sp 124)</item>
+    </array>
+    <array name="can_fs_declare_119">
+    </array>
+    <array name="can_fs_declare_120">
+        <item>Venucia D60(OD) *Air</item>
+    </array>
+    <array name="can_fs_declare_121">
+        <item>Prado 2014(Amp Vol Adj)</item>
+    </array>
+    <array name="can_fs_declare_122">
+        <item>VW MQB Platform（golf7 、Octavia、Seat Leon、Lamando）</item>
+        <item>Magotan 2017,Magotan 2018</item>
+        <item>TiguanL 2017 *Air</item>
+        <item>Teramont 2017，KODIAQ *Air</item>
+    </array>
+    <array name="can_fs_declare_123">
+    </array>
+    <array name="can_fs_declare_124">
+        <item>MZD6 2011，2012，2013</item>
+    </array>
+    <array name="can_fs_declare_125">
+    </array>
+    <array name="can_fs_declare_126">
+        <item>G10,EV30</item>
+        <item>DT T60</item>
+        <item>DT V80</item>
+        <item>DT G50</item>
+    </array>
+    <array name="can_fs_declare_127">
+        <item>other types of cars</item>
+        <item>408（2014）,308s，308（2016） *air</item>
+        <item>408（2019） *air</item>
+    </array>
+    <array name="can_fs_declare_128">
+        <item>Camry 12~17、RAV4 13~15、Reiz 09~13、Carola 13~19、Levin 14~19、Highlander 15~18,PRADO 08~18，Sienna 15~18 ,IZOA 18，CHR 18，Avalon 19， (TW:Carola 19，RAV4 19,Previa 06~15,LEXUS RX300 98~05), (JA/MAS：LEXUS RX300 98~05,Previa 06~15)</item>
+        <item>RAV4 2016</item>
+        <item>Camry 2018 *air</item>
+    </array>
+    <array name="can_fs_declare_129">
+        <item>Touareg *air</item>
+    </array>
+    <array name="can_fs_declare_130">
+        <item>Qoros 3、Qoros 5</item>
+    </array>
+    <array name="can_fs_declare_131">
+        <item>CHANA AlsvinV7(wc) Mid and High Ver</item>
+        <item>CHANA AlsvinV7(wc) Low Ver</item>
+    </array>
+    <array name="can_fs_declare_132">
+        <item>Low Ver</item>
+        <item>Mid Ver</item>
+        <item>High Ver</item>
+    </array>
+    <array name="can_fs_declare_133">
+        <item>Koleos 2017 Auto Air*Air</item>
+        <item>Koleos 2017 Manual Air*Air</item>
+    </array>
+    <array name="can_fs_declare_134">
+        <item>X7 Mid High Ver</item>
+        <item>X7 Low Ver</item>
+        <item>X5 Low Ver *Air</item>
+        <item>X5 Mid High Ver *Air</item>
+    </array>
+    <array name="can_fs_declare_135">
+        <item>B200,Viano,Vito,Sprinter,S350(2002)，ML350</item>
+    </array>
+    <array name="can_fs_declare_136">
+        <item>Ats Low Ver(8-inch)</item>
+        <item>Ats High Ver(8-inch)</item>
+        <item>Ats High Ver 2018 (8-inch)</item>
+    </array>
+    <array name="can_fs_declare_137">
+    </array>
+    <array name="can_fs_declare_138">
+    </array>
+    <array name="can_fs_declare_139">
+        <item>Mondeo Chiax(wc) *Air</item>
+    </array>
+    <array name="can_fs_declare_140">
+        <item>Ordinary model</item>
+        <item>Mercedes-Benz new A screen change</item>
+    </array>
+    <array name="can_fs_declare_141">
+    </array>
+    <array name="can_fs_declare_142">
+        <item>VW MQB Platform（golf7 、Octavia、Lamando、17/18Magotan，17 TiguanL，Teramont，KODIAQ *Air）</item>
+        <item>Mixed</item>
+    </array>
+    <array name="can_fs_declare_143">
+        <item>Volkswagen(wc)（Magotan、Superb、Tiguan、golf6 ） Benz（A:2004-2012，B: 2005-2011，Viano 2010-now，Vito 2003-2013，Sprinter 2006-2018，R: 2006-2014）</item>
+    </array>
+    <array name="can_fs_declare_144">
+        <item>Prado</item>
+        <item>Reiz</item>
+        <item>Rav4 2016</item>
+        <item>Camry</item>
+        <item>Corolla</item>
+    </array>
+    <array name="can_fs_declare_145">
+        <item>MZD（Mzd5，CX7），Bent（B50，B70),Chery（A3）,HnMzd（Fumei，M3，S7，S5），BYD（F3,SR），Trumpchi（GA3）,</item>
+        <item>Mzd3</item>
+        <item>Mzd6</item>
+        <item>Hm S5（*Panorama）</item>
+        <item>Trumpchi GA3 Low Ver</item>
+    </array>
+    <array name="can_fs_declare_146">
+        <item>Focus 2012，Ecosport，Escape，Fiesta 2013,F150</item>
+        <item>Escape 2017 *sync,Air</item>
+        <item>Tear down SYNC</item>
+        <item>Focus 2019</item>
+        <item>Taurus 2019</item>
+        <item>Territory 2019</item>
+        <item>Explorer 2019</item>
+    </array>
+    <array name="can_fs_declare_148">
+        <item>Quatre</item>
+        <item>C4</item>
+        <item>C4L</item>
+        <item>C5</item>
+        <item>C5 2013</item>
+        <item>307</item>
+        <item>308</item>
+        <item>408</item>
+        <item>508 Low Ver</item>
+        <item>508 High Ver</item>
+        <item>3008 Nocd</item>
+        <item>DS5 Low Ver</item>
+        <item>DS5 High Ver</item>
+        <item>DS5LS Low Ver</item>
+        <item>DS5LS High Ver</item>
+        <item>2008</item>
+        <item>DS4 Low Ver</item>
+        <item>DS4 High Ver</item>
+        <item>408 2014/308S/308 2016</item>
+        <item>3008 WithScreen</item>
+        <item>301 Elysee</item>
+        <item>C3 XR</item>
+        <item>4008 2017</item>
+        <item>508 2015。with AMP</item>
+        <item>DS6 .LowVer</item>
+        <item>DS6 .HighVer</item>
+        <item>301 .abroad 2019</item>
+        <item>Rifter .HighVer abroad 2019</item>
+        <item>Rifter .LowVer abroad 2019</item>
+        <item>TY C5</item>
+    </array>
+    <array name="can_fs_declare_149">
+        <item>TEANA、Altima,X-TRAIL，Rogue,QASHQAI，bluebird，TIIDA，Sylphy，Kicks</item>
+        <item>Murano maxima</item>
+        <item>X-TRAIL 2017，Murano 2017</item>
+        <item>Teana 2019，Sylphy 2020</item>
+        <item>X-TRAIL 2019</item>
+        <item>Navara 2020</item>
+    </array>
+    <array name="can_fs_declare_150">
+        <item>Refine S2 S3 Refine S3 2017,Refine m4 2016</item>
+        <item>Refine S2 MINI 2017</item>
+        <item>Refine R3 2018</item>
+    </array>
+    <array name="can_fs_declare_152">
+        <item>A4,Q5 09~16 LowMid Ver</item>
+        <item>A3,A4 2017~now</item>
+    </array>
+    <array name="can_fs_declare_153">
+        <item>Ix35</item>
+        <item>Ix45</item>
+        <item>Sonata 8</item>
+        <item>Sonata 9</item>
+        <item>Mistra</item>
+        <item>Tucson</item>
+        <item>Elantra</item>
+        <item>K5 2016</item>
+        <item>KX5 2016</item>
+        <item>Sorento</item>
+        <item>Sonata9 2017</item>
+        <item>IX45 High Ver 2015</item>
+        <item>Kia KX7 2017</item>
+        <item>Sonata 9 Mid High Ver 2018</item>
+        <item>Sonata 9 Low Ver 2018</item>
+        <item>Encino 2018</item>
+        <item>Sportage 2018</item>
+        <item>Santafe 2019(AVM)</item>
+        <item>KX5(abroad)</item>
+    </array>
+    <array name="can_fs_declare_154">
+        <item>H6 Coupe</item>
+        <item>H6 Copue 2018</item>
+    </array>
+    <array name="can_fs_declare_156">
+        <item>Crider，JADE，XR-V,VEZEL，ODYSSEY 2015，FIT 2014，GREIZ，，ELYSION</item>
+        <item>Ff Gr Lp</item>
+        <item>2017 Crown</item>
+        <item>2017 Crv</item>
+        <item>Crv Panoramic</item>
+        <item>Elysion Panoramic</item>
+        <item>CIVIC 2016 *Air</item>
+        <item>Spirior 2015 *Car Device</item>
+        <item>CRV 2012,Civic 2012,Civic 2014.With LowVer,CRV 2015.With LowVer *Car Device</item>
+        <item>Civic 2014.With HighVer,Crv 2015.With HighVer</item>
+        <item>ODYSSEY 2015(TW)</item>
+        <item>ODYSSEY 2018，Elysion 2019(TW)</item>
+        <item>ACCORD 2018</item>
+    </array>
+    <array name="can_fs_declare_157">
+        <item>EDGE 2015，Focus 12/15，Everest 2016，Escape,Ecodport，Fiesta（13-now），Fiesta（08-12）</item>
+        <item>Focus 2019</item>
+        <item>EDGE 2018</item>
+        <item>Everest.LowVer 2018</item>
+        <item>Everest.HighVer 2018</item>
+    </array>
+    <array name="can_fs_declare_159">
+        <item>AX7(16-20 LowVer) *20 Air</item>
+        <item>AX5</item>
+        <item>AX7(16-20 MidVer) *20 Air</item>
+        <item>AX7(16-20 Panoramic) *Sw Pre Long press default to the panorama button. *20 Air</item>
+    </array>
+    <array name="can_fs_declare_160">
+        <item>CS75 2014</item>
+        <item>CS75 2017</item>
+        <item>YIDONG DT 2018</item>
+    </array>
+    <array name="can_fs_declare_161">
+        <item>GA6</item>
+        <item>GS4</item>
+        <item>GS5</item>
+        <item>GS3</item>
+        <item>GA4,GS4 2018</item>
+        <item>GE3</item>
+        <item>GS4 2020</item>
+    </array>
+    <array name="can_fs_declare_162">
+        <item>Cherokke(LowVer)</item>
+        <item>Cherokke(MidVer)</item>
+        <item>Cherokke(HighVer)</item>
+        <item>Renegade</item>
+        <item>Renegade 2019(Abroad)</item>
+        <item>Fiat 500L 2019(Abroad)</item>
+    </array>
+    <array name="can_fs_declare_164">
+        <item>Reserved</item>
+        <item>Reserved</item>
+        <item>Reserved</item>
+        <item>Mzd6 RingWing</item>
+        <item>Mzd3</item>
+        <item>Mzd5</item>
+        <item>Mzd8</item>
+        <item>CX7（with AMP）</item>
+        <item>Axela</item>
+        <item>CX5</item>
+        <item>Mzd7</item>
+        <item>CX4</item>
+        <item>Altenza</item>
+        <item>CX7 Low Ver</item>
+    </array>
+    <array name="can_fs_declare_165">
+        <item>Vito 2016,Metris,Spinter 2019</item>
+    </array>
+    <array name="can_fs_declare_166">
+        <item>Venucia(T90)</item>
+        <item>Venucia(T60)</item>
+    </array>
+    <array name="can_fs_declare_167">
+        <item>Type one</item>
+        <item>Type two</item>
+        <item>Type three</item>
+    </array>
+    <array name="can_fs_declare_168">
+        <item>Crown(WC) *Air,Car Device</item>
+    </array>
+    <array name="can_fs_declare_169">
+        <item>Compass，Wrangler(WC)</item>
+    </array>
+    <array name="can_fs_declare_171">
+        <item>CRV 2012,Civic(WC) *Car Device</item>
+    </array>
+    <array name="can_fs_declare_172">
+        <item>H6 2013~2016,M6,H6 Sports version 2014~2018</item>
+        <item>H6 2017 *Air</item>
+        <item>H6 Coupe .2019</item>
+        <item>F7 2019 *Air</item>
+        <item>FengJun7 2020</item>
+    </array>
+    <array name="can_fs_declare_173">
+        <item>JEEP Compass 2017(WC)</item>
+    </array>
+    <array name="can_fs_declare_174">
+        <item>HAVAL H2，H2S(WC,H2S *Air)</item>
+        <item>H2，2018</item>
+    </array>
+    <array name="can_fs_declare_176">
+        <item>other types of cars</item>
+        <item>X1 Old LovVer</item>
+    </array>
+    <array name="can_fs_declare_177">
+        <item>Rowei550 (old)</item>
+        <item>Rowei550 (new)</item>
+        <item>MG6 *Air</item>
+        <item>Rowei360</item>
+        <item>MG RT(2015)</item>
+        <item>MG RT(2017)</item>
+        <item>Rx5 *Air</item>
+        <item>MG ZS</item>
+    </array>
+    <array name="can_fs_declare_179">
+        <item>F3/SR</item>
+        <item>S6</item>
+        <item>yuan</item>
+    </array>
+    <array name="can_fs_declare_180">
+        <item>Tiggo 3X</item>
+        <item>Ariza 5</item>
+        <item>Tiggo 3</item>
+        <item>Tiggo 5</item>
+        <item>Tiggo 7 *Air</item>
+        <item>Ariza 7</item>
+        <item>Ariza GX,EX *Air</item>
+        <item>Tiggo 5X *Air</item>
+        <item>JT X70 *DVR Car Device,Sw Pre Long press default to the panorama button.</item>
+    </array>
+    <array name="can_fs_declare_181">
+        <item>Odyssey(03~08)，Accord 8，Crosstour(12~14) *Car Device</item>
+    </array>
+    <array name="can_fs_declare_182">
+        <item>baojun730(2014)</item>
+        <item>baojun730(2016)</item>
+        <item>baojun560(2015)</item>
+        <item>baojun510(2017)</item>
+        <item>baojun730(2017)</item>
+        <item>baojun530(2018)</item>
+    </array>
+    <array name="can_fs_declare_183">
+        <item>Teana 2008(WC) *Car Device</item>
+    </array>
+    <array name="can_fs_declare_192">
+        <item>Hm V70 2016(WC) *Air</item>
+    </array>
+    <array name="can_fs_declare_193">
+        <item>Hm Fml 2017(WC) *Air</item>
+    </array>
+    <array name="can_fs_declare_194">
+        <item>13 Mondeo, 18 Wing(Manual AC)</item>
+        <item>13 Mondeo, 18 Wing(Auto AC)</item>
+    </array>
+    <array name="can_fs_declare_199">
+        <item>Teana 04~07，X-Trail Low Ver and other types of cars</item>
+        <item>Loulan</item>
+        <item>Juke</item>
+        <item>X-Trail Camera360 *Sw OK button and the touch Power,Sw Pre Long press default to the panorama button.</item>
+        <item>Teana 08~12 *Car Device</item>
+        <item>X-Trail With High Ver（*Reversing aid）</item>
+        <item>SYLPHY 2020(od)</item>
+        <item>Teana 08~12（TW） *Car Device</item>
+    </array>
+    <array name="can_fs_declare_200">
+        <item>Surui，S6 *S6 Air</item>
+    </array>
+    <array name="can_fs_declare_201">
+        <item>ACCORD7，BYD F6,S6(CYT)</item>
+    </array>
+    <array name="can_fs_declare_205">
+        <item>Lexus 06~12 IS Horizontal screen（Remove the button board without removing the CD） *Car Device</item>
+    </array>
+    <array name="can_fs_declare_206">
+        <item>Roewe 550，MG 6 2011~2013</item>
+        <item>Roewe 550，MG 6 2013~2015</item>
+    </array>
+    <array name="can_fs_declare_207">
+        <item>RX(09~14)</item>
+        <item>ES(13)</item>
+        <item>ES(06~12)</item>
+        <item>IS(06~11)</item>
+        <item>CT200(11~17)</item>
+    </array>
+    <array name="can_fs_declare_210">
+        <item>Excelle、regal、LaCrosse、Verano、Cruze、AVEO、MALIBU、Encore、MALIBU XL,GL8 2017 *GL8 Car Air</item>
+        <item>GL8（Business edition）</item>
+        <item>Encore（Low Ver）</item>
+        <item>Regal 2018 *Car Air</item>
+        <item>Orlando (Low Ver)</item>
+        <item>Orlando (High Ver)</item>
+    </array>
+    <array name="can_fs_declare_211">
+        <item>BYD S，E5,G5,Benc B200 （Od）</item>
+    </array>
+    <array name="can_fs_declare_213">
+        <item>CLK300,A180,ML350CDI。2014，ML320。2016,04~12 A，05~11 B ，06~14 R，05~11 ML，05~13 GL，03~13 Vito，Vijano</item>
+    </array>
+    <array name="can_fs_declare_214">
+        <item>ChanA Auchan，X70a(WC)</item>
+    </array>
+    <array name="can_fs_declare_215">
+        <item>DFFG 360,330S,370,580,560(OD)</item>
+    </array>
+    <array name="can_fs_declare_216">
+        <item>Captur，Kadjar，Duster，CLIO4 LowVer,DUSTER,Megane2,Megane3,Megane4,Fluence(WC)</item>
+    </array>
+    <array name="can_fs_declare_217">
+        <item>Luxgen(OD) *Car Device</item>
+    </array>
+    <array name="can_fs_declare_218">
+        <item>M50v(WC) *Long press the previous track to switch panorama</item>
+    </array>
+    <array name="can_fs_declare_219">
+        <item>SENOVA X35 2016</item>
+        <item>M50F *Air</item>
+        <item>SENOVA X35 2018</item>
+        <item>HS S3L</item>
+    </array>
+    <array name="can_fs_declare_220">
+        <item>CX70(WC) *Air</item>
+    </array>
+    <array name="can_fs_declare_221">
+        <item>PorsChe 2011~2017，Cayenne 2011(LZ)</item>
+    </array>
+    <array name="can_fs_declare_222">
+        <item>X55、X25</item>
+        <item>D60</item>
+        <item>BJ20</item>
+        <item>M50f</item>
+        <item>BJ40</item>
+        <item>X35 2015</item>
+        <item>X35 2016</item>
+        <item>X35 2017</item>
+        <item>X35 2018</item>
+    </array>
+    <array name="can_fs_declare_223">
+        <item>X80,38400,FD（RZC）</item>
+    </array>
+    <array name="can_fs_declare_226">
+        <item>Focus *sync</item>
+        <item>Kuga *sync</item>
+        <item>Ecosport *sync</item>
+        <item>Fiesta 2013 *sync</item>
+        <item>Mondeo *sync</item>
+        <item>Edge With Low Ver *sync</item>
+        <item>Edge With Low Ver(*Camera) *sync</item>
+        <item>null</item>
+        <item>null</item>
+        <item>Fiesta 2009~2012</item>
+        <item>F150 2012 *sync</item>
+        <item>F150 With High Ver</item>
+    </array>
+    <array name="can_fs_declare_227">
+        <item>JiangLing MYX （OD） *Car Air</item>
+    </array>
+    <array name="can_fs_declare_228">
+        <item>Teana .LowVer *Car Device</item>
+        <item>Teana .HighVer *Car Device</item>
+    </array>
+    <array name="can_fs_declare_229">
+        <item>Volvo .With CD. Reversing mode (adding a camera from CAMERA input, the original car affects input from AVIN) （Xfy） *Car Device</item>
+        <item>Volvo .With CD. Reverse mode (original car camera, original car effect input from CAMERA)） （Xfy） *Car Device</item>
+    </array>
+    <array name="can_fs_declare_230">
+        <item>H6,H7 *H7 Car Device</item>
+        <item>H8,H9</item>
+    </array>
+    <array name="can_fs_declare_231">
+        <item>Byd Sr/G5/S6/S7(HYKJ)</item>
+        <item>Byd Sr/G5/S6/S7 Panoramic(HYKJ)</item>
+    </array>
+    <array name="can_fs_declare_240">
+        <item>Volkswagen（Magotan、Superb、Tiguan、golf6 ）（XP）</item>
+    </array>
+    <array name="can_fs_declare_241">
+        <item>SitechDev</item>
+        <item>YunD</item>
+        <item>E300</item>
+        <item>E1</item>
+    </array>
+    <array name="can_fs_declare_245">
+        <item>Dedicated vertical screen UI support</item>
+    </array>
+    <array name="can_fs_declare_247">
+        <item>Dedicated vertical screen UI support</item>
+    </array>
+    <array name="can_fs_declare_248">
+        <item>17 models 2.0L two-wheel drive comfort version *dedicated UI</item>
+        <item>17 models 2.0L two-drive leading version *dedicated UI</item>
+        <item>18 models 2.0L two-wheel drive comfort version *dedicated UI</item>
+        <item>18 models 2.0L two-drive leading version *dedicated UI</item>
+    </array>
+    <array name="can_fs_declare_250">
+        <item>Dedicated vertical screen UI support</item>
+    </array>
+    <array name="can_fs_declare_251">
+        <item>MG ZS</item>
+        <item>DT T60</item>
+    </array>
+    <array name="can_fs_declare_252">
+        <item>Camry 2012，LandCruiser 2016 vertical screen UI support</item>
+        <item>Camry 2015</item>
+        <item>Camry 2018</item>
+        <item>HighLander 2015 ManualAir</item>
+        <item>HighLander 2015 AutoAir</item>
+        <item>Tundra 2014 ManualAir</item>
+        <item>Tundra 2014 AutoAir</item>
+        <item>Prado 2010 AutoAir</item>
+    </array>
+    <array name="can_fs_declare_254">
+        <item>Viaggio 12~15,Ottimo 14~15,TORO,DOBLO,EGE,FLORLNO *SW1</item>
+        <item>Viaggio 12~15,Ottimo 14~15,TORO,DOBLO,EGE,FLORLNO *SW2</item>
+    </array>
+    <array name="can_fs_declare_255">
+        <item>Cos1 HighVer .2019 *Car Air</item>
+        <item>Cos1 LowVer .2019</item>
+        <item>Auchan A800 .2019 *Car Air</item>
+        <item>CS55 .2018</item>
+    </array>
+    <array name="can_fs_declare_259">
+        <item>other types of cars</item>
+        <item>T5 *Car Device</item>
+    </array>
+    <array name="can_fs_declare_260">
+        <item>MZD 3 *Car Device</item>
+        <item>CX-4 *Car Device</item>
+        <item>MZD3 CX-3 CX-4(TW) *Car Device</item>
+        <item>MZD3 CX-3 CX-4(TW) 。with AMP *Car Device</item>
+    </array>
+    <array name="can_fs_declare_263">
+        <item>Excelle、regal、LaCrosse、Verano、Cruze、AVEO、MALIBU、Encore、MALIBU XL,GL8 2017 *GL8 Car Air</item>
+        <item>GL8（Business edition）</item>
+        <item>Encore（Low Ver）</item>
+        <item>Regal 2018 *Car Air</item>
+        <item>Orlando (Low Ver)</item>
+        <item>Orlando (High Ver)</item>
+    </array>
+    <array name="can_fs_declare_264">
+        <item>Fiorino 2016</item>
+        <item>Doblo 2016</item>
+        <item>Aegea 2016</item>
+        <item>Aegea 2018</item>
+        <item>Aegea 2019</item>
+        <item>500l 2013</item>
+        <item>500l 2019</item>
+    </array>
+    <array name="can_fs_declare_265">
+        <item>Eclipse Cross 2018，OutLander 2019，PAJERO 2018，2020</item>
+        <item>Eclipse Cross 2019(TW)</item>
+    </array>
+    <array name="can_fs_declare_266">
+        <item>ToyotaDJ Crown12（Low Ver）</item>
+        <item>ToyotaDJ Crown12（High Ver）</item>
+        <item>ToyotaDJ Crown13</item>
+    </array>
+    <array name="can_fs_declare_267">
+        <item>AX7.2018(OD) *Long press the previous track to switch panorama</item>
+    </array>
+    <array name="can_fs_declare_268">
+        <item>2012~2018 SR（PM2.5）,2014~2015 G5,2010~2015 M6,2013~2017 S7,2016~2019 SONG，2017~2019 SONG MAX,2012~2017 E6 *Air</item>
+    </array>
+    <array name="can_fs_declare_269">
+        <item>18 Chana LowVer</item>
+        <item>18 Chana MidVer</item>
+    </array>
+    <array name="can_fs_declare_270">
+        <item>Chinese low config</item>
+        <item>USA low config</item>
+        <item>Chinese high config *Car Radio</item>
+        <item>Chinese 2016</item>
+    </array>
+    <array name="can_fs_declare_272">
+        <item>Renault（megane 2007）</item>
+    </array>
+    <array name="can_fs_declare_273">
+        <item>Mzd2</item>
+        <item>Mzd3</item>
+        <item>Mzd5</item>
+        <item>Mzd6</item>
+        <item>RY</item>
+        <item>Mx5</item>
+        <item>Cx7</item>
+        <item>Mzd8</item>
+        <item>Mzd9</item>
+    </array>
+    <array name="can_fs_declare_274">
+        <item>LowVer *Car Device</item>
+        <item>HighVer *Car Device</item>
+    </array>
+    <array name="can_fs_declare_275">
+        <item>X7 JX</item>
+        <item>XY *Air</item>
+    </array>
+    <array name="can_fs_declare_276">
+        <item>Other types of cars</item>
+        <item>RX.2020</item>
+    </array>
+    <array name="can_fs_declare_278">
+        <item>HEXA,NWXON</item>
+    </array>
+    <array name="can_fs_declare_281">
+        <item>LowVer</item>
+        <item>HighVer</item>
+    </array>
+    <array name="can_fs_declare_284">
+        <item>MPV Tepee,307 04~13，408 10~13，408SW,408CC,3008 13~19，508 Malaysia</item>
+    </array>
+    <array name="can_fs_declare_285">
+        <item>2015-2017 FORESTER，2015-2016 IMPREZA，2015-2017 XV CROSSTREK，2015-2019 OUTBACK， 2015-2019 LEGACY 2017-2019 IMPREZA，2018-2019 XV CROSSTREK，2019 FORESTER</item>
+    </array>
+    <array name="can_fs_declare_287">
+        <item>K150 *Car Air</item>
+    </array>
+    <array name="can_fs_declare_288">
+        <item>Jed、Crider、Honda Fit、VEZEL、Civic with Mid,High Ver 2014，Elysion 12~15</item>
+        <item>City 2015，Crider 2016</item>
+        <item>Civic 2016 *Air,CRV 2017</item>
+        <item>Accord10/InSpire 2019</item>
+        <item>2015~2018 Odyssey(Taiwan.avm。)</item>
+        <item>Haoying</item>
+    </array>
+    <array name="can_auto_array">
+        <item>NULL</item>
+        <item>Volkswagen(RZC)</item>
+        <item>VW MQB Platform(Golf 7.RZC)</item>
+        <item>Toyota</item>
+        <item>Civic、CRV2012</item>
+        <item>Honda DA System</item>
+        <item>Nissan</item>
+        <item>Prado 2014</item>
+        <item>GM</item>
+        <item>Accord 9</item>
+        <item>Sail 3</item>
+        <item>PSA</item>
+        <item>TS</item>
+        <item>Ford</item>
+        <item>Hyundai</item>
+        <item>Chrysler</item>
+        <item>Baojun</item>
+        <item>Trumpchi</item>
+        <item>Roewe 550</item>
+        <item>Roewe(RZ)</item>
+        <item>Crosstour 2014</item>
+        <item>Old MZD, Opel</item>
+        <item>B70 2011</item>
+        <item>B70 2014</item>
+        <item>X80</item>
+        <item>Roewe 950</item>
+        <item>MG GS 15</item>
+        <item>Refine S2,S3</item>
+        <item>Jiangling</item>
+        <item>Cherokee 2016</item>
+        <item>ZTY 100</item>
+        <item>B30 2016</item>
+        <item>Benz B200</item>
+        <item>Benz Hechi</item>
+        <item>Peugeot 508</item>
+        <item>Megane</item>
+        <item>FIAT All</item>
+        <item>FIAT Bravo</item>
+        <item>Cherokee 2016(RZ)</item>
+        <item>MZD3 Axela</item>
+        <item>BENZ SMART</item>
+        <item>Porsche Cyenne(Bg,Lz)</item>
+        <item>BMW E90(Hc,Hz,Lz，Od)</item>
+        <item>AUDI A3（Xp,Lz）</item>
+        <item>PSA(HC)</item>
+        <item>Peugot 3008 with Scr.(HC)</item>
+        <item>HM M3/S7</item>
+        <item>Venucia T70</item>
+        <item>B50 2013</item>
+        <item>BAIC Senova</item>
+        <item>HM M5</item>
+        <item>Mondeo Chiax</item>
+        <item>Dongfeng FengShen AX7</item>
+        <item>Old Fiesta</item>
+        <item>Chery Tiggo</item>
+        <item>Reault Kadjar</item>
+        <item>Mitsubishi Outlander</item>
+        <item>Chery AiRuize5,Tigger7,Tigger3x,Tigger3</item>
+        <item>PSA FOREIGN</item>
+        <item>ZH V3</item>
+        <item>Zotye DM X5</item>
+        <item>NULL</item>
+        <item>Benz C200</item>
+        <item>Benz Vito</item>
+        <item>FIAT Doblo</item>
+        <item>BMW Mini</item>
+        <item>Venucia ER70</item>
+        <item>FG 580</item>
+        <item>Mitsubishi Outlander 09-11</item>
+        <item>MZD CX-4(Xbs,Bnr，Od)</item>
+        <item>DF FG 360,330s,580</item>
+        <item>B50 2016</item>
+        <item>Geely EC7</item>
+        <item>ChangAn CS75</item>
+        <item>LiFan720/820</item>
+        <item>Accord 7</item>
+        <item>Byd(AS)</item>
+        <item>MZD CX-7</item>
+        <item>CC H2</item>
+        <item>CW</item>
+        <item>HAVAL H6</item>
+        <item>2017 Benz Vito(bagoo)</item>
+        <item>HM FML 2017</item>
+        <item>BYD S6,F3(CYT)</item>
+        <item>Roewe RX5</item>
+        <item>BMW MINI (FSTT)</item>
+        <item>HT X7</item>
+        <item>Chrysler(Bagoo)</item>
+        <item>GM（SiBo）</item>
+        <item>KaiYi 3X</item>
+        <item>BYD F6(DJ)</item>
+        <item>Geely Boy</item>
+        <item>Dongfeng Plaza X5</item>
+        <item>BS M3</item>
+        <item>B50 2011</item>
+        <item>Family</item>
+        <item>Accord 9 2.4（xbs）</item>
+        <item>BLSU M3(RZC)</item>
+        <item>BAIC EC180</item>
+        <item>CHANA AlsvinV7(2015)</item>
+        <item>Accord 9 2.0（xbs）</item>
+        <item>Peugot 408</item>
+        <item>Hyundai Kia</item>
+        <item>Volkswagen(kjxd)</item>
+        <item>Peugot206/207（hc）</item>
+        <item>CC Wingle6</item>
+        <item>BAW WEIWANG M20</item>
+        <item>Teana 08</item>
+        <item>Peugot206/207/307（xp）</item>
+        <item>DT T60(OUDI)</item>
+        <item>Refine S5(Wc)</item>
+        <item>Mzd</item>
+        <item>Mzd Cx5</item>
+        <item>Toyota(kj)</item>
+        <item>Chrysler(Xbs)</item>
+        <item>Lexus IS250</item>
+        <item>Accord 8</item>
+        <item>Renault（xp）</item>
+        <item>Cadillac ATS</item>
+        <item>OBD(RZC)</item>
+        <item>Venucia D60(OD)</item>
+        <item>Prado 2014(Amp Adj)</item>
+        <item>VW MQB Platform(xp)</item>
+        <item>Geely Gc7(rzc)</item>
+        <item>Mzd6(xbs)</item>
+        <item>GMC</item>
+        <item>DT T60,G10(Rzc)</item>
+        <item>PSA(Rzc)</item>
+        <item>Toyota(Rzc)</item>
+        <item>Touareg(wc)</item>
+        <item>Qoros (DJ)</item>
+        <item>CHANA AlsvinV7(wc)</item>
+        <item>Qoros</item>
+        <item>Koleos (Xp)</item>
+        <item>Ht(Od)</item>
+        <item>Benz(Lz)</item>
+        <item>Cadillac ATS(Zmyt)</item>
+        <item>DT G10(od)</item>
+        <item>BMW (with Host)</item>
+        <item>Mondeo Chiax(wc)</item>
+        <item>Benc(Zmyt)</item>
+        <item>Hyundai(xbs)</item>
+        <item>VW MQB(wc)</item>
+        <item>Volkswagen/Benc(wc)</item>
+        <item>Toyota(wc)</item>
+        <item>MZD，Bent，Chery，BYD，Trumpchi（Rzc）</item>
+        <item>Ford(rzc)</item>
+        <item>LandWind XiaoYao（Rzc）</item>
+        <item>PSA(WC)</item>
+        <item>Nissan（WC）</item>
+        <item>Refine(od)</item>
+        <item>GM（WC）</item>
+        <item>Audi(Zmyt)</item>
+        <item>Hyundai（WC）</item>
+        <item>CC（WC）</item>
+        <item>FG S560</item>
+        <item>Honda（WC）</item>
+        <item>Ford （WC）</item>
+        <item>BJ20（WC）</item>
+        <item>DFFS（WC）</item>
+        <item>CHANA CS75（WC）</item>
+        <item>Trumpchi（WC）</item>
+        <item>CHRYSLER（WC）</item>
+        <item>BMW X1（WC）</item>
+        <item>Mzd (WC)</item>
+        <item>Benz(WC)</item>
+        <item>Venucia（WC）</item>
+        <item>DT V80</item>
+        <item>Crown（WC）</item>
+        <item>Jeep(WC)</item>
+        <item>Elysion 2012~2015（WC）</item>
+        <item>12Crv Civic（WC）</item>
+        <item>HAVAL H6（WC）</item>
+        <item>JEEP Compass（WC）</item>
+        <item>HAVAL H2（WC）</item>
+        <item>Volvo（LZ）</item>
+        <item>BMW (Zmyt)</item>
+        <item>RW MG（WC）</item>
+        <item>09~12 B50(WC)</item>
+        <item>BYD(WC)</item>
+        <item>CHERY(WC)</item>
+        <item>Odyssey(03~08)，Accord 8，Crosstour(12~14)(Od)</item>
+        <item>Baojun(WC)</item>
+        <item>Teana 2008(WC)</item>
+        <item>HAVAL H1(WC)</item>
+        <item>GEELY Vision(WC)</item>
+        <item>B50 2013(WC)</item>
+        <item>X80 2013(WC)</item>
+        <item>X40 2017(WC)</item>
+        <item>B50 2016(WC)</item>
+        <item>X80 2017(WC)</item>
+        <item>Zotye DM X5(WC)</item>
+        <item>Hm V70 2016(WC)</item>
+        <item>Hm Fml 2017(WC)</item>
+        <item>Ford Mondeo 2013，EcoSport 2018(WC)</item>
+        <item>HM M3,S7(WC)</item>
+        <item>HONDA ACCORD9(WC)</item>
+        <item>HSS6(WC)</item>
+        <item>Porsche(Od)</item>
+        <item>NISSAN(RZC)</item>
+        <item>BYD(DJ)</item>
+        <item>ACCORD7,BYD F6,S6(CYT)</item>
+        <item>BYD S6,F3(HYKJ)</item>
+        <item>DST OBD</item>
+        <item>MZD(LZ)</item>
+        <item>Lexus(LZ)</item>
+        <item>Roewe 550，MG 6(WC)</item>
+        <item>Lexus(ZMYT)</item>
+        <item>Accord8,Spirior（LZ）</item>
+        <item>OBD(BNR)</item>
+        <item>GM(RZC)</item>
+        <item>BYD ,Benc B200（OD）</item>
+        <item>HANT_ELECTCAR</item>
+        <item>Benz（RZC）</item>
+        <item>ChanA（WC）</item>
+        <item>DFFG（OD）</item>
+        <item>Renault（WC）</item>
+        <item>Luxgen（OD）</item>
+        <item>Venucia M50V（WC）</item>
+        <item>Venucia M50F ，X35（WC）</item>
+        <item>ChanA CX70（WC）</item>
+        <item>Porsche（LZ）</item>
+        <item>BAIC Senova（OD）</item>
+        <item>X80 (RZC)</item>
+        <item>ZH H530（HC）</item>
+        <item>BENZ SMART（OD）</item>
+        <item>FORD SYNC3（Xp）</item>
+        <item>JiangLing Myx（OD）</item>
+        <item>03~07 Teana(Dj)</item>
+        <item>Volvo(Xfy)</item>
+        <item>Haval(Dj)</item>
+        <item>Byd Sr/G5/S6/S7(HYKJ)</item>
+        <item>Flat(WC)</item>
+        <item>SGMW(WC)</item>
+        <item>ChangF Liebao(WC)</item>
+        <item>ZH H3,V3(WC)</item>
+        <item>Chrysler(Hc)</item>
+        <item>Nissan RiCh6(WC)</item>
+        <item>SouthEast DX7,DX3,DX5（RZC）</item>
+        <item>Chevrolet Captive（Od）</item>
+        <item>Volkswagen(XP)</item>
+        <item>Dev1(CW)</item>
+        <item>Mzd(LM)</item>
+        <item>Mzd Obd(TXB)</item>
+        <item>BYD M6(DJ)</item>
+        <item>Mondeo Chiax 2010(Xfy)</item>
+        <item>Jeep Wrangler(TXB)</item>
+        <item>Ford Edge(Xfy)</item>
+        <item>Koleos (Xfy)</item>
+        <item>LUXGEN(WC)</item>
+        <item>Nissan(Xfy)</item>
+        <item>MG ZS,DT(WC)</item>
+        <item>Toyota Vs(Xp)</item>
+        <item>Escort(Ly)</item>
+        <item>Fiat(Rzc)</item>
+        <item>ChanA(WC)</item>
+        <item>Mzd CX4(Bnr)</item>
+        <item>Volvo XC60(LZ)</item>
+        <item>DF JYX5(WC)</item>
+        <item>BLSU（OD）</item>
+        <item>Mzd（Rzc）</item>
+        <item>Accord8 （Xbs）</item>
+        <item>08~12 Fiesta(WC)</item>
+        <item>GM (TXB)</item>
+        <item>Fiat Ftf1(WC)</item>
+        <item>Mitsubishi(Rzc)</item>
+        <item>Toyota(DJ)</item>
+        <item>DF AX7(OD)</item>
+        <item>BYD(Rsw)</item>
+        <item>Chana(OD)</item>
+        <item>Accord 9（BNR）</item>
+        <item>Alfa-Romeo（Bg）</item>
+        <item>Renault（Bg）</item>
+        <item>Mzd（Hc）</item>
+        <item>Bmw E46（LZ）</item>
+        <item>LandWind（Od）</item>
+        <item>Lexus .HighVer（Zmyt）</item>
+        <item>Bmw（LZ）</item>
+        <item>TATA(WC)</item>
+        <item>T3</item>
+        <item>Manindra(WC)</item>
+        <item>Iveco(Rzc)</item>
+        <item>Swm(Rzc)</item>
+        <item>H5</item>
+        <item>PSA SCR(Rzc)</item>
+        <item>Subuar(Xp)</item>
+        <item>FAW B30-T3</item>
+        <item>KaWei(WC)</item>
+        <item>HondaDa(Rzc)</item>
+    </array>
+    <array name="can_car_kinds_array">
+        <item>ALL</item>
+        <item>Xp</item>
+        <item>Rzc</item>
+        <item>Xbs</item>
+        <item>Wc</item>
+        <item>Od</item>
+    </array>
+    <array name="can_kind_sub_array_1">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>11</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>21</item>
+        <item>29</item>
+        <item>32</item>
+        <item>35</item>
+        <item>36</item>
+        <item>39</item>
+        <item>43</item>
+        <item>51</item>
+        <item>56</item>
+        <item>58</item>
+        <item>63</item>
+        <item>64</item>
+        <item>68</item>
+        <item>94</item>
+        <item>95</item>
+        <item>107</item>
+        <item>108</item>
+        <item>112</item>
+        <item>117</item>
+        <item>121</item>
+        <item>122</item>
+        <item>125</item>
+        <item>133</item>
+        <item>226</item>
+        <item>240</item>
+        <item>252</item>
+        <item>285</item>
+    </array>
+    <array name="can_kind_sub_array_2">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>10</item>
+        <item>11</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>26</item>
+        <item>27</item>
+        <item>38</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>55</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+        <item>60</item>
+        <item>70</item>
+        <item>71</item>
+        <item>72</item>
+        <item>73</item>
+        <item>74</item>
+        <item>77</item>
+        <item>78</item>
+        <item>82</item>
+        <item>86</item>
+        <item>91</item>
+        <item>92</item>
+        <item>97</item>
+        <item>98</item>
+        <item>99</item>
+        <item>102</item>
+        <item>105</item>
+        <item>106</item>
+        <item>119</item>
+        <item>121</item>
+        <item>123</item>
+        <item>126</item>
+        <item>127</item>
+        <item>128</item>
+        <item>145</item>
+        <item>146</item>
+        <item>147</item>
+        <item>155</item>
+        <item>199</item>
+        <item>210</item>
+        <item>212</item>
+        <item>213</item>
+        <item>223</item>
+        <item>238</item>
+        <item>254</item>
+        <item>260</item>
+        <item>265</item>
+        <item>281</item>
+        <item>282</item>
+        <item>284</item>
+        <item>288</item>
+    </array>
+    <array name="can_kind_sub_array_3">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>11</item>
+        <item>13</item>
+        <item>14</item>
+        <item>20</item>
+        <item>58</item>
+        <item>59</item>
+        <item>69</item>
+        <item>80</item>
+        <item>96</item>
+        <item>100</item>
+        <item>114</item>
+        <item>124</item>
+        <item>141</item>
+        <item>261</item>
+    </array>
+    <array name="can_kind_sub_array_4">
+        <item>67</item>
+        <item>84</item>
+        <item>110</item>
+        <item>129</item>
+        <item>131</item>
+        <item>139</item>
+        <item>142</item>
+        <item>143</item>
+        <item>144</item>
+        <item>148</item>
+        <item>149</item>
+        <item>151</item>
+        <item>153</item>
+        <item>154</item>
+        <item>156</item>
+        <item>157</item>
+        <item>158</item>
+        <item>159</item>
+        <item>160</item>
+        <item>161</item>
+        <item>162</item>
+        <item>163</item>
+        <item>164</item>
+        <item>165</item>
+        <item>166</item>
+        <item>168</item>
+        <item>169</item>
+        <item>170</item>
+        <item>171</item>
+        <item>172</item>
+        <item>173</item>
+        <item>174</item>
+        <item>177</item>
+        <item>178</item>
+        <item>179</item>
+        <item>180</item>
+        <item>182</item>
+        <item>183</item>
+        <item>184</item>
+        <item>185</item>
+        <item>186</item>
+        <item>187</item>
+        <item>188</item>
+        <item>189</item>
+        <item>190</item>
+        <item>191</item>
+        <item>192</item>
+        <item>193</item>
+        <item>194</item>
+        <item>195</item>
+        <item>196</item>
+        <item>197</item>
+        <item>206</item>
+        <item>214</item>
+        <item>216</item>
+        <item>218</item>
+        <item>219</item>
+        <item>220</item>
+        <item>232</item>
+        <item>233</item>
+        <item>234</item>
+        <item>235</item>
+        <item>237</item>
+        <item>249</item>
+        <item>251</item>
+        <item>255</item>
+        <item>258</item>
+        <item>262</item>
+        <item>264</item>
+        <item>278</item>
+        <item>280</item>
+        <item>287</item>
+    </array>
+    <array name="can_kind_sub_array_5">
+        <item>26</item>
+        <item>42</item>
+        <item>69</item>
+        <item>109</item>
+        <item>115</item>
+        <item>120</item>
+        <item>134</item>
+        <item>137</item>
+        <item>150</item>
+        <item>181</item>
+        <item>198</item>
+        <item>211</item>
+        <item>215</item>
+        <item>217</item>
+        <item>222</item>
+        <item>225</item>
+        <item>227</item>
+        <item>239</item>
+        <item>259</item>
+        <item>267</item>
+        <item>269</item>
+        <item>275</item>
+    </array>
+    <array name="WeekDay">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </array>
+    <array name="weather_type">
+        <item>晴</item>
+        <item>多云</item>
+        <item>阴</item>
+        <item>阵雨</item>
+        <item>雷阵雨</item>
+        <item>雷阵雨并伴有冰雹</item>
+        <item>雨夹雪</item>
+        <item>小雨</item>
+        <item>中雨</item>
+        <item>大雨</item>
+        <item>暴雨</item>
+        <item>大暴雨</item>
+        <item>特大暴雨</item>
+        <item>阵雪</item>
+        <item>小雪</item>
+        <item>中雪</item>
+        <item>大雪</item>
+        <item>暴雪</item>
+        <item>雾</item>
+        <item>冻雨</item>
+        <item>沙尘暴</item>
+        <item>小雨-中雨</item>
+        <item>中雨-大雨</item>
+        <item>大雨-暴雨</item>
+        <item>暴雨-大暴雨</item>
+        <item>大暴雨-特大暴雨</item>
+        <item>小雪-中雪</item>
+        <item>中雪-大雪</item>
+        <item>大雪-暴雪</item>
+        <item>浮尘</item>
+        <item>扬沙</item>
+        <item>强沙尘暴</item>
+        <item>飑</item>
+        <item>龙卷风</item>
+        <item>弱高吹雪</item>
+        <item>轻霾</item>
+        <item>霾</item>
+    </array>
+</resources>

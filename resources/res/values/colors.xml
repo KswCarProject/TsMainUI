@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fs_btn_text_color">#fff1f2f4</color>
+    <color name="fs_title">#ffffffff</color>
+    <color name="vol_bar_up">#ffffffff</color>
+    <color name="vol_bar_dn">#ffff0000</color>
+    <color name="background">#00080808</color>
+    <color name="set_num_color">#ffffffff</color>
+    <color name="set_general_sd">#ffffffff</color>
+    <color name="set_general_color">#ff000000</color>
+    <color name="set_vmdisk">#ff000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

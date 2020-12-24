@@ -1,0 +1,96 @@
+package com.ts.can.vw.rzc.golf;
+
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.view.View;
+import com.lgb.canmodule.CanJni;
+import com.ts.MainUI.R;
+import com.ts.can.CanScrollCarInfoView;
+import com.ts.canview.CanItemMsgBox;
+
+public class CanGolfRzcSetFactoryView extends CanScrollCarInfoView implements CanItemMsgBox.onMsgBoxClick {
+    public static final int ITEM_ALL_SET = 0;
+    public static final int ITEM_CDSZ = 7;
+    public static final int ITEM_DRIVE_ASS = 1;
+    public static final int ITEM_LIGHT = 3;
+    public static final int ITEM_MFD = 6;
+    public static final int ITEM_MW = 4;
+    public static final int ITEM_OC = 5;
+    public static final int ITEM_PM = 2;
+    protected View mCurItem;
+
+    public CanGolfRzcSetFactoryView(Activity activity) {
+        super(activity, 8);
+    }
+
+    public void onItem(int id, int item) {
+    }
+
+    public void onChanged(int id, int pos) {
+    }
+
+    public void onClick(View v) {
+        CanItemMsgBox msgbox = new CanItemMsgBox(((Integer) v.getTag()).intValue(), getActivity(), R.string.can_sure_setup, this);
+        v.setSelected(true);
+        this.mCurItem = v;
+        msgbox.getDlg().setOnDismissListener(new DialogInterface.OnDismissListener() {
+            public void onDismiss(DialogInterface arg0) {
+                if (CanGolfRzcSetFactoryView.this.mCurItem != null) {
+                    CanGolfRzcSetFactoryView.this.mCurItem.setSelected(false);
+                }
+            }
+        });
+    }
+
+    /* access modifiers changed from: protected */
+    public void InitData() {
+        this.mItemTitleIds = new int[]{R.string.can_all_settings, R.string.can_drivet_assist, R.string.can_park_and_m, R.string.can_light, R.string.can_mirr_and_wiper, R.string.can_open_and_close, R.string.can_mfd, R.string.can_cdsz};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON};
+        this.mItemIcons = new int[]{R.drawable.can_golf_icon14, R.drawable.can_golf_icon02, R.drawable.can_golf_icon04, R.drawable.can_golf_icon05, R.drawable.can_golf_icon06, R.drawable.can_golf_icon07, R.drawable.can_golf_icon08, R.drawable.can_icon_setup};
+        if (CanJni.GetSubType() == 4) {
+            this.mItemVisibles[7] = 1;
+        } else {
+            this.mItemVisibles[7] = 0;
+        }
+    }
+
+    public void ResetData(boolean check) {
+    }
+
+    public void QueryData() {
+    }
+
+    public void doOnResume() {
+    }
+
+    public void onOK(int param) {
+        switch (param) {
+            case 0:
+                CanJni.GolfSendCmd(199, 1);
+                return;
+            case 1:
+                CanJni.GolfSendCmd(193, 1);
+                return;
+            case 2:
+                CanJni.GolfSendCmd(194, 1);
+                return;
+            case 3:
+                CanJni.GolfSendCmd(195, 1);
+                return;
+            case 4:
+                CanJni.GolfSendCmd(196, 1);
+                return;
+            case 5:
+                CanJni.GolfSendCmd(197, 1);
+                return;
+            case 6:
+                CanJni.GolfSendCmd(198, 1);
+                return;
+            case 7:
+                CanJni.GolfSendCmd(202, 1);
+                return;
+            default:
+                return;
+        }
+    }
+}

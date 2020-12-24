@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="85px">
+    <TextView android:textSize="35px" android:textColor="@android:color/white" android:gravity="bottom|left|center_vertical|center_horizontal|center" android:id="@+id/text" android:paddingLeft="35px" android:clickable="false" android:layout_width="993px" android:layout_height="75px" android:layout_marginLeft="0px" android:layout_marginTop="0px"/>
+</RelativeLayout>

@@ -1,0 +1,1059 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>Studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>Ortak</item>
+        <item>Ekran</item>
+        <item>Ses Ayarı</item>
+        <item>Ses</item>
+        <item>Video</item>
+        <item>Navigasyon</item>
+        <item>Bluetooth</item>
+        <item>SWC</item>
+        <item>Cihaz Hakkında</item>
+    </array>
+    <array name="set_genera_options">
+        <item>bekleme süresi</item>
+        <item>Speech Recognition</item>
+        <item>Yardımcı Panel</item>
+        <item>Ters Ses geri bildirimi</item>
+        <item>Boot Ekranı</item>
+        <item>Virtual CD Storage Device</item>
+        <item>Tüm Ayarları Sıfırla</item>
+        <item>Tüm İçerik silme</item>
+    </array>
+    <array name="set_display_options">
+        <item>Gündüz Arka Işık Ayarı</item>
+        <item>Gece Arka Işık Ayarı</item>
+        <item>Otomatik Mod</item>
+        <item>Tuş Işık Rengi</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Medya Ses Ayarı</item>
+        <item>Navigasyon Ses Ayarı</item>
+        <item>Bt Ses Ayarı</item>
+        <item>Zil Ses Ayarı</item>
+        <item>Alarm Ses Ayarı</item>
+        <item>System Ses Ayarı</item>
+    </array>
+    <array name="set_video_options">
+        <item>Sürüş Sırasında Video İzlemek</item>
+        <item>Geri Asistan</item>
+        <item>Park Çizgileri</item>
+        <item>Ayna Arka Kamera</item>
+        <item>Klima</item>
+        <item>Arka Video</item>
+        <item>Ön kamera</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Autostart Navigation</item>
+        <item>Navigasyon Seçme</item>
+        <item>Navigasyon karışımı</item>
+    </array>
+    <array name="set_bt_options">
+        <item>PIN kodu</item>
+        <item>Otomatik Bağlan</item>
+        <item>Otomatik cevap</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Kazanç</item>
+        <item>Düşük frekanslı</item>
+        <item>Harmonik</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Düşük frekanslı</item>
+        <item>Kazanç</item>
+        <item>Yüksek frekans</item>
+        <item>Kazanç</item>
+    </array>
+    <array name="mcu_update_msg">
+        <item>Yükseltme işlemi yok</item>
+        <item>Dosya güncellenemedi!</item>
+        <item>Yükseltme, lütfen tamamlamadan önce kapatmayın!</item>
+        <item>Çip şifreleme!</item>
+        <item>Chip silme hatası!</item>
+        <item>Chip silme başarısı!</item>
+        <item>Başarıyla yükseltin, lütfen cihazı yeniden başlatın!</item>
+    </array>
+    <array name="can_cam_yh_title">
+        <item>Ortalama hız</item>
+        <item>Gezi zamanı</item>
+        <item>kilometre</item>
+        <item>AVG Fule</item>
+        <item>Optimum Fuel</item>
+    </array>
+    <array name="can_car_play_sta">
+        <item>/ Durdur Kapalı</item>
+        <item>Yükleniyor</item>
+        <item>Bağlı değil</item>
+        <item>bağlı</item>
+        <item>Oynatma</item>
+        <item>Duraklat</item>
+        <item>Diğer durum</item>
+    </array>
+    <array name="can_fist_set_title">
+        <item>Kilometre ünitesi</item>
+        <item>Sinyal yanıp sönme ayarı</item>
+        <item>uyarı hatırlatan</item>
+        <item>hatırlatıcı bilgi</item>
+        <item>Ortam ışığı ayarı</item>
+    </array>
+    <array name="can_fist_l_c">
+        <item>KM</item>
+        <item>Mil</item>
+    </array>
+    <array name="can_fist_zxd">
+        <item>Flash 1 kez</item>
+        <item>Flash 3 kez</item>
+    </array>
+    <array name="can_psa_wc_ztyssz_array">
+        <item>Gem mavisi</item>
+        <item>Buckskin kahverengi</item>
+    </array>
+    <array name="can_psa_wc_jsms_array">
+        <item>Normal</item>
+        <item>Spor</item>
+    </array>
+    <array name="can_conv_tips">
+        <item />
+        <item>Klima</item>
+        <item>Yardımcı ısıtıcı</item>
+        <item>Arka cam ısıtma</item>
+        <item>Sol koltuk ısıtması</item>
+        <item>Sağ koltuk ısıtma</item>
+        <item>Sol koltuk havalandırması</item>
+        <item>Sağ kafa alan ısıtma</item>
+        <item>Sol kafa alan ısıtma</item>
+        <item>Sağ kafa alan ısıtma</item>
+        <item>Ön sis lambası</item>
+        <item>Arka sis lambası</item>
+        <item>Ön cam ısıtma</item>
+        <item>Direksiyon simidi ısıtma</item>
+        <item>Ayna ısıtma</item>
+        <item>Arka koltuk ısıtma</item>
+        <item>Arka koltuk havalandırma</item>
+        <item>Priz</item>
+        <item>Içecek tutucu</item>
+    </array>
+    <array name="can_start_stop_msg">
+        <item>Römork modu</item>
+        <item>Ön cam buğulanabilir</item>
+        <item>Çalışma sıcaklığı korunmaz</item>
+        <item>Sürücü bulunamadı</item>
+        <item>Vites kutusu motorun çalışmasını gerektirir</item>
+        <item>Güç tüketimi yüksek</item>
+        <item>Start-stop sisteminin başlatılması</item>
+        <item>Motor çalışıyor olmalı</item>
+        <item>Gradyan çok dik</item>
+        <item>Start-stop sistemi şu anda mevcut değil</item>
+        <item>Acil fren fonksiyonu müdahalesi</item>
+        <item>Fren motorun çalışmasını gerektirir</item>
+        <item>Güç tüketimi yüksek</item>
+        <item>Klima motorun çalışmasını gerektirir</item>
+        <item>Direksiyon açısı çok büyük</item>
+        <item>Manevra modu</item>
+        <item>Buz çözme fonksiyonu açık</item>
+        <item>Sürücü emniyet kemeri takılı değil</item>
+        <item>Sürücü kapısı açık</item>
+        <item>Hızlandırıcı depresif</item>
+        <item>Ön cam ısıtma açık</item>
+        <item>Maksimum klima, motorun çalışmasını gerektirir</item>
+        <item>Bonnet açıldı</item>
+        <item>Motor durdurma şu anda mümkün değil</item>
+        <item>Off road modu aktif</item>
+        <item>Sistem koruma müdahalesi Düğme / kaldıraç çok sık aktif hale getirildi</item>
+        <item>Dişli nişanlandı</item>
+        <item>Start-stop düğmesine basıldı</item>
+        <item>Klima motorun çalışmasını gerektirir</item>
+        <item>ACC müdahalesi</item>
+        <item>Park Assist etkinleştirildi</item>
+        <item>ESC kapalı</item>
+        <item>Güç tüketimi yüksek</item>
+        <item>Start-stop sistemi motorun çalışmasını gerektirir</item>
+    </array>
+    <array name="can_start_stop_other_msg">
+        <item>Start-stop sistemi aktif hale getirildi</item>
+        <item>Start-stop sistemi mevcuttur</item>
+        <item>Motor durdurma aktif</item>
+        <item>Sürücü kapısı açık.</item>
+        <item>Lütfen gaz pedalına basın</item>
+        <item>Motoru durdurmak için debriyajı serbest bırakın</item>
+        <item>Start-stop sistemi devre dışı bırakıldı</item>
+        <item>Start-Stop sistemi mevcut değil</item>
+        <item>Start-stop sistemi mevcut değil</item>
+    </array>
+    <array name="can_teramont_eco_array">
+        <item>ECO</item>
+        <item>Normal</item>
+        <item>Spor</item>
+        <item>bireysel</item>
+    </array>
+    <array name="can_teramont_drive_profile_array">
+        <item>Kar</item>
+        <item>ekonomik</item>
+        <item>Arazi</item>
+        <item>Off-road kişiselleştirme</item>
+    </array>
+    <array name="can_golf_teramont_tyres_array">
+        <item>Rahat</item>
+        <item>standart</item>
+        <item>Tam dolu</item>
+    </array>
+    <array name="can_golf_teramont_tyres_warn_array">
+        <item>Lastik basıncı normaldir</item>
+        <item>Lastik basıncını kontrol edin</item>
+        <item>Lastik basıncı çok düşük</item>
+        <item>Lastik basınç kaybı</item>
+    </array>
+    <array name="can_jyx5_car_type_array">
+        <item>Yüksek ver</item>
+        <item>Düşük ver / Orta ver</item>
+    </array>
+    <array name="can_kadjar_car_type_array">
+        <item>Diğerleri</item>
+        <item>Koleos (Düşük)</item>
+    </array>
+    <array name="can_qc_t70_car_type_array">
+        <item>T70 2015</item>
+        <item>T70 2016</item>
+        <item>T90 2017</item>
+        <item>D60 2018</item>
+        <item>T70 2018</item>
+    </array>
+    <array name="can_df_jyx5_jdsj">
+        <item>10 minutes</item>
+        <item>20 minutes</item>
+        <item>30 minutes</item>
+    </array>
+    <array name="can_df_jyx5_ddys">
+        <item>off</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_geely_boy_mode">
+        <item>Comfort</item>
+        <item>Sport</item>
+    </array>
+    <array name="can_geely_boy_yklsfk">
+        <item>Korna ses yok</item>
+        <item>Korna sesi var</item>
+    </array>
+    <array name="can_kaiyi_3x_tdjd">
+        <item>angle 0</item>
+        <item>angle 1</item>
+        <item>angle 2</item>
+        <item>angle 3</item>
+    </array>
+    <array name="can_kaiyi_3x_aqkz">
+        <item>Economical</item>
+        <item>Comfortable</item>
+        <item>sport</item>
+    </array>
+    <array name="can_kaiyi_3x_bdsg">
+        <item>OFF</item>
+        <item>3 times</item>
+        <item>5 times</item>
+        <item>7 times</item>
+    </array>
+    <array name="can_h6_car_type_array">
+        <item>Diğer araba tipi</item>
+        <item>Coupe 2016</item>
+    </array>
+    <array name="can_ht_car_type_array">
+        <item>Diğerleri</item>
+        <item>HT X7 （Düşükﺿ</item>
+        <item>HT X5 （Düşükﺿ</item>
+        <item>HT X5 Orta ve Yüksek Ver</item>
+    </array>
+    <array name="can_b50_car_type_array">
+        <item>Diğerleri</item>
+        <item>X80 2017 Düşük</item>
+    </array>
+    <array name="can_cch6_dd_delay_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>60&apos;lar</item>
+    </array>
+    <array name="can_cch6_dd_delay_2017_array">
+        <item>3s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+    </array>
+    <array name="can_cch6_hj_delay_array">
+        <item>30s</item>
+        <item>1 dakika</item>
+        <item>2 dakika</item>
+        <item>3 dakika</item>
+    </array>
+    <array name="can_cch6_jd_setup_array">
+        <item>10 dk</item>
+        <item>20 Dakika</item>
+        <item>30 dk</item>
+    </array>
+    <array name="can_tigger7_car_type_array">
+        <item>ARRIZO 5</item>
+        <item>Tiggo 7 2016</item>
+        <item>tigger3x 2017</item>
+        <item>tigger3 2017</item>
+        <item>Arrizo7 2016</item>
+    </array>
+    <array name="can_tigger7_language_array">
+        <item>中文</item>
+        <item>ingilizce</item>
+    </array>
+    <array name="can_tigger7_tip_array">
+        <item>speake</item>
+        <item>ışık</item>
+        <item>hoparlör ve ışık</item>
+    </array>
+    <array name="can_tigger7_car_line_array">
+        <item>kapalı</item>
+        <item>Statik</item>
+        <item>Statik + dinamik</item>
+    </array>
+    <array name="can_service_notice_array">
+        <item>Bakım ipuçları</item>
+        <item>Bitmek</item>
+        <item>Tarihin geçtiğini kontrol et</item>
+        <item>Lütfen mümkün olan en kısa sürede devam edin</item>
+    </array>
+    <array name="can_by_service_array">
+        <item>Motor yağı</item>
+        <item>Araç muayenesi</item>
+        <item>Fren hidroliği</item>
+        <item>Yasal egzoz muayenesi</item>
+        <item>Yasal araç muayenesi</item>
+        <item>Ön fren sürtünme plakası</item>
+        <item>Arka fren sürtünme plakası</item>
+        <item>Değişken hızlı benzin</item>
+        <item>Çekte çalışıyor</item>
+    </array>
+    <array name="can_psa_check">
+        <item>Yan lambaları kontrol edin</item>
+        <item>Delme: Tekerleği değiştirin veya onarın</item>
+        <item>Delme: Tekerleği değiştirin veya onarın</item>
+        <item>Delme: Tekerleği değiştirin veya onarın</item>
+        <item>Delme: Tekerleği değiştirin veya onarın</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Arka sağ fren lambasını kontrol edin</item>
+        <item>Ana far lambalarını kontrol edin</item>
+        <item>Ana far lambalarını kontrol edin</item>
+        <item>kısa huzmeli farları kontrol edin</item>
+        <item>kısa huzmeli farları kontrol edin</item>
+        <item>Yan lambaları kontrol edin</item>
+        <item>Yan lambaları kontrol edin</item>
+        <item>Yan lambaları kontrol edin</item>
+        <item>Yön göstergelerini kontrol et</item>
+        <item>Yön göstergelerini kontrol et</item>
+        <item>Yön göstergelerini kontrol et</item>
+        <item>Arka sis lambalarını kontrol edin</item>
+        <item>Arka sis lambalarını kontrol edin</item>
+        <item>Ön sis lambalarını kontrol edin</item>
+        <item>Ön sis lambalarını kontrol edin</item>
+        <item>Arka sol kırma lambasını kontrol edin</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Geri vites lambalarını kontrol edin</item>
+        <item>Geri vites lambalarını kontrol edin</item>
+        <item>Yön göstergelerini kontrol et</item>
+        <item>Lastiklerin basıncını ayarlayın</item>
+        <item>Lastiklerin basıncını ayarlayın</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Park yardım sistemi hatası</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Emisyon hatası</item>
+        <item>Emisyon hatası: başlama engellendi</item>
+        <item>Emisyon hatası</item>
+        <item>保留</item>
+        <item>Lambaları kapatın</item>
+        <item>Lastiklerin basıncını ayarlayın</item>
+        <item>Lastiklerin basıncını ayarlayın</item>
+        <item>Arka sol kapı açık</item>
+        <item>Arka sağ kapı açık</item>
+        <item>Sol ön kapı açık</item>
+        <item>Sağ ön kapı açık</item>
+        <item>Buz riski</item>
+        <item>Otomatik şanzımanı P konumuna getirin</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Arka ekran açık</item>
+        <item>Çarpışma riski algılaması açık</item>
+        <item>Önyükleme açık</item>
+        <item>保留</item>
+        <item>Yön farları hatası</item>
+        <item>Otomatik fren sistemi hatası</item>
+        <item>Ayarlanabilir kanat hatası, Hız kısıtlı.</item>
+        <item>El freni arızası: Aracın tamir edilmesini sağlayın</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Vites kutusu arızası: Onarım gerekli</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Süspansiyon arızası: Hızınızı 90 km / s ile sınırlayın</item>
+        <item>Motor arızası: Onarım gerekli</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Sensör arızası: Arka sol lastik basıncı izlenmiyor</item>
+        <item>Sensör arızası: Arka sağ lastik basıncı izlenmiyor</item>
+        <item>Sensör arızası: Ön sağ lastik basıncı izlenmiyor</item>
+        <item>Sensör arızası: Ön sol lastik basıncı izlenmiyor</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Lastik yetersizliği algılama hatası</item>
+        <item>保留</item>
+        <item>Motor arızası: Aracı durdurun</item>
+        <item>Araçlar arası zaman ölçüm hatası</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Servo direksiyon arızası: Aracın tamir edilmesini sağlayın</item>
+        <item>Süspansiyon arızası: Araç tamir edildi</item>
+        <item>Emisyon katkısını doldurun: Staring engellendi</item>
+        <item>Emisyon katkısını doldurun</item>
+        <item>Emisyon katkısını doldurun</item>
+        <item>保留</item>
+        <item>Sol ön lastik alttan şişirilmiş: lastik basınçlarını ayarlayın, ardından yeniden başlatın</item>
+        <item>Sağ ön lastik alttan şişirilmiş: Lastik hava basıncını ayarlayın, ardından yeniden ayarlayın.</item>
+        <item>Sol el arka lastiğin şişirilmiş olması: lastik basınçlarını ayarlayın, ardından yeniden başlatın</item>
+        <item>Sağ arka lastik tam şişirilmiş: lastik basınçlarını ayarlayın, ardından yeniden başlatın</item>
+        <item>保留</item>
+        <item>Soğutma suyu seviyesi</item>
+        <item>Servo direksiyon arızası: Aracı durdurun</item>
+        <item>保留</item>
+        <item>Fren sistemi arızası: Aracı durdurun</item>
+        <item>保留</item>
+        <item>Motor sıcaklığı arızası: Aracı durdurun</item>
+        <item>Motor yağ basıncı hatası: Aracı durdurun</item>
+        <item>Önyükleme açık</item>
+        <item>保留</item>
+        <item>Arka sağ kapı açık</item>
+        <item>Arka sol kapı açık</item>
+        <item>Sağ ön kapı açık</item>
+        <item>Sol ön kapı açık</item>
+        <item>保留</item>
+        <item>Motor yağı seviyesini artırın</item>
+        <item>Hava yastığı / torbası veya ön gerdirme emniyet kemeri (ler) hatası</item>
+        <item>fule seviyesi çok düşük</item>
+        <item>Fren balataları değişti mi</item>
+        <item>Dizel filtrede suyun varlığı: Onarım gerekli</item>
+        <item>保留</item>
+        <item>Akü şarj hatası: Aracı durdurun</item>
+        <item>ESP / ASR sistemi hatası: Araç tamir edilmek zorunda</item>
+        <item>Arka ekran açık</item>
+        <item>Süspansiyon arızası: Araç tamir edildi</item>
+        <item>保留</item>
+        <item>Parçacık filtresi katkı seviyesi çok düşük: Onarım gerekli</item>
+        <item>保留</item>
+        <item>Partikül filtresi tıkanma riski: El kitabına bakınız</item>
+        <item>ABS arızası: Aracın tamir edilmesini sağlayın</item>
+        <item>Motor arızası: Onarım gerekli</item>
+        <item>保留</item>
+        <item>Çatı manevrası imkansız: Sistem sıcaklığı çok yüksek</item>
+        <item>保留</item>
+        <item>Elektronik motor immobilizer hatası</item>
+        <item>Direksiyon kilidi arızası: Aracın tamir edilmesini sağlayın</item>
+        <item>Retractabie çatı mekanizması hatası</item>
+        <item>Merkezi STOP lambasını kontrol edin</item>
+        <item>Ön ısıtma / havalandırma başına devre dışı: Yakıt seviyesi düşük</item>
+        <item>Ön ısıtma / havalandırma başına devre dışı: Pil şarjı düşük</item>
+        <item>Rmote kontrol pilini değiştirin</item>
+        <item>Ekran yıkamayı tamamlayın</item>
+        <item>Hibrid sistem hatası: Hız kısıtlanmış, onarım gerekli</item>
+        <item>Hibrit sistem hatası: Onarım gerekli</item>
+        <item>Otomatik far yükseklik ayarı hatası</item>
+        <item>Hibrid sistem hatası: Aracı durdurun, el kitabına bakın</item>
+        <item>Çatı manevrası imkansız: El freni uygulayın</item>
+        <item>Çatı manevrası imkansız: Motoru çalıştır</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>保留</item>
+        <item>Lastik altı şişirme izleme hatası</item>
+        <item>保留</item>
+        <item>Treyler bağlantı hatası: Onarım gerekli</item>
+        <item>Ön ısıtma / ön havalandırma devre dışı bırakılmış: Saati ayarlayın</item>
+        <item>保留</item>
+    </array>
+    <array name="can_psa_rzc_check">
+        <item>İşlevsel durum bilgisi yok, alarm kaydı yok, tanı normaldir</item>
+        <item>Park yardımı etkin</item>
+        <item>Park yardımı durduruldu</item>
+        <item>Yolcu ön hava yastığı etkin</item>
+        <item>Yolcu ön hava yastığı devre dışı</item>
+        <item>Kapı kilidi etkin</item>
+        <item>Kendinden kilitlemeli kapı devre dışı</item>
+        <item>Kapı kilitli</item>
+        <item>Kapı kilidi</item>
+        <item>Geri vites silindiri geri viteste aktif hale getirilir</item>
+        <item>Geri vites silindiri geri viteste iken devre dışı bırakıldı</item>
+        <item>Motor sıcaklığı arızası, lütfen dur</item>
+        <item>Lütfen soğutucu ekleyiniz</item>
+        <item>Lütfen motor yağı ekleyin</item>
+        <item>Motor yağ basıncı hatası, lütfen dur</item>
+        <item>Fren sistemi arızası</item>
+        <item>ameliyat edilemez</item>
+        <item>Kapı, bagaj, başlık, arka cam veya depo kapalı değil</item>
+        <item>Çoklu lastik patlaması</item>
+        <item>Partikül filtresi tıkanma riski: lütfen talimatlara bakın</item>
+        <item>Süspansiyon arızası hız sınırı: 90km / s</item>
+        <item>Süspansiyon sistemi hatası</item>
+        <item>Servo direksiyon hatası</item>
+        <item>10 km / saat</item>
+        <item>Park freni etkin</item>
+        <item>Park freni serbest bırakıldı</item>
+        <item>Fren kontrol hatası Park freni otomatik olarak devreye girer</item>
+        <item>Fren balatası taşlama</item>
+        <item>Park freni hatası</item>
+        <item>Değişken kuyruk fonksiyonu eksik hız sınırı, lütfen kılavuza bakın</item>
+        <item>ABS hatası</item>
+        <item>ESP / ASR sistem hatası</item>
+        <item>Iletim sistemi hatası</item>
+        <item>Şanzıman hatası: Lütfen aracı tamir edin</item>
+        <item>Seyir sistemi problemi</item>
+        <item>Yetersiz partikül filtresi katkısı: Lütfen aracı servis edin</item>
+        <item>Elektronik güvenlik sistemi hatası</item>
+        <item>Park yardım sistemi hatası</item>
+        <item>Park ölçüm sistemi hatası</item>
+        <item>Pil şarjı veya güç kaynağı sistemi hatası</item>
+        <item>Lastik basıncı yeterli değil</item>
+        <item>Ampuller yakın kötü</item>
+        <item>Yüksek ışık ampuller kötü</item>
+        <item>Kötü fren ampulleri</item>
+        <item>Sis lambası ampulleri kötü</item>
+        <item>Ampulleri kötü çevirin</item>
+        <item>Geri dönüşümlü ampuller kötü</item>
+        <item>Yer ampulleri kötü</item>
+        <item>Vites kolu P dosyasına</item>
+        <item>Donmak için yola dikkat et</item>
+        <item> El freni dikkat</item>
+        <item>Yeterince pencere yıkama sıvısı</item>
+        <item>Yetersiz yakıt</item>
+        <item>Petrol kesti</item>
+        <item>Uzaktan kumanda düşük</item>
+        <item>Lastik basıncı izlenmiyor</item>
+        <item>Yüksek hızlı, lastik basınç testi uygun</item>
+        <item>Lastik basıncı yeterli değil</item>
+        <item>Teşhis</item>
+        <item>Teşhis tamamlandı</item>
+        <item>Sol ve sağ emniyet kemerleri yapılmaz</item>
+        <item>Arka emniyet kemeri takılı değil</item>
+        <item>Sol arka emniyet kemeri yapılmadı</item>
+        <item>Sağ emniyet kemeri yapılmadı</item>
+        <item>Otomatik silecek etkin</item>
+        <item>Otomatik silici devre dışı</item>
+        <item>Farlar otomatik olarak etkinleştirildi</item>
+        <item>Far oto lig</item>
+        <item>Hard top açamazsınız: bölüm koymak değil</item>
+        <item>Sert üst operasyon tamamlandı</item>
+        <item>Hard-top işlemini hemen sonlandırın</item>
+        <item>İşlem başarısız oldu: Hardtop kilitli</item>
+        <item>Sert üst katlama makineleri hatası</item>
+        <item>İşlem başarısız oldu: arka cam kapalı değil</item>
+        <item>Kayma önleyici sistem hatası</item>
+        <item>Sürüş modu: normal mod</item>
+        <item>Sürüş modu: çamur modu</item>
+        <item>Sürüş modu: kar modu</item>
+        <item>Sürüş modu: kum modu</item>
+        <item>ESP Sistemi devre dışı</item>
+        <item>Sürüş mesafesi ölçülebilir değil: Görünürlük çok düşük</item>
+        <item>Öngörülemeyen seyahat mesafesi: Initializing</item>
+        <item>Tavan işlemi başarısız oldu: çıkıntı yerinde değil</item>
+        <item>Bagaj kapağı kapalı değil</item>
+        <item>Yakıt deposu kapağı kilitli değil</item>
+        <item>Sağ arka kapı kapalı değil</item>
+        <item>Sol arka kapı kapalı değil</item>
+        <item>Sağ ön kapı kapalı değil</item>
+        <item>Sol ön kapı kapalı değil</item>
+        <item>El freni dikkat</item>
+        <item>Hava yastığı veya emniyet kemeri ön gerdirme hatası</item>
+        <item>Dizel filtre suyu: Lütfen aracı tamir edin</item>
+        <item>Lastik basıncı izleme sistemi hatası</item>
+        <item>Sert üst kısım açılamıyor: sistem aşırı sıcaklığı (sol arka lastikte yetersiz hava basıncı: şişir ve yeniden başlat)</item>
+        <item>Sert üst kısım açılamıyor: sistem aşırı sıcaklığı (sol arka lastikte yetersiz hava basıncı: şişir ve yeniden başlat)</item>
+        <item>Elektronik başlatma önleme hatası</item>
+        <item>Direksiyon kilidi arızası: Lütfen aracı tamir edin</item>
+        <item>Orta fren lambasını kontrol edin</item>
+        <item>Ön ısıtma / ön havalandırma devre dışı bırakma: Yetersiz yakıt (cruise system failure)</item>
+        <item>Ön ısıtma / ön havalandırma devre dışı: Düşük pil</item>
+        <item>Hibrit sistem arızası: lütfen hız, bakım araçları</item>
+        <item>Hibrid Sistem Problemi: Lütfen aracı tamir ediniz.</item>
+        <item>Far otomatik ayar sistemi hatası</item>
+        <item>Hibrid sistem hatası: Lütfen durun ve kılavuza bakın</item>
+        <item>Sert üst kısım açılamıyor: sistem aşırı sıcaklığı (sol ön lastikte yetersiz hava basıncı: şişir ve yeniden başlat)</item>
+        <item>Sert üst kısım açılamıyor: sistem aşırı sıcaklığı (ön sağ lastikte yetersiz hava basıncı: şişir ve yeniden başlat)</item>
+        <item>Lastik Basıncı Algılama Sistemi Arızası (lastik basıncı izlenmiyor)</item>
+        <item>Treyler bağlantı hatası: Lütfen aracı onarın (ışığa duyarlı sensör arızası)</item>
+        <item>Ön ısıtma / ön havalandırma devre dışı: Saati ayarlayın</item>
+        <item>Çarpışma riski algılama hatası (kaput kapalı değil)</item>
+        <item>Direksiyon farları arızasıyla takip edildi</item>
+        <item>Otomatik el freni sistemi arızası (motor kaputu kapalı değil)</item>
+        <item>Şerit sapması alarmı hatası</item>
+        <item>Sensör Arızası: Sol arka lastik basıncı izlenmiyor</item>
+        <item>Sensör arızası: Sağ arka lastik basıncı izlenmiyor</item>
+        <item>Sensör arızası: Sağ ön lastik basıncı izlenmiyor</item>
+        <item>Sol ön lastik basıncı izlenmiyor</item>
+        <item>Lastik basınç algılama sistemi arızası (kirlilik önleyici katkı maddeleri ile doldurulur)</item>
+        <item>Motor (motor) hatası: lütfen dur</item>
+        <item>Motor (Motor) Problemi: Lütfen aracı tamir ediniz.</item>
+        <item>Sürüş mesafesi ölçüm hatası</item>
+        <item>Kirlenme karşıtı katkı maddelerini doldurun: Başlamayın</item>
+        <item>Kirlenme önleyici katkı maddeleri ile doldurun</item>
+        <item>Sol ön lastikte yetersiz hava basıncı: şişirilir ve yeniden başlatılır (kirlenme önleme sistemi arızası: başlangıç ​࿋yok)</item>
+        <item>Ön sağ lastikte yetersiz hava basıncı: Lütfen şişiriniz, sonra yeniden çalıştırınız (Zehirli Sistem Arızası: Başlamayın)</item>
+        <item>Sol arka lastikte yetersiz hava basıncı: Lütfen şişiriniz, daha sonra yeniden başlatınız (kirlenme önleme sistemi arızası: çalıştırma yok)</item>
+        <item>Doğru lastik basıncı yeterli değil: Lütfen şişirin, ardından yeniden başlatın (kirlilik önleme sistemi arızası: Başlamayın)</item>
+        <item>Sol arka lastik bozuk: Lastiği değiştirin veya onarın</item>
+        <item>Sağ arka lastik patlaması: Lastiği değiştirin veya onarın</item>
+        <item>Sağ ön lastik patlaması: Lastiği değiştirin veya onarın</item>
+        <item>Sol ön lastik patlaması: Lastiği değiştirin veya onarın</item>
+        <item>Sağ arka fren lambaları kötü</item>
+        <item>Sol fren ampulleri kötü</item>
+        <item>Kirlenme önleme sistemi arızası</item>
+        <item>Kirlenme önleme sistemi arızası: Başlamayın</item>
+        <item>Farları kapatın</item>
+    </array>
+    <array name="can_psa_warn">
+        <item>Engine temperature fault:Stop the vehicle</item>
+        <item>Top up coolant level</item>
+        <item>Top up engine oil level</item>
+        <item>Engine oil pressure fault:Stop the vehicle</item>
+        <item>Braking system fault:Stop the vehicle</item>
+        <item>Risk of particle filter clogging:See handbook</item>
+        <item>Suspension fault:Limit your speed to 90 km/h</item>
+        <item>Power steering fault:Have the vehicle repaired</item>
+        <item>Parking brake fault:Have the vehicle repaired</item>
+        <item>Have the brake pads changed</item>
+        <item>Parking brake fault:Have the vehicle repaired</item>
+        <item>Adjustable wing fault,Speed restricted.see handbook</item>
+        <item>ABS fault:Have the vehicle repaired</item>
+        <item>ESP/ASR system fault:Have the vehicle repaired</item>
+        <item>Suspension fault:Hanve the vehicle repaired</item>
+        <item>Power steering fault:Have the vehicle repaired</item>
+        <item>Automatic headlamp height adjustment fault</item>
+        <item>Directional headlamps fault</item>
+        <item>Air bag(s) or pretensioning seat belt(s) fault</item>
+        <item>Engine cover open sensor fault</item>
+        <item>Gearbox fault:Repair needed</item>
+        <item>Start engine,place automatic gearbox in position P</item>
+        <item>Presence of water in diesel filter:Repair needed</item>
+        <item>Presence of water in diesel filter:Repair needed</item>
+        <item>NULL</item>
+        <item>Particle filter additive level too low:Repair needed</item>
+        <item>Parking assistance system fault</item>
+        <item>Battery charge fault:Stop the vehicle</item>
+        <item>The vehicle is closing</item>
+        <item>Driving distance is not measurable, cruise function is activated</item>
+        <item>Can not activate</item>
+        <item>Cruise function suspended, re-test</item>
+        <item>Speed&gt; 150km / h, speed adjustment is off</item>
+        <item>Record tire pressure</item>
+        <item>Tyre under-intflagtion detection fault</item>
+        <item>Please close the door, in order to activate the automatic release of handbrake function</item>
+        <item>Please brakeﺿ</item>
+        <item>Automatic braking system fault</item>
+        <item>Fill additives, start within 0km</item>
+        <item>NULL</item>
+        <item>Refill emissions additive:Staring prevented</item>
+        <item>Emissions fault</item>
+        <item>Emission control failure, start within 0km</item>
+        <item>Emissions fault:starting prevented</item>
+        <item>Engine stop function disabled, the ambient temperature does not apply</item>
+        <item>Can not be reinitialized while driving</item>
+        <item>Dynamic mode is off</item>
+        <item>No dynamic mode</item>
+        <item>Switch off the lamps</item>
+        <item>Pull out key</item>
+        <item>Cruise control system can not be activated, the speed is too low</item>
+        <item>Cruise control system can not be activated, set the speed</item>
+        <item>Place automatic gearbox in position P</item>
+        <item>Risk of ice</item>
+        <item>Release the handbrake</item>
+        <item>Please adjust the glass cleaning solution</item>
+        <item>Fule level too low</item>
+        <item>Oil cut off</item>
+        <item>Replace the rmote control battery</item>
+        <item>Place automatic gearbox in position N</item>
+        <item>Hold down the brake pedal when pressing the handbrake stop button</item>
+        <item>Roof manoeuvre impossible:Out temperature too high</item>
+        <item>Roof manoeuvre impossible:Speed too high</item>
+        <item>Roof manoeuvre impossible:Boot open</item>
+        <item>Unable to open the hard top, partition not put</item>
+        <item>Roof manoeuvre impossible control complete</item>
+        <item>Stop Roof manoeuvre operation right now</item>
+        <item>Retractabie roof mechanism fault</item>
+        <item>The operation failed, the rear window was not closed</item>
+        <item>Anti-back system failure</item>
+        <item>Driving distance is not measurable, visibility is too low</item>
+        <item>Driving distance is not measurable, initializing</item>
+        <item>Preheat / pre-ventilation disabled, adjust the clock</item>
+        <item>Pre-heating/per-ventilation deactivated:Fuel level low</item>
+        <item>Pre-heating/per-ventilation deactivated:Battery charge low</item>
+        <item>Turn the steering wheel to unlock</item>
+        <item>Key has been pulled out, please press and shut down the engine</item>
+        <item>To switch off the engine, place the selector lever in the P position</item>
+        <item>To start the engine, insert the key</item>
+        <item>To start the engine, press on the brake pedal + press START</item>
+        <item>To start the engine, hold the clutch pedal + press START</item>
+        <item>No key detected</item>
+        <item>Remove the key</item>
+        <item>No car keys</item>
+        <item>To release the handbrake, press on the brake pedal</item>
+        <item>Cruise control suspended</item>
+        <item>Cruise cruise failure</item>
+        <item>Please fully depress the clutch</item>
+        <item>Calculation, the maximum speed of 20km / h</item>
+        <item>Select the direction with the turn signal</item>
+        <item>Steering wheel failure, please repair the vehicle</item>
+        <item>Please handbrake to the maximum position</item>
+        <item>Circuit failure, please repair the vehicle</item>
+        <item>Tighten the handbrake</item>
+        <item>Electronic engine immobiliser fault</item>
+        <item>Engine fault:Stop the vehicle</item>
+        <item>Roof manoeuvre impossible:System temperature too high</item>
+        <item>Roof manoeuvre impossble:Start the engine</item>
+        <item>Roof manoeuvre impossble:Apply the handbrake</item>
+        <item>Hybrid system fault:Stop the vehicle,see handbook</item>
+        <item>Hybrid system fault:Repair needed</item>
+        <item>Hybrid system fault:Speed restricted,repair needed</item>
+        <item>Place automatic gearbox in position N and disconnect key</item>
+        <item>Hybrid system activate</item>
+        <item>Electric mode is temporarily unable to switch</item>
+        <item>Trailer connection fault:Repair needed</item>
+        <item>Reset manualy</item>
+    </array>
+    <array name="can_psa_func">
+        <item>Park freni devre dışı bırakıldı</item>
+        <item>Park freni devrede</item>
+        <item>Otomatik ekran silme aktif</item>
+        <item>Otomatik ekran silme özelliği devre dışı bırakıldı</item>
+        <item>Otomatik far aydınlatması etkinleştirildi</item>
+        <item>Otomatik far aydınlatması devre dışı</item>
+        <item>Otomatik kapı kilitleme etkin</item>
+        <item>Otomatik kapı kilitleme devre dışı</item>
+        <item>Çocuk güvenliği aktif</item>
+        <item>Çocuk güvenliği devre dışı</item>
+        <item>ESP sistemi aktif</item>
+        <item>ESP sistemi devre dışı bırakıldı</item>
+        <item>Anti-skid sistemini sürün: normal mod</item>
+        <item>Anti-skid sistemi sürün: çamur modu</item>
+        <item>Anti-skid sistemini sürün: kar modu</item>
+        <item>Anti-skid sistemi sürün: kum modu</item>
+        <item>Start-Stop sistemi aktif</item>
+        <item>Start-Stop sistemi devre dışı bırakıldı</item>
+        <item>Çekiş kontrol sistemi</item>
+        <item>Çekiş kontrol sistemi kapalı</item>
+    </array>
+    <array name="can_ford_warn_text">
+        <item>BOŞ</item>
+        <item>Şanzıman aşırı sıcaklığı, Güvenli durun.</item>
+        <item>Şanzıman arızası, Şimdi servis</item>
+        <item>Motor arızası, Şimdi servis</item>
+        <item>Dlesel filtresinin aşırı yüklenmesi kılavuza bakın</item>
+        <item>Motor yağı değişimi servis gerektiriyor</item>
+        <item>Motor yağ basıncı düşük, güvenle durun</item>
+        <item>Yokuşta kalkış yardımı mevcut değil</item>
+        <item>Hava yastığı arızası, Şimdi servis</item>
+        <item>Fren sistemi arızası, güvenle durun</item>
+        <item>Fren hidroliği seviyesi düşük, Şimdi servis.</item>
+        <item>ABS malfunciton, Şimdi servis</item>
+        <item>ESP kapalı</item>
+        <item>ESP arızası, Sonraki servis</item>
+        <item>Servo direksiyon arızası, Servis şimdi.</item>
+        <item>BOŞ</item>
+        <item>Önyükleme açık</item>
+        <item>Kaput açık</item>
+        <item>Yolcu tarafı arka kapı açık</item>
+        <item>Sürücü tarafı arka kapı açık</item>
+        <item>Yolcu kapısı açık.</item>
+        <item>Sürücü kapısı açık</item>
+        <item>BOŞ</item>
+        <item>Otomatik çalıştırma motoru çalıştırma</item>
+        <item>Sol gösterge arızası, Ampulü değiştirin.</item>
+        <item>Sağ gösterge arızası, Ampulü değiştir</item>
+        <item>Kaput açık</item>
+        <item>Önyükleme açık.</item>
+        <item>Yolcu tarafı arka kapı açık</item>
+        <item>Sürücü tarafı arka kapı açık</item>
+        <item>Yolcu kapısı açık.</item>
+        <item>Sürücü kapısı açık</item>
+        <item>Başlamak için debriyaja basın</item>
+        <item>Başlamak için fren basın</item>
+        <item>Anahtar pil zayıf, pili değiştirin</item>
+        <item>Otomatik başlat, Motoru çalıştırmak için bir pedal basın.</item>
+        <item>Alarm sistemi arızası, Servis gerekli.</item>
+        <item>Anahtar pil zayıf, pili değiştirin</item>
+        <item>İç tarama devre dışı bırakıldı.</item>
+        <item>Otomatik silecek / lamba arızası, Servis gerekli</item>
+        <item>Otomatik başlat, Manuel başlatma gerekli.</item>
+        <item>Bagajı kapatın veya yedek anahtarı kullanın</item>
+        <item>Direksiyon kilidi devreye sokulmuştur, direksiyon simidini döndürünüz</item>
+        <item>Direksiyon kilidi arızası, güvenle durun</item>
+        <item>Direksiyon kilidi arızası, Şimdi servis</item>
+        <item>Anahtar dışında araba</item>
+        <item>Anahtar algılanmadı</item>
+        <item>Kontağı kapatın, POWER düğmesini kullanın</item>
+        <item>Kapı açıkken fren uygulayın</item>
+        <item>Başlamak için N seçiniz.</item>
+        <item>Başlamak için fren basın.</item>
+        <item>Otomatik StartStop, Nötr seç.</item>
+        <item>Başlamak için N veya P seçiniz</item>
+        <item>Parkta değil araçta, P seçiniz</item>
+        <item>Otomatik StartStop, Kontağı kapat</item>
+        <item>İmmobilizer arızası, Şimdi servis</item>
+        <item>Alarm tetiklendi, Aracı kontrol et</item>
+        <item>Alarm tetiklendi, Aracı kontrol et</item>
+        <item>Alarm tetiklendi, Aracı kontrol et</item>
+        <item>Alarm tetiklendi, Aracı kontrol et</item>
+        <item>Şanzıman sıcak, Dur veya hızlandır.</item>
+        <item>Iletim sıcak, durdurma veya hızlandırmak</item>
+        <item>Şanzıman hazır.</item>
+        <item>Şanzıman sıcak, Bekleyin 4 dak</item>
+        <item>Başlamak için fren ve debriyaja basın</item>
+        <item>Başlamak için fren basın.</item>
+        <item>Başlamak için debriyaja basın.</item>
+        <item>Aktif Şehir Durdurma, Otomatik frenleme</item>
+        <item>Aktif Şehir Durağı mevcut değil</item>
+        <item>Aktif Şehir Durdurma sensörü bloke edildi, Temiz ekran</item>
+        <item>Lastik basınçlarını kontrol edin</item>
+        <item>Lastik basınçları sys arızası, Servis gerekli</item>
+        <item>Motor koşusu</item>
+        <item>MyKey etkin, Güvenli sür</item>
+        <item>MyKey hızı 160 km / s ile sınırlıdır.</item>
+        <item>MyKey aracı en yüksek hızda</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>MyKey kontrol hızı, Güvenli sürün</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>MyKey park ald devre dışı bırakılamaz</item>
+        <item>MyKey ESC devre dışı bırakılamaz.</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Selecor kolunu açmak için freme basın</item>
+        <item>Marş süresi aşıldı</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>İletim Parkta değil</item>
+        <item>Vites kolu kilidi</item>
+        <item>Park freni uygulandı</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>MyKey aracı en yüksek hıza yakın</item>
+        <item>BOŞ</item>
+        <item>Park freni uygulandı</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_tsy">
+        <item>BOŞ</item>
+        <item>Manevra yapmadan önce güvenli olduğundan emin olun</item>
+        <item>Park Yardımı mevcut değil</item>
+        <item>Tarafı değiştirmek için sinyal kullanın</item>
+        <item>İleri vites seç</item>
+        <item>Uzay bulundu, öne geç</item>
+        <item>Boş park yerinin yanında dur</item>
+        <item>Park pozisyonunu ayarlamak için ┿ ┿ tuşuna basın.</item>
+        <item>Park pozisyonunu ayarla</item>
+        <item>Park Yardımı İptal Edildi</item>
+        <item>Geriye doğru sür</item>
+        <item>Durdur ve geri vites seç</item>
+        <item>İleri sür</item>
+        <item>Durdur ve ileri vites seç</item>
+        <item>Park yardımı tamamlandı</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Merkezi direksiyon</item>
+        <item>Fragmanı kaldır</item>
+        <item>VDC AÇIK olmalıdır</item>
+        <item>Başlamak için kapıyı kapatın</item>
+        <item>Sistem hatası</item>
+        <item>Park Yardımı hatası</item>
+        <item>Aşırı Hız</item>
+        <item>Yönlendirilmiş Direksiyon</item>
+        <item>Treyler AÇIK</item>
+        <item>VDC Aktif</item>
+        <item>Kapı Açık / Kayış KAPALI</item>
+        <item>Zaman aşımı</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Motor aktif değil</item>
+        <item>Alamayan</item>
+        <item>FWD dişlisi park yerinin dışında</item>
+        <item>Özgeçmiş mümkün değil</item>
+        <item>BOŞ</item>
+        <item>durdurmak</item>
+        <item>Geri vites seç</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Çevreyi kontrol et</item>
+        <item>Park yardımına başlamak için park yuvasının yanında durun</item>
+        <item>BOŞ</item>
+        <item>Hızını azaltın</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>BOŞ</item>
+        <item>Direksiyon dönen</item>
+        <item>Dikkatli ilerleyin</item>
+        <item>Geriye doğru dikkatli sürün</item>
+        <item>Engeli kontrol edin</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_declare">
+        <item>Bay Park nasıl kullanılır</item>
+        <item>Mavi kutu boş hedef uzayda konumlandırın</item>
+        <item>Kırmızı çizgiler sistemin sınırlarını gösterir</item>
+        <item>Otomatik yönlendirmeyi başlatmak için Push‘Start ᾿</item>
+        <item>* Engellerden kaçınma fonksiyonu yok, daima çevreyi kontrol edin</item>
+        <item>Manuel fren</item>
+        <item> Otomatik yönlendirmede direksiyon simidini serbest bırakın</item>
+    </array>
+    <array name="can_dgkz">
+        <item>Far, sürüş lambası, stop lambası</item>
+        <item>far, sürüş lambası</item>
+        <item>stop lambası</item>
+    </array>
+    <array name="can_ybtsy">
+        <item>Ses 1</item>
+        <item>Ses 2</item>
+        <item>Ses 3</item>
+    </array>
+    <array name="can_psa_rzc_cartype">
+        <item>düşük ver</item>
+        <item>orta ver</item>
+        <item>yüksek ver g gps ile</item>
+    </array>
+    <array name="can_ford_active_park">
+        <item>Devam etmek için yavaşlayın</item>
+        <item>Yavaşla</item>
+        <item>Park yeri aranıyor</item>
+        <item>Park yeri aranıyor</item>
+        <item>Arıza</item>
+        <item>Park noktasında bulundu n Sürüşe devam et</item>
+        <item>Park noktasında bulundu n Sürüşe devam et</item>
+        <item>Park yerinde bulundu n Dur</item>
+        <item>Park yerinde bulundu n Dur</item>
+        <item>Serbest bırakma R</item>
+        <item>Serbest bırakma R</item>
+        <item>Çevreyi kontrol et, geri çekil</item>
+        <item>Çevreyi kontrol et, geri çekil</item>
+        <item>Çevreyi kontrol et, İleri sür</item>
+        <item>Çevreyi kontrol et, İleri sür</item>
+        <item>Çevreyi kontrol et, Drive arkaplanı</item>
+        <item>Çevreyi kontrol et, Drive arkaplanı</item>
+        <item>bitirdi</item>
+        <item>Mevcut devam</item>
+        <item>İptal edildi</item>
+        <item>Hız ile iptal edildi</item>
+        <item>Direksiyon ile iptal edildi</item>
+        <item>Müsait değil</item>
+        <item>ESC etkinliği tarafından iptal edildi</item>
+        <item>ABS etkinliği tarafından iptal edildi</item>
+    </array>
+</resources>

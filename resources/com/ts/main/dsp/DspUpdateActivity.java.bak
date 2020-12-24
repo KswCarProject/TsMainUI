@@ -1,0 +1,192 @@
+package com.ts.main.dsp;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Arrays;
+
+import android.annotation.MainThread;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import com.ts.MainUI.R;
+import com.yyw.ts70xhw.Iop;
+
+public class DspUpdateActivity extends Activity {
+	private String filePath = null;
+	private TextView tvDownloadState;
+	private TextView tvUpdateState;
+	private TextView tvVersion;
+	private ProgressBar pbDownload;
+	private ProgressBar pbUpdate;
+	private Handler mHandler;
+	private RandomAccessFile raf;
+	private long totalBlocks = 0;
+	private HandlerThread workThread;
+	private Button btnUpdate;
+	private int state = -1;
+	protected Runnable downloadData = new Runnable() {
+		private byte[] buffer = new byte[128];
+		private int blockId;
+		@Override
+		public void run() {
+			if (raf != null) {
+				final int update = Iop.DspGetUpdate();
+				try {
+					state = (update&0x0f0000)>>16;
+					
+					switch(state)
+					{
+					case 0x00:
+						blockId = update&0xffff;
+						if (blockId > 0) {
+							//if (newBlockId != blockId) {
+								Arrays.fill(buffer, (byte)0);
+								raf.seek((long)((blockId-1)*128));
+								int readCnt = raf.read(buffer, 0, 128);
+								if (readCnt > 0) {
+									Iop.DspSndUpdate(blockId, buffer);
+								}
+							//}
+							//else
+							//{
+							//	Iop.DspSndUpdate(blockId, buffer);
+							//}
+						}
+						mHandler.postDelayed(this, 5);
+						break;
+						
+					case 0x01:
+					case 0x02:
+						mHandler.postDelayed(this, 5);
+						break;
+						
+					case 0x03:
+					case 0x04:
+						raf.close();
+						break;
+					}
+
+					DspUpdateActivity.this.runOnUiThread(new Runnable() {
+						
+						@Override
+						public void run() {
+								switch (state) {
+								case 0x00:
+									tvDownloadState.setText(getResources().getString(R.string.downloading)+" "+blockId+"/"+totalBlocks);
+									btnUpdate.setEnabled(false);
+									pbDownload.setProgress((int)(blockId*100/totalBlocks));
+								case 0x01:
+									//tvDownloadState.setText(getResources().getString(R.string.downloading)+" "+blockId+"/"+totalBlocks);
+									//tvUpdateState.setText(R.string.wait_for_downloading);
+									break;
+
+								case 0x02:
+									//tvDownloadState.setText(R.string.download_finish);
+									tvUpdateState.setText(R.string.writting_data);
+									int updateProgress = update&0xff;
+									pbUpdate.setProgress(updateProgress);
+									break;
+									
+								case 0x03:
+									tvUpdateState.setText(R.string.update_success);
+									new AlertDialog.Builder(DspUpdateActivity.this)
+									.setMessage(R.string.update_success)
+									.show();
+									pbUpdate.setProgress(100);
+									btnUpdate.setEnabled(true);
+									break;
+									
+								case 0x04:
+									tvUpdateState.setText(R.string.update_failed);
+									new AlertDialog.Builder(DspUpdateActivity.this)
+									.setMessage(R.string.update_failed)
+									.show();
+									btnUpdate.setEnabled(true);
+									break;
+								default:
+									break;
+								}
+						}
+					});
+				} catch (IOException e) {
+					DspUpdateActivity.this.runOnUiThread(new Runnable() {
+						
+						@Override
+						public void run() {
+							tvDownloadState.setText(R.string.read_file_error);
+						}
+					});
+					
+					e.printStackTrace();
+				}
+			}
+		}
+	};
+	
+	@Override
+	protected void onCreate(Bundle arg0) {
+		super.onCreate(arg0);
+		filePath = getIntent().getStringExtra("path");
+		if (filePath == null) {
+			finish();
+			return;
+		}
+		workThread = new HandlerThread("update");
+		workThread.start();
+		mHandler = new Handler(workThread.getLooper());
+		setContentView(R.layout.activity_dsp_update);
+		
+		tvDownloadState = (TextView)findViewById(R.id.download_state);
+		tvUpdateState = (TextView)findViewById(R.id.erase_state);
+		tvVersion = (TextView)findViewById(R.id.version);
+		pbDownload = (ProgressBar)findViewById(R.id.download_progress);
+		pbDownload.setMax(100);
+		pbUpdate = (ProgressBar)findViewById(R.id.erase_progress);
+		pbUpdate.setMax(100);
+		btnUpdate = (Button)findViewById(R.id.btn_update);
+		btnUpdate.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				File file = new File(filePath);
+				if (filePath.endsWith("tsdsp.bin") && file.exists() && file.canRead()) {
+					try {
+						raf = new RandomAccessFile(file, "r");
+						long totalSize = file.length();
+						if (totalSize == 0) {
+							new AlertDialog.Builder(DspUpdateActivity.this)
+							.setMessage(R.string.invaild_file)
+							.show();
+							return;
+						}
+						totalBlocks = totalSize/128+((totalSize%128)>0?1:0);
+						Iop.DspStartUpdate((int) totalSize);
+						mHandler.post(downloadData);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+	}
+
+	@SuppressLint("NewApi") 
+	@Override
+	protected void onDestroy() {
+		mHandler.removeCallbacksAndMessages(null);
+		workThread.quitSafely();
+		super.onDestroy();
+	}
+	
+}

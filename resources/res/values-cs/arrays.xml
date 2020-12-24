@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="set_main_options">
+        <item>společný</item>
+        <item>displej</item>
+        <item>hlasitost</item>
+        <item>zvuk</item>
+        <item>video</item>
+        <item>navigace</item>
+        <item>bluetooth</item>
+        <item>nastavení multifunkčního volantu</item>
+        <item>o zářízení</item>
+    </array>
+    <array name="set_genera_options">
+        <item>pohotovostní doba</item>
+        <item>rozpoznání řeči</item>
+        <item>asistent dotyku ikon</item>
+        <item>reverzní zvukové potlačení</item>
+        <item>uvodní logo při spuštění</item>
+        <item>virtuální cd mechanika</item>
+        <item>vymazat veškeré nastavení</item>
+        <item>vymazat veškerý obsah</item>
+    </array>
+    <array name="set_display_options">
+        <item>denní podsvícení</item>
+        <item>noční podsvícení</item>
+        <item>automaticky</item>
+        <item>barva podsvícení</item>
+    </array>
+    <array name="set_volume_options">
+        <item>media zvuk</item>
+        <item>navigece zvuk</item>
+        <item>BT zvuk</item>
+        <item>hlasitost zvuku</item>
+        <item>alarm zvuku</item>
+        <item>systémový zvuk</item>
+    </array>
+    <array name="set_video_options">
+        <item>žádné video v pohybu</item>
+        <item>dynamické parkování</item>
+        <item>statistické parkování</item>
+        <item>zrcadléní zadní kamery</item>
+        <item>zobrazení displeje</item>
+        <item>zadní parkovací kamera</item>
+        <item>přední parkovací kamera</item>
+    </array>
+    <array name="set_navi_options">
+        <item>automatický start navigace</item>
+        <item>aplikace navigace</item>
+        <item>navigace + media zvuk</item>
+    </array>
+    <array name="set_bt_options">
+        <item>PIN kod</item>
+        <item>automatické připojení</item>
+        <item>automatická odpověd</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>Media</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVD ROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Získat</item>
+        <item>Nízká frekvence</item>
+        <item>Harmonický</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Nízká frekvence</item>
+        <item>Získat</item>
+        <item>Vysoká frekvence</item>
+        <item>Získat</item>
+    </array>
+</resources>

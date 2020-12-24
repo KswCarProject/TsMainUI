@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/driving_di1" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/iv_speed_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="100px" android:layout_marginTop="54px" android:src="@drawable/driving_sudu_posters"/>
+    <ImageView android:id="@+id/iv_rate_pointer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="833px" android:layout_marginTop="54px" android:src="@drawable/driving_sudu_posters"/>
+    <ImageView android:id="@+id/iv_safe_seat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="402px" android:layout_marginTop="366px" android:src="@drawable/driving_anquandai_up"/>
+    <ImageView android:id="@+id/iv_hand_break" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="132px" android:layout_marginTop="366px" android:src="@drawable/driving_shousha_up"/>
+    <TextView android:textSize="35sp" android:textColor="#fff" android:gravity="center" android:id="@+id/tv_distance" android:layout_width="300px" android:layout_height="wrap_content" android:layout_marginLeft="490px" android:layout_marginTop="160px" android:text="500"/>
+    <TextView android:textSize="22sp" android:textColor="#fff" android:id="@+id/tv_distance_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="620px" android:layout_marginTop="210px" android:text="km"/>
+    <TextView android:textSize="60px" android:textStyle="bold" android:textColor="#fff" android:gravity="center" android:id="@+id/tv_speed" android:layout_width="150px" android:layout_height="wrap_content" android:layout_marginLeft="540px" android:layout_marginTop="80px" android:text="100"/>
+    <TextView android:textSize="22sp" android:textColor="#fff" android:id="@+id/tv_speed_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10px" android:text="km/h" android:layout_toRightOf="@+id/tv_speed" android:layout_alignBottom="@+id/tv_speed"/>
+</RelativeLayout>

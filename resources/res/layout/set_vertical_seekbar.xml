@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="20px" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/seek_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="seek bar" android:singleLine="true"/>
+    <com.ts.set.setview.SettingSeekBar android:layout_gravity="center_horizontal" android:id="@+id/sb" android:layout_width="39px" android:layout_height="240px"/>
+    <TextView android:textSize="28px" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/seek_value" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="15" android:singleLine="true"/>
+</LinearLayout>

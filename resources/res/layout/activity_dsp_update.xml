@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <TextView android:textColor="#fff" android:id="@+id/version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/version_code"/>
+    <TextView android:textColor="#fff" android:id="@+id/download_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20px" android:text="@string/wait_to_start" android:layout_below="@+id/version" android:layout_centerHorizontal="true"/>
+    <ProgressBar android:id="@+id/download_progress" android:layout_width="600px" android:layout_height="30px" android:layout_marginTop="8px" android:layout_below="@+id/download_state" android:layout_centerHorizontal="true" style="@style/Widget.ProgressBar.Horizontal"/>
+    <TextView android:textColor="#fff" android:gravity="center" android:id="@+id/erase_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20px" android:text="@string/wait_for_downloading" android:layout_below="@+id/download_progress" android:layout_centerHorizontal="true"/>
+    <ProgressBar android:id="@+id/erase_progress" android:layout_width="600px" android:layout_height="30px" android:layout_marginTop="8px" android:layout_below="@+id/erase_state" android:layout_alignLeft="@+id/download_progress" style="@style/Widget.ProgressBar.Horizontal"/>
+    <Button android:id="@+id/btn_update" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20px" android:text="@string/start_upgrade" android:layout_below="@+id/erase_progress" android:layout_alignRight="@+id/erase_progress"/>
+</RelativeLayout>

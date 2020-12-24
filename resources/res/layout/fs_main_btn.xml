@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android" android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@color/fs_btn_text_color" android:background="@drawable/fs_btn_main_item" android:layout_width="@dimen/fs_main_btn_width" android:layout_height="@dimen/fs_main_btn_height"/>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/set_color_mainid" android:paddingLeft="128px" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:background="@drawable/set_qcd_bg" android:layout_width="851px" android:layout_height="385px" android:layout_marginLeft="88px" android:layout_marginTop="57px"/>
+    <SeekBar android:id="@+id/seekBarR" android:layout_width="307px" android:layout_height="wrap_content" android:layout_marginLeft="156px" android:layout_marginTop="173px" android:maxHeight="34px" android:max="255" android:progress="128" android:progressDrawable="@drawable/set_qcd_progress_red" android:thumb="@drawable/set_qcd_progress_point"/>
+    <SeekBar android:id="@+id/seekBarG" android:layout_width="307px" android:layout_height="wrap_content" android:layout_marginLeft="156px" android:layout_marginTop="244px" android:maxHeight="34px" android:max="255" android:progress="128" android:progressDrawable="@drawable/set_qcd_progress_green" android:thumb="@drawable/set_qcd_progress_point"/>
+    <SeekBar android:id="@+id/seekBarB" android:layout_width="307px" android:layout_height="34px" android:layout_marginLeft="156px" android:layout_marginTop="315px" android:maxHeight="34px" android:max="255" android:progress="128" android:progressDrawable="@drawable/set_qcd_progress_blue" android:thumb="@drawable/set_qcd_progress_point"/>
+</RelativeLayout>

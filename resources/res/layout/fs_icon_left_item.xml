@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="220px" android:layout_height="58px">
+    <com.ts.other.ParamTextView android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@drawable/fs_list_color" android:gravity="center" android:id="@+id/fsicon_title" android:layout_width="198px" android:layout_height="45px" android:layout_marginLeft="11px" android:layout_marginTop="4px" android:text="@string/str_fsmain_can"/>
+    <ImageView android:background="@drawable/factory_icon_line" android:layout_width="198px" android:layout_height="2px" android:layout_marginLeft="11px" android:layout_marginTop="52px"/>
+</RelativeLayout>

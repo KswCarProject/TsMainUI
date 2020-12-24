@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/setup_box_01" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="25px" android:textColor="#000000" android:gravity="center_vertical" android:id="@+id/txt_serial_number" android:layout_width="174px" android:layout_height="49px" android:layout_marginLeft="29px" android:layout_marginTop="29px" android:text="SerialNumer"/>
+    <EditText android:id="@+id/edittxt_input" android:background="@drawable/setup_box_02" android:paddingLeft="10px" android:paddingRight="10px" android:layout_width="286px" android:layout_height="49px" android:layout_marginLeft="215px" android:layout_marginTop="29px" android:singleLine="true"/>
+    <TextView android:textSize="25px" android:textColor="#000000" android:gravity="center_vertical" android:id="@+id/txt_model_number1" android:layout_width="174px" android:layout_height="30px" android:layout_marginLeft="29px" android:layout_marginTop="96px" android:text="ModelNumber"/>
+    <TextView android:textSize="25px" android:textColor="#000000" android:gravity="center_vertical" android:id="@+id/txt_model_number" android:layout_width="wrap_content" android:layout_height="30px" android:layout_marginLeft="219px" android:layout_marginTop="96px" android:text="ModelNumber"/>
+    <Button android:textSize="27px" android:textColor="#000000" android:id="@+id/btn_setup" android:background="@drawable/setup_box_button" android:layout_width="118px" android:layout_height="56px" android:layout_marginLeft="209px" android:layout_marginTop="141px" android:text="OK"/>
+</RelativeLayout>

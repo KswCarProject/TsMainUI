@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="y_can_ac_flg">13px</dimen>
+    <dimen name="w_can_ac_flg">70px</dimen>
+    <dimen name="h_can_ac_flg">53px</dimen>
+    <dimen name="y_ford_ac_flg">3px</dimen>
+</resources>

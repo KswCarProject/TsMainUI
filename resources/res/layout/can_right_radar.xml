@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="center_horizontal" android:orientation="vertical" android:id="@+id/right_radar_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="30px" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+    <com.ts.can.RadarUIView android:id="@+id/right_fore_radar" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <ImageView android:id="@+id/small_car" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/can_car_small"/>
+    <com.ts.can.RadarUIView android:id="@+id/right_rear_radar" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+</LinearLayout>

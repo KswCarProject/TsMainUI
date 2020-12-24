@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/layout_set_balance" android:background="#ff000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:layout_width="391px" android:layout_height="391px" android:layout_marginLeft="323px" android:layout_marginTop="62px" layout="@layout/set_balance_setup"/>
+    <Button android:id="@+id/set_balance_btn_sound" android:layout_width="140px" android:layout_height="60px" android:layout_marginLeft="804px" android:layout_marginTop="101px"/>
+    <Button android:id="@+id/set_balance_btn_center" android:background="@drawable/setup_btn_bal_default" android:layout_width="140px" android:layout_height="60px" android:layout_marginLeft="804px" android:layout_marginTop="200px"/>
+    <include android:layout_width="230px" android:layout_height="45px" android:layout_marginLeft="750px" android:layout_marginTop="336px" layout="@layout/set_switch"/>
+    <include android:layout_width="230px" android:layout_height="45px" android:layout_marginLeft="750px" android:layout_marginTop="406px" layout="@layout/set_switch2"/>
+</RelativeLayout>

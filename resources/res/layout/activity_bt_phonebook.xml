@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/bt_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:background="@drawable/bt_phonebook_bg" android:layout_width="734px" android:layout_height="342px" android:layout_marginLeft="525px" android:layout_marginTop="9px"/>
+    <include layout="@layout/bt_sub_items"/>
+    <ListView android:scrollbarStyle="outsideOverlay" android:id="@+id/phonebook_listview" android:background="@android:color/transparent" android:layout_width="530px" android:layout_height="335px" android:layout_marginLeft="684px" android:layout_marginTop="10px" android:listSelector="@android:color/transparent" android:divider="@null" android:choiceMode="singleChoice"/>
+    <Button android:id="@+id/bt_phonebook_download" android:background="@drawable/phonebook_download" android:layout_width="126px" android:layout_height="77px" android:layout_marginLeft="525px" android:layout_marginTop="60px"/>
+    <Button android:id="@+id/bt_phonebook_dele" android:background="@drawable/phonebook_dele" android:layout_width="126px" android:layout_height="77px" android:layout_marginLeft="525px" android:layout_marginTop="220px"/>
+    <Button android:id="@+id/bt_phonebook_search" android:background="@drawable/phonebook_search" android:layout_width="126px" android:layout_height="77px" android:layout_marginLeft="525px" android:layout_marginTop="140px"/>
+    <RelativeLayout android:id="@+id/download_phonebook_layout" android:visibility="gone" android:layout_width="200px" android:layout_height="150px" android:layout_marginLeft="792px" android:layout_centerVertical="true">
+        <ProgressBar android:id="@+id/progressbar_download_phonebook" android:layout_width="match_parent" android:layout_height="100px" android:indeterminateDrawable="@drawable/bt_pb_progressbar"/>
+        <TextView android:textSize="24px" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/tv_download_phonebook_text" android:layout_width="match_parent" android:layout_height="40px" android:text="20" android:singleLine="true" android:layout_below="@+id/progressbar_download_phonebook"/>
+    </RelativeLayout>
+</RelativeLayout>

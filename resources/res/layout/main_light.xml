@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/intensity_control_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <SeekBar android:id="@+id/seekBar1" android:layout_width="347px" android:layout_height="wrap_content" android:layout_marginLeft="55px" android:layout_marginTop="23px" android:maxHeight="35px" android:max="6" android:progress="3" android:progressDrawable="@drawable/common_display_progress_bar" android:thumb="@drawable/intensity_control_point"/>
+</RelativeLayout>

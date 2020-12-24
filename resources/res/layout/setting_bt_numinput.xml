@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="557px" android:layout_height="335px">
+    <ImageView android:id="@+id/set_arrow" android:background="@drawable/setup_popup_bt_box" android:layout_width="557px" android:layout_height="335px" android:layout_marginLeft="0px" android:layout_marginTop="0px" android:layout_centerVertical="true"/>
+    <TextView android:textSize="42px" android:textColor="@android:color/black" android:id="@+id/setting_bt_edx_num" android:layout_width="400px" android:layout_height="65px" android:layout_marginLeft="30px" android:layout_marginTop="13px" android:text="" android:singleLine="true"/>
+    <Button android:id="@+id/setting_bt_btn_num7" android:background="@drawable/setup_popup_bt_num07" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="20px" android:layout_marginTop="257px"/>
+    <Button android:id="@+id/setting_bt_btn_num8" android:background="@drawable/setup_popup_bt_num08" android:layout_width="116px" android:layout_height="66px" android:layout_marginLeft="154px" android:layout_marginTop="257px"/>
+    <Button android:id="@+id/setting_bt_btn_num9" android:background="@drawable/setup_popup_bt_num09" android:layout_width="116px" android:layout_height="66px" android:layout_marginLeft="287px" android:layout_marginTop="257px"/>
+    <Button android:id="@+id/setting_bt_btn_delete" android:background="@drawable/setup_popup_bt_return" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="423px" android:layout_marginTop="97px"/>
+    <Button android:id="@+id/setting_bt_btn_ok" android:background="@drawable/setup_popup_bt_ok" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="423px" android:layout_marginTop="179px"/>
+    <Button android:id="@+id/setting_bt_btn_num4" android:background="@drawable/setup_popup_bt_num04" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="20px" android:layout_marginTop="179px"/>
+    <Button android:id="@+id/setting_bt_btn_num5" android:background="@drawable/setup_popup_bt_num05" android:layout_width="116px" android:layout_height="66px" android:layout_marginLeft="154px" android:layout_marginTop="179px"/>
+    <Button android:id="@+id/setting_bt_btn_num6" android:background="@drawable/setup_popup_bt_num06" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="287px" android:layout_marginTop="179px"/>
+    <Button android:id="@+id/setting_bt_btn_close" android:background="@drawable/setup_popup_bt_close" android:layout_width="61px" android:layout_height="61px" android:layout_marginLeft="472px" android:layout_marginTop="10px"/>
+    <Button android:id="@+id/setting_bt_btn_num1" android:background="@drawable/setup_popup_bt_num01" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="20px" android:layout_marginTop="97px"/>
+    <Button android:id="@+id/setting_bt_btn_num2" android:background="@drawable/setup_popup_bt_num02" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="154px" android:layout_marginTop="97px"/>
+    <Button android:id="@+id/setting_bt_btn_num3" android:background="@drawable/setup_popup_bt_num03" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="287px" android:layout_marginTop="97px"/>
+    <Button android:id="@+id/setting_bt_btn_num0" android:background="@drawable/setup_popup_bt_num00" android:layout_width="117px" android:layout_height="66px" android:layout_marginLeft="423px" android:layout_marginTop="257px"/>
+</RelativeLayout>

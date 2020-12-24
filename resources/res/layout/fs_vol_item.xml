@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <TextView android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@color/fs_title" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/fsvol_title" android:paddingLeft="20px" android:layout_width="@dimen/fs_vol_title_width" android:layout_height="match_parent" android:layout_alignTop="@+id/fsvol_cut" android:layout_alignBottom="@+id/fsvol_cut"/>
+    <com.ts.other.ParamButton android:id="@+id/fsvol_cut" android:background="@drawable/factory_reduce" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/fsvol_title"/>
+    <TextView android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@color/fs_btn_text_color" android:gravity="center" android:id="@+id/fsvol_val" android:background="@drawable/factory_radio_box" android:layout_width="@dimen/fs_vol_value_width" android:layout_height="match_parent" android:layout_toRightOf="@+id/fsvol_cut" android:layout_alignTop="@+id/fsvol_cut" android:layout_alignBottom="@+id/fsvol_cut"/>
+    <com.ts.other.ParamButton android:id="@+id/fsvol_add" android:background="@drawable/factory_add" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/fsvol_val"/>
+    <ImageView android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/factory_short_line" android:layout_alignParentBottom="true"/>
+</RelativeLayout>

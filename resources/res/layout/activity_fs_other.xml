@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/factory_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/fs_top_item"/>
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:id="@+id/scrView" android:paddingRight="20px" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="39px" android:layout_marginTop="84px" android:layout_marginRight="39px">
+        <LinearLayout android:orientation="vertical" android:id="@+id/lineView" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </ScrollView>
+</RelativeLayout>

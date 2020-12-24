@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_lincs_mkc_layout" android:background="@drawable/can_comm_bg" android:layout_width="768px" android:layout_height="719px">
+    <com.ts.backcar.AutoFitTextureView android:id="@+id/DevtextureView" android:visibility="invisible" android:layout_width="768px" android:layout_height="432px" android:layout_alignParentTop="true" android:layout_alignParentStart="true"/>
+    <Button android:id="@+id/btn_display" android:background="@drawable/camera_btn_display" android:visibility="invisible" android:layout_width="85px" android:layout_height="84px" android:layout_marginLeft="31px" android:layout_marginTop="26px"/>
+    <ImageView android:background="@drawable/lin_car_bg" android:layout_width="768px" android:layout_height="287px" android:layout_marginLeft="0px" android:layout_marginTop="432px"/>
+</RelativeLayout>

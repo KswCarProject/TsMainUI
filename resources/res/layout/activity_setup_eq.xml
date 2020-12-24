@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="#ff000000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="45px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="125px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="205px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="285px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="365px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="445px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="525px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="605px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="685px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <include android:layout_width="80px" android:layout_height="350px" android:layout_marginLeft="765px" android:layout_marginTop="170px" layout="@layout/set_vertical_seekbar"/>
+    <Button android:textColor="#ff0397ff" android:id="@+id/btn_eqmode_user" android:background="@drawable/setup_btn_eq_mode" android:layout_width="140px" android:layout_height="62px" android:layout_marginLeft="860px" android:layout_marginTop="41px"/>
+    <Button android:textColor="#ffff9603" android:id="@+id/btn_eqmode_flat" android:background="@drawable/setup_btn_eq_mode" android:layout_width="140px" android:layout_height="62px" android:layout_marginLeft="860px" android:layout_marginTop="106px"/>
+    <Button android:textColor="#ff4ed966" android:id="@+id/btn_eqmode_pop" android:background="@drawable/setup_btn_eq_mode" android:layout_width="140px" android:layout_height="62px" android:layout_marginLeft="860px" android:layout_marginTop="171px"/>
+    <Button android:textColor="#ffff1a48" android:id="@+id/btn_eqmode_rock" android:background="@drawable/setup_btn_eq_mode" android:layout_width="140px" android:layout_height="62px" android:layout_marginLeft="860px" android:layout_marginTop="236px"/>
+    <Button android:textColor="#fff1ff4a" android:id="@+id/btn_eqmode_jazz" android:background="@drawable/setup_btn_eq_mode" android:layout_width="140px" android:layout_height="62px" android:layout_marginLeft="860px" android:layout_marginTop="301px"/>
+    <Button android:textColor="#ff6a68ff" android:id="@+id/btn_eqmode_classic" android:background="@drawable/setup_btn_eq_mode" android:layout_width="140px" android:layout_height="62px" android:layout_marginLeft="860px" android:layout_marginTop="366px"/>
+    <Button android:textColor="#ff6a68ff" android:id="@+id/btn_bal_entry" android:layout_width="140px" android:layout_height="62px" android:layout_marginLeft="860px" android:layout_marginTop="431px"/>
+</RelativeLayout>

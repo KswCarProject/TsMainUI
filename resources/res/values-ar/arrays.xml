@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>مشترك</item>
+        <item>عرض</item>
+        <item>الصوت</item>
+        <item>صوت</item>
+        <item>فيديو</item>
+        <item>ملاحة</item>
+        <item>البلوتوث</item>
+        <item>SWC</item>
+        <item>معلومات عن الجهاز</item>
+    </array>
+    <array name="set_genera_options">
+        <item>وقت الانتظار</item>
+        <item>التعرف على الكلام</item>
+        <item>اتصال المساعدة</item>
+        <item>عكس حجم قمع</item>
+        <item>التمهيد الشعار</item>
+        <item>Virtual CD Storage Device</item>
+        <item>إعادة تعيين جميع الإعدادات</item>
+        <item>محو محتوى</item>
+    </array>
+    <array name="set_display_options">
+        <item>النهار تعيين الخلفية</item>
+        <item>يلا تعيين الخلفية</item>
+        <item>وضع السيارات</item>
+        <item>مفتاح الضوء اللون</item>
+    </array>
+    <array name="set_volume_options">
+        <item>وسائل الإعلام حجم</item>
+        <item>نافي حجم</item>
+        <item>فازت وحدة التخزين</item>
+        <item>حلقة حجم</item>
+        <item>إنذار حجم التداول</item>
+        <item>وحدة تخزين النظام</item>
+    </array>
+    <array name="set_video_options">
+        <item>مشاهدة فيديو ممنوع أثناء القيادة</item>
+        <item>عكس مساعد الخط</item>
+        <item>عكس الخط تحذير</item>
+        <item>كاميرا مرآة الخلفية</item>
+        <item>مكيف هواء</item>
+        <item>الفيديو الخلفي</item>
+        <item>كاميرا أمامية</item>
+    </array>
+    <array name="set_navi_options">
+        <item>صناعة السيارات بدء الإنتقال</item>
+        <item>مسار الملف</item>
+        <item>ملاحة مختلطة</item>
+    </array>
+    <array name="set_bt_options">
+        <item>رمز دبوس</item>
+        <item>السيارات اتصال</item>
+        <item>رد ألي</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>كسب</item>
+        <item>تردد منخفض</item>
+        <item>متناسق</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>تردد منخفض</item>
+        <item>كسب</item>
+        <item>تردد عالي</item>
+        <item>كسب</item>
+    </array>
+</resources>

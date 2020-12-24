@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background" android:drawable="@drawable/can_progress_long_small_up"/>
+    <item android:id="@android:id/secondaryProgress" android:drawable="@drawable/can_progress_long_small_dn"/>
+    <item android:id="@android:id/progress" android:drawable="@drawable/can_progress_long_small_dn"/>
+</layer-list>

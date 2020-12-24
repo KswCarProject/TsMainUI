@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="20sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10px" android:layout_marginTop="30px" android:text="存储设备:"/>
+    <CheckBox android:textColor="#ffffffff" android:id="@+id/ck_factort_emmc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="210px" android:layout_marginTop="30px" android:text="内部存储"/>
+    <CheckBox android:textColor="#ffffffff" android:id="@+id/ck_factort_sd" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="410px" android:layout_marginTop="30px" android:text="SD设备"/>
+    <TextView android:textSize="20sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10px" android:layout_marginTop="130px" android:text="其他设备:"/>
+    <CheckBox android:textColor="#ffffffff" android:id="@+id/ck_factort_sim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="210px" android:layout_marginTop="130px" android:text="SIM卡状态"/>
+    <CheckBox android:textColor="#ffffffff" android:id="@+id/ck_factort_iic" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="410px" android:layout_marginTop="130px" android:text="I2C"/>
+    <CheckBox android:textColor="#ffffffff" android:id="@+id/ck_factort_uart" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="610px" android:layout_marginTop="130px" android:text="串口"/>
+    <TextView android:textSize="20sp" android:textColor="#ffffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10px" android:layout_marginTop="230px" android:text="Mcu:"/>
+    <CheckBox android:textColor="#ffffffff" android:id="@+id/ck_factort_mcu" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="210px" android:layout_marginTop="230px" android:text="MCU"/>
+    <TextView android:textSize="40sp" android:textColor="#ffffffff" android:id="@+id/btn_fatctoryarmmes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="300px" android:layout_marginTop="330px" android:text=""/>
+</RelativeLayout>

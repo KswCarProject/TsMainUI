@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:paddingTop="4px" android:layout_width="match_parent" android:layout_height="54px">
+    <TextView android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@android:color/white" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/fsadj_title" android:layout_width="200px" android:layout_height="45px" android:layout_marginLeft="30px" android:text="title"/>
+    <com.ts.other.ParamButton android:id="@+id/fsadj_cut" android:layout_width="46px" android:layout_height="45px" android:layout_marginLeft="244px"/>
+    <TextView android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@color/fs_btn_text_color" android:gravity="center" android:id="@+id/fsadj_val" android:background="@drawable/factory_radio_box" android:layout_width="97px" android:layout_height="45px" android:layout_marginLeft="290px"/>
+    <com.ts.other.ParamButton android:id="@+id/fsadj_add" android:layout_width="46px" android:layout_height="45px" android:layout_marginLeft="387px"/>
+    <TextView android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@color/fs_btn_text_color" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/fsadj_comment" android:layout_width="500px" android:layout_height="45px" android:layout_marginLeft="481px"/>
+    <ImageView android:background="@drawable/factory_long_line" android:layout_width="947px" android:layout_height="2px" android:layout_marginLeft="0px" android:layout_marginTop="48px"/>
+</RelativeLayout>

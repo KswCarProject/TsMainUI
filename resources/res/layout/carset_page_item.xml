@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/car_set_bg" android:background="@drawable/main_clxx_bg" android:layout_width="430px" android:layout_height="266px" android:layout_marginLeft="16px" android:layout_marginTop="67px"/>
+    <Button android:id="@+id/btn_air_bag" android:background="@drawable/btn_air_bag_background" android:layout_width="145px" android:layout_height="18px" android:layout_marginLeft="159px" android:layout_marginTop="80px"/>
+    <Button android:id="@+id/btn_lt_sub" android:background="@drawable/btn_left_sub_background" android:layout_width="68px" android:layout_height="56px" android:layout_marginLeft="84px" android:layout_marginTop="260px"/>
+    <Button android:id="@+id/btn_lt_add" android:background="@drawable/btn_left_add_background" android:layout_width="68px" android:layout_height="56px" android:layout_marginLeft="152px" android:layout_marginTop="260px"/>
+    <Button android:id="@+id/btn_rt_sub" android:background="@drawable/btn_right_sub_background" android:layout_width="68px" android:layout_height="56px" android:layout_marginLeft="246px" android:layout_marginTop="260px"/>
+    <Button android:id="@+id/btn_rt_add" android:background="@drawable/btn_right_add_background" android:layout_width="68px" android:layout_height="56px" android:layout_marginLeft="314px" android:layout_marginTop="260px"/>
+    <Button android:id="@+id/btn_car_set" android:background="@drawable/btn_car_set_background" android:layout_width="108px" android:layout_height="51px" android:layout_marginLeft="176px" android:layout_marginTop="103px"/>
+    <Button android:id="@+id/btn_sport" android:background="@drawable/btn_sport_background" android:layout_width="108px" android:layout_height="51px" android:layout_marginLeft="176px" android:layout_marginTop="159px"/>
+    <Button android:id="@+id/btn_poff" android:background="@drawable/btn_poff_background" android:layout_width="108px" android:layout_height="51px" android:layout_marginLeft="176px" android:layout_marginTop="216px"/>
+    <Button android:id="@+id/btn_off_esp" android:background="@drawable/btn_off_esp_background" android:visibility="gone" android:layout_width="108px" android:layout_height="51px" android:layout_marginLeft="176px" android:layout_marginTop="159px"/>
+    <Button android:id="@+id/btn_left_key" android:background="@drawable/btn_left_key_background" android:visibility="gone" android:layout_width="108px" android:layout_height="51px" android:layout_marginLeft="63px" android:layout_marginTop="159px"/>
+    <Button android:id="@+id/btn_right_key" android:background="@drawable/btn_right_key_background" android:visibility="gone" android:layout_width="108px" android:layout_height="51px" android:layout_marginLeft="289px" android:layout_marginTop="159px"/>
+</RelativeLayout>

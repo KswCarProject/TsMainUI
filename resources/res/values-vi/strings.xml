@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="str_dsp_subwoofer">Âm trầm</string>
+    <string name="str_dsp_eq">30-EQ</string>
+    <string name="str_dsp_balance">Cân đối</string>
+    <string name="str_dsp_emperor">VIP</string>
+    <string name="str_dsp_advanced">Bộ lọc</string>
+    <string name="str_dsp_loudness">Sự ồn ào</string>
+    <string name="str_dsp_front">Trước mặt</string>
+    <string name="str_dsp_rear">Phía sau</string>
+</resources>

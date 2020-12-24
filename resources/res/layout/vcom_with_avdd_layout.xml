@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:id="@+id/layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:background="@drawable/vcom_box_02" android:layout_width="619px" android:layout_height="221px"/>
+    <RelativeLayout android:background="@drawable/vcom_box_01" android:layout_width="619px" android:layout_height="221px">
+        <Button android:textColor="#009587" android:gravity="center" android:id="@+id/vcom_show_btn" android:background="@drawable/vcom_box_up" android:paddingBottom="5px" android:layout_width="72px" android:layout_height="50px" android:layout_marginLeft="164px" android:layout_marginTop="23px"/>
+        <TextView android:textColor="#000000" android:gravity="center" android:layout_width="85px" android:layout_height="28px" android:layout_marginLeft="28px" android:layout_marginTop="75px" android:text="VCOM"/>
+        <Button android:id="@+id/btn_vcom_up" android:background="@drawable/btn_vcom_up" android:layout_width="59px" android:layout_height="62px" android:layout_marginLeft="132px" android:layout_marginTop="58px"/>
+        <Button android:id="@+id/btn_vcom_dn" android:background="@drawable/btn_vcom_dn" android:layout_width="59px" android:layout_height="62px" android:layout_marginLeft="542px" android:layout_marginTop="58px"/>
+        <SeekBar android:id="@+id/vcom_seekbar" android:paddingLeft="0px" android:paddingTop="8px" android:paddingRight="0px" android:paddingBottom="8px" android:layout_width="334px" android:layout_height="30px" android:layout_marginLeft="198px" android:layout_marginTop="75px" android:maxWidth="334px" android:maxHeight="14px" android:max="255" android:progress="0" android:progressDrawable="@drawable/vcom_progress" android:minWidth="334px" android:minHeight="14px" android:thumb="@null"/>
+        <TextView android:textColor="#444647" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:layout_below="@+id/vcom_seekbar" android:layout_alignLeft="@+id/vcom_seekbar"/>
+        <TextView android:textColor="#444647" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="255" android:layout_below="@+id/vcom_seekbar" android:layout_alignRight="@+id/vcom_seekbar"/>
+        <TextView android:textColor="#000000" android:gravity="center" android:layout_width="85px" android:layout_height="23px" android:layout_marginLeft="28px" android:layout_marginTop="154px" android:text="AVDD"/>
+        <Switch android:id="@+id/avdd_switch_ctrl" android:layout_width="90px" android:layout_height="50px" android:layout_marginLeft="207px" android:layout_marginTop="144px" android:textOn="" android:textOff="" android:thumb="@drawable/avdd_setup_switch" android:track="@drawable/avdd_setup_switch_track" android:switchMinWidth="90px" android:thumbTextPadding="25px"/>
+        <TextView android:textColor="#000000" android:gravity="center" android:id="@+id/avdd_txt" android:layout_width="22px" android:layout_height="23px" android:layout_marginLeft="310px" android:layout_marginTop="154px" android:text="1"/>
+        <Button android:textColor="#000000" android:gravity="center" android:id="@+id/btn_vcom_ok" android:background="@drawable/btn_vcom_ok" android:layout_width="118px" android:layout_height="56px" android:layout_marginLeft="474px" android:layout_marginTop="147px" android:text="OK"/>
+    </RelativeLayout>
+</LinearLayout>

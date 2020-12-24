@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center_vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:background="@drawable/main_clxx_bg" android:layout_width="430px" android:layout_height="266px" android:layout_marginLeft="16px" android:layout_marginTop="67px"/>
+    <TextView android:textColor="#fff" android:gravity="center_vertical" android:id="@+id/tv_record_mile" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="77px" android:layout_marginTop="130px" android:drawableLeft="@drawable/main_clxx_mileage" android:drawablePadding="50px"/>
+    <TextView android:textColor="#fff" android:gravity="center_vertical" android:id="@+id/tv_speed" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="77px" android:layout_marginTop="210px" android:drawableLeft="@drawable/main_clxx_speed" android:drawablePadding="50px"/>
+</RelativeLayout>

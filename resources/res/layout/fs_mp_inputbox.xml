@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/factory_sd_popup" android:layout_width="438px" android:layout_height="267px">
+    <EditText android:textSize="40px" android:textColor="#cff" android:gravity="center" android:id="@+id/fsmp_input_val" android:background="@android:color/transparent" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="388px" android:layout_height="50px" android:layout_marginLeft="24px" android:layout_marginTop="36px" android:singleLine="true" android:maxLength="16" android:numeric="integer"/>
+    <Button android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@drawable/fs_mp_ok_color" android:id="@+id/fsmp_ok" android:background="@drawable/fs_btn_mp_ok" android:layout_width="142px" android:layout_height="68px" android:layout_marginLeft="65px" android:layout_marginTop="156px" android:text="@string/str_fsmp_ok"/>
+    <Button android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@drawable/fs_mp_ok_color" android:id="@+id/fsmp_cancel" android:background="@drawable/fs_btn_mp_ok" android:layout_width="142px" android:layout_height="68px" android:layout_marginLeft="240px" android:layout_marginTop="156px" android:text="@string/str_fsmp_cancle"/>
+</RelativeLayout>

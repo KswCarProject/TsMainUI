@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>一般</item>
+        <item>画面表示</item>
+        <item>音量</item>
+        <item>音声</item>
+        <item>ビデオ</item>
+        <item>ナビゲーション</item>
+        <item>ブルートゥース</item>
+        <item>ステアリングコントロール</item>
+        <item>端末情報</item>
+    </array>
+    <array name="set_genera_options">
+        <item>待機時間</item>
+        <item>音声認識</item>
+        <item>AssistiveTouch</item>
+        <item>リバースボリューム抑制</item>
+        <item>起動ロゴ</item>
+        <item>Virtual CD Storage Device</item>
+        <item>すべての設定をリセット</item>
+        <item>すべてのコンテンツを消去</item>
+    </array>
+    <array name="set_display_options">
+        <item>昼間のバックライト設定</item>
+        <item>夜間のバックライト設定</item>
+        <item>自動調節</item>
+        <item>キーライトカラー</item>
+    </array>
+    <array name="set_volume_options">
+        <item>メディア音量</item>
+        <item>ナビ音量</item>
+        <item>BT音量</item>
+        <item>着信音量</item>
+        <item>アラーム音量</item>
+        <item>システム音量</item>
+    </array>
+    <array name="set_video_options">
+        <item>運転中ビデオを見るのが禁止されています</item>
+        <item>リア補助線</item>
+        <item>リア警告線</item>
+        <item>鏡像機能</item>
+        <item>エアコンディショナー</item>
+        <item>リアビデオ</item>
+        <item>フロントカメラ</item>
+    </array>
+    <array name="set_navi_options">
+        <item>ナビゲーションを自動的に開始する</item>
+        <item>ファイルパス</item>
+        <item>ナビゲーションミックス</item>
+    </array>
+    <array name="set_bt_options">
+        <item>ピンコード</item>
+        <item>自動接続</item>
+        <item>自動応答</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>利得</item>
+        <item>低頻度</item>
+        <item>高調波</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>低頻度</item>
+        <item>利得</item>
+        <item>高頻度</item>
+        <item>利得</item>
+    </array>
+</resources>

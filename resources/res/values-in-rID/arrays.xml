@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="set_main_options">
+        <item>Umum</item>
+        <item>Tampilan</item>
+        <item>Volume</item>
+        <item>Suara</item>
+        <item>Video</item>
+        <item>Navigasi</item>
+        <item>Bluetooth</item>
+        <item>SWC</item>
+        <item>Tentang perangkat</item>
+    </array>
+    <array name="set_genera_options">
+        <item>Waktu siaga</item>
+        <item>Speech Recognition</item>
+        <item>AssistiveTouch</item>
+        <item>Reverse Volume Suppression</item>
+        <item>Boot Logo</item>
+        <item>Virtual CD Storage Device</item>
+        <item>Kembali ke pengaturan awal</item>
+        <item>Hapus semua isi</item>
+    </array>
+    <array name="set_display_options">
+        <item>Pengaturan Lampu Belakang Siang</item>
+        <item>Pengaturan Lampu Belakang Malam</item>
+        <item>Mode otomatis</item>
+        <item>Warna Lampu Tombol</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Suara Media</item>
+        <item>Suara Navi</item>
+        <item>Suara BT</item>
+        <item>Suara Ring</item>
+        <item>Suara Alarm</item>
+        <item>Suara System</item>
+    </array>
+    <array name="set_video_options">
+        <item>Disable Video In Motion</item>
+        <item>Reversing Assistant Line</item>
+        <item>Reversing Warning Line</item>
+        <item>Mirror Rear Camera</item>
+        <item>Air Conditioner</item>
+        <item>Rear Video</item>
+        <item>Front Cam</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Mulai Otomatis Navigasi</item>
+        <item>Jalur File</item>
+        <item>Campuran Navi</item>
+    </array>
+    <array name="set_bt_options">
+        <item>Pin Code</item>
+        <item>Sambung Otomatis</item>
+        <item>Jawab Otomatis</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Mendapatkan</item>
+        <item>Frekuensi rendah</item>
+        <item>Harmonis</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Frekuensi rendah</item>
+        <item>Mendapatkan</item>
+        <item>Frekuensi tinggi</item>
+        <item>Mendapatkan</item>
+    </array>
+</resources>

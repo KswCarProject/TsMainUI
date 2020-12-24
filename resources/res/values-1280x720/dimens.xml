@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="y_can_ac_flg">26px</dimen>
+    <dimen name="w_can_ac_flg">89px</dimen>
+    <dimen name="h_can_ac_flg">65px</dimen>
+    <dimen name="y_ford_ac_flg">6px</dimen>
+    <dimen name="x_vw_carinfo_flg">128px</dimen>
+    <dimen name="x1_vw_carinfo_flg">83px</dimen>
+    <dimen name="x2_vw_carinfo_flg">173px</dimen>
+    <dimen name="y_vw_carinfo_flg">60px</dimen>
+    <dimen name="y1_vw_carinfo_flg">67px</dimen>
+    <dimen name="y2_vw_carinfo_flg">80px</dimen>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/set_relative_layout" android:background="@android:color/white" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/set_sound_top" android:layout_width="match_parent" android:layout_height="75px" layout="@layout/set_main_item_top"/>
+    <include android:id="@+id/set_sound_Bas" android:layout_width="510px" android:layout_height="51px" android:layout_marginLeft="450px" android:layout_marginTop="189px" layout="@layout/set_sound_progress_list"/>
+    <include android:id="@+id/set_sound_Mid" android:layout_width="510px" android:layout_height="51px" android:layout_marginLeft="450px" android:layout_marginTop="268px" layout="@layout/set_sound_progress_list"/>
+    <include android:id="@+id/set_sound_Tre" android:layout_width="510px" android:layout_height="51px" android:layout_marginLeft="450px" android:layout_marginTop="345px" layout="@layout/set_sound_progress_list"/>
+    <include android:layout_width="275px" android:layout_height="51px" android:layout_marginLeft="703px" android:layout_marginTop="348px" layout="@layout/set_switch2"/>
+    <TextView android:textSize="27px" android:textColor="#717475" android:ellipsize="end" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/set_tv_switch2" android:layout_width="150px" android:layout_height="51px" android:layout_marginLeft="988px" android:layout_marginTop="348px" android:text="" android:singleLine="true"/>
+    <include android:layout_width="356px" android:layout_height="342px" android:layout_marginLeft="294px" android:layout_marginTop="76px" layout="@layout/set_balance_setup"/>
+    <Button android:id="@+id/set_balance_btn_center1" android:background="@drawable/setup_btn_bal_default" android:layout_width="116px" android:layout_height="59px" android:layout_marginLeft="1078px" android:layout_marginTop="333px"/>
+</RelativeLayout>

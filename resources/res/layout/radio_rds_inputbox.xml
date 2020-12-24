@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/radio_box" android:layout_width="364px" android:layout_height="539px">
+    <TextView android:textSize="40px" android:textStyle="bold" android:textColor="#ff000000" android:gravity="center" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="50px" android:layout_marginLeft="10px" android:layout_marginTop="20px" android:text="PTY" android:singleLine="true"/>
+    <ScrollView android:scrollbarStyle="outsideOverlay" android:paddingRight="20px" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="330px" android:layout_marginLeft="20px" android:layout_marginTop="80px" android:layout_marginRight="20px">
+        <LinearLayout android:orientation="vertical" android:id="@+id/rad_rds_list" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </ScrollView>
+    <Button android:id="@+id/rad_rds_input_ok" android:background="@drawable/btn_rad_input_ok" android:layout_width="142px" android:layout_height="68px" android:layout_marginLeft="32px" android:layout_marginTop="428px"/>
+    <Button android:id="@+id/rad_rds_input_cancle" android:background="@drawable/btn_rad_input_cancle" android:layout_width="142px" android:layout_height="68px" android:layout_marginLeft="193px" android:layout_marginTop="428px"/>
+</RelativeLayout>

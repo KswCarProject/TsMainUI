@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="set_main_options">
+        <item>تنظیمات عمومی</item>
+        <item>نور صفحه نمایش</item>
+        <item>صدا</item>
+        <item>اکولایزر</item>
+        <item>ویدیو</item>
+        <item>رهیاب</item>
+        <item>بلوتوث</item>
+        <item>کنترل فرمان</item>
+        <item>دنسخه نرم افزاری</item>
+    </array>
+    <array name="set_genera_options">
+        <item>آماده بکار</item>
+        <item>Speech Recognition</item>
+        <item>دستیار لمسی</item>
+        <item>رنج صدا در حالت دنده عقب</item>
+        <item>لوگوی اولیه</item>
+        <item>Virtual CD Storage Device</item>
+        <item>بازیابی همه تنظیمات</item>
+        <item>پاک کردن همه محتوا</item>
+    </array>
+    <array name="set_display_options">
+        <item>نور صفحه نمایش در روز</item>
+        <item>نور صفحه نمایش در شب</item>
+        <item>حالت خودکار</item>
+        <item>رنگ نور کلیدها</item>
+    </array>
+    <array name="set_volume_options">
+        <item>صدای رسانه</item>
+        <item>صدای ناوبری</item>
+        <item>صدای بلوتوث</item>
+        <item>صدای زنگ</item>
+        <item>صدای هشدار</item>
+        <item>صدای سیستم</item>
+    </array>
+    <array name="set_video_options">
+        <item>غیرفعال کردن ویدیو در حال حرکت</item>
+        <item>خطوط راهنمای پارک</item>
+        <item>خطوط هشدار</item>
+        <item>آینه ای کردن دوربین</item>
+        <item>تهویه هوا</item>
+        <item>پس از خروجی صفحه</item>
+        <item>دوربین جلو</item>
+    </array>
+    <array name="set_navi_options">
+        <item>شروع خودکار رهیاب</item>
+        <item>مسیر ناوبری</item>
+        <item>ترکیب صدای رهیاب</item>
+    </array>
+    <array name="set_bt_options">
+        <item>رمز عبور</item>
+        <item>اتصال خودکار</item>
+        <item>پاسخگویی خودکار</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>کسب کردن</item>
+        <item>فرکانس پایین</item>
+        <item>هارمونیک</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>فرکانس پایین</item>
+        <item>کسب کردن</item>
+        <item>فرکانس بالا</item>
+        <item>کسب کردن</item>
+    </array>
+</resources>

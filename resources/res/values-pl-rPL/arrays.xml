@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>Ogólne</item>
+        <item>Wyświetlacz</item>
+        <item>Głośność</item>
+        <item>Dźwięk</item>
+        <item>Video</item>
+        <item>Nawigacja</item>
+        <item>Bluetooth</item>
+        <item>Sterowanie Kierownicy</item>
+        <item>Informacje o urządzeniu</item>
+    </array>
+    <array name="set_genera_options">
+        <item>Czas czuwania</item>
+        <item>Rozpoznawanie mowy</item>
+        <item>Asystent dotyku</item>
+        <item>Głośność przy cofaniu</item>
+        <item>Zmiana Logo</item>
+        <item>Pamięć wirtualnych płyt CD</item>
+        <item>Reset ustawień</item>
+        <item>Wymaż całą zawartość</item>
+    </array>
+    <array name="set_display_options">
+        <item>Podświetlenie dzienne</item>
+        <item>Podświetlenie nocne</item>
+        <item>Tryb Auto</item>
+        <item>Kolor przycisków</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Głośność Media</item>
+        <item>Głośność Nawigacji</item>
+        <item>Głośność BT</item>
+        <item>Głośność Dzwonka</item>
+        <item>Głośność Alarmu</item>
+        <item>Głośność Systemu</item>
+    </array>
+    <array name="set_video_options">
+        <item>Wyłączenie video podczas jazdy</item>
+        <item>Linie pomocnicze cofania</item>
+        <item>Linie ostrzegawcze cofania</item>
+        <item>Kamera cofania – lustro</item>
+        <item>Klimatyzacja</item>
+        <item>Tylny film</item>
+        <item>Kamera z przodu</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Auto start Nawigacji</item>
+        <item>&gt;Ścieżka pliku</item>
+        <item>Miks nawigacyjny</item>
+    </array>
+    <array name="set_bt_options">
+        <item>PIN kod</item>
+        <item>Automatyczne połączenie</item>
+        <item>Automatyczny odbiór</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Zdobyć</item>
+        <item>Niska częstotliwość</item>
+        <item>Harmoniczny</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Niska częstotliwość</item>
+        <item>Zdobyć</item>
+        <item>Wysoka częstotliwość</item>
+        <item>Zdobyć</item>
+    </array>
+</resources>

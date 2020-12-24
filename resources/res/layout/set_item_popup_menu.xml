@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/setup_comm_msgbox_dot" android:focusable="true" android:clickable="true" android:layout_width="400px" android:layout_height="84px">
+    <TextView android:textSize="30px" android:textColor="@drawable/itemcolor" android:gravity="center" android:id="@+id/val" android:clickable="false" android:layout_width="match_parent" android:layout_height="84px"/>
+    <ImageView android:background="@drawable/setup_comm_msgbox_textline" android:layout_width="361px" android:layout_height="2px" android:layout_marginLeft="20px" android:layout_marginTop="82px"/>
+</RelativeLayout>

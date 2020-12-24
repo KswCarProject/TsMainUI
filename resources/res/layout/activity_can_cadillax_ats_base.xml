@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_cadillax_ats_layout" android:background="@drawable/can_aode_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.ts.backcar.AutoFitTextureView android:id="@+id/DevtextureView" android:layout_width="630px" android:layout_height="358px" android:layout_marginLeft="197px" android:layout_marginTop="25px"/>
+</RelativeLayout>

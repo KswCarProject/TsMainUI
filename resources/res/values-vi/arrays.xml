@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Thu được</item>
+        <item>Tần số thấp</item>
+        <item>Điều hòa</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Tần số thấp</item>
+        <item>Thu được</item>
+        <item>Tân sô cao</item>
+        <item>Thu được</item>
+    </array>
+</resources>

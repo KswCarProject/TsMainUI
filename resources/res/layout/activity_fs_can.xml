@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/factory_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/fs_top_item"/>
+    <TextView android:textSize="@dimen/fs_main_btn_text_size" android:textColor="@android:color/white" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/fscan_title" android:layout_width="wrap_content" android:layout_height="45px" android:layout_marginLeft="32px" android:layout_marginTop="94px" android:text="@string/str_fsmain_can"/>
+    <com.ts.other.ParamButton android:textSize="@dimen/fs_main_btn_text_size" android:textColor="#ffff0000" android:gravity="center" android:id="@+id/fscan_cur_val" android:background="#00000000" android:layout_width="211px" android:layout_height="42px" android:layout_marginLeft="260px" android:layout_marginTop="97px" android:text="100"/>
+    <ImageView android:background="@drawable/factory_can_bg2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10px" android:layout_marginTop="86px"/>
+    <ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10px" android:layout_marginTop="176px">
+        <RelativeLayout android:id="@+id/fscan_main" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    </ScrollView>
+    <ListView android:scrollbarStyle="outsideOverlay" android:id="@+id/fscan_list" android:paddingRight="20px" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="499px" android:layout_marginTop="95px" android:listSelector="@android:color/transparent"/>
+    <ListView android:scrollbarStyle="outsideOverlay" android:id="@+id/fs_carinfo_list" android:padding="10px" android:layout_width="460px" android:layout_height="340px" android:layout_marginLeft="10px" android:layout_marginTop="170px"/>
+    <com.ts.other.ParamButton android:id="@+id/btn_close_carinfo" android:layout_width="56px" android:layout_height="55px" android:layout_marginLeft="450px" android:layout_marginTop="150px"/>
+    <com.ts.other.ParamButton android:id="@+id/btn_collapse_kind_item" android:layout_width="58px" android:layout_height="48px" android:layout_marginLeft="930px" android:layout_marginTop="92px"/>
+</RelativeLayout>

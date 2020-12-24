@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+    </array>
+    <array name="set_main_options">
+        <item>Común</item>
+        <item>Monitor</item>
+        <item>Volumen</item>
+        <item>Sonido</item>
+        <item>Vídeo</item>
+        <item>Navegación</item>
+        <item>Bluetooth</item>
+        <item>SWC</item>
+        <item>Sobre Dispositivo</item>
+    </array>
+    <array name="set_genera_options">
+        <item>tiempo en espera</item>
+        <item>Speech Recognition</item>
+        <item>AssistiveTouch</item>
+        <item>Supresión de Volumen Inversa</item>
+        <item>Logo de Arranque</item>
+        <item>Virtual CD Storage Device</item>
+        <item>Resetear toda la Configuracion</item>
+        <item>Borrar contenidos</item>
+    </array>
+    <array name="set_display_options">
+        <item>Durante el día de retroiluminación Set</item>
+        <item>La noche de luz de fondo Set</item>
+        <item>Modo Automático</item>
+        <item>Clave Color de luz</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Volumen de Medios</item>
+        <item>Volumen de Navi</item>
+        <item>Volumen de BT</item>
+        <item>Volumen del timbre</item>
+        <item>Volumen de Alarma</item>
+        <item>Volumen del sistema</item>
+    </array>
+    <array name="set_video_options">
+        <item>Visualización de vídeo está prohibido durante la conducción</item>
+        <item>Revertir Asistente Línea</item>
+        <item>Revertir Atención Línea</item>
+        <item>Cámara Espejo Trasero</item>
+        <item>Aire Acondicionado</item>
+        <item>Vídeo trasero</item>
+        <item>Cámara frontal</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Inicio automático de navegación</item>
+        <item>Ruta de archivo</item>
+        <item>Gps mix</item>
+    </array>
+    <array name="set_bt_options">
+        <item>PIN Código</item>
+        <item>Automática conectar</item>
+        <item>Respuesta automática</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Ganancia</item>
+        <item>Baja frecuencia</item>
+        <item>Armónico</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Baja frecuencia</item>
+        <item>Ganancia</item>
+        <item>Alta frecuencia</item>
+        <item>Ganancia</item>
+    </array>
+    <array name="mcu_update_msg">
+        <item>Sin proceso de actualización</item>
+        <item>¡Error al actualizar el archivo!</item>
+        <item>¡Durante la actualización, no apague antes de que se complete la actualización!</item>
+        <item>Chip de cifrado!</item>
+        <item>¡Error de borrado de chips!</item>
+        <item>Chip borrar el éxito!</item>
+        <item>La actualización se realizó correctamente, reinicie este dispositivo.</item>
+    </array>
+    <array name="can_service_notice_array">
+        <item>Consejos de cuidado</item>
+        <item>Expirando</item>
+        <item>Comprobar fecha ha pasado</item>
+        <item>Por favor, mantenga lo antes posible</item>
+    </array>
+    <array name="can_by_service_array">
+        <item>Aceite de motor</item>
+        <item>Inspeccion de vehiculo</item>
+        <item>Líquido de los frenos</item>
+        <item>Inspección estatutaria gases de escape</item>
+        <item>Inspección estatutaria de vehículos</item>
+        <item>Placa de fricción del freno delantero</item>
+        <item>Placa de fricción del freno trasero</item>
+        <item>Gasolina de velocidad variable</item>
+        <item>Inspección de rodaje</item>
+    </array>
+    <array name="can_ent_aux_arrays">
+        <item>Atajos</item>
+        <item>Interfaz de menú con conmutación IDRIVER</item>
+        <item>Interfaz de red Jiugong, utilizando el interruptor IDRIVER</item>
+    </array>
+    <array name="can_iap_updata_sta">
+        <item />
+        <item>actualización completada</item>
+        <item>CANBUS entra en estado de actualización</item>
+        <item>Error de archivo de actualización</item>
+    </array>
+    <array name="WeekDay">
+        <item>星期天</item>
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+    </array>
+</resources>
