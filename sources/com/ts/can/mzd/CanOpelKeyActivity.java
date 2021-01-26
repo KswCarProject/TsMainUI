@@ -41,7 +41,7 @@ public class CanOpelKeyActivity extends CanBaseActivity implements UserCallBack,
         AddTextBtn(3, 59, 355, "BC");
         AddTextBtn(7, MainLight.VOL_BAR_SIZEX, 355, "SETTING");
         for (int i = 0; i < 9; i++) {
-            AddNumBtn(i + 8, ((i % 3) * 105) + 677, ((i / 3) * Can.CAN_AUDI_ZMYT) + 70, new StringBuilder(String.valueOf(i + 1)).toString());
+            AddNumBtn(i + 8, ((i % 3) * 105) + 677, ((i / 3) * 152) + 70, new StringBuilder(String.valueOf(i + 1)).toString());
         }
     }
 

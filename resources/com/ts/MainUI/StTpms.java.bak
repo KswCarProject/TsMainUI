@@ -1,0 +1,920 @@
+package com.ts.MainUI;
+
+import android.util.Log;
+
+import com.yyw.ts70xhw.Iop;
+
+public class StTpms {
+	final static String TAG = "StTpms";
+	private static final int  TMPS_MAX_NUM = 8;
+	private static final String TPMS_SAVE_PATH = "/mnt/sdcard/TsStorage";
+	private static final String TPMS_SAVE_FILE = TPMS_SAVE_PATH+"/TPMS2.bin";
+	
+	
+	public static final int  tpms_left_front =0;
+	public static final int  tpms_right_front =1;
+	public static final int  tpms_left_back=2;
+	public static final int  tpms_right_back=3;
+	
+	public static final int PSK_MAX = 800;
+	public static final int PSK_MIN = 200;
+	public static final int TEMP_HIGH = 200;
+	
+	public static final int  study_ed=0;
+	public static final int  study_start=1;
+	public static final int  study_ing=2;
+	
+	
+	public int nType = 0;
+	public void SetTpmsType(int nSType)
+	{
+		nType = nSType;
+	}
+	
+	
+
+	
+		public static final int TPMS_NOERROR=0;	//无错误
+				public static final int TPMS_NODATA=1;	//无数据
+				public static final int TPMS_LOW_POWER=2;	// 低电压
+				public static final int TPMS_NO_SIGNAL=3;	// 无信号
+				public static final int TPMS_LEAK=4;		// 快速漏气
+				public static final int TPMS_LOWPASK=5;	//气压低
+				public static final int TPMS_HIGHPASK=6;	//气压低
+				public static final int TPMS_HiGHTEMP=7;	//温度过高
+	
+	
+	
+	int nPlayNum = 0;
+	int nStep = 0;
+	int nDelayTime = 0;
+	int nError = 0;
+	int nNawStudy = 0xff;
+	int nDelayNum = 0;
+	public TPMSDisp TpmsDisp = new TPMSDisp();
+	public TPMSDisp DispOld  = new TPMSDisp();
+	int ReadNum;
+	
+	TsBuf TpmsBuf = new TsBuf(256);
+	byte Buffer[] = new byte[256];
+	byte Cmd[] =  new byte[8];
+	public class TPMSInfo
+	{
+		public double npa;			//气压值，单位KPA，
+		public int nTemp;			//温度值
+		public int nWarnP;			//漏气报警
+		public int nWarnV;			//电池电压低报警
+		public int nWarnS;			//信号丢失报警
+		public int nState;			//学习完成，学习中
+		public int nID;				//ID号
+		public int bat;				//dianchi
+		public int nInvalid;		//数据是否有效
+	};
+	
+	public class  TPMSDisp
+	 {
+		public int ntpmsNum;			//当前个数
+		
+		public TPMSInfo info[] = new  TPMSInfo[TMPS_MAX_NUM];		//先定义8个
+		
+		TPMSDisp()
+		{
+			for(int i = 0;i<TMPS_MAX_NUM;i++)
+			{
+				info[i] = new TPMSInfo();
+			}
+		}
+		
+	 };
+	 
+	 public class  TPMS_SAVE
+	 {
+		 public int nWriteFlag;
+		 public int nOnOffFlag;
+		 public int nTempDW;	//温度单位  0 摄氏度   1华氏度
+		 public int nTempHigh;	//温度报警上限
+		 public int nPskDW;		//气压单位	0 Bar      1 Psi
+		 public int nPskHigh;	//气压上限
+		 public int nPskLow;	//气压下限
+		 public int nWarnTime;	//报警间隔
+	 };
+	 
+	 
+	 private static StTpms mStTpms = null;
+		public static StTpms GetInstance()
+		{
+			if(mStTpms == null)
+			{
+				mStTpms = new StTpms();
+			}
+			return mStTpms;
+		}
+	 
+		public TPMS_SAVE tpmsSave  = new TPMS_SAVE();
+	 
+	 int nTempData[] = new int[8];
+	 
+	 
+	 
+	 
+	void CopyDataToSave()
+	{
+		tpmsSave.nWriteFlag = nTempData[0];
+		tpmsSave.nOnOffFlag = nTempData[1];
+		tpmsSave.nTempDW = nTempData[2];
+		tpmsSave.nTempHigh = nTempData[3];
+		tpmsSave.nPskDW = nTempData[4];
+		tpmsSave.nPskHigh = nTempData[5];
+		tpmsSave.nPskLow = nTempData[6];
+		tpmsSave.nWarnTime = nTempData[7];
+	}
+	void CopySaveToData()
+	{
+		nTempData[0] = tpmsSave.nWriteFlag;
+		nTempData[1] = tpmsSave.nOnOffFlag;
+		nTempData[2] = tpmsSave.nTempDW;
+		nTempData[3] = tpmsSave.nTempHigh;
+		nTempData[4] = tpmsSave.nPskDW;
+		nTempData[5] = tpmsSave.nPskHigh;
+		nTempData[6] = tpmsSave.nPskLow;
+		nTempData[7] = tpmsSave.nWarnTime;
+		
+	}
+	
+	void ResetData()
+	{
+		tpmsSave.nWriteFlag = 1;
+		tpmsSave.nTempDW = 0;
+		tpmsSave.nTempHigh = 60;
+		tpmsSave.nPskDW    = 0;
+		tpmsSave.nPskHigh = 300;
+		tpmsSave.nPskLow   = 160;
+		tpmsSave.nOnOffFlag = 0;   //默认开
+		tpmsSave.nWarnTime = 0;
+	}
+	
+	
+	void ReadSaveData()
+	{
+		
+		if (TsFile.fileIsExists(TPMS_SAVE_FILE))//先查看文件是否存在  //存在
+		{
+			TsFile.reader(TPMS_SAVE_FILE, nTempData);
+			CopyDataToSave();
+			Log.i(TAG, "ReadSaveData ok" );
+		}
+		else
+		{
+			TsFile.NewDir(TPMS_SAVE_PATH);		//先创建文件夹
+			ResetData();
+			SaveData();
+			Log.i(TAG, "first create the file" );
+		}
+		if (tpmsSave.nWriteFlag != 1)//没被写过
+		{
+			ResetData();
+		}
+	}
+	void SaveData()
+	{
+		CopySaveToData();
+		TsFile.writer(TPMS_SAVE_FILE,nTempData);
+	}
+	
+	void InintData()
+	{
+		nStep = 0;
+		nDelayTime = 0;
+		nError = 0;
+		nNawStudy = 0xff;
+		nDelayNum = 0;
+		nPlayNum = 0;
+	}
+	int InintCom()
+	{
+		if(Iop.UartOpen(19200)==0)
+		{
+			Log.i(TAG, "JtxTpms*]JtxTpms.stTpmsCom error " );
+			return 0;
+		}
+		Log.i(TAG, "JtxTpms*]JtxTpms.stTpmsCom OK " );
+		return 1;
+
+	}
+	static int nRet = 0;
+	int ReadCom()
+	{
+		
+		ReadNum = Iop.UartRead(Buffer,256);
+		if (ReadNum>0)
+		{
+			nRet = 1;
+			Log.i(TAG, "JtxTpms ReadDtaNum = "+ ReadNum);
+			for (int i = 0;i<ReadNum;i++)
+			{
+				TpmsBuf.Push(Buffer[i]);
+				Log.i(TAG, "ReadDta "+ i+"=="+Buffer[i]);
+				
+			}
+		}
+//	#else
+		//nRet = 1;
+//	 	static int nFLA = 0;
+//	 	if (nFLA==0)
+//	 	{
+//	 		nFLA =1;
+//	 		UBYTE TestData[256] = 
+//	 		{
+//	 			0x55,0xaa,0x06,0x10,0x00,0xE9,
+//	 			0x55,0xAA,0x06,0x18,0x01,0xE0,
+//	 			0x55,0xAA,0x07,0x03,0x13,0x01,0xE9,
+//	 			0x55,0xAA,0x08,0x00,0x01,0x73,0x18,0x94,
+//	 			0x55,0xAA,0x08,0x01,0x03,0x52,0x10,0xA4,
+//	 			0x55,0xAA,0x08,0x10,0x09,0x52,0x20,0xB5,
+//	 			0x55,0xAA,0x08,0x11,0x05,0x00,0x10,0xB5,
+//	 		};
+//	 		for (int i = 0;i<256;i++)
+//	 		{
+//	 			TpmsBuf.Push(TestData[i]);
+//	 		}
+	// 
+//	 	}
+		
+//	#endif
+		
+		return nRet;
+	}
+	void DealCmd6()
+	{
+		
+		Log.i(TAG, "DealCmd6 ok  Cmd[3 = "+ Cmd[3]+"Cmd[4]="+Cmd[4]);
+		switch (Cmd[3])
+		{
+		case (byte)0x10:								//收到学习命令
+			{
+				switch (Cmd[4])
+				{
+				case 0x00:								//左前
+					TpmsDisp.info[tpms_left_front].nState = study_ing;	
+					break;
+				case 0x01:
+					TpmsDisp.info[tpms_right_front].nState = study_ing;	
+					break;
+				case 0x10:
+					TpmsDisp.info[tpms_left_back].nState = study_ing;	
+					break;
+				case 0x11:
+					TpmsDisp.info[tpms_right_back].nState = study_ing;	
+					break;
+				}
+			}
+			break;
+		case (byte)0x18:										//学习完成
+			{
+				switch (Cmd[4])
+				{
+				case (byte)0x00:								//左前
+					TpmsDisp.info[tpms_left_front].nState = study_ed;	
+					break;
+				case (byte)0x01:
+					TpmsDisp.info[tpms_right_front].nState = study_ed;	
+					break;
+				case (byte)0x10:
+					TpmsDisp.info[tpms_left_back].nState = study_ed;	
+					break;
+				case (byte)0x11:
+					TpmsDisp.info[tpms_right_back].nState = study_ed;	
+					break;
+				}
+			}
+			break;
+		}
+	}
+	void DealCmd7()
+	{
+		Log.i(TAG, "DealCmd7 ok  Cmd[3 = "+ Cmd[3]+"Cmd[4]="+Cmd[4]+"Cmd[5]="+Cmd[5]);
+		switch (Cmd[3])
+		{
+		case 0x01:
+			{
+				TpmsDisp.info[tpms_left_front].nID = Cmd[4];	
+			}
+			break;
+		case 0x02:
+			{
+				TpmsDisp.info[tpms_right_front].nID = Cmd[4];	
+			}
+			break;
+		case 0x03:
+			{
+				TpmsDisp.info[tpms_left_back].nID = Cmd[4];	
+			}
+			break;
+		case 0x04:
+			{
+				TpmsDisp.info[tpms_right_back].nID = Cmd[4];	
+			}
+			break;
+		}
+	}
+	void DealCmd8()
+	{
+		Log.i(TAG, "DealCmd8 ok  Cmd[3 = "+ Cmd[3]+"Cmd[4]="+Cmd[4]+"Cmd[5]="+Cmd[5]+"Cmd[6]="+Cmd[6]);
+		byte ubIndex = (byte) 0xff;
+		switch (Cmd[3])
+		{
+		case 0x00:
+			ubIndex = tpms_left_front;
+			break;
+		case 0x01:
+			ubIndex = tpms_right_front;
+			break;
+		case 0x10:
+			ubIndex = tpms_left_back;
+			break;
+		case 0x11:
+			ubIndex = tpms_right_back;
+			break;
+		}
+		Log.i(TAG, "ubIndex="+ubIndex );
+		
+		int nDataCMD4 = (Cmd[4]&0xff);
+		int nDataCMD5 = (Cmd[5]&0xff);
+		
+		if (ubIndex!=(byte)0xff)
+		{
+			TpmsDisp.info[ubIndex].npa		= (double)nDataCMD4*3.44;		//放大3.44倍数
+			TpmsDisp.info[ubIndex].nTemp	= (int)nDataCMD5-50;		//-50~ 205℃
+			TpmsDisp.info[ubIndex].nWarnP = (((Cmd[6]&0x08)>0)?1:0);	//漏气报警
+			TpmsDisp.info[ubIndex].nWarnV = (((Cmd[6]&0x10)>0)?1:0);	//电池报警
+			TpmsDisp.info[ubIndex].nWarnS = (((Cmd[6]&0x20)>0)?1:0);	//信号报警
+			TpmsDisp.info[ubIndex].nInvalid = 1;//表示数据有效了  才能进行错误的判断，不然导致误判
+			
+			Log.i(TAG, "TpmsDisp.info[ubIndex].npa="+TpmsDisp.info[ubIndex].npa );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nTemp="+TpmsDisp.info[ubIndex].nTemp );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nWarnP="+TpmsDisp.info[ubIndex].nWarnP );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nWarnV="+TpmsDisp.info[ubIndex].nWarnV );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nWarnS="+TpmsDisp.info[ubIndex].nWarnS );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nInvalid="+TpmsDisp.info[ubIndex].nInvalid );
+			
+		}
+	}
+	
+	void ClearCmd()
+	{
+		for(int i = 0;i<8;i++)
+		{
+			Cmd[i] = 0;
+		}
+	}
+	
+	void DealCmdB6()
+	{
+		Log.i(TAG, "DealCmd8 ok  Cmd[4 = "+ Cmd[4]+"Cmd[5]="+Cmd[5]+"Cmd[6]="+Cmd[6]+"Cmd[7]="+Cmd[7]);
+		byte ubIndex = (byte) 0xff;
+		switch (Cmd[4])
+		{
+		case 0x01:
+			ubIndex = tpms_left_front;
+			break;
+		case 0x02:
+			ubIndex = tpms_right_front;
+			break;
+		case 0x03:
+			ubIndex = tpms_left_back;
+			break;
+		case 0x04:
+			ubIndex = tpms_right_back;
+			break;
+		}
+		Log.i(TAG, "ubIndex="+ubIndex );
+		
+		int nDataCMD5 = (Cmd[5]&0xff);
+		if(nDataCMD5==0xff)		//无效值
+		{
+			nDataCMD5 = 0;
+		}
+		
+		int nDataCMD6 = (Cmd[6]&0xff);
+		if(nDataCMD6==0xff)		//无效值
+		{
+			nDataCMD6 = 0;
+		}
+		
+		
+		if (ubIndex!=(byte)0xff)
+		{
+			TpmsDisp.info[ubIndex].npa		= (double)nDataCMD6*3000;		//放大3000倍数
+			TpmsDisp.info[ubIndex].nTemp	= (int)nDataCMD5-50;		//-50~ 205℃
+			
+			
+			TpmsDisp.info[ubIndex].nWarnP = (((Cmd[7]&0x80)>0)?1:0);	//漏气报警
+			TpmsDisp.info[ubIndex].bat = (Cmd[7]&0x03)+25;
+			if(TpmsDisp.info[ubIndex].bat<=27)
+			{
+				TpmsDisp.info[ubIndex].nWarnV = 1;
+			}
+			int nwarns = (Cmd[7]&0x70)>>4;
+			if(nwarns>0)
+			{
+				switch(nwarns)
+				{
+				case 0x01:
+					TpmsDisp.info[tpms_left_front].nWarnS = 1;
+					break;
+				case 0x02:
+					TpmsDisp.info[tpms_right_front].nWarnS = 1;
+					break;
+				case 0x03:
+					TpmsDisp.info[tpms_left_back].nWarnS = 1;
+					break;
+				case 0x04:
+					TpmsDisp.info[tpms_right_back].nWarnS = 1;
+					break;
+				}
+			}
+			
+			/*TpmsDisp.info[ubIndex].nWarnP = (((Cmd[6]&0x08)>0)?1:0);	//漏气报警
+			TpmsDisp.info[ubIndex].nWarnV = (((Cmd[6]&0x10)>0)?1:0);	//电池报警
+			TpmsDisp.info[ubIndex].nWarnS = (((Cmd[6]&0x20)>0)?1:0);	//信号报警*/
+			TpmsDisp.info[ubIndex].nInvalid = 1;//表示数据有效了  才能进行错误的判断，不然导致误判
+			
+			Log.i(TAG, "TpmsDisp.info[ubIndex].npa="+TpmsDisp.info[ubIndex].npa );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nTemp="+TpmsDisp.info[ubIndex].nTemp );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nWarnP="+TpmsDisp.info[ubIndex].nWarnP );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nWarnV="+TpmsDisp.info[ubIndex].nWarnV );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nWarnS="+TpmsDisp.info[ubIndex].nWarnS );
+			Log.i(TAG, "TpmsDisp.info[ubIndex].nInvalid="+TpmsDisp.info[ubIndex].nInvalid );
+			
+		}
+	}
+	byte GetCheckSumTw(byte ubBuf[])
+	{
+		int nSum = ubBuf[0];
+		for(int i = 1;i<9;i++)
+		{
+			nSum^=ubBuf[i];
+		}
+		return (byte)nSum;
+	}
+	void CheckInfomation()
+	{
+		
+		byte ubBuf[] = new byte[10];		//获取轮胎数据
+		ubBuf[0] = (byte)0xF8;
+		ubBuf[1] = (byte)0x55;
+		ubBuf[2] = (byte)0x07;
+		ubBuf[3] = (byte)0xA6;
+		for(int i = 0;i<4;i++)
+		{
+			ubBuf[4] = (byte)i;
+			ubBuf[5] = (byte)0xff;
+			ubBuf[6] = (byte)0xff;
+			ubBuf[7] = (byte)0xff;
+			ubBuf[8] = (byte)0xff;
+			ubBuf[9] = GetCheckSumTw(ubBuf);
+			Iop.UartSend(ubBuf,10);
+		}
+		
+		
+		TpmsDisp.info[nType].nState = study_start;
+	}
+	
+	int DealTpmsTw()
+	{
+		byte ubLen = 0;
+		byte ubNum[] = new byte[1];
+		if (TpmsBuf.GetLen()>=10)
+		{
+			for (int i = 0;i<TpmsBuf.GetLen();i++)
+			{
+				
+				ClearCmd();
+				TpmsBuf.GetData(0,Cmd,0);
+				TpmsBuf.GetData(1,Cmd,1);
+				TpmsBuf.GetData(2,Cmd,2);				//获取命令长度
+				if (Cmd[0] == (byte)0xF8 && Cmd[1]== (byte)0x55 &&Cmd[2]==0x07)		//找到头了
+				{
+					Log.i(TAG, "find head ok" );
+					int ubSum = 0;
+					ubLen = 10;
+					for (int k = 0;k<ubLen;k++)
+					{
+						TpmsBuf.GetData(k,Cmd,k);
+					}
+					
+					ubSum = Cmd[0]&0xff;
+					for (int j = 1;j<ubLen-1;j++)		//计算校验值
+					{
+						ubSum^= (Cmd[j]&0xff);
+					}
+					ubSum%=0xff;
+					
+					Log.i(TAG, "Check...ubSum=="+ubSum +"   Cmd[ubLen-1]=="+Cmd[ubLen-1]);
+					if ((byte)ubSum == (byte)Cmd[ubLen-1])	//校验成功		//校验成功
+					{
+						
+						Log.i(TAG, "Cmd[3]=="+Cmd[3]);
+						Log.i(TAG, "TPMS Check ok" );
+						switch (Cmd[3])
+						{
+						case (byte)0xb6:			//
+							DealCmdB6();
+							break;
+						}
+						for (int n = 0;n<Cmd[2];n++)	//弹出数据
+						{
+							TpmsBuf.Pop(ubNum);
+						}
+					}
+					else
+					{
+						TpmsBuf.Pop(ubNum);
+						Log.i(TAG, "TPMS Check Faile" );
+					}
+
+					
+
+				}
+				else
+				{
+					TpmsBuf.Pop(ubNum);
+					continue;
+				}
+			}
+		}
+		return 1;
+	}
+	
+	
+	int DealData()
+	{
+
+		byte ubLen = 0;
+		byte ubNum[] = new byte[1];
+		if (TpmsBuf.GetLen()>=6)
+		{
+			for (int i = 0;i<TpmsBuf.GetLen();i++)
+			{
+				
+				ClearCmd();
+				TpmsBuf.GetData(0,Cmd,0);
+				TpmsBuf.GetData(1,Cmd,1);
+				TpmsBuf.GetData(2,Cmd,2);				//获取命令长度
+				//Log.i(TAG, "DealData...Cmd[0]=="+Cmd[0] +"   Cmd[1]=="+Cmd[1]);
+				if (Cmd[0] == (byte)0x55 && Cmd[1]== (byte)0xAA &&(Cmd[2]>0 && Cmd[2]<9))		//找到头了
+				{
+					TpmsBuf.GetData(2,Cmd,2);				//获取命令长度
+					ubLen = Cmd[2];
+					int ubSum = 0;
+					for (int k = 0;k<ubLen;k++)
+					{
+						TpmsBuf.GetData(k,Cmd,k);
+					}
+					
+					ubSum = Cmd[0]&0xff;
+					for (int j = 1;j<ubLen-1;j++)		//计算校验值
+					{
+						ubSum^= (Cmd[j]&0xff);
+					}
+					ubSum%=0xff;
+					
+					Log.i(TAG, "Check...ubSum=="+ubSum +"   Cmd[ubLen-1]=="+Cmd[ubLen-1]);
+					if ((byte)ubSum == (byte)Cmd[ubLen-1])	//校验成功		//校验成功
+					{
+						Log.i(TAG, "TPMS Check ok" );
+						switch (Cmd[2])
+						{
+						case 6:
+							DealCmd6();
+							break;
+						case 7:
+							DealCmd7();
+							break;
+						case 8:
+							DealCmd8();
+							break;
+						}
+						for (int n = 0;n<Cmd[2];n++)	//弹出数据
+						{
+							TpmsBuf.Pop(ubNum);
+						}
+					}
+					else
+					{
+						TpmsBuf.Pop(ubNum);
+						Log.i(TAG, "TPMS Check Faile" );
+					}
+
+					
+
+				}
+				else
+				{
+					TpmsBuf.Pop(ubNum);
+					continue;
+				}
+			}
+		}
+		return 1;
+	}
+	static int nDelay = 100;
+	static int nflag = 1;
+	public void Inint(int nParat)
+	{
+		nflag = 1;
+		InintData();
+		ReadSaveData();
+		if(nParat==1)
+		{
+			//ResetData();
+		}
+	}
+	
+	int nOldMode = 0xff;
+	int sumtime = 0;
+	public int  MainFunc(int nParat)
+	{
+		
+		if(nOldMode!= nParat)
+		{
+			
+			if(nParat==2)
+			{
+				nStep = 0xfe;
+			}
+			else if(nOldMode == 0x02 && nParat==0)//正常开机了
+			{
+				Inint(0);
+			}
+			nOldMode = nParat;
+		}
+		
+		switch (nStep)
+		{
+		case 0:
+			if (InintCom()==1)
+			{
+				
+				nStep++;
+			}
+			else
+			{
+				nStep = 0xff;
+			}
+			break;
+		case 1:
+			{
+				if (ReadCom()==1)
+				{
+					nStep++;
+				}
+			}
+			break;
+		case 2:
+			{
+				if(nType==0)
+				{
+					DealData();
+				}
+				else
+				{
+					DealTpmsTw();
+				}
+				sumtime++;
+				if(sumtime%3600==0)
+				{
+					CheckInfomation();
+					sumtime = 0；
+				}
+				
+				
+				nStep = 1;
+				
+				if (nDelay>0)
+				{
+					nDelay--;
+				}
+				if (nDelay==0)
+				{
+					if (tpmsSave.nOnOffFlag ==0)		//开关报警状态
+					{
+						CheckError();
+					}
+					if (nDelayNum>0)
+					{
+						nDelayNum--;
+						if (nDelayNum == 0)
+						{
+							if (nNawStudy!=0xff)
+							{
+								UnStudy(nNawStudy);
+							}
+						}
+					}
+					
+				}
+
+				
+			}
+
+			
+
+			break;
+		case 0xfe:
+			SaveData();
+			Iop.UartClose();
+			nflag = 0;
+			nStep = 0xff;
+			
+			break;
+		case 0xff:
+			return 0xff;
+
+		}
+		return 1;
+			
+	}
+	public int CheckError()
+	{
+		
+		for (int i = 0;i<4;i++)
+		{
+			if (TpmsDisp.info[i].nInvalid==1)
+			{
+				if (DispOld.info[i].nWarnV != TpmsDisp.info[i].nWarnV)
+				{
+					DispOld.info[i].nWarnV = TpmsDisp.info[i].nWarnV;
+					return 1;
+					//if (pTpsmfn)
+					//{
+					//	pTpsmfn(TPMS_LOW_POWER,i);
+						//SetVoiceWarning(TPMS_VOICE_WARNING_NUM);
+				//	}
+				}
+				else if (DispOld.info[i].nWarnS != TpmsDisp.info[i].nWarnS)
+				{
+					DispOld.info[i].nWarnS = TpmsDisp.info[i].nWarnS;
+					return 2;
+					//if (pTpsmfn)
+					//{
+					//	pTpsmfn(TPMS_NO_SIGNAL,i);
+						//SetVoiceWarning(TPMS_VOICE_WARNING_NUM);
+				//	}
+				}
+				else if (DispOld.info[i].nWarnP != TpmsDisp.info[i].nWarnP)
+				{
+					DispOld.info[i].nWarnP = TpmsDisp.info[i].nWarnP;
+					return 3;
+				//	if (pTpsmfn)
+					//{
+					//	pTpsmfn(TPMS_LEAK,i);
+						//SetVoiceWarning(TPMS_VOICE_WARNING_NUM);
+					//}
+				}
+				else 
+				{
+
+					//低气压
+					if(TpmsDisp.info[i].npa<tpmsSave.nPskLow )//TPMS_MIN_PSK)
+					{
+						return 4;
+						//if (pTpsmfn)
+						//{
+						//	pTpsmfn(TPMS_LOWPASK,i);
+							//SetVoiceWarning(TPMS_VOICE_WARNING_NUM);
+					//	}
+					}
+					else if (TpmsDisp.info[i].npa>tpmsSave.nPskHigh)//TPMS_MAX_PSK)
+					{
+						return 5;
+						//if (pTpsmfn)
+						//{
+						//	pTpsmfn(TPMS_HIGHPASK,i);
+							//SetVoiceWarning(TPMS_VOICE_WARNING_NUM);
+					//	}
+					}
+					else if (TpmsDisp.info[i].nTemp>tpmsSave.nTempHigh)
+					{
+						return 6;
+						//if (pTpsmfn)
+						//{
+						//	pTpsmfn(TPMS_HiGHTEMP,i);
+							//SetVoiceWarning(TPMS_VOICE_WARNING_NUM);
+						//}
+					}
+
+				}
+			}
+			
+		}
+		return 0;
+	}
+	void CheckID()
+	{
+		//MSG_OUT((_T("*******************CheckID************\r\n")));
+		Log.i(TAG, "*******************CheckID************" );
+		byte ubBuf[] = new byte[6];
+		ubBuf[0] = 0x55;
+		ubBuf[1] = (byte) 0xAA;
+		ubBuf[2] = 0x06;
+		ubBuf[3] = 0x02;
+		ubBuf[4] = 0x00;
+		ubBuf[5] = (byte) 0xF8; 
+		Iop.UartSend(ubBuf,6);
+	}
+
+	public  void UnStudy(int nType)
+	{
+		if (nType==0xff)
+		{
+			return;
+		}
+		Log.i(TAG, "*******************UnStudy************" );
+		byte ubBuf[] = new byte[6];
+		ubBuf[0] = 0x55;
+		ubBuf[1] = (byte) 0xAA;
+		ubBuf[2] = 0x06;
+		ubBuf[3] = 0x06;
+		switch (nType)
+		{
+		case tpms_left_front:
+			{
+
+				ubBuf[4] = 0x00;
+				ubBuf[5] = (byte) 0xFF; 
+			}
+			break;
+		case tpms_right_front:
+			{
+				ubBuf[4] = 0x01;
+				ubBuf[5] = (byte) 0xFE; 
+			}
+			break;
+		case tpms_left_back:
+			{
+				ubBuf[4] = 0x10;
+				ubBuf[5] = (byte) 0xEF; 
+			}
+			break;
+		case tpms_right_back:
+			{
+				ubBuf[4] = 0x11;
+				ubBuf[5] = (byte) 0xEE; 
+			}
+			break;
+
+
+		}
+		Iop.UartSend(ubBuf,6);
+		nNawStudy = 0xff;
+		TpmsDisp.info[nType].nState = study_ed;
+	}
+	public void Study(int nType)
+	{
+		Log.i(TAG, "*******************Study************" );
+		if (nNawStudy != 0xff)
+		{
+			UnStudy(nNawStudy);
+		}
+		nNawStudy = nType;
+		nDelayNum = 10000;		//延迟5分钟
+		byte ubBuf[] = new byte[6];
+		ubBuf[0] = 0x55;
+		ubBuf[1] = (byte) 0xAA;
+		ubBuf[2] = 0x06;
+		ubBuf[3] = 0x01;
+		switch (nType)
+		{
+		case tpms_left_front:
+			{
+				
+				ubBuf[4] = 0x00;
+				ubBuf[5] = (byte) 0xF8; 
+			}
+			break;
+		case tpms_right_front:
+			{
+				ubBuf[4] = 0x01;
+				ubBuf[5] = (byte) 0xF9; 
+			}
+			break;
+		case tpms_left_back:
+			{
+				ubBuf[4] = 0x10;
+				ubBuf[5] = (byte) 0xE8; 
+			}
+			break;
+		case tpms_right_back:
+			{
+				ubBuf[4] = 0x11;
+				ubBuf[5] = (byte) 0xE9; 
+			}
+			break;
+			  
+			  
+		}
+		Iop.UartSend(ubBuf,6);
+		TpmsDisp.info[nType].nState = study_start;
+	}
+}

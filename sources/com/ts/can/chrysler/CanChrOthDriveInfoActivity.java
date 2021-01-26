@@ -11,10 +11,12 @@ import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanChrOthDriveInfoActivity extends CanChrOthBaseActivity implements UserCallBack, View.OnClickListener {
@@ -64,46 +66,46 @@ public class CanChrOthDriveInfoActivity extends CanChrOthBaseActivity implements
     private void initScreen_768x1024() {
         this.mManager.AddImage(0, 0, R.drawable.can_psa_bg);
         this.mBtnLt[0] = AddBtn(0, 5, 30, R.drawable.can_psa_car_up, R.drawable.can_psa_car_dn);
-        this.mBtnLt[1] = AddBtn(1, 5, Can.CAN_CHANA_CS75_WC, R.drawable.can_psa_01_up, R.drawable.can_psa_01_dn);
+        this.mBtnLt[1] = AddBtn(1, 5, 160, R.drawable.can_psa_01_up, R.drawable.can_psa_01_dn);
         this.mBtnLt[2] = AddBtn(2, 5, 290, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
         this.mBtnDelLog = this.mManager.AddButton(507, KeyDef.RKEY_RDS_TA, 180, 60);
         this.mBtnDelLog.setTextSize(0, 26.0f);
         SetCommBtn(this.mBtnDelLog, R.string.can_clear, 3, this);
-        this.mIvIco0[0] = AddText(240, 38, 300, 60, 55);
+        this.mIvIco0[0] = AddText(Can.CAN_VOLKS_XP, 38, 300, 60, 55);
         this.mIvIco0[0].setText(R.string.can_jsxx);
-        this.mIvIco0[1] = AddText(240, Can.CAN_HYUNDAI_WC, 350, 60, 40);
+        this.mIvIco0[1] = AddText(Can.CAN_VOLKS_XP, 153, 350, 60, 40);
         this.mIvIco0[1].setText(R.string.can_range);
-        this.mIvIco0[2] = AddText(240, 203, 350, 60, 40);
+        this.mIvIco0[2] = AddText(Can.CAN_VOLKS_XP, 203, 350, 60, 40);
         this.mIvIco0[2].setText(R.string.can_cur_consump);
         this.mTvVal0[0] = AddText(CanCameraUI.BTN_CHANA_CS75_MODE1, Can.CAN_BJ20_WC, 100, 60, 40);
         this.mTvDW0[0] = AddText(670, Can.CAN_BJ20_WC, 100, 60, 38);
         this.mTvVal0[1] = AddText(CanCameraUI.BTN_CHANA_CS75_MODE1, 208, 100, 60, 40);
         this.mTvDW0[1] = AddText(670, 208, 100, 60, 38);
-        this.mIvIco1[0] = AddText(240, 38, 300, 60, 55);
+        this.mIvIco1[0] = AddText(Can.CAN_VOLKS_XP, 38, 300, 60, 55);
         this.mIvIco1[0].setText(R.string.can_trip_a);
-        this.mIvIco1[1] = AddText(240, 128, 350, 60, 40);
+        this.mIvIco1[1] = AddText(Can.CAN_VOLKS_XP, 128, 350, 60, 40);
         this.mIvIco1[1].setText(R.string.can_pjyh);
-        this.mIvIco1[2] = AddText(240, 178, 350, 60, 40);
+        this.mIvIco1[2] = AddText(Can.CAN_VOLKS_XP, 178, 350, 60, 40);
         this.mIvIco1[2].setText(R.string.can_avg_speed);
-        this.mIvIco1[3] = AddText(240, Can.CAN_TEANA_OLD_DJ, 350, 60, 40);
+        this.mIvIco1[3] = AddText(Can.CAN_VOLKS_XP, Can.CAN_TEANA_OLD_DJ, 350, 60, 40);
         this.mIvIco1[3].setText(R.string.can_dis_trav);
-        this.mIvIco1[4] = AddText(240, 278, 350, 60, 40);
+        this.mIvIco1[4] = AddText(Can.CAN_VOLKS_XP, 278, 350, 60, 40);
         this.mIvIco1[4].setText(R.string.can_trav_time);
-        this.mIvIco2[0] = AddText(240, 38, 300, 60, 55);
+        this.mIvIco2[0] = AddText(Can.CAN_VOLKS_XP, 38, 300, 60, 55);
         this.mIvIco2[0].setText(R.string.can_display_t_b);
-        this.mIvIco2[1] = AddText(240, 128, 350, 60, 40);
+        this.mIvIco2[1] = AddText(Can.CAN_VOLKS_XP, 128, 350, 60, 40);
         this.mIvIco2[1].setText(R.string.can_pjyh);
-        this.mIvIco2[2] = AddText(240, 178, 350, 60, 40);
+        this.mIvIco2[2] = AddText(Can.CAN_VOLKS_XP, 178, 350, 60, 40);
         this.mIvIco2[2].setText(R.string.can_avg_speed);
-        this.mIvIco2[3] = AddText(240, Can.CAN_TEANA_OLD_DJ, 350, 60, 40);
+        this.mIvIco2[3] = AddText(Can.CAN_VOLKS_XP, Can.CAN_TEANA_OLD_DJ, 350, 60, 40);
         this.mIvIco2[3].setText(R.string.can_dis_trav);
-        this.mIvIco2[4] = AddText(240, 278, 350, 60, 40);
+        this.mIvIco2[4] = AddText(Can.CAN_VOLKS_XP, 278, 350, 60, 40);
         this.mIvIco2[4].setText(R.string.can_trav_time);
         for (int i = 0; i < 4; i++) {
             this.mTvVal1[i] = AddText(500, (i * 50) + 128, 100, 60, 40);
-            this.mTvDW1[i] = AddText(CanCameraUI.BTN_GOLF_WC_MODE1, (i * 50) + 128, 100, 60, 38);
+            this.mTvDW1[i] = AddText(600, (i * 50) + 128, 100, 60, 38);
             this.mTvVal2[i] = AddText(500, (i * 50) + 128, 100, 60, 40);
-            this.mTvDW2[i] = AddText(CanCameraUI.BTN_GOLF_WC_MODE1, (i * 50) + 128, 100, 60, 38);
+            this.mTvDW2[i] = AddText(600, (i * 50) + 128, 100, 60, 38);
         }
         this.mTvDW0[0].setText("MI");
         this.mTvDW0[1].setText("mpg");
@@ -120,7 +122,7 @@ public class CanChrOthDriveInfoActivity extends CanChrOthBaseActivity implements
         this.mManager.AddImage(35, 17, R.drawable.can_psa_bg);
         this.mBtnLt[0] = AddBtn(0, 66, 41, R.drawable.can_psa_car_up, R.drawable.can_psa_car_dn);
         this.mBtnLt[1] = AddBtn(1, 66, Can.CAN_LEXUS_ZMYT, R.drawable.can_psa_01_up, R.drawable.can_psa_01_dn);
-        this.mBtnLt[2] = AddBtn(2, 66, 370, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
+        this.mBtnLt[2] = AddBtn(2, 66, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
         this.mBtnDelLog = this.mManager.AddButton(CanCameraUI.BTN_GEELY_YJX6_FXP, 408, Can.CAN_LEXUS_IZ, 77);
         SetCommBtn(this.mBtnDelLog, R.string.can_clear, 3, this);
         this.mIvIco0[0] = AddText(284, 38, 300, 60, 55);
@@ -129,9 +131,9 @@ public class CanChrOthDriveInfoActivity extends CanChrOthBaseActivity implements
         this.mIvIco0[1].setText(R.string.can_range);
         this.mIvIco0[2] = AddText(284, 208, 350, 60, 40);
         this.mIvIco0[2].setText(R.string.can_cur_consump);
-        this.mTvVal0[0] = AddText(CanCameraUI.BTN_GOLF_WC_MODE1, Can.CAN_BJ20_WC, 100, 60, 40);
+        this.mTvVal0[0] = AddText(600, Can.CAN_BJ20_WC, 100, 60, 40);
         this.mTvDW0[0] = AddText(CanCameraUI.BTN_CC_WC_DIRECTION1, Can.CAN_BJ20_WC, 100, 60, 38);
-        this.mTvVal0[1] = AddText(CanCameraUI.BTN_GOLF_WC_MODE1, 208, 100, 60, 40);
+        this.mTvVal0[1] = AddText(600, 208, 100, 60, 40);
         this.mTvDW0[1] = AddText(CanCameraUI.BTN_CC_WC_DIRECTION1, 208, 100, 60, 38);
         this.mIvIco1[0] = AddText(284, 38, 300, 60, 55);
         this.mIvIco1[0].setText(R.string.can_trip_a);
@@ -141,7 +143,7 @@ public class CanChrOthDriveInfoActivity extends CanChrOthBaseActivity implements
         this.mIvIco1[2].setText(R.string.can_avg_speed);
         this.mIvIco1[3] = AddText(284, 258, 350, 60, 40);
         this.mIvIco1[3].setText(R.string.can_dis_trav);
-        this.mIvIco1[4] = AddText(284, KeyDef.RKEY_MEDIA_MENU, 350, 60, 40);
+        this.mIvIco1[4] = AddText(284, 308, 350, 60, 40);
         this.mIvIco1[4].setText(R.string.can_trav_time);
         this.mIvIco2[0] = AddText(284, 38, 300, 60, 55);
         this.mIvIco2[0].setText(R.string.can_display_t_b);
@@ -151,12 +153,12 @@ public class CanChrOthDriveInfoActivity extends CanChrOthBaseActivity implements
         this.mIvIco2[2].setText(R.string.can_avg_speed);
         this.mIvIco2[3] = AddText(284, 258, 350, 60, 40);
         this.mIvIco2[3].setText(R.string.can_dis_trav);
-        this.mIvIco2[4] = AddText(284, KeyDef.RKEY_MEDIA_MENU, 350, 60, 40);
+        this.mIvIco2[4] = AddText(284, 308, 350, 60, 40);
         this.mIvIco2[4].setText(R.string.can_trav_time);
         for (int i = 0; i < 4; i++) {
-            this.mTvVal1[i] = AddText(CanCameraUI.BTN_GOLF_WC_MODE1, (i * 50) + Can.CAN_BJ20_WC, 100, 60, 40);
+            this.mTvVal1[i] = AddText(600, (i * 50) + Can.CAN_BJ20_WC, 100, 60, 40);
             this.mTvDW1[i] = AddText(CanCameraUI.BTN_CC_WC_DIRECTION1, (i * 50) + Can.CAN_BJ20_WC, 100, 60, 38);
-            this.mTvVal2[i] = AddText(CanCameraUI.BTN_GOLF_WC_MODE1, (i * 50) + Can.CAN_BJ20_WC, 100, 60, 40);
+            this.mTvVal2[i] = AddText(600, (i * 50) + Can.CAN_BJ20_WC, 100, 60, 40);
             this.mTvDW2[i] = AddText(CanCameraUI.BTN_CC_WC_DIRECTION1, (i * 50) + Can.CAN_BJ20_WC, 100, 60, 38);
         }
         this.mTvDW0[0].setText("MI");
@@ -218,7 +220,7 @@ public class CanChrOthDriveInfoActivity extends CanChrOthBaseActivity implements
             case 3:
                 return "MPG";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

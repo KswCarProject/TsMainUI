@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
@@ -13,7 +14,6 @@ import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.backcar.AutoFitTextureView;
 import com.ts.backcar.BackcarService;
-import com.ts.bt.BtExe;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanIF;
@@ -27,6 +27,7 @@ import com.yyw.ts70xhw.Mcu;
 
 public class CanAudiWithCDExdActivity extends CanBaseActivity implements UserCallBack, View.OnTouchListener, View.OnClickListener {
     public static final String TAG = "CanAudiWithCDExdActivity";
+    public static int mBtCnt = 0;
     public static int mOldBtSta = 0;
     public static int mOldMode = 0;
     public static boolean mfgAutoEnt = false;
@@ -82,8 +83,18 @@ public class CanAudiWithCDExdActivity extends CanBaseActivity implements UserCal
         mfgFinish = false;
         Log.d(TAG, "onResume");
         MainSet.GetInstance().SetVideoChannel(2);
+        if (CanFunc.getInstance().IsCore() == 1) {
+            BackcarService.getInstance().SetSource(1);
+        }
         this.mCameraView = (AutoFitTextureView) findViewById(R.id.DevtextureView);
         BackcarService.getInstance().StartCamera(this.mCameraView, false);
+        if (CanFunc.getInstance().IsCore() == 1 && CanFunc.IsRviewDis() > 0) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mCameraView.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.leftMargin = 0;
+            this.mCameraView.setLayoutParams(layoutParams);
+        }
         CanJni.AudiZmytSrcSwitch(1);
     }
 
@@ -166,18 +177,34 @@ public class CanAudiWithCDExdActivity extends CanBaseActivity implements UserCal
     }
 
     public static void Init() {
-        if ((FtSet.Getlgb1() & 1) != 0) {
+        if (CanAudiWithCDCarFuncView.RvsMode() == 1) {
             Mcu.SendXKey(33);
+        } else if (CanAudiWithCDCarFuncView.RvsMode() == 2) {
+            Mcu.SendXKey(35);
+        } else if (CanAudiWithCDCarFuncView.RvsMode() == 3) {
+            Mcu.SendXKey(36);
         } else {
             Mcu.SendXKey(34);
         }
-        if (FtSet.Getlgb2() == 1) {
+        if (CanFunc.getInstance().IsCore() == 1) {
+            if (CanAudiWithCDCarFuncView.RCamera() <= 0 || CanAudiWithCDCarFuncView.RvsMode() == 2) {
+                Mcu.SendXKey(40);
+            } else {
+                Mcu.SendXKey(41);
+            }
+        } else if (FtSet.Getlgb2() == 1) {
             Mcu.SendXKey(41);
         } else {
             Mcu.SendXKey(40);
         }
         Mcu.SendXKey(CanAudiWithCDCarFuncView.RvsDelay() + 42);
         Mcu.SendXKey(((FtSet.Getlgb3() & 61440) >> 12) + 50);
+        CanAudiWithCDCarInitView.SetCamType(0, 0, 0);
+        if (CanAudiWithCDCarInitView.IsLvdsType() == 0 && CanFunc.getInstance().IsCore() == 1) {
+            Mcu.ReqOrgTiming(32);
+        } else if (CanAudiWithCDCarInitView.IsLvdsType() == 1 && CanFunc.getInstance().IsCore() == 1) {
+            Mcu.ReqOrgTiming(33);
+        }
         Intent intent = new Intent("com.ts.can.BROADCAST_CAN_INFO");
         intent.putExtra("CanType", CanJni.GetCanType());
         intent.putExtra("CanSubType", CanAudiWithCDCarInitView.DoorUI());
@@ -192,15 +219,33 @@ public class CanAudiWithCDExdActivity extends CanBaseActivity implements UserCal
     }
 
     public static void DealDevEvent() {
-        BtExe bt = BtExe.getBtInstance();
-        if (mOldBtSta != bt.getSta() && FtSet.IsIconExist(1) == 0) {
-            mOldBtSta = bt.getSta();
-            if ((mOldBtSta == 3 || mOldBtSta == 2 || mOldBtSta == 4) && CanIF.IsExdMode()) {
-                Log.d(TAG, "Bt call on ");
-                Iop.RstPort(1);
-            } else {
-                Log.d(TAG, "Bt call of ");
-                Iop.RstPort(0);
+        if (FtSet.IsIconExist(1) == 0) {
+            switch (mOldBtSta) {
+                case 0:
+                    if (Iop.GetMediaOrBlue() > 0) {
+                        mOldBtSta = 1;
+                        mBtCnt = 10;
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (mBtCnt <= 0) {
+                        mOldBtSta = 2;
+                        Log.d(TAG, "Bt call on ");
+                        Iop.RstPort(1);
+                        break;
+                    } else {
+                        mBtCnt--;
+                        break;
+                    }
+                case 2:
+                    if (Iop.GetMediaOrBlue() == 0) {
+                        Log.d(TAG, "Bt call of ");
+                        Iop.RstPort(0);
+                        mOldBtSta = 0;
+                        break;
+                    }
+                    break;
             }
         }
         if (CanIF.mGpsVoiceDelay > 0) {

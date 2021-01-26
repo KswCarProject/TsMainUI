@@ -7,7 +7,6 @@ import com.ts.can.bmw.mini.CanBMWMiniServiceDetailActivity;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZService;
-import com.txznet.sdk.tongting.IConstantData;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +17,7 @@ public class TXZCallManager {
     private static TXZCallManager Ty = new TXZCallManager();
 
     /* renamed from: T  reason: collision with root package name */
-    byte[] f706T = null;
+    byte[] f710T = null;
     private String T5;
     private String T6;
     /* access modifiers changed from: private */
@@ -103,8 +102,8 @@ public class TXZCallManager {
 
     /* access modifiers changed from: package-private */
     public void Tr() {
-        if (this.f706T != null) {
-            Tn.Tr().T("com.txznet.txz", "txz.call.sync", this.f706T, (Tn.Tr) null);
+        if (this.f710T != null) {
+            Tn.Tr().T("com.txznet.txz", "txz.call.sync", this.f710T, (Tn.Tr) null);
         }
     }
 
@@ -112,16 +111,16 @@ public class TXZCallManager {
     public static class Contact {
 
         /* renamed from: T  reason: collision with root package name */
-        protected String f711T;
+        protected String f715T;
         protected String Tr;
         protected long Ty;
 
         public String getName() {
-            return this.f711T;
+            return this.f715T;
         }
 
         public void setName(String name) {
-            this.f711T = name;
+            this.f715T = name;
         }
 
         public String getNumber() {
@@ -147,27 +146,27 @@ public class TXZCallManager {
         int i = 0;
         Map<String, Integer> conMap = new HashMap<>();
         for (Contact con : cons) {
-            if (!TextUtils.isEmpty(con.f711T)) {
+            if (!TextUtils.isEmpty(con.f715T)) {
                 if (TextUtils.isEmpty(con.Tr)) {
                     con.Tr = "empty";
                 }
-                if (conMap.containsKey(con.f711T)) {
-                    conMap.put(con.f711T, Integer.valueOf(conMap.get(con.f711T).intValue() + 1));
-                    if (conMap.get(con.f711T).intValue() > 10) {
+                if (conMap.containsKey(con.f715T)) {
+                    conMap.put(con.f715T, Integer.valueOf(conMap.get(con.f715T).intValue() + 1));
+                    if (conMap.get(con.f715T).intValue() > 10) {
                     }
                 } else {
-                    conMap.put(con.f711T, 1);
+                    conMap.put(con.f715T, 1);
                 }
                 contacts.Tr[i] = new T.C0007T();
-                contacts.Tr[i].Tr = con.f711T;
+                contacts.Tr[i].Tr = con.f715T;
                 T.C0007T t = contacts.Tr[i];
                 t.Ty = new String[]{con.Tr};
                 contacts.Tr[i].Tk = Integer.valueOf((int) (con.Ty / 1000));
                 i++;
             }
         }
-        this.f706T = T9.T((T9) contacts);
-        Tn.Tr().T("com.txznet.txz", "txz.call.sync", this.f706T, (Tn.Tr) null);
+        this.f710T = T9.T((T9) contacts);
+        Tn.Tr().T("com.txznet.txz", "txz.call.sync", this.f710T, (Tn.Tr) null);
     }
 
     public void setCallTool(CallTool tool) {
@@ -185,7 +184,7 @@ public class TXZCallManager {
             public void onMakeCall(Contact con) {
                 JSONObject json = new JSONObject();
                 try {
-                    json.put(IConstantData.KEY_NAME, con.f711T);
+                    json.put("name", con.f715T);
                     json.put(CanBMWMiniServiceDetailActivity.KEY_NUM, con.Tr);
                 } catch (Exception e) {
                 }
@@ -197,7 +196,7 @@ public class TXZCallManager {
                 try {
                     json.put("tts", needTts);
                     json.put("asr", needAsr);
-                    json.put(IConstantData.KEY_NAME, con.f711T);
+                    json.put("name", con.f715T);
                     json.put(CanBMWMiniServiceDetailActivity.KEY_NUM, con.Tr);
                 } catch (Exception e) {
                 }
@@ -222,7 +221,7 @@ public class TXZCallManager {
             public byte[] T(String packageName, String command, byte[] data) {
                 if (command.equals("getStatus")) {
                     try {
-                        switch (AnonymousClass3.f709T[TXZCallManager.this.T9.getStatus().ordinal()]) {
+                        switch (AnonymousClass3.f713T[TXZCallManager.this.T9.getStatus().ordinal()]) {
                             case 1:
                                 return "idle".getBytes();
                             case 2:
@@ -240,7 +239,7 @@ public class TXZCallManager {
                     try {
                         Contact con = new Contact();
                         JSONObject json = new JSONObject(new String(data));
-                        con.setName(json.getString(IConstantData.KEY_NAME));
+                        con.setName(json.getString("name"));
                         con.setNumber(json.getString(CanBMWMiniServiceDetailActivity.KEY_NUM));
                         TXZCallManager.this.T9.makeCall(con);
                         return null;
@@ -285,19 +284,19 @@ public class TXZCallManager {
     static /* synthetic */ class AnonymousClass3 {
 
         /* renamed from: T  reason: collision with root package name */
-        static final /* synthetic */ int[] f709T = new int[CallTool.CallStatus.values().length];
+        static final /* synthetic */ int[] f713T = new int[CallTool.CallStatus.values().length];
 
         static {
             try {
-                f709T[CallTool.CallStatus.CALL_STATUS_IDLE.ordinal()] = 1;
+                f713T[CallTool.CallStatus.CALL_STATUS_IDLE.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f709T[CallTool.CallStatus.CALL_STATUS_OFFHOOK.ordinal()] = 2;
+                f713T[CallTool.CallStatus.CALL_STATUS_OFFHOOK.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f709T[CallTool.CallStatus.CALL_STATUS_RINGING.ordinal()] = 3;
+                f713T[CallTool.CallStatus.CALL_STATUS_RINGING.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
@@ -308,7 +307,7 @@ public class TXZCallManager {
         this.T5 = mac;
         this.TZ = true;
         Tr json = new Tr();
-        json.T(IConstantData.KEY_NAME, (Object) this.TE);
+        json.T("name", (Object) this.TE);
         json.T("mac", (Object) this.T5);
         Tn.Tr().T("com.txznet.txz", "txz.bt.localinfo", json.Ty(), (Tn.Tr) null);
     }
@@ -318,13 +317,13 @@ public class TXZCallManager {
         this.T6 = mac;
         this.Tv = true;
         Tr json = new Tr();
-        json.T(IConstantData.KEY_NAME, (Object) this.Th);
+        json.T("name", (Object) this.Th);
         json.T("mac", (Object) this.T6);
         Tn.Tr().T("com.txznet.txz", "txz.bt.remoteinfo", json.Ty(), (Tn.Tr) null);
     }
 
     public void setCanAutoCall(boolean canAuto) {
         this.Tr = Boolean.valueOf(canAuto);
-        Tn.Tr().T("com.txznet.txz", "txz.call.canProgress", (canAuto + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.call.canProgress", (canAuto + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 }

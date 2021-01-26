@@ -6,6 +6,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanBMWLzYbxxView extends CanScrollCarInfoView {
     protected static final int ITEM_FDJZS = 3;
@@ -14,8 +15,8 @@ public class CanBMWLzYbxxView extends CanScrollCarInfoView {
     protected static final int ITEM_SSCS = 1;
     protected static final int ITEM_ZLC = 4;
     private CanDataInfo.CAN_Msg mCanMsg;
-    String mDisDw = "";
-    String mTempDw = "";
+    String mDisDw = TXZResourceManager.STYLE_DEFAULT;
+    String mTempDw = TXZResourceManager.STYLE_DEFAULT;
 
     public CanBMWLzYbxxView(Activity activity) {
         super(activity, 5);

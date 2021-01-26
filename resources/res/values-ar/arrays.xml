@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="tpms_general_disp">
-        <item>TEMP Unit</item>
-        <item>Pressure Unit</item>
-        <item>MAX TEMP</item>
-        <item>MAX Pressure</item>
-        <item>MIN Pressure</item>
+    <array name="google_open_radio">
+        <item>فتح الراديو</item>
     </array>
-    <array name="tpms_general_error">
-        <item>Flat Tire</item>
-        <item>Low Voltage</item>
-        <item>No Signal</item>
-        <item>Low Pressure</item>
-        <item>High Pressure</item>
-        <item>Start study</item>
-        <item>studying</item>
+    <array name="google_close_radio">
+        <item>إيقاف الراديو</item>
+    </array>
+    <array name="google_open_music">
+        <item>فتح الموسيقى</item>
+    </array>
+    <array name="google_close_music">
+        <item>إيقاف الموسيقى</item>
+    </array>
+    <array name="google_open_video">
+        <item>افتح الفيديو</item>
+    </array>
+    <array name="google_close_video">
+        <item>إيقاف الفيديو</item>
+    </array>
+    <array name="google_open_bt">
+        <item>open bt</item>
+        <item>play bt</item>
+        <item>open the bt</item>
+        <item>play the bt</item>
+    </array>
+    <array name="google_open_navi">
+        <item>فتح الملاحة</item>
     </array>
     <array name="set_main_options">
         <item>مشترك</item>
@@ -28,7 +39,7 @@
         <item>معلومات عن الجهاز</item>
     </array>
     <array name="set_genera_options">
-        <item>وقت الانتظار</item>
+        <item>وضع السكون</item>
         <item>التعرف على الكلام</item>
         <item>اتصال المساعدة</item>
         <item>عكس حجم قمع</item>
@@ -59,6 +70,7 @@
         <item>مكيف هواء</item>
         <item>الفيديو الخلفي</item>
         <item>كاميرا أمامية</item>
+        <item>نوع الكاميرا</item>
     </array>
     <array name="set_navi_options">
         <item>صناعة السيارات بدء الإنتقال</item>
@@ -88,5 +100,22 @@
         <item>كسب</item>
         <item>تردد عالي</item>
         <item>كسب</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+        <item>High Temp</item>
     </array>
 </resources>

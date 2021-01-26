@@ -4,11 +4,15 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -18,10 +22,11 @@ import android.widget.TextView;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@SuppressLint({"NewApi"})
+@SuppressLint({"NewApi", "Override"})
 public class BtLogActivity extends BtBaseActivity implements View.OnClickListener, UserCallBack {
     public static final int BT_ACTIVITY_ID = 6;
     private static final String TAG = "BtCallHistoryActivity";
@@ -36,7 +41,7 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
             BtLogActivity.this.mHistoryListAdapter.setSelect(position);
             BtLogActivity.this.mHistoryListAdapter.notifyDataSetChanged();
             BtLogActivity.this.updateFocus(BtLogActivity.this.mLtView[BtLogActivity.this.mIcoSel]);
-            BtLogActivity.this.mbSubFocus = 2;
+            BtLogActivity.this.mbSubFocus = 1;
             BtLogActivity.this.mListLog.setItemChecked(position, true);
         }
     };
@@ -52,6 +57,29 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.mIsInMultiWindowMode = isInMultiWindowMode();
+        updateLayout(this.mIsInMultiWindowMode);
+    }
+
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
+        this.mIsInMultiWindowMode = isInMultiWindowMode;
+        updateMultiChange(isInMultiWindowMode);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateMultiChange(boolean isInMultiWindowMode) {
+        updateLayout(isInMultiWindowMode);
+        SubItemsInit(this, 6);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateLayout(boolean isInMultiWindowMode) {
+        if (isInMultiWindowMode) {
+            setContentView(R.layout.activity_bt_log_s);
+            initView1();
+            return;
+        }
         setContentView(R.layout.activity_bt_log);
         initView();
     }
@@ -65,7 +93,7 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
     public void onResume() {
         super.onResume();
         SubItemsInit(this, 6);
-        if (this.isShowActivity) {
+        if (this.isShowActivity && !isInMultiWindowMode()) {
             EnterSubFocus();
         }
         MainTask.GetInstance().SetUserCallBack(this);
@@ -131,10 +159,6 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
         BtExe.flushFilterList();
         this.mHistoryListAdapter1.updateData(BtExe.mHistoryList);
         checkSelected();
-        this.mFocusView = new View[3];
-        this.mFocusView[0] = this.logButton[0];
-        this.mFocusView[1] = this.logButton[1];
-        this.mFocusView[2] = this.logButton[2];
     }
 
     /* access modifiers changed from: package-private */
@@ -149,13 +173,21 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
         } else {
             message = name;
         }
-        new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(message).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(message).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if (BtLogActivity.this.mDialNum != null && !BtLogActivity.this.mDialNum.isEmpty()) {
                     BtLogActivity.this.bt.dial(BtLogActivity.this.mDialNum);
                 }
             }
-        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).show();
+        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).create();
+        dialog.show();
+        Window dialogWindow = dialog.getWindow();
+        Display d = getWindowManager().getDefaultDisplay();
+        WindowManager.LayoutParams p = dialogWindow.getAttributes();
+        p.width = (int) (((double) d.getWidth()) * 0.5d);
+        p.height = (int) (((double) d.getHeight()) * 0.5d);
+        p.gravity = 17;
+        dialogWindow.setAttributes(p);
     }
 
     /* access modifiers changed from: package-private */
@@ -170,13 +202,21 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
         } else {
             message = name;
         }
-        new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(message).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(message).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if (BtLogActivity.this.mDialNum != null && !BtLogActivity.this.mDialNum.isEmpty()) {
                     BtLogActivity.this.bt.dial(BtLogActivity.this.mDialNum);
                 }
             }
-        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).show();
+        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).create();
+        dialog.show();
+        Window dialogWindow = dialog.getWindow();
+        Display d = getWindowManager().getDefaultDisplay();
+        WindowManager.LayoutParams p = dialogWindow.getAttributes();
+        p.width = (int) (((double) d.getWidth()) * 0.8d);
+        p.height = (int) (((double) d.getHeight()) * 0.5d);
+        p.gravity = 17;
+        dialogWindow.setAttributes(p);
     }
 
     public void checkSelected() {
@@ -197,32 +237,38 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.btn_received) {
-            this.mbSubFocus = 1;
-            updateFocus(this.mFocusView[1]);
-            logFocusClear();
+            if (!this.mIsInMultiWindowMode) {
+                this.mbSubFocus = 2;
+                updateFocus(this.mFocusView[1]);
+                logFocusClear();
+            }
             BtExe.mlistFilter = 2;
             BtExe.flushFilterList();
         } else if (id == R.id.btn_dialed) {
-            this.mbSubFocus = 1;
-            updateFocus(this.mFocusView[2]);
-            logFocusClear();
+            if (!this.mIsInMultiWindowMode) {
+                this.mbSubFocus = 2;
+                updateFocus(this.mFocusView[2]);
+                logFocusClear();
+            }
             BtExe.mlistFilter = 1;
             BtExe.flushFilterList();
         } else if (id == R.id.btn_missed) {
-            this.mbSubFocus = 1;
-            updateFocus(this.mFocusView[0]);
-            logFocusClear();
+            if (!this.mIsInMultiWindowMode) {
+                this.mbSubFocus = 2;
+                updateFocus(this.mFocusView[0]);
+                logFocusClear();
+            }
             BtExe.mlistFilter = 4;
             BtExe.flushFilterList();
         } else if (id == R.id.btn_delete_log) {
             if (BtExe.mlistFilter == 2) {
-                this.bt.delete("diallog", "type=?", new String[]{"incoming"});
+                this.bt.delete("diallog", "type=?", new String[]{BtExe.INCOMING_TYPE});
             }
             if (BtExe.mlistFilter == 1) {
-                this.bt.delete("diallog", "type=?", new String[]{"outgoing"});
+                this.bt.delete("diallog", "type=?", new String[]{BtExe.OUTGOING_TYPE});
             }
             if (BtExe.mlistFilter == 4) {
-                this.bt.delete("diallog", "type=?", new String[]{"missed"});
+                this.bt.delete("diallog", "type=?", new String[]{BtExe.MISSED_TYPE});
             }
             BtExe.updateHistory();
             BtExe.flushFilterList();
@@ -277,9 +323,9 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
             } else {
                 convertView.setBackgroundResource(R.drawable.bt_list_btn);
             }
-            String name = "";
-            String number = "";
-            String time = "";
+            String name = TXZResourceManager.STYLE_DEFAULT;
+            String number = TXZResourceManager.STYLE_DEFAULT;
+            String time = TXZResourceManager.STYLE_DEFAULT;
             if (position < this.mList.size()) {
                 name = (String) this.mList.get(position).get(BtExe.ITEM_HISTORY_NAME);
                 number = (String) this.mList.get(position).get(BtExe.ITEM_HISTORY_NUMBER);
@@ -355,9 +401,9 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            String name = "";
-            String number = "";
-            String time = "";
+            String name = TXZResourceManager.STYLE_DEFAULT;
+            String number = TXZResourceManager.STYLE_DEFAULT;
+            String time = TXZResourceManager.STYLE_DEFAULT;
             if (position < this.mList.size()) {
                 name = (String) this.mList.get(position).get(BtExe.ITEM_HISTORY_NAME);
                 number = (String) this.mList.get(position).get(BtExe.ITEM_HISTORY_NUMBER);
@@ -431,7 +477,7 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
         } else {
             message = name;
         }
-        new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(message).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(message).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if (BtExe.mCallSta > 1) {
                     BtCallMsgbox.GetInstance().Show(1);
@@ -443,7 +489,15 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
             public void onDismiss(DialogInterface arg0) {
                 BtLogActivity.this.mfgDialDlg = false;
             }
-        }).show();
+        }).create();
+        dialog.show();
+        Window dialogWindow = dialog.getWindow();
+        Display d = getWindowManager().getDefaultDisplay();
+        WindowManager.LayoutParams p = dialogWindow.getAttributes();
+        p.width = (int) (((double) d.getWidth()) * 0.5d);
+        p.height = (int) (((double) d.getHeight()) * 0.5d);
+        p.gravity = 17;
+        dialogWindow.setAttributes(p);
     }
 
     public void logFocusClear() {
@@ -455,7 +509,7 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
 
     /* access modifiers changed from: protected */
     public void EnterSubFocus() {
-        this.mbSubFocus = 1;
+        this.mbSubFocus = 2;
         updateFocus(this.mFocusView[2]);
         BtExe.mlistFilter = 1;
         checkSelected();
@@ -591,28 +645,28 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
         switch (key) {
             case 19:
                 if (this.mbSubFocus == 1) {
-                    CallHistoryPrev();
-                    CallHistoryCenter();
+                    LogPrev();
                     return true;
                 } else if (this.mbSubFocus != 2) {
                     return true;
                 } else {
-                    LogPrev();
+                    CallHistoryPrev();
+                    CallHistoryCenter();
                     return true;
                 }
             case 20:
                 if (this.mbSubFocus == 1) {
-                    CallHistoryNext();
-                    CallHistoryCenter();
+                    LogNext();
                     return true;
                 } else if (this.mbSubFocus != 2) {
                     return true;
                 } else {
-                    LogNext();
+                    CallHistoryNext();
+                    CallHistoryCenter();
                     return true;
                 }
             case 21:
-                if (this.mbSubFocus == 1) {
+                if (this.mbSubFocus == 2) {
                     updateFocus(this.mFocusView[2]);
                     BtExe.mlistFilter = 1;
                     checkSelected();
@@ -622,30 +676,37 @@ public class BtLogActivity extends BtBaseActivity implements View.OnClickListene
                     }
                     this.mListLog.setItemChecked(position2, false);
                     return true;
-                } else if (this.mbSubFocus != 2) {
-                    return true;
-                } else {
-                    LogFocus();
-                    return true;
-                }
-            case 22:
-                if (this.mbSubFocus == 2) {
-                    LogFocus();
-                    return true;
                 } else if (this.mbSubFocus != 3 || (position = this.mListLog.getCheckedItemPosition()) == -1) {
                     return true;
                 } else {
                     this.mListLog.setItemChecked(position, false);
                     return true;
                 }
-            case 23:
+            case 22:
                 if (this.mbSubFocus == 1) {
-                    CallHistoryCenter();
+                    LogFocus();
                     return true;
                 } else if (this.mbSubFocus != 2) {
                     return true;
                 } else {
+                    updateFocus(this.mFocusView[2]);
+                    BtExe.mlistFilter = 1;
+                    checkSelected();
+                    int position3 = this.mListLog.getCheckedItemPosition();
+                    if (position3 == -1) {
+                        return true;
+                    }
+                    this.mListLog.setItemChecked(position3, false);
+                    return true;
+                }
+            case 23:
+                if (this.mbSubFocus == 1) {
                     LogCenter();
+                    return true;
+                } else if (this.mbSubFocus != 2) {
+                    return true;
+                } else {
+                    CallHistoryCenter();
                     return true;
                 }
             default:

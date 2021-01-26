@@ -15,10 +15,6 @@
     <string name="str_bt_ok">ตกลง</string>
     <string name="str_bt_cancel">ปิด</string>
     <string name="str_bt_dial">โทร</string>
-    <string name="tpms_general_bar">Bar</string>
-    <string name="tpms_general_psi">Psi</string>
-    <string name="tpms_general_satrt">Start study</string>
-    <string name="tpms_general_end">Cancel study</string>
     <string name="str_setting_title">Setup</string>
     <string name="set_general_automatic">Auto</string>
     <string name="set_sound_jazz">แจ๊ส</string>
@@ -98,4 +94,8 @@
     <string name="vol_common_navivol">Navi Volume</string>
     <string name="vol_common_mut">Mute</string>
     <string name="del_common_no_apk">No APP</string>
+    <string name="tpms_general_bar">Bar</string>
+    <string name="tpms_general_psi">Psi</string>
+    <string name="tpms_general_satrt">Start study</string>
+    <string name="tpms_general_end">Cancel study</string>
 </resources>

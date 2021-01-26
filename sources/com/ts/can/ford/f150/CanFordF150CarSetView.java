@@ -6,6 +6,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanFordF150CarSetView extends CanScrollCarInfoView {
     private CanDataInfo.FordCarSet2 mCarSet;
@@ -208,14 +209,14 @@ public class CanFordF150CarSetView extends CanScrollCarInfoView {
             updateItem(11, this.mCarSet.Tre, String.valueOf(this.mCarSet.Tre - 7));
             updateItem(12, this.mCarSet.Mid, String.valueOf(this.mCarSet.Mid - 7));
             updateItem(13, this.mCarSet.Bass, String.valueOf(this.mCarSet.Bass - 7));
-            String unit = "";
+            String unit = TXZResourceManager.STYLE_DEFAULT;
             if (this.mCarSet.Fade - 7 > 0) {
                 unit = "R";
             } else if (this.mCarSet.Fade - 7 < 0) {
                 unit = "F";
             }
             updateItem(14, this.mCarSet.Fade, String.valueOf(unit) + String.valueOf(this.mCarSet.Fade - 7));
-            String unit2 = "";
+            String unit2 = TXZResourceManager.STYLE_DEFAULT;
             if (this.mCarSet.Bal - 7 > 0) {
                 unit2 = "R";
             } else if (this.mCarSet.Bal - 7 < 0) {

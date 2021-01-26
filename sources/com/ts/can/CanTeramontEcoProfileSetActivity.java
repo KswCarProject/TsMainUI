@@ -1,7 +1,6 @@
 package com.ts.can;
 
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -124,7 +123,7 @@ public class CanTeramontEcoProfileSetActivity extends CanCommonActivity implemen
     /* access modifiers changed from: protected */
     public void QueryData() {
         if (this.mEcoProfile == 3) {
-            CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+            CanJni.GolfQuery(64, 160);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.txznet.sdk.bean;
 
 import android.text.TextUtils;
-import com.txznet.sdk.tongting.IConstantData;
+import com.android.SdkConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -56,7 +56,7 @@ public class PoiDeepInfo {
                     if (!js.isNull(i)) {
                         JSONObject json = js.getJSONObject(i);
                         StationInfo stationInfo = new StationInfo();
-                        stationInfo.type = json.getString(IConstantData.KEY_TYPE).replace("#", "号");
+                        stationInfo.type = json.getString("type").replace("#", "号");
                         stationInfo.price = json.getString("price");
                         stationInfo.pricetag = json.getString("pricetag");
                         result.add(stationInfo);
@@ -78,7 +78,7 @@ public class PoiDeepInfo {
         try {
             JSONObject js = new JSONObject(str);
             result.category = js.getInt("category");
-            result.tag = js.getString("tag");
+            result.tag = js.getString(SdkConstants.ATTR_TAG);
             T(result, js);
             return result;
         } catch (JSONException e) {

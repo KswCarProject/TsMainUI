@@ -2,9 +2,11 @@ package com.ts.can.ford;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
@@ -15,11 +17,13 @@ import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.KeyDef;
 
@@ -48,6 +52,7 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
     public static final int ITEM_MENU_LINE4 = 20;
     public static final int ITEM_RT_BTN = 80;
     public static final String TAG = "CanFordSyncUIActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     public static final int[] mDlgBgArr = {R.drawable.can_sync_box01, R.drawable.can_sync_box02, R.drawable.can_sync_box03, R.drawable.can_sync_box04, R.drawable.can_sync_box05, R.drawable.can_sync_box};
     public static final int[] mDlgYArr = {218, 182, 144, 114, 84, 48};
     public static final int[] mDlgYArr_768x1024 = new int[6];
@@ -361,6 +366,12 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
         mIsSyncWin = true;
         mIsNeedFinish = false;
         Log.d(TAG, "-----Is jump = " + mIsJump + "-----");
+        if (CanJni.GetCanFsTp() != 146) {
+            return;
+        }
+        if (CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 7) {
+            CanJni.FordRzcCarSrcCmd(1);
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -368,6 +379,12 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
         MainTask.GetInstance().SetUserCallBack((UserCallBack) null);
         super.onPause();
         mIsSyncWin = false;
+        if (CanJni.GetCanFsTp() != 146) {
+            return;
+        }
+        if (CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 7) {
+            CanJni.FordRzcCarSrcCmd(0);
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -397,9 +414,16 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
     /* access modifiers changed from: protected */
     public void InitUI() {
         this.mManager = new RelativeLayoutManager((RelativeLayout) findViewById(R.id.can_comm_layout));
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
         if (MainSet.GetScreenType() == 3) {
             initScreen_768x1024();
         } else {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+            lp.width = 1024;
+            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+            lp.gravity = 17;
+            this.mManager.GetLayout().setLayoutParams(lp);
             initCommonScreen();
         }
         ShowRtBtn();
@@ -424,6 +448,11 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
             this.mIcoBattery.Show(false);
             this.mIcoSignal.Show(false);
         }
+        if (MainSet.GetScreenType() != 3) {
+            this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+            this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+            Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
+        }
     }
 
     private void initScreen_768x1024() {
@@ -431,7 +460,7 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
         this.mBtnLtPhone = AddImgBtn(2, 0, 110, Can.CAN_FORD_WC, 108, R.drawable.can_sync_phone_up, R.drawable.can_sync_phone_dn);
         this.mBtnLtSpeech = AddImgBtn(3, 0, 218, Can.CAN_FORD_WC, 106, R.drawable.can_sync_mike_up, R.drawable.can_sync_mike_dn);
         this.mBtnLtKeyboard = AddImgBtn(4, 0, KeyDef.RKEY_RADIO_2S, Can.CAN_FORD_WC, 108, R.drawable.can_sync_dial_up, R.drawable.can_sync_dial_dn);
-        this.mManager.AddImageEx(CanCameraUI.BTN_CHANA_ALSVINV7_MODE1, 44, 222, KeyDef.RKEY_MEDIA_ZOOM, R.drawable.can_sync_right_box);
+        this.mManager.AddImageEx(CanCameraUI.BTN_CHANA_ALSVINV7_MODE1, 44, 222, 309, R.drawable.can_sync_right_box);
         this.mBtnUp = AddImgBtn(90, 607, 52, 67, 50, R.drawable.can_sync_on_up, R.drawable.can_sync_on_dn);
         this.mBtnLeft = AddImgBtn(105, 534, 112, 67, 50, R.drawable.can_sync_left_up, R.drawable.can_sync_left_dn);
         this.mBtnOK = AddImgBtn(92, 607, 112, 67, 50, R.drawable.can_sync_ok_up, R.drawable.can_sync_ok_dn);
@@ -440,9 +469,9 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
         this.mBtnInfo = AddImgBtn(86, 534, Can.CAN_ZH_WC, 67, 50, R.drawable.can_sync_info_up, R.drawable.can_sync_info_dn);
         this.mBtnMenu = AddImgBtn(82, 607, Can.CAN_ZH_WC, 67, 50, R.drawable.can_sync_menu_up, R.drawable.can_sync_menu_dn);
         this.mBtnDev = AddImgBtn(209, 681, Can.CAN_ZH_WC, 67, 50, R.drawable.can_sync_dev_up, R.drawable.can_sync_dev_dn);
-        this.mBtnPrev = AddImgBtn(88, 534, KeyDef.RKEY_RADIO_SCAN, 67, 50, R.drawable.can_sync_seekup_up, R.drawable.can_sync_seekup_dn);
-        this.mBtnRnd = AddImgBtn(87, 607, KeyDef.RKEY_RADIO_SCAN, 67, 50, R.drawable.can_sync_random_up, R.drawable.can_sync_random_dn);
-        this.mBtnNext = AddImgBtn(89, 681, KeyDef.RKEY_RADIO_SCAN, 67, 50, R.drawable.can_sync_seekdn_up, R.drawable.can_sync_seekdn_dn);
+        this.mBtnPrev = AddImgBtn(88, 534, 296, 67, 50, R.drawable.can_sync_seekup_up, R.drawable.can_sync_seekup_dn);
+        this.mBtnRnd = AddImgBtn(87, 607, 296, 67, 50, R.drawable.can_sync_random_up, R.drawable.can_sync_random_dn);
+        this.mBtnNext = AddImgBtn(89, 681, 296, 67, 50, R.drawable.can_sync_seekdn_up, R.drawable.can_sync_seekdn_dn);
         this.mBtnNum[1] = AddImgBtn(94, 534, 52, 67, 50, R.drawable.can_sync_num01_up, R.drawable.can_sync_num01_dn);
         this.mBtnNum[2] = AddImgBtn(95, 607, 52, 67, 50, R.drawable.can_sync_num02_up, R.drawable.can_sync_num02_dn);
         this.mBtnNum[3] = AddImgBtn(96, 681, 52, 67, 50, R.drawable.can_sync_num03_up, R.drawable.can_sync_num03_dn);
@@ -455,18 +484,18 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
         this.mBtnNumX = AddImgBtn(103, 534, Can.CAN_ZH_WC, 67, 50, R.drawable.can_sync_aste_up, R.drawable.can_sync_aste_dn);
         this.mBtnNum[0] = AddImgBtn(93, 607, Can.CAN_ZH_WC, 67, 50, R.drawable.can_sync_num00_up, R.drawable.can_sync_num00_dn);
         this.mBtnNumJ = AddImgBtn(104, 681, Can.CAN_ZH_WC, 67, 50, R.drawable.can_sync_well_up, R.drawable.can_sync_well_dn);
-        this.mBtnCall = AddImgBtn(85, 534, KeyDef.RKEY_RADIO_SCAN, 67, 50, R.drawable.can_sync_dialout_up, R.drawable.can_sync_dialout_dn);
-        this.mBtnHang = AddImgBtn(84, 607, KeyDef.RKEY_RADIO_SCAN, 67, 50, R.drawable.can_sync_hangup_up, R.drawable.can_sync_hangup_dn);
+        this.mBtnCall = AddImgBtn(85, 534, 296, 67, 50, R.drawable.can_sync_dialout_up, R.drawable.can_sync_dialout_dn);
+        this.mBtnHang = AddImgBtn(84, 607, 296, 67, 50, R.drawable.can_sync_hangup_up, R.drawable.can_sync_hangup_dn);
         this.mIcoCurSrc = this.mManager.AddImage(180, 10, 45, 44);
         this.mIcoSync = AddIco(Can.CAN_CC_HF_DJ, R.drawable.can_sync_status_sync_up, R.drawable.can_sync_status_sync_dn);
         this.mIcoInfo = AddIco(265, R.drawable.can_sync_status_info_up, R.drawable.can_sync_status_info_dn);
         this.mIcoBt = AddIco(300, R.drawable.can_sync_stutas_cd, R.drawable.can_sync_stutas_cc);
         this.mIcoSM = AddIco(KeyDef.RKEY_DEL, -1, R.drawable.can_sync_stutas_5d);
-        this.mIcoSpk = AddIco(370, -1, R.drawable.can_sync_stutas_82);
+        this.mIcoSpk = AddIco(AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, -1, R.drawable.can_sync_stutas_82);
         this.mIcoCall = AddIco(405, -1, R.drawable.can_sync_stutas_29);
         this.mIcoBattery = AddIco(440, R.drawable.can_sync_stutas_61, -1);
         this.mIcoSignal = AddIco(475, R.drawable.can_sync_stutas_67, -1);
-        this.mSyncTime = this.mManager.AddCusText(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 10, 200, 33);
+        this.mSyncTime = this.mManager.AddCusText(540, 10, 200, 33);
         this.mSyncTime.setGravity(17);
         this.mSyncTime.SetPixelSize(24);
         for (int i = 0; i < 10; i++) {
@@ -548,7 +577,7 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
         this.mIcoCurSrc = this.mManager.AddImage(Can.CAN_NISSAN_XFY, 10, 45, 44);
         this.mIcoSync = AddIco(300, R.drawable.can_sync_status_sync_up, R.drawable.can_sync_status_sync_dn);
         this.mIcoInfo = AddIco(KeyDef.RKEY_DEL, R.drawable.can_sync_status_info_up, R.drawable.can_sync_status_info_dn);
-        this.mIcoBt = AddIco(370, R.drawable.can_sync_stutas_cd, R.drawable.can_sync_stutas_cc);
+        this.mIcoBt = AddIco(AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.can_sync_stutas_cd, R.drawable.can_sync_stutas_cc);
         this.mIcoSM = AddIco(405, -1, R.drawable.can_sync_stutas_5d);
         this.mIcoSpk = AddIco(440, -1, R.drawable.can_sync_stutas_82);
         this.mIcoCall = AddIco(475, -1, R.drawable.can_sync_stutas_29);
@@ -744,17 +773,17 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
                 color = -12303292;
                 break;
             case 5:
-                strLine = "";
+                strLine = TXZResourceManager.STYLE_DEFAULT;
                 break;
             default:
-                strLine = "";
+                strLine = TXZResourceManager.STYLE_DEFAULT;
                 break;
         }
         line.SetText(strLine, color);
     }
 
     private void SetSoftKey(SyncSKey key, CanDataInfo.SyncMenuItem item) {
-        String strLine = "";
+        String strLine = TXZResourceManager.STYLE_DEFAULT;
         int ico = 0;
         int sel = 0;
         int show = 1;
@@ -867,7 +896,7 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
                 Log.d(TAG, "Hide Time");
                 this.mLastTimeTick = curTick;
                 this.mTimeUpdate = false;
-                this.mSyncTime.setText("");
+                this.mSyncTime.setText(TXZResourceManager.STYLE_DEFAULT);
             }
         }
     }
@@ -1088,7 +1117,7 @@ public class CanFordSyncUIActivity extends CanFordBaseActivity implements UserCa
         try {
             return new String(data, 2, data[0], "UNICODE");
         } catch (Exception e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

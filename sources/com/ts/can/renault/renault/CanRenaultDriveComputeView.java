@@ -7,6 +7,7 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
 import com.ts.canview.CanItemMsgBox;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanRenaultDriveComputeView extends CanScrollCarInfoView {
     protected static final int ITEM_MAX = 5;
@@ -58,7 +59,7 @@ public class CanRenaultDriveComputeView extends CanScrollCarInfoView {
             case 3:
                 return "MPG(UK)";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -70,7 +71,7 @@ public class CanRenaultDriveComputeView extends CanScrollCarInfoView {
             case 1:
                 return "MILE";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -84,7 +85,7 @@ public class CanRenaultDriveComputeView extends CanScrollCarInfoView {
             case 3:
                 return "GAL";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

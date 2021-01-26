@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -16,6 +15,7 @@ import com.ts.canview.CanVerticalBar;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanToyotaWCTripHistoryActivity extends CanToyotaWCBaseActivity implements UserCallBack, View.OnClickListener {
@@ -43,9 +43,9 @@ public class CanToyotaWCTripHistoryActivity extends CanToyotaWCBaseActivity impl
             this.mTrip[i] = new CanVerticalBar((Context) this, R.drawable.fuel_consumption_pillars03);
             this.mTrip[i].setMinMax(0.0f, 100.0f);
             if (i == 0) {
-                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - (i * Can.CAN_AUDI_ZMYT), 71);
+                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - (i * 152), 71);
             } else {
-                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - ((6 - i) * Can.CAN_AUDI_ZMYT), 71);
+                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - ((6 - i) * 152), 71);
             }
         }
         TextView tv = this.mManager.AddText(760, 395, 100, 30);
@@ -66,7 +66,7 @@ public class CanToyotaWCTripHistoryActivity extends CanToyotaWCBaseActivity impl
         if (MainSet.GetScreenType() == 5) {
             this.mBtnPerMin = this.mManager.AddButton(1044, 54);
             this.mBtnClear = this.mManager.AddButton(1044, 174);
-            this.mBtnUpdate = this.mManager.AddButton(1044, KeyDef.RKEY_FF);
+            this.mBtnUpdate = this.mManager.AddButton(1044, 293);
         } else {
             this.mBtnPerMin = this.mManager.AddButton(44, 455);
             this.mBtnClear = this.mManager.AddButton(344, 455);
@@ -115,7 +115,7 @@ public class CanToyotaWCTripHistoryActivity extends CanToyotaWCBaseActivity impl
             this.mDW.setText(GetDWStr(this.mTripData.Yhdw));
             int base = 10;
             if (this.mTripData.Yhdw == 0) {
-                max = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max = 600;
                 base = 20;
             } else {
                 max = 300;
@@ -158,7 +158,7 @@ public class CanToyotaWCTripHistoryActivity extends CanToyotaWCBaseActivity impl
             case 2:
                 return "L/100KM";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

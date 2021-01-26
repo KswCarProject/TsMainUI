@@ -2,6 +2,7 @@ package com.txznet.sdk;
 
 import android.text.TextUtils;
 import com.Tn.T.T;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZService;
@@ -9,7 +10,6 @@ import com.txznet.sdk.bean.NavVoicePlugin;
 import com.txznet.sdk.bean.NaviInfo;
 import com.txznet.sdk.bean.Poi;
 import com.txznet.sdk.media.InvokeConstants;
-import com.txznet.sdk.tongting.IConstantData;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -21,7 +21,7 @@ public class TXZNavManager {
     private static TXZNavManager TB = new TXZNavManager();
 
     /* renamed from: T  reason: collision with root package name */
-    Boolean f756T;
+    Boolean f760T;
     Boolean T5;
     String T6;
     boolean T9 = true;
@@ -211,8 +211,8 @@ public class TXZNavManager {
         if (this.TN) {
             Tr();
         }
-        if (this.f756T != null) {
-            setUseActiveNav(this.f756T.booleanValue());
+        if (this.f760T != null) {
+            setUseActiveNav(this.f760T.booleanValue());
         }
         if (this.Tf != null) {
             setPlanAutoNaviDelay(this.Tf.intValue());
@@ -247,21 +247,21 @@ public class TXZNavManager {
         public static final int MARK_WAYPOI = 1;
 
         /* renamed from: T  reason: collision with root package name */
-        private volatile int f765T;
+        private volatile int f769T;
 
         public void addFlag(int flag) {
-            this.f765T |= flag & 1;
-            this.f765T |= flag & 2;
+            this.f769T |= flag & 1;
+            this.f769T |= flag & 2;
             T();
         }
 
         public void clearFlag(int flag) {
-            this.f765T &= ((flag & 1) | (flag & 2)) ^ -1;
+            this.f769T &= ((flag & 1) | (flag & 2)) ^ -1;
             T();
         }
 
         private void T() {
-            Tn.Tr().T("com.txznet.txz", "txz.nav.setRemoteFlag", (this.f765T + "").getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.txz", "txz.nav.setRemoteFlag", (this.f769T + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
         }
     }
 
@@ -269,7 +269,7 @@ public class TXZNavManager {
     public static class PathInfo {
 
         /* renamed from: T  reason: collision with root package name */
-        String f767T;
+        String f771T;
         public int _id;
         public String fromPoiAddr;
         public double fromPoiLat;
@@ -296,7 +296,7 @@ public class TXZNavManager {
                 try {
                     jsonObject.put("lat", this.lat);
                     jsonObject.put("lng", this.lng);
-                    jsonObject.put(IConstantData.KEY_NAME, this.name);
+                    jsonObject.put("name", this.name);
                     jsonObject.put("addr", this.addr);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -310,7 +310,7 @@ public class TXZNavManager {
                     JSONObject jsonObject = new JSONObject(json);
                     pathInfo.lat = jsonObject.optDouble("lat");
                     pathInfo.lng = jsonObject.optDouble("lng");
-                    pathInfo.name = jsonObject.optString(IConstantData.KEY_NAME);
+                    pathInfo.name = jsonObject.optString("name");
                     pathInfo.addr = jsonObject.optString("addr");
                     return pathInfo;
                 } catch (JSONException e) {
@@ -332,7 +332,7 @@ public class TXZNavManager {
             this.toPoiName = null;
             this.totalDistance = 0;
             this.totalTime = 0;
-            this.f767T = null;
+            this.f771T = null;
             this.wayInfos = null;
         }
 
@@ -355,8 +355,8 @@ public class TXZNavManager {
                     for (WayInfo info : this.wayInfos) {
                         jsonArray.put(info.toString());
                     }
-                    this.f767T = jsonArray.toString();
-                    jsonObject.put("wayInfoStr", this.f767T);
+                    this.f771T = jsonArray.toString();
+                    jsonObject.put("wayInfoStr", this.f771T);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -379,12 +379,12 @@ public class TXZNavManager {
                 pathInfo.toCity = jsonObject.optString("toCity");
                 pathInfo.totalDistance = Integer.valueOf(jsonObject.optInt("totalDistance"));
                 pathInfo.totalTime = Integer.valueOf(jsonObject.optInt("totalTime"));
-                pathInfo.f767T = jsonObject.optString("wayInfoStr");
+                pathInfo.f771T = jsonObject.optString("wayInfoStr");
                 pathInfo.wayInfos = new ArrayList();
-                if (TextUtils.isEmpty(pathInfo.f767T)) {
+                if (TextUtils.isEmpty(pathInfo.f771T)) {
                     return pathInfo;
                 }
-                JSONArray jsonArray = new JSONArray(pathInfo.f767T);
+                JSONArray jsonArray = new JSONArray(pathInfo.f771T);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     pathInfo.wayInfos.add(WayInfo.fromJson(jsonArray.getString(i)));
                 }
@@ -405,27 +405,27 @@ public class TXZNavManager {
         }
         tool.setStatusListener((NavToolStatusListener) new NavToolStatusListener() {
             public void onStart() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", "true".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
             }
 
             public void onEnd() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", "false".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", SdkConstants.VALUE_FALSE.getBytes(), (Tn.Tr) null);
             }
 
             public void enableExitAllNavTool(boolean enable) {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitAllNav", (enable + "").getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitAllNav", (enable + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
             }
 
             public void onExitApp() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitApp", "true".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitApp", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
             }
 
             public void onGetFocus() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", "true".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
             }
 
             public void onLoseFocus() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", "false".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", SdkConstants.VALUE_FALSE.getBytes(), (Tn.Tr) null);
             }
 
             public void onPathUpdate(PathInfo pathInfo) {
@@ -441,27 +441,27 @@ public class TXZNavManager {
         });
         tool.setStatusListener((NavToolStatusHighListener) new NavToolStatusHighListener() {
             public void onStart() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", "true".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
             }
 
             public void onEnd() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", "false".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyNavStatus", SdkConstants.VALUE_FALSE.getBytes(), (Tn.Tr) null);
             }
 
             public void enableExitAllNavTool(boolean enable) {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitAllNav", (enable + "").getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitAllNav", (enable + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
             }
 
             public void onExitApp() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitApp", "true".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyExitApp", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
             }
 
             public void onGetFocus() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", "true".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
             }
 
             public void onLoseFocus() {
-                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", "false".getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.nav.notifyIsFocus", SdkConstants.VALUE_FALSE.getBytes(), (Tn.Tr) null);
             }
 
             public void onPathUpdate(PathInfo pathInfo) {
@@ -480,7 +480,7 @@ public class TXZNavManager {
                 if (TXZNavManager.this.TO != null && (TXZNavManager.this.TO instanceof NavTool)) {
                     NavTool tool = (NavTool) TXZNavManager.this.TO;
                     if (command.equals("isInNav")) {
-                        return ("" + tool.isInNav()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.isInNav()).getBytes();
                     }
                     if (command.equals("navHome")) {
                         tool.navHome();
@@ -510,7 +510,7 @@ public class TXZNavManager {
                         return null;
                     }
                 } else if (command.equals("isInNav")) {
-                    return "false".getBytes();
+                    return SdkConstants.VALUE_FALSE.getBytes();
                 } else {
                     return null;
                 }
@@ -566,7 +566,7 @@ public class TXZNavManager {
                         for (NavStatusListener listener3 : TXZNavManager.this.Ts) {
                             listener3.onBeginNav(pkn8, poi);
                         }
-                    } else if (command.equals("foreground")) {
+                    } else if (command.equals(SdkConstants.ATTR_FOREGROUND)) {
                         if (data != null) {
                             pkn5 = new String(data);
                         } else {
@@ -575,7 +575,7 @@ public class TXZNavManager {
                         for (NavStatusListener listener4 : TXZNavManager.this.Ts) {
                             listener4.onForeground(pkn5, true);
                         }
-                    } else if (command.equals("background")) {
+                    } else if (command.equals(SdkConstants.ATTR_BACKGROUND)) {
                         if (data != null) {
                             pkn4 = new String(data);
                         } else {
@@ -623,7 +623,7 @@ public class TXZNavManager {
         this.TK = true;
         this.TO = type;
         if (type == null) {
-            Tn.Tr().T("com.txznet.txz", "txz.nav.settool", "".getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.txz", "txz.nav.settool", TXZResourceManager.STYLE_DEFAULT.getBytes(), (Tn.Tr) null);
         } else {
             Tn.Tr().T("com.txznet.txz", "txz.nav.settool", T(type).getBytes(), (Tn.Tr) null);
         }
@@ -667,7 +667,7 @@ public class TXZNavManager {
             case NAV_TOOL_TXZ_COMM:
                 return "TXZ_COMM";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -711,28 +711,28 @@ public class TXZNavManager {
     }
 
     public void setUseActiveNav(boolean useActive) {
-        this.f756T = Boolean.valueOf(useActive);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.useActiveNav", (useActive + "").getBytes(), (Tn.Tr) null);
+        this.f760T = Boolean.valueOf(useActive);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.useActiveNav", (useActive + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void banNavAbility(boolean isBan) {
         this.Tu = Boolean.valueOf(isBan);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.banNavTool", (isBan + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.banNavTool", (isBan + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setAlwayAskNav(boolean isAlwayAsk) {
         this.Tt = Boolean.valueOf(isAlwayAsk);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.alwayAsk", (isAlwayAsk + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.alwayAsk", (isAlwayAsk + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void enableMultiNavigation(boolean enable) {
         this.TD = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.multinav", (enable + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.multinav", (enable + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setPlanAutoNaviDelay(int delay) {
         this.Tf = Integer.valueOf(delay);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.autoNaviDelay", (delay + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.autoNaviDelay", (delay + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void navToLoc(Poi point) {
@@ -741,7 +741,7 @@ public class TXZNavManager {
             json.put("lat", point.getLat());
             json.put("lng", point.getLng());
             json.put("city", point.getCity());
-            json.put(IConstantData.KEY_NAME, point.getName());
+            json.put("name", point.getName());
             json.put("geo", point.getGeoinfo());
             Tn.Tr().T("com.txznet.txz", "txz.nav.navTo", json.toString().getBytes(), (Tn.Tr) null);
         } catch (Exception e) {
@@ -751,12 +751,12 @@ public class TXZNavManager {
     public void navToLocWithHint(String text, String tts, Poi point) {
         try {
             JSONObject json = new JSONObject();
-            json.put("text", text);
+            json.put(SdkConstants.ATTR_TEXT, text);
             json.put("tts", tts);
             json.put("lat", point.getLat());
             json.put("lng", point.getLng());
             json.put("city", point.getCity());
-            json.put(IConstantData.KEY_NAME, point.getName());
+            json.put("name", point.getName());
             json.put("geo", point.getGeoinfo());
             Tn.Tr().T("com.txznet.txz", "txz.nav.navToLocWithHint", json.toString().getBytes(), (Tn.Tr) null);
         } catch (Exception e) {
@@ -839,32 +839,32 @@ public class TXZNavManager {
 
     public void enableWakeupNavCmds(boolean enableWakeup) {
         this.TZ = Boolean.valueOf(enableWakeup);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.app.enableWakeupNav", ("" + enableWakeup).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.app.enableWakeupNav", (TXZResourceManager.STYLE_DEFAULT + enableWakeup).getBytes(), (Tn.Tr) null);
     }
 
     @Deprecated
     public void flingPager(int pos) {
-        Tn.Tr().T("com.txznet.txz", "txz.selector.selection", (pos + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.selector.selection", (pos + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void exitInteractiveWhenBackPoi(boolean isExit) {
         this.TE = Boolean.valueOf(isExit);
-        Tn.Tr().T("com.txznet.txz", "txz.selector.exitBack", (isExit + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.selector.exitBack", (isExit + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void enableWakeupExitNav(boolean enable) {
         this.T5 = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.app.enableWakeupExit", (enable + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.app.enableWakeupExit", (enable + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void forceRegsiterMapOrder(boolean isForce) {
         this.Tv = Boolean.valueOf(isForce);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.app.forceRegister", (isForce + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.app.forceRegister", (isForce + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void enableNavCmd(boolean enable) {
         this.Th = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.app.enableNavCmd", (enable + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.app.enableNavCmd", (enable + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setNavCldPackageName(String pkn) {
@@ -874,25 +874,25 @@ public class TXZNavManager {
 
     public void setRemoveNavConfirmDialog(boolean isRemove) {
         this.Te = Boolean.valueOf(isRemove);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.cutNavDialog", (isRemove + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.cutNavDialog", (isRemove + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void enableSavePlanAfterPlan(boolean enable) {
         this.Tq = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.app.savePlan", (this.Tq + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.app.savePlan", (this.Tq + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setIsCloseWhenSetHcAddr(boolean isCloseWhenSetHcAddr) {
         this.TF = Boolean.valueOf(isCloseWhenSetHcAddr);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.isCloseWhenSetHcAddr", (isCloseWhenSetHcAddr + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.isCloseWhenSetHcAddr", (isCloseWhenSetHcAddr + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public String getNavHistoryJson(int size) {
-        Tn.Ty data = Tn.Tr().T("com.txznet.txz", "txz.nav.getNavHistory", (size + "").getBytes());
+        Tn.Ty data = Tn.Tr().T("com.txznet.txz", "txz.nav.getNavHistory", (size + TXZResourceManager.STYLE_DEFAULT).getBytes());
         if (data != null) {
             return data.T();
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public void removeNavHistory(String dataStr) {
@@ -912,12 +912,12 @@ public class TXZNavManager {
         if (data != null) {
             return data.T();
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public void setNavPlanType(int type) {
         this.TA = Integer.valueOf(type);
-        Tn.Tr().T("com.txznet.txz", "txz.nav.setNavPlanType", (type + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.nav.setNavPlanType", (type + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public int getNavPlanType() {
@@ -1007,11 +1007,11 @@ public class TXZNavManager {
                         }
                     } else if (command.equals("onViewDataUpdate")) {
                         Tr jsonBuilder = new Tr(data);
-                        ret = TXZNavManager.this.Tx.onViewDataUpdate((String) jsonBuilder.T(IConstantData.KEY_TITLE, String.class), (String) jsonBuilder.T(IConstantData.KEY_DATA, String.class));
+                        ret = TXZNavManager.this.Tx.onViewDataUpdate((String) jsonBuilder.T("title", String.class), (String) jsonBuilder.T("data", String.class));
                     } else if (command.equals("onDismissDialog")) {
                         TXZNavManager.this.Tx.onDismissDialog();
                     }
-                    return (ret + "").getBytes();
+                    return (ret + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 }
             });
             Tn.Tr().T("com.txznet.txz", "txz.nav.tmc.settool", (byte[]) null, (Tn.Tr) null);

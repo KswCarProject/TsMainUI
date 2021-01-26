@@ -21,11 +21,13 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.android.SdkConstants;
 import com.autochips.bluetooth.CachedBluetoothDevice;
 import com.ts.MainUI.R;
 import com.ts.bt.BtExe;
 import com.ts.can.MyApplication;
 import com.ts.can.btobd.OBDPiniInputDialog;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -311,7 +313,7 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            String name = "";
+            String name = TXZResourceManager.STYLE_DEFAULT;
             if (position < this.mDeviceList.size()) {
                 name = (String) this.mDeviceList.get(position).get(CanBtOBDActivity.REMOTE_DEVICE_NAME);
             }
@@ -367,15 +369,15 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            String name = "";
-            if (position < this.mDeviceList.size() && ((name = (String) this.mDeviceList.get(position).get(CanBtOBDActivity.REMOTE_DEVICE_NAME)) == null || name.equals(""))) {
+            String name = TXZResourceManager.STYLE_DEFAULT;
+            if (position < this.mDeviceList.size() && ((name = (String) this.mDeviceList.get(position).get(CanBtOBDActivity.REMOTE_DEVICE_NAME)) == null || name.equals(TXZResourceManager.STYLE_DEFAULT))) {
                 name = (String) this.mDeviceList.get(position).get(CanBtOBDActivity.REMOTE_DEVICE_MACADDR);
             }
             holder.nameTextView.setText(name);
             if (this.mSelectIdx == position) {
                 holder.statusTextView.setText(CanBtOBDActivity.this.getResources().getString(R.string.pairing));
             } else {
-                holder.statusTextView.setText("");
+                holder.statusTextView.setText(TXZResourceManager.STYLE_DEFAULT);
             }
             return convertView;
         }
@@ -428,7 +430,7 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
                     HashMap<String, Object> map = new HashMap<>();
                     map.put(REMOTE_DEVICE_MACADDR, addr);
                     String nameString = devName;
-                    if (nameString == null || nameString.equals("")) {
+                    if (nameString == null || nameString.equals(TXZResourceManager.STYLE_DEFAULT)) {
                         nameString = addr;
                     }
                     map.put(REMOTE_DEVICE_NAME, nameString);
@@ -451,7 +453,7 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
                 HashMap<String, Object> map2 = new HashMap<>();
                 map2.put(REMOTE_DEVICE_MACADDR, addr);
                 String nameString2 = devName;
-                if (nameString2 == null || nameString2.equals("")) {
+                if (nameString2 == null || nameString2.equals(TXZResourceManager.STYLE_DEFAULT)) {
                     nameString2 = addr;
                 }
                 map2.put(REMOTE_DEVICE_NAME, nameString2);
@@ -552,7 +554,7 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
                     }
                 }
                 String nameString1 = devName;
-                if (nameString1 == null || nameString1.equals("")) {
+                if (nameString1 == null || nameString1.equals(TXZResourceManager.STYLE_DEFAULT)) {
                     nameString1 = addr;
                 }
                 HashMap<String, Object> map2 = new HashMap<>();
@@ -665,7 +667,7 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
     /* access modifiers changed from: private */
     public void onClickSelect(ListView view, int index) {
         Log.d(TAG, "onClickSelect");
-        String deviceAddr = "";
+        String deviceAddr = TXZResourceManager.STYLE_DEFAULT;
         if (BtExe.mLocalAdapter.getConnectionState() != 2) {
             ListView unpairedDeviceListView = (ListView) findViewById(R.id.bluetooth_usable_devices);
             ListView pairedDeviceListView = (ListView) findViewById(R.id.bluetooth_paired_devices);
@@ -693,7 +695,7 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
 
     public void onItemClick(AdapterView<?> adapterView, View arg1, int position, long arg3) {
         this.mPosition = position;
-        String name = "";
+        String name = TXZResourceManager.STYLE_DEFAULT;
         if (position < this.mBluetoothUnpairedDevices.size()) {
             name = (String) this.mBluetoothUnpairedDevices.get(position).get(REMOTE_DEVICE_NAME);
         }
@@ -712,7 +714,7 @@ public class CanBtOBDActivity extends Activity implements View.OnClickListener, 
 
     public int IsCore() {
         int id;
-        if (MyApplication.mContext != null && (id = MyApplication.mContext.getResources().getIdentifier("core_type_", "string", MyApplication.mContext.getPackageName())) > 0) {
+        if (MyApplication.mContext != null && (id = MyApplication.mContext.getResources().getIdentifier("core_type_", SdkConstants.TAG_STRING, MyApplication.mContext.getPackageName())) > 0) {
             String str = MyApplication.mContext.getResources().getString(id);
             Log.d(TAG, str);
             if (str.equals("8259")) {

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 final class Tk {
 
     /* renamed from: T  reason: collision with root package name */
-    static final Tk f246T = new Tk(TZ.f245T, 0, 0, 0);
+    static final Tk f249T = new Tk(TZ.f248T, 0, 0, 0);
     private final int T9;
     private final int Tn;
     private final int Tr;
@@ -108,6 +108,6 @@ final class Tk {
     }
 
     public String toString() {
-        return String.format("%s bits=%d bytes=%d", new Object[]{Tn.f247T[this.Tr], Integer.valueOf(this.T9), Integer.valueOf(this.Tn)});
+        return String.format("%s bits=%d bytes=%d", new Object[]{Tn.f250T[this.Tr], Integer.valueOf(this.T9), Integer.valueOf(this.Tn)});
     }
 }

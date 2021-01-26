@@ -1,7 +1,10 @@
 package com.ts.can.gm.comm;
 
 import android.graphics.Color;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
@@ -13,8 +16,9 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanCommonActivity;
 import com.ts.can.CanFunc;
 import com.ts.canview.RelativeLayoutContainer;
+import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
-import com.yyw.ts70xhw.KeyDef;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGL8RearACActivity extends CanCommonActivity implements UserCallBack, View.OnClickListener {
     private static final long AC_SHOW_TIME = 3000;
@@ -27,6 +31,7 @@ public class CanGL8RearACActivity extends CanCommonActivity implements UserCallB
     private static final int ITEM_TEMP_INCREASE = 3;
     private static final int ITEM_WIND_DECREASE = 2;
     private static final int ITEM_WIND_INCREASE = 1;
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private boolean isAcJump;
     private CanDataInfo.GM_ACSet mAcSet = new CanDataInfo.GM_ACSet();
     private ParamButton mBtnFootMode;
@@ -48,6 +53,16 @@ public class CanGL8RearACActivity extends CanCommonActivity implements UserCallB
     public void InitUI() {
         this.isAcJump = CanFunc.IsCanActivityJumped(this);
         this.mContainer = new RelativeLayoutContainer(this);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        if (MainSet.GetScreenType() == 3 && CanFunc.getInstance().IsCore() == 1) {
+            mDisplayMetrics.heightPixels = 600;
+        }
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mContainer.getContainer().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mContainer.getContainer().setLayoutParams(lp);
         this.mContainer.setBackgroundResource(R.drawable.can_gl18_ac_bg02);
         TextView frontSeat = this.mContainer.addText(80, 173, 40, 86);
         this.mTvRearSeatState = this.mContainer.addText(CanCameraUI.BTN_TRUMPCHI_GS4_MODE3, 74, 221, 46);
@@ -60,11 +75,14 @@ public class CanGL8RearACActivity extends CanCommonActivity implements UserCallB
         ParamButton windDecrease = this.mContainer.addButton(Can.CAN_TOYOTA_SP_XP, 168);
         ParamButton windIncrease = this.mContainer.addButton(671, 168);
         ParamButton tempIncrease = this.mContainer.addButton(858, 68);
-        ParamButton tempDecrease = this.mContainer.addButton(858, KeyDef.RKEY_FR);
+        ParamButton tempDecrease = this.mContainer.addButton(858, 294);
         this.mBtnHeadMode = this.mContainer.addButton(266, 445);
         this.mBtnHeadFootMode = this.mContainer.addButton(450, 445);
         this.mBtnFootMode = this.mContainer.addButton(CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE2, 445);
         this.mContainer.setDrawableUpDn(backFront, R.drawable.can_gl18_ac_qz_up, R.drawable.can_gl18_ac_qz_dn).setIdClickListener(backFront, 0, this).setDrawableUpDn(windIncrease, R.drawable.can_gl18_ac_next_up, R.drawable.can_gl18_ac_next_dn).setIdClickListener(windIncrease, 1, this).setDrawableUpDn(windDecrease, R.drawable.can_gl18_ac_prv_up, R.drawable.can_gl18_ac_prv_dn).setIdClickListener(windDecrease, 2, this).setDrawableUpDn(tempIncrease, R.drawable.can_gl18_ac_icon_sh_up, R.drawable.can_gl18_ac_icon_sh_dn).setIdClickListener(tempIncrease, 3, this).setDrawableUpDn(tempDecrease, R.drawable.can_gl18_ac_icon_xia_up, R.drawable.can_gl18_ac_icon_xia_dn).setIdClickListener(tempDecrease, 4, this).setDrawableUpDnSel(this.mBtnHeadMode, R.drawable.can_gl18_ac_icon01_up, R.drawable.can_gl18_ac_icon01_dn).setIdClickListener(this.mBtnHeadMode, 5, this).setDrawableUpDnSel(this.mBtnHeadFootMode, R.drawable.can_gl18_ac_icon02_up, R.drawable.can_gl18_ac_icon02_dn).setIdClickListener(this.mBtnHeadFootMode, 6, this).setDrawableUpDnSel(this.mBtnFootMode, R.drawable.can_gl18_ac_icon03_up, R.drawable.can_gl18_ac_icon03_dn).setIdClickListener(this.mBtnFootMode, 7, this);
+        this.mContainer.getContainer().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mContainer.getContainer().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     public void UserAll() {
@@ -105,7 +123,7 @@ public class CanGL8RearACActivity extends CanCommonActivity implements UserCallB
         } else if (temp == 129) {
             this.mTvTemp.setText("HI");
         } else if (temp <= 0 || temp >= 129) {
-            this.mTvTemp.setText("");
+            this.mTvTemp.setText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mTvTemp.setText(String.format("%.1f°", new Object[]{Float.valueOf(((float) temp) / 2.0f)}));
         }

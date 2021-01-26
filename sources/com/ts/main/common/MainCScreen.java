@@ -1,9 +1,12 @@
 package com.ts.main.common;
 
+import android.graphics.Rect;
 import android.util.Log;
+import com.ts.MainUI.Evc;
 import com.ts.can.CanIF;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
+import com.yyw.ts70xhw.KeyDef;
 import com.yyw.ts70xhw.Mcu;
 
 public class MainCScreen {
@@ -25,8 +28,13 @@ public class MainCScreen {
     private static final int CKEY_AMS = 12;
     private static final int CKEY_APP_SWITCH = 102;
     private static final int CKEY_A_SWITCH = 20;
+    private static final int CKEY_BT_MUSIC = 26;
+    private static final int CKEY_CARINFO = 30;
     private static final int CKEY_DVD = 18;
     private static final int CKEY_EJECT = 11;
+    private static final int CKEY_EJECT_MENU = 24;
+    private static final int CKEY_EJECT_MUTE = 25;
+    private static final int CKEY_EJECT_NAVI = 27;
     private static final int CKEY_HAND = 8;
     private static final int CKEY_HOME = 2;
     private static final int CKEY_LIGHT = 21;
@@ -35,35 +43,45 @@ public class MainCScreen {
     private static final int CKEY_MUSIC = 19;
     private static final int CKEY_MUTE = 14;
     private static final int CKEY_NAVI = 6;
-    public static final int CKEY_NAW_MAX = 22;
+    public static final int CKEY_NAW_MAX = 31;
     private static final int CKEY_NEXT = 10;
     private static final int CKEY_PHOME = 7;
     private static final int CKEY_PLAYPAUSE = 16;
     private static final int CKEY_POWER = 1;
+    private static final int CKEY_POWER_MENU = 23;
     private static final int CKEY_POWER_MUTE = 22;
     private static final int CKEY_PREV = 9;
     private static final int CKEY_RADIO_BAND = 17;
     private static final int CKEY_RETURN = 3;
+    private static final int CKEY_ROTATE = 31;
     private static final int CKEY_SCREEN_MUTE = 101;
+    private static final int CKEY_SOUND = 29;
+    private static final int CKEY_SPEAKER = 28;
     private static final int CKEY_STOP = 15;
     private static final int CKEY_VOLADD = 4;
     private static final int CKEY_VOLDEC = 5;
     static MainCScreen MyScreen = null;
+    private static final int SLIE_LEN = 24;
     private static final String TAG = "MainCScreen";
     private static final int TOUCH_LEN = 30;
     private static final int TOUCH_LEN_MIN = 5;
     private static final int TOUCH_LEN_Max = 60;
+    Rect MyRect = new Rect();
+    private int OldY;
     private boolean bDown = false;
+    private boolean bSlide = false;
     private boolean bStand = false;
+    boolean bSupportSlde = false;
     int nCKey = 0;
     int[] nCstudy = new int[32];
     private int nFirst = 1;
     private int[] nPoint = new int[3];
     private int[] nPointOld = new int[3];
-    int[] nReadyKey = new int[32];
+    private int[] nPointOld2 = new int[3];
     private int nTouchDownKey = 0;
     public int nTouchLen = 30;
     private int nTouchStand = 0;
+    private int nTouchStandKey = 0;
     private int nTouchUpKey = 0;
     int nType = 2;
 
@@ -144,6 +162,22 @@ public class MainCScreen {
         this.nCstudy[13] = 72745476;
     }
 
+    /* access modifiers changed from: package-private */
+    public void SetSLideKey() {
+        int nX = this.nCstudy[3] / 65536;
+        if (nX > 1024) {
+            int nLeft = nX - 15;
+            if (nLeft <= 1024) {
+                nLeft = 1025;
+            }
+            this.MyRect.left = nLeft;
+            this.MyRect.right = nLeft + 30;
+        }
+        this.MyRect.top = this.nCstudy[3] % 65536;
+        this.MyRect.bottom = this.nCstudy[4] % 65536;
+        this.bSupportSlde = true;
+    }
+
     public static MainCScreen GetInstance() {
         if (MyScreen == null) {
             MyScreen = new MainCScreen();
@@ -160,94 +194,109 @@ public class MainCScreen {
 
     /* access modifiers changed from: package-private */
     public void DealCommonKey(int nKeyCode) {
-        if (MainSet.IsXPH5()) {
-            KeyBeep();
-        }
-        Log.i(TAG, "DealCommonKey " + nKeyCode);
-        switch (nKeyCode) {
-            case 1:
-                Mcu.SetCkey(70);
-                return;
-            case 2:
-                Mcu.SetCkey(8);
-                return;
-            case 3:
-                Mcu.SetCkey(22);
-                return;
-            case 4:
-                Mcu.SetCkey(19);
-                return;
-            case 5:
-                Mcu.SetCkey(20);
-                return;
-            case 6:
-                Mcu.SetCkey(11);
-                return;
-            case 7:
-                Mcu.SetCkey(29);
-                return;
-            case 8:
-                Mcu.SetCkey(30);
-                return;
-            case 9:
-                Mcu.SetCkey(45);
-                return;
-            case 10:
-                Mcu.SetCkey(44);
-                return;
-            case 11:
-                Mcu.SetCkey(71);
-                return;
-            case 12:
-                Mcu.SetCkey(58);
-                return;
-            case 13:
-                Mcu.SetCkey(10);
-                return;
-            case 14:
-                Mcu.SetCkey(16);
-                return;
-            case 15:
-                Mcu.SetCkey(64);
-                return;
-            case 16:
-                Mcu.SetCkey(60);
-                return;
-            case 17:
-                Mcu.SetCkey(43);
-                return;
-            case 18:
-                Mcu.SetCkey(13);
-                return;
-            case 19:
-                Mcu.SetCkey(15);
-                return;
-            case 20:
-                MainSet.GetInstance();
-                if (MainSet.IsXPH5()) {
-                    MainUI.GetInstance();
-                    if (!MainUI.bEnterMode) {
-                        KeyTouch.GetInstance().sendKeyClick(187);
+        if (Mcu.BklisOn() == 0 && nKeyCode != 21) {
+            Mcu.BklTurn();
+        } else if (!MainSet.GetInstance().IsCustom("XZHC") || CanIF.IsKeyAvalid()) {
+            Log.i(TAG, "DealCommonKey " + nKeyCode);
+            switch (nKeyCode) {
+                case 1:
+                    Mcu.SetCkey(70);
+                    return;
+                case 2:
+                    Mcu.SetCkey(8);
+                    return;
+                case 3:
+                    Mcu.SetCkey(22);
+                    return;
+                case 4:
+                    Mcu.SetCkey(19);
+                    return;
+                case 5:
+                    Mcu.SetCkey(20);
+                    return;
+                case 6:
+                    Mcu.SetCkey(11);
+                    return;
+                case 7:
+                    Mcu.SetCkey(29);
+                    return;
+                case 8:
+                    Mcu.SetCkey(30);
+                    return;
+                case 9:
+                    Mcu.SetCkey(45);
+                    return;
+                case 10:
+                    Mcu.SetCkey(44);
+                    return;
+                case 11:
+                    Mcu.SetCkey(71);
+                    return;
+                case 12:
+                    Mcu.SetCkey(58);
+                    return;
+                case 13:
+                    Mcu.SetCkey(10);
+                    return;
+                case 14:
+                    Mcu.SetCkey(16);
+                    return;
+                case 15:
+                    Mcu.SetCkey(64);
+                    return;
+                case 16:
+                    Mcu.SetCkey(60);
+                    return;
+                case 17:
+                    Mcu.SetCkey(43);
+                    return;
+                case 18:
+                    Mcu.SetCkey(13);
+                    return;
+                case 19:
+                    Mcu.SetCkey(15);
+                    return;
+                case 20:
+                    KeyTouch.GetInstance().sendKeyClick(187);
+                    return;
+                case 21:
+                    Mcu.SetCkey(6);
+                    return;
+                case 22:
+                    Mcu.SetCkey(70);
+                    return;
+                case 26:
+                    if (MainUI.IsCameraMode() == 0) {
+                        WinShow.GotoWin(7, 4);
                         return;
                     }
                     return;
-                }
-                KeyTouch.GetInstance().sendKeyClick(187);
-                return;
-            case 21:
-                Mcu.SetCkey(24);
-                return;
-            case 22:
-                Mcu.SetCkey(70);
-                return;
-            case 101:
-                Mcu.SetCkey(24);
-                return;
-            case 102:
-                KeyTouch.GetInstance().sendKeyClick(187);
-                return;
-            default:
-                return;
+                case 28:
+                    Mcu.SetCkey(KeyDef.SKEY_SPEECH_1);
+                    return;
+                case 29:
+                    WinShow.TurnToEq();
+                    return;
+                case 30:
+                    WinShow.show("com.ts.MainUI", "com.ts.can.CanMainActivity");
+                    return;
+                case 31:
+                    Mcu.SendXKey(23);
+                    return;
+                case 101:
+                    Mcu.SetCkey(24);
+                    return;
+                case 102:
+                    if (FtSet.IsIconExist(2) == 1) {
+                        Mcu.SetCkey(71);
+                        return;
+                    } else {
+                        KeyTouch.GetInstance().sendKeyClick(187);
+                        return;
+                    }
+                default:
+                    return;
+            }
         }
     }
 
@@ -438,6 +487,142 @@ public class MainCScreen {
             case 4:
                 DealGeelyYjX1Key(nKeyCode);
                 return;
+            case 5:
+                DealCommonKey(nKeyCode);
+                return;
+            default:
+                return;
+        }
+    }
+
+    /* access modifiers changed from: package-private */
+    public boolean InSize(int x, int y, Rect Rec) {
+        if (x < Rec.left || x > Rec.right || y < Rec.top || y > Rec.bottom) {
+            return false;
+        }
+        return true;
+    }
+
+    /* access modifiers changed from: package-private */
+    public void DealUpKey() {
+        if (this.nTouchUpKey == 255) {
+            return;
+        }
+        if (this.nTouchUpKey == 1) {
+            if ((Mcu.GetPowState() & 8) == 0) {
+                DealCkey(1);
+            } else {
+                DealCkey(101);
+            }
+        } else if (this.nTouchUpKey == 22) {
+            if ((Mcu.GetPowState() & 8) == 0) {
+                DealCkey(1);
+            } else {
+                DealCkey(14);
+            }
+        } else if (this.nTouchUpKey == 23) {
+            if ((Mcu.GetPowState() & 8) == 0) {
+                DealCkey(1);
+            } else {
+                DealCkey(2);
+            }
+        } else if (this.nTouchUpKey == 24) {
+            DealCkey(2);
+        } else if (this.nTouchUpKey == 25) {
+            DealCkey(14);
+        } else if (this.nTouchUpKey == 27) {
+            DealCkey(6);
+        } else {
+            DealCkey(this.nTouchUpKey);
+        }
+    }
+
+    /* access modifiers changed from: package-private */
+    public void DealSlideKey() {
+        if (this.nPointOld2[0] != this.nPoint[0] || this.nPointOld2[1] != this.nPoint[1] || this.nPointOld2[2] != this.nPoint[2]) {
+            for (int i = 0; i < 3; i++) {
+                this.nPointOld2[i] = this.nPoint[i];
+            }
+            Log.i(TAG, "nPointOld2[0]==" + this.nPointOld2[0]);
+            Log.i(TAG, "nPointOld2[1]==" + this.nPointOld2[1]);
+            Log.i(TAG, "nPointOld2[2]==" + this.nPointOld2[2]);
+            if (this.bSlide) {
+                if (this.nPoint[2] > this.OldY) {
+                    int Det = this.nPoint[2] - this.OldY;
+                    while (Det > 24) {
+                        Evc.GetInstance().Evol_vol_tune(0);
+                        this.OldY += 24;
+                        Det = this.nPoint[2] - this.OldY;
+                    }
+                    return;
+                }
+                int Det2 = this.OldY - this.nPoint[2];
+                while (Det2 > 24) {
+                    Evc.GetInstance().Evol_vol_tune(1);
+                    this.OldY -= 24;
+                    Det2 = this.OldY - this.nPoint[2];
+                }
+            } else if (this.nPoint[0] != 1) {
+                this.bSlide = false;
+            } else if (InSize(this.nPoint[1], this.nPoint[2], this.MyRect)) {
+                this.bSlide = true;
+                this.OldY = this.nPoint[2];
+            }
+        }
+    }
+
+    /* access modifiers changed from: package-private */
+    public void DealKeyStandDn() {
+        switch (this.nTouchDownKey) {
+            case 1:
+            case 22:
+            case 23:
+                if (this.nTouchStand == 60) {
+                    if (MainSet.IsRxfKoren()) {
+                        Mcu.SendXKey(19);
+                    } else {
+                        DealCkey(1);
+                    }
+                    this.bStand = true;
+                    return;
+                }
+                return;
+            case 2:
+                if (this.nTouchStand == 60) {
+                    DealCkey(102);
+                    this.bStand = true;
+                    return;
+                }
+                return;
+            case 4:
+                if (this.nTouchStand % 5 == 0) {
+                    this.nTouchStand = 0;
+                    if (!this.bSupportSlde) {
+                        DealCkey(4);
+                    }
+                    this.bStand = true;
+                    return;
+                }
+                return;
+            case 5:
+                if (this.nTouchStand % 5 == 0) {
+                    this.nTouchStand = 0;
+                    if (!this.bSupportSlde) {
+                        DealCkey(5);
+                    }
+                    this.bStand = true;
+                    return;
+                }
+                return;
+            case 24:
+            case 25:
+            case 27:
+                if (this.nTouchStand == 60) {
+                    DealCkey(11);
+                    this.bStand = true;
+                    return;
+                }
+                return;
             default:
                 return;
         }
@@ -471,12 +656,22 @@ public class MainCScreen {
                     case 4:
                         SetGeelyYjx1Key();
                         break;
+                    case 5:
+                        FtSet.GetCtStudy(this.nCstudy);
+                        SetSLideKey();
+                        break;
                 }
                 for (int i = 0; i < 3; i++) {
                     this.nPointOld[i] = this.nPoint[i];
+                    this.nPointOld2[i] = this.nPoint[i];
                 }
                 this.nFirst = 0;
-            } else if (this.nPointOld[0] != this.nPoint[0]) {
+                return;
+            }
+            if (this.bSupportSlde) {
+                DealSlideKey();
+            }
+            if (this.nPointOld[0] != this.nPoint[0]) {
                 for (int i2 = 0; i2 < 3; i2++) {
                     this.nPointOld[i2] = this.nPoint[i2];
                 }
@@ -485,83 +680,23 @@ public class MainCScreen {
                     this.nTouchDownKey = DealCtouch(this.nPointOld[1], this.nPointOld[2], this.nPointOld[0]);
                     this.nTouchStand = 1;
                     this.bStand = false;
-                }
-                if (this.nPointOld[0] == 0) {
+                } else if (this.nPointOld[0] == 0) {
                     this.bDown = false;
+                    this.bSlide = false;
                     if (!this.bStand) {
                         this.nTouchUpKey = DealCtouch(this.nPointOld[1], this.nPointOld[2], this.nPointOld[0]);
-                        if (this.nTouchDownKey == this.nTouchUpKey && this.nTouchUpKey != 255) {
-                            if (this.nTouchUpKey == 1) {
-                                if ((Mcu.GetPowState() & 8) == 0) {
-                                    DealCkey(1);
-                                } else if (MainSet.GetInstance().IsCustom("LEMA") || MainSet.GetInstance().IsMcuId("LEMA")) {
-                                    DealCkey(13);
-                                } else if (MainSet.GetInstance().IsXuhuiDmax()) {
-                                    MainSet.nShowScreen = 1;
-                                    DealCkey(1);
-                                } else if (MainSet.GetInstance().IsCustom("YLT") || MainSet.GetInstance().IsMcuId("GDUH")) {
-                                    DealCkey(14);
-                                } else {
-                                    DealCkey(101);
-                                }
-                            } else if (this.nTouchUpKey != 22) {
-                                DealCkey(this.nTouchUpKey);
-                            } else if ((Mcu.GetPowState() & 8) == 0) {
-                                DealCkey(1);
-                            } else {
-                                DealCkey(14);
-                            }
+                        if (this.nTouchDownKey == this.nTouchUpKey) {
+                            DealUpKey();
                         }
                     }
                 }
             } else if (this.bDown) {
                 this.nTouchStand++;
-                switch (this.nTouchDownKey) {
-                    case 1:
-                    case 22:
-                        if (this.nTouchStand == 60) {
-                            if (MainSet.IsRxfKoren()) {
-                                Mcu.SendXKey(19);
-                            } else {
-                                DealCkey(1);
-                            }
-                            this.bStand = true;
-                            return;
-                        }
-                        return;
-                    case 2:
-                        if (MainSet.GetInstance().IsYsjWifiMode()) {
-                            if (this.nTouchStand == 120) {
-                                MainSet.bShowDlg = true;
-                                WinShow.GotoWin(11, 8);
-                                return;
-                            }
-                            return;
-                        } else if (this.nTouchStand == 60) {
-                            DealCkey(102);
-                            this.bStand = true;
-                            return;
-                        } else {
-                            return;
-                        }
-                    case 4:
-                        if (this.nTouchStand % 8 == 0) {
-                            this.nTouchStand = 0;
-                            DealCkey(4);
-                            this.bStand = true;
-                            return;
-                        }
-                        return;
-                    case 5:
-                        if (this.nTouchStand % 8 == 0) {
-                            this.nTouchStand = 0;
-                            DealCkey(5);
-                            this.bStand = true;
-                            return;
-                        }
-                        return;
-                    default:
-                        return;
+                this.nTouchStandKey = DealCtouch(this.nPoint[1], this.nPoint[2], this.nPoint[0]);
+                if (this.nTouchDownKey == this.nTouchStandKey) {
+                    DealKeyStandDn();
+                } else {
+                    this.nTouchStand = 0;
                 }
             }
         }
@@ -601,6 +736,17 @@ public class MainCScreen {
         return this.nCKey;
     }
 
+    public boolean IsMuteKey(int x, int y) {
+        int nCode;
+        int nMaxLen = this.nTouchLen;
+        for (int i = 0; i < 32; i++) {
+            if ((i == 1 || i == 22 || i == 25) && i - 1 >= 0 && this.nCstudy[nCode] != 0 && CacuLen(x, y, this.nCstudy[nCode] / 65536, this.nCstudy[nCode] % 65536) < nMaxLen) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int DealCtouch(int nPosX, int nPosY, int nMode) {
         int nLen;
         Log.i(TAG, "nPosX==" + nPosX + "nPosY==" + nPosY + "nMode==" + nMode);
@@ -624,6 +770,5 @@ public class MainCScreen {
 
     /* access modifiers changed from: package-private */
     public void KeyBeep() {
-        MainUI.GetInstance().KeyArmBeep();
     }
 }

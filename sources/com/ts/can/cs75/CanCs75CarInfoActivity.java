@@ -12,6 +12,7 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanCs75CarInfoActivity extends CanBaseActivity implements UserCallBack {
     private CanDataInfo.CS75Data mData = new CanDataInfo.CS75Data();
@@ -32,7 +33,7 @@ public class CanCs75CarInfoActivity extends CanBaseActivity implements UserCallB
         addText(350, 300, "剩余保养里程：");
         this.mTripRest = addText(CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 350, "0 KM");
         this.mTripRest.setTextSize(0, 45.0f);
-        this.mOilMark = addText(350, 430, "");
+        this.mOilMark = addText(350, 430, TXZResourceManager.STYLE_DEFAULT);
     }
 
     private TextView addText(int x, int y, String textId) {

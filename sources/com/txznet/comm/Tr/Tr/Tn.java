@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Process;
 import android.util.Log;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.txz.T.Tn;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -18,7 +20,7 @@ import java.util.Arrays;
 public class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    static StackTraceElement f402T = null;
+    static StackTraceElement f406T = null;
     private static Class<?> T9 = null;
     private static int TE = 0;
     private static T TZ = new T();
@@ -52,18 +54,18 @@ public class Tn {
         String tag = "TXZ";
         try {
             if (Tr) {
-                if (f402T == null) {
+                if (f406T == null) {
                     Ty(2);
                 }
-                tag = f402T.getClassName();
-                content = ("[" + tag + "::" + f402T.getMethodName() + "]") + content + ("[" + f402T.getFileName() + ":" + f402T.getLineNumber() + "]");
+                tag = f406T.getClassName();
+                content = ("[" + tag + "::" + f406T.getMethodName() + "]") + content + ("[" + f406T.getFileName() + ":" + f406T.getLineNumber() + "]");
             }
             T(level, tag, content);
             return 0;
         } catch (Exception e) {
             return 0;
         } finally {
-            f402T = null;
+            f406T = null;
         }
     }
 
@@ -79,12 +81,12 @@ public class Tn {
                         content = content.substring(0, 300) + "\n............too many logs...........\n" + content.substring(content.length() - 300);
                     }
                     if (com.txznet.comm.Tr.T.T.T().Ty()) {
-                        String data = new Tr().T("pid", (Object) Integer.valueOf(Process.myPid())).T("tid", (Object) Integer.valueOf(Process.myTid())).T("level", (Object) Integer.valueOf(level)).T("tag", (Object) tag).T("content", (Object) content).T("seq", (Object) Integer.valueOf(TE)).T("package", (Object) com.txznet.comm.Tr.T.Tr().getPackageName()).toString();
+                        String data = new Tr().T("pid", (Object) Integer.valueOf(Process.myPid())).T("tid", (Object) Integer.valueOf(Process.myTid())).T("level", (Object) Integer.valueOf(level)).T(SdkConstants.ATTR_TAG, (Object) tag).T(SdkConstants.ATTR_CONTENT, (Object) content).T("seq", (Object) Integer.valueOf(TE)).T(SdkConstants.ATTR_PACKAGE, (Object) com.txznet.comm.Tr.T.Tr().getPackageName()).toString();
                         TE = Ty();
                         com.txznet.comm.Tr.T.T.T().T(10, data.getBytes());
                         return;
                     }
-                    com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.log", new Tr().T("pid", (Object) Integer.valueOf(Process.myPid())).T("tid", (Object) Integer.valueOf(Process.myTid())).T("level", (Object) Integer.valueOf(level)).T("tag", (Object) tag).T("content", (Object) content).toString().getBytes(), (Tn.Tr) null, 3000);
+                    com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.log", new Tr().T("pid", (Object) Integer.valueOf(Process.myPid())).T("tid", (Object) Integer.valueOf(Process.myTid())).T("level", (Object) Integer.valueOf(level)).T(SdkConstants.ATTR_TAG, (Object) tag).T(SdkConstants.ATTR_CONTENT, (Object) content).toString().getBytes(), (Tn.Tr) null, 3000);
                 } catch (IllegalStateException e) {
                 }
             }
@@ -94,7 +96,7 @@ public class Tn {
                     T9 = Class.forName("com.txznet.txz.jni.JNIHelper");
                     Tk = T9.getMethod("_logRaw", new Class[]{String.class, Integer.TYPE, String.class, String.class});
                 }
-                Tk.invoke(T9, new Object[]{"", Integer.valueOf(level), tag, content});
+                Tk.invoke(T9, new Object[]{TXZResourceManager.STYLE_DEFAULT, Integer.valueOf(level), tag, content});
             } catch (Exception e2) {
             }
         }
@@ -162,7 +164,7 @@ public class Tn {
 
     public static void Ty(int depth) {
         if (Tr) {
-            f402T = new Throwable().getStackTrace()[depth + 1];
+            f406T = new Throwable().getStackTrace()[depth + 1];
         }
     }
 
@@ -204,7 +206,7 @@ public class Tn {
 
     private static String Tn() {
         if (!Tr) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         int index = T(stackTrace);
@@ -215,10 +217,10 @@ public class Tn {
         String className = element.getClassName();
         if (className.contains(".")) {
             String[] names = className.split("\\.");
-            className = names[names.length - 1] + ".java";
+            className = names[names.length - 1] + SdkConstants.DOT_JAVA;
         }
         if (className.contains("$")) {
-            className = className.split("\\$")[0] + ".java";
+            className = className.split("\\$")[0] + SdkConstants.DOT_JAVA;
         }
         return "[(" + className + ":" + element.getLineNumber() + ")#" + element.getMethodName() + "]";
     }

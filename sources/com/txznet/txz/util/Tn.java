@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 public class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final char[] f902T = "0123456789abcdef".toCharArray();
+    private static final char[] f906T = "0123456789abcdef".toCharArray();
 
     public static String T(File file) {
         if (!file.isFile()) {
@@ -66,8 +66,8 @@ public class Tn {
         char[] hexChars = new char[(bytes.length * 2)];
         for (int j = 0; j < bytes.length; j++) {
             int v = bytes[j] & 255;
-            hexChars[j * 2] = f902T[v >>> 4];
-            hexChars[(j * 2) + 1] = f902T[v & 15];
+            hexChars[j * 2] = f906T[v >>> 4];
+            hexChars[(j * 2) + 1] = f906T[v & 15];
         }
         return new String(hexChars);
     }

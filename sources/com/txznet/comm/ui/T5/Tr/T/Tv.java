@@ -32,18 +32,18 @@ public class Tv extends Tx {
     /* access modifiers changed from: private */
 
     /* renamed from: T  reason: collision with root package name */
-    public T f493T = null;
+    public T f497T = null;
     private View.OnFocusChangeListener T9 = new View.OnFocusChangeListener() {
         public void onFocusChange(View v, boolean hasFocus) {
-            Tv.this.f493T.Tn = (TextView) v;
+            Tv.this.f497T.Tn = (TextView) v;
         }
     };
     private TextWatcher TZ = new TextWatcher() {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (TextUtils.isEmpty(Tv.this.f493T.Tr.getEditableText().toString())) {
-                Tv.this.f493T.f499T.setSelected(false);
+            if (TextUtils.isEmpty(Tv.this.f497T.Tr.getEditableText().toString())) {
+                Tv.this.f497T.f503T.setSelected(false);
             } else {
-                Tv.this.f493T.f499T.setSelected(true);
+                Tv.this.f497T.f503T.setSelected(true);
             }
         }
 
@@ -59,21 +59,21 @@ public class Tv extends Tx {
                 Tn.Tn("KeyEvent:" + event.getAction());
             }
             Tv.this.Tk();
-            Tk.Tr().Tr(Tv.this.f493T.Tr.getText().toString());
+            Tk.Tr().Tr(Tv.this.f497T.Tr.getText().toString());
             return true;
         }
     };
     private View.OnClickListener Tn = new View.OnClickListener() {
         public void onClick(View v) {
-            if (Tv.this.f493T == null) {
+            if (Tv.this.f497T == null) {
                 return;
             }
-            if (v == Tv.this.f493T.Ty) {
+            if (v == Tv.this.f497T.Ty) {
                 Tv.this.Tk();
                 Tk.Tr().Ty();
-            } else if (v == Tv.this.f493T.f499T) {
+            } else if (v == Tv.this.f497T.f503T) {
                 Tv.this.Tk();
-                Tk.Tr().Tr(Tv.this.f493T.Tr.getText().toString());
+                Tk.Tr().Tr(Tv.this.f497T.Tr.getText().toString());
             }
         }
     };
@@ -82,7 +82,7 @@ public class Tv extends Tx {
     class T {
 
         /* renamed from: T  reason: collision with root package name */
-        LinearLayout f499T;
+        LinearLayout f503T;
         View T9;
         TextView Tn;
         EditText Tr;
@@ -102,14 +102,14 @@ public class Tv extends Tx {
     public Tn.T T(TM data) {
         Tn.T adapter = new Tn.T();
         adapter.Tr = T9();
-        adapter.f462T = 28;
+        adapter.f466T = 28;
         return adapter;
     }
 
     private View T9() {
-        this.f493T = new T();
+        this.f497T = new T();
         LinearLayout layout = new LinearLayout(com.txznet.comm.Tr.T.Tr());
-        this.f493T.T9 = layout;
+        this.f497T.T9 = layout;
         layout.setBackgroundDrawable(Tr.Ty("widget_color"));
         layout.setOrientation(1);
         RelativeLayout rlTitle = new RelativeLayout(com.txznet.comm.Tr.T.Tr());
@@ -117,7 +117,7 @@ public class Tv extends Tx {
         rlTitle.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         layout.addView(rlTitle);
         RelativeLayout rlBack = new RelativeLayout(com.txznet.comm.Tr.T.Tr());
-        this.f493T.Ty = rlBack;
+        this.f497T.Ty = rlBack;
         rlBack.setClickable(true);
         RelativeLayout.LayoutParams rlLayoutParams = new RelativeLayout.LayoutParams(-2, -2);
         rlLayoutParams.addRule(15);
@@ -159,7 +159,7 @@ public class Tv extends Tx {
         llEdit.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         layout.addView(llEdit);
         final EditText edDest = new EditText(com.txznet.comm.Tr.T.Tr());
-        this.f493T.Tr = edDest;
+        this.f497T.Tr = edDest;
         edDest.setBackgroundDrawable(Tr.Ty("search_edit_bg"));
         edDest.setFilters(new InputFilter[]{new InputFilter.LengthFilter(20)});
         edDest.setImeOptions(268435456);
@@ -175,7 +175,7 @@ public class Tv extends Tx {
         edDest.setLayoutParams(llLayoutParams);
         llEdit.addView(edDest);
         final LinearLayout llSearch = new LinearLayout(com.txznet.comm.Tr.T.Tr());
-        this.f493T.f499T = llSearch;
+        this.f497T.f503T = llSearch;
         llSearch.setBackgroundDrawable(Tr.Ty("activity_home_search_bg"));
         llSearch.setGravity(17);
         llSearch.setOrientation(1);
@@ -229,8 +229,8 @@ public class Tv extends Tx {
 
     /* access modifiers changed from: private */
     public void Tk() {
-        if (this.f493T != null && this.f493T.Tn != null) {
-            ((InputMethodManager) com.txznet.comm.Tr.T.Tr().getSystemService("input_method")).hideSoftInputFromWindow(this.f493T.Tn.getWindowToken(), 0);
+        if (this.f497T != null && this.f497T.Tn != null) {
+            ((InputMethodManager) com.txznet.comm.Tr.T.Tr().getSystemService("input_method")).hideSoftInputFromWindow(this.f497T.Tn.getWindowToken(), 0);
         }
     }
 

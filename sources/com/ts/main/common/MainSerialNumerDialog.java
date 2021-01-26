@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.android.SdkConstants;
 import com.ts.MainUI.R;
 import com.ts.other.CustomDialog;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 
 public class MainSerialNumerDialog extends CustomDialog {
@@ -49,7 +51,7 @@ public class MainSerialNumerDialog extends CustomDialog {
         this.mEditTxtSerialNumber.setText(serialNumber);
         this.mEditTxtSerialNumber.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View arg0, MotionEvent arg1) {
-                MainSerialNumerDialog.this.mEditTxtSerialNumber.setText("");
+                MainSerialNumerDialog.this.mEditTxtSerialNumber.setText(TXZResourceManager.STYLE_DEFAULT);
                 return false;
             }
         });
@@ -61,15 +63,14 @@ public class MainSerialNumerDialog extends CustomDialog {
         this.mButton = (Button) this.mWindow.findViewById(R.id.btn_setup);
         this.mButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("lh", "onClick" + MainSerialNumerDialog.this.mEditTxtSerialNumber.getText());
-                MainSet.GetInstance();
-                if (!MainSet.IsRxfKoren() || MainSerialNumerDialog.this.mEditTxtSerialNumber.getText().toString().length() == 12) {
-                    FtSet.SetProId(MainSerialNumerDialog.this.StrToByte32(MainSerialNumerDialog.this.mEditTxtSerialNumber.getText().toString()), 32);
-                    MainSerialNumerDialog.this.dismiss();
-                    SystemProperties.set("forfan.serial.number", MainSet.GetInstance().GetProid());
+                Log.d("lh", SdkConstants.ATTR_ON_CLICK + MainSerialNumerDialog.this.mEditTxtSerialNumber.getText());
+                if (MainSerialNumerDialog.this.mEditTxtSerialNumber.getText().toString().length() > 32) {
+                    MainSerialNumerDialog.this.mEditTxtSerialNumber.setText("please enter again");
                     return;
                 }
-                MainSerialNumerDialog.this.mEditTxtSerialNumber.setText("please enter again");
+                FtSet.SetProId(MainSerialNumerDialog.this.StrToByte32(MainSerialNumerDialog.this.mEditTxtSerialNumber.getText().toString()), 32);
+                MainSerialNumerDialog.this.dismiss();
+                SystemProperties.set("forfan.serial.number", MainSet.GetInstance().GetProid());
             }
         });
     }

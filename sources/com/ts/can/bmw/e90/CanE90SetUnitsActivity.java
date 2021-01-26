@@ -13,19 +13,23 @@ import com.ts.can.CanBaseActivity;
 import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
+import com.yyw.ts70xhw.FtSet;
 
 public class CanE90SetUnitsActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
     public static final int ITEM_CONSUMP = 4;
     public static final int ITEM_LANG = 5;
-    private static final int ITEM_MAX = 5;
+    public static final int ITEM_LR_HOT = 6;
+    private static final int ITEM_MAX = 6;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_RANGE = 3;
     public static final int ITEM_TEMP = 2;
     public static final int ITEM_TIME_FMT = 1;
     public static final String TAG = "CanE90SetUnitsActivity";
+    private static int nOldLrHot = 255;
     protected String[] mConsumpArr = {"l/100km", "mpg(US)", "mpg(UK)", "km/l"};
     protected CanItemPopupList mItemConsump;
     protected CanItemPopupList mItemLang;
+    protected CanItemSwitchList mItemLrHot;
     protected CanItemPopupList mItemRange;
     protected CanItemPopupList mItemTemp;
     protected CanItemPopupList mItemTimeFmt;
@@ -47,16 +51,17 @@ public class CanE90SetUnitsActivity extends CanBaseActivity implements View.OnCl
     /* access modifiers changed from: protected */
     public void ResetData(boolean check) {
         CanJni.E90GetSetData(this.mSetData);
-        if (!i2b(this.mSetData.UpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mSetData.Update)) {
+        if (i2b(this.mSetData.UpdateOnce) && (!check || i2b(this.mSetData.Update))) {
             this.mSetData.Update = 0;
             this.mItemTimeFmt.SetSel(this.mSetData.TimeFormat);
             this.mItemTemp.SetSel(this.mSetData.DWTemp);
             this.mItemRange.SetSel(this.mSetData.DWJl);
             this.mItemConsump.SetSel(this.mSetData.DWConsumption);
             this.mItemLang.SetSel(this.mSetData.Lang);
+        }
+        if (nOldLrHot != FtSet.GetCanS(1) || !check) {
+            nOldLrHot = FtSet.GetCanS(1);
+            this.mItemLrHot.SetCheck(nOldLrHot);
         }
     }
 
@@ -88,11 +93,12 @@ public class CanE90SetUnitsActivity extends CanBaseActivity implements View.OnCl
         this.mItemRange = AddPopupItem(R.string.can_distance_l_c, this.mRangeArr, 3);
         this.mItemConsump = AddPopupItem(R.string.can_consumption, this.mConsumpArr, 4);
         this.mItemLang = AddPopupItem(R.string.can_language, this.mLangArr, 5);
+        this.mItemLrHot = AddCheckItem(R.string.can_zyjr_hx, 6);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 6; i++) {
             ShowItem(i);
         }
     }
@@ -112,7 +118,6 @@ public class CanE90SetUnitsActivity extends CanBaseActivity implements View.OnCl
         CanItemSwitchList item = new CanItemSwitchList(this, resId);
         item.SetIdClickListener(this, Id);
         this.mManager.AddView(item.GetView());
-        item.ShowGone(false);
         return item;
     }
 
@@ -133,7 +138,18 @@ public class CanE90SetUnitsActivity extends CanBaseActivity implements View.OnCl
     }
 
     public void onClick(View v) {
-        int intValue = ((Integer) v.getTag()).intValue();
+        switch (((Integer) v.getTag()).intValue()) {
+            case 6:
+                if (FtSet.GetCanS(1) > 0) {
+                    FtSet.SetCanS((byte) 0, 1);
+                    return;
+                } else {
+                    FtSet.SetCanS((byte) 1, 1);
+                    return;
+                }
+            default:
+                return;
+        }
     }
 
     public void UserAll() {

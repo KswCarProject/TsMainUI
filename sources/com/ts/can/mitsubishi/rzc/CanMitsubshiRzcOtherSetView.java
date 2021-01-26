@@ -2,7 +2,6 @@ package com.ts.can.mitsubishi.rzc;
 
 import android.app.Activity;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -29,7 +28,7 @@ public class CanMitsubshiRzcOtherSetView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(26, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(26, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(26, 160);
                     return;
                 } else if (item == 3) {
                     CanJni.MitSubishiRzcCarSet(26, 176);
@@ -45,7 +44,7 @@ public class CanMitsubshiRzcOtherSetView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(27, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(27, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(27, 160);
                     return;
                 } else {
                     return;

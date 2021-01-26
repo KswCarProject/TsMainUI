@@ -56,11 +56,11 @@ public class T9 extends Ty {
 
     public void T9() {
         super.T9();
-        if (this.f557T == null) {
-            this.f557T = new LinearLayout(com.txznet.comm.Tr.T.Tr());
+        if (this.f561T == null) {
+            this.f561T = new LinearLayout(com.txznet.comm.Tr.T.Tr());
             this.Ty = new LinearLayout.LayoutParams(-1, -1);
-            this.f557T.setLayoutParams(this.Ty);
-            this.f557T.setOrientation(1);
+            this.f561T.setLayoutParams(this.Ty);
+            this.f561T.setOrientation(1);
             this.Tn = new RelativeLayout(com.txznet.comm.Tr.T.Tr());
             this.T9 = new LinearLayout.LayoutParams(-1, 0, 1.0f);
             this.Tn.setPadding((int) Tr.Tn("x24"), 0, (int) Tr.Tn("x24"), 0);
@@ -70,14 +70,14 @@ public class T9 extends Ty {
             this.TE = new Ty(com.txznet.comm.Tr.T.Tr());
             this.T5 = new RelativeLayout.LayoutParams(-1, -1);
             this.Tn.addView(this.TE.T(), this.T5);
-            this.f557T.addView(this.Tn, this.T9);
+            this.f561T.addView(this.Tn, this.T9);
             this.Tv = new FrameLayout(com.txznet.comm.Tr.T.Tr());
             if (Tr != null) {
                 this.Th = new LinearLayout.LayoutParams(-1, Tr.intValue());
             } else {
                 this.Th = new LinearLayout.LayoutParams(-1, (int) Tr.Tn("y80"));
             }
-            this.f557T.addView(this.Tv, this.Th);
+            this.f561T.addView(this.Tv, this.Th);
         } else if (this.Tn != null) {
             this.Tn.setPadding((int) Tr.Tn("x24"), 0, (int) Tr.Tn("x24"), 0);
         }

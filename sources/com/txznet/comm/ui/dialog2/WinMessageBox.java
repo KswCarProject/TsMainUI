@@ -14,13 +14,14 @@ import android.widget.TextView;
 import com.txznet.comm.Ty.Tk;
 import com.txznet.comm.ui.Tr;
 import com.txznet.comm.ui.dialog2.WinDialog;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.txz.comm.R;
 
 /* compiled from: Proguard */
 public abstract class WinMessageBox extends WinDialog {
 
     /* renamed from: T  reason: collision with root package name */
-    private static int f618T = 0;
+    private static int f622T = 0;
     public static int T5 = 30;
     public static int T6 = 28;
     public static int TE = 36;
@@ -37,7 +38,7 @@ public abstract class WinMessageBox extends WinDialog {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public View f635T;
+        public View f639T;
         public Button T5;
         public ListView T9;
         public Button TE;
@@ -53,8 +54,8 @@ public abstract class WinMessageBox extends WinDialog {
     public abstract void T();
 
     public static void setMessageDialogType(int type) {
-        f618T = type;
-        if (f618T == 1) {
+        f622T = type;
+        if (f622T == 1) {
             TE = 27;
             T5 = 22;
             Tv = 24;
@@ -165,14 +166,14 @@ public abstract class WinMessageBox extends WinDialog {
     /* access modifiers changed from: protected */
     public void TB() {
         if (this.TF.TO) {
-            this.Tq.Tn.setText("");
+            this.Tq.Tn.setText(TXZResourceManager.STYLE_DEFAULT);
             this.Tq.Tn.setVisibility(8);
             this.Tq.Tk.setVisibility(0);
             this.Tq.TZ.setVisibility(0);
             this.Tq.TZ.setText(com.txznet.txz.util.Tr.T(this.TF.TK));
             return;
         }
-        this.Tq.TZ.setText("");
+        this.Tq.TZ.setText(TXZResourceManager.STYLE_DEFAULT);
         this.Tq.TZ.setVisibility(8);
         this.Tq.Tk.setVisibility(8);
         this.Tq.Tn.setVisibility(0);
@@ -289,12 +290,12 @@ public abstract class WinMessageBox extends WinDialog {
     @SuppressLint({"InflateParams"})
     public View TE() {
         int layoutId = R.layout.comm_win_messagebox;
-        if (f618T == 1) {
+        if (f622T == 1) {
             layoutId = R.layout.comm_win_messagebox_small;
         }
         View context = LayoutInflater.from(TZ()).inflate(layoutId, (ViewGroup) null);
         this.Tq = new T();
-        this.Tq.f635T = context.findViewById(R.id.frmMessageBox_Blank);
+        this.Tq.f639T = context.findViewById(R.id.frmMessageBox_Blank);
         this.Tq.Tr = context.findViewById(R.id.llMessageBox_shadow);
         this.Tq.Ty = (TextView) context.findViewById(R.id.txtMessageBox_Title);
         this.Tq.Tn = (TextView) context.findViewById(R.id.txtMessageBox_Message);
@@ -324,7 +325,7 @@ public abstract class WinMessageBox extends WinDialog {
     }
 
     private void Tr() {
-        this.Tq.f635T.setOnClickListener(this.Tj);
+        this.Tq.f639T.setOnClickListener(this.Tj);
         this.Tq.TE.setOnClickListener(this.Tj);
         this.Tq.T5.setOnClickListener(this.Tj);
         this.Tq.Tv.setOnClickListener(this.Tj);

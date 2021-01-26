@@ -2,17 +2,21 @@ package com.ts.bt;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -22,16 +26,14 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.autochips.bluetooth.BluetoothPBManager;
-import com.autochips.bluetooth.HeadsetClientProfile;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.bt.BtExe;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.ArrayList;
-import java.util.List;
 
-@SuppressLint({"NewApi"})
+@SuppressLint({"NewApi", "Override"})
 public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickListener, View.OnLongClickListener, UserCallBack {
     public static final int BT_ACTIVITY_ID = 4;
     private static final String TAG = "BtPhonebookActivity";
@@ -55,7 +57,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             BtPhoneBookActivity.this.mPBListAdapter.setSelect(position);
             BtPhoneBookActivity.this.mPBListAdapter.notifyDataSetChanged();
             BtPhoneBookActivity.this.updateFocus(BtPhoneBookActivity.this.mLtView[BtPhoneBookActivity.this.mIcoSel]);
-            BtPhoneBookActivity.this.mbSubFocus = 2;
+            BtPhoneBookActivity.this.mbSubFocus = 1;
             BtPhoneBookActivity.this.mList.setItemChecked(position, true);
         }
     };
@@ -69,8 +71,36 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.mIsInMultiWindowMode = isInMultiWindowMode();
+        updateLayout(this.mIsInMultiWindowMode);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateLayout(boolean isInMultiWindowMode) {
+        if (isInMultiWindowMode) {
+            getWindow().setSoftInputMode(48);
+            setContentView(R.layout.activity_bt_phonebook_s);
+            initView1();
+            return;
+        }
         setContentView(R.layout.activity_bt_phonebook);
         initView();
+    }
+
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
+        this.mIsInMultiWindowMode = isInMultiWindowMode;
+        updateMultiChange(isInMultiWindowMode);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateMultiChange(boolean isInMultiWindowMode) {
+        updateLayout(isInMultiWindowMode);
+        SubItemsInit(this, 4);
+        this.isBtCountry = this.bt.isBtCountry();
+        resetData();
+        updateUI();
+        MainTask.GetInstance().SetUserCallBack(this);
     }
 
     /* access modifiers changed from: protected */
@@ -82,7 +112,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
     public void onResume() {
         super.onResume();
         SubItemsInit(this, 4);
-        if (this.isShowActivity) {
+        if (this.isShowActivity && !this.mIsInMultiWindowMode) {
             EnterSubFocus();
         }
         this.isBtCountry = this.bt.isBtCountry();
@@ -122,8 +152,10 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
         } else if (id == R.id.bt_phonebook_search && BtExe.mListPb != null && BtExe.mListPb.size() > 0) {
             showActivity(8);
         }
-        this.mbSubFocus = 1;
-        updateFocus(v);
+        if (!this.mIsInMultiWindowMode) {
+            this.mbSubFocus = 2;
+            updateFocus(v);
+        }
     }
 
     private void initView() {
@@ -172,6 +204,10 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
         this.mEdit = (EditText) findViewById(R.id.search);
         this.mEdit.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (TextUtils.isEmpty(s)) {
+                    BtPhoneBookActivity.this.updateSearchList();
+                    return;
+                }
                 Log.d(BtPhoneBookActivity.TAG, "onTextChanged " + s);
                 BtExe.PbSearch(s.toString());
                 BtPhoneBookActivity.this.mSearchAdapter.updateData(BtExe.mListSearch);
@@ -184,6 +220,9 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             public void afterTextChanged(Editable s) {
             }
         });
+        this.mSyncLayout = (RelativeLayout) findViewById(R.id.download_phonebook_layout);
+        ((ProgressBar) findViewById(R.id.progressbar_download_phonebook)).setIndeterminate(false);
+        this.mSyncTextView = (TextView) findViewById(R.id.tv_download_phonebook_text);
     }
 
     /* access modifiers changed from: protected */
@@ -194,29 +233,6 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             this.mToast.setText(msg);
         }
         this.mToast.show();
-    }
-
-    /* access modifiers changed from: package-private */
-    public void downLoad() {
-        HeadsetClientProfile hfProfile = BtExe.getProfile(16);
-        if (hfProfile == null) {
-            Log.e(TAG, "get hf dapter fail!");
-            return;
-        }
-        List<BluetoothDevice> deviceList = hfProfile.getConnectedDevices();
-        if (deviceList == null || deviceList.size() == 0) {
-            Log.e(TAG, "hf client is not connected!");
-            return;
-        }
-        BluetoothPBManager pbManager = BtExe.getPBManager();
-        if (pbManager == null) {
-            Log.e(TAG, "get pbManager fail!");
-        } else if (this.mSyncLayout.getVisibility() == 0) {
-            pbManager.stopDownload(deviceList.get(0));
-            showProgress(false);
-        } else if (!this.bt.startDownload(pbManager, 6)) {
-            showProgress(true);
-        }
     }
 
     public boolean onLongClick(View view) {
@@ -233,7 +249,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
         } else {
             String first_name = list.first_name;
             String middle_name = list.middle_name;
-            String name3 = String.valueOf("") + list.given_name;
+            String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + list.given_name;
             if (!name3.isEmpty()) {
                 name = String.valueOf(name3) + " " + middle_name;
             } else {
@@ -246,13 +262,21 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             }
         }
         this.mDialNum = list.num;
-        new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if (BtPhoneBookActivity.this.mDialNum != null && !BtPhoneBookActivity.this.mDialNum.isEmpty()) {
                     BtPhoneBookActivity.this.bt.dial(BtPhoneBookActivity.this.mDialNum);
                 }
             }
-        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).show();
+        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).create();
+        dialog.show();
+        Window dialogWindow = dialog.getWindow();
+        Display d = getWindowManager().getDefaultDisplay();
+        WindowManager.LayoutParams p = dialogWindow.getAttributes();
+        p.width = (int) (((double) d.getWidth()) * 0.5d);
+        p.height = (int) (((double) d.getHeight()) * 0.5d);
+        p.gravity = 17;
+        dialogWindow.setAttributes(p);
     }
 
     /* access modifiers changed from: package-private */
@@ -265,7 +289,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
         } else {
             String first_name = list.first_name;
             String middle_name = list.middle_name;
-            String name3 = String.valueOf("") + list.given_name;
+            String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + list.given_name;
             if (!name3.isEmpty()) {
                 name = String.valueOf(name3) + " " + middle_name;
             } else {
@@ -278,13 +302,21 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             }
         }
         this.mDialNum = list.num;
-        new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if (BtPhoneBookActivity.this.mDialNum != null && !BtPhoneBookActivity.this.mDialNum.isEmpty()) {
                     BtPhoneBookActivity.this.bt.dial(BtPhoneBookActivity.this.mDialNum);
                 }
             }
-        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).show();
+        }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).create();
+        dialog.show();
+        Window dialogWindow = dialog.getWindow();
+        Display d = getWindowManager().getDefaultDisplay();
+        WindowManager.LayoutParams p = dialogWindow.getAttributes();
+        p.width = (int) (((double) d.getWidth()) * 0.8d);
+        p.height = (int) (((double) d.getHeight()) * 0.5d);
+        p.gravity = 17;
+        dialogWindow.setAttributes(p);
     }
 
     class PBListAdapter extends BaseAdapter {
@@ -329,8 +361,8 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             } else {
                 convertView.setBackgroundResource(R.drawable.bt_list_btn);
             }
-            String name2 = "";
-            String number = "";
+            String name2 = TXZResourceManager.STYLE_DEFAULT;
+            String number = TXZResourceManager.STYLE_DEFAULT;
             if (position < this.mList.size()) {
                 number = this.mList.get(position).num;
                 if (BtPhoneBookActivity.this.isBtCountry) {
@@ -388,19 +420,24 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
         if (show) {
             this.mList.setVisibility(4);
             this.mSyncLayout.setVisibility(0);
-            this.mBtnSync.setVisibility(4);
-            this.mBtnClear.setVisibility(4);
-            this.mBtnSearch.setVisibility(4);
-            updateFocus(this.mLtView[this.mIcoSel]);
+            if (this.mBtnSync != null) {
+                this.mBtnSync.setVisibility(4);
+                this.mBtnClear.setVisibility(4);
+                this.mBtnSearch.setVisibility(4);
+                updateFocus(this.mLtView[this.mIcoSel]);
+                return;
+            }
             return;
         }
         this.mList.setVisibility(0);
         this.mSyncLayout.setVisibility(8);
-        this.mBtnSync.setVisibility(0);
-        this.mBtnClear.setVisibility(0);
-        this.mBtnSearch.setVisibility(0);
-        this.mbSubFocus = 1;
-        updateFocus(this.mFocusView[0]);
+        if (this.mBtnSync != null) {
+            this.mBtnSync.setVisibility(0);
+            this.mBtnClear.setVisibility(0);
+            this.mBtnSearch.setVisibility(0);
+            this.mbSubFocus = 2;
+            updateFocus(this.mFocusView[0]);
+        }
     }
 
     public void UserAll() {
@@ -433,7 +470,12 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
                 this.mPbSta = BtExe.mPbStatus;
                 Log.e(TAG, "updateUI " + BtExe.mPbStatus);
                 Log.d("lh", "size = " + BtExe.mListPb.size());
-                this.mPBListAdapter.updateData(BtExe.mListPb);
+                if (this.mPBListAdapter != null) {
+                    this.mPBListAdapter.updateData(BtExe.mListPb);
+                }
+                if (this.mSearchAdapter != null) {
+                    updateSearchList();
+                }
             }
             if (BtExe.mPbStatus == 1 && this.mSyncNum != BtExe.mSyncNum) {
                 this.mSyncNum = BtExe.mSyncNum;
@@ -478,7 +520,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             }
             if (this.mSearchList == null || this.mSearchList.size() <= position) {
                 holder.nameTextView.setText("10086");
-                holder.phoneTextView.setText("");
+                holder.phoneTextView.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 String number = this.mSearchList.get(position).pb.num;
                 if (BtPhoneBookActivity.this.isBtCountry) {
@@ -486,7 +528,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
                 } else {
                     String first_name = this.mSearchList.get(position).pb.first_name;
                     String middle_name = this.mSearchList.get(position).pb.middle_name;
-                    String name3 = String.valueOf("") + this.mSearchList.get(position).pb.given_name;
+                    String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + this.mSearchList.get(position).pb.given_name;
                     if (!name3.isEmpty()) {
                         name = String.valueOf(name3) + " " + middle_name;
                     } else {
@@ -538,7 +580,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
         } else {
             String first_name = list.first_name;
             String middle_name = list.middle_name;
-            String name3 = String.valueOf("") + list.given_name;
+            String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + list.given_name;
             if (!name3.isEmpty()) {
                 name = String.valueOf(name3) + " " + middle_name;
             } else {
@@ -557,7 +599,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             return;
         }
         this.mfgDialDlg = true;
-        new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+        AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 if (BtExe.mCallSta > 1) {
                     BtCallMsgbox.GetInstance().Show(1);
@@ -569,7 +611,15 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
             public void onDismiss(DialogInterface arg0) {
                 BtPhoneBookActivity.this.mfgDialDlg = false;
             }
-        }).show();
+        }).create();
+        dialog.show();
+        Window dialogWindow = dialog.getWindow();
+        Display d = getWindowManager().getDefaultDisplay();
+        WindowManager.LayoutParams p = dialogWindow.getAttributes();
+        p.width = (int) (((double) d.getWidth()) * 0.5d);
+        p.height = (int) (((double) d.getHeight()) * 0.5d);
+        p.gravity = 17;
+        dialogWindow.setAttributes(p);
     }
 
     public void enterSubWin(Class<?> cls) {
@@ -581,7 +631,7 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
 
     /* access modifiers changed from: protected */
     public void EnterSubFocus() {
-        this.mbSubFocus = 1;
+        this.mbSubFocus = 2;
         updateFocus(this.mFocusView[0]);
         int position = this.mList.getCheckedItemPosition();
         if (position != -1) {
@@ -707,36 +757,36 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
     /* access modifiers changed from: protected */
     public boolean DealSubKey(int key) {
         int position;
-        if (this.mfgDialDlg) {
+        if (this.mfgDialDlg || this.mIsInMultiWindowMode) {
             return false;
         }
         switch (key) {
             case 19:
                 if (this.mbSubFocus != 1) {
                     if (this.mbSubFocus == 2) {
-                        PbPrev();
+                        PhoneBookPrev();
                         break;
                     }
                 } else {
-                    PhoneBookPrev();
+                    PbPrev();
                     break;
                 }
                 break;
             case 20:
                 if (this.mbSubFocus != 1) {
                     if (this.mbSubFocus == 2) {
-                        PbNext();
+                        PhoneBookNext();
                         break;
                     }
                 } else {
-                    PhoneBookNext();
+                    PbNext();
                     break;
                 }
                 break;
             case 21:
-                if (this.mbSubFocus != 1) {
-                    if (this.mbSubFocus == 2) {
-                        PbFocus();
+                if (this.mbSubFocus != 2) {
+                    if (this.mbSubFocus == 3 && (position = this.mList.getCheckedItemPosition()) != -1) {
+                        this.mList.setItemChecked(position, false);
                         break;
                     }
                 } else {
@@ -750,22 +800,27 @@ public class BtPhoneBookActivity extends BtBaseActivity implements View.OnClickL
                 break;
             case 22:
                 if (this.mbSubFocus != 2) {
-                    if (this.mbSubFocus == 3 && (position = this.mList.getCheckedItemPosition()) != -1) {
-                        this.mList.setItemChecked(position, false);
+                    if (this.mbSubFocus == 1) {
+                        PbFocus();
                         break;
                     }
                 } else {
-                    PbFocus();
-                    break;
+                    updateFocus(this.mFocusView[0]);
+                    int position3 = this.mList.getCheckedItemPosition();
+                    if (position3 != -1) {
+                        this.mList.setItemChecked(position3, false);
+                        break;
+                    }
                 }
+                break;
             case 23:
                 if (this.mbSubFocus != 1) {
                     if (this.mbSubFocus == 2) {
-                        PbCenter();
+                        PhoneBookCenter();
                         break;
                     }
                 } else {
-                    PhoneBookCenter();
+                    PbCenter();
                     break;
                 }
                 break;

@@ -21,7 +21,6 @@ import com.ts.can.CanIF;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanItemTextBtnList;
 import com.ts.canview.CanScrollList;
-import com.ts.dvdplayer.definition.MediaDef;
 
 public class CanXbsygFileListActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack {
     public static final int ITEM_AC_LINK_AUTO = 1;
@@ -34,7 +33,7 @@ public class CanXbsygFileListActivity extends CanBaseActivity implements View.On
     private int mFirstV = -1;
     protected CanDataInfo.ChrOthCdInfo mInfoData = new CanDataInfo.ChrOthCdInfo();
     protected boolean mIsLoadOK = false;
-    private CanItemTextBtnList[] mItemList = new CanItemTextBtnList[MediaDef.PROGRESS_MAX];
+    private CanItemTextBtnList[] mItemList = new CanItemTextBtnList[1000];
     protected LinearLayout mLineLayout;
     protected CanDataInfo.ChrOthText mListItemData = new CanDataInfo.ChrOthText();
     private ListView mLvFile;
@@ -42,7 +41,7 @@ public class CanXbsygFileListActivity extends CanBaseActivity implements View.On
     protected CanDataInfo.ChrOthCdSta mStaData = new CanDataInfo.ChrOthCdSta();
     protected ScrollView mSvLayout;
     protected int mTotal = 0;
-    private int[] mUpdate = new int[MediaDef.PROGRESS_MAX];
+    private int[] mUpdate = new int[1000];
     private boolean mbLayout;
 
     public static class ViewHolder {
@@ -88,7 +87,7 @@ public class CanXbsygFileListActivity extends CanBaseActivity implements View.On
             if (this.mTotal != this.mInfoData.TotalTrack) {
                 this.mTotal = this.mInfoData.TotalTrack;
                 if (this.mTotal > 1000) {
-                    this.mTotal = MediaDef.PROGRESS_MAX;
+                    this.mTotal = 1000;
                 }
                 this.mAdapter.SetSize(this.mTotal);
             }

@@ -12,7 +12,7 @@ import java.util.HashSet;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private static int[] f380T = new int[20];
+    private static int[] f384T = new int[20];
     private static boolean Tr = false;
     private static HashSet<String> Ty;
 
@@ -23,11 +23,11 @@ public class Tr {
         boolean max = true;
         int i = 0;
         while (true) {
-            if (i < f380T.length) {
-                if (f380T[i] == uid) {
+            if (i < f384T.length) {
+                if (f384T[i] == uid) {
                     return true;
                 }
-                if (f380T[i] == 0) {
+                if (f384T[i] == 0) {
                     max = false;
                     break;
                 }
@@ -41,18 +41,18 @@ public class Tr {
             if (uid != T.Tr().getPackageManager().getApplicationInfo(packageName, 0).uid) {
                 return false;
             }
-            synchronized (f380T) {
+            synchronized (f384T) {
                 if (max) {
-                    for (int i2 = f380T.length - 1; i2 >= 0; i2--) {
-                        f380T[i2] = 0;
+                    for (int i2 = f384T.length - 1; i2 >= 0; i2--) {
+                        f384T[i2] = 0;
                     }
                 }
                 int i3 = 0;
                 while (true) {
-                    if (i3 >= f380T.length || f380T[i3] == uid) {
+                    if (i3 >= f384T.length || f384T[i3] == uid) {
                         break;
-                    } else if (f380T[i3] == 0) {
-                        f380T[i3] = uid;
+                    } else if (f384T[i3] == 0) {
+                        f384T[i3] = uid;
                         break;
                     } else {
                         i3++;

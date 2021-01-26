@@ -10,10 +10,10 @@ import java.util.List;
 public class T {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final String f408T = (Environment.getExternalStorageDirectory() + "/txz/");
+    public static final String f412T = (Environment.getExternalStorageDirectory() + "/txz/");
     public static String T5 = null;
-    public static final String T6 = (f408T + "apk/TXZSetting.apk");
-    public static final String T9 = (f408T + "theme.cfg");
+    public static final String T6 = (f412T + "apk/TXZSetting.apk");
+    public static final String T9 = (f412T + "theme.cfg");
     public static final String TB = (Tj + File.separator + "help.txt");
     public static String TE;
     public static final String TF = (Tq + File.separator + "help.txt");
@@ -21,14 +21,14 @@ public class T {
     public static final String TK = (Te + File.separator + "help.zip");
     public static final String TN = ("/etc/txz/" + File.separator + "help" + File.separator + "help");
     public static final String TO = (Te + File.separator + "helpbak");
-    public static final String TZ = f408T;
-    public static final String Te = (f408T + "help");
-    public static final String Th = (f408T + "tts_role/");
+    public static final String TZ = f412T;
+    public static final String Te = (f412T + "help");
+    public static final String Th = (f412T + "tts_role/");
     public static final String Tj = (Te + File.separator + "help");
-    public static final String Tk = f408T;
+    public static final String Tk = f412T;
     public static String Tn = null;
     public static final String Tq = (Te + File.separator + "helptmp");
-    public static final String Tr = (f408T + "resource/ResHolder.apk");
+    public static final String Tr = (f412T + "resource/ResHolder.apk");
     public static final String Ts = ("/system/txz/" + File.separator + "help" + File.separator + "help");
     public static final String Tt = ("/vendor/txz/" + File.separator + "help" + File.separator + "help");
     public static final String Tu = ("/custom/etc/" + File.separator + "help" + File.separator + "help");

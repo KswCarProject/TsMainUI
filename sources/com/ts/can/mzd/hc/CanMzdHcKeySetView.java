@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanRelativeCarInfoView;
@@ -57,7 +58,7 @@ public class CanMzdHcKeySetView extends CanRelativeCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitUI() {
-        AddTextBtn(1, 144, 240, "Set");
+        AddTextBtn(1, 144, Can.CAN_VOLKS_XP, "Set");
         AddBtn(2, KeyDef.RKEY_RADIO_6S, 185, R.drawable.can_mzd_clock_up, R.drawable.can_mzd_clock_dn);
     }
 

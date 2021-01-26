@@ -3,7 +3,10 @@ package com.ts.can.vw.golf.wc;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
@@ -19,6 +22,7 @@ import com.ts.canview.CanPopupDialog;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements View.OnClickListener, CanItemMsgBox.onMsgBoxClick, UserCallBack {
@@ -28,6 +32,7 @@ public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements V
     public static final int BTN_TOP_RIGHT = 4;
     public static final int BTN_TPMS_SET = 5;
     public static final int BTN_TYRES_CHECK = 6;
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     protected ParamButton mBtnReports;
     protected ParamButton mBtnStartStop;
     protected ParamButton mBtnTopLeft;
@@ -64,6 +69,20 @@ public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements V
         super.onCreate(arg0);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
+        InitUI();
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
+    }
+
+    private void InitUI() {
         this.mImgStaCar = this.mManager.AddImage(CanCameraUI.BTN_CHANA_ALSVINV7_MODE1, Can.CAN_CHRYSLER_TXB, 470, Can.CAN_FLAT_WC);
         this.mImgStaCar.setStateDrawable(R.drawable.can_golf_car_up, R.drawable.can_golf_car_dn);
         this.mImgGou = this.mManager.AddImage(50, 162, 45, 39);
@@ -117,7 +136,7 @@ public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements V
         this.mImgTpmsCar = this.mManager.AddImage(586, Can.CAN_FORD_SYNC3, 348, 267);
         this.mImgTpmsCar.setImageResource(R.drawable.can_golf_car02);
         for (int i = 0; i < this.mTpmsTip.length; i++) {
-            this.mTpmsTip[i] = this.mManager.AddText(29, (i * 50) + Can.CAN_JAC_REFINE_OD, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 50);
+            this.mTpmsTip[i] = this.mManager.AddText(29, (i * 50) + 150, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 50);
             this.mTpmsTip[i].setTextSize(0, 35.0f);
             this.mTpmsTip[i].setTextColor(-1);
             this.mTpmsTip[i].setText(this.mTpmsTipArrays[i]);
@@ -133,7 +152,7 @@ public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements V
     private void initTyresViews() {
         this.mBtnTyresStatus = this.mManager.AddButton(28, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 386, 80);
         this.mBtnTyresStatus.setStateUpDn(R.drawable.can_golf_teramont_up, R.drawable.can_golf_teramont_dn);
-        this.mBtnTyresStatus.setText("");
+        this.mBtnTyresStatus.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mBtnTyresStatus.setPadding(30, 0, 0, 0);
         this.mBtnTyresStatus.setTextColor(-1);
         this.mBtnTyresStatus.setTextSize(0, 30.0f);
@@ -141,23 +160,23 @@ public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements V
         this.mBtnTyresStatus.setOnClickListener(this);
         this.mBtnTyresStatus.Show(false);
         for (int i = 0; i < this.mRealTyres.length; i++) {
-            this.mRealTyres[i] = this.mManager.AddText(((i % 2) * 300) + CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, ((i / 2) * Can.CAN_CHANA_CS75_WC) + Can.CAN_CHANA_CS75_WC);
+            this.mRealTyres[i] = this.mManager.AddText(((i % 2) * 300) + 540, ((i / 2) * 160) + 160);
             this.mRealTyres[i].setTextSize(0, 35.0f);
             this.mRealTyres[i].setTextColor(-1);
-            this.mRealTyres[i].setText("");
+            this.mRealTyres[i].setText(TXZResourceManager.STYLE_DEFAULT);
             this.mRealTyres[i].setGravity(17);
         }
         for (int i2 = 0; i2 < this.mReferenceTyres.length; i2++) {
-            this.mReferenceTyres[i2] = this.mManager.AddText(((i2 % 2) * 300) + CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, ((i2 / 2) * Can.CAN_CHANA_CS75_WC) + 210);
+            this.mReferenceTyres[i2] = this.mManager.AddText(((i2 % 2) * 300) + 540, ((i2 / 2) * 160) + 210);
             this.mReferenceTyres[i2].setTextSize(0, 25.0f);
             this.mReferenceTyres[i2].setTextColor(Color.parseColor("#a1a1a1"));
-            this.mReferenceTyres[i2].setText("");
+            this.mReferenceTyres[i2].setText(TXZResourceManager.STYLE_DEFAULT);
             this.mReferenceTyres[i2].setGravity(17);
         }
         this.mTyresUnit = this.mManager.AddText(CanCameraUI.BTN_CC_WC_DIRECTION1, 450);
         this.mTyresUnit.setTextSize(0, 35.0f);
         this.mTyresUnit.setTextColor(-1);
-        this.mTyresUnit.setText("");
+        this.mTyresUnit.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mTyresArray = getResources().getStringArray(R.array.can_golf_teramont_tyres_array);
         String str = this.mTyresArray[0];
         this.mTyresArray[0] = this.mTyresArray[1];
@@ -166,15 +185,15 @@ public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements V
         this.mIvTyres[0].setStateDrawable(R.drawable.can_vw_mqb_tyre01_up, R.drawable.can_vw_mqb_tyre01_dn);
         this.mIvTyres[1] = this.mManager.AddImage(KeyDef.SKEY_POWEWR_4, 193);
         this.mIvTyres[1].setStateDrawable(R.drawable.can_vw_mqb_tyre01_up, R.drawable.can_vw_mqb_tyre01_dn);
-        this.mIvTyres[2] = this.mManager.AddImage(CanCameraUI.BTN_CCH9_MODE6, KeyDef.RKEY_MEDIA_SUBT);
+        this.mIvTyres[2] = this.mManager.AddImage(CanCameraUI.BTN_CCH9_MODE6, 310);
         this.mIvTyres[2].setStateDrawable(R.drawable.can_vw_mqb_tyre02_up, R.drawable.can_vw_mqb_tyre02_dn);
-        this.mIvTyres[3] = this.mManager.AddImage(KeyDef.SKEY_SEEKUP_4, KeyDef.RKEY_MEDIA_SUBT);
+        this.mIvTyres[3] = this.mManager.AddImage(KeyDef.SKEY_SEEKUP_4, 310);
         this.mIvTyres[3].setStateDrawable(R.drawable.can_vw_mqb_tyre02_up, R.drawable.can_vw_mqb_tyre02_dn);
-        this.mImgTyresCar = this.mManager.AddImageEx(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, Can.CAN_JAC_REFINE_OD, 348, 267, R.drawable.can_vw_mqb_taiya);
-        this.mTyresWarnTip = this.mManager.AddText(45, Can.CAN_JAC_REFINE_OD);
+        this.mImgTyresCar = this.mManager.AddImageEx(540, 150, 348, 267, R.drawable.can_vw_mqb_taiya);
+        this.mTyresWarnTip = this.mManager.AddText(45, 150);
         this.mTyresWarnTip.setTextSize(0, 40.0f);
         this.mTyresWarnTip.setTextColor(-1);
-        this.mTyresWarnTip.setText("");
+        this.mTyresWarnTip.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mTyresWarnArray = getResources().getStringArray(R.array.can_golf_teramont_tyres_warn_array);
     }
 
@@ -265,7 +284,7 @@ public class CanGolfWcVehicleStatusActivity extends CanBaseActivity implements V
                         if (index < CanGolfWcReportsActivity.getReportsArrays(this).length) {
                             this.mTvOneReport.setText(CanGolfWcReportsActivity.getReportsArrays(this)[index]);
                         } else {
-                            this.mTvOneReport.setText("");
+                            this.mTvOneReport.setText(TXZResourceManager.STYLE_DEFAULT);
                         }
                     } else if (this.mVehicleWarn.Num > 1) {
                         this.mBtnReports.Show(true);

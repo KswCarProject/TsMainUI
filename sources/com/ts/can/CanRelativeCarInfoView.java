@@ -10,11 +10,15 @@ import android.widget.TextView;
 import com.ts.can.CanBaseCarInfoView;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 public abstract class CanRelativeCarInfoView extends CanBaseCarInfoView implements View.OnTouchListener {
     public CanRelativeCarInfoView(Activity activity) {
         super(activity, CanBaseCarInfoView.Type.RELATIVE);
         InitUI();
+    }
+
+    public void doOnStart() {
     }
 
     public void doOnResume() {
@@ -89,7 +93,7 @@ public abstract class CanRelativeCarInfoView extends CanBaseCarInfoView implemen
     }
 
     public TextView addText(int x, int y, int w, int h, int textId) {
-        return addText(x, y, w, h, textId != 0 ? getActivity().getString(textId) : "");
+        return addText(x, y, w, h, textId != 0 ? getActivity().getString(textId) : TXZResourceManager.STYLE_DEFAULT);
     }
 
     public TextView addText(int x, int y, int w, int h) {

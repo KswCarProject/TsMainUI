@@ -10,10 +10,10 @@ import android.view.animation.TranslateAnimation;
 public class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Boolean f538T;
+    private static Boolean f542T;
 
     public static LayoutAnimationController T() {
-        if (f538T != null && !f538T.booleanValue()) {
+        if (f542T != null && !f542T.booleanValue()) {
             return null;
         }
         LayoutAnimationController controller = new LayoutAnimationController(Tr(), 0.08f);

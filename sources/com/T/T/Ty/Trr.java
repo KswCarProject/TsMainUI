@@ -16,7 +16,7 @@ import java.util.Map;
 public class Trr implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    private final TM[] f224T;
+    private final TM[] f227T;
     private final TM[] Tr;
 
     public Trr(Class<?> clazz) {
@@ -28,7 +28,7 @@ public class Trr implements Trh {
         for (Ty fieldInfo : TZ.T(clazz, aliasMap, false)) {
             getterList.add(T(fieldInfo));
         }
-        this.f224T = (TM[]) getterList.toArray(new TM[getterList.size()]);
+        this.f227T = (TM[]) getterList.toArray(new TM[getterList.size()]);
         List<TM> getterList2 = new ArrayList<>();
         for (Ty fieldInfo2 : TZ.T(clazz, aliasMap, true)) {
             getterList2.add(T(fieldInfo2));
@@ -53,7 +53,7 @@ public class Trr implements Trh {
             if (out.T(TrG.SortField)) {
                 getters = this.Tr;
             } else {
-                getters = this.f224T;
+                getters = this.f227T;
             }
             TrB parent = serializer.Tr();
             serializer.T(parent, object, fieldName);
@@ -65,7 +65,7 @@ public class Trr implements Trh {
                 }
                 boolean commaFlag = false;
                 if (T(serializer, object, fieldType, fieldName) && object.getClass() != fieldType) {
-                    out.Tr(T.f128T);
+                    out.Tr(T.f131T);
                     serializer.Tn(object.getClass());
                     commaFlag = true;
                 }

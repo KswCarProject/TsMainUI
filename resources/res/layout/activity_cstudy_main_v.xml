@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content">
     <RelativeLayout android:id="@+id/activity_cstudy_mainid" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <SeekBar android:id="@+id/Touch_seekBar1" android:layout_width="300px" android:layout_height="wrap_content" android:layout_marginLeft="200px" android:layout_marginTop="698px" android:max="60" android:progress="30"/>
-        <TextView android:textSize="20sp" android:textColor="@color/fs_title" android:id="@+id/Touch_seekBarname" android:layout_width="200px" android:layout_height="50px" android:layout_marginLeft="50px" android:layout_marginTop="698px" android:text="按钮范围"/>
-        <TextView android:textSize="20sp" android:textColor="@color/fs_title" android:id="@+id/Touch_seekBarsize" android:layout_width="200px" android:layout_height="50px" android:layout_marginLeft="510px" android:layout_marginTop="698px" android:text=""/>
-        <TextView android:textSize="25sp" android:id="@+id/Touch_seekBarspe" android:layout_width="800px" android:layout_height="50px" android:layout_marginLeft="50px" android:layout_marginTop="648px" android:text="蓝色:已学习 绿色:未学习 闪烁:学习中"/>
+        <FrameLayout android:id="@+id/range_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="50px" android:layout_marginTop="648px">
+            <SeekBar android:id="@+id/Touch_seekBar1" android:layout_width="300px" android:layout_height="wrap_content" android:layout_marginLeft="150px" android:layout_marginTop="50px" android:max="60" android:progress="30"/>
+            <TextView android:textSize="30px" android:textColor="@color/fs_title" android:id="@+id/Touch_button_range" android:layout_width="200px" android:layout_height="50px" android:layout_marginTop="50px" android:text="按钮范围"/>
+            <TextView android:textSize="30px" android:textColor="@color/fs_title" android:id="@+id/Touch_seekBarsize" android:layout_width="200px" android:layout_height="50px" android:layout_marginLeft="460px" android:layout_marginTop="50px" android:text=""/>
+            <TextView android:textSize="35px" android:id="@+id/Touch_seekBarspe" android:layout_width="800px" android:layout_height="50px" android:text="蓝色:已学习 绿色:未学习 闪烁:学习中"/>
+        </FrameLayout>
     </RelativeLayout>
 </ScrollView>

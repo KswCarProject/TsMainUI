@@ -1,7 +1,5 @@
 package com.txznet.comm.Tr.T;
 
-import net.easyconn.platform.wrc.core.WrcManager;
-
 /* compiled from: Proguard */
 public class Tn {
 
@@ -9,7 +7,7 @@ public class Tn {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public int f359T = 0;
+        public int f363T = 0;
         public byte[] T9;
         public int Tn = 0;
         public int Tr = 1;
@@ -19,7 +17,7 @@ public class Tn {
         }
 
         public T(int udpId, int invokeType, int cmd, byte[] data) {
-            this.f359T = udpId;
+            this.f363T = udpId;
             this.Tr = invokeType;
             this.Ty = cmd;
             this.T9 = data;
@@ -55,7 +53,7 @@ public class Tn {
     }
 
     public static byte[] T(T udpData) {
-        return T(udpData.f359T, udpData.Tr, udpData.Ty, udpData.T9);
+        return T(udpData.f363T, udpData.Tr, udpData.Ty, udpData.T9);
     }
 
     public static byte[] T(int udpId, int invokeType, int cmd, byte[] originalData) {
@@ -95,8 +93,8 @@ public class Tn {
             return null;
         }
         T udpData = new T();
-        udpData.f359T = transferData[0];
-        if (udpData.f359T < 0 || (transferData[1] != 0 && transferData[1] != 1)) {
+        udpData.f363T = transferData[0];
+        if (udpData.f363T < 0 || (transferData[1] != 0 && transferData[1] != 1)) {
             return null;
         }
         if (transferData[1] == 0) {
@@ -122,7 +120,7 @@ public class Tn {
     }
 
     private static int Tr(byte[] b) {
-        return (b[3] & 255) | ((b[2] & 255) << 8) | ((b[1] & 255) << WrcManager.WrcCallback.KEY_CENTER) | ((b[0] & 255) << 24);
+        return (b[3] & 255) | ((b[2] & 255) << 8) | ((b[1] & 255) << 16) | ((b[0] & 255) << 24);
     }
 
     private static byte[] T(int a) {

@@ -16,6 +16,21 @@ public class CanMzdRzcCarSafeSetView extends CanScrollCarInfoView {
     private static final int DIS_REC_SUP_SYS_JGJL = 9;
     private static final int DIS_REC_SUP_SYS_RESET = 10;
     private static final int DIS_REC_SUP_SYS_XSMS = 8;
+    private static final int ITEM_360QJSZ = 47;
+    private static final int ITEM_AQJB = 42;
+    private static final int ITEM_AQJB_RESET = 46;
+    private static final int ITEM_BLIND_SPOT_MONITORJB = 44;
+    private static final int ITEM_DTLX = 49;
+    private static final int ITEM_HFJHJTJB = 43;
+    private static final int ITEM_JBDS = 45;
+    private static final int ITEM_JSYFZXT_RESET = 35;
+    private static final int ITEM_QSXTST = 50;
+    private static final int ITEM_TBWYBJ_SW = 41;
+    private static final int ITEM_XHCZTSY = 34;
+    private static final int ITEM_ZCCGQBJYL = 38;
+    private static final int ITEM_ZCCGQXSYD = 37;
+    private static final int ITEM_ZCCGQ_RESET = 39;
+    private static final int ITEM_ZDXS360_VIEW_MONITOR = 48;
     private static final int LANE_DEP_WARN_SYS = 24;
     private static final int LANE_DEP_WARN_SYS_EQ = 27;
     private static final int LANE_DEP_WARN_SYS_EQ_CX5 = 31;
@@ -42,10 +57,13 @@ public class CanMzdRzcCarSafeSetView extends CanScrollCarInfoView {
     private static final int SXJG_RESET = 23;
     private static final int SXJG_SXJS = 21;
     private static final int SXJG_SXXS = 20;
+    private static final int TITLE_JSYFZXT = 33;
+    private static final int TITLE_TBWYBJ = 40;
+    private static final int TITLE_ZCCGQ = 36;
     private CanDataInfo.Mzd_Rzc_SafeSet mSafeSetData;
 
     public CanMzdRzcCarSafeSetView(Activity activity) {
-        super(activity, 33);
+        super(activity, 51);
     }
 
     public void onItem(int id, int item) {
@@ -95,6 +113,15 @@ public class CanMzdRzcCarSafeSetView extends CanScrollCarInfoView {
             case 31:
                 CanJni.MzdRzcCarSafeSet(6, 3, item + 2);
                 return;
+            case 38:
+                CanJni.MzdRzcCarSafeSet(9, 2, item + 1);
+                return;
+            case 44:
+                CanJni.MzdRzcCarSafeSet(11, 2, item + 1);
+                return;
+            case 45:
+                CanJni.MzdRzcCarSafeSet(11, 3, item + 1);
+                return;
             default:
                 return;
         }
@@ -139,6 +166,41 @@ public class CanMzdRzcCarSafeSetView extends CanScrollCarInfoView {
             case 32:
                 setOnReset(id, 6, 5);
                 return;
+            case 34:
+                CanJni.MzdRzcCarSafeSet(8, 1, Neg(this.mSafeSetData.Xhcztsy) + 1);
+                return;
+            case 35:
+                setOnReset(id, 8, 4);
+                return;
+            case 37:
+                CanJni.MzdRzcCarSafeSet(9, 1, Neg(this.mSafeSetData.Zccgqxsyd) + 1);
+                return;
+            case 39:
+                setOnReset(id, 9, 4);
+                return;
+            case 41:
+                if (this.mSafeSetData.Tbwybj > 0) {
+                    CanJni.MzdRzcCarSafeSet(10, 2, 0);
+                    return;
+                } else {
+                    CanJni.MzdRzcCarSafeSet(10, 1, 0);
+                    return;
+                }
+            case 43:
+                CanJni.MzdRzcCarSafeSet(11, 1, Neg(this.mSafeSetData.Hfjhjtjb) + 1);
+                return;
+            case 46:
+                setOnReset(id, 11, 4);
+                return;
+            case 48:
+                CanJni.MzdRzcCarSafeSet(12, 1, Neg(this.mSafeSetData.Zdxs360ViewMonitor) + 1);
+                return;
+            case 49:
+                CanJni.MzdRzcCarSafeSet(12, 2, Neg(this.mSafeSetData.Dtlx) + 1);
+                return;
+            case 50:
+                CanJni.MzdRzcCarSafeSet(12, 3, Neg(this.mSafeSetData.Qsxtst) + 1);
+                return;
             default:
                 return;
         }
@@ -154,8 +216,8 @@ public class CanMzdRzcCarSafeSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_smart_city_brake_sup, R.string.can_jgyl_m3, R.string.can_jgjl, R.string.can_jgyl_cx5, R.string.can_reset, R.string.can_rear_vehicle_monitor, R.string.can_vol, R.string.can_dis_r_sup_sys, R.string.can_xsms, R.string.can_jgjl, R.string.can_reset, R.string.can_sbs_scbs, R.string.can_xsms, R.string.can_jgjl, R.string.can_jgyl, R.string.can_reset, R.string.can_blind_spod_mointor, R.string.can_xtsd, R.string.can_jgyl, R.string.can_sxjg, R.string.can_sxxs, R.string.can_sxjs, R.string.can_jsfaz, R.string.can_reset, R.string.can_lane_departure_warn_sys, R.string.can_js, R.string.can_jg, R.string.can_yxsd, R.string.can_llsbbs, R.string.can_gy, R.string.can_lane_departure_xt, R.string.can_yxsd_cx5, R.string.can_reset};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE};
+        this.mItemTitleIds = new int[]{R.string.can_smart_city_brake_sup, R.string.can_jgyl_m3, R.string.can_jgjl, R.string.can_jgyl_cx5, R.string.can_reset, R.string.can_rear_vehicle_monitor, R.string.can_vol, R.string.can_dis_r_sup_sys, R.string.can_xsms, R.string.can_jgjl, R.string.can_reset, R.string.can_sbs_scbs, R.string.can_xsms, R.string.can_jgjl, R.string.can_jgyl, R.string.can_reset, R.string.can_blind_spod_mointor, R.string.can_xtsd, R.string.can_jgyl, R.string.can_sxjg, R.string.can_sxxs, R.string.can_sxjs, R.string.can_jsfaz, R.string.can_reset, R.string.can_lane_departure_warn_sys, R.string.can_js, R.string.can_jg, R.string.can_yxsd, R.string.can_llsbbs, R.string.can_gy, R.string.can_lane_departure_xt, R.string.can_yxsd_cx5, R.string.can_reset, R.string.can_drivet_assist, R.string.can_xhcztsy, R.string.can_rw_rx5_hfccsz, R.string.can_teramont_zcfz, R.string.can_zccgqxsyd, R.string.can_hzccgqbjyl, R.string.can_rw_rx5_hfccsz, R.string.can_tbwybj, R.string.can_car_active, R.string.can_mzd_wc_aqjb, R.string.can_mzd_wc_hfjhjtjb, R.string.can_blind_spod_mointor, R.string.can_mzd_wc_jbds, R.string.can_rw_rx5_hfccsz, R.string.can_honda_qjyxxtsz, R.string.can_zdxs360_view_monitor, R.string.can_dtlx, R.string.can_front_camera_view};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TEXT, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH};
         this.mPopValueIds[1] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_teramont_open};
         this.mPopValueIds[6] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_voice_low, R.string.can_mzd_cx4_voice_high};
         this.mPopValueIds[2] = new int[]{R.string.can_sdqfwxjgjl_4, R.string.can_medium_z_d, R.string.can_sdqfwxjgjl_5};
@@ -171,6 +233,16 @@ public class CanMzdRzcCarSafeSetView extends CanScrollCarInfoView {
         this.mPopValueIds[21] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_vision, R.string.can_yxysj};
         this.mPopValueIds[22] = new int[]{R.array.can_mzd_cx4_jsfz};
         this.mPopValueIds[31] = new int[]{R.string.can_fzd, R.string.can_zd};
+        this.mPopValueIds[31] = new int[]{R.string.can_fzd, R.string.can_zd};
+        this.mPopValueIds[38] = new int[]{R.string.can_mzd_cx4_voice_high, R.string.can_mzd_cx4_voice_middle, R.string.can_mzd_cx4_voice_low, R.string.can_mzd_cx4_mode_off};
+        this.mPopValueIds[44] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_vision, R.string.can_mzd_wc_sjjtj};
+        this.mPopValueIds[45] = new int[]{R.string.can_cdpyyzxt_4, R.string.can_cdpyyzxt_1, R.string.can_late};
+        if (CanJni.GetSubType() != 5) {
+            this.mItemVisibles[47] = 0;
+            this.mItemVisibles[48] = 0;
+            this.mItemVisibles[49] = 0;
+            this.mItemVisibles[50] = 0;
+        }
         this.mSafeSetData = new CanDataInfo.Mzd_Rzc_SafeSet();
     }
 
@@ -202,6 +274,16 @@ public class CanMzdRzcCarSafeSetView extends CanScrollCarInfoView {
             updateItem(29, this.mSafeSetData.LaneDepWarnSys_Gy);
             updateItem(30, this.mSafeSetData.LaneDepWarnSys_Xt);
             updateItem(31, this.mSafeSetData.LaneDepWarnSys_Yxsd);
+            updateItem(34, this.mSafeSetData.Xhcztsy);
+            updateItem(37, this.mSafeSetData.Zccgqxsyd);
+            updateItem(38, this.mSafeSetData.Hzccgqbjyl - 1);
+            updateItem(41, this.mSafeSetData.Tbwybj);
+            updateItem(43, this.mSafeSetData.Hfjhjtjb);
+            updateItem(44, this.mSafeSetData.BindSpotMonitor - 1);
+            updateItem(45, this.mSafeSetData.Jbds - 1);
+            updateItem(48, this.mSafeSetData.Zdxs360ViewMonitor);
+            updateItem(49, this.mSafeSetData.Dtlx);
+            updateItem(50, this.mSafeSetData.Qsxtst);
         }
     }
 

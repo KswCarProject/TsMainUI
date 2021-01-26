@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.ts.MainUI.R;
 import com.ts.factoryset.FsInputDlg;
-import com.ts.main.common.tool;
+import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.yyw.ts70xhw.FtSet;
 
@@ -57,12 +57,11 @@ public class FsMPModeActivity extends FsBaseActivity {
         if (id == R.id.fsmp_export_sd) {
             ret = FtSet.ExportToSd(0);
             Log.i(TAG, "FtSetExportToSd(0) ret = " + ret);
-            tool.GetInstance().exportLauncherInfo(0);
         } else if (id == R.id.fsmp_export_usb) {
             ret = FtSet.ExportToSd(1);
             Log.i(TAG, "FtSetExportToSd(1) ret = " + ret);
-            tool.GetInstance().exportLauncherInfo(1);
         }
+        MainSet.GetInstance().ExportSysInfo();
         if (ret == 0) {
             Toast.makeText(this, R.string.fs_mpm_export_failed, 0).show();
         } else {

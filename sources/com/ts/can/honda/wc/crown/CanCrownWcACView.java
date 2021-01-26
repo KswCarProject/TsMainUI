@@ -12,6 +12,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanCrownWcACView extends CanBaseACView {
@@ -171,11 +172,11 @@ public class CanCrownWcACView extends CanBaseACView {
         this.mBtnRtTempDec = AddBtn(14, 890, KeyDef.RKEY_res1, R.drawable.can_jeep_ac_leng_up, R.drawable.can_jeep_ac_leng_dn);
         this.mBtnRtTempInc = AddBtn(13, 890, 124, R.drawable.can_jeep_ac_re_up, R.drawable.can_jeep_ac_re_dn);
         this.mTvRtTemp = AddTemp(889, Can.CAN_FORD_SYNC3, 95, 51);
-        this.mBtnClean = AddBtn(21, 241, 259, R.drawable.can_hg_ac_clean_up, R.drawable.can_hg_ac_clean_dn);
+        this.mBtnClean = AddBtn(21, Can.CAN_SITECHDEV_CW, 259, R.drawable.can_hg_ac_clean_up, R.drawable.can_hg_ac_clean_dn);
         this.mBtnSwing = AddBtn(22, 388, 259, R.drawable.can_hg_ac_swing_up, R.drawable.can_hg_ac_swing_dn);
         this.mBtnQccb = AddBtn(24, 536, 259, R.drawable.can_hg_ac_qccb_up, R.drawable.can_hg_ac_qccb_dn);
         this.mBtnHfqc = AddBtn(23, 683, 259, R.drawable.can_hg_ac_hfqc_up, R.drawable.can_hg_ac_hfqc_dn);
-        this.mBtnWdPx = AddBtn(9, 241, 144, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
+        this.mBtnWdPx = AddBtn(9, Can.CAN_SITECHDEV_CW, 144, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
         this.mBtnWdPxDn = AddBtn(10, 388, 144, R.drawable.can_jeep_ac_02_up, R.drawable.can_jeep_ac_02_dn);
         this.mBtnWdDn = AddBtn(11, 536, 144, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
         this.mBtnWdUpDn = AddBtn(12, 683, 144, R.drawable.can_jeep_ac_04_up, R.drawable.can_jeep_ac_04_dn);
@@ -255,7 +256,7 @@ public class CanCrownWcACView extends CanBaseACView {
         this.mBtnDual.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
         } else {
             this.mWindProg.SetCurPos(this.mACInfo.nWindValue);

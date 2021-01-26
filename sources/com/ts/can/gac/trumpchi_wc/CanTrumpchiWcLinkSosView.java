@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.v4.internal.view.SupportMenu;
 import android.view.MotionEvent;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
@@ -12,6 +13,7 @@ import com.ts.can.CanCarInfoSub1Activity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomTextView;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanTrumpchiWcLinkSosView extends CanRelativeCarInfoView {
@@ -31,7 +33,7 @@ public class CanTrumpchiWcLinkSosView extends CanRelativeCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitUI() {
-        this.mTxtCenter = getRelativeManager().AddCusText(KeyDef.RKEY_MEDIA_OSD, 240, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 80);
+        this.mTxtCenter = getRelativeManager().AddCusText(KeyDef.RKEY_MEDIA_OSD, Can.CAN_VOLKS_XP, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 80);
         this.mTxtCenter.setGravity(17);
         this.mTxtCenter.setPadding(0, 0, 0, 0);
         this.mTxtCenter.SetPixelSize(75);
@@ -53,7 +55,7 @@ public class CanTrumpchiWcLinkSosView extends CanRelativeCarInfoView {
                     this.mTxtCenter.setTextColor(SupportMenu.CATEGORY_MASK);
                     break;
                 default:
-                    this.mTxtCenter.setText("");
+                    this.mTxtCenter.setText(TXZResourceManager.STYLE_DEFAULT);
                     break;
             }
             if (mLinkSos.Sta <= 0) {

@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 public class Th implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Th f154T = new Th();
+    public static final Th f157T = new Th();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         Object value = parser.Tv();

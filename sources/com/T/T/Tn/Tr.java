@@ -20,14 +20,14 @@ import java.util.concurrent.atomic.AtomicLong;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private final Class<?> f135T;
+    private final Class<?> f138T;
     private final List<Ty> T9 = new ArrayList();
     private Method Tn;
     private Constructor<?> Tr;
     private Constructor<?> Ty;
 
     public Tr(Class<?> clazz) {
-        this.f135T = clazz;
+        this.f138T = clazz;
     }
 
     public Constructor<?> T() {

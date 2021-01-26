@@ -8,24 +8,35 @@ import android.content.pm.ResolveInfo;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+import com.ts.tsspeechlib.ManagerInitListener;
 import com.ts.tsspeechlib.radio.ITsSpeechRadio;
 import java.util.List;
 
 public class TsRadioManager {
+    private static final String ACTION_MIX_VOLUME_SIZE = "tsradiomanager_action_setmixvolumesize";
+    private static final String ACTION_SOUND_COEXISTENCE = "tsradiomanager_action_setsoundcoexistence";
     public static final String TAG = "TsRadioManager";
     public static TsRadioManager radioManager;
     private Context mContext;
     /* access modifiers changed from: private */
     public ITsSpeechRadio mSpeechRadioService;
+    /* access modifiers changed from: private */
+    public ManagerInitListener radioListener;
     ServiceConnection sconn = new ServiceConnection() {
         public void onServiceDisconnected(ComponentName arg0) {
-            Log.d(TsRadioManager.TAG, "鍒濆鍖栧け璐ワ紒");
+            Log.d(TsRadioManager.TAG, "radio init fail锛�");
             TsRadioManager.this.mSpeechRadioService = null;
+            if (TsRadioManager.this.radioListener != null) {
+                TsRadioManager.this.radioListener.initResult(3, false);
+            }
         }
 
         public void onServiceConnected(ComponentName arg0, IBinder binder) {
-            Log.d(TsRadioManager.TAG, "鍒濆鍖栨垚鍔燂紒");
+            Log.d(TsRadioManager.TAG, "radio init ok锛�");
             TsRadioManager.this.mSpeechRadioService = ITsSpeechRadio.Stub.asInterface(binder);
+            if (TsRadioManager.this.radioListener != null) {
+                TsRadioManager.this.radioListener.initResult(3, true);
+            }
         }
     };
 
@@ -36,8 +47,9 @@ public class TsRadioManager {
         return radioManager;
     }
 
-    public void initManager(Context context) {
+    public void initManager(Context context, ManagerInitListener listener) {
         this.mContext = context;
+        this.radioListener = listener;
         bindRadioService();
     }
 
@@ -122,6 +134,87 @@ public class TsRadioManager {
         return 0;
     }
 
+    public void TurnBandAndFq(int nBand, int fq) {
+        try {
+            if (this.mSpeechRadioService != null) {
+                this.mSpeechRadioService.TurnBandAndFq(nBand, fq);
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setMixVolumeSize(int size) {
+        try {
+            if (this.mSpeechRadioService != null) {
+                this.mSpeechRadioService.setMixVolumeSize(size);
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setSoundCoexistence(int state) {
+        try {
+            if (this.mSpeechRadioService != null) {
+                this.mSpeechRadioService.setSoundCoexistence(state);
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getRadioBand() {
+        try {
+            if (this.mSpeechRadioService != null) {
+                return this.mSpeechRadioService.getRadioBand();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void SeekUp() {
+        try {
+            if (this.mSpeechRadioService != null) {
+                this.mSpeechRadioService.SeekUp();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SeekDn() {
+        try {
+            if (this.mSpeechRadioService != null) {
+                this.mSpeechRadioService.SeekDn();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void OpenRadioCh() {
+        try {
+            if (this.mSpeechRadioService != null) {
+                this.mSpeechRadioService.OpenRadioCh();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void CloseRadioCh() {
+        try {
+            if (this.mSpeechRadioService != null) {
+                this.mSpeechRadioService.CloseRadioCh();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void bindRadioService() {
         Intent intent = new Intent();
         intent.setAction("com.ts.tsspeechlib.radio.TsRadioService");
@@ -129,11 +222,11 @@ public class TsRadioManager {
         if (intent2 != null) {
             this.mContext.bindService(intent2, this.sconn, 1);
         } else {
-            Log.d(TAG, "bindMusicService failed");
+            Log.d(TAG, "bindRadioService failed");
         }
     }
 
-    public Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
+    private Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
         List<ResolveInfo> resolveInfo = context.getPackageManager().queryIntentServices(implicitIntent, 0);
         if (resolveInfo == null || resolveInfo.size() != 1) {
             return null;

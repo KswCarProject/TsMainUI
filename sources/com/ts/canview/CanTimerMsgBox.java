@@ -13,6 +13,13 @@ public class CanTimerMsgBox {
     private TimerTask mTask = null;
     private Timer mTimer = null;
 
+    public CanTimerMsgBox() {
+    }
+
+    public void Hide() {
+        StopTimer();
+    }
+
     public CanTimerMsgBox(Context context, long msec, int title) {
         this.mMSec = msec;
         AlertDialog.Builder build = new AlertDialog.Builder(context);

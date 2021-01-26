@@ -6,7 +6,7 @@ import android.view.View;
 public class Ty extends TM {
 
     /* renamed from: T  reason: collision with root package name */
-    public String f461T;
+    public String f465T;
     public View.OnClickListener Tr;
 
     public Ty() {
@@ -14,7 +14,7 @@ public class Ty extends TM {
     }
 
     public void T(String content) {
-        this.f461T = content;
+        this.f465T = content;
     }
 
     public void T(View.OnClickListener onClickListener) {

@@ -28,7 +28,7 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 public class Pinyin4jAppletDemo extends JApplet {
-    private static final Dimension APP_SIZE = new Dimension(CanCameraUI.BTN_GOLF_WC_MODE1, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1);
+    private static final Dimension APP_SIZE = new Dimension(600, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1);
     private static String appName = "pinyin4j-2.0.0 applet demo";
     private static final long serialVersionUID = -1934962385592030162L;
     private JPanel buttonPanel = null;

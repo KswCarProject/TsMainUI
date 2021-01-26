@@ -4,7 +4,7 @@ package com.txznet.comm.Tr.Tr;
 public class Tv {
 
     /* renamed from: T  reason: collision with root package name */
-    private static T f404T;
+    private static T f408T;
 
     /* compiled from: Proguard */
     public static abstract class T {
@@ -16,15 +16,15 @@ public class Tv {
     }
 
     public static void T(String cmd, byte[] data) {
-        if (cmd.equals("result") && f404T != null) {
+        if (cmd.equals("result") && f408T != null) {
             if (data != null) {
-                f404T.T(new String(data));
+                f408T.T(new String(data));
             } else {
                 return;
             }
         }
         if (cmd.equals("error") && data != null) {
-            f404T.T(T(new String(data), -1));
+            f408T.T(T(new String(data), -1));
         }
     }
 

@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.ts.MainUI.R;
 
 public class CanBMWMiniStatusRPAActivity extends CanBMWMiniBaseActivity {
@@ -27,14 +26,14 @@ public class CanBMWMiniStatusRPAActivity extends CanBMWMiniBaseActivity {
     public void AddItemView() {
         addTextView(30, 300, R.string.can_rpa_reset);
         addTextView(30, 350, R.string.can_rpa_reset_notice);
-        addImageView(Can.CAN_JAC_REFINE_OD, 100, R.drawable.can_mini_car_normal);
+        addImageView(150, 100, R.drawable.can_mini_car_normal);
         for (int i = 0; i < this.mErrorIcons.length; i++) {
             this.mErrorIcons[i] = addImageView(((i % 2) * 210) + 80, ((i / 2) * 55) + 110, R.drawable.can_mini_hook);
             this.mErrorIcons[i].setVisibility(8);
-            this.mErrorSans[i] = addImageView(((i % 2) * 103) + Can.CAN_JAC_REFINE_OD, ((i / 2) * 75) + 112, i % 2 == 0 ? R.drawable.can_mini_car_left : R.drawable.can_mini_car_right);
+            this.mErrorSans[i] = addImageView(((i % 2) * 103) + 150, ((i / 2) * 75) + 112, i % 2 == 0 ? R.drawable.can_mini_car_left : R.drawable.can_mini_car_right);
             this.mErrorSans[i].setVisibility(8);
         }
-        this.mTvRpaStatus = addTextView(500, Can.CAN_JAC_REFINE_OD, 0);
+        this.mTvRpaStatus = addTextView(500, 150, 0);
         this.mTvResetBtn = addTextView(800, 450, R.string.can_rpa_start_reset);
         this.mTvResetBtn.setTextColor(getColorStateList());
         this.mTvResetBtn.setOnClickListener(this);

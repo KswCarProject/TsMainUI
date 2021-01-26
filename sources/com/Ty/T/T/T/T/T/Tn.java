@@ -1,5 +1,6 @@
 package com.Ty.T.T.T.T.T;
 
+import com.android.SdkConstants;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
@@ -9,8 +10,8 @@ import java.nio.charset.Charset;
 final class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    static final Charset f301T = Charset.forName("US-ASCII");
-    static final Charset Tr = Charset.forName("UTF-8");
+    static final Charset f304T = Charset.forName("US-ASCII");
+    static final Charset Tr = Charset.forName(SdkConstants.INI_CHARSET);
 
     static void T(File dir) throws IOException {
         File[] files = dir.listFiles();

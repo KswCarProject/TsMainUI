@@ -7,20 +7,20 @@ import com.txznet.sdk.TXZMusicManager;
 public class TXZTongTingManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static volatile TXZTongTingManager f834T;
+    private static volatile TXZTongTingManager f838T;
 
     private TXZTongTingManager() {
     }
 
     public static TXZTongTingManager getInstance() {
-        if (f834T == null) {
+        if (f838T == null) {
             synchronized (TXZTongTingManager.class) {
-                if (f834T == null) {
-                    f834T = new TXZTongTingManager();
+                if (f838T == null) {
+                    f838T = new TXZTongTingManager();
                 }
             }
         }
-        return f834T;
+        return f838T;
     }
 
     public boolean isPlaying() {

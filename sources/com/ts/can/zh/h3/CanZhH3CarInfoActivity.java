@@ -9,24 +9,39 @@ import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.canview.CanItemPopupList;
+import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
 
-public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallBack, CanItemPopupList.onPopItemClick, View.OnClickListener {
+public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallBack, CanItemPopupList.onPopItemClick, View.OnClickListener, CanItemProgressList.onPosChange {
+    private static final int ITEM_CMJSMS = 9;
+    private static final int ITEM_CSSS = 8;
     private static final int ITEM_DMJS = 3;
     private static final int ITEM_HSJZDZD = 6;
     private static final int ITEM_JSSS = 5;
     private static final int ITEM_LANGUAGE = 7;
     private static final int ITEM_LSSS = 4;
-    private static final int ITEM_MAX = 7;
+    private static final int ITEM_MAX = 13;
     private static final int ITEM_MIN = 0;
+    private static final int ITEM_RJXCD = 11;
+    private static final int ITEM_SSJFK = 10;
+    private static final int ITEM_ZCBJD = 12;
     private static final int ITEM_ZDCS = 2;
     private static final int ITEM_ZDJS = 1;
     private static final int ITEM_ZDLS = 0;
+    private static final int ITEM_ZHYBLD = 13;
+    private static final int[] mCmjsmsArrs = {R.string.can_cch9_gatingsettings_key2, R.string.can_cch9_gatingsettings_key1};
     private static final int[] mLanguageArrays = {R.string.can_lang_cn, R.string.can_lang_en};
+    private static final int[] mSsjsfkfsArrs = {R.string.can_mzd_cx4_mode_off, R.string.can_only_light, R.string.can_only_lb, R.string.can_dghlb};
     private CanDataInfo.ZhCarInfo mCarInfo = new CanDataInfo.ZhCarInfo();
     private CanItemSwitchList mDmjsItem;
     private CanItemSwitchList mHskzdzdItem;
+    private CanItemPopupList mItemCmjsms;
+    private CanItemSwitchList mItemCsss;
+    private CanItemSwitchList mItemRjxcd;
+    private CanItemPopupList mItemSsjsfk;
+    private CanItemProgressList mItemZcbjd;
+    private CanItemProgressList mItemZhybld;
     private CanItemSwitchList mJsssItem;
     private CanItemPopupList mLanguageItem;
     private CanItemSwitchList mLsssItem;
@@ -53,6 +68,18 @@ public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallB
         this.mJsssItem = AddCheckItem(R.string.can_lock_jsss, 5);
         this.mHskzdzdItem = AddCheckItem(R.string.can_zdhsjzd, 6);
         this.mLanguageItem = this.mManager.addItemPopupList(R.string.can_lang_set, mLanguageArrays, 7, (CanItemPopupList.onPopItemClick) this);
+        this.mItemCsss = AddCheckItem(R.string.can_df_jyx5_csss, 8);
+        this.mItemCmjsms = this.mManager.addItemPopupList(R.string.can_unlock_type, mCmjsmsArrs, 9, (CanItemPopupList.onPopItemClick) this);
+        this.mItemSsjsfk = this.mManager.addItemPopupList(R.string.can_lock_feedback, mSsjsfkfsArrs, 10, (CanItemPopupList.onPopItemClick) this);
+        this.mItemRjxcd = AddCheckItem(R.string.can_tigger7_day_light, 11);
+        this.mItemZcbjd = this.mManager.addItemProgressList(R.string.can_honda_bjstj, 12, (CanItemProgressList.onPosChange) this);
+        this.mItemZcbjd.SetMinMax(0, 15);
+        this.mItemZcbjd.SetStep(1);
+        this.mItemZcbjd.SetUserValText();
+        this.mItemZhybld = this.mManager.addItemProgressList(R.string.can_ybld, 13, (CanItemProgressList.onPosChange) this);
+        this.mItemZhybld.SetMinMax(0, 8);
+        this.mItemZhybld.SetStep(1);
+        this.mItemZhybld.SetUserValText();
     }
 
     /* access modifiers changed from: protected */
@@ -74,7 +101,7 @@ public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallB
     }
 
     private void LayoutUI() {
-        for (int i = 0; i <= 7; i++) {
+        for (int i = 0; i <= 13; i++) {
             ShowItem(i);
         }
     }
@@ -107,6 +134,17 @@ public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallB
             case 7:
                 ret = 1;
                 break;
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+                if (CanJni.GetSubType() == 1) {
+                    ret = 1;
+                    break;
+                }
+                break;
         }
         return i2b(ret);
     }
@@ -138,6 +176,24 @@ public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallB
             case 7:
                 this.mLanguageItem.ShowGone(show);
                 return;
+            case 8:
+                this.mItemCsss.ShowGone(show);
+                return;
+            case 9:
+                this.mItemCmjsms.ShowGone(show);
+                return;
+            case 10:
+                this.mItemSsjsfk.ShowGone(show);
+                return;
+            case 11:
+                this.mItemRjxcd.ShowGone(show);
+                return;
+            case 12:
+                this.mItemZcbjd.ShowGone(show);
+                return;
+            case 13:
+                this.mItemZhybld.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -158,6 +214,14 @@ public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallB
             this.mJsssItem.SetCheck(this.mCarInfo.Jsss);
             this.mHskzdzdItem.SetCheck(this.mCarInfo.Hsjzdzd);
             this.mLanguageItem.SetSel(this.mCarInfo.Lang);
+            this.mItemCsss.SetCheck(this.mCarInfo.Csss);
+            this.mItemCmjsms.SetSel(this.mCarInfo.Cmjsms);
+            this.mItemSsjsfk.SetSel(this.mCarInfo.Ssjsfk);
+            this.mItemRjxcd.SetCheck(this.mCarInfo.Rjxcd);
+            this.mItemZcbjd.SetCurVal(this.mCarInfo.Zcbjd);
+            this.mItemZcbjd.SetValText(" " + this.mCarInfo.Zcbjd);
+            this.mItemZhybld.SetCurVal(this.mCarInfo.Zhybld);
+            this.mItemZhybld.SetValText(" " + this.mCarInfo.Zhybld);
         }
     }
 
@@ -171,6 +235,12 @@ public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallB
         switch (id) {
             case 7:
                 CanJni.ZhH3CarSet(0, item);
+                return;
+            case 9:
+                CanJni.ZhH3CarSet(13, item);
+                return;
+            case 10:
+                CanJni.ZhH3CarSet(12, item);
                 return;
             default:
                 return;
@@ -199,6 +269,25 @@ public class CanZhH3CarInfoActivity extends CanBaseActivity implements UserCallB
                 return;
             case 6:
                 CanJni.ZhH3CarSet(7, Neg(this.mCarInfo.Hsjzdzd));
+                return;
+            case 8:
+                CanJni.ZhH3CarSet(10, Neg(this.mCarInfo.Csss));
+                return;
+            case 11:
+                CanJni.ZhH3CarSet(11, Neg(this.mCarInfo.Rjxcd));
+                return;
+            default:
+                return;
+        }
+    }
+
+    public void onChanged(int id, int pos) {
+        switch (id) {
+            case 12:
+                CanJni.ZhH3CarSet(14, pos);
+                return;
+            case 13:
+                CanJni.ZhH3CarSet(15, pos);
                 return;
             default:
                 return;

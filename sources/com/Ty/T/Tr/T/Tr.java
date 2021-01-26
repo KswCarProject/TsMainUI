@@ -4,7 +4,7 @@ package com.Ty.T.Tr.T;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private final T f318T;
+    private final T f321T;
     private final Throwable Tr;
 
     /* compiled from: Proguard */
@@ -17,7 +17,7 @@ public class Tr {
     }
 
     public Tr(T type, Throwable cause) {
-        this.f318T = type;
+        this.f321T = type;
         this.Tr = cause;
     }
 }

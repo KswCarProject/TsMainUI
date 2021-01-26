@@ -1,6 +1,6 @@
 package com.hp.hpl.sparta.xpath;
 
-import com.txznet.sdk.tongting.IConstantData;
+import com.android.SdkConstants;
 import java.io.IOException;
 
 public class Step {
@@ -19,7 +19,7 @@ public class Step {
         this.multiLevel_ = z;
         switch (simpleStreamTokenizer.ttype) {
             case -3:
-                if (simpleStreamTokenizer.sval.equals("text")) {
+                if (simpleStreamTokenizer.sval.equals(SdkConstants.ATTR_TEXT)) {
                     if (simpleStreamTokenizer.nextToken() == 40 && simpleStreamTokenizer.nextToken() == 41) {
                         this.nodeTest_ = TextTest.INSTANCE;
                         break;
@@ -48,7 +48,7 @@ public class Step {
                     this.nodeTest_ = new AttrTest(simpleStreamTokenizer.sval);
                     break;
                 } else {
-                    throw new XPathException(xPath, "after @ in node test", simpleStreamTokenizer, IConstantData.KEY_NAME);
+                    throw new XPathException(xPath, "after @ in node test", simpleStreamTokenizer, "name");
                 }
             default:
                 throw new XPathException(xPath, "at begininning of step", simpleStreamTokenizer, "'.' or '*' or name");

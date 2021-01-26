@@ -10,13 +10,13 @@ import java.util.List;
 public abstract class WinConfirmList extends WinConfirm {
 
     /* renamed from: T  reason: collision with root package name */
-    T f585T;
+    T f589T;
 
     /* compiled from: Proguard */
     public static class T extends WinConfirm.T {
 
         /* renamed from: T  reason: collision with root package name */
-        List<String> f589T;
+        List<String> f593T;
         String[] Tr;
         ListAdapter Ty;
     }
@@ -27,7 +27,7 @@ public abstract class WinConfirmList extends WinConfirm {
 
     protected WinConfirmList(T data, boolean init) {
         super(data, false);
-        this.f585T = data;
+        this.f589T = data;
         if (init) {
             T9();
         }
@@ -35,20 +35,20 @@ public abstract class WinConfirmList extends WinConfirm {
 
     /* access modifiers changed from: protected */
     public void Tr() {
-        if (this.f585T.Ty != null) {
-            this.Tq.T9.setAdapter(this.f585T.Ty);
-        } else if (this.f585T.f589T != null) {
-            this.Tq.T9.setAdapter(new ArrayAdapter(TZ(), R.layout.comm_win_list_item, this.f585T.f589T));
-        } else if (this.f585T.Tr != null) {
-            this.Tq.T9.setAdapter(new ArrayAdapter(TZ(), R.layout.comm_win_list_item, this.f585T.Tr));
+        if (this.f589T.Ty != null) {
+            this.Tq.T9.setAdapter(this.f589T.Ty);
+        } else if (this.f589T.f593T != null) {
+            this.Tq.T9.setAdapter(new ArrayAdapter(TZ(), R.layout.comm_win_list_item, this.f589T.f593T));
+        } else if (this.f589T.Tr != null) {
+            this.Tq.T9.setAdapter(new ArrayAdapter(TZ(), R.layout.comm_win_list_item, this.f589T.Tr));
         }
     }
 
     @Deprecated
     public WinConfirmList setListAdapter(List<String> msgs) {
-        this.f585T.Ty = null;
-        this.f585T.f589T = msgs;
-        this.f585T.Tr = null;
+        this.f589T.Ty = null;
+        this.f589T.f593T = msgs;
+        this.f589T.Tr = null;
         runOnUiGround(new Runnable() {
             public void run() {
                 WinConfirmList.this.Tr();
@@ -59,9 +59,9 @@ public abstract class WinConfirmList extends WinConfirm {
 
     @Deprecated
     public WinConfirmList setListAdapter(String[] msgs) {
-        this.f585T.Ty = null;
-        this.f585T.f589T = null;
-        this.f585T.Tr = msgs;
+        this.f589T.Ty = null;
+        this.f589T.f593T = null;
+        this.f589T.Tr = msgs;
         runOnUiGround(new Runnable() {
             public void run() {
                 WinConfirmList.this.Tr();
@@ -72,9 +72,9 @@ public abstract class WinConfirmList extends WinConfirm {
 
     @Deprecated
     public WinConfirmList setListAdapter(ListAdapter adapter) {
-        this.f585T.Ty = adapter;
-        this.f585T.f589T = null;
-        this.f585T.Tr = null;
+        this.f589T.Ty = adapter;
+        this.f589T.f593T = null;
+        this.f589T.Tr = null;
         runOnUiGround(new Runnable() {
             public void run() {
                 WinConfirmList.this.Tr();

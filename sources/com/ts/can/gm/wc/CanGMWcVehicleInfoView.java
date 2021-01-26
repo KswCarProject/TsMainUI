@@ -2,6 +2,7 @@ package com.ts.can.gm.wc;
 
 import android.app.Activity;
 import android.view.View;
+import com.android.SdkConstants;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -52,7 +53,7 @@ public class CanGMWcVehicleInfoView extends CanScrollCarInfoView {
             }
             updateItem(3, 0, String.valueOf(((float) this.mMsgData.BatV) * 0.1f) + " V");
             if (this.mMsgData.Jqmwz == 255) {
-                updateItem(4, 0, "-");
+                updateItem(4, 0, SdkConstants.RES_QUALIFIER_SEP);
             } else if (this.mMsgData.Jqmwz >= 0 && this.mMsgData.Jqmwz <= 100) {
                 updateItem(4, 0, String.valueOf(this.mMsgData.Jqmwz) + "%");
             }

@@ -11,7 +11,7 @@ import java.util.List;
 public final class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    static final String[] f247T = {"UPPER", "LOWER", "DIGIT", "MIXED", "PUNCT"};
+    static final String[] f250T = {"UPPER", "LOWER", "DIGIT", "MIXED", "PUNCT"};
     private static final int[][] Tn;
     static final int[][] Tr = {new int[]{0, 327708, 327710, 327709, 656318}, new int[]{590318, 0, 327710, 327709, 656318}, new int[]{262158, 590300, 0, 590301, 932798}, new int[]{327709, 327708, 656318, 0, 327710}, new int[]{327711, 656380, 656382, 656381, 0}};
     static final int[][] Ty;
@@ -68,7 +68,7 @@ public final class Tn {
             r8 = this;
             r7 = 32
             r4 = 0
-            com.Tr.Tr.T.T.Tk r5 = com.Tr.Tr.T.T.Tk.f246T
+            com.Tr.Tr.T.T.Tk r5 = com.Tr.Tr.T.T.Tk.f249T
             java.util.List r3 = java.util.Collections.singletonList(r5)
             r0 = 0
         L_0x000a:

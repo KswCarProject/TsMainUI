@@ -9,7 +9,6 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.factoryset.FsCanActivity;
 import com.txznet.sdk.TXZPoiSearchManager;
 
@@ -79,9 +78,9 @@ public class CanDtV80BatteryGroupView extends CanScrollCarInfoView {
                 updateValue(2, 0, 200, new int[]{Can.CAN_FLAT_RZC, 255}, this.mMsg1.Soc, String.valueOf(((float) this.mMsg1.Soc) * 0.5f) + "%");
                 updateValue(3, 0, 255, new int[]{255}, this.mMsg1.Dczzgwd, String.valueOf(this.mMsg1.Dczzgwd - 40) + "°C");
                 updateValue(4, 0, 255, new int[]{255}, this.mMsg1.Dczzdwd, String.valueOf(this.mMsg1.Dczzdwd - 40) + "°C");
-                updateValue(5, 0, FsCanActivity.DOOR_UPDATE_ALL, new int[]{65534, SupportMenu.USER_MASK}, this.mMsg1.Dczgdtdy, String.format("%dMV", new Object[]{Integer.valueOf(this.mMsg1.Dczgdtdy + MediaDef.PROGRESS_MAX)}));
+                updateValue(5, 0, FsCanActivity.DOOR_UPDATE_ALL, new int[]{65534, SupportMenu.USER_MASK}, this.mMsg1.Dczgdtdy, String.format("%dMV", new Object[]{Integer.valueOf(this.mMsg1.Dczgdtdy + 1000)}));
                 updateValue(6, 1, 255, new int[]{255}, this.mMsg1.Zgdtdyxnbh, new StringBuilder(String.valueOf(this.mMsg1.Zgdtdyxnbh)).toString());
-                updateValue(8, 0, FsCanActivity.DOOR_UPDATE_ALL, new int[]{65534, SupportMenu.USER_MASK}, this.mMsg1.Dczddtdy, String.format("%dMV", new Object[]{Integer.valueOf(this.mMsg1.Dczddtdy + MediaDef.PROGRESS_MAX)}));
+                updateValue(8, 0, FsCanActivity.DOOR_UPDATE_ALL, new int[]{65534, SupportMenu.USER_MASK}, this.mMsg1.Dczddtdy, String.format("%dMV", new Object[]{Integer.valueOf(this.mMsg1.Dczddtdy + 1000)}));
                 updateValue(9, 1, 255, new int[]{255}, this.mMsg1.Zddtdyxnbh, new StringBuilder(String.valueOf(this.mMsg1.Zddtdyxnbh)).toString());
             } else if (CanJni.GetSubType() == 2) {
                 updateValue(0, 0, 65533, new int[]{65534, SupportMenu.USER_MASK}, this.mMsg1.Dczzdy, String.format("%.1fV", new Object[]{Float.valueOf(((float) this.mMsg1.Dczzdy) * 0.1f)}));

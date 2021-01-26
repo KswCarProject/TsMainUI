@@ -1,5 +1,7 @@
 package com.T.T.Tr;
 
+import com.android.SdkConstants;
+import com.autochips.camera.util.DVRConst;
 import com.ts.bt.ContactInfo;
 
 /* compiled from: Proguard */
@@ -13,15 +15,15 @@ public class TZ {
             case 3:
                 return "float";
             case 4:
-                return "string";
+                return SdkConstants.TAG_STRING;
             case 5:
                 return "iso8601";
             case 6:
-                return "true";
+                return SdkConstants.VALUE_TRUE;
             case 7:
-                return "false";
+                return SdkConstants.VALUE_FALSE;
             case 8:
-                return "null";
+                return DVRConst.UNKOWN_CAMERA_ID;
             case 9:
                 return "new";
             case 10:

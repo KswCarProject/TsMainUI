@@ -1,13 +1,13 @@
 package com.Tr.T.T;
 
+import com.android.SdkConstants;
 import java.io.IOException;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 /* compiled from: Proguard */
 public final class T {
 
     /* renamed from: T  reason: collision with root package name */
-    private final byte[] f237T;
+    private final byte[] f240T;
     private int T5 = 64;
     private int T9;
     private int TE;
@@ -107,9 +107,9 @@ public final class T {
     public String TE() throws IOException {
         int Th = Th();
         if (Th > this.Ty - this.T9 || Th <= 0) {
-            return new String(Tk(Th), "UTF-8");
+            return new String(Tk(Th), SdkConstants.INI_CHARSET);
         }
-        String str = new String(this.f237T, this.T9, Th, "UTF-8");
+        String str = new String(this.f240T, this.T9, Th, SdkConstants.INI_CHARSET);
         this.T9 = Th + this.T9;
         return str;
     }
@@ -133,7 +133,7 @@ public final class T {
             return Tk(Th);
         }
         byte[] bArr = new byte[Th];
-        System.arraycopy(this.f237T, this.T9, bArr, 0, Th);
+        System.arraycopy(this.f240T, this.T9, bArr, 0, Th);
         this.T9 = Th + this.T9;
         return bArr;
     }
@@ -189,7 +189,7 @@ public final class T {
     }
 
     public int Te() throws IOException {
-        return (TK() & 255) | ((TK() & 255) << 8) | ((TK() & 255) << WrcManager.WrcCallback.KEY_CENTER) | ((TK() & 255) << 24);
+        return (TK() & 255) | ((TK() & 255) << 8) | ((TK() & 255) << 16) | ((TK() & 255) << 24);
     }
 
     public long Tq() throws IOException {
@@ -199,7 +199,7 @@ public final class T {
     }
 
     private T(byte[] bArr, int i, int i2) {
-        this.f237T = bArr;
+        this.f240T = bArr;
         this.Tr = i;
         this.Ty = i + i2;
         this.T9 = i;
@@ -264,7 +264,7 @@ public final class T {
         if (this.T9 == this.Ty) {
             throw Tn.T();
         }
-        byte[] bArr = this.f237T;
+        byte[] bArr = this.f240T;
         int i = this.T9;
         this.T9 = i + 1;
         return bArr[i];
@@ -278,7 +278,7 @@ public final class T {
             throw Tn.T();
         } else if (i <= this.Ty - this.T9) {
             byte[] bArr = new byte[i];
-            System.arraycopy(this.f237T, this.T9, bArr, 0, i);
+            System.arraycopy(this.f240T, this.T9, bArr, 0, i);
             this.T9 += i;
             return bArr;
         } else {

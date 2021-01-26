@@ -2,6 +2,7 @@ package com.T.T.Ty;
 
 import com.T.T.T.Tr;
 import com.T.T.Tn.Ty;
+import com.android.SdkConstants;
 import java.lang.reflect.Type;
 import java.util.Collection;
 
@@ -48,7 +49,7 @@ public class Trv extends TM {
         }
         if (this.Tk == null) {
             if (propertyValue == null) {
-                this.TZ = this.f203T.T();
+                this.TZ = this.f206T.T();
             } else {
                 this.TZ = propertyValue.getClass();
             }
@@ -60,18 +61,18 @@ public class Trv extends TM {
             } else if (this.Tr && String.class == this.TZ) {
                 serializer.Tv().write("\"\"");
             } else if (this.Ty && Boolean.class == this.TZ) {
-                serializer.Tv().write("false");
+                serializer.Tv().write(SdkConstants.VALUE_FALSE);
             } else if (!this.Tn || !Collection.class.isAssignableFrom(this.TZ)) {
-                this.Tk.T(serializer, (Object) null, this.f203T.Ty(), (Type) null);
+                this.Tk.T(serializer, (Object) null, this.f206T.Ty(), (Type) null);
             } else {
                 serializer.Tv().write("[]");
             }
         } else if (!this.T9 || !this.TZ.isEnum()) {
             Class<?> valueClass = propertyValue.getClass();
             if (valueClass == this.TZ) {
-                this.Tk.T(serializer, propertyValue, this.f203T.Ty(), this.f203T.Tr());
+                this.Tk.T(serializer, propertyValue, this.f206T.Ty(), this.f206T.Tr());
             } else {
-                serializer.T(valueClass).T(serializer, propertyValue, this.f203T.Ty(), this.f203T.Tr());
+                serializer.T(valueClass).T(serializer, propertyValue, this.f206T.Ty(), this.f206T.Tr());
             }
         } else {
             serializer.Tv().T(((Enum) propertyValue).name());

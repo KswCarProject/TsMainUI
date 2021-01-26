@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v4.internal.view.SupportMenu;
 import android.view.View;
 import android.widget.RelativeLayout;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
@@ -13,7 +14,6 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanCommonActivity;
 import com.ts.can.CanFunc;
 import com.ts.can.MyApplication;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.canview.CanItemBlankTextList;
 import com.ts.canview.CanItemMsgBox;
 import com.ts.canview.CanItemPopupList;
@@ -59,8 +59,8 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
     private static int m_RadioUib = 0;
     private static int m_ResAutoCnt = 0;
     private String[] mAudioLoadArr = {"AUX", "TV", "BT"};
-    private String[] mAuidoHArr = {"0", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, MainSet.SP_TW_CJW, MainSet.SP_FLKJ, MainSet.SP_FXCARPLAY, MainSet.SP_XH_FORD, "11", "12", "13", "14", "15"};
-    private String[] mAuidoLArr = {"0", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, MainSet.SP_TW_CJW, MainSet.SP_FLKJ};
+    private String[] mAuidoHArr = {"0", "1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, MainSet.SP_PCBA_VOL, "8", "9", "10", "11", "12", "13", "14", "15"};
+    private String[] mAuidoLArr = {"0", "1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, MainSet.SP_PCBA_VOL, "8"};
     protected ParamButton[] mBtnRadio = new ParamButton[2];
     private String[] mCarDoorUIArr;
     private CanItemPopupList mItemAudioH;
@@ -79,10 +79,10 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
     private CanScrollList mManager;
     private RelativeLayoutManager mManager2;
     private String[] mMethodbArr = {"USB", "AMP", "BT"};
-    private String[] mRes8259Arr = {"800x480", "400x240", "1024x600", "--", "--", "--", "--", "--", "--", "1920x720", "--", "--", "A"};
-    private String[] mResArr = {MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, MainSet.SP_TW_CJW, MainSet.SP_FLKJ, MainSet.SP_FXCARPLAY, MainSet.SP_XH_FORD, "11", "12", "13"};
+    private String[] mRes8259Arr = {"800x480", "400x240", "1024x600", "1280x480", "480x240", "--", "--", "--", "--", "1920x720", "--", "--", "A"};
+    private String[] mResArr = {"1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, MainSet.SP_PCBA_VOL, "8", "9", "10", "11", "12", "13"};
     protected CustomTextView mTextRadioUI;
-    private String[] mUsbNumArr = {MainSet.SP_XPH5, MainSet.SP_RLF_KORON};
+    private String[] mUsbNumArr = {"1", "2"};
 
     /* access modifiers changed from: protected */
     public int GetContentLayoutId() {
@@ -217,7 +217,7 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             int r17 = r17 >> 1
             m_RadioUib = r17
             int r17 = m_RadioUib
-            if (r17 != 0) goto L_0x04de
+            if (r17 != 0) goto L_0x04df
             r0 = r27
             com.ts.other.ParamButton[] r0 = r0.mBtnRadio
             r17 = r0
@@ -447,13 +447,13 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r17.SetSel(r18)
         L_0x0222:
             int r17 = m_ResAutoCnt
-            if (r17 <= 0) goto L_0x04dd
+            if (r17 <= 0) goto L_0x04de
             int r17 = m_ResAutoCnt
             int r17 = r17 + -1
             m_ResAutoCnt = r17
             byte[] r17 = data
             int r17 = com.yyw.ts70xhw.Mcu.GetOrgTiming(r17)
-            if (r17 <= 0) goto L_0x062c
+            if (r17 <= 0) goto L_0x0687
             r17 = 0
             m_ResAutoCnt = r17
             r16 = 0
@@ -650,16 +650,16 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r17 = r0
             int r17 = r17 >> 1
             r17 = r17 & 1
-            if (r17 <= 0) goto L_0x0620
+            if (r17 <= 0) goto L_0x067b
             android.content.res.Resources r17 = r27.getResources()
             int r18 = com.ts.MainUI.R.string.can_win
             java.lang.String r16 = r17.getString(r18)
             r17 = 800(0x320, float:1.121E-42)
             r0 = r17
-            if (r5 != r0) goto L_0x0544
+            if (r5 != r0) goto L_0x0545
             r17 = 480(0x1e0, float:6.73E-43)
             r0 = r17
-            if (r10 != r0) goto L_0x0544
+            if (r10 != r0) goto L_0x0545
             r17 = 0
             HostResSet(r17)
             r17 = 0
@@ -770,9 +770,9 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             java.lang.StringBuilder r21 = r21.append(r22)
             java.lang.String r21 = r21.toString()
             r17.<init>((android.content.Context) r18, (long) r19, (java.lang.String) r21)
-        L_0x04dd:
-            return
         L_0x04de:
+            return
+        L_0x04df:
             r0 = r27
             com.ts.other.ParamButton[] r0 = r0.mBtnRadio
             r17 = r0
@@ -820,13 +820,13 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r18 = 0
             r17.ShowGone((boolean) r18)
             goto L_0x00a7
-        L_0x0544:
+        L_0x0545:
             r17 = 400(0x190, float:5.6E-43)
             r0 = r17
-            if (r5 != r0) goto L_0x0571
+            if (r5 != r0) goto L_0x0572
             r17 = 240(0xf0, float:3.36E-43)
             r0 = r17
-            if (r10 != r0) goto L_0x0571
+            if (r10 != r0) goto L_0x0572
             r17 = 1
             HostResSet(r17)
             r17 = 0
@@ -842,13 +842,13 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r3 = r27
             r15.<init>(r0, r1, r2, r3)
             goto L_0x03f3
-        L_0x0571:
+        L_0x0572:
             r17 = 1920(0x780, float:2.69E-42)
             r0 = r17
-            if (r5 != r0) goto L_0x059e
+            if (r5 != r0) goto L_0x059f
             r17 = 720(0x2d0, float:1.009E-42)
             r0 = r17
-            if (r10 != r0) goto L_0x059e
+            if (r10 != r0) goto L_0x059f
             r17 = 9
             HostResSet(r17)
             r17 = 0
@@ -864,13 +864,13 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r3 = r27
             r15.<init>(r0, r1, r2, r3)
             goto L_0x03f3
-        L_0x059e:
+        L_0x059f:
             r17 = 1024(0x400, float:1.435E-42)
             r0 = r17
-            if (r5 != r0) goto L_0x05cb
+            if (r5 != r0) goto L_0x05cc
             r17 = 600(0x258, float:8.41E-43)
             r0 = r17
-            if (r10 != r0) goto L_0x05cb
+            if (r10 != r0) goto L_0x05cc
             r17 = 2
             HostResSet(r17)
             r17 = 0
@@ -886,23 +886,67 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r3 = r27
             r15.<init>(r0, r1, r2, r3)
             goto L_0x03f3
-        L_0x05cb:
+        L_0x05cc:
+            r17 = 1280(0x500, float:1.794E-42)
+            r0 = r17
+            if (r5 != r0) goto L_0x05f9
+            r17 = 480(0x1e0, float:6.73E-43)
+            r0 = r17
+            if (r10 != r0) goto L_0x05f9
+            r17 = 3
+            HostResSet(r17)
+            r17 = 0
+            r18 = 0
+            r19 = 0
+            SetCamType(r17, r18, r19)
+            com.ts.canview.CanItemMsgBox r15 = new com.ts.canview.CanItemMsgBox
+            r17 = 2
+            int r18 = com.ts.MainUI.R.string.can_car_select_tip
+            r0 = r17
+            r1 = r27
+            r2 = r18
+            r3 = r27
+            r15.<init>(r0, r1, r2, r3)
+            goto L_0x03f3
+        L_0x05f9:
+            r17 = 480(0x1e0, float:6.73E-43)
+            r0 = r17
+            if (r5 != r0) goto L_0x0626
+            r17 = 240(0xf0, float:3.36E-43)
+            r0 = r17
+            if (r10 != r0) goto L_0x0626
+            r17 = 4
+            HostResSet(r17)
+            r17 = 0
+            r18 = 0
+            r19 = 0
+            SetCamType(r17, r18, r19)
+            com.ts.canview.CanItemMsgBox r15 = new com.ts.canview.CanItemMsgBox
+            r17 = 2
+            int r18 = com.ts.MainUI.R.string.can_car_select_tip
+            r0 = r17
+            r1 = r27
+            r2 = r18
+            r3 = r27
+            r15.<init>(r0, r1, r2, r3)
+            goto L_0x03f3
+        L_0x0626:
             int r17 = r7 + r8
             int r17 = r17 + r6
             int r17 = r17 + r5
             r0 = r17
-            if (r9 != r0) goto L_0x0614
+            if (r9 != r0) goto L_0x066f
             r17 = 50
             r0 = r17
-            if (r9 < r0) goto L_0x0614
+            if (r9 < r0) goto L_0x066f
             int r17 = r12 + r13
             int r17 = r17 + r11
             int r17 = r17 + r10
             r0 = r17
-            if (r14 != r0) goto L_0x0614
+            if (r14 != r0) goto L_0x066f
             r17 = 50
             r0 = r17
-            if (r14 < r0) goto L_0x0614
+            if (r14 < r0) goto L_0x066f
             android.content.res.Resources r17 = r27.getResources()
             int r18 = com.ts.MainUI.R.string.can_Resolution_auto
             java.lang.String r16 = r17.getString(r18)
@@ -920,19 +964,19 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r3 = r27
             r15.<init>(r0, r1, r2, r3)
             goto L_0x03f3
-        L_0x0614:
+        L_0x066f:
             android.content.res.Resources r17 = r27.getResources()
             int r18 = com.ts.MainUI.R.string.can_Invalid_resolution
             java.lang.String r16 = r17.getString(r18)
             goto L_0x03f3
-        L_0x0620:
+        L_0x067b:
             android.content.res.Resources r17 = r27.getResources()
             int r18 = com.ts.MainUI.R.string.can_Invalid_resolution
             java.lang.String r16 = r17.getString(r18)
             goto L_0x03f3
-        L_0x062c:
+        L_0x0687:
             int r17 = m_ResAutoCnt
-            if (r17 != 0) goto L_0x04dd
+            if (r17 != 0) goto L_0x04de
             com.ts.canview.CanTimerMsgBox r17 = new com.ts.canview.CanTimerMsgBox
             r0 = r27
             com.ts.canview.CanScrollList r0 = r0.mManager
@@ -942,7 +986,7 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             r19 = 3000(0xbb8, double:1.482E-320)
             int r21 = com.ts.MainUI.R.string.can_defeat
             r17.<init>((android.content.Context) r18, (long) r19, (int) r21)
-            goto L_0x04dd
+            goto L_0x04de
         */
         throw new UnsupportedOperationException("Method not decompiled: com.ts.can.benc.withcd.CanBencWithCDCarInitActivity.ResetData(boolean):void");
     }
@@ -974,7 +1018,7 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
                 FtSet.Setlgb3((FtSet.Getlgb3() & 65533) | 2);
                 return;
             case 11:
-                if ((FtSet.Getlgb3() & CanToyotaDJCarDeviceView.ITEM_PLAY) > 0) {
+                if ((FtSet.Getlgb3() & 768) > 0) {
                     FtSet.Setlgb3(FtSet.Getlgb3() & 64767);
                     return;
                 } else {
@@ -1021,21 +1065,32 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
             y = 480;
         } else if (HostRes() == 1) {
             x = CanCameraUI.BTN_TRUMPCHI_GS4_MODE1;
-            y = 240;
+            y = Can.CAN_VOLKS_XP;
         } else if (HostRes() == 9) {
             x = 1920;
             y = 720;
         } else if (HostRes() == 2) {
             x = 1024;
-            y = CanCameraUI.BTN_GOLF_WC_MODE1;
+            y = 600;
+        } else if (HostRes() == 3) {
+            x = 1280;
+            y = 480;
+        } else if (HostRes() == 4) {
+            x = 480;
+            y = Can.CAN_VOLKS_XP;
         } else if (HostRes() == 12 && fore > 0) {
             x = px;
             y = py;
+            if (x < 100 || y < 100) {
+                return 0;
+            }
         }
         if (CanBencWithCDCarFuncActivity.RvsMode() == 1) {
             BackcarService.getInstance().SetCamType(5, x, y);
         } else if (CanBencWithCDCarFuncActivity.RvsMode() == 2) {
-            BackcarService.getInstance().SetCamType(0, x, y);
+            BackcarService.getInstance().SetCamType(3, x, y);
+        } else if (CanBencWithCDCarFuncActivity.RvsMode() == 3) {
+            BackcarService.getInstance().SetCamType(4, x, y);
         } else {
             BackcarService.getInstance().SetCamType(0, x, y);
         }
@@ -1043,10 +1098,13 @@ public class CanBencWithCDCarInitActivity extends CanCommonActivity implements C
     }
 
     public static int IsRviewDis() {
-        if (HostRes() == 9) {
-            return 1;
+        if (CanFunc.getInstance().IsCore() == 1) {
+            return CanFunc.IsRviewDis();
         }
-        return 0;
+        if (HostRes() != 9) {
+            return 0;
+        }
+        return 1;
     }
 
     public static int RadioUi() {

@@ -6,6 +6,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -108,7 +109,7 @@ final class UPCEANExtension5Support {
                 if (!"90000".equals(raw)) {
                     if (!"99991".equals(raw)) {
                         if (!"99990".equals(raw)) {
-                            currency = "";
+                            currency = TXZResourceManager.STYLE_DEFAULT;
                             break;
                         } else {
                             return "Used";
@@ -120,7 +121,7 @@ final class UPCEANExtension5Support {
                     return null;
                 }
             default:
-                currency = "";
+                currency = TXZResourceManager.STYLE_DEFAULT;
                 break;
         }
         int rawAmount = Integer.parseInt(raw.substring(1));

@@ -1,5 +1,6 @@
 package com.txznet.sdk;
 
+import com.ts.main.common.MainUI;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.sdk.TXZService;
 import org.json.JSONObject;
@@ -22,7 +23,7 @@ public class TXZCameraManager {
     private static TXZCameraManager Ty = new TXZCameraManager();
 
     /* renamed from: T  reason: collision with root package name */
-    private Boolean f712T;
+    private Boolean f716T;
     /* access modifiers changed from: private */
     public CameraTool T9 = null;
     private boolean Tn = false;
@@ -74,8 +75,8 @@ public class TXZCameraManager {
         if (this.Tn) {
             setCameraTool(this.T9);
         }
-        if (this.f712T != null) {
-            useWakeupCapturePhoto(this.f712T.booleanValue());
+        if (this.f716T != null) {
+            useWakeupCapturePhoto(this.f716T.booleanValue());
         }
         if (this.Tr != null) {
             useWakeupCaptureVideo(this.Tr.booleanValue());
@@ -104,10 +105,10 @@ public class TXZCameraManager {
                 if (command.equals("capturePicture")) {
                     try {
                         final JSONObject json = new JSONObject(new String(data));
-                        TXZCameraManager.this.T9.capturePicure(json.getLong("time"), new CapturePictureListener() {
+                        TXZCameraManager.this.T9.capturePicure(json.getLong(MainUI.NET_TIME_), new CapturePictureListener() {
                             public void onSave(String path) {
                                 try {
-                                    json.put(TXZCameraManager.REMOTE_NAME_VIDEO_PATH, path);
+                                    json.put("path", path);
                                     Tn.Tr().T("com.txznet.txz", "txz.camera.capturePicture.onSave", json.toString().getBytes(), (Tn.Tr) null);
                                 } catch (Exception e) {
                                 }
@@ -127,7 +128,7 @@ public class TXZCameraManager {
 
                             public void onFrontPicture(String path) {
                                 try {
-                                    json.put(TXZCameraManager.REMOTE_NAME_VIDEO_PATH, path);
+                                    json.put("path", path);
                                     json.put(TXZCameraManager.REMOTE_NAME_CAMERA_POSITION, 1);
                                     Tn.Tr().T("com.txznet.txz", "txz.camera.capturePicture.onSave", json.toString().getBytes(), (Tn.Tr) null);
                                 } catch (Exception e) {
@@ -136,7 +137,7 @@ public class TXZCameraManager {
 
                             public void onBackPicture(String path) {
                                 try {
-                                    json.put(TXZCameraManager.REMOTE_NAME_VIDEO_PATH, path);
+                                    json.put("path", path);
                                     json.put(TXZCameraManager.REMOTE_NAME_CAMERA_POSITION, 2);
                                     Tn.Tr().T("com.txznet.txz", "txz.camera.capturePicture.onSave", json.toString().getBytes(), (Tn.Tr) null);
                                 } catch (Exception e) {
@@ -188,7 +189,7 @@ public class TXZCameraManager {
             JSONObject json = new JSONObject();
             json.put(REMOTE_NAME_TASK_ID, taskId);
             json.put(REMOTE_NAME_CAMERA_POSITION, position);
-            json.put(REMOTE_NAME_VIDEO_PATH, videoPath);
+            json.put("path", videoPath);
             json.put(REMOTE_NAME_VIDEO_THUMBNAIL_PATH, thumbnailPath);
             Tn.Tr().T("com.txznet.txz", "txz.camera.captureVideo.onSave", json.toString().getBytes(), (Tn.Tr) null);
         } catch (Exception e) {
@@ -209,7 +210,7 @@ public class TXZCameraManager {
     }
 
     public void useWakeupCapturePhoto(boolean enable) {
-        this.f712T = Boolean.valueOf(enable);
+        this.f716T = Boolean.valueOf(enable);
         Tn.Tr().T("com.txznet.txz", "txz.camera.useWakeupCapturePhoto", String.valueOf(enable).getBytes(), (Tn.Tr) null);
     }
 
@@ -224,12 +225,12 @@ public class TXZCameraManager {
 
     public void setCapturePhotoTimeout(long timeout) {
         this.mTimeout = Long.valueOf(timeout);
-        Tn.Tr().T("com.txznet.txz", "txz.camera.setCameraTimeout", ("" + this.mTimeout).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.camera.setCameraTimeout", (TXZResourceManager.STYLE_DEFAULT + this.mTimeout).getBytes(), (Tn.Tr) null);
     }
 
     public void setCaptureVideoTimeout(long timeout) {
         this.mCaptureVideoTimeout = Long.valueOf(timeout);
-        Tn.Tr().T("com.txznet.txz", "txz.camera.setCaptureVideoTimeout", ("" + this.mCaptureVideoTimeout).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.camera.setCaptureVideoTimeout", (TXZResourceManager.STYLE_DEFAULT + this.mCaptureVideoTimeout).getBytes(), (Tn.Tr) null);
     }
 
     public void setSupportCameraType(CameraType cameraType) {
@@ -245,7 +246,7 @@ public class TXZCameraManager {
                     break;
             }
             if (camera != 0) {
-                Tn.Tr().T("com.txznet.txz", "txz.camera.setSupportCameraType", ("" + camera).getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.camera.setSupportCameraType", (TXZResourceManager.STYLE_DEFAULT + camera).getBytes(), (Tn.Tr) null);
             }
         }
     }

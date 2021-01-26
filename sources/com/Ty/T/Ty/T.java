@@ -8,13 +8,13 @@ import com.Ty.T.Tr.T.TE;
 public final class T {
 
     /* renamed from: T  reason: collision with root package name */
-    private static T9 f346T;
+    private static T9 f349T;
 
     static {
         int[] maxTextureSize = new int[1];
         GLES10.glGetIntegerv(3379, maxTextureSize, 0);
         int maxBitmapDimension = Math.max(maxTextureSize[0], 2048);
-        f346T = new T9(maxBitmapDimension, maxBitmapDimension);
+        f349T = new T9(maxBitmapDimension, maxBitmapDimension);
     }
 
     public static T9 T(com.Ty.T.Tr.T9.T imageAware, T9 maxImageSize) {
@@ -72,8 +72,8 @@ public final class T {
     }
 
     private static int T(int srcWidth, int srcHeight, int scale, boolean powerOf2) {
-        int maxWidth = f346T.T();
-        int maxHeight = f346T.Tr();
+        int maxWidth = f349T.T();
+        int maxHeight = f349T.Tr();
         while (true) {
             if (srcWidth / scale <= maxWidth && srcHeight / scale <= maxHeight) {
                 return scale;
@@ -89,7 +89,7 @@ public final class T {
     public static int T(T9 srcSize) {
         int srcWidth = srcSize.T();
         int srcHeight = srcSize.Tr();
-        return Math.max((int) Math.ceil((double) (((float) srcWidth) / ((float) f346T.T()))), (int) Math.ceil((double) (((float) srcHeight) / ((float) f346T.Tr()))));
+        return Math.max((int) Math.ceil((double) (((float) srcWidth) / ((float) f349T.T()))), (int) Math.ceil((double) (((float) srcHeight) / ((float) f349T.Tr()))));
     }
 
     public static float Tr(T9 srcSize, T9 targetSize, TE viewScaleType, boolean stretch) {

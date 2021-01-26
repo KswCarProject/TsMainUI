@@ -240,7 +240,7 @@ public class CanGolfSetLightActivity extends CanGolfBaseActivity implements View
                 ret = CanJni.GetSubType();
                 break;
             case 18:
-                ret = this.mAdtLight1.LightDistance;
+                ret = 1;
                 break;
         }
         return i2b(ret);
@@ -475,7 +475,7 @@ public class CanGolfSetLightActivity extends CanGolfBaseActivity implements View
                 CanJni.GolfSendCmd(93, pos);
                 return;
             case 18:
-                CanJni.GolfSendParaCmd(95, pos);
+                CanJni.GolfSendCmd(95, pos);
                 return;
             default:
                 return;

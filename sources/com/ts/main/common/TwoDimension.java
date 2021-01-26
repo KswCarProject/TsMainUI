@@ -2,11 +2,13 @@ package com.ts.main.common;
 
 import android.graphics.Bitmap;
 import android.telecom.Log;
+import com.android.SdkConstants;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,7 +28,7 @@ public class TwoDimension {
     public Bitmap createQRImage(String url, int width, int height) {
         if (url != null) {
             try {
-                if (!"".equals(url) && url.length() >= 1) {
+                if (!TXZResourceManager.STYLE_DEFAULT.equals(url) && url.length() >= 1) {
                     Hashtable<EncodeHintType, String> hints = new Hashtable<>();
                     hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
                     BitMatrix bitMatrix = new QRCodeWriter().encode(url, BarcodeFormat.QR_CODE, width, height, hints);
@@ -66,7 +68,7 @@ public class TwoDimension {
     }
 
     private void saveBitmap(Bitmap bitmap, String fileName, String Path) throws IOException {
-        File file = new File(Path, String.valueOf(fileName) + ".png");
+        File file = new File(Path, String.valueOf(fileName) + SdkConstants.DOT_PNG);
         Log.i("TwoDimension", "file ==" + file, new Object[0]);
         if (file.exists()) {
             file.delete();

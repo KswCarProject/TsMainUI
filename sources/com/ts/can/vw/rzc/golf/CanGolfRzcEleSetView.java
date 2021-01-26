@@ -7,6 +7,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfRzcEleSetView extends CanScrollCarInfoView {
     private CanDataInfo.GolfEleSet mSetData;
@@ -18,7 +19,7 @@ public class CanGolfRzcEleSetView extends CanScrollCarInfoView {
     public void onItem(int id, int item) {
         switch (id) {
             case 0:
-                CarSet(241, item);
+                CarSet(Can.CAN_SITECHDEV_CW, item);
                 return;
             default:
                 return;
@@ -28,8 +29,13 @@ public class CanGolfRzcEleSetView extends CanScrollCarInfoView {
     public void onChanged(int id, int pos) {
         switch (id) {
             case 1:
-                CarSet(Can.CAN_MZD_LUOMU, pos);
-                return;
+                if (pos == 196) {
+                    CarSet(Can.CAN_MZD_LUOMU, 255);
+                    return;
+                } else {
+                    CarSet(Can.CAN_MZD_LUOMU, pos);
+                    return;
+                }
             case 3:
                 CarSet(Can.CAN_BYD_M6_DJ, pos);
                 return;
@@ -56,7 +62,7 @@ public class CanGolfRzcEleSetView extends CanScrollCarInfoView {
         int[][] iArr = this.mProgressAttrs;
         int[] iArr2 = new int[4];
         iArr2[0] = 60;
-        iArr2[1] = 195;
+        iArr2[1] = 196;
         iArr2[2] = 1;
         iArr[1] = iArr2;
         int[][] iArr3 = this.mProgressAttrs;
@@ -77,10 +83,10 @@ public class CanGolfRzcEleSetView extends CanScrollCarInfoView {
             updateItem(0, this.mSetData.Zdcddl);
             if (this.mSetData.Cnwd == 0) {
                 updateItem(1, this.mSetData.Cnwd, "LO");
-            } else if (this.mSetData.Cnwd == 127) {
-                updateItem(1, 195, "HI");
+            } else if (this.mSetData.Cnwd == 255) {
+                updateItem(1, 196, "HI");
             } else if (this.mSetData.Cnwd > 195) {
-                updateItem(1, 195, "");
+                updateItem(1, 195, TXZResourceManager.STYLE_DEFAULT);
             } else {
                 updateItem(1, this.mSetData.Cnwd, String.format("%.1f ℃", new Object[]{Float.valueOf((((float) this.mSetData.Cnwd) * 0.1f) + 10.0f)}));
             }

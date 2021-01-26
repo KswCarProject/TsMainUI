@@ -8,8 +8,8 @@ import android.util.Log;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
-import com.ts.can.CanFunc;
 import com.ts.can.carinfo.ICarInfoService;
+import com.ts.can.faw.t3.rjm.CanFawT3RjmDeal;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Mcu;
 
@@ -151,97 +151,230 @@ public class CarInfoService extends Service {
         public int[] requestCarBaseInfo() throws RemoteException {
             Log.i("yw", "requestCarBaseInfo");
             int[] date = new int[69];
-            date[0] = CanFunc.mCarInfo.Avalid;
-            date[1] = CanFunc.mCarInfo.SpeedDw;
-            date[2] = CanFunc.mCarInfo.Speed;
-            date[3] = CanFunc.mCarInfo.Rpm;
-            date[4] = CanFunc.mCarInfo.WaterTemp;
-            date[5] = CanFunc.mCarInfo.TpmsDw;
-            date[6] = CanFunc.mCarInfo.Tpms[0];
-            date[7] = CanFunc.mCarInfo.Tpms[1];
-            date[8] = CanFunc.mCarInfo.Tpms[2];
-            date[9] = CanFunc.mCarInfo.Tpms[3];
-            date[10] = CanFunc.mCarInfo.OilDw;
-            date[11] = CanFunc.mCarInfo.AveOil;
-            date[12] = CanFunc.mCarInfo.InstantOil;
-            date[13] = CanFunc.mCarInfo.EndurOil;
-            date[14] = CanFunc.mCarInfo.Distance;
-            date[15] = CanFunc.mCarInfo.BatV;
-            date[16] = CanFunc.mCarInfo.DistanceDw;
-            date[17] = CanFunc.mCarInfo.TurnLeft;
-            date[18] = CanFunc.mCarInfo.TurnRight;
-            date[19] = CanFunc.mCarInfo.DriveSafe;
-            date[20] = CanFunc.mCarInfo.HighBeam;
-            date[21] = CanFunc.mCarInfo.LowBeam;
-            date[22] = CanFunc.mCarInfo.FootBrake;
-            date[23] = CanFunc.mCarInfo.HandBrake;
-            date[24] = CanFunc.mCarInfo.Stalls;
-            date[25] = CanFunc.mCarInfo.Ill;
-            date[26] = CanFunc.mCarInfo.WarnLed;
-            date[27] = CanFunc.mCarInfo.FrontFogLed;
-            date[28] = CanFunc.mCarInfo.RearFogLed;
-            date[29] = CanFunc.mCarInfo.Jqmwz;
-            date[30] = CanFunc.mCarInfo.Syyl;
-            date[31] = CanFunc.mCarInfo.Lqywd;
-            date[32] = CanFunc.mCarInfo.Jyyl;
-            date[33] = CanFunc.mCarInfo.Dqyl;
-            date[34] = CanFunc.mCarInfo.Syyw;
-            date[35] = CanFunc.mCarInfo.Zcbz;
-            date[36] = CanFunc.mCarInfo.PassengerSafe;
-            date[37] = CanFunc.mCarInfo.Bsqyw;
-            date[38] = CanFunc.mCarInfo.RearOpen;
-            date[39] = CanFunc.mCarInfo.AveSpeed;
-            date[40] = CanFunc.mCarInfo.DriveDis1;
-            date[41] = CanFunc.mCarInfo.DriveDis2;
+            date[0] = Can.mCarMsg.Avalid;
+            date[1] = Can.mCarMsg.SpeedDw;
+            date[2] = Can.mCarMsg.Speed;
+            date[3] = Can.mCarMsg.Rpm;
+            date[4] = Can.mCarMsg.WaterTemp;
+            date[5] = Can.mCarMsg.TpmsDw;
+            date[6] = Can.mCarMsg.Tpms[0];
+            date[7] = Can.mCarMsg.Tpms[1];
+            date[8] = Can.mCarMsg.Tpms[2];
+            date[9] = Can.mCarMsg.Tpms[3];
+            date[10] = Can.mCarMsg.OilDw;
+            date[11] = Can.mCarMsg.AveOil;
+            date[12] = Can.mCarMsg.InstantOil;
+            date[13] = Can.mCarMsg.EndurOil;
+            date[14] = Can.mCarMsg.Distance;
+            date[15] = Can.mCarMsg.BatV;
+            date[16] = Can.mCarMsg.DistanceDw;
+            date[17] = Can.mCarMsg.TurnLeft;
+            date[18] = Can.mCarMsg.TurnRight;
+            date[19] = Can.mCarMsg.DriveSafe;
+            date[20] = Can.mCarMsg.HighBeam;
+            date[21] = Can.mCarMsg.LowBeam;
+            date[22] = Can.mCarMsg.FootBrake;
+            date[23] = Can.mCarMsg.HandBrake;
+            date[24] = Can.mCarMsg.Stalls;
+            date[25] = Can.mCarMsg.Ill;
+            date[26] = Can.mCarMsg.WarnLed;
+            date[27] = Can.mCarMsg.FrontFogLed;
+            date[28] = Can.mCarMsg.RearFogLed;
+            date[29] = Can.mCarMsg.Jqmwz;
+            date[30] = Can.mCarMsg.Syyl;
+            date[31] = Can.mCarMsg.Lqywd;
+            date[32] = Can.mCarMsg.Jyyl;
+            date[33] = Can.mCarMsg.Dqyl;
+            date[34] = Can.mCarMsg.Syyw;
+            date[35] = Can.mCarMsg.Zcbz;
+            date[36] = Can.mCarMsg.PassengerSafe;
+            date[37] = Can.mCarMsg.Bsqyw;
+            date[38] = Can.mCarMsg.RearOpen;
+            date[39] = Can.mCarMsg.AveSpeed;
+            date[40] = Can.mCarMsg.DriveDis1;
+            date[41] = Can.mCarMsg.DriveDis2;
             for (int i = 0; i < 17; i++) {
-                date[i + 42] = CanFunc.mCarInfo.Vin[i];
+                date[i + 42] = Can.mCarMsg.Vin[i];
             }
-            date[59] = CanFunc.mCarInfo.WidthLight;
-            date[60] = CanFunc.mCarInfo.WiperSpeed;
+            date[59] = Can.mCarMsg.WidthLight;
+            date[60] = Can.mCarMsg.WiperSpeed;
             int[] temp = new int[6];
             switch (FtSet.GetFdoor()) {
                 case 1:
-                    temp[0] = CanFunc.mCarInfo.DoorSta[1];
-                    temp[1] = CanFunc.mCarInfo.DoorSta[0];
+                    temp[0] = Can.mCarMsg.DoorSta[1];
+                    temp[1] = Can.mCarMsg.DoorSta[0];
                     break;
                 case 2:
                     temp[0] = 0;
                     temp[1] = 0;
                     break;
                 default:
-                    temp[0] = CanFunc.mCarInfo.DoorSta[0];
-                    temp[1] = CanFunc.mCarInfo.DoorSta[1];
+                    temp[0] = Can.mCarMsg.DoorSta[0];
+                    temp[1] = Can.mCarMsg.DoorSta[1];
                     break;
             }
             switch (FtSet.GetBdoor()) {
                 case 1:
-                    temp[2] = CanFunc.mCarInfo.DoorSta[3];
-                    temp[3] = CanFunc.mCarInfo.DoorSta[2];
+                    temp[2] = Can.mCarMsg.DoorSta[3];
+                    temp[3] = Can.mCarMsg.DoorSta[2];
                     break;
                 case 2:
                     temp[2] = 0;
                     temp[3] = 0;
                     break;
                 default:
-                    temp[2] = CanFunc.mCarInfo.DoorSta[2];
-                    temp[3] = CanFunc.mCarInfo.DoorSta[3];
+                    temp[2] = Can.mCarMsg.DoorSta[2];
+                    temp[3] = Can.mCarMsg.DoorSta[3];
                     break;
             }
             if (1 == FtSet.GetTrunk()) {
                 temp[4] = 0;
             } else {
-                temp[4] = CanFunc.mCarInfo.DoorSta[4];
+                temp[4] = Can.mCarMsg.DoorSta[4];
             }
             if (1 == FtSet.GetHood()) {
                 temp[5] = 0;
             } else {
-                temp[5] = CanFunc.mCarInfo.DoorSta[5];
+                temp[5] = Can.mCarMsg.DoorSta[5];
             }
             for (int i2 = 0; i2 < 6; i2++) {
                 date[i2 + 61] = temp[i2];
             }
-            date[67] = CanFunc.mCarInfo.OutTemp;
-            date[68] = CanFunc.mCarInfo.OilTemp;
+            date[67] = Can.mCarMsg.OutTemp;
+            date[68] = Can.mCarMsg.OilTemp;
+            return date;
+        }
+
+        public int[] requestT3FlDevInfo() throws RemoteException {
+            return new int[]{CanFawT3RjmDeal.mT3FlDevInfo.GPS, CanFawT3RjmDeal.mT3FlDevInfo.ANT_4G1, CanFawT3RjmDeal.mT3FlDevInfo.ANT_4G2, CanFawT3RjmDeal.mT3FlDevInfo.KEY1_STA, CanFawT3RjmDeal.mT3FlDevInfo.KEY2_STA, CanFawT3RjmDeal.mT3FlDevInfo.KEY3_STA, CanFawT3RjmDeal.mT3FlDevInfo.KEY4_STA, CanFawT3RjmDeal.mT3FlDevInfo.BAT, CanFawT3RjmDeal.mT3FlDevInfo.CAN1, CanFawT3RjmDeal.mT3FlDevInfo.CAN2};
+        }
+
+        public int requestT3FlSta() throws RemoteException {
+            return CanFawT3RjmDeal.mT3FlSta.Trailer;
+        }
+
+        public int[] requestT3FlCanData7f1() throws RemoteException {
+            return CanFawT3RjmDeal.mT3FlCanDat_7f1.Data;
+        }
+
+        public int[] requestT3FlCanData7f2() throws RemoteException {
+            CanFawT3RjmDeal.mT3FlCanDat_7f2.Data[2] = CanFawT3RjmDeal.mT3FlSpeed.Val[0];
+            CanFawT3RjmDeal.mT3FlCanDat_7f2.Data[3] = CanFawT3RjmDeal.mT3FlSpeed.Val[1];
+            return CanFawT3RjmDeal.mT3FlCanDat_7f2.Data;
+        }
+
+        public int[] requestT3FlCanData7f3() throws RemoteException {
+            return CanFawT3RjmDeal.mT3FlCanDat_7f3.Data;
+        }
+
+        public int[] requestT3FlCanData7f4() throws RemoteException {
+            return CanFawT3RjmDeal.mT3FlCanDat_7f4.Data;
+        }
+
+        public int[] requestT3FlCanData7e0() throws RemoteException {
+            return CanFawT3RjmDeal.mT3FlCanDat_7e0.Data;
+        }
+
+        public int[] requestT3FlTexlData() throws RemoteException {
+            int[] date = new int[60];
+            date[0] = CanFawT3RjmDeal.mT3FlTexlData.WorkMode;
+            date[1] = CanFawT3RjmDeal.mT3FlTexlData.CalcSta;
+            date[2] = CanFawT3RjmDeal.mT3FlTexlData.Connect;
+            date[3] = CanFawT3RjmDeal.mT3FlTexlData.DdxjxsRet;
+            date[4] = CanFawT3RjmDeal.mT3FlTexlData.WycDyzlRet;
+            for (int i = 0; i < 45; i++) {
+                date[i + 5] = CanFawT3RjmDeal.mT3FlTexlData.Fbyyxx[i];
+            }
+            return date;
+        }
+
+        public int T3FlTexlCmd(int type, int[] cmd) throws RemoteException {
+            switch (type) {
+                case 1:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[0] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[1] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[2] = cmd[0];
+                    break;
+                case 2:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[10] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[11] = 2;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[12] = cmd[0];
+                    break;
+                case 4:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[20] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[21] = 4;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[22] = cmd[0];
+                    break;
+                case 5:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[30] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[31] = 5;
+                    break;
+                case 6:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[40] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[41] = 6;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[42] = cmd[0];
+                    CanFawT3RjmDeal.mT3FlTexlCmd[43] = cmd[1];
+                    CanFawT3RjmDeal.mT3FlTexlCmd[44] = cmd[2];
+                    CanFawT3RjmDeal.mT3FlTexlCmd[45] = cmd[3];
+                    break;
+                case 7:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[50] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[51] = 7;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[52] = cmd[0];
+                    break;
+                case 8:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[60] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[61] = 8;
+                    for (byte i = 0; i < 35; i = (byte) (i + 1)) {
+                        CanFawT3RjmDeal.mT3FlTexlCmd[i + 62] = cmd[i];
+                    }
+                    break;
+                case 9:
+                    CanFawT3RjmDeal.mT3FlTexlCmd[110] = 1;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[111] = 9;
+                    CanFawT3RjmDeal.mT3FlTexlCmd[112] = cmd[0];
+                    break;
+            }
+            return 1;
+        }
+
+        public int[] requestT3FlTexlDisCur() throws RemoteException {
+            int[] date = new int[30];
+            if (CanFawT3RjmDeal.mT3FlTexlUpt[0] > 0) {
+                date[0] = 1;
+                CanFawT3RjmDeal.mT3FlTexlUpt[0] = 0;
+            } else {
+                date[0] = 0;
+            }
+            for (int i = 0; i < 25; i++) {
+                date[i + 1] = CanFawT3RjmDeal.mT3FlTexlDisCur.DisMsg[i];
+            }
+            return date;
+        }
+
+        public int[] requestT3FlTexlDisOver() throws RemoteException {
+            int[] date = new int[40];
+            if (CanFawT3RjmDeal.mT3FlTexlUpt[1] > 0) {
+                date[0] = 1;
+                CanFawT3RjmDeal.mT3FlTexlUpt[1] = 0;
+            } else {
+                date[0] = 0;
+            }
+            for (int i = 0; i < 35; i++) {
+                date[i + 1] = CanFawT3RjmDeal.mT3FlTexlDisOver.DisDetail[i];
+            }
+            return date;
+        }
+
+        public int[] requestT3FlTexlPjxx() throws RemoteException {
+            int[] date = new int[10];
+            if (CanFawT3RjmDeal.mT3FlTexlUpt[2] > 0) {
+                date[0] = 1;
+                CanFawT3RjmDeal.mT3FlTexlUpt[2] = 0;
+            } else {
+                date[0] = 0;
+            }
+            date[1] = CanFawT3RjmDeal.mT3FlTexlPjxx.PjxxRet;
             return date;
         }
     }

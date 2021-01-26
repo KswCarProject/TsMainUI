@@ -5,6 +5,7 @@ import android.util.Log;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Mcu;
 
 /* compiled from: CanBMWMiniUpdateView */
@@ -67,7 +68,7 @@ class McuUpdater {
             setSta(1);
             this.mRevUpdateAck = false;
             this.mLastUpdateTick = SystemClock.uptimeMillis();
-            this.mUpdateFile = "";
+            this.mUpdateFile = TXZResourceManager.STYLE_DEFAULT;
             if (getMcuUpdateData()) {
                 sendStart();
                 setSta(2);

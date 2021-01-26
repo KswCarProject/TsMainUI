@@ -17,6 +17,7 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.canview.CanItemCheckList;
 import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanScrollList;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfSetTimeAndDateActivity extends CanGolfBaseActivity implements View.OnClickListener, CanItemPopupList.onPopItemClick, UserCallBack {
     private static final int ITEM_DATE = 0;
@@ -71,7 +72,7 @@ public class CanGolfSetTimeAndDateActivity extends CanGolfBaseActivity implement
         }
         if (!check || i2b(this.mTimeData.Update)) {
             this.mTimeData.Update = 0;
-            String strDate = "";
+            String strDate = TXZResourceManager.STYLE_DEFAULT;
             switch (this.mTimeData.DateFormat) {
                 case 0:
                     strDate = String.format("%d.%d.%d", new Object[]{Integer.valueOf(this.mTimeData.Day), Integer.valueOf(this.mTimeData.Month), Integer.valueOf(this.mTimeData.Year)});

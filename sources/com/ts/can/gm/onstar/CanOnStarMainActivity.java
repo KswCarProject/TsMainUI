@@ -73,7 +73,7 @@ public class CanOnStarMainActivity extends CanOnStarBaseActivity implements View
                 }
             case 2:
                 if (210 == CanJni.GetCanType() || 263 == CanJni.GetCanType()) {
-                    CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 9);
+                    CanFunc.showCanActivity(CanCarInfoSub1Activity.class, -3);
                     return;
                 }
                 return;

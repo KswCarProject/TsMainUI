@@ -6,8 +6,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Process;
 import android.util.Log;
+import com.android.SdkConstants;
 import com.ts.MainUI.R;
-import com.yyw.ts70xhw.Iop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -22,7 +22,8 @@ import java.util.Date;
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     private static final String ACTION_ERROR = "com.forfan.system.error";
     static final String Crash_PATH = "/mnt/sdcard/TsCrash/";
-    private static CrashHandler INSTANCE;
+    private static CrashHandler INSTANCE = null;
+    static final String LOG_PATH = "/mnt/sdcard/TsLog/";
     private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
     private Context mContext;
     private Thread.UncaughtExceptionHandler mDefaultHandler;
@@ -46,7 +47,6 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     public void uncaughtException(Thread thread, Throwable ex) {
         Log.i("CrashHandler", "uncaughtException");
-        Iop.PopMuteFast(Iop.GetWorkMode());
         if (handleException(ex) || this.mDefaultHandler == null) {
             try {
                 Thread.sleep(1000);
@@ -61,7 +61,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     private void sendAppCrashReport(Context context, String crashReport) {
         if (crashReport != null) {
-            String fileName = "crash-" + this.formatter.format(new Date()) + "-" + System.currentTimeMillis() + ".log";
+            long timestamp = System.currentTimeMillis();
+            String time = this.formatter.format(new Date());
+            String fileName = "crash-" + time + SdkConstants.RES_QUALIFIER_SEP + timestamp + SdkConstants.DOT_TXT;
             File dir = new File(Crash_PATH);
             if (!dir.exists()) {
                 dir.mkdirs();
@@ -70,8 +72,16 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 FileOutputStream fos = new FileOutputStream(Crash_PATH + fileName);
                 fos.write(crashReport.toString().getBytes());
                 fos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                try {
+                    if (new File(LOG_PATH).exists()) {
+                        ZipUtils.ZipFolder(LOG_PATH, "sdcard/TsLog_" + time + ".zip");
+                        ZipUtils.ZipFolder(Crash_PATH, "sdcard/Tscrash_" + time + ".zip");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
             Log.i("CrashHandler", crashReport);
         }

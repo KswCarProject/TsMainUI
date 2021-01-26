@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="60px">
+    <TextView android:textSize="24px" android:textColor="#fff" android:id="@+id/config_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20px" android:text="update wallpaper" android:layout_centerVertical="true"/>
+    <TextView android:textSize="24px" android:textColor="#fff" android:id="@+id/config_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="62px" android:text="update wallpaper" android:layout_toLeftOf="@+id/config_btn" android:layout_centerVertical="true"/>
+    <ProgressBar android:id="@+id/config_progressbar" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginRight="10px" android:layout_toLeftOf="@+id/config_btn" style="@style/config_progress"/>
+    <Button android:id="@+id/config_btn" android:background="@drawable/btn_cofig" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

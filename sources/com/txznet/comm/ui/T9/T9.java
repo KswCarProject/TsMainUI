@@ -10,7 +10,7 @@ public class T9 implements T {
     private static T9 Tr = new T9();
 
     /* renamed from: T  reason: collision with root package name */
-    boolean f502T = false;
+    boolean f506T = false;
     private Method T9;
     private Method Tn;
     private Class Ty;
@@ -27,7 +27,7 @@ public class T9 implements T {
     }
 
     public boolean isShowing() {
-        return this.f502T;
+        return this.f506T;
     }
 
     public void T(boolean isFullScreen) {
@@ -38,7 +38,7 @@ public class T9 implements T {
 
     public void show() {
         try {
-            this.f502T = true;
+            this.f506T = true;
             if (this.Ty == null) {
                 this.Ty = Class.forName("com.txznet.reserve.activity.ReserveSingleInstanceActivity0");
             }
@@ -61,7 +61,7 @@ public class T9 implements T {
 
     public void dismiss() {
         try {
-            this.f502T = false;
+            this.f506T = false;
             if (this.Ty == null) {
                 this.Ty = Class.forName("com.txznet.reserve.activity.ReserveSingleInstanceActivity0");
             }

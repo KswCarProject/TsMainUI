@@ -13,6 +13,7 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.set.setview.SetItemProgressList;
 import com.ts.set.setview.SetMainItemTopName;
 import com.ts.set.setview.UISetSroView;
+import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.StSet;
 
@@ -44,7 +45,6 @@ public class SetVolumeActivity extends Activity implements SetItemProgressList.o
 
     /* access modifiers changed from: protected */
     public void onResume() {
-        Evc.GetInstance().ChechNaviStream();
         MainTask.GetInstance().SetUserCallBack(this);
         this.nMvol = Iop.GetVolume(0);
         this.nBvol = Iop.GetVolume(1);
@@ -62,6 +62,7 @@ public class SetVolumeActivity extends Activity implements SetItemProgressList.o
     /* access modifiers changed from: protected */
     public void onPause() {
         MainTask.GetInstance().SetUserCallBack((UserCallBack) null);
+        finish();
         super.onPause();
     }
 
@@ -76,7 +77,7 @@ public class SetVolumeActivity extends Activity implements SetItemProgressList.o
                 SetVolumeActivity.this.finish();
             }
         });
-        UISetSroView.AddView(this.topname.GetView(), 1280, 80);
+        UISetSroView.AddView(this.topname.GetView(), 1024, -2);
         this.setVolumeOptions = getResources().getStringArray(R.array.set_volume_options);
         for (int setOpt = 0; setOpt < 6; setOpt++) {
             switch (setOpt) {
@@ -90,8 +91,12 @@ public class SetVolumeActivity extends Activity implements SetItemProgressList.o
                     this.NaviVolume = new SetItemProgressList((Context) this, this.setVolumeOptions[setOpt]);
                     this.NaviVolume.SetMinMax(0, this.mEvc.Gis_vol_max);
                     this.NaviVolume.SetIdCallBack(setOpt, this);
-                    UISetSroView.AddView(this.NaviVolume.GetView());
-                    break;
+                    if (FtSet.IsIconExist(101) != 1) {
+                        break;
+                    } else {
+                        UISetSroView.AddView(this.NaviVolume.GetView());
+                        break;
+                    }
                 case 2:
                     this.BtVolume = new SetItemProgressList((Context) this, this.setVolumeOptions[setOpt]);
                     this.BtVolume.SetMinMax(0, this.mEvc.Other_vol_max);
@@ -108,14 +113,17 @@ public class SetVolumeActivity extends Activity implements SetItemProgressList.o
                     this.AlarmVolume = new SetItemProgressList((Context) this, this.setVolumeOptions[setOpt]);
                     this.AlarmVolume.SetMinMax(0, this.mEvc.Alarm_vol_max);
                     this.AlarmVolume.SetIdCallBack(setOpt, this);
-                    UISetSroView.AddView(this.AlarmVolume.GetView());
                     break;
                 case 5:
                     this.SystemVolume = new SetItemProgressList((Context) this, this.setVolumeOptions[setOpt]);
                     this.SystemVolume.SetMinMax(0, this.mEvc.Sys_vol_max);
                     this.SystemVolume.SetIdCallBack(setOpt, this);
-                    UISetSroView.AddView(this.SystemVolume.GetView());
-                    break;
+                    if (getResources().getString(R.string.custom_num_show).equals("FORYOU")) {
+                        break;
+                    } else {
+                        UISetSroView.AddView(this.SystemVolume.GetView());
+                        break;
+                    }
             }
         }
     }

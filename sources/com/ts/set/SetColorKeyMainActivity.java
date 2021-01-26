@@ -33,21 +33,17 @@ public class SetColorKeyMainActivity extends Activity implements UserCallBack, S
         iArr[4] = 255;
         iArr[8] = 255;
         iArr[9] = 255;
-        iArr[10] = 153;
-        iArr[11] = 204;
-        iArr[12] = 204;
-        iArr[13] = 255;
-        iArr[14] = 153;
-        iArr[15] = 107;
-        iArr[16] = 204;
+        iArr[10] = 255;
+        iArr[12] = 255;
+        iArr[14] = 255;
+        iArr[16] = 255;
         iArr[17] = 255;
         iArr[18] = 255;
         iArr[19] = 255;
-        iArr[21] = 255;
-        iArr[22] = 255;
-        iArr[23] = 255;
-        iArr[24] = 255;
-        iArr[25] = 102;
+        iArr[20] = 255;
+        iArr[21] = 125;
+        iArr[22] = 125;
+        iArr[23] = 125;
         this.SetColor = iArr;
         this.ColorUpIcon = new int[]{R.drawable.set_qcd_01_up, R.drawable.set_qcd_02_up, R.drawable.set_qcd_03_up, R.drawable.set_qcd_04_up, R.drawable.set_qcd_05_up, R.drawable.set_qcd_06_up, R.drawable.set_qcd_07_up, R.drawable.set_qcd_08_up, R.drawable.set_qcd_09_up};
         this.ColorDnIcon = new int[]{R.drawable.set_qcd_01_dn, R.drawable.set_qcd_02_dn, R.drawable.set_qcd_03_dn, R.drawable.set_qcd_04_dn, R.drawable.set_qcd_05_dn, R.drawable.set_qcd_06_dn, R.drawable.set_qcd_07_dn, R.drawable.set_qcd_08_dn, R.drawable.set_qcd_09_dn};
@@ -73,12 +69,12 @@ public class SetColorKeyMainActivity extends Activity implements UserCallBack, S
         for (int i = 0; i < 3; i++) {
             this.mShowInfo[i] = this.ColorkeyManage.AddText(120, (i * 71) + 170);
             this.mShowInfo[i].setTextColor(-1);
-            this.mShowInfo[i].setTextSize(20.0f);
+            this.mShowInfo[i].setTextSize(0, 30.0f);
             this.mSeekBar[i].setTag(Integer.valueOf(i));
             this.mSeekBar[i].setOnSeekBarChangeListener(this);
             this.mShowInfo2[i] = this.ColorkeyManage.AddText(470, (i * 71) + 170);
             this.mShowInfo2[i].setTextColor(-1);
-            this.mShowInfo2[i].setTextSize(20.0f);
+            this.mShowInfo2[i].setTextSize(0, 30.0f);
         }
         this.mShowInfo[0].setText("R:");
         this.mShowInfo[1].setText("G:");

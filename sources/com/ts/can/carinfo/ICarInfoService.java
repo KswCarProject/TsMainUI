@@ -7,6 +7,8 @@ import android.os.Parcel;
 import android.os.RemoteException;
 
 public interface ICarInfoService extends IInterface {
+    int T3FlTexlCmd(int i, int[] iArr) throws RemoteException;
+
     int[] requestCarAirInfo() throws RemoteException;
 
     String requestCarAirLtTemp() throws RemoteException;
@@ -19,14 +21,48 @@ public interface ICarInfoService extends IInterface {
 
     boolean requestCarIllInfo() throws RemoteException;
 
+    int[] requestT3FlCanData7e0() throws RemoteException;
+
+    int[] requestT3FlCanData7f1() throws RemoteException;
+
+    int[] requestT3FlCanData7f2() throws RemoteException;
+
+    int[] requestT3FlCanData7f3() throws RemoteException;
+
+    int[] requestT3FlCanData7f4() throws RemoteException;
+
+    int[] requestT3FlDevInfo() throws RemoteException;
+
+    int requestT3FlSta() throws RemoteException;
+
+    int[] requestT3FlTexlData() throws RemoteException;
+
+    int[] requestT3FlTexlDisCur() throws RemoteException;
+
+    int[] requestT3FlTexlDisOver() throws RemoteException;
+
+    int[] requestT3FlTexlPjxx() throws RemoteException;
+
     public static abstract class Stub extends Binder implements ICarInfoService {
         private static final String DESCRIPTOR = "com.ts.can.carinfo.ICarInfoService";
+        static final int TRANSACTION_T3FlTexlCmd = 15;
         static final int TRANSACTION_requestCarAirInfo = 1;
         static final int TRANSACTION_requestCarAirLtTemp = 2;
         static final int TRANSACTION_requestCarAirRtTemp = 3;
         static final int TRANSACTION_requestCarBaseInfo = 6;
         static final int TRANSACTION_requestCarDoorInfo = 4;
         static final int TRANSACTION_requestCarIllInfo = 5;
+        static final int TRANSACTION_requestT3FlCanData7e0 = 13;
+        static final int TRANSACTION_requestT3FlCanData7f1 = 9;
+        static final int TRANSACTION_requestT3FlCanData7f2 = 10;
+        static final int TRANSACTION_requestT3FlCanData7f3 = 11;
+        static final int TRANSACTION_requestT3FlCanData7f4 = 12;
+        static final int TRANSACTION_requestT3FlDevInfo = 7;
+        static final int TRANSACTION_requestT3FlSta = 8;
+        static final int TRANSACTION_requestT3FlTexlData = 14;
+        static final int TRANSACTION_requestT3FlTexlDisCur = 16;
+        static final int TRANSACTION_requestT3FlTexlDisOver = 17;
+        static final int TRANSACTION_requestT3FlTexlPjxx = 18;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -84,6 +120,78 @@ public interface ICarInfoService extends IInterface {
                     int[] _result6 = requestCarBaseInfo();
                     reply.writeNoException();
                     reply.writeIntArray(_result6);
+                    return true;
+                case 7:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result7 = requestT3FlDevInfo();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result7);
+                    return true;
+                case 8:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result8 = requestT3FlSta();
+                    reply.writeNoException();
+                    reply.writeInt(_result8);
+                    return true;
+                case 9:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result9 = requestT3FlCanData7f1();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result9);
+                    return true;
+                case 10:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result10 = requestT3FlCanData7f2();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result10);
+                    return true;
+                case 11:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result11 = requestT3FlCanData7f3();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result11);
+                    return true;
+                case 12:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result12 = requestT3FlCanData7f4();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result12);
+                    return true;
+                case 13:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result13 = requestT3FlCanData7e0();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result13);
+                    return true;
+                case 14:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result14 = requestT3FlTexlData();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result14);
+                    return true;
+                case 15:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result15 = T3FlTexlCmd(data.readInt(), data.createIntArray());
+                    reply.writeNoException();
+                    reply.writeInt(_result15);
+                    return true;
+                case 16:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result16 = requestT3FlTexlDisCur();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result16);
+                    return true;
+                case 17:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result17 = requestT3FlTexlDisOver();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result17);
+                    return true;
+                case 18:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result18 = requestT3FlTexlPjxx();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result18);
                     return true;
                 case 1598968902:
                     reply.writeString(DESCRIPTOR);
@@ -188,6 +296,176 @@ public interface ICarInfoService extends IInterface {
                 try {
                     _data.writeInterfaceToken(Stub.DESCRIPTOR);
                     this.mRemote.transact(6, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlDevInfo() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(7, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int requestT3FlSta() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(8, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlCanData7f1() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(9, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlCanData7f2() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(10, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlCanData7f3() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(11, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlCanData7f4() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(12, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlCanData7e0() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(13, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlTexlData() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(14, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int T3FlTexlCmd(int type, int[] cmd) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(type);
+                    _data.writeIntArray(cmd);
+                    this.mRemote.transact(15, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlTexlDisCur() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(16, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlTexlDisOver() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(17, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] requestT3FlTexlPjxx() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(18, _data, _reply, 0);
                     _reply.readException();
                     return _reply.createIntArray();
                 } finally {

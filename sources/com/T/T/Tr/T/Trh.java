@@ -8,7 +8,7 @@ import java.net.URI;
 public class Trh implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Trh f164T = new Trh();
+    public static final Trh f167T = new Trh();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         String uri = (String) parser.Tv();

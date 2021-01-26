@@ -7,18 +7,18 @@ import java.lang.reflect.Type;
 public class Tk implements ParameterizedType {
 
     /* renamed from: T  reason: collision with root package name */
-    private final Type[] f133T;
+    private final Type[] f136T;
     private final Type Tr;
     private final Type Ty;
 
     public Tk(Type[] actualTypeArguments, Type ownerType, Type rawType) {
-        this.f133T = actualTypeArguments;
+        this.f136T = actualTypeArguments;
         this.Tr = ownerType;
         this.Ty = rawType;
     }
 
     public Type[] getActualTypeArguments() {
-        return this.f133T;
+        return this.f136T;
     }
 
     public Type getOwnerType() {

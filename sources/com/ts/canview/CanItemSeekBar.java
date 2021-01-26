@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.ts.MainUI.R;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanItemSeekBar implements View.OnClickListener {
     private Button mBtnDecrease;
@@ -35,7 +36,7 @@ public class CanItemSeekBar implements View.OnClickListener {
         this.mBtnDecrease = (Button) this.mLayout.findViewById(R.id.btn_decrease);
         this.mBtnIncrease = (Button) this.mLayout.findViewById(R.id.btn_increase);
         this.mProgerssBar = (ProgressBar) this.mLayout.findViewById(R.id.progress_bar);
-        this.mTvValue.setText("");
+        this.mTvValue.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mBtnDecrease.setOnClickListener(this);
         this.mBtnIncrease.setOnClickListener(this);
     }

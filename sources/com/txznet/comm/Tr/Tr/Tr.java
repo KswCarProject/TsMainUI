@@ -2,6 +2,7 @@ package com.txznet.comm.Tr.Tr;
 
 import com.txznet.comm.Tr.Tn;
 import com.txznet.sdk.TXZConfigManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.TXZTtsManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import org.json.JSONObject;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    static Boolean f403T = null;
+    static Boolean f407T = null;
     private static JSONObject T5 = null;
     private static List<T> T6 = new ArrayList();
     static Float T9;
@@ -63,7 +64,7 @@ public class Tr {
     }
 
     public static void T(boolean showHelpInfos) {
-        f403T = Boolean.valueOf(showHelpInfos);
+        f407T = Boolean.valueOf(showHelpInfos);
         T(1, showHelpInfos);
     }
 
@@ -85,17 +86,17 @@ public class Tr {
     }
 
     public static void T() {
-        if (f403T != null) {
-            Tn.Tr().T("com.txznet.txz", "comm.config.showHelpInfos", ("" + f403T).getBytes(), (Tn.Tr) null);
-            Tn.Tr().T("com.txznet.record", "comm.config.showHelpInfos", ("" + f403T).getBytes(), (Tn.Tr) null);
+        if (f407T != null) {
+            Tn.Tr().T("com.txznet.txz", "comm.config.showHelpInfos", (TXZResourceManager.STYLE_DEFAULT + f407T).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.record", "comm.config.showHelpInfos", (TXZResourceManager.STYLE_DEFAULT + f407T).getBytes(), (Tn.Tr) null);
         }
         if (Tr != null) {
-            Tn.Tr().T("com.txznet.txz", "comm.config.showSettings", ("" + Tr).getBytes(), (Tn.Tr) null);
-            Tn.Tr().T("com.txznet.record", "comm.config.showSettings", ("" + Tr).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.txz", "comm.config.showSettings", (TXZResourceManager.STYLE_DEFAULT + Tr).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.record", "comm.config.showSettings", (TXZResourceManager.STYLE_DEFAULT + Tr).getBytes(), (Tn.Tr) null);
         }
         if (Ty != null) {
-            Tn.Tr().T("com.txznet.txz", "comm.config.showCloseIcon", ("" + Ty).getBytes(), (Tn.Tr) null);
-            Tn.Tr().T("com.txznet.record", "comm.config.showCloseIcon", ("" + Ty).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.txz", "comm.config.showCloseIcon", (TXZResourceManager.STYLE_DEFAULT + Ty).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.record", "comm.config.showCloseIcon", (TXZResourceManager.STYLE_DEFAULT + Ty).getBytes(), (Tn.Tr) null);
         }
         if (T5 != null) {
             T(T5);

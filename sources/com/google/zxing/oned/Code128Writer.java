@@ -42,7 +42,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             char c = contents.charAt(i);
             if (c < ' ' || c > '~') {
                 switch (c) {
-                    case 241:
+                    case Can.CAN_SITECHDEV_CW /*241*/:
                     case Can.CAN_MZD_LUOMU /*242*/:
                     case Can.CAN_MZD_TXB /*243*/:
                     case Can.CAN_BYD_M6_DJ /*244*/:
@@ -65,7 +65,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
             }
             if (newCodeSet == codeSet) {
                 switch (contents.charAt(position)) {
-                    case 241:
+                    case Can.CAN_SITECHDEV_CW /*241*/:
                         patternIndex2 = 102;
                         break;
                     case Can.CAN_MZD_LUOMU /*242*/:

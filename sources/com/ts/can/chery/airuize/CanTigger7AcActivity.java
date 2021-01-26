@@ -24,6 +24,7 @@ public class CanTigger7AcActivity extends CanBaseActivity implements UserCallBac
     private static final int CLOSED = 16;
     private static final int LT_TEMP_INCREASE = 0;
     private static final int LT_TEMP__DECREASE = 1;
+    private static final int MAX_FRONT = 18;
     private static final int MODE_BOTH = 7;
     private static final int MODE_FOOT = 8;
     private static final int MODE_FOOT_WIN = 9;
@@ -50,6 +51,7 @@ public class CanTigger7AcActivity extends CanBaseActivity implements UserCallBac
     private ParamButton mStatusAuto;
     private ParamButton mStatusDual;
     private ParamButton mStatusInnerLoop;
+    private ParamButton mStatusMaxFront;
     private ParamButton mStatusOutLoop;
     private ParamButton mStatusWindow;
     private CustomImgView[] mWindIcons = new CustomImgView[7];
@@ -77,17 +79,18 @@ public class CanTigger7AcActivity extends CanBaseActivity implements UserCallBac
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, 198, this.mIcons[i]);
         }
-        this.mACMode[0] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        this.mACMode[1] = addButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_DFFG_S560, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
-        this.mACMode[2] = addButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        this.mACMode[3] = addButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_MEDIA_OSD, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
+        this.mACMode[0] = addButton(305, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        this.mACMode[1] = addButton(305, Can.CAN_DFFG_S560, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
+        this.mACMode[2] = addButton(305, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        this.mACMode[3] = addButton(305, KeyDef.RKEY_MEDIA_OSD, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
         this.mStatusWindow = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 70, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 10);
         this.mStatusOutLoop = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 182, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 12);
-        this.mStatusInnerLoop = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_AMS, R.drawable.can_rh7_nxh_up, R.drawable.can_rh7_nxh_dn, 14);
+        this.mStatusInnerLoop = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 295, R.drawable.can_rh7_nxh_up, R.drawable.can_rh7_nxh_dn, 14);
         this.mStatusDual = addButton(757, 70, R.drawable.can_rh7_dual_up, R.drawable.can_rh7_dual_dn, 11);
         this.mStatusAuto = addButton(757, 182, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn, 13);
-        this.mStatusAc = addButton(757, KeyDef.RKEY_AMS, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
+        this.mStatusAc = addButton(757, 295, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
         this.mStatusAcMax = addButton(757, 408, R.drawable.can_rh7_max_up, R.drawable.can_rh7_max_dn, 17);
+        this.mStatusMaxFront = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 408, R.drawable.can_rh7_maxfront_up, R.drawable.can_rh7_maxfront_dn, 18);
         addButton(462, 406, R.drawable.can_rh7_del_up, R.drawable.can_rh7_del_dn, 16);
     }
 
@@ -159,6 +162,7 @@ public class CanTigger7AcActivity extends CanBaseActivity implements UserCallBac
         this.mStatusDual.SetSel(mAcInfo.fgDual);
         this.mStatusAuto.SetSel(mAcInfo.nAutoLight);
         this.mStatusAcMax.SetSel(mAcInfo.fgACMax);
+        this.mStatusMaxFront.SetSel(mAcInfo.fgMaxFornt);
         this.mStatusInnerLoop.SetSel(mAcInfo.fgInnerLoop);
         ParamButton paramButton = this.mStatusOutLoop;
         if (mAcInfo.fgInnerLoop != 0) {
@@ -247,6 +251,9 @@ public class CanTigger7AcActivity extends CanBaseActivity implements UserCallBac
                 break;
             case 17:
                 CanJni.Tigger7CarAcSet(17, param);
+                break;
+            case 18:
+                CanJni.Tigger7CarAcSet(18, param);
                 break;
         }
         CanFunc.mLastACTick = GetTickCount();

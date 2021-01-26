@@ -6,14 +6,14 @@ import java.util.Arrays;
 public class T {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final char[] f129T = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
+    public static final char[] f132T = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
     public static final int[] Tr = new int[256];
 
     static {
         Arrays.fill(Tr, -1);
-        int iS = f129T.length;
+        int iS = f132T.length;
         for (int i = 0; i < iS; i++) {
-            Tr[f129T[i]] = i;
+            Tr[f132T[i]] = i;
         }
         Tr[61] = 0;
     }

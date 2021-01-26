@@ -10,7 +10,7 @@ import java.net.UnknownHostException;
 public class Tt implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Tt f171T = new Tt();
+    public static final Tt f174T = new Tt();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         String host = (String) parser.Tv();

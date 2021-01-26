@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 public class TG implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TG f201T = new TG();
+    public static final TG f204T = new TG();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         Trs out = serializer.Tv();
@@ -23,7 +23,7 @@ public class TG implements Trh {
             return;
         }
         out.T('{');
-        out.Tr(T.f128T);
+        out.Tr(T.f131T);
         serializer.T(object.getClass().getName());
         out.T(',');
         out.Tr("val");

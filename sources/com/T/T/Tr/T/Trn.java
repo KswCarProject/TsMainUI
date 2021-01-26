@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 public class Trn implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Trn f165T = new Trn();
+    public static final Trn f168T = new Trn();
 
     public <T> T T(Ty parser, Type type, Object fieldName) {
         T9 lexer = parser.Th();
@@ -75,7 +75,7 @@ public class Trn implements T7 {
                     } else {
                         throw new com.T.T.Tn("syntax error");
                     }
-                } else if (key != T.f128T) {
+                } else if (key != T.f131T) {
                     throw new com.T.T.Tn("syntax error : " + key);
                 } else if (lexer.Tn() == 4) {
                     String elementType = lexer.Tf();

@@ -3,6 +3,7 @@ package com.ts.can.cc.h6_rzc;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -11,22 +12,26 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemProgressList;
+import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanItemTitleValList;
 import com.ts.canview.CanScrollList;
 
-public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
+public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange, View.OnClickListener {
     private static final int ITEM_BALANCEBEFOREANDAFTER = 5;
     private static final int ITEM_BALANCELEFTANDRIGHT = 4;
     private static final int ITEM_EQUALIZERALTO = 2;
     private static final int ITEM_EQUALIZERBASS = 3;
     private static final int ITEM_EQUALIZERTREBLE = 1;
-    private static final int ITEM_MAX = 7;
+    private static final int ITEM_MAX = 9;
     private static final int ITEM_MIN = 0;
     private static final int ITEM_SURROUNDSOUND = 6;
     private static final int ITEM_VOLUMEINFORMATION = 0;
     private static final int ITEM_VOLUMEWITHSPEED = 7;
+    private static final int ITEM_YSYYXF = 9;
+    private static final int ITEM_YXSZ = 8;
     private static final int[] mSurroundSoundItemArrays = {R.string.can_cch9_surround_sound_key1, R.string.can_cch9_surround_sound_key2};
     private static String[] mWithTheVolumeArrays;
+    private static final int[] mYxszArrays = {R.string.can_zc, R.string.can_zjs, R.string.can_lbw, R.string.can_xhsm, R.string.can_qp, R.string.can_hp};
     private CanItemProgressList mBalanceBeforeAndAfterItem;
     private CanItemProgressList mBalanceLeftAndRightItem;
     private CanItemProgressList mEqualizerAltoItem;
@@ -38,6 +43,8 @@ public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCal
     private CanItemPopupList mSurroundSoundItem;
     private CanItemProgressList mVolumeInformationItem;
     private CanItemPopupList mVolumeWithSpeedItem;
+    private CanItemSwitchList mYsyyxfItem;
+    private CanItemPopupList mYxszItem;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle arg0) {
@@ -77,6 +84,8 @@ public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCal
         this.mManager.AddView(this.mBalanceBeforeAndAfterItem.GetView());
         this.mSurroundSoundItem = this.mManager.addItemPopupList(R.string.can_cch9_surround_sound, mSurroundSoundItemArrays, 6, (CanItemPopupList.onPopItemClick) this);
         this.mVolumeWithSpeedItem = this.mManager.addItemPopupList(R.string.can_cch9_with_the_volume, mWithTheVolumeArrays, 7, (CanItemPopupList.onPopItemClick) this);
+        this.mYxszItem = this.mManager.addItemPopupList(R.string.can_yxsd, mYxszArrays, 8, (CanItemPopupList.onPopItemClick) this);
+        this.mYsyyxfItem = this.mManager.addItemCheckBox(R.string.can_ysyyxf, 9, this);
     }
 
     /* access modifiers changed from: protected */
@@ -89,7 +98,7 @@ public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCal
     }
 
     private void LayoutUI() {
-        for (int i = 0; i <= 7; i++) {
+        for (int i = 0; i <= 9; i++) {
             ShowItem(i);
         }
     }
@@ -130,6 +139,18 @@ public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCal
             case 7:
                 this.mVolumeWithSpeedItem.ShowGone(true);
                 return;
+            case 8:
+                if (CanJni.GetSubType() == 8) {
+                    this.mYxszItem.ShowGone(true);
+                    return;
+                }
+                return;
+            case 9:
+                if (CanJni.GetSubType() == 8) {
+                    this.mYsyyxfItem.ShowGone(true);
+                    return;
+                }
+                return;
             default:
                 return;
         }
@@ -168,6 +189,8 @@ public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCal
             }
             this.mSurroundSoundItem.SetSel(this.mHAmpSet.Stereo - 1);
             this.mVolumeWithSpeedItem.SetSel(this.mHAmpSet.VolWithSpeed);
+            this.mYxszItem.SetSel(this.mHAmpSet.EqSet);
+            this.mYsyyxfItem.SetCheck(this.mHAmpSet.Ysyyxf);
         }
     }
 
@@ -185,6 +208,14 @@ public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCal
             case 7:
                 CanJni.CcHfH9AmpSet(8, item);
                 return;
+            case 8:
+                if (item == 0) {
+                    CanJni.CcHfH9AmpSet(9, 5);
+                    return;
+                } else {
+                    CanJni.CcHfH9AmpSet(9, item - 1);
+                    return;
+                }
             default:
                 return;
         }
@@ -213,6 +244,16 @@ public class CanCCH9RzcAmpSetActivity extends CanBaseActivity implements UserCal
                 return;
             case 5:
                 CanJni.CcHfH9AmpSet(6, pos);
+                return;
+            default:
+                return;
+        }
+    }
+
+    public void onClick(View v) {
+        switch (((Integer) v.getTag()).intValue()) {
+            case 9:
+                CanJni.CcHfH9AmpSet(10, Neg(this.mHAmpSet.Ysyyxf));
                 return;
             default:
                 return;

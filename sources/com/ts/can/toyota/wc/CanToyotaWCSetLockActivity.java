@@ -18,12 +18,13 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
     public static final int ITEM_AUTO_BY_TO_P = 3;
     public static final int ITEM_KEY2_UNLOCK = 5;
     public static final int ITEM_LOCK_FLASH = 7;
-    private static final int ITEM_MAX = 9;
+    private static final int ITEM_MAX = 10;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_ONE_KEY_START = 8;
     public static final int ITEM_OPEN_LINK_UNLOCK = 6;
     public static final int ITEM_REMOTE2_UNLOCK = 4;
     public static final int ITEM_SMART_UNLOCK = 9;
+    public static final int ITEM_XCSZXZYDTJ = 10;
     public static final String TAG = "CanToyotaSetLockActivity";
     private static int[] mStrAutoDoorLockArr = {R.string.can_off, R.string.can_shifttoP, R.string.can_byspeed};
     private static int[] mStrAutoDoorUnlockArr = {R.string.can_off, R.string.can_door_unlock_key1, R.string.can_shifttoP};
@@ -32,6 +33,7 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
     private static int[] mStrRelockTimer = {R.string.can_off, R.string.can_30s, R.string.can_60s, R.string.can_90s};
     private static int[] mStrSmartUnlockArr = {R.string.can_unlock_all_seats, R.string.can_unlock_cab};
     private static int[] mStrWirelessLockArr = {R.string.can_off, R.string.can_door_unlock_key1};
+    private static int[] mStrXcszxzydltjArr = {R.string.can_off, R.string.can_tilt_only, R.string.can_stretch_only, R.string.can_tilt_stretch};
     private CanItemCheckList mItemAutoByFromP;
     private CanItemCheckList mItemAutoBySpeed;
     private CanItemCheckList mItemAutoByToP;
@@ -41,6 +43,7 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
     private CanItemCheckList mItemOpenLinkUnlock;
     private CanItemCheckList mItemRemote2Unlock;
     private CanItemPopupList mItemSmartUnlock;
+    private CanItemPopupList mItemXcszxzydltj;
     private CanScrollList mManager;
     private boolean mbLayout = false;
 
@@ -73,6 +76,7 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
             this.mItemLockFlash.SetCheck(this.mSetData.fgLightResponse);
             this.mItemOneKeyStart.SetCheck(this.mSetData.fgSmartLockAnd1KeyStart);
             this.mItemSmartUnlock.SetSel(this.mSetData.fgSmartUnlock);
+            this.mItemXcszxzydltj.SetSel(this.mSetData.Xcszxzydltj);
         }
     }
 
@@ -97,7 +101,7 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
     /* access modifiers changed from: protected */
     public void InitUI() {
         this.mManager = new CanScrollList(this);
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= 10; i++) {
             InitItem(i);
         }
     }
@@ -105,7 +109,7 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
     /* access modifiers changed from: protected */
     public void LayoutUI() {
         this.mManager.RemoveAllViews();
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= 10; i++) {
             AddItem(i);
         }
     }
@@ -176,6 +180,10 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
                 this.mItemSmartUnlock = new CanItemPopupList((Context) this, R.string.can_smart_unlock, mStrSmartUnlockArr, (CanItemPopupList.onPopItemClick) this);
                 this.mItemSmartUnlock.SetId(item);
                 return;
+            case 10:
+                this.mItemXcszxzydltj = new CanItemPopupList((Context) this, R.string.can_xcszxzydltj, mStrXcszxzydltjArr, (CanItemPopupList.onPopItemClick) this);
+                this.mItemXcszxzydltj.SetId(item);
+                return;
             default:
                 return;
         }
@@ -210,6 +218,9 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
                 return;
             case 9:
                 this.mManager.AddView(this.mItemSmartUnlock.GetView());
+                return;
+            case 10:
+                this.mManager.AddView(this.mItemXcszxzydltj.GetView());
                 return;
             default:
                 return;
@@ -272,6 +283,9 @@ public class CanToyotaWCSetLockActivity extends CanToyotaWCBaseActivity implemen
         switch (Id) {
             case 9:
                 CarSet(1, 2, item);
+                return;
+            case 10:
+                CarSet(1, 15, item);
                 return;
             default:
                 return;

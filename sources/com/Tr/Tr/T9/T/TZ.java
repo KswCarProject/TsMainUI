@@ -3,27 +3,25 @@ package com.Tr.Tr.T9.T;
 import com.Tr.Tr.TE;
 import com.Tr.Tr.Tr.Ty;
 import com.ts.can.CanCameraUI;
-import com.ts.main.common.MainSet;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 /* compiled from: Proguard */
 final class TZ {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final byte[] f253T = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, 35, 45, 46, WrcManager.WrcCallback.MINI_KEY_3, 47, 43, 37, 42, 61, 94, 0, 32, 0, 0, 0};
+    private static final byte[] f256T = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, 35, 45, 46, 36, 47, 43, 37, 42, 61, 94, 0, 32, 0, 0, 0};
     private static final Charset T9 = Charset.forName("ISO-8859-1");
     private static final byte[] Tn = new byte[128];
-    private static final byte[] Tr = {59, 60, 62, 64, 91, 92, 93, 95, 96, 126, WrcManager.WrcCallback.MINI_KEY_1, 13, 9, 44, 58, 10, 45, 46, WrcManager.WrcCallback.MINI_KEY_3, 47, WrcManager.WrcCallback.MINI_KEY_2, 124, 42, 40, 41, 63, 123, 125, 39, 0};
+    private static final byte[] Tr = {59, 60, 62, 64, 91, 92, 93, 95, 96, 126, 33, 13, 9, 44, 58, 10, 45, 46, 36, 47, 34, 124, 42, 40, 41, 63, 123, 125, 39, 0};
     private static final byte[] Ty = new byte[128];
 
     static {
         Arrays.fill(Ty, (byte) -1);
-        for (int i = 0; i < f253T.length; i++) {
-            byte b = f253T[i];
+        for (int i = 0; i < f256T.length; i++) {
+            byte b = f256T[i];
             if (b > 0) {
                 Ty[b] = (byte) i;
             }
@@ -320,7 +318,7 @@ final class TZ {
         while (idx < count) {
             tmp.setLength(0);
             int len = Math.min(44, count - idx);
-            BigInteger bigint = new BigInteger(MainSet.SP_XPH5 + msg.substring(startpos + idx, startpos + idx + len));
+            BigInteger bigint = new BigInteger("1" + msg.substring(startpos + idx, startpos + idx + len));
             do {
                 tmp.append((char) bigint.mod(num900).intValue());
                 bigint = bigint.divide(num900);

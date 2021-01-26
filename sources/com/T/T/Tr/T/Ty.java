@@ -38,11 +38,11 @@ public class Ty extends Ts {
         }
         ArrayList list = new ArrayList();
         T5 context = parser.Tk();
-        parser.T(context, object, (Object) this.f170T.Ty());
+        parser.T(context, object, (Object) this.f173T.Ty());
         T(parser, objectType, list);
         parser.T(context);
         if (object == null) {
-            fieldValues.put(this.f170T.Ty(), list);
+            fieldValues.put(this.f173T.Ty(), list);
         } else {
             T(object, (Object) list);
         }

@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="tpms_general_disp">
-        <item>TEMP Unit</item>
-        <item>Pressure Unit</item>
-        <item>MAX TEMP</item>
-        <item>MAX Pressure</item>
-        <item>MIN Pressure</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>Flat Tire</item>
-        <item>Low Voltage</item>
-        <item>No Signal</item>
-        <item>Low Pressure</item>
-        <item>High Pressure</item>
-        <item>Start study</item>
-        <item>studying</item>
-    </array>
     <array name="set_main_options">
         <item>Ogólne</item>
         <item>Wyświetlacz</item>
         <item>Głośność</item>
         <item>Dźwięk</item>
-        <item>Video</item>
+        <item>Wideo</item>
         <item>Nawigacja</item>
         <item>Bluetooth</item>
-        <item>Sterowanie Kierownicy</item>
+        <item>Sterowanie z kierownicy</item>
         <item>Informacje o urządzeniu</item>
     </array>
     <array name="set_genera_options">
-        <item>Czas czuwania</item>
+        <item>Tryb uśpienia</item>
         <item>Rozpoznawanie mowy</item>
         <item>Asystent dotyku</item>
         <item>Głośność przy cofaniu</item>
@@ -40,30 +24,31 @@
     <array name="set_display_options">
         <item>Podświetlenie dzienne</item>
         <item>Podświetlenie nocne</item>
-        <item>Tryb Auto</item>
+        <item>Automatyczna zmiana podświetlenia</item>
         <item>Kolor przycisków</item>
     </array>
     <array name="set_volume_options">
-        <item>Głośność Media</item>
+        <item>Głośność Multimediów</item>
         <item>Głośność Nawigacji</item>
-        <item>Głośność BT</item>
+        <item>Głośność odtwarzania przez Bluetooth</item>
         <item>Głośność Dzwonka</item>
         <item>Głośność Alarmu</item>
         <item>Głośność Systemu</item>
     </array>
     <array name="set_video_options">
-        <item>Wyłączenie video podczas jazdy</item>
+        <item>Wyłączenie oglądania filmów w czasie jazdy</item>
         <item>Linie pomocnicze cofania</item>
-        <item>Linie ostrzegawcze cofania</item>
+        <item>Linie pomocnicze</item>
         <item>Kamera cofania – lustro</item>
         <item>Klimatyzacja</item>
         <item>Tylny film</item>
         <item>Kamera z przodu</item>
+        <item>Typ aparatu</item>
     </array>
     <array name="set_navi_options">
-        <item>Auto start Nawigacji</item>
-        <item>&gt;Ścieżka pliku</item>
-        <item>Miks nawigacyjny</item>
+        <item>Auto start nawigacji</item>
+        <item>Ścieżka pliku</item>
+        <item>Głośność nawigacji w czasie odtwarzania</item>
     </array>
     <array name="set_bt_options">
         <item>PIN kod</item>
@@ -79,14 +64,68 @@
         <item>DVDROM</item>
     </array>
     <array name="str_dsp_subwoofer_arrays">
-        <item>Zdobyć</item>
+        <item>Głośność</item>
         <item>Niska częstotliwość</item>
         <item>Harmoniczny</item>
     </array>
     <array name="str_dsp_loudness_arrays">
         <item>Niska częstotliwość</item>
-        <item>Zdobyć</item>
+        <item>Głośność</item>
         <item>Wysoka częstotliwość</item>
-        <item>Zdobyć</item>
+        <item>Głośność</item>
+    </array>
+    <array name="tpms_general_mode">
+        <item>Alarm wył.</item>
+        <item>Alarm raz</item>
+        <item>Alarm zawsze</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>Temperatura</item>
+        <item>Ciśnienie</item>
+        <item>MAX</item>
+        <item>MAX</item>
+        <item>MIN</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Przebita opona</item>
+        <item>Niskie napięcie</item>
+        <item>Brak sygnału</item>
+        <item>Niskie ciśnienie</item>
+        <item>Wysokie ciśnienie</item>
+        <item>Rozpocznij naukę</item>
+        <item>Nauka</item>
+    </array>
+    <array name="ctouch_general">
+        <item>Zasilanie</item>
+        <item>Ekran główny</item>
+        <item>Powrót</item>
+        <item>Gł. +</item>
+        <item>Gł. -</item>
+        <item>Nawigacja</item>
+        <item>Odbierz</item>
+        <item>Rozłącz się</item>
+        <item>Poprzedni</item>
+        <item>Następny</item>
+        <item>Wysuń</item>
+        <item>Wyszukaj</item>
+        <item>Tryb</item>
+        <item>Wycisz</item>
+        <item>Stop</item>
+        <item>Pauza</item>
+        <item>Radio</item>
+        <item>DVD</item>
+        <item>Muzyka</item>
+        <item>Aplikacja</item>
+        <item>Jasność</item>
+        <item>P/Wycisz</item>
+        <item>P/Menu</item>
+        <item>Wysuń/Menu</item>
+        <item>Wysuń/Wycisz</item>
+        <item>Muzyka Bluetooth</item>
+        <item>Wysuń/Nawigacja</item>
+        <item>głos</item>
+        <item>dźwięk</item>
+        <item>Pojazd</item>
+        <item>Wyczyść</item>
     </array>
 </resources>

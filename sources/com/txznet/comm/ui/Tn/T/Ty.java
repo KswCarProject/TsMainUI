@@ -10,7 +10,7 @@ import com.txznet.comm.ui.Tn.T;
 public class Ty extends T {
 
     /* renamed from: T  reason: collision with root package name */
-    boolean f553T = false;
+    boolean f557T = false;
     private Context Tn;
     private RelativeLayout Tr;
     private RelativeLayout.LayoutParams Ty;

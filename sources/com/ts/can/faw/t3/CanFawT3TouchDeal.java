@@ -1,6 +1,7 @@
 package com.ts.can.faw.t3;
 
 import android.util.Log;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.main.common.KeyTouch;
 import com.ts.main.common.WinShow;
@@ -70,7 +71,7 @@ public class CanFawT3TouchDeal {
                 GetInstance.sendTap(f, f2, i);
                 int ndy = 0;
                 if (CanJni.GetCanType() == 283) {
-                    ndy = 240;
+                    ndy = Can.CAN_VOLKS_XP;
                 }
                 if (x >= 1180 && x <= 1280 && y >= 650 - ndy && y <= 720 - ndy && Cbuf[7] > 0) {
                     if (nRightPreCnt == 0) {

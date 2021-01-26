@@ -8,7 +8,6 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.TextView;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
@@ -16,8 +15,10 @@ import com.ts.other.CustomDialog;
 import com.yyw.ts70xhw.FtSet;
 
 public class MainVcomWithAcddDialog extends CustomDialog implements CompoundButton.OnCheckedChangeListener, SeekBar.OnSeekBarChangeListener, View.OnClickListener {
-    Switch mAvddSwitch;
+    private int mAvdd;
     TextView mAvddTxt;
+    Button mBtnAvddDn;
+    Button mBtnAvddUp;
     Button mBtnVcomDn;
     Button mBtnVcomOk;
     Button mBtnVcomUp;
@@ -47,19 +48,17 @@ public class MainVcomWithAcddDialog extends CustomDialog implements CompoundButt
         this.mVcomSeekBar = (SeekBar) findViewById(R.id.vcom_seekbar);
         this.mVcomSeekBar.setProgress(vcom);
         this.mVcomSeekBar.setOnSeekBarChangeListener(this);
-        this.mAvddSwitch = (Switch) findViewById(R.id.avdd_switch_ctrl);
         this.mBtnVcomUp = (Button) findViewById(R.id.btn_vcom_up);
         this.mBtnVcomDn = (Button) findViewById(R.id.btn_vcom_dn);
         this.mBtnVcomOk = (Button) findViewById(R.id.btn_vcom_ok);
+        this.mBtnAvddUp = (Button) findViewById(R.id.btn_avdd_sub);
+        this.mBtnAvddDn = (Button) findViewById(R.id.btn_avdd_add);
         this.mBtnVcomUp.setOnClickListener(this);
         this.mBtnVcomDn.setOnClickListener(this);
         this.mBtnVcomOk.setOnClickListener(this);
-        if (avdd == 0) {
-            this.mAvddSwitch.setChecked(false);
-        } else {
-            this.mAvddSwitch.setChecked(true);
-        }
-        this.mAvddSwitch.setOnCheckedChangeListener(this);
+        this.mBtnAvddUp.setOnClickListener(this);
+        this.mBtnAvddDn.setOnClickListener(this);
+        this.mAvdd = avdd;
         this.mAvddTxt = (TextView) this.mWindow.findViewById(R.id.avdd_txt);
         this.mAvddTxt.setText(new StringBuilder(String.valueOf(avdd)).toString());
     }
@@ -74,13 +73,6 @@ public class MainVcomWithAcddDialog extends CustomDialog implements CompoundButt
     }
 
     public void onCheckedChanged(CompoundButton view, boolean checked) {
-        if (checked) {
-            FtSet.SetLCDavdd(1);
-            this.mAvddTxt.setText(MainSet.SP_XPH5);
-            return;
-        }
-        FtSet.SetLCDavdd(0);
-        this.mAvddTxt.setText("0");
     }
 
     public void onProgressChanged(SeekBar seekBar, int progress, boolean user) {
@@ -111,7 +103,31 @@ public class MainVcomWithAcddDialog extends CustomDialog implements CompoundButt
         } else if (id == R.id.btn_vcom_ok) {
             FtSet.Save(0);
             dismiss();
+        } else if (id == R.id.btn_avdd_sub) {
+            subAvddNum();
+        } else if (id == R.id.btn_avdd_add) {
+            addAvddNum();
         }
+    }
+
+    /* access modifiers changed from: package-private */
+    public void subAvddNum() {
+        this.mAvdd--;
+        if (this.mAvdd < 0) {
+            this.mAvdd = 0;
+        }
+        FtSet.SetLCDavdd(this.mAvdd);
+        this.mAvddTxt.setText(new StringBuilder(String.valueOf(this.mAvdd)).toString());
+    }
+
+    /* access modifiers changed from: package-private */
+    public void addAvddNum() {
+        this.mAvdd++;
+        if (this.mAvdd > 2) {
+            this.mAvdd = 2;
+        }
+        FtSet.SetLCDavdd(this.mAvdd);
+        this.mAvddTxt.setText(new StringBuilder(String.valueOf(this.mAvdd)).toString());
     }
 
     /* access modifiers changed from: package-private */

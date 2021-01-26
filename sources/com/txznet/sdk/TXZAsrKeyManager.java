@@ -1,6 +1,7 @@
 package com.txznet.sdk;
 
 import android.text.TextUtils;
+import com.android.SdkConstants;
 import com.ts.bt.ContactInfo;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.sdk.TXZService;
@@ -17,7 +18,7 @@ public class TXZAsrKeyManager {
     private static TXZAsrKeyManager T9 = new TXZAsrKeyManager();
 
     /* renamed from: T  reason: collision with root package name */
-    AsrKeySource[] f689T;
+    AsrKeySource[] f693T;
     /* access modifiers changed from: private */
     public CommCmdsTool TE;
     private boolean TZ = false;
@@ -99,8 +100,8 @@ public class TXZAsrKeyManager {
 
     /* access modifiers changed from: package-private */
     public void T() {
-        if (this.f689T != null) {
-            T(this.f689T, (Tn.Tr) null);
+        if (this.f693T != null) {
+            T(this.f693T, (Tn.Tr) null);
         }
         if (this.Tr != null) {
             forbidAsrKeys(this.Tr, (Tn.Tr) null);
@@ -123,15 +124,15 @@ public class TXZAsrKeyManager {
     public static class AsrKeySource {
 
         /* renamed from: T  reason: collision with root package name */
-        private String f691T;
+        private String f695T;
         private String[] Tr;
 
         public AsrKeySource(String type) {
-            this.f691T = type;
+            this.f695T = type;
         }
 
         public AsrKeySource(String type, List<String> cmds) {
-            this.f691T = type;
+            this.f695T = type;
             int size = cmds != null ? cmds.size() : 0;
             if (this.Tr == null) {
                 this.Tr = new String[size];
@@ -140,12 +141,12 @@ public class TXZAsrKeyManager {
         }
 
         public AsrKeySource(String type, String[] cmds) {
-            this.f691T = type;
+            this.f695T = type;
             this.Tr = cmds;
         }
 
         public String getKeyType() {
-            return this.f691T;
+            return this.f695T;
         }
 
         public String[] getKeyCmds() {
@@ -158,7 +159,7 @@ public class TXZAsrKeyManager {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f691T);
+            sb.append(this.f695T);
             sb.append(ContactInfo.COMBINATION_SEPERATOR);
             if (this.Tr != null) {
                 for (String keyword : this.Tr) {
@@ -182,7 +183,7 @@ public class TXZAsrKeyManager {
         }
 
         public AsrKeySource copy() {
-            AsrKeySource aks = new AsrKeySource(this.f691T);
+            AsrKeySource aks = new AsrKeySource(this.f695T);
             if (this.Tr != null) {
                 String[] cmds = new String[this.Tr.length];
                 System.arraycopy(this.Tr, 0, cmds, 0, this.Tr.length);
@@ -196,21 +197,21 @@ public class TXZAsrKeyManager {
     public static class AsrSources {
 
         /* renamed from: T  reason: collision with root package name */
-        List<AsrKeySource> f692T;
+        List<AsrKeySource> f696T;
 
         public List<AsrKeySource> getAsrKeySources() {
-            return this.f692T;
+            return this.f696T;
         }
 
         public void setAsrKeySources(List<AsrKeySource> akss) {
-            this.f692T = akss;
+            this.f696T = akss;
         }
 
         public void addAsrKeySource(AsrKeySource aks) {
-            if (this.f692T == null) {
-                this.f692T = new ArrayList();
+            if (this.f696T == null) {
+                this.f696T = new ArrayList();
             }
-            this.f692T.add(aks);
+            this.f696T.add(aks);
         }
 
         public void addAsrKeySourceByTypeKeywords(String type, List<String> keywords) {
@@ -222,8 +223,8 @@ public class TXZAsrKeyManager {
         }
 
         public void modifyAsrKeyCmds(String type, String... cmds) {
-            if (this.f692T != null) {
-                for (AsrKeySource aks : this.f692T) {
+            if (this.f696T != null) {
+                for (AsrKeySource aks : this.f696T) {
                     if (aks.getKeyType().equals(type)) {
                         aks.setKeyCmds(cmds);
                         return;
@@ -233,10 +234,10 @@ public class TXZAsrKeyManager {
         }
 
         public void removeAsrKeySourceByType(String type) {
-            if (this.f692T != null) {
-                for (AsrKeySource aks : this.f692T) {
+            if (this.f696T != null) {
+                for (AsrKeySource aks : this.f696T) {
                     if (aks.getKeyType().equals(type)) {
-                        this.f692T.remove(aks);
+                        this.f696T.remove(aks);
                         return;
                     }
                 }
@@ -262,8 +263,8 @@ public class TXZAsrKeyManager {
         public byte[] toBytes() {
             StringBuilder sb = new StringBuilder();
             int i = 0;
-            while (this.f692T != null && i < this.f692T.size()) {
-                sb.append(this.f692T.get(i).toString());
+            while (this.f696T != null && i < this.f696T.size()) {
+                sb.append(this.f696T.get(i).toString());
                 sb.append(";");
                 i++;
             }
@@ -305,8 +306,8 @@ public class TXZAsrKeyManager {
 
     /* access modifiers changed from: package-private */
     public void T(AsrKeySource[] akss, Tn.Tr gdc) {
-        this.f689T = akss;
-        if (this.f689T != null) {
+        this.f693T = akss;
+        if (this.f693T != null) {
             AsrSources as = new AsrSources();
             for (AsrKeySource aks : akss) {
                 as.addAsrKeySource(aks);
@@ -389,24 +390,24 @@ public class TXZAsrKeyManager {
         TXZService.T("tool.ccw.", new TXZService.T() {
             public byte[] T(String packageName, String command, byte[] data) {
                 if (TXZAsrKeyManager.this.TE == null) {
-                    return "false".getBytes();
+                    return SdkConstants.VALUE_FALSE.getBytes();
                 }
                 if (command.equals("handle_screen")) {
-                    return (TXZAsrKeyManager.this.TE.handleScreen(Boolean.parseBoolean(new String(data))) + "").getBytes();
+                    return (TXZAsrKeyManager.this.TE.handleScreen(Boolean.parseBoolean(new String(data))) + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 }
                 if (command.equals("handle_front_camera")) {
-                    return (TXZAsrKeyManager.this.TE.handleFrontCamera(Boolean.parseBoolean(new String(data))) + "").getBytes();
+                    return (TXZAsrKeyManager.this.TE.handleFrontCamera(Boolean.parseBoolean(new String(data))) + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 }
                 if (command.equals("handle_back_camera")) {
-                    return (TXZAsrKeyManager.this.TE.handleBackCamera(Boolean.parseBoolean(new String(data))) + "").getBytes();
+                    return (TXZAsrKeyManager.this.TE.handleBackCamera(Boolean.parseBoolean(new String(data))) + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 }
                 if (command.equals("backHome")) {
-                    return (TXZAsrKeyManager.this.TE.backHome() + "").getBytes();
+                    return (TXZAsrKeyManager.this.TE.backHome() + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 }
                 if (command.equals("backNavi")) {
-                    return (TXZAsrKeyManager.this.TE.backNavi() + "").getBytes();
+                    return (TXZAsrKeyManager.this.TE.backNavi() + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 }
-                return (TXZAsrKeyManager.this.TE.procCmd(new String(data)) + "").getBytes();
+                return (TXZAsrKeyManager.this.TE.procCmd(new String(data)) + TXZResourceManager.STYLE_DEFAULT).getBytes();
             }
         });
         Tn.Tr().T("com.txznet.txz", "txz.sys.commcmds.settool", (byte[]) null, (Tn.Tr) null);

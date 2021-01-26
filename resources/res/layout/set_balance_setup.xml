@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
-    <Button android:id="@+id/setting_balance_btn_up" android:background="@drawable/setup_btn_bal_upward" android:layout_width="100px" android:layout_height="44px" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
-    <Button android:id="@+id/setting_balance_btn_down" android:background="@drawable/setup_btn_bal_down" android:layout_width="100px" android:layout_height="44px" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
-    <com.ts.set.setview.SettingBalanceView android:id="@+id/setting_balance_img_seat" android:clickable="true" android:layout_width="257px" android:layout_height="257px" android:layout_centerInParent="true"/>
-    <Button android:id="@+id/setting_balance_btn_left" android:background="@drawable/setup_btn_bal_left" android:layout_width="44px" android:layout_height="100px" android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
-    <Button android:id="@+id/setting_balance_btn_right" android:background="@drawable/setup_btn_bal_right" android:layout_width="44px" android:layout_height="100px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+    <Button android:id="@+id/setting_balance_btn_up" android:background="@drawable/setup_btn_bal_upward" android:layout_width="75px" android:layout_height="75px" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+    <Button android:id="@+id/setting_balance_btn_down" android:background="@drawable/setup_btn_bal_down" android:layout_width="75px" android:layout_height="75px" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
+    <com.ts.set.setview.SettingBalanceView android:id="@+id/setting_balance_img_seat" android:clickable="true" android:layout_width="291px" android:layout_height="291px" android:layout_centerInParent="true"/>
+    <Button android:id="@+id/setting_balance_btn_left" android:background="@drawable/setup_btn_bal_left" android:layout_width="75px" android:layout_height="75px" android:layout_alignParentLeft="true" android:layout_centerVertical="true"/>
+    <Button android:id="@+id/setting_balance_btn_right" android:background="@drawable/setup_btn_bal_right" android:layout_width="75px" android:layout_height="75px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
 </RelativeLayout>

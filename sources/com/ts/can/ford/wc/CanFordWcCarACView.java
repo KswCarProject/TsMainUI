@@ -1,6 +1,7 @@
 package com.ts.can.ford.wc;
 
 import android.app.Activity;
+import android.support.v4.view.ViewCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -234,7 +235,7 @@ public class CanFordWcCarACView extends CanBaseACView {
         addPopButton(21, 417, R.drawable.can_rj19_ac_close_up, R.drawable.can_rj19_ac_close_dn, 31, "Close");
         TextView mTvPopTitle = this.mPopContainer.AddText(KeyDef.RKEY_RDS_TA, 1, Can.CAN_BENZ_SMART_OD, 71);
         mTvPopTitle.setGravity(17);
-        mTvPopTitle.setTextColor(-16777216);
+        mTvPopTitle.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         mTvPopTitle.setTextSize(20.0f);
         mTvPopTitle.setText("Defrost Controls");
         this.mBtnforeFog = addPopButton(KeyDef.RKEY_RDS_TA, 66, R.drawable.can_rj19_ac_max_up, R.drawable.can_rj19_ac_max_dn, 4);
@@ -264,7 +265,7 @@ public class CanFordWcCarACView extends CanBaseACView {
         addPopButton(21, 417, R.drawable.can_rj19_ac_close_up, R.drawable.can_rj19_ac_close_dn, 31, "Close");
         TextView mTvPopTitle = this.mPopContainer.AddText(KeyDef.RKEY_RADIO_5S, 21, Can.CAN_BENZ_SMART_OD, 71);
         mTvPopTitle.setGravity(17);
-        mTvPopTitle.setTextColor(-16777216);
+        mTvPopTitle.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         mTvPopTitle.setTextSize(24.0f);
         mTvPopTitle.setText("Rear Climate");
     }
@@ -285,16 +286,16 @@ public class CanFordWcCarACView extends CanBaseACView {
         addImage(KeyDef.SKEY_VOLUP_3, 126, R.drawable.can_rj19_ac_sbg01);
         addImage(CanCameraUI.BTN_HMS7_HELP_LINE, 126, R.drawable.can_rj19_ac_sbg02);
         addTouchButton(25, 126, R.drawable.can_rj19_ac_s_up_red, R.drawable.can_rj19_ac_s_dn, 12);
-        addTouchButton(25, KeyDef.RKEY_MEDIA_PP, R.drawable.can_rj19_ac_x_up_blue, R.drawable.can_rj19_ac_x_dn, 13);
+        addTouchButton(25, 299, R.drawable.can_rj19_ac_x_up_blue, R.drawable.can_rj19_ac_x_dn, 13);
         addTouchButton(KeyDef.SKEY_VOLUP_3, 126, R.drawable.can_rj19_ac_s_up_red, R.drawable.can_rj19_ac_s_dn, 14);
-        addTouchButton(KeyDef.SKEY_VOLUP_3, KeyDef.RKEY_MEDIA_PP, R.drawable.can_rj19_ac_x_up_blue, R.drawable.can_rj19_ac_x_dn, 15);
+        addTouchButton(KeyDef.SKEY_VOLUP_3, 299, R.drawable.can_rj19_ac_x_up_blue, R.drawable.can_rj19_ac_x_dn, 15);
         addTouchButton(CanCameraUI.BTN_GEELY_YJX6_GJ, 126, R.drawable.can_rj19_ac_s_up, R.drawable.can_rj19_ac_s_dn, 10);
-        addTouchButton(CanCameraUI.BTN_GEELY_YJX6_GJ, KeyDef.RKEY_MEDIA_PP, R.drawable.can_rj19_ac_x_up, R.drawable.can_rj19_ac_x_dn, 11);
+        addTouchButton(CanCameraUI.BTN_GEELY_YJX6_GJ, 299, R.drawable.can_rj19_ac_x_up, R.drawable.can_rj19_ac_x_dn, 11);
         this.mTvLtTemp = addTempText(50, 200);
         this.mTvRtTemp = addTempText(800, 200);
         setIdClickListener(addButtonState(275, 126, R.drawable.can_rj19_ac_defrost_up, R.drawable.can_rj19_ac_defrost_dn), 29);
         this.mBtnMidMode = addTouchButton(275, Can.CAN_LEXUS_ZMYT, R.drawable.can_rj19_ac_swind_up, R.drawable.can_rj19_ac_swind_dn, 8);
-        this.mBtnDnMode = addTouchButton(275, KeyDef.RKEY_MEDIA_PP, R.drawable.can_rj19_ac_xwind_up, R.drawable.can_rj19_ac_xwind_dn, 9);
+        this.mBtnDnMode = addTouchButton(275, 299, R.drawable.can_rj19_ac_xwind_up, R.drawable.can_rj19_ac_xwind_dn, 9);
         addTouchButton(25, 387, R.drawable.can_rj19_ac_rect_up, R.drawable.can_rj19_ac_rect_up, -1);
         addTouchButton(KeyDef.SKEY_VOLUP_3, 387, R.drawable.can_rj19_ac_rect_up, R.drawable.can_rj19_ac_rect_up, -1);
         addTouchButton(25, 387, R.drawable.can_rj19_ac_lchair_up, R.drawable.can_rj19_ac_lchair_dn, 18);
@@ -430,7 +431,7 @@ public class CanFordWcCarACView extends CanBaseACView {
         btn.setTag(Integer.valueOf(id));
         btn.setOnClickListener(this);
         btn.setText(text);
-        btn.setTextColor(-16777216);
+        btn.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         btn.setGravity(17);
         btn.setTextSize(20.0f);
         return btn;

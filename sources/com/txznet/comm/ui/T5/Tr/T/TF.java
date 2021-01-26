@@ -46,7 +46,7 @@ public class TF extends Tt {
         this.T9.addView(this.Tk);
         this.Tk.addView(this.Tn);
         try {
-            final Bitmap bitmap = Tk.T(viewData.f456T, (int) Tr.Tn("y150"));
+            final Bitmap bitmap = Tk.T(viewData.f460T, (int) Tr.Tn("y150"));
             com.txznet.comm.ui.Tn.T((Runnable) new Runnable() {
                 public void run() {
                     if (TF.this.Tn != null && bitmap != null) {
@@ -59,7 +59,7 @@ public class TF extends Tt {
         } catch (TE e) {
         }
         Tn.T adapter = new Tn.T();
-        adapter.f462T = data.Ty();
+        adapter.f466T = data.Ty();
         adapter.Tr = this.T9;
         adapter.Tn = T9();
         return adapter;

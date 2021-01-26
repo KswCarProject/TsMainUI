@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/dsp_eq_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:background="@drawable/dsp_eq_bg_ding01" android:layout_width="945px" android:layout_height="73px" android:layout_marginLeft="30px" android:layout_marginTop="123px"/>
+    <ImageView android:background="@drawable/dsp_eq_icon_box" android:layout_width="1002px" android:layout_height="63px" android:layout_marginLeft="11px" android:layout_marginTop="469px"/>
+    <com.ts.set.dsp.ChartView android:id="@+id/cv_dsp" android:background="@drawable/dsp_eq_bg_ding" android:layout_width="937px" android:layout_height="64px" android:layout_marginLeft="34px" android:layout_marginTop="123px"/>
+    <android.support.v4.view.ViewPager android:id="@+id/vp_dsp" android:layout_width="896px" android:layout_height="284px" android:layout_marginLeft="64px" android:layout_marginTop="188px"/>
+    <Button android:id="@+id/btn_dsp_eq_prev" android:background="@drawable/btn_dsp_eq_up" android:layout_width="50px" android:layout_height="71px" android:layout_marginLeft="14px" android:layout_marginTop="285px"/>
+    <Button android:id="@+id/btn_dsp_eq_next" android:background="@drawable/btn_dsp_eq_dn" android:layout_width="50px" android:layout_height="71px" android:layout_marginLeft="960px" android:layout_marginTop="285px"/>
+    <include layout="@layout/dsp_eq_bottom_layout"/>
+    <include layout="@layout/dsp_main_layout"/>
+</RelativeLayout>

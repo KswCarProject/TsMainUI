@@ -2,7 +2,6 @@ package com.ts.can.jiangling.myx;
 
 import android.app.Activity;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -22,7 +21,7 @@ public class CanJiangLingMyxCarSetView extends CanScrollCarInfoView {
         if (id == 1) {
             CanJni.JiangLingMyxCarSet(151, item);
         } else if (id == 2) {
-            CanJni.JiangLingMyxCarSet(Can.CAN_AUDI_ZMYT, item);
+            CanJni.JiangLingMyxCarSet(152, item);
         }
     }
 
@@ -31,7 +30,7 @@ public class CanJiangLingMyxCarSetView extends CanScrollCarInfoView {
 
     public void onClick(View v) {
         if (((Integer) v.getTag()).intValue() == 0) {
-            CanJni.JiangLingMyxCarSet(Can.CAN_JAC_REFINE_OD, Neg(this.mJiangLingMyx_SetData.Ybd));
+            CanJni.JiangLingMyxCarSet(150, Neg(this.mJiangLingMyx_SetData.Ybd));
         }
     }
 

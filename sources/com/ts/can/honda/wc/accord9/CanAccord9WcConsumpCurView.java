@@ -13,8 +13,8 @@ import com.ts.can.CanCarInfoSub1Activity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.canview.MyProgressBar;
-import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanAccord9WcConsumpCurView extends CanRelativeCarInfoView {
@@ -99,7 +99,7 @@ public class CanAccord9WcConsumpCurView extends CanRelativeCarInfoView {
         this.mMark[1] = addText(CanCameraUI.BTN_TRUMPCHI_GS7_MODE8, 79, 45, 34);
         this.mMark[1].setGravity(17);
         setTextStyle(this.mMark[1], -1, 20);
-        this.mMark[1].setText(MainSet.SP_XH_FORD);
+        this.mMark[1].setText("10");
         this.mMark[2] = addText(687, 79, 60, 34);
         this.mMark[2].setGravity(21);
         setTextStyle(this.mMark[2], -1, 20);
@@ -220,7 +220,7 @@ public class CanAccord9WcConsumpCurView extends CanRelativeCarInfoView {
             case 2:
                 return "L/100km";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

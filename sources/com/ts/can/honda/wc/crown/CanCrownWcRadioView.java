@@ -17,11 +17,11 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanCarInfoSub1Activity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanRelativeCarInfoView;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.txznet.sdk.TXZPoiSearchManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanCrownWcRadioView extends CanRelativeCarInfoView implements View.OnLongClickListener {
@@ -234,15 +234,15 @@ public class CanCrownWcRadioView extends CanRelativeCarInfoView implements View.
                         if (curFreq > 999) {
                             view.drawImage(CanCrownWcRadioView.mFreqNum[1], CanCrownWcRadioView.this.amXStart + (CanCrownWcRadioView.this.amXdt * 0), CanCrownWcRadioView.this.yMFNum);
                         }
-                        view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % MediaDef.PROGRESS_MAX) / 100], CanCrownWcRadioView.this.amXStart + (CanCrownWcRadioView.this.amXdt * 1), CanCrownWcRadioView.this.yMFNum);
+                        view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % 1000) / 100], CanCrownWcRadioView.this.amXStart + (CanCrownWcRadioView.this.amXdt * 1), CanCrownWcRadioView.this.yMFNum);
                         view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % 100) / 10], CanCrownWcRadioView.this.amXStart + (CanCrownWcRadioView.this.amXdt * 2), CanCrownWcRadioView.this.yMFNum);
                         view.drawImage(CanCrownWcRadioView.mFreqNum[curFreq % 10], CanCrownWcRadioView.this.amXStart + (CanCrownWcRadioView.this.amXdt * 3), CanCrownWcRadioView.this.yMFNum);
                     } else if (CanCrownWcRadioView.this.tunerInfo.Band == 2 || CanCrownWcRadioView.this.tunerInfo.Band == 3 || CanCrownWcRadioView.this.tunerInfo.Band == 0) {
                         if (curFreq > 9999) {
                             view.drawImage(CanCrownWcRadioView.mFreqNum[1], CanCrownWcRadioView.this.ptMFNums[0], CanCrownWcRadioView.this.yMFNum);
                         }
-                        view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) / MediaDef.PROGRESS_MAX], CanCrownWcRadioView.this.ptMFNums[1], CanCrownWcRadioView.this.yMFNum);
-                        view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % MediaDef.PROGRESS_MAX) / 100], CanCrownWcRadioView.this.ptMFNums[2], CanCrownWcRadioView.this.yMFNum);
+                        view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) / 1000], CanCrownWcRadioView.this.ptMFNums[1], CanCrownWcRadioView.this.yMFNum);
+                        view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % 1000) / 100], CanCrownWcRadioView.this.ptMFNums[2], CanCrownWcRadioView.this.yMFNum);
                         view.drawImage(R.drawable.can_radio_point_up, CanCrownWcRadioView.this.xMFDot, CanCrownWcRadioView.this.yMFDot);
                         view.drawImage(CanCrownWcRadioView.mFreqNum[(curFreq % 100) / 10], CanCrownWcRadioView.this.ptMFNums[3], CanCrownWcRadioView.this.yMFNum);
                         view.drawImage(CanCrownWcRadioView.mFreqNum[curFreq % 10], CanCrownWcRadioView.this.ptMFNums[4], CanCrownWcRadioView.this.yMFNum);
@@ -351,7 +351,7 @@ public class CanCrownWcRadioView extends CanRelativeCarInfoView implements View.
             case 6:
                 return "SCAN";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -407,7 +407,7 @@ public class CanCrownWcRadioView extends CanRelativeCarInfoView implements View.
         String text = new StringBuilder(String.valueOf(freq)).toString();
         StringBuilder sb = new StringBuilder(text);
         if (text.length() < 3) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         sb.insert(text.length() - 2, ".");
         return sb.toString();

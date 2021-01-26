@@ -4,8 +4,8 @@ package com.Tr.Tr.Tn;
 public final class Tr extends Tj {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final char[] f279T = {'A', 'B', 'C', 'D'};
-    private static final char Tn = f279T[0];
+    private static final char[] f282T = {'A', 'B', 'C', 'D'};
+    private static final char Tn = f282T[0];
     private static final char[] Tr = {'T', 'N', '*', 'E'};
     private static final char[] Ty = {'/', ':', '+', '.'};
 
@@ -15,8 +15,8 @@ public final class Tr extends Tj {
         } else {
             char firstChar = Character.toUpperCase(contents.charAt(0));
             char lastChar = Character.toUpperCase(contents.charAt(contents.length() - 1));
-            boolean startsNormal = T.T(f279T, firstChar);
-            boolean endsNormal = T.T(f279T, lastChar);
+            boolean startsNormal = T.T(f282T, firstChar);
+            boolean endsNormal = T.T(f282T, lastChar);
             boolean startsAlt = T.T(Tr, firstChar);
             boolean endsAlt = T.T(Tr, lastChar);
             if (startsNormal) {
@@ -66,8 +66,8 @@ public final class Tr extends Tj {
             int code = 0;
             int i2 = 0;
             while (true) {
-                if (i2 < T.f270T.length) {
-                    if (c == T.f270T[i2]) {
+                if (i2 < T.f273T.length) {
+                    if (c == T.f273T[i2]) {
                         code = T.Tr[i2];
                     } else {
                         i2++;

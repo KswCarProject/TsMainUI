@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/tpms_study_popup" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/switch_container" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@+id/iv_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="60px" android:src="@drawable/tpms_ltjh_up" android:layout_centerHorizontal="true"/>
+        <TextView android:textSize="32px" android:textColor="#fff" android:gravity="center" android:id="@+id/tv_left_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="75px" android:layout_marginRight="10px" android:layout_toLeftOf="@+id/iv_icon"/>
+        <TextView android:textSize="32px" android:textColor="#fff" android:gravity="center" android:id="@+id/tv_right_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10px" android:layout_marginTop="75px" android:layout_toRightOf="@+id/iv_icon"/>
+        <Button android:textSize="32px" android:textColor="#fff" android:id="@+id/btn_ok" android:layout_width="180px" android:layout_height="wrap_content" android:layout_marginLeft="40px" android:layout_marginBottom="60px" android:text="OK" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true"/>
+        <Button android:textSize="32px" android:textColor="#fff" android:id="@+id/btn_cancel" android:layout_width="180px" android:layout_height="wrap_content" android:layout_marginRight="40px" android:layout_marginBottom="60px" android:text="Cancel" android:layout_alignParentRight="true" android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/study_container" android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView android:textSize="34px" android:textColor="#fff" android:gravity="center" android:id="@+id/tv_study_notice" android:padding="20px" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20px" android:text="Please release the pressure of the tire to be learned"/>
+        <ImageView android:id="@+id/iv_first_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="170px" android:layout_marginBottom="80px" android:src="@drawable/tpms_num3_up" android:layout_alignParentBottom="true"/>
+        <ImageView android:id="@+id/iv_second_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="170px" android:layout_marginBottom="80px" android:src="@drawable/tpms_num0_up" android:layout_alignParentRight="true" android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</RelativeLayout>

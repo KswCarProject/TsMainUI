@@ -25,7 +25,7 @@
     <string name="set_sound_pop">Pop</string>
     <string name="set_sound_rock">Rock</string>
     <string name="set_balance_center">Center</string>
-    <string name="set_balance_examp">Ex Amp</string>
+    <string name="set_balance_examp">EXT AMP</string>
     <string name="set_balance_loud">Loud</string>
     <string name="set_balance_subwoof">SubWoof</string>
     <string name="set_general_sound_min">Bas</string>
@@ -66,7 +66,6 @@
     <string name="str_dsp_loudness">소리의 크기</string>
     <string name="str_dsp_front">앞</string>
     <string name="str_dsp_rear">후방</string>
-    <string name="app_name">Ts3561</string>
     <string name="title_activity_radio_main">라디오</string>
     <string name="title_activity_aux_main">Aux</string>
     <string name="title_activity_cmmb_main">DTV</string>
@@ -87,9 +86,9 @@
     <string name="title_activity_authactivity_main">Device activation</string>
     <string name="title_activity_delate_main">Uninstall</string>
     <string name="title_activity_atv_main">ATV</string>
-    <string name="title_activity_car_device">순정시스템</string>
+    <string name="title_activity_car_device">차량 장치관리자</string>
     <string name="title_activity_can_ac">에어컨</string>
-    <string name="title_activity_car_info">차량 설정</string>
+    <string name="title_activity_car_info">차량 정보</string>
     <string name="title_activity_bt">블루투스</string>
     <string name="title_activity_btmusic">블루투스 음악</string>
     <string name="title_activity_onstar">OnStar</string>
@@ -99,7 +98,7 @@
     <string name="title_activity_tpmsmain">타이어 공기압 경보</string>
     <string name="title_activity_tpmsset_main">Setting</string>
     <string name="title_activity_weather">BT SWC</string>
-    <string name="title_activity_adasmain">안전운전도우미</string>
+    <string name="title_activity_adasmain">DSP</string>
     <string name="title_activity_360view">360도 뷰</string>
     <string name="str_bt_bluetooth">bluebooth</string>
     <string name="title_activity_Dialer">전화</string>
@@ -121,8 +120,4 @@
     <string name="vol_common_navivol">음량 조절</string>
     <string name="vol_common_mut">Mute</string>
     <string name="del_common_no_apk">No APP</string>
-    <string name="touch_message_show">터치 조정을 위해 화면에 나타나는 숫자를 순서대로 누르십시오.</string>
-    <string name="touch_message_ok">터치 조정이 완료되었습니다. 재부팅해주십시오.</string>
-    <string name="touch_message_fail"> 터치 보정에 실패했습니다. 재시도해주십시오.</string>
-    <string name="touch_message_reset">재부팅 시 터치 조정이 적용됩니다.</string>
 </resources>

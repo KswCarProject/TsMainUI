@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class T9 implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final T9 f194T = new T9();
+    public static final T9 f197T = new T9();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         serializer.Tv().Tr(((AtomicInteger) object).get());

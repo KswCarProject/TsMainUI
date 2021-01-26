@@ -16,6 +16,7 @@ import com.txznet.comm.ui.T5.T.TM;
 import com.txznet.comm.ui.T5.Tn;
 import com.txznet.comm.ui.T5.Tr.Th;
 import com.txznet.comm.ui.TE.Tr;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.txz.util.Tk;
 
 /* compiled from: Proguard */
@@ -61,11 +62,11 @@ public class Tn extends Th {
             iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             if (helpDetailImg.Tn.startsWith("qrcode:")) {
                 try {
-                    iv.setImageBitmap(Tk.T(helpDetailImg.Tn.replace("qrcode:", ""), (int) Tr.Tn("y200")));
+                    iv.setImageBitmap(Tk.T(helpDetailImg.Tn.replace("qrcode:", TXZResourceManager.STYLE_DEFAULT), (int) Tr.Tn("y200")));
                 } catch (TE e) {
                     e.printStackTrace();
                 }
-            } else if (helpDetailImageViewData.f427T) {
+            } else if (helpDetailImageViewData.f431T) {
                 com.Ty.T.Tr.Tn.T().T("file://" + helpDetailImg.Tn, new com.Ty.T.Tr.T9.Tr(iv));
             } else {
                 iv.setImageDrawable(Tr.Ty(helpDetailImg.Tn));
@@ -85,7 +86,7 @@ public class Tn extends Th {
         }
         llDetail.addView(new View(T.Tr()), new LinearLayout.LayoutParams(0, -2, 2.0f));
         Tn.T adapter = new Tn.T();
-        adapter.f462T = data.Ty();
+        adapter.f466T = data.Ty();
         adapter.Tr = llLayout;
         adapter.Tn = T9();
         return adapter;
@@ -134,7 +135,7 @@ public class Tn extends Th {
             com.txznet.comm.Ty.Tk.T(tvContent, ((Integer) com.txznet.comm.ui.Tr.T.Tr().T("help_itemColor1.list_itemColor1.base_color1")).intValue());
         }
         if (T9.T(name)) {
-            name = "";
+            name = TXZResourceManager.STYLE_DEFAULT;
         }
         tvContent.setText(name);
         divider.setVisibility(showDivider ? 0 : 4);

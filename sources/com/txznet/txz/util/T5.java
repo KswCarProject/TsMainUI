@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class T5 {
 
     /* renamed from: T  reason: collision with root package name */
-    private static T f890T = null;
+    private static T f894T = null;
     public static boolean T9 = true;
     protected static List<WeakReference<T5>> Tr = new ArrayList();
     protected static long Ty = SystemClock.elapsedRealtime();

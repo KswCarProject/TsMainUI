@@ -18,12 +18,12 @@ import com.txznet.txz.comm.R;
 public class Tr extends BaseAdapter {
 
     /* renamed from: T  reason: collision with root package name */
-    Context f681T = null;
+    Context f685T = null;
     public int Tr = -1;
     private boolean Ty = true;
 
     public Tr(Context context) {
-        this.f681T = context;
+        this.f685T = context;
     }
 
     public int getCount() {
@@ -50,8 +50,8 @@ public class Tr extends BaseAdapter {
         int i2 = 0;
         if (convertView == null) {
             holder = new T();
-            convertView = LayoutInflater.from(this.f681T).inflate(R.layout.layout_editcommand_item, parent, false);
-            holder.f686T = (TextView) convertView.findViewById(R.id.txt_command);
+            convertView = LayoutInflater.from(this.f685T).inflate(R.layout.layout_editcommand_item, parent, false);
+            holder.f690T = (TextView) convertView.findViewById(R.id.txt_command);
             holder.Tr = (ImageView) convertView.findViewById(R.id.imgbnt_openOperate);
             holder.Ty = (LinearLayout) convertView.findViewById(R.id.layout_operate);
             holder.Tn = (FrameLayout) convertView.findViewById(R.id.bnt_edit);
@@ -68,8 +68,8 @@ public class Tr extends BaseAdapter {
         }
         imageView.setVisibility(i);
         holder.Tr.setClickable(this.Ty);
-        holder.f686T.setClickable(this.Ty);
-        holder.f686T.setText(ChangeCommandActivity.Tr.get(position));
+        holder.f690T.setClickable(this.Ty);
+        holder.f690T.setText(ChangeCommandActivity.Tr.get(position));
         LinearLayout linearLayout = holder.Ty;
         if (this.Tr != position) {
             i2 = 8;
@@ -77,12 +77,12 @@ public class Tr extends BaseAdapter {
         linearLayout.setVisibility(i2);
         ImageView imageView2 = holder.Tr;
         if (this.Tr == position) {
-            drawable = this.f681T.getResources().getDrawable(R.drawable.txz_item_up);
+            drawable = this.f685T.getResources().getDrawable(R.drawable.txz_item_up);
         } else {
-            drawable = this.f681T.getResources().getDrawable(R.drawable.txz_item_down);
+            drawable = this.f685T.getResources().getDrawable(R.drawable.txz_item_down);
         }
         imageView2.setImageDrawable(drawable);
-        holder.f686T.setOnClickListener(new View.OnClickListener() {
+        holder.f690T.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Tr.this.T(position);
             }
@@ -94,14 +94,14 @@ public class Tr extends BaseAdapter {
         });
         holder.Tn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                ChangeCommandActivity.T(ChangeCommandActivity.Tr.get(position), Tr.this.f681T, "修改唤醒词", position);
+                ChangeCommandActivity.T(ChangeCommandActivity.Tr.get(position), Tr.this.f685T, "修改唤醒词", position);
             }
         });
         holder.T9.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 synchronized (v) {
                     if (ChangeCommandActivity.Tr.size() <= 1) {
-                        Toast.makeText(Tr.this.f681T, "亲，唤醒词全部删除，不能唤醒哦", 1).show();
+                        Toast.makeText(Tr.this.f685T, "亲，唤醒词全部删除，不能唤醒哦", 1).show();
                     } else {
                         ChangeCommandActivity.Tr.remove(position);
                         Tr.this.T(-1);
@@ -128,7 +128,7 @@ public class Tr extends BaseAdapter {
     class T {
 
         /* renamed from: T  reason: collision with root package name */
-        TextView f686T;
+        TextView f690T;
         FrameLayout T9;
         FrameLayout Tn;
         ImageView Tr;

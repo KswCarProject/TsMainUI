@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 public class T extends com.txznet.comm.ui.Tn.T {
 
     /* renamed from: T  reason: collision with root package name */
-    private LinearLayout.LayoutParams f550T = new LinearLayout.LayoutParams(-1, -1);
+    private LinearLayout.LayoutParams f554T = new LinearLayout.LayoutParams(-1, -1);
     private LinearLayout Tr;
     private Tr Ty;
 
@@ -16,7 +16,7 @@ public class T extends com.txznet.comm.ui.Tn.T {
         this.Ty = new Tr(context);
         this.Tr = new LinearLayout(context);
         this.Tr.setBackgroundColor(0);
-        this.Tr.addView(this.Ty.T(), this.f550T);
+        this.Tr.addView(this.Ty.T(), this.f554T);
     }
 
     public void T(View view) {

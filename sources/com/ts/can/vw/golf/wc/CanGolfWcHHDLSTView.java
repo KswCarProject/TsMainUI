@@ -56,7 +56,7 @@ public class CanGolfWcHHDLSTView extends CanRelativeCarInfoView {
 
     private void initCommonScreen() {
         this.mManager = getRelativeManager();
-        this.mCenterTitle = this.mManager.AddText(212, 30, CanCameraUI.BTN_GOLF_WC_MODE1, 90);
+        this.mCenterTitle = this.mManager.AddText(212, 30, 600, 90);
         this.mCenterTitle.setTextColor(-1);
         this.mCenterTitle.setTextSize(0, 60.0f);
         this.mCenterTitle.setText(R.string.can_vehi_status);
@@ -71,12 +71,12 @@ public class CanGolfWcHHDLSTView extends CanRelativeCarInfoView {
         this.mBtnTopRight.setOnClickListener(this);
         this.mLCJSCar = this.mManager.AddImage(0, 220, 963, KeyDef.RKEY_RADIO_3S);
         this.mLCJSCar.setImageResource(R.drawable.can_vw_mqb_licheng);
-        this.mNLLDCar = this.mManager.AddImage(104, Can.CAN_AUDI_ZMYT, KeyDef.SKEY_CALLUP_4, 393);
+        this.mNLLDCar = this.mManager.AddImage(104, 152, KeyDef.SKEY_CALLUP_4, 393);
         this.mNLLDCar.setImageResource(R.drawable.can_vw_mqb_car);
         this.mNLLXLine = this.mManager.AddImage(KeyDef.RKEY_DEL, 376, 354, 48);
-        this.mTireDriveLine = this.mManager.AddImage(Can.CAN_CHRYSLER_ONE_HC, KeyDef.RKEY_UP, 273, Can.CAN_FORD_EDGE_XFY);
-        this.mTireDriveLine2 = this.mManager.AddImage(Can.CAN_HONDA_WC, KeyDef.RKEY_UP, 273, Can.CAN_FORD_EDGE_XFY);
-        this.mEngine = this.mManager.AddImage(241, 278, 131, 101);
+        this.mTireDriveLine = this.mManager.AddImage(Can.CAN_CHRYSLER_ONE_HC, 289, 273, Can.CAN_FORD_EDGE_XFY);
+        this.mTireDriveLine2 = this.mManager.AddImage(Can.CAN_HONDA_WC, 289, 273, Can.CAN_FORD_EDGE_XFY);
+        this.mEngine = this.mManager.AddImage(Can.CAN_SITECHDEV_CW, 278, 131, 101);
         this.mEngine.setImageResource(R.drawable.can_vw_mqb_energy_normal);
         this.mEngine.setVisibility(8);
         this.mBattery = this.mManager.AddImage(658, KeyDef.RKEY_EJECT, Can.CAN_CC_WC, Can.CAN_BJ20_WC);
@@ -86,8 +86,8 @@ public class CanGolfWcHHDLSTView extends CanRelativeCarInfoView {
         this.mLPFBLBar.setMinMax(0.0f, 100.0f);
         this.mManager.AddViewWrapContent(this.mLPFBLBar, 800, 170);
         this.mTextVal = new TextView[5];
-        this.mTextVal[0] = this.mManager.AddText(62, Can.CAN_JAC_REFINE_OD, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
-        this.mTextVal[1] = this.mManager.AddText(62, Can.CAN_JAC_REFINE_OD, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
+        this.mTextVal[0] = this.mManager.AddText(62, 150, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
+        this.mTextVal[1] = this.mManager.AddText(62, 150, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         this.mTextVal[2] = this.mManager.AddText(62, 210, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         this.mTextVal[3] = this.mManager.AddText(62, 270, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         this.mTextVal[4] = this.mManager.AddText(380, 462, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);

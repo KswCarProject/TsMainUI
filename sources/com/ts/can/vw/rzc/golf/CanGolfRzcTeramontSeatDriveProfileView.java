@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -76,7 +75,7 @@ public class CanGolfRzcTeramontSeatDriveProfileView extends CanRelativeCarInfoVi
         this.hsv = new HorizontalScrollView(getActivity());
         this.hsv.setHorizontalScrollBarEnabled(false);
         this.hsv.setHorizontalFadingEdgeEnabled(false);
-        this.mManager.AddView(this.hsv, 115, Can.CAN_JAC_REFINE_OD, 812, 184);
+        this.mManager.AddView(this.hsv, 115, 150, 812, 184);
         this.mContainer = new LinearLayout(getActivity());
         this.mContainer.setOrientation(0);
         this.mContainer.setGravity(16);
@@ -177,6 +176,6 @@ public class CanGolfRzcTeramontSeatDriveProfileView extends CanRelativeCarInfoVi
     }
 
     public void QueryData() {
-        CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+        CanJni.GolfQuery(64, 160);
     }
 }

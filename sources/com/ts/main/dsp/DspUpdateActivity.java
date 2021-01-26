@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.ts.MainUI.R;
-import com.txznet.sdk.TXZCameraManager;
 import com.yyw.ts70xhw.Iop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -160,7 +159,7 @@ public class DspUpdateActivity extends Activity {
     /* access modifiers changed from: protected */
     public void onCreate(Bundle arg0) {
         super.onCreate(arg0);
-        this.filePath = getIntent().getStringExtra(TXZCameraManager.REMOTE_NAME_VIDEO_PATH);
+        this.filePath = getIntent().getStringExtra("path");
         if (this.filePath == null) {
             finish();
             return;
@@ -202,7 +201,7 @@ public class DspUpdateActivity extends Activity {
 
     /* access modifiers changed from: private */
     public void updateVersionInfo() {
-        if (Iop.GetDspVer(this.version) == 1) {
+        if (Iop.GetDspVer(this.version) >= 1) {
             this.tvVersion.setText(String.valueOf(getResources().getString(R.string.version_code)) + " " + new String(this.version));
         }
     }

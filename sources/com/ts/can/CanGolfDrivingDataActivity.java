@@ -87,24 +87,24 @@ public class CanGolfDrivingDataActivity extends CanGolfBaseActivity implements V
         this.mBotCar = this.mManager.AddImage(0, 450, 1024, 83);
         this.mBotCar.setImageResource(R.drawable.can_golf_car01);
         this.mTextVal = new TextView[8];
-        this.mTextVal[0] = this.mManager.AddText(62, Can.CAN_CHANA_CS75_WC, Can.CAN_NISSAN_XFY, 60);
-        this.mTextVal[1] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, Can.CAN_CHANA_CS75_WC, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
+        this.mTextVal[0] = this.mManager.AddText(62, 160, Can.CAN_NISSAN_XFY, 60);
+        this.mTextVal[1] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, 160, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         this.mTextVal[2] = this.mManager.AddText(712, 280, 300, 60);
         this.mTextVal[3] = this.mManager.AddText(62, 280, Can.CAN_NISSAN_XFY, 60);
         this.mTextVal[4] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, 280, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         this.mTextVal[5] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         this.mTextVal[6] = this.mManager.AddText(712, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
-        this.mTextVal[7] = this.mManager.AddText(712, Can.CAN_CHANA_CS75_WC, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
+        this.mTextVal[7] = this.mManager.AddText(712, 160, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         if (isRzcMix()) {
             this.mTextVal[2] = this.mManager.AddText(712, 280, 300, 60);
             this.mTextVal[5] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
             this.mTextVal[6] = this.mManager.AddText(712, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
-            this.mTextVal[7] = this.mManager.AddText(712, Can.CAN_CHANA_CS75_WC, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
+            this.mTextVal[7] = this.mManager.AddText(712, 160, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         } else {
-            this.mTextVal[2] = this.mManager.AddText(712, Can.CAN_CHANA_CS75_WC, 300, 60);
+            this.mTextVal[2] = this.mManager.AddText(712, 160, 300, 60);
             this.mTextVal[5] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 0, 0);
             this.mTextVal[6] = this.mManager.AddText(712, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 0, 0);
-            this.mTextVal[7] = this.mManager.AddText(712, Can.CAN_CHANA_CS75_WC, 0, 0);
+            this.mTextVal[7] = this.mManager.AddText(712, 160, 0, 0);
         }
         for (int i = 0; i < this.mTextVal.length; i++) {
             this.mTextVal[i].setTextColor(-1);

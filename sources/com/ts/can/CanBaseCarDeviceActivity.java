@@ -8,14 +8,25 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarDevView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarDevView;
 import com.ts.can.blsu.od.CanBlsuOdDvrView;
 import com.ts.can.bmw.lz.CanBMWLzHighCDView;
 import com.ts.can.bmw.lz.CanBMWLzLowCDView;
 import com.ts.can.bmw.lz.bmw2.CanBMW2LzCarcomputerView;
+import com.ts.can.bmw.withcd.CanBmwWithCdCarCvbsDevView;
 import com.ts.can.cc.dj.hf.CanHfDjExdView;
+import com.ts.can.cc.rzc.h7.CanCcH7RzcCDView;
+import com.ts.can.chana.wc.cos.CanChanACosDvrView;
 import com.ts.can.chery.airuize.CanCheryAiRuizeDvrView;
 import com.ts.can.chery.wc.CanCheryWcDvrView;
+import com.ts.can.chrysler.wc.journey.CanChryslerJourneyWcCarDeviceView;
+import com.ts.can.df.jyx5.CanDfRzcSx6DvrView;
 import com.ts.can.df.jyx5.CanJYX5RzcDvrView;
+import com.ts.can.faw.dj.b70.CanB70DjCarDevView;
+import com.ts.can.ford.rzc.CanFordRzcCDView;
+import com.ts.can.ford.rzc.CanFordRzcCarDeviceView;
+import com.ts.can.ford.rzc.CanFordRzcRadioView;
 import com.ts.can.honda.od.CanHondaODCarDeviceView;
 import com.ts.can.honda.wc.CanHondaWcRadioView;
 import com.ts.can.honda.wc.CanHondaWcUsbIpodView;
@@ -24,6 +35,7 @@ import com.ts.can.honda.wc.crown.CanCrownWcCDView;
 import com.ts.can.honda.wc.crown.CanCrownWcCarDeviceView;
 import com.ts.can.honda.wc.crown.CanCrownWcRadioView;
 import com.ts.can.honda.xbs.accord8.CanAccord8XbsExdView;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarDevView;
 import com.ts.can.lexus.lz.CanLexusLZIs250CarDevView;
 import com.ts.can.lexus.zmyt.CanLexusZMYTCarDevView;
 import com.ts.can.lexus.zmyt.CanLexusZMYTCarInitView;
@@ -38,9 +50,14 @@ import com.ts.can.mzd.rzc.CanMzdRzcTxtView;
 import com.ts.can.nissan.dj.teana.CanTeanaOldDjCarDeviceView;
 import com.ts.can.nissan.rzc.CanNissanRzcTeanaOldTwView;
 import com.ts.can.nissan.wc.teana.CanTeanaWcCarDeviceView;
+import com.ts.can.nissan.xc.teana.CanTeanaOldXcCDView;
 import com.ts.can.psa.rzc.scr.CanPSAScrRzcCarDeviceView;
 import com.ts.can.renault.kadjar.CanKadjarExdView;
 import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
+import com.ts.can.toyota.wc.CanLexusWcCarDeviceView;
+import com.ts.can.toyota.wc.crown_h.CanCrownhWcCDView;
+import com.ts.can.toyota.wc.crown_h.CanCrownhWcCarDeviceView;
+import com.ts.can.toyota.wc.crown_h.CanCrownhWcRadioView;
 import com.ts.canview.CanItemMsgBox;
 
 public class CanBaseCarDeviceActivity extends CanBaseActivity implements UserCallBack {
@@ -91,6 +108,35 @@ public class CanBaseCarDeviceActivity extends CanBaseActivity implements UserCal
                     return;
                 }
                 return;
+            case 78:
+                this.mBaseView = new CanCcH7RzcCDView(this);
+                return;
+            case 92:
+                this.mBaseView = new CanDfRzcSx6DvrView(this);
+                return;
+            case 138:
+                this.mBaseView = new CanBmwWithCdCarCvbsDevView(this);
+                return;
+            case 144:
+                if (CanJni.GetSubType() == 6) {
+                    this.mBaseView = new CanLexusWcCarDeviceView(this);
+                    return;
+                }
+                return;
+            case 146:
+                if (CanJni.GetSubType() != 7 && CanJni.GetSubType() != 8 && CanJni.GetSubType() != 9) {
+                    return;
+                }
+                if (id == -1) {
+                    this.mBaseView = new CanFordRzcRadioView(this);
+                    return;
+                } else if (id == -2) {
+                    this.mBaseView = new CanFordRzcCDView(this);
+                    return;
+                } else {
+                    this.mBaseView = new CanFordRzcCarDeviceView(this);
+                    return;
+                }
             case Can.CAN_HONDA_WC:
                 if (7 == CanJni.GetSubType()) {
                     this.mBaseView = new CanHondaWcRadioView(this);
@@ -101,6 +147,12 @@ public class CanBaseCarDeviceActivity extends CanBaseActivity implements UserCal
                 } else {
                     return;
                 }
+            case 162:
+                if (CanJni.GetSubType() == 8) {
+                    this.mBaseView = new CanChryslerJourneyWcCarDeviceView(this);
+                    return;
+                }
+                return;
             case 168:
                 if (id == -1) {
                     this.mBaseView = new CanCrownWcRadioView(this);
@@ -153,6 +205,9 @@ public class CanBaseCarDeviceActivity extends CanBaseActivity implements UserCal
             case Can.CAN_MZD_LUOMU:
                 this.mBaseView = new CanLuoMuMzdExCdView(this);
                 return;
+            case 255:
+                this.mBaseView = new CanChanACosDvrView(this);
+                return;
             case 256:
                 this.mBaseView = new CanMzdCx4BnrCDView(this);
                 return;
@@ -200,6 +255,34 @@ public class CanBaseCarDeviceActivity extends CanBaseActivity implements UserCal
                 return;
             case 284:
                 this.mBaseView = new CanPSAScrRzcCarDeviceView(this);
+                return;
+            case 289:
+                this.mBaseView = new CanLandRoverZmytCarDevView(this);
+                return;
+            case 293:
+                this.mBaseView = new CanB70DjCarDevView(this);
+                return;
+            case 294:
+                this.mBaseView = new CanTeanaOldXcCDView(this);
+                return;
+            case 298:
+                this.mBaseView = new CanAudiLzWithCDCarDevView(this);
+                return;
+            case 302:
+                if (id == -1) {
+                    this.mBaseView = new CanCrownhWcRadioView(this);
+                    return;
+                } else if (id == -2) {
+                    this.mBaseView = new CanCrownhWcCDView(this);
+                    return;
+                } else if (id == -3) {
+                    this.mBaseView = new CanCrownhWcCarDeviceView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 303:
+                this.mBaseView = new CanAudiXbsWithCDCarDevView(this);
                 return;
             default:
                 if (this.mMsgBox == null) {
@@ -276,6 +359,7 @@ public class CanBaseCarDeviceActivity extends CanBaseActivity implements UserCal
                 return;
             case 276:
             case 277:
+            case 289:
                 getWindow().setFlags(1024, 1024);
                 return;
             default:

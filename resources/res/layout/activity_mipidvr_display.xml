@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:background="#241e1e" android:layout_width="match_parent" android:layout_height="match_parent">
+    <GridView android:id="@+id/grid_view" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="30px" android:listSelector="#0000" android:horizontalSpacing="20px" android:verticalSpacing="20px" android:columnWidth="182px" android:numColumns="auto_fit"/>
+</LinearLayout>

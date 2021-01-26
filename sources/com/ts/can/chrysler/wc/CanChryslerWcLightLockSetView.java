@@ -12,7 +12,7 @@ public class CanChryslerWcLightLockSetView extends CanScrollCarInfoView {
     private CanDataInfo.ChrWcLightMoto mLightData;
 
     public CanChryslerWcLightLockSetView(Activity activity) {
-        super(activity, 11);
+        super(activity, 13);
     }
 
     public void onItem(int id, int item) {
@@ -28,6 +28,9 @@ public class CanChryslerWcLightLockSetView extends CanScrollCarInfoView {
                 return;
             case 6:
                 CanJni.ChryslerWcLightMotoSet(1, item);
+                return;
+            case 11:
+                CanJni.ChryslerWcLightMotoSet(12, item);
                 return;
             default:
                 return;
@@ -59,6 +62,9 @@ public class CanChryslerWcLightLockSetView extends CanScrollCarInfoView {
             case 10:
                 CanJni.ChryslerWcLightMotoSet(3, Neg(this.mLightData.Qdysszdqddd));
                 return;
+            case 12:
+                CanJni.ChryslerWcLightMotoSet(13, Neg(this.mLightData.Clqdszdkqjsyzyjrgn));
+                return;
             default:
                 return;
         }
@@ -66,8 +72,8 @@ public class CanChryslerWcLightLockSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_wc_car_inner_light, R.string.can_headlightsens, R.string.can_corneringLights, R.string.can_greetingLights, R.string.can_fdjgbdyyc, R.string.can_kjddlq, R.string.can_ddgbyc, R.string.can_scszxdss, R.string.can_rjxcd, R.string.can_jp_zdfxygd, R.string.can_jp_qdygszdqddd};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH};
+        this.mItemTitleIds = new int[]{R.string.can_wc_car_inner_light, R.string.can_headlightsens, R.string.can_corneringLights, R.string.can_greetingLights, R.string.can_fdjgbdyyc, R.string.can_kjddlq, R.string.can_ddgbyc, R.string.can_scszxdss, R.string.can_rjxcd, R.string.can_jp_zdfxygd, R.string.can_jp_qdygszdqddd, R.string.can_jskqcdsj, R.string.can_clqds};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH};
         int[][] iArr = this.mProgressAttrs;
         int[] iArr2 = new int[4];
         iArr2[1] = 6;
@@ -83,6 +89,7 @@ public class CanChryslerWcLightLockSetView extends CanScrollCarInfoView {
         this.mPopValueIds[4] = new int[]{R.string.can_0s, R.string.can_time_45s, R.string.can_time_5min, R.string.can_time_10min};
         this.mPopValueIds[5] = new int[]{R.string.can_0s, R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s, R.string.can_mzd_cx4_time_90s};
         this.mPopValueIds[6] = new int[]{R.string.can_0s, R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s, R.string.can_mzd_cx4_time_90s};
+        this.mPopValueIds[11] = new int[]{R.string.can_0s, R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s, R.string.can_mzd_cx4_time_90s};
         this.mLightData = new CanDataInfo.ChrWcLightMoto();
         this.mLightADT = new CanDataInfo.ChrWcLightMoto();
     }
@@ -92,14 +99,14 @@ public class CanChryslerWcLightLockSetView extends CanScrollCarInfoView {
         CanJni.ChryslerWcGetLightMoto(this.mLightData, 1);
         if (i2b(this.mLightADT.UpdateOnce) && (!check || i2b(this.mLightADT.Update))) {
             this.mLightADT.Update = 0;
-            showItem(new int[]{this.mLightADT.Cnfwd, this.mLightADT.Qzdlmd, this.mLightADT.Zjfzd, this.mLightADT.Jskqcd, this.mLightADT.Fdjgbdyyc, this.mLightADT.Kjsddlq, this.mLightADT.Ddgbyc, this.mLightADT.Scszxdss, this.mLightADT.Rjxsd, this.mLightADT.Zdfxgd, this.mLightADT.Qdysszdqddd});
+            showItem(new int[]{this.mLightADT.Cnfwd, this.mLightADT.Qzdlmd, this.mLightADT.Zjfzd, this.mLightADT.Jskqcd, this.mLightADT.Fdjgbdyyc, this.mLightADT.Kjsddlq, this.mLightADT.Ddgbyc, this.mLightADT.Scszxdss, this.mLightADT.Rjxsd, this.mLightADT.Zdfxgd, this.mLightADT.Qdysszdqddd, this.mLightADT.Jskqcdsj, this.mLightADT.Clqdszdkqjsyzyjrgn});
         }
         if (!i2b(this.mLightData.UpdateOnce)) {
             return;
         }
         if (!check || i2b(this.mLightData.Update)) {
             this.mLightData.Update = 0;
-            updateItem(new int[]{this.mLightData.Cnfwd, this.mLightData.Qzdlmd, this.mLightData.Zjfzd, this.mLightData.Jskqcd, this.mLightData.Fdjgbdyyc, this.mLightData.Kjsddlq, this.mLightData.Ddgbyc, this.mLightData.Scszxdss, this.mLightData.Rjxsd, this.mLightData.Zdfxgd, this.mLightData.Qdysszdqddd});
+            updateItem(new int[]{this.mLightData.Cnfwd, this.mLightData.Qzdlmd, this.mLightData.Zjfzd, this.mLightData.Jskqcd, this.mLightData.Fdjgbdyyc, this.mLightData.Kjsddlq, this.mLightData.Ddgbyc, this.mLightData.Scszxdss, this.mLightData.Rjxsd, this.mLightData.Zdfxgd, this.mLightData.Qdysszdqddd, this.mLightData.Jskqcdsj, this.mLightData.Clqdszdkqjsyzyjrgn});
         }
     }
 

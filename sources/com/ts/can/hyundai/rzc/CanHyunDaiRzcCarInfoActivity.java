@@ -20,15 +20,31 @@ import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Mcu;
 
 public class CanHyunDaiRzcCarInfoActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
+    public static final int ITEM_AIR = 4;
     public static final int ITEM_CAR_PARKING_SET = 3;
     public static final int ITEM_CAR_SET = 2;
-    private static final int ITEM_MAX = 3;
+    public static final int ITEM_CDSZ = 10;
+    public static final int ITEM_ECO = 7;
+    public static final int ITEM_JSMS = 11;
+    private static final int ITEM_MAX = 11;
     private static final int ITEM_MIN = 1;
+    public static final int ITEM_NLLCT = 9;
+    public static final int ITEM_NYXX = 8;
+    public static final int ITEM_SYFWD = 5;
     public static final int ITEM_TYPE = 1;
+    public static final int ITEM_YYSZ = 6;
     public static final String TAG = "CanHyunDaiRzcCarInfoActivity";
+    private CanItemTextBtnList mItemAir;
     private CanItemTextBtnList mItemCarSet;
     private CanItemCarType mItemCarType;
+    private CanItemTextBtnList mItemCdsz;
+    private CanItemTextBtnList mItemEco;
+    private CanItemTextBtnList mItemJsms;
+    private CanItemTextBtnList mItemNllct;
+    private CanItemTextBtnList mItemNyxx;
     private CanItemTextBtnList mItemParkingSet;
+    private CanItemTextBtnList mItemSyfwd;
+    private CanItemTextBtnList mItemYysz;
     private CanScrollList mManager;
     protected String[] mTypeArr;
     private boolean mbLayout;
@@ -73,11 +89,19 @@ public class CanHyunDaiRzcCarInfoActivity extends CanBaseActivity implements Vie
         this.mManager.AddView(this.mItemCarType.GetView());
         this.mItemCarSet = AddTextBtn(R.string.can_car_set, 2);
         this.mItemParkingSet = AddTextBtn(R.string.can_bcdhsz, 3);
+        this.mItemAir = AddTextBtn(R.string.can_ac_set, 4);
+        this.mItemSyfwd = AddTextBtn(R.string.can_wc_car_inner_light, 5);
+        this.mItemYysz = AddTextBtn(R.string.can_gc_nlsz, 6);
+        this.mItemEco = AddTextBtn(R.string.can_golf_seat_drive_eco, 7);
+        this.mItemNyxx = AddTextBtn(R.string.can_nyxx, 8);
+        this.mItemCdsz = AddTextBtn(R.string.can_cdsz, 10);
+        this.mItemJsms = AddTextBtn(R.string.can_psa_wc_jsms, 11);
+        this.mItemNllct = AddTextBtn(R.string.can_nllct, 9);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 11; i++) {
             ShowItem(i);
         }
     }
@@ -93,10 +117,41 @@ public class CanHyunDaiRzcCarInfoActivity extends CanBaseActivity implements Vie
                 ret = 1;
                 break;
             case 3:
-                if (CanJni.GetSubType() == 10 || CanJni.GetSubType() == 9 || 11 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 13 == CanJni.GetSubType()) {
+                if (CanJni.GetSubType() == 10 || CanJni.GetSubType() == 9 || 11 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 13 == CanJni.GetSubType() || CanJni.GetSubType() == 14) {
                     ret = 1;
                     break;
                 }
+            case 4:
+                if (CanJni.GetSubType() == 14) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 5:
+                if (CanJni.GetSubType() == 14) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 6:
+                if (CanJni.GetSubType() == 13 || CanJni.GetSubType() == 15 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 16) {
+                    ret = 1;
+                    break;
+                }
+            case 7:
+            case 8:
+            case 9:
+                if (CanJni.GetSubType() == 13 || CanJni.GetSubType() == 15 || CanJni.GetSubType() == 16) {
+                    ret = 1;
+                    break;
+                }
+            case 10:
+            case 11:
+                if (CanJni.GetSubType() == 16) {
+                    ret = 1;
+                    break;
+                }
+                break;
         }
         return i2b(ret);
     }
@@ -110,6 +165,30 @@ public class CanHyunDaiRzcCarInfoActivity extends CanBaseActivity implements Vie
                 return;
             case 3:
                 this.mItemParkingSet.ShowGone(show);
+                return;
+            case 4:
+                this.mItemAir.ShowGone(show);
+                return;
+            case 5:
+                this.mItemSyfwd.ShowGone(show);
+                return;
+            case 6:
+                this.mItemYysz.ShowGone(show);
+                return;
+            case 7:
+                this.mItemEco.ShowGone(show);
+                return;
+            case 8:
+                this.mItemNyxx.ShowGone(show);
+                return;
+            case 9:
+                this.mItemNllct.ShowGone(show);
+                return;
+            case 10:
+                this.mItemCdsz.ShowGone(show);
+                return;
+            case 11:
+                this.mItemJsms.ShowGone(show);
                 return;
             default:
                 return;
@@ -141,6 +220,38 @@ public class CanHyunDaiRzcCarInfoActivity extends CanBaseActivity implements Vie
             case 3:
                 CanFunc.getInstance();
                 CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 1);
+                return;
+            case 4:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 2);
+                return;
+            case 5:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 3);
+                return;
+            case 6:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 4);
+                return;
+            case 7:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 5);
+                return;
+            case 8:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 6);
+                return;
+            case 9:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 7);
+                return;
+            case 10:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 8);
+                return;
+            case 11:
+                CanFunc.getInstance();
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 9);
                 return;
             default:
                 return;

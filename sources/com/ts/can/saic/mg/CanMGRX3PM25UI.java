@@ -10,17 +10,19 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.can.CanFunc;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanMGRX3PM25UI implements UserCallBack {
     public static final String TAG = "CanMGRX3PM25UI";
     protected static Context mContext;
     static CanMGRX3PM25UI mInstance;
-    protected static boolean mIsPM;
+    protected static boolean mIsPM = false;
     private RelativeLayout mLayout;
     private RelativeLayoutManager mManager;
     private CanDataInfo.MG_RX3_PM mPMInfo = new CanDataInfo.MG_RX3_PM();
@@ -53,18 +55,21 @@ public class CanMGRX3PM25UI implements UserCallBack {
     }
 
     public void InitPM(Context context) {
-        if (this.mLayout == null && context != null) {
-            mContext = context;
-            this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_lexus_vol, (ViewGroup) null);
-            InintWinManage(181, 91, KeyDef.SKEY_MUTE_3, 17, mContext);
-            this.wManager.addView(this.mLayout, this.wmParams);
-            this.mManager = new RelativeLayoutManager(this.mLayout);
-            this.mPMIv = this.mManager.AddImage(0, 0);
-            this.mPMTxt = AddText(48, 15, 181, 91);
-            this.mPMTxt.setTextColor(-1);
-            this.mPMTxt.setText(R.string.can_pm_25);
-            onPause();
+        if (this.mLayout != null || context == null) {
+            Log.d("CanMGRX3PM25UI", "Already have instance");
+            return;
         }
+        Log.d("CanMGRX3PM25UI", "InitPM");
+        mContext = context;
+        this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_lexus_vol, (ViewGroup) null);
+        InintWinManage(181, 91, KeyDef.SKEY_MUTE_3, 17, mContext);
+        this.wManager.addView(this.mLayout, this.wmParams);
+        this.mManager = new RelativeLayoutManager(this.mLayout);
+        this.mPMIv = this.mManager.AddImage(0, 0);
+        this.mPMTxt = AddText(48, 15, 181, 91);
+        this.mPMTxt.setTextColor(-1);
+        this.mPMTxt.setText(R.string.can_pm_25);
+        onPause();
     }
 
     public void Destroy() {
@@ -86,13 +91,14 @@ public class CanMGRX3PM25UI implements UserCallBack {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(40);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(49);
         return temp;
     }
 
     /* access modifiers changed from: protected */
     public void onResume() {
+        InitPM(CanFunc.mContext);
         ResetData(false);
         mIsPM = true;
         this.mLayout.setVisibility(0);
@@ -132,15 +138,13 @@ public class CanMGRX3PM25UI implements UserCallBack {
     }
 
     public void UserAll() {
-        if (this.mPMIv != null && this.mPMTxt != null) {
-            if (mIsPM) {
-                ResetData(true);
-                return;
-            }
-            CanJni.RwMgRx3RzcGetPm25(this.mPMInfo);
-            if (this.mPMInfo.UpdateOnce != 0) {
-                onResume();
-            }
+        if (mIsPM) {
+            ResetData(true);
+            return;
+        }
+        CanJni.RwMgRx3RzcGetPm25(this.mPMInfo);
+        if (this.mPMInfo.UpdateOnce != 0) {
+            onResume();
         }
     }
 }

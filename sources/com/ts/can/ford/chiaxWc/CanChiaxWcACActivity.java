@@ -87,7 +87,7 @@ public class CanChiaxWcACActivity extends CanBaseActivity implements UserCallBac
         this.mWindProg = new MyProgressBar(this, R.drawable.can_yl_rect_up, R.drawable.can_yl_rect_dn);
         this.mWindProg.SetMinMax(0, 7);
         this.mWindProg.SetCurPos(1);
-        this.mManager.AddViewWrapContent(this.mWindProg, 261, KeyDef.RKEY_PRE);
+        this.mManager.AddViewWrapContent(this.mWindProg, 261, 292);
         this.mBtnWindDec = AddBtn(8, 196, 271, R.drawable.can_yl_jian_up, R.drawable.can_yl_jian_dn);
         this.mBtnWindInc = AddBtn(9, 755, 271, R.drawable.can_yl_jia_up, R.drawable.can_yl_jia_dn);
         this.mBtnAC = AddBtn(10, 38, 418, R.drawable.can_psa_408_ac_up, R.drawable.can_psa_408_ac_dn);

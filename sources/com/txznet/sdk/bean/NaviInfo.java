@@ -4,7 +4,7 @@ package com.txznet.sdk.bean;
 public class NaviInfo {
 
     /* renamed from: T  reason: collision with root package name */
-    private NaviLatLng f863T;
+    private NaviLatLng f867T;
     private int T5;
     private int T6;
     private int T9;
@@ -24,11 +24,11 @@ public class NaviInfo {
     private int Ty;
 
     public NaviLatLng getCameraCoord() {
-        return this.f863T;
+        return this.f867T;
     }
 
     public void setCameraCoord(NaviLatLng mCameraCoord) {
-        this.f863T = mCameraCoord;
+        this.f867T = mCameraCoord;
     }
 
     public int getCameraDistance() {

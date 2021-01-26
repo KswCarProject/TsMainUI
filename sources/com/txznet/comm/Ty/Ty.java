@@ -12,14 +12,14 @@ public class Ty {
     private static Boolean Tk = null;
 
     /* renamed from: T  reason: collision with root package name */
-    private Context f412T;
+    private Context f416T;
     private KeyguardManager.KeyguardLock T9;
     private PowerManager.WakeLock Tn;
-    private PowerManager Tr = ((PowerManager) this.f412T.getSystemService("power"));
-    private KeyguardManager Ty = ((KeyguardManager) this.f412T.getSystemService("keyguard"));
+    private PowerManager Tr = ((PowerManager) this.f416T.getSystemService("power"));
+    private KeyguardManager Ty = ((KeyguardManager) this.f416T.getSystemService("keyguard"));
 
     public Ty(Context context) {
-        this.f412T = context;
+        this.f416T = context;
         HashMap<String, String> config = TE.T("enableScreenLock");
         if (config != null && config.get("enableScreenLock") != null) {
             try {

@@ -13,7 +13,7 @@ import com.txznet.txz.util.T5;
 public class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    protected static HandlerThread f545T;
+    protected static HandlerThread f549T;
     private static Handler Tn = new Handler(Looper.getMainLooper());
     protected static T5 Tr;
     private static Tn Ty = new Tn();
@@ -58,9 +58,9 @@ public class Tn {
 
     public void T(T listener) {
         this.T9 = listener;
-        f545T = new HandlerThread("UI2Back");
-        f545T.start();
-        Tr = new T5(f545T.getLooper());
+        f549T = new HandlerThread("UI2Back");
+        f549T.start();
+        Tr = new T5(f549T.getLooper());
         com.txznet.comm.Ty.T.T.T(com.txznet.comm.Tr.T.Tr());
         Tr();
     }
@@ -80,7 +80,7 @@ public class Tn {
                         try {
                             com.txznet.comm.ui.TE.T.T(Integer.valueOf(Tr.T9("theme_code")).intValue());
                             com.txznet.comm.ui.T9.Tr.T().Tr();
-                            Tk.Tr().T(com.txznet.comm.ui.Tk.T.Tr().f543T);
+                            Tk.Tr().T(com.txznet.comm.ui.Tk.T.Tr().f547T);
                             com.txznet.comm.ui.Tr.T.Tr().T();
                             com.txznet.comm.ui.TZ.Tn.Tr().T();
                             Tk.Tr().T();

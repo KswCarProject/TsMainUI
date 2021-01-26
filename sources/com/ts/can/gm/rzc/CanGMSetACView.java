@@ -14,6 +14,7 @@ public class CanGMSetACView extends CanScrollCarInfoView {
     private static final int[] mKqzlcgqlArr = {R.string.can_off, R.string.can_ac_lo_sens, R.string.can_ac_hi_sens};
     private static final int[] mKtycqdArrays = {R.string.can_gl8_2017_ktycqd_auto, R.string.can_gl8_2017_ktycqd_last};
     private static final int[] mQdmsArr = {R.string.can_off, R.string.can_on, R.string.can_sc_set};
+    private static final int[] mYcqdzyjrArr = {R.string.can_off, R.string.can_ckhjsy, R.string.can_jiashiyuan};
     private static final int[] mZdmsflArr = {R.string.can_ac_low, R.string.can_ac_mid, R.string.can_ac_high};
     private static final int[] mZyjrArr = {R.string.can_off, R.string.can_ckhjsy, R.string.can_jiashiyuan};
     private CanDataInfo.GM_ACSet mACSetData = new CanDataInfo.GM_ACSet();
@@ -26,11 +27,12 @@ public class CanGMSetACView extends CanScrollCarInfoView {
     /* access modifiers changed from: protected */
     public void InitData() {
         this.mItemTitleIds = new int[]{R.string.can_ac_qccw, R.string.can_ac_hccw, R.string.can_ac_zyjr, R.string.can_ac_qdms, R.string.can_ac_zdfl, R.string.can_ac_cgq, R.string.can_ac_fqwd, R.string.can_gl8_2017_ycqdzyjr, R.string.can_gl8_2017_ycqdzycf, R.string.can_gl8_2017_ktycqd, R.string.can_gl8_2017_hqktqd, R.string.can_auto_hot};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.CHECK};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.CHECK};
         this.mPopValueIds[3] = mQdmsArr;
         this.mPopValueIds[4] = mZdmsflArr;
         this.mPopValueIds[5] = mKqzlcgqlArr;
         this.mPopValueIds[6] = mFqwdlArr;
+        this.mPopValueIds[7] = mYcqdzyjrArr;
         this.mPopValueIds[9] = mKtycqdArrays;
         this.mPopValueIds[10] = mHqktqdArrays;
     }
@@ -49,7 +51,13 @@ public class CanGMSetACView extends CanScrollCarInfoView {
             updateItem(4, this.mACSetData.AutoMode);
             updateItem(5, this.mACSetData.KQZLLMD);
             updateItem(6, this.mACSetData.FQWD);
-            updateItem(7, this.mACSetData.YCQDZYJR);
+            if (this.mACSetData.YCQDZYJR > 0) {
+                updateItem(7, 1);
+            } else if (this.mACSetData.YcqdzyjrJsyc > 0) {
+                updateItem(7, 2);
+            } else {
+                updateItem(7, 0);
+            }
             updateItem(8, this.mACSetData.YCQDZYCF);
             updateItem(9, this.mACSetData.KTYCQD);
             updateItem(10, this.mACSetData.HQKTQD);
@@ -77,9 +85,6 @@ public class CanGMSetACView extends CanScrollCarInfoView {
             case 2:
                 CanJni.GMACCtrl(5, Neg(this.mACSetData.YKZYJR));
                 return;
-            case 7:
-                CanJni.GMACCtrl(65, Neg(this.mACSetData.YCQDZYJR));
-                return;
             case 8:
                 CanJni.GMACCtrl(66, Neg(this.mACSetData.YCQDZYCF));
                 return;
@@ -104,6 +109,9 @@ public class CanGMSetACView extends CanScrollCarInfoView {
                 return;
             case 6:
                 CanJni.GMACCtrl(2, item);
+                return;
+            case 7:
+                CanJni.GMACCtrl(65, item);
                 return;
             case 9:
                 CanJni.GMACCtrl(67, item);

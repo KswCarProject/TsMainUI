@@ -9,7 +9,7 @@ import java.util.Enumeration;
 public class Tx implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static Tx f235T = new Tx();
+    public static Tx f238T = new Tx();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         Trs out = serializer.Tv();

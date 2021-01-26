@@ -4,12 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.internal.view.SupportMenu;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import com.autochips.storage.EnvironmentATC;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.TsFile;
@@ -21,14 +19,24 @@ import java.io.IOException;
 
 public class FactorytestarmActivity extends Activity implements UserCallBack {
     private static final int ARM_TIME = 1000;
-    static EnvironmentATC EnvATC = null;
+    private static final int EMMC_STATE = 0;
+    private static final int I2C_STATE = 4;
+    private static final int MCU_STATE = 1;
     private static final String NO_ERR = " ";
+    private static final int SD1_STATE = 2;
+    private static final int SD2_STATE = 6;
+    private static final int SIM_STATE = 3;
     private static final String TAG = "[scj:]Test";
+    private static final int UART_STATE = 5;
+    private static final int USB1_STATE = 7;
+    private static final int USB2_STATE = 8;
     int Num = 0;
     boolean bCheck = true;
     CheckBox cbIIC;
     CheckBox cbMCU;
-    CheckBox cbSim;
+    CheckBox cbSD2;
+    CheckBox cbUsb1;
+    CheckBox cbUsb2;
     CheckBox cbwifiUART;
     CheckBox cbxEmmc;
     CheckBox cbxSD;
@@ -44,7 +52,9 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
         this.strERR = NO_ERR;
         this.cbxEmmc = (CheckBox) findViewById(R.id.ck_factort_emmc);
         this.cbxSD = (CheckBox) findViewById(R.id.ck_factort_sd);
-        this.cbSim = (CheckBox) findViewById(R.id.ck_factort_sim);
+        this.cbSD2 = (CheckBox) findViewById(R.id.ck_factort_sd2);
+        this.cbUsb1 = (CheckBox) findViewById(R.id.ck_factort_usb1);
+        this.cbUsb2 = (CheckBox) findViewById(R.id.ck_factort_usb2);
         this.cbIIC = (CheckBox) findViewById(R.id.ck_factort_iic);
         this.cbwifiUART = (CheckBox) findViewById(R.id.ck_factort_uart);
         this.cbMCU = (CheckBox) findViewById(R.id.ck_factort_mcu);
@@ -53,7 +63,7 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
 
     /* access modifiers changed from: package-private */
     public boolean bOK() {
-        if (!this.cbxEmmc.isChecked() || !this.cbMCU.isChecked() || !this.cbxSD.isChecked() || !this.cbSim.isChecked() || !this.cbIIC.isChecked() || !this.cbwifiUART.isChecked()) {
+        if (!this.cbxEmmc.isChecked() || !this.cbMCU.isChecked() || !this.cbxSD.isChecked() || !this.cbSD2.isChecked() || !this.cbUsb1.isChecked() || !this.cbUsb2.isChecked() || !this.cbIIC.isChecked() || !this.cbwifiUART.isChecked()) {
             return false;
         }
         return true;
@@ -75,10 +85,6 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
                     this.cbxSD.setTextColor(-16711936);
                     this.cbxSD.setChecked(true);
                     return;
-                case 3:
-                    this.cbSim.setTextColor(-16711936);
-                    this.cbSim.setChecked(true);
-                    return;
                 case 4:
                     this.cbIIC.setTextColor(-16711936);
                     this.cbIIC.setChecked(true);
@@ -87,6 +93,18 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
                     this.cbwifiUART.setText("串口正常");
                     this.cbwifiUART.setTextColor(-16711936);
                     this.cbwifiUART.setChecked(true);
+                    return;
+                case 6:
+                    this.cbSD2.setTextColor(-16711936);
+                    this.cbSD2.setChecked(true);
+                    return;
+                case 7:
+                    this.cbUsb1.setTextColor(-16711936);
+                    this.cbUsb1.setChecked(true);
+                    return;
+                case 8:
+                    this.cbUsb2.setTextColor(-16711936);
+                    this.cbUsb2.setChecked(true);
                     return;
                 default:
                     return;
@@ -108,11 +126,6 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
                     this.cbxSD.setTextColor(SupportMenu.CATEGORY_MASK);
                     this.cbxSD.setChecked(false);
                     return;
-                case 3:
-                    this.cbSim.setText("SIM卡错误");
-                    this.cbSim.setTextColor(SupportMenu.CATEGORY_MASK);
-                    this.cbSim.setChecked(false);
-                    return;
                 case 4:
                     this.cbIIC.setText("IIC错误");
                     this.cbIIC.setTextColor(SupportMenu.CATEGORY_MASK);
@@ -122,6 +135,21 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
                     this.cbwifiUART.setText("UART错误");
                     this.cbwifiUART.setTextColor(SupportMenu.CATEGORY_MASK);
                     this.cbwifiUART.setChecked(false);
+                    return;
+                case 6:
+                    this.cbSD2.setText("SD2错误");
+                    this.cbSD2.setTextColor(SupportMenu.CATEGORY_MASK);
+                    this.cbSD2.setChecked(false);
+                    return;
+                case 7:
+                    this.cbUsb1.setText("USB1错误");
+                    this.cbUsb1.setTextColor(SupportMenu.CATEGORY_MASK);
+                    this.cbUsb1.setChecked(false);
+                    return;
+                case 8:
+                    this.cbUsb2.setText("USB2错误");
+                    this.cbUsb2.setTextColor(SupportMenu.CATEGORY_MASK);
+                    this.cbUsb2.setChecked(false);
                     return;
                 default:
                     return;
@@ -138,6 +166,7 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
 
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == 0) {
+            enterSubWin(FactorytestvideoActivity.class);
             return true;
         }
         event.getAction();
@@ -154,9 +183,6 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
                         SetCheckBoxState(1, true);
                     }
                 }
-                if (!this.cbSim.isChecked() && CheckMySinState()) {
-                    SetCheckBoxState(3, true);
-                }
                 if (bOK()) {
                     this.texmesTextView.setText("测试OK");
                     factory_test.AddToSort("ARM测试ok");
@@ -166,15 +192,25 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
                     this.bCheck = false;
                     if (!bOK()) {
                         this.texmesTextView.setTextColor(SupportMenu.CATEGORY_MASK);
-                        if (!this.cbSim.isChecked()) {
-                            SetCheckBoxState(3, false);
-                            this.texmesTextView.setText("SIM卡座异常");
-                            factory_test.AddToSort("SIM卡座异常");
-                        }
                         if (!this.cbxSD.isChecked()) {
                             SetCheckBoxState(2, false);
-                            this.texmesTextView.setText("SD卡座异常");
-                            factory_test.AddToSort("SD卡座异常");
+                            this.texmesTextView.setText("SD1卡座异常");
+                            factory_test.AddToSort("SD1卡座异常");
+                        }
+                        if (!this.cbSD2.isChecked()) {
+                            SetCheckBoxState(6, false);
+                            this.texmesTextView.setText("SD2卡座异常");
+                            factory_test.AddToSort("SD2卡座异常");
+                        }
+                        if (!this.cbUsb1.isChecked()) {
+                            SetCheckBoxState(7, false);
+                            this.texmesTextView.setText("USB1异常");
+                            factory_test.AddToSort("USB1异常");
+                        }
+                        if (!this.cbUsb2.isChecked()) {
+                            SetCheckBoxState(8, false);
+                            this.texmesTextView.setText("USB2异常");
+                            factory_test.AddToSort("USB2异常");
                         }
                         if (!this.cbxEmmc.isChecked()) {
                             this.texmesTextView.setText("内部存储器异常");
@@ -243,35 +279,7 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
 
     /* access modifiers changed from: package-private */
     public void TestUart() {
-        Iop.UartOpen(115200);
-        Iop.RstPort(0);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        boolean bReadOne = ReadUartOk();
-        Iop.RstPort(1);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
-        }
-        boolean bReadTwo = ReadUartOk();
-        Iop.UartClose();
-        if (bReadOne && bReadTwo) {
-            this.cbwifiUART.setText("串口短路");
-            this.cbwifiUART.setTextColor(SupportMenu.CATEGORY_MASK);
-            this.cbwifiUART.setChecked(false);
-        } else if (bReadOne || bReadTwo) {
-            Log.i(TAG, "bReadOne == " + bReadOne);
-            Log.i(TAG, "bReadOne == " + bReadTwo);
-            SetCheckBoxState(5, true);
-        } else {
-            this.cbwifiUART.setText("串口异常");
-            this.cbwifiUART.setTextColor(SupportMenu.CATEGORY_MASK);
-            this.cbwifiUART.setChecked(false);
-        }
+        SetCheckBoxState(5, true);
     }
 
     /* access modifiers changed from: package-private */
@@ -280,47 +288,43 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
         for (int i = 0; i < mCtouchPath.length; i++) {
             Log.i(TAG, "==" + mCtouchPath[i]);
             if (CheckMemory(mCtouchPath[i], String.valueOf(mCtouchPath[i]) + "/test.bin")) {
-                if (mCtouchPath[i].contains("emulated")) {
+                if (mCtouchPath[i].contains("sdcard0")) {
                     SetCheckBoxState(0, true);
                 } else if (mCtouchPath[i].contains("sdcard1")) {
                     SetCheckBoxState(2, true);
-                } else {
-                    SetCheckBoxState(1, true);
+                } else if (mCtouchPath[i].contains("sdcard2")) {
+                    SetCheckBoxState(6, true);
+                } else if (mCtouchPath[i].contains("udisk1")) {
+                    SetCheckBoxState(7, true);
+                } else if (mCtouchPath[i].contains("udisk2")) {
+                    SetCheckBoxState(8, true);
                 }
-            } else if (mCtouchPath[i].contains("emulated")) {
+            } else if (mCtouchPath[i].contains("sdcard0")) {
                 SetCheckBoxState(0, false);
             } else if (mCtouchPath[i].contains("sdcard1")) {
                 SetCheckBoxState(2, false);
-            } else {
-                SetCheckBoxState(1, false);
-            }
-            if (MainSet.Testmode.bSD == 0) {
-                SetCheckBoxState(2, true);
-            }
-            if (MainSet.Testmode.USB_PORT == 0) {
-                SetCheckBoxState(1, true);
+            } else if (mCtouchPath[i].contains("sdcard2")) {
+                SetCheckBoxState(6, false);
+            } else if (mCtouchPath[i].contains("udisk1")) {
+                SetCheckBoxState(7, false);
+            } else if (mCtouchPath[i].contains("udisk2")) {
+                SetCheckBoxState(8, false);
             }
         }
-    }
-
-    /* access modifiers changed from: package-private */
-    public boolean IsWifiVer() {
-        return MainSet.Testmode.KeyType == 2;
-    }
-
-    /* access modifiers changed from: package-private */
-    public boolean CheckMySinState() {
-        if (!IsWifiVer() && ((TelephonyManager) getSystemService("phone")).getSimState() != 5) {
-            return false;
+        if (MainSet.Testmode.bSD == 0) {
+            SetCheckBoxState(2, true);
+            SetCheckBoxState(6, true);
         }
-        return true;
+        if (MainSet.Testmode.USB_PORT == 0) {
+            SetCheckBoxState(7, true);
+            SetCheckBoxState(8, true);
+        } else if (MainSet.Testmode.USB_PORT == 1) {
+            SetCheckBoxState(7, true);
+        }
     }
 
     public boolean StorageMounted(String Path) {
-        if (EnvATC == null) {
-            EnvATC = new EnvironmentATC(this);
-        }
-        String[] strSDMountedPath = EnvATC.getStorageMountedPaths();
+        String[] strSDMountedPath = MainSet.GetInstance().GetMountedStorage();
         for (String equals : strSDMountedPath) {
             if (Path.equals(equals)) {
                 return true;
@@ -345,7 +349,7 @@ public class FactorytestarmActivity extends Activity implements UserCallBack {
             } catch (IOException e2) {
                 e2.printStackTrace();
             }
-            if (Read == null || !Read.equals(TAG)) {
+            if ((Read == null || !Read.equals(TAG)) && !TsFile.fileIsExists(File)) {
                 return false;
             }
             return true;

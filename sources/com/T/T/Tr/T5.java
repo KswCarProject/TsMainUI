@@ -6,14 +6,14 @@ import java.lang.reflect.Type;
 public class T5 {
 
     /* renamed from: T  reason: collision with root package name */
-    private Object f175T;
+    private Object f178T;
     private Type Tn;
     private final T5 Tr;
     private final Object Ty;
 
     public T5(T5 parent, Object object, Object fieldName) {
         this.Tr = parent;
-        this.f175T = object;
+        this.f178T = object;
         this.Ty = fieldName;
     }
 
@@ -26,11 +26,11 @@ public class T5 {
     }
 
     public Object Tr() {
-        return this.f175T;
+        return this.f178T;
     }
 
     public void T(Object object) {
-        this.f175T = object;
+        this.f178T = object;
     }
 
     public T5 Ty() {

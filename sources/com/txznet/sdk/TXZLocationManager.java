@@ -11,7 +11,7 @@ import com.txznet.sdk.bean.LocationData;
 public class TXZLocationManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZLocationManager f743T = new TXZLocationManager();
+    private static TXZLocationManager f747T = new TXZLocationManager();
     private boolean T9;
     /* access modifiers changed from: private */
     public LocationData Tk;
@@ -41,7 +41,7 @@ public class TXZLocationManager {
     }
 
     public static TXZLocationManager getInstance() {
-        return f743T;
+        return f747T;
     }
 
     /* access modifiers changed from: package-private */

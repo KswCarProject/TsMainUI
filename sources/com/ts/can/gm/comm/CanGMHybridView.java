@@ -12,7 +12,6 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
-import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
 import com.yyw.ts70xhw.KeyDef;
@@ -105,7 +104,7 @@ public class CanGMHybridView extends CanRelativeCarInfoView {
         }
         if (!check || i2b(this.mHybridData.Update)) {
             this.mHybridData.Update = 0;
-            Log.d("CanGMHybridView", MainSet.SP_RLF_KORON);
+            Log.d("CanGMHybridView", "2");
             this.mImgDirect.invalidate();
         }
     }

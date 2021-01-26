@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/root" android:background="@drawable/can_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="264px" android:layout_marginTop="458px" android:src="@drawable/can_light_01"/>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="674px" android:layout_marginTop="454px" android:src="@drawable/can_light_02"/>
+    <com.ts.main.benz.LightView android:id="@+id/light_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="299px" android:layout_marginTop="454px"/>
+    <com.ts.main.benz.ColorView android:id="@+id/color_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="55px" android:layout_marginTop="172px"/>
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="55px" android:layout_marginTop="350px" android:src="@drawable/can_rgb_bg"/>
+    <ImageView android:id="@+id/iv_rgb_point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="55px" android:layout_marginTop="172px" android:src="@drawable/can_rgb_dn"/>
+    <ImageView android:id="@+id/iv_toggle_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="94px" android:layout_marginTop="385px" android:src="@drawable/can_colour_bg"/>
+    <ImageView android:id="@+id/iv_toggle_point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="140px" android:layout_marginTop="385px" android:src="@drawable/can_colour_up"/>
+    <TextView android:textSize="18px" android:textColor="#ffffff" android:gravity="center_vertical" android:id="@+id/tv_toggle_state" android:layout_width="wrap_content" android:layout_height="59px" android:layout_marginLeft="110px" android:layout_marginTop="372px" android:text="OFF"/>
+</RelativeLayout>

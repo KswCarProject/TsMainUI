@@ -28,7 +28,7 @@ public class CanMitsubshiRzcKeylessOperSystemView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(1, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(1, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(1, 160);
                     return;
                 } else if (item == 3) {
                     CanJni.MitSubishiRzcCarSet(1, 176);
@@ -63,7 +63,7 @@ public class CanMitsubshiRzcKeylessOperSystemView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(3, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(3, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(3, 160);
                     return;
                 } else {
                     return;

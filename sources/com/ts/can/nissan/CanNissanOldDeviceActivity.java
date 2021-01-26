@@ -3,6 +3,7 @@ package com.ts.can.nissan;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import com.android.SdkConstants;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -14,6 +15,7 @@ import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 import java.io.UnsupportedEncodingException;
 
@@ -65,7 +67,7 @@ public class CanNissanOldDeviceActivity extends CanBaseActivity implements UserC
         this.m_fgSt = AddFlagText(473, 175, 100, 40);
         this.m_fgAutop = AddFlagText(CanCameraUI.BTN_CHANA_CS75_MODE4, 175, 100, 40);
         this.m_RadioMenu = AddMenuText(130, Can.CAN_NISSAN_XFY, 767, 50);
-        this.m_FreqText = AddMsgText(130, KeyDef.RKEY_MEDIA_SUBT, 767, 45);
+        this.m_FreqText = AddMsgText(130, 310, 767, 45);
         this.m_fgCdFolder = AddFlagText(200, 175, 130, 40);
         this.m_fgCdWma = AddFlagText(KeyDef.RKEY_RDS_TA, 175, 100, 40);
         this.m_fgCdMp3 = AddFlagText(424, 175, 100, 40);
@@ -75,7 +77,7 @@ public class CanNissanOldDeviceActivity extends CanBaseActivity implements UserC
             this.m_CdSta[i].Show(false);
         }
         this.m_CdMenu = AddMenuText(277, Can.CAN_NISSAN_XFY, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 50);
-        this.m_CdText = AddMsgText(130, KeyDef.RKEY_MEDIA_SUBT, 767, 45);
+        this.m_CdText = AddMsgText(130, 310, 767, 45);
         this.m_AuxMenu = AddMenuText(130, Can.CAN_NISSAN_XFY, 767, 50);
         this.m_AuxMenu.setText("AUX");
         this.m_PwrMenu = AddMenuText(130, Can.CAN_NISSAN_XFY, 767, 50);
@@ -185,7 +187,7 @@ public class CanNissanOldDeviceActivity extends CanBaseActivity implements UserC
             } else if (val == 7) {
                 stringEQ5 = "  " + (val - 7);
             } else {
-                stringEQ5 = "-" + (7 - val);
+                stringEQ5 = SdkConstants.RES_QUALIFIER_SEP + (7 - val);
             }
             return "Bass     " + stringEQ5;
         } else if (data == 2) {
@@ -194,7 +196,7 @@ public class CanNissanOldDeviceActivity extends CanBaseActivity implements UserC
             } else if (val == 7) {
                 stringEQ4 = "  " + (val - 7);
             } else {
-                stringEQ4 = "-" + (7 - val);
+                stringEQ4 = SdkConstants.RES_QUALIFIER_SEP + (7 - val);
             }
             return "Treble     " + stringEQ4;
         } else if (data == 3) {
@@ -231,7 +233,7 @@ public class CanNissanOldDeviceActivity extends CanBaseActivity implements UserC
         try {
             return new String(data, 0, len, "GBK");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

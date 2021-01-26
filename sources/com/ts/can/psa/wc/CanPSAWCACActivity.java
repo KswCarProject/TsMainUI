@@ -80,7 +80,7 @@ public class CanPSAWCACActivity extends CanBaseActivity implements UserCallBack,
         this.mTvRtTemp = AddTemp(878, 18, 131, 62);
         this.mBtnRtTempInc = AddBtn(3, 907, 107, R.drawable.can_yl_upward_up, R.drawable.can_yl_upward_dn);
         this.mBtnRtTempDec = AddBtn(4, 907, 287, R.drawable.can_yl_down_up, R.drawable.can_yl_down_dn);
-        this.mIvForeWind = this.mManager.AddImage(KeyDef.RKEY_ST, 29);
+        this.mIvForeWind = this.mManager.AddImage(297, 29);
         this.mIvForeWind.setStateDrawable(R.drawable.can_psa_408_wind_up, R.drawable.can_psa_408_wind_dn);
         this.mIvRearWind = this.mManager.AddImage(483, 29);
         this.mIvRearWind.setStateDrawable(R.drawable.can_psa_408_heat_up, R.drawable.can_psa_408_heat_dn);
@@ -100,7 +100,7 @@ public class CanPSAWCACActivity extends CanBaseActivity implements UserCallBack,
         this.mWindProg = new MyProgressBar(this, R.drawable.can_yl_rect_up, R.drawable.can_yl_rect_dn);
         this.mWindProg.SetMinMax(0, 8);
         this.mWindProg.SetCurPos(1);
-        this.mManager.AddViewWrapContent(this.mWindProg, 261, KeyDef.RKEY_PRE);
+        this.mManager.AddViewWrapContent(this.mWindProg, 261, 292);
         this.mBtnWindDec = AddBtn(8, 196, 271, R.drawable.can_yl_jian_up, R.drawable.can_yl_jian_dn);
         this.mBtnWindInc = AddBtn(9, 755, 271, R.drawable.can_yl_jia_up, R.drawable.can_yl_jia_dn);
         this.mBtnAC = AddBtn(10, 38, 418, R.drawable.can_psa_408_ac_up, R.drawable.can_psa_408_ac_dn);

@@ -9,7 +9,7 @@ import java.lang.reflect.Field;
 public abstract class TM {
 
     /* renamed from: T  reason: collision with root package name */
-    protected final Ty f203T;
+    protected final Ty f206T;
     private boolean T9 = false;
     private final String Tn;
     private final String Tr;
@@ -18,7 +18,7 @@ public abstract class TM {
     public abstract void T(T7 t7, Object obj) throws Exception;
 
     public TM(Ty fieldInfo) {
-        this.f203T = fieldInfo;
+        this.f206T = fieldInfo;
         fieldInfo.T(true);
         this.Tr = '\"' + fieldInfo.Ty() + "\":";
         this.Ty = '\'' + fieldInfo.Ty() + "':";
@@ -38,11 +38,11 @@ public abstract class TM {
     }
 
     public Field Tr() {
-        return this.f203T.T9();
+        return this.f206T.T9();
     }
 
     public String Ty() {
-        return this.f203T.Ty();
+        return this.f206T.Ty();
     }
 
     public void T(T7 serializer) throws IOException {
@@ -57,6 +57,6 @@ public abstract class TM {
     }
 
     public Object T(Object object) throws Exception {
-        return this.f203T.T(object);
+        return this.f206T.T(object);
     }
 }

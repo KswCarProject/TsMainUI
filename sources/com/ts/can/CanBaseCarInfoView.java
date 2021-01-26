@@ -33,6 +33,8 @@ public abstract class CanBaseCarInfoView implements View.OnClickListener {
 
     public abstract void doOnResume();
 
+    public abstract void doOnStart();
+
     /* access modifiers changed from: protected */
     public abstract View getView();
 

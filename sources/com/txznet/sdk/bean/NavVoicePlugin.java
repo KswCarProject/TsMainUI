@@ -45,7 +45,7 @@ public class NavVoicePlugin {
     public static final String RS_MAP_HINT_ZHOUXINGXING = "将为您切换周星星的声音";
 
     /* renamed from: T  reason: collision with root package name */
-    TXZNavManager.CallBack f860T;
+    TXZNavManager.CallBack f864T;
     private String[] T9 = {TXZAsrKeyManager.AsrKeyType.SWITCH_ROLE, TXZAsrKeyManager.AsrKeyType.GUOYU_MM, TXZAsrKeyManager.AsrKeyType.GUOYU_GG, TXZAsrKeyManager.AsrKeyType.ZHOUXINGXING, TXZAsrKeyManager.AsrKeyType.GUANGDONGHUA, TXZAsrKeyManager.AsrKeyType.LINZHILIN, TXZAsrKeyManager.AsrKeyType.GUODEGANG, TXZAsrKeyManager.AsrKeyType.DONGBEIHUA, TXZAsrKeyManager.AsrKeyType.HENANHUA, TXZAsrKeyManager.AsrKeyType.HUNANHUA, TXZAsrKeyManager.AsrKeyType.SICHUANHUA, TXZAsrKeyManager.AsrKeyType.TAIWANHUA};
     private String[][] Tk = {new String[]{"切换导航声音"}, new String[]{"切换为国语女声", "国语女声来播"}, new String[]{"切换为国语男声", "国语男声来播"}, new String[]{"切换为周星驰", "周星星来播", "周星驰来播", "周星驰出来", "周星星出来", "我想听周星星来播", "我想听周星驰来播"}, new String[]{"切换为广东话", "广东话来播"}, new String[]{"切换为林志玲", "林志玲来播", "林志玲出来", "我想听林志玲来播"}, new String[]{"切换为郭德纲", "郭德纲来播", "郭德纲出来", "我想听郭德纲来播"}, new String[]{"切换为东北话", "东北话来播"}, new String[]{"切换为河南话", "河南话来播"}, new String[]{"切换为湖南话", "湖南话来播"}, new String[]{"切换为四川话", "四川话来播"}, new String[]{"切换为台湾话", "台湾话来播"}};
     int Tn;
@@ -53,7 +53,7 @@ public class NavVoicePlugin {
     T.C0015T Ty;
 
     public void setNavVoiceCmdCallback(TXZNavManager.CallBack callBack) {
-        this.f860T = callBack;
+        this.f864T = callBack;
     }
 
     public void registerVoiceCmds(String packageName) {
@@ -100,7 +100,7 @@ public class NavVoicePlugin {
                 }
             };
             for (int i = 0; i < this.T9.length; i++) {
-                String[] cmds = this.f860T.getTypeCmds(this.T9[i]);
+                String[] cmds = this.f864T.getTypeCmds(this.T9[i]);
                 if (cmds == null || cmds.length == 0) {
                     this.Ty.addCommand(this.T9[i], this.Tk[i]);
                 } else {
@@ -183,7 +183,7 @@ public class NavVoicePlugin {
             case 10:
                 return RS_MAP_HINT_IS_TAIWANHUA;
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -212,7 +212,7 @@ public class NavVoicePlugin {
             case 10:
                 return RS_MAP_HINT_TAIWANHUA;
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 }

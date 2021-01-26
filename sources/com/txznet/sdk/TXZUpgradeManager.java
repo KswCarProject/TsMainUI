@@ -13,7 +13,7 @@ import com.txznet.sdk.TXZService;
 public class TXZUpgradeManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZUpgradeManager f845T = new TXZUpgradeManager();
+    private static TXZUpgradeManager f849T = new TXZUpgradeManager();
     /* access modifiers changed from: private */
     public ApkInstaller T9;
     private TXZService.T TE = new TXZService.T() {
@@ -41,7 +41,7 @@ public class TXZUpgradeManager {
                             p.writeString(pkgName);
                             p.writeString(version);
                             if (msg == null) {
-                                msg = "";
+                                msg = TXZResourceManager.STYLE_DEFAULT;
                             }
                             p.writeString(msg);
                             Tn.Tr().T("com.txznet.txz", "txz.upgrade.invoke.installer.install_failed", p.marshall(), (Tn.Tr) null);
@@ -184,7 +184,7 @@ public class TXZUpgradeManager {
     }
 
     public static TXZUpgradeManager getInstance() {
-        return f845T;
+        return f849T;
     }
 
     /* access modifiers changed from: package-private */

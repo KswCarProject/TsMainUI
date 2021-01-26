@@ -108,19 +108,19 @@ public class CanTeramontDriveProfileSetActivity extends CanBaseActivity implemen
             lp.gravity = 17;
             manager.GetLayout().setLayoutParams(lp);
         }
-        this.mDrvieProfile[0] = manager.AddImage(115, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[0] = manager.AddImage(115, 150, 190, 184);
         this.mDrvieProfile[0].setStateDrawable(R.drawable.can_dzjcms_car01_up, R.drawable.can_dzjcms_car01_dn, R.drawable.can_dzjcms_car01_dn);
         this.mDrvieProfile[0].setTag(10);
         this.mDrvieProfile[0].setOnClickListener(this);
-        this.mDrvieProfile[1] = manager.AddImage(KeyDef.RKEY_ANGLEDN, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[1] = manager.AddImage(KeyDef.RKEY_ANGLEDN, 150, 190, 184);
         this.mDrvieProfile[1].setStateDrawable(R.drawable.can_dzjcms_car02_up, R.drawable.can_dzjcms_car02_dn, R.drawable.can_dzjcms_car02_dn);
         this.mDrvieProfile[1].setTag(11);
         this.mDrvieProfile[1].setOnClickListener(this);
-        this.mDrvieProfile[2] = manager.AddImage(CanCameraUI.BTN_GEELY_YJX6_MODE2, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[2] = manager.AddImage(CanCameraUI.BTN_GEELY_YJX6_MODE2, 150, 190, 184);
         this.mDrvieProfile[2].setStateDrawable(R.drawable.can_dzjcms_car03_up, R.drawable.can_dzjcms_car03_dn, R.drawable.can_dzjcms_car03_dn);
         this.mDrvieProfile[2].setTag(12);
         this.mDrvieProfile[2].setOnClickListener(this);
-        this.mDrvieProfile[3] = manager.AddImage(724, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[3] = manager.AddImage(724, 150, 190, 184);
         this.mDrvieProfile[3].setStateDrawable(R.drawable.can_dzjcms_car04_up, R.drawable.can_dzjcms_car04_dn, R.drawable.can_dzjcms_car04_dn);
         this.mDrvieProfile[3].setTag(13);
         this.mDrvieProfile[3].setOnClickListener(this);
@@ -218,7 +218,7 @@ public class CanTeramontDriveProfileSetActivity extends CanBaseActivity implemen
         if (this.mDrivePattern == 3) {
             CanJni.GolfQuery(64, 177);
         } else if (this.mDrivePattern == 1) {
-            CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+            CanJni.GolfQuery(64, 160);
         }
     }
 

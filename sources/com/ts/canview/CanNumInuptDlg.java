@@ -8,6 +8,7 @@ import com.ts.MainUI.R;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomDialog;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanNumInuptDlg extends CustomDialog implements View.OnClickListener {
     public static final String TAG = "CanNumInuptDlg";
@@ -34,7 +35,7 @@ public class CanNumInuptDlg extends CustomDialog implements View.OnClickListener
 
     public void createDlg(Context context, onInputOK ok, int inputLen, int id) {
         this.mMaxInputLen = inputLen;
-        this.mStrInputText = "";
+        this.mStrInputText = TXZResourceManager.STYLE_DEFAULT;
         super.create(R.layout.can_num_input_msgbox, context);
         this.mTvInput = (TextView) this.mWindow.findViewById(R.id.can_input_edx_num);
         for (int i = 0; i < this.mBtnNumId.length; i++) {
@@ -58,7 +59,7 @@ public class CanNumInuptDlg extends CustomDialog implements View.OnClickListener
     /* access modifiers changed from: protected */
     public void decStr() {
         if (this.mStrInputText.length() <= 1) {
-            this.mStrInputText = "";
+            this.mStrInputText = TXZResourceManager.STYLE_DEFAULT;
         } else {
             this.mStrInputText = this.mStrInputText.substring(0, this.mStrInputText.length() - 1);
         }
@@ -71,23 +72,23 @@ public class CanNumInuptDlg extends CustomDialog implements View.OnClickListener
         if (id == R.id.can_input_btn_num0) {
             addStr("0");
         } else if (id == R.id.can_input_btn_num1) {
-            addStr(MainSet.SP_XPH5);
+            addStr("1");
         } else if (id == R.id.can_input_btn_num2) {
-            addStr(MainSet.SP_RLF_KORON);
+            addStr("2");
         } else if (id == R.id.can_input_btn_num3) {
-            addStr(MainSet.SP_XH_DMAX);
+            addStr("3");
         } else if (id == R.id.can_input_btn_num4) {
             addStr(MainSet.SP_KS_QOROS);
         } else if (id == R.id.can_input_btn_num5) {
-            addStr(MainSet.SP_LM_WR);
-        } else if (id == R.id.can_input_btn_num6) {
-            addStr(MainSet.SP_YSJ_QP);
-        } else if (id == R.id.can_input_btn_num7) {
             addStr(MainSet.SP_TW_CJW);
+        } else if (id == R.id.can_input_btn_num6) {
+            addStr(MainSet.SP_XS_DZ);
+        } else if (id == R.id.can_input_btn_num7) {
+            addStr(MainSet.SP_PCBA_VOL);
         } else if (id == R.id.can_input_btn_num8) {
-            addStr(MainSet.SP_FLKJ);
+            addStr("8");
         } else if (id == R.id.can_input_btn_num9) {
-            addStr(MainSet.SP_FXCARPLAY);
+            addStr("9");
         } else if (id == R.id.can_input_btn_backspace) {
             decStr();
         } else if (id == R.id.can_input_btn_delete) {

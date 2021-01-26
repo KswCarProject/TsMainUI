@@ -14,7 +14,6 @@ import com.ts.canview.CanNumInuptDlg;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanPSAWCMemTabView extends CanRelativeCarInfoView implements CanNumInuptDlg.onInputOK {
     public static final int ITEM_OK = 11;
@@ -95,8 +94,8 @@ public class CanPSAWCMemTabView extends CanRelativeCarInfoView implements CanNum
         this.mTv = new CustomTextView[6];
         for (int i = 0; i < 6; i++) {
             this.mBtnSpeed[i] = AddValBtn(((i % 2) * 300) + 383, ((i / 2) * 67) + 127 + 50, i + 1);
-            this.mBtnSubChk[i] = AddChkBtn(((i % 2) * 300) + 241, ((i / 2) * 67) + 133 + 50, i + 16);
-            this.mTv[i] = this.mManager.AddCusText(((i % 2) * 300) + KeyDef.RKEY_NEXT, ((i / 2) * 67) + 127 + 50, 90, 56);
+            this.mBtnSubChk[i] = AddChkBtn(((i % 2) * 300) + Can.CAN_SITECHDEV_CW, ((i / 2) * 67) + 133 + 50, i + 16);
+            this.mTv[i] = this.mManager.AddCusText(((i % 2) * 300) + 291, ((i / 2) * 67) + 127 + 50, 90, 56);
             this.mTv[i].SetPxSize(40);
             this.mTv[i].setText(String.format("M%d:", new Object[]{Integer.valueOf(i + 1)}));
             this.mTv[i].setGravity(19);

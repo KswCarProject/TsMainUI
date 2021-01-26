@@ -28,9 +28,9 @@ public class CanBmwMiniFsttCarInfoActivity extends CanCommonActivity {
     /* access modifiers changed from: protected */
     public void InitUI() {
         this.mContainer = new RelativeLayoutContainer(this);
-        this.mContainer.addImage(Can.CAN_JAC_REFINE_OD, Can.CAN_JAC_REFINE_OD, R.drawable.can_ecu_fuel);
-        this.mContainer.addImage(CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, Can.CAN_JAC_REFINE_OD, R.drawable.can_ecu_speed);
-        this.mContainer.addImage(CanCameraUI.BTN_LANDWIND_3D_LEFT_UP, Can.CAN_JAC_REFINE_OD, R.drawable.can_ecu_range);
+        this.mContainer.addImage(150, 150, R.drawable.can_ecu_fuel);
+        this.mContainer.addImage(CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 150, R.drawable.can_ecu_speed);
+        this.mContainer.addImage(CanCameraUI.BTN_LANDWIND_3D_LEFT_UP, 150, R.drawable.can_ecu_range);
         this.mTvOil = this.mContainer.addText(120, 280, Can.CAN_NISSAN_XFY, 100);
         this.mTvSpeed = this.mContainer.addText(365, 280, Can.CAN_NISSAN_XFY, 100);
         this.mTvRange = this.mContainer.addText(660, 280, Can.CAN_NISSAN_XFY, 100);

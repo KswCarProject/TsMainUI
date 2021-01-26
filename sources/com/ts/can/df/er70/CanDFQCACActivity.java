@@ -23,7 +23,7 @@ public class CanDFQCACActivity extends CanDFQCBaseActivity {
         this.mTvA = AddText(121, 173, 203, 25);
         this.mTvP = AddText(121, 212, KeyDef.RKEY_RADIO_6S, 25);
         this.mTvMode = AddText(121, Can.CAN_FLAT_RZC, 203, 25);
-        this.mTvC = AddText(121, KeyDef.RKEY_AMS, 139, 25);
+        this.mTvC = AddText(121, 295, 139, 25);
         this.mTvWind = AddText(121, KeyDef.RKEY_AVIN, 53, 25);
         initValue();
     }

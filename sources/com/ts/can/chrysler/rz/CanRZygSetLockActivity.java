@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
@@ -290,7 +289,7 @@ public class CanRZygSetLockActivity extends CanRZygBaseActivity implements View.
                 CarSet(36, item + 1);
                 return;
             case 7:
-                CarSet(Can.CAN_CHANA_CS75_WC, item);
+                CarSet(160, item);
                 return;
             default:
                 return;

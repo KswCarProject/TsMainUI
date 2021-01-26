@@ -1,7 +1,6 @@
 package com.txznet.comm.ui.dialog;
 
 import android.view.View;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.txznet.comm.Tr.Tr.T;
 import com.txznet.txz.util.T.T;
 
@@ -9,7 +8,7 @@ import com.txznet.txz.util.T.T;
 public abstract class WinConfirmAsr extends WinMessageBox {
 
     /* renamed from: T  reason: collision with root package name */
-    String f564T;
+    String f568T;
     boolean T9 = true;
     private Runnable TD;
     Runnable Tn;
@@ -71,7 +70,7 @@ public abstract class WinConfirmAsr extends WinMessageBox {
     }
 
     public WinConfirmAsr setHintTts(String text) {
-        this.f564T = text;
+        this.f568T = text;
         return this;
     }
 
@@ -148,7 +147,7 @@ public abstract class WinConfirmAsr extends WinMessageBox {
                         return null;
                     }
                     WinConfirmAsr.this.T9 = false;
-                    return WinConfirmAsr.this.f564T;
+                    return WinConfirmAsr.this.f568T;
                 }
 
                 public void onTtsEnd() {
@@ -170,8 +169,8 @@ public abstract class WinConfirmAsr extends WinMessageBox {
 
     public void show() {
         super.show();
-        if (this.f564T != null && this.f564T.length() > 0) {
-            long delay = (long) ((this.f564T.length() / 2) * MediaDef.PROGRESS_MAX);
+        if (this.f568T != null && this.f568T.length() > 0) {
+            long delay = (long) ((this.f568T.length() / 2) * 1000);
             if (delay < 10000) {
                 delay = 10000;
             }

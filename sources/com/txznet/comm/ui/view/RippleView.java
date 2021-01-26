@@ -24,7 +24,7 @@ import com.txznet.comm.ui.IKeepClass;
 public class RippleView extends RelativeLayout implements IKeepClass {
 
     /* renamed from: T  reason: collision with root package name */
-    private int f653T;
+    private int f657T;
     private int T5 = 0;
     private float T6 = -1.0f;
     private int T9 = 90;
@@ -169,7 +169,7 @@ public class RippleView extends RelativeLayout implements IKeepClass {
     /* access modifiers changed from: protected */
     public void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        this.f653T = w;
+        this.f657T = w;
         this.Tr = h;
         this.TF = new ScaleAnimation(1.0f, this.Tq, 1.0f, this.Tq, (float) (w / 2), (float) (h / 2));
         this.TF.setDuration((long) this.Te);
@@ -190,7 +190,7 @@ public class RippleView extends RelativeLayout implements IKeepClass {
             if (this.Tj.booleanValue()) {
                 startAnimation(this.TF);
             }
-            this.Tk = (float) Math.max(this.f653T, this.Tr);
+            this.Tk = (float) Math.max(this.f657T, this.Tr);
             if (this.TK.intValue() != 2) {
                 this.Tk /= 2.0f;
             }

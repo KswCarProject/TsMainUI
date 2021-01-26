@@ -18,6 +18,7 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanChrOthCDActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, CanItemProgressList.onPosChange {
@@ -148,8 +149,8 @@ public class CanChrOthCDActivity extends CanBaseActivity implements UserCallBack
             this.mTime.setText(String.format("%02d:%02d:%02d / %02d:%02d:%02d", new Object[]{Integer.valueOf(this.mInfoData.CurHour), Integer.valueOf(this.mInfoData.CurMin), Integer.valueOf(this.mInfoData.CurSec), Integer.valueOf(this.mInfoData.TotalHour), Integer.valueOf(this.mInfoData.TotalMin), Integer.valueOf(this.mInfoData.TotalSec)}));
             return;
         }
-        this.mTrack.setText("");
-        this.mTime.setText("");
+        this.mTrack.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTime.setText(TXZResourceManager.STYLE_DEFAULT);
     }
 
     /* access modifiers changed from: protected */
@@ -192,7 +193,7 @@ public class CanChrOthCDActivity extends CanBaseActivity implements UserCallBack
                 CdCtrl(Can.CAN_MZD_LUOMU);
                 return;
             case 8:
-                CdCtrl(241);
+                CdCtrl(Can.CAN_SITECHDEV_CW);
                 return;
             default:
                 return;

@@ -8,6 +8,8 @@ import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
+import com.ts.can.CanCarInfoSub1Activity;
+import com.ts.can.CanFunc;
 import com.ts.canview.CanItemIcoList;
 import com.ts.canview.CanItemMsgBox;
 import com.ts.canview.CanItemSwitchList;
@@ -16,14 +18,15 @@ import com.ts.canview.CanScrollList;
 
 public class CanHTX7CarInfoActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemMsgBox.onMsgBoxClick, CanItemMsgBox.onMsgBoxClick2 {
     public static final int ITEM_CAR_TYPE = 1;
-    private static final int ITEM_MAX = 2;
+    private static final int ITEM_MAX = 3;
     private static final int ITEM_MIN = 1;
+    public static final int ITEM_SET = 3;
     public static final int ITEM_TPMS = 2;
     public static final String TAG = "CanHTX7CarInfoActivity";
     protected CanDataInfo.HanTRzc_TpmsData mData = new CanDataInfo.HanTRzc_TpmsData();
     private CanItemIcoList mItemCarSet;
     private CanItemIcoList mItemCarType;
-    private CanItemIcoList mItemIap;
+    private CanItemIcoList mItemSet;
     private CanItemIcoList mItemTpms;
     private CanItemIcoList mItemTybd;
     private CanScrollList mManager;
@@ -73,11 +76,12 @@ public class CanHTX7CarInfoActivity extends CanBaseActivity implements View.OnCl
         this.mManager = new CanScrollList(this);
         this.mItemCarType = AddIcoItem(R.drawable.can_icon_light2, R.string.can_car_type_select, 1);
         this.mItemTpms = AddIcoItem(R.drawable.can_icon_tyres, R.string.can_tyres_tpms, 2);
+        this.mItemSet = AddIcoItem(R.drawable.can_golf_icon13, R.string.can_light_setup, 3);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 2; i++) {
+        for (int i = 1; i <= 3; i++) {
             ShowItem(i);
         }
     }
@@ -92,6 +96,12 @@ public class CanHTX7CarInfoActivity extends CanBaseActivity implements View.OnCl
             case 2:
                 ret = this.mData.Vaild;
                 break;
+            case 3:
+                if (CanJni.GetSubType() == 2) {
+                    ret = 1;
+                    break;
+                }
+                break;
         }
         return i2b(ret);
     }
@@ -105,6 +115,9 @@ public class CanHTX7CarInfoActivity extends CanBaseActivity implements View.OnCl
                 return;
             case 2:
                 this.mItemTpms.ShowGone(show);
+                return;
+            case 3:
+                this.mItemSet.ShowGone(show);
                 return;
             default:
                 return;
@@ -147,6 +160,9 @@ public class CanHTX7CarInfoActivity extends CanBaseActivity implements View.OnCl
                 return;
             case 2:
                 enterSubWin(CanHtX5TpmsActivity.class);
+                return;
+            case 3:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 0);
                 return;
             default:
                 return;

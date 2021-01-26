@@ -3,7 +3,6 @@ package com.ts.can.vw.rzc.golf;
 import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -125,7 +124,7 @@ public class CanGolfRzcTeramonEcoProfileSetView extends CanRelativeCarInfoView i
 
     public void QueryData() {
         if (this.mEcoProfile == 3) {
-            CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+            CanJni.GolfQuery(64, 160);
         }
     }
 

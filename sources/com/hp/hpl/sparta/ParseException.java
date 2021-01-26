@@ -1,5 +1,7 @@
 package com.hp.hpl.sparta;
 
+import com.txznet.sdk.TXZResourceManager;
+
 public class ParseException extends Exception {
     private Throwable cause_;
     private int lineNumber_;
@@ -54,7 +56,7 @@ public class ParseException extends Exception {
     }
 
     static String charRepr(int i) {
-        return i == -1 ? "EOF" : new StringBuffer().append("").append((char) i).toString();
+        return i == -1 ? "EOF" : new StringBuffer().append(TXZResourceManager.STYLE_DEFAULT).append((char) i).toString();
     }
 
     private static String toMessage(String str, int i, int i2, String str2, String str3) {

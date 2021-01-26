@@ -30,6 +30,7 @@ public class CanChanAACView extends CanBaseACView {
     private static final int STATUS_AUTO = 14;
     private static final int STATUS_DUAL = 12;
     private static final int STATUS_INNER_LOOP = 15;
+    private static final int STATUS_MAXAC = 21;
     private static final int STATUS_OUT_LOOP = 13;
     private static final int STATUS_REAR = 20;
     private static final int STATUS_REAR_WINOW = 19;
@@ -42,6 +43,7 @@ public class CanChanAACView extends CanBaseACView {
     private ParamButton mStatusAc;
     private ParamButton mStatusAuto;
     private ParamButton mStatusClosed;
+    private ParamButton mStatusMaxAc;
     private ParamButton mStatusOutLoop;
     private ParamButton mStatusRear;
     private ParamButton mStatusRearWindow;
@@ -70,43 +72,34 @@ public class CanChanAACView extends CanBaseACView {
                     CanJni.ChanaRzcAirKey(0, 1, 0, 0, 0, 0);
                     break;
                 case 6:
-                    if (CanJni.GetSubType() == 11) {
+                    if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                         CanJni.ChanaRzcAirKey(0, 0, 2, 0, 0, 0);
                         break;
                     }
-                    break;
                 case 7:
-                    if (CanJni.GetSubType() == 11) {
+                    if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                         CanJni.ChanaRzcAirKey(0, 0, 4, 0, 0, 0);
                         break;
                     }
-                    break;
                 case 8:
-                    if (CanJni.GetSubType() == 11) {
+                    if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                         CanJni.ChanaRzcAirKey(0, 0, 8, 0, 0, 0);
                         break;
                     }
-                    break;
                 case 9:
-                    if (CanJni.GetSubType() == 11) {
+                    if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                         CanJni.ChanaRzcAirKey(0, 0, 16, 0, 0, 0);
                         break;
                     }
-                    break;
                 case 11:
                     CanJni.ChanaRzcAirKey(16, 0, 0, 0, 0, 0);
                     break;
                 case 13:
-                    if (CanJni.GetSubType() == 11) {
-                        if (this.mAcInfo.fgInnerLoop == 0) {
-                            CanJni.ChanaRzcAirKey(4, 0, 0, 0, 0, 0);
-                            break;
-                        } else {
-                            CanJni.ChanaRzcAirKey(8, 0, 0, 0, 0, 0);
-                            break;
-                        }
-                    } else {
+                    if (this.mAcInfo.fgInnerLoop == 0) {
                         CanJni.ChanaRzcAirKey(4, 0, 0, 0, 0, 0);
+                        break;
+                    } else {
+                        CanJni.ChanaRzcAirKey(8, 0, 0, 0, 0, 0);
                         break;
                     }
                 case 14:
@@ -126,6 +119,9 @@ public class CanChanAACView extends CanBaseACView {
                     break;
                 case 20:
                     CanJni.ChanaRzcAirKey(0, 0, 0, 0, 0, 4);
+                    break;
+                case 21:
+                    CanJni.ChanaRzcAirKey(1, 0, 0, 0, 0, 4);
                     break;
             }
         } else if (action == 1) {
@@ -170,18 +166,26 @@ public class CanChanAACView extends CanBaseACView {
         this.mStatusAc = ChanAaddButton(757, 98, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 16);
         this.mStatusRearWindow = ChanAaddButton(757, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 19);
         this.mStatusClosed = ChanAaddButton(462, 406, R.drawable.can_rh7_del_up, R.drawable.can_rh7_del_dn, 17);
-        this.mACMode[0] = ChanAaddButton(KeyDef.RKEY_MEDIA_ANGLE, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        this.mACMode[1] = ChanAaddButton(KeyDef.RKEY_MEDIA_ANGLE, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
-        this.mACMode[2] = ChanAaddButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        this.mACMode[4] = ChanAaddButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 10);
+        this.mACMode[0] = ChanAaddButton(305, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        this.mACMode[1] = ChanAaddButton(305, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
+        this.mACMode[2] = ChanAaddButton(305, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        this.mACMode[4] = ChanAaddButton(305, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 10);
         if (CanJni.GetSubType() == 11) {
             this.mStatusRear = ChanAaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_rear_up, R.drawable.can_rh7_rear_dn, 20);
-            this.mACMode[3] = ChanAaddButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
+            this.mACMode[3] = ChanAaddButton(305, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
             this.mACMode[4].setVisibility(8);
-            return;
+        } else if (CanJni.GetSubType() == 18) {
+            this.mStatusRear = ChanAaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 434, R.drawable.can_rh7_rear_up, R.drawable.can_rh7_rear_dn, 20);
+            this.mACMode[3] = ChanAaddButton(305, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
+            this.mACMode[4].setVisibility(8);
+            ChanAaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_mode_up, R.drawable.can_rh7_mode_dn, 18);
+        } else {
+            if (CanJni.GetSubType() == 15) {
+                this.mStatusMaxAc = ChanAaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 434, R.drawable.can_rh7_max_up, R.drawable.can_rh7_max_dn, 21);
+            }
+            ChanAaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_mode_up, R.drawable.can_rh7_mode_dn, 18);
+            this.mACMode[3] = ChanAaddButton(305, 410, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
         }
-        ChanAaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_mode_up, R.drawable.can_rh7_mode_dn, 18);
-        this.mACMode[3] = ChanAaddButton(KeyDef.RKEY_MEDIA_ANGLE, 410, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
     }
 
     protected static int uint2Bool(int val) {
@@ -228,6 +232,9 @@ public class CanChanAACView extends CanBaseACView {
         this.mStatusClosed.SetSel(this.mAcInfo.PWR);
         if (this.mStatusRear != null) {
             this.mStatusRear.SetSel(this.mAcInfo.fgRearLock);
+        }
+        if (this.mStatusMaxAc != null) {
+            this.mStatusMaxAc.SetSel(this.mAcInfo.fgACMax);
         }
         if (this.mAcInfo.fgInnerLoop != 0) {
             this.mStatusOutLoop.setStateDrawable(R.drawable.can_rh7_nxh_up, R.drawable.can_rh7_nxh_dn, R.drawable.can_rh7_nxh_dn);

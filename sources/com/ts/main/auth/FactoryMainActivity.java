@@ -5,27 +5,39 @@ import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.location.GpsSatellite;
 import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.SystemProperties;
+import android.support.v4.view.ViewCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.android.SdkConstants;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.main.common.MainSet;
+import com.ts.main.common.tool;
 import com.txznet.sdk.TXZPoiSearchManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Radio;
+import java.io.File;
+import java.io.FileFilter;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 public class FactoryMainActivity extends Activity implements UserCallBack {
     private static final String TAG = "[scj]Test";
@@ -57,6 +69,7 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
             }
         }
     };
+    int iCCItest = 180;
     ImageView iccidImage;
     TextView iccifInfo;
     TextView imeiInfo;
@@ -91,6 +104,57 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
                 FactoryMainActivity.this.m_dialgo.dismiss();
             }
         }).show();
+        MainSet.GetInstance().RefreshDialog(this, this.m_dialgo);
+    }
+
+    /* access modifiers changed from: package-private */
+    public String GetMenSize() {
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        if (this.mActivityManager == null) {
+            this.mActivityManager = (ActivityManager) getSystemService(SdkConstants.TAG_ACTIVITY);
+        }
+        this.mActivityManager.getMemoryInfo(memoryInfo);
+        long nSize = (memoryInfo.totalMem / 1024) / 1024;
+        if (nSize < 1024) {
+            if (nSize < 512) {
+                return "512MB";
+            }
+            if (nSize < 768) {
+                return "768MB";
+            }
+            return "1G";
+        } else if (nSize <= 1024 || nSize >= 2048) {
+            if (nSize > 2048 && nSize < 3072) {
+                return "3G";
+            }
+            if (nSize <= 3072 || nSize >= 4096) {
+                return "8G";
+            }
+            return "4G";
+        } else if (nSize < 1539) {
+            return "1.5G";
+        } else {
+            return "2G";
+        }
+    }
+
+    private int getNumCores() {
+        try {
+            File[] files = new File("/sys/devices/system/cpu/").listFiles(new FileFilter() {
+                public boolean accept(File pathname) {
+                    if (Pattern.matches("cpu[0-9]", pathname.getName())) {
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            Log.d(TAG, "CPU Count: " + files.length);
+            return files.length;
+        } catch (Exception e) {
+            Log.d(TAG, "CPU Count: Failed.");
+            e.printStackTrace();
+            return 1;
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -104,7 +168,7 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
         this.ImeiImage = (ImageView) findViewById(R.id.image_imei_device);
         this.iccifInfo = (TextView) findViewById(R.id.tex_iccid_device);
         this.iccidImage = (ImageView) findViewById(R.id.image_iccid_device);
-        this.deviceInfo.setText(String.valueOf(ReadCmdLine()) + "  " + MainSet.getNumCores() + "核   内存:" + MainSet.GetInstance().GetMenSize() + "      内部空间:" + MainSet.GetInstance().GetEmmcSize());
+        this.deviceInfo.setText("  " + getNumCores() + "核   内存:" + GetMenSize() + "      内部空间:" + tool.GetInstance().GetEmmcSize());
         this.BtnStartT.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 factory_test.TotalTime = factory_test.getTickCount();
@@ -124,22 +188,7 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
 
     /* access modifiers changed from: package-private */
     public boolean IsWifiVer() {
-        return MainSet.Testmode.KeyType == 2;
-    }
-
-    /* access modifiers changed from: package-private */
-    public String ReadCmdLine() {
-        String str = SystemProperties.get("ro.forfan.modem");
-        if (IsWifiVer()) {
-            return "WIFI版";
-        }
-        if (str.equalsIgnoreCase("modem_ch")) {
-            return "国内版";
-        }
-        if (str.equalsIgnoreCase("modem_fo")) {
-            return "全球通";
-        }
-        return "modem错误";
+        return false;
     }
 
     /* access modifiers changed from: package-private */
@@ -150,9 +199,11 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
     }
 
     public void UserAll() {
-        this.nNUM++;
-        if (this.nNUM % 30 == 0) {
-            MainSet.SendIntent("com.nwd.action.ACTION_NWD_PRODUCTION");
+        if (this.iCCItest > 0) {
+            this.iCCItest--;
+            if (this.iCCItest % 30 == 0) {
+                CheckICCID();
+            }
         }
     }
 
@@ -162,29 +213,47 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
         super.onPause();
     }
 
+    public Bitmap createBarCode(CharSequence content, int BAR_WIDTH, int BAR_HEIGHT) {
+        int i;
+        BarcodeFormat barcodeFormat = BarcodeFormat.CODE_128;
+        BitMatrix result = null;
+        try {
+            result = new MultiFormatWriter().encode(new StringBuilder().append(content).toString(), barcodeFormat, BAR_WIDTH, BAR_HEIGHT, (Map<EncodeHintType, ?>) null);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+        int width = result.getWidth();
+        int height = result.getHeight();
+        int[] pixels = new int[(width * height)];
+        for (int y = 0; y < height; y++) {
+            int offset = y * width;
+            for (int x = 0; x < width; x++) {
+                int i2 = offset + x;
+                if (result.get(x, y)) {
+                    i = ViewCompat.MEASURED_STATE_MASK;
+                } else {
+                    i = -1;
+                }
+                pixels[i2] = i;
+            }
+        }
+        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
+        return bitmap;
+    }
+
     /* access modifiers changed from: package-private */
     public boolean Checkdata() {
         boolean bRet = true;
-        if (MainSet.Testmode.CoreType != 1) {
+        if (MainSet.Testmode.CoreType != 2) {
             ShowOneMessage("主芯片配置错误");
             bRet = false;
         }
         if (bRet) {
-            if (MainSet.Testmode.KeyType == 0 && MainSet.getNumCores() != 4) {
-                ShowOneMessage("核心板不是4核,配置3561,不匹配");
-                bRet = false;
-            }
-            if (MainSet.Testmode.KeyType == 1 && MainSet.getNumCores() != 8) {
-                ShowOneMessage("核心板不是8核,配置3562,不匹配");
-                bRet = false;
-            }
-            if (MainSet.Testmode.KeyType == 2 && MainSet.getNumCores() != 4) {
-                ShowOneMessage("核心板不是4核,配置3561,不匹配");
-                bRet = false;
-            }
+            MainSet.Testmode.KeyType = 0;
         }
         if (bRet) {
-            String MemSize = MainSet.GetInstance().GetMenSize();
+            String MemSize = GetMenSize();
             switch (MainSet.Testmode.ram) {
                 case 0:
                     if (!MemSize.equals("512MB")) {
@@ -252,7 +321,7 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
             }
         }
         if (bRet) {
-            String EmmcSize = MainSet.GetInstance().GetEmmcSize();
+            String EmmcSize = tool.GetInstance().GetEmmcSize();
             switch (MainSet.Testmode.rom) {
                 case 0:
                     if (!EmmcSize.equals("16GB")) {
@@ -284,26 +353,37 @@ public class FactoryMainActivity extends Activity implements UserCallBack {
                     break;
             }
         }
-        if (bRet && !IsWifiVer() && MainSet.Testmode.bIMEI == 1) {
+        if (bRet) {
             TelephonyManager tm = (TelephonyManager) getSystemService("phone");
-            if (tm.getDeviceId() == null || tm.getDeviceId().length() <= 5) {
-                this.imeiInfo.setText("IMEI:错误");
-                ShowOneMessage("IMEI 异常");
-                bRet = false;
-            } else {
-                this.imeiInfo.setText("IMEI:" + tm.getDeviceId());
-                this.ImeiImage.setImageBitmap(factory_test.createBarCode(tm.getDeviceId(), 512, 76));
-            }
-            if (MainSet.Testmode.bSim == 1 && MainSet.Testmode.HardType != 1) {
-                if (tm.getSimSerialNumber() != null) {
-                    this.iccifInfo.setText("ICCID:" + tm.getSimSerialNumber());
-                    this.iccidImage.setImageBitmap(factory_test.createBarCode(tm.getSimSerialNumber(), 512, 76));
+            if (MainSet.Testmode.bIMEI == 1) {
+                if (tm.getDeviceId() == null || tm.getDeviceId().length() <= 5) {
+                    this.imeiInfo.setText("IMEI:错误");
+                    ShowOneMessage("IMEI 异常");
+                    bRet = false;
                 } else {
-                    ShowOneMessage("ICCID 异常");
+                    this.imeiInfo.setText("IMEI:" + tm.getDeviceId());
+                    this.ImeiImage.setImageBitmap(createBarCode(tm.getDeviceId(), 512, 76));
                 }
             }
         }
+        this.iCCItest = 180;
         return bRet;
+    }
+
+    /* access modifiers changed from: package-private */
+    public void CheckICCID() {
+        if (!IsWifiVer()) {
+            TelephonyManager tm = (TelephonyManager) getSystemService("phone");
+            if (MainSet.Testmode.bSim != 1) {
+                return;
+            }
+            if (tm.getSimSerialNumber() != null) {
+                this.iccifInfo.setText("ICCID:" + tm.getSimSerialNumber());
+                this.iccidImage.setImageBitmap(createBarCode(tm.getSimSerialNumber(), 512, 76));
+            } else if (this.iCCItest < 30 && tm.getSimSerialNumber() == null) {
+                ShowOneMessage("ICCID 异常");
+            }
+        }
     }
 
     /* access modifiers changed from: protected */

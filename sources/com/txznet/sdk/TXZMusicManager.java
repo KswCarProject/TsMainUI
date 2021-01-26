@@ -2,6 +2,7 @@ package com.txznet.sdk;
 
 import android.util.Log;
 import android.widget.Toast;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Tr.Tr.Tn;
 import com.txznet.comm.Ty.T9;
@@ -26,7 +27,7 @@ public class TXZMusicManager {
     private static TXZMusicManager TZ = new TXZMusicManager();
 
     /* renamed from: T  reason: collision with root package name */
-    List<MusicToolStatusListener> f748T;
+    List<MusicToolStatusListener> f752T;
     private Object T5 = null;
     Collection<MusicModel> T9 = null;
     private boolean TE = false;
@@ -154,7 +155,7 @@ public class TXZMusicManager {
     public static class MusicModel {
 
         /* renamed from: T  reason: collision with root package name */
-        protected String f754T;
+        protected String f758T;
         protected String T9;
         protected String TE;
         protected String TZ;
@@ -188,11 +189,11 @@ public class TXZMusicManager {
         }
 
         public String getTitle() {
-            return this.f754T;
+            return this.f758T;
         }
 
         public void setTitle(String title) {
-            this.f754T = title;
+            this.f758T = title;
         }
 
         public String getAlbum() {
@@ -230,7 +231,7 @@ public class TXZMusicManager {
         public String toString() {
             try {
                 JSONObject json = new JSONObject();
-                json.put(IConstantData.KEY_TITLE, this.f754T);
+                json.put("title", this.f758T);
                 json.put("album", this.Tr);
                 JSONArray jsonArtists = new JSONArray();
                 if (this.Ty != null) {
@@ -251,8 +252,8 @@ public class TXZMusicManager {
                 }
                 json.put("keywords", jsonKeywords);
                 json.put("field", this.Tk);
-                json.put(TXZCameraManager.REMOTE_NAME_VIDEO_PATH, this.T9);
-                json.put("text", this.TZ);
+                json.put("path", this.T9);
+                json.put(SdkConstants.ATTR_TEXT, this.TZ);
                 json.put("subcategory", this.TE);
                 return json.toString();
             } catch (Exception e) {
@@ -285,12 +286,12 @@ public class TXZMusicManager {
             try {
                 MusicModel model = new MusicModel();
                 Tr jsonBuilder = new Tr(data);
-                model.f754T = (String) jsonBuilder.T(IConstantData.KEY_TITLE, String.class);
+                model.f758T = (String) jsonBuilder.T("title", String.class);
                 model.Tr = (String) jsonBuilder.T("album", String.class);
-                model.T9 = (String) jsonBuilder.T(TXZCameraManager.REMOTE_NAME_VIDEO_PATH, String.class);
+                model.T9 = (String) jsonBuilder.T("path", String.class);
                 model.Ty = (String[]) jsonBuilder.T("artist", String[].class);
                 model.Tn = (String[]) jsonBuilder.T("keywords", String[].class);
-                model.TZ = (String) jsonBuilder.T("text", String.class, "");
+                model.TZ = (String) jsonBuilder.T(SdkConstants.ATTR_TEXT, String.class, TXZResourceManager.STYLE_DEFAULT);
                 model.Tk = ((Integer) jsonBuilder.T("field", Integer.TYPE, 0)).intValue();
                 return model;
             } catch (Exception e) {
@@ -312,25 +313,25 @@ public class TXZMusicManager {
 
     public void addMusicStatusListener(MusicToolStatusListener mtsl) {
         if (mtsl != null) {
-            if (this.f748T == null) {
-                this.f748T = new ArrayList();
+            if (this.f752T == null) {
+                this.f752T = new ArrayList();
             }
             boolean needNotify = false;
-            if (this.f748T.size() < 1) {
+            if (this.f752T.size() < 1) {
                 needNotify = true;
             }
-            this.f748T.add(mtsl);
+            this.f752T.add(mtsl);
             if (needNotify) {
                 TXZService.T("tool.music.status.", new TXZService.T() {
                     public byte[] T(String packageName, String command, byte[] data) {
-                        if (TXZMusicManager.this.f748T != null) {
+                        if (TXZMusicManager.this.f752T != null) {
                             if (command.equals("onStatusChange")) {
                                 int state = 0;
                                 try {
                                     state = Integer.parseInt(new String(data));
                                 } catch (Exception e) {
                                 }
-                                for (MusicToolStatusListener listener : TXZMusicManager.this.f748T) {
+                                for (MusicToolStatusListener listener : TXZMusicManager.this.f752T) {
                                     listener.onStatusChange(state);
                                 }
                             }
@@ -340,7 +341,7 @@ public class TXZMusicManager {
                                     mm = MusicModel.fromString(new String(data));
                                 } catch (Exception e2) {
                                 }
-                                for (MusicToolStatusListener listener2 : TXZMusicManager.this.f748T) {
+                                for (MusicToolStatusListener listener2 : TXZMusicManager.this.f752T) {
                                     listener2.playMusic(mm);
                                 }
                             }
@@ -350,13 +351,13 @@ public class TXZMusicManager {
                                     mm2 = MusicModel.fromString(new String(data));
                                 } catch (Exception e3) {
                                 }
-                                for (MusicToolStatusListener listener3 : TXZMusicManager.this.f748T) {
+                                for (MusicToolStatusListener listener3 : TXZMusicManager.this.f752T) {
                                     listener3.endMusic(mm2);
                                 }
                             }
                             if (command.equals("onProgress")) {
                                 Tr json = new Tr(data);
-                                for (MusicToolStatusListener listener4 : TXZMusicManager.this.f748T) {
+                                for (MusicToolStatusListener listener4 : TXZMusicManager.this.f752T) {
                                     listener4.T(((Integer) json.T(TXZCameraManager.REMOTE_NAME_CAMERA_POSITION, Integer.TYPE)).intValue(), ((Integer) json.T(IConstantData.KEY_DURATION, Integer.TYPE)).intValue());
                                 }
                             }
@@ -371,10 +372,10 @@ public class TXZMusicManager {
 
     public void removeMusicStatusListener(MusicToolStatusListener listener) {
         if (listener != null) {
-            if (this.f748T != null && this.f748T.contains(listener)) {
-                this.f748T.remove(listener);
+            if (this.f752T != null && this.f752T.contains(listener)) {
+                this.f752T.remove(listener);
             }
-            if (this.f748T.size() < 1) {
+            if (this.f752T.size() < 1) {
                 com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.musiclistener.clear", (byte[]) null, (Tn.Tr) null);
             }
         }
@@ -385,7 +386,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = play;
         if (play == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.startappplay", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -396,7 +397,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = play;
         if (play == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.fullscreen", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -405,7 +406,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = visible;
         if (visible == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.backVisible", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -414,7 +415,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = visible;
         if (visible == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.param.tips.show", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -431,7 +432,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = enable;
         if (enable == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.enableFloatingPlayer", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -440,7 +441,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = enable;
         if (enable == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.enableSplash", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -449,7 +450,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = enable;
         if (enable == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.autoJumpPlayerPage", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -458,14 +459,14 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = close;
         if (close == null) {
-            obj = "false";
+            obj = SdkConstants.VALUE_FALSE;
         }
         Tr2.T("com.txznet.music", "music.closeVolume", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
 
     public void setNotOpenAppPName(String[] sContent) {
         Tr builder = new Tr();
-        builder.T(IConstantData.KEY_DATA, (Object) sContent);
+        builder.T("data", (Object) sContent);
         com.txznet.comm.Tr.Tn.Tr().T("com.txznet.music", "music.notOpenAppPName", builder.Ty(), (Tn.Tr) null);
     }
 
@@ -504,7 +505,7 @@ public class TXZMusicManager {
     }
 
     public void triggerShortPlay() {
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.music", "music.triggerShortPlay", "".getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.music", "music.triggerShortPlay", TXZResourceManager.STYLE_DEFAULT.getBytes(), (Tn.Tr) null);
     }
 
     public void setShowExitDialog(boolean enable) {
@@ -525,7 +526,7 @@ public class TXZMusicManager {
             return;
         }
         Tr builder = new Tr();
-        builder.T(IConstantData.KEY_DATA, (Object) paths);
+        builder.T("data", (Object) paths);
         com.txznet.comm.Tr.Tn.Tr().T("com.txznet.music", "music.searchPath", builder.Ty(), (Tn.Tr) null);
     }
 
@@ -533,7 +534,7 @@ public class TXZMusicManager {
         com.txznet.comm.Tr.Tn Tr2 = com.txznet.comm.Tr.Tn.Tr();
         Object obj = need;
         if (need == null) {
-            obj = "true";
+            obj = SdkConstants.VALUE_TRUE;
         }
         Tr2.T("com.txznet.music", "music.needAsr", String.valueOf(obj).getBytes(), (Tn.Tr) null);
     }
@@ -553,14 +554,14 @@ public class TXZMusicManager {
         tool.setStatusListener(new MusicToolStatusListener() {
 
             /* renamed from: T  reason: collision with root package name */
-            Tr f750T = new Tr();
+            Tr f754T = new Tr();
 
             public void onStatusChange() {
                 com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.notifyMusicStatusChange", (byte[]) null, (Tn.Tr) null);
             }
 
             public void onStatusChange(int state) {
-                com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.notifyMusicStatusChange", (state + "").getBytes(), (Tn.Tr) null);
+                com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.notifyMusicStatusChange", (state + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
             }
 
             public void playMusic(MusicModel mm) {
@@ -577,7 +578,7 @@ public class TXZMusicManager {
         TXZService.T("tool.music.", new TXZService.T() {
             public byte[] T(String packageName, String command, byte[] data) {
                 if (command.equals("isPlaying")) {
-                    return ("" + tool.isPlaying()).getBytes();
+                    return (TXZResourceManager.STYLE_DEFAULT + tool.isPlaying()).getBytes();
                 }
                 if (command.equals(InvokeConstants.INVOKE_PLAY)) {
                     if (((Boolean) new Tr(data).T("continue", Boolean.TYPE, false)).booleanValue()) {
@@ -586,7 +587,7 @@ public class TXZMusicManager {
                         tool.continuePlay();
                     }
                     return null;
-                } else if (command.equals("pause")) {
+                } else if (command.equals(InvokeConstants.INVOKE_PAUSE)) {
                     tool.pause();
                     return null;
                 } else if (command.equals(InvokeConstants.INVOKE_EXIT)) {
@@ -595,7 +596,7 @@ public class TXZMusicManager {
                 } else if (command.equals("playMusic")) {
                     tool.playMusic(MusicModel.fromString(new String(data)));
                     return null;
-                } else if (command.equals("next")) {
+                } else if (command.equals(InvokeConstants.INVOKE_NEXT)) {
                     tool.next();
                     return null;
                 } else if (command.equals(InvokeConstants.INVOKE_PREV)) {
@@ -635,7 +636,7 @@ public class TXZMusicManager {
             }
         });
         if (tool instanceof MusicToolEx) {
-            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.settool", (((MusicToolEx) tool).needTts() + "").getBytes(), (Tn.Tr) null);
+            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.settool", (((MusicToolEx) tool).needTts() + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
         } else {
             com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.settool", (byte[]) null, (Tn.Tr) null);
         }
@@ -651,7 +652,7 @@ public class TXZMusicManager {
         TXZService.T(InvokeConstants.INVOKE_PREFIX_MUSIC, new TXZService.T() {
             public byte[] T(String packageName, String command, byte[] data) {
                 Tr params = new Tr(data);
-                if (InvokeConstants.INVOKE_OPEN.equals(command)) {
+                if ("open".equals(command)) {
                     tool.open(((Boolean) params.T(InvokeConstants.INVOKE_PLAY, Boolean.TYPE)).booleanValue());
                     return null;
                 } else if (InvokeConstants.INVOKE_PLAY.equals(command)) {
@@ -660,13 +661,13 @@ public class TXZMusicManager {
                 } else if (InvokeConstants.INVOKE_CONTINUE_PLAY.equals(command)) {
                     tool.continuePlay();
                     return null;
-                } else if ("pause".equals(command)) {
+                } else if (InvokeConstants.INVOKE_PAUSE.equals(command)) {
                     tool.pause();
                     return null;
                 } else if (InvokeConstants.INVOKE_EXIT.equals(command)) {
                     tool.exit();
                     return null;
-                } else if ("next".equals(command)) {
+                } else if (InvokeConstants.INVOKE_NEXT.equals(command)) {
                     tool.next();
                     return null;
                 } else if (InvokeConstants.INVOKE_PREV.equals(command)) {
@@ -697,34 +698,34 @@ public class TXZMusicManager {
                     return tool.getStatus().toStatusString().getBytes();
                 } else {
                     if (InvokeConstants.INVOKE_SUPPORT_LOOP_MODE.equals(command)) {
-                        return ("" + tool.supportLoopMode(PlayerLoopMode.fromModeStr((String) params.T("mode", String.class)))).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportLoopMode(PlayerLoopMode.fromModeStr((String) params.T("mode", String.class)))).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_SUBSCRIBE.equals(command)) {
-                        return ("" + tool.supportSubscribe()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportSubscribe()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_UNSUBSCRIBE.equals(command)) {
-                        return ("" + tool.supportUnSubscribe()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportUnSubscribe()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_COLLECT.equals(command)) {
-                        return ("" + tool.supportCollect()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportCollect()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_UNCOLLECT.equals(command)) {
-                        return ("" + tool.supportUnCollect()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportUnCollect()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_PLAY_SUBSCRIBE.equals(command)) {
-                        return ("" + tool.supportPlaySubscribe()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportPlaySubscribe()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_PLAY_COLLECTION.equals(command)) {
-                        return ("" + tool.supportPlayCollection()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportPlayCollection()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_SEARCH.equals(command)) {
-                        return ("" + tool.supportSearch()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportSearch()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_HAS_NEXT.equals(command)) {
-                        return ("" + tool.hasNext()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.hasNext()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_HAS_PREV.equals(command)) {
-                        return ("" + tool.hasPrev()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.hasPrev()).getBytes();
                     }
                     return null;
                 }
@@ -844,7 +845,7 @@ public class TXZMusicManager {
 
     public void showKuwoSearchResult(boolean show) {
         this.Tn = Boolean.valueOf(show);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.showKuwoSearchResult", ("" + show).getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.music.showKuwoSearchResult", (TXZResourceManager.STYLE_DEFAULT + show).getBytes(), (Tn.Tr) null);
     }
 
     public void syncMuicList(Collection<MusicModel> musics) {

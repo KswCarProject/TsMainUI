@@ -18,6 +18,9 @@ import android.os.Handler;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import com.android.SdkConstants;
+import com.ts.main.common.MainUI;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.txz.util.T9;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +31,7 @@ import java.util.zip.CRC32;
 public class Tr extends Application {
 
     /* renamed from: T  reason: collision with root package name */
-    public static long f416T = 180000;
+    public static long f420T = 180000;
     static String T5;
     static boolean T6 = false;
     public static String T9 = (Environment.getExternalStorageDirectory().getPath() + "/.txz/loader");
@@ -80,12 +83,12 @@ public class Tr extends Application {
 
     public String T() {
         int pid = Process.myPid();
-        for (ActivityManager.RunningAppProcessInfo processInfo : ((ActivityManager) getSystemService("activity")).getRunningAppProcesses()) {
+        for (ActivityManager.RunningAppProcessInfo processInfo : ((ActivityManager) getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningAppProcesses()) {
             if (processInfo.pid == pid) {
                 return processInfo.processName;
             }
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public boolean Tr() {
@@ -149,7 +152,7 @@ public class Tr extends Application {
     private boolean Tn() {
         Ty();
         if (Tr()) {
-            String mLoaderApkVer = this.Th.getString("loader_ver", "");
+            String mLoaderApkVer = this.Th.getString("loader_ver", TXZResourceManager.STYLE_DEFAULT);
             long mLoaderApkLen = this.Th.getLong("loader_len", 0);
             long mLoaderApkCrc = this.Th.getLong("loader_crc", 0);
             try {
@@ -187,7 +190,7 @@ public class Tr extends Application {
         }
         TZ = getApplicationInfo().dataDir + "/dex";
         new File(TZ).mkdirs();
-        Tk = this.Th.getString("apk", (String) null);
+        Tk = this.Th.getString(SdkConstants.EXT_ANDROID_PACKAGE, (String) null);
         if (getApplicationInfo().sourceDir.equals(Tk)) {
             Log.w("TXZAppLoader1.0", "load outter failed: same source apk");
             return false;
@@ -224,7 +227,7 @@ public class Tr extends Application {
                 T("load outter failed: check data failed - length not match " + l1 + "/" + l2, (Throwable) null);
                 return false;
             }
-            if (fApk.lastModified() != this.Th.getLong("time", -1)) {
+            if (fApk.lastModified() != this.Th.getLong(MainUI.NET_TIME_, -1)) {
             }
             TE = getApplicationInfo().dataDir + "/solibs";
             new File(TE).mkdirs();
@@ -300,7 +303,7 @@ public class Tr extends Application {
         if (!fApk.exists()) {
             Log.w("TXZAppLoader1.0", "load inner from apk failed: check data failed - not exist " + fApk.getAbsolutePath());
             return false;
-        } else if (!T9.T(Tk, "classes.dex")) {
+        } else if (!T9.T(Tk, SdkConstants.FN_APK_CLASSES_DEX)) {
             Log.w("TXZAppLoader1.0", "load inner from apk failed: classes.dex not found - " + fApk.getAbsolutePath());
             return false;
         } else {
@@ -363,7 +366,7 @@ public class Tr extends Application {
             Tq = clsAppLogic.getClassLoader();
             try {
                 PackageInfo info = super.getPackageManager().getPackageInfo(getPackageName(), 0);
-                com.txznet.comm.Tn.T.f353T = info.versionCode;
+                com.txznet.comm.Tn.T.f357T = info.versionCode;
                 com.txznet.comm.Tn.T.Tr = info.versionName;
             } catch (Exception e4) {
             }
@@ -374,12 +377,12 @@ public class Tr extends Application {
         }
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:21:0x00ca A[SYNTHETIC, Splitter:B:21:0x00ca] */
-    /* JADX WARNING: Removed duplicated region for block: B:24:0x00cf A[Catch:{ Exception -> 0x018d }] */
-    /* JADX WARNING: Removed duplicated region for block: B:26:0x00d4 A[Catch:{ Exception -> 0x018d }] */
-    /* JADX WARNING: Removed duplicated region for block: B:41:0x016b A[SYNTHETIC, Splitter:B:41:0x016b] */
-    /* JADX WARNING: Removed duplicated region for block: B:44:0x0170 A[Catch:{ Exception -> 0x0187 }] */
-    /* JADX WARNING: Removed duplicated region for block: B:46:0x0175 A[Catch:{ Exception -> 0x0187 }] */
+    /* JADX WARNING: Removed duplicated region for block: B:21:0x00d1 A[SYNTHETIC, Splitter:B:21:0x00d1] */
+    /* JADX WARNING: Removed duplicated region for block: B:24:0x00d6 A[Catch:{ Exception -> 0x019a }] */
+    /* JADX WARNING: Removed duplicated region for block: B:26:0x00db A[Catch:{ Exception -> 0x019a }] */
+    /* JADX WARNING: Removed duplicated region for block: B:41:0x0176 A[SYNTHETIC, Splitter:B:41:0x0176] */
+    /* JADX WARNING: Removed duplicated region for block: B:44:0x017b A[Catch:{ Exception -> 0x0194 }] */
+    /* JADX WARNING: Removed duplicated region for block: B:46:0x0180 A[Catch:{ Exception -> 0x0194 }] */
     /* JADX WARNING: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private boolean Tk() {
@@ -427,68 +430,68 @@ public class Tr extends Application {
             r11 = 0
             r12 = 0
             r16 = 0
-            android.content.res.AssetManager r2 = r20.getAssets()     // Catch:{ Exception -> 0x0190 }
+            android.content.res.AssetManager r2 = r20.getAssets()     // Catch:{ Exception -> 0x019d }
             java.lang.String r3 = "txz.jet"
-            android.content.res.AssetFileDescriptor r11 = r2.openFd(r3)     // Catch:{ Exception -> 0x0190 }
+            android.content.res.AssetFileDescriptor r11 = r2.openFd(r3)     // Catch:{ Exception -> 0x019d }
             r15 = 1
-            boolean r2 = r10.exists()     // Catch:{ Exception -> 0x0190 }
-            if (r2 == 0) goto L_0x0091
-            long r2 = r10.length()     // Catch:{ Exception -> 0x0190 }
-            long r4 = r11.getLength()     // Catch:{ Exception -> 0x0190 }
+            boolean r2 = r10.exists()     // Catch:{ Exception -> 0x019d }
+            if (r2 == 0) goto L_0x0096
+            long r2 = r10.length()     // Catch:{ Exception -> 0x019d }
+            long r4 = r11.getLength()     // Catch:{ Exception -> 0x019d }
             int r2 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r2 != 0) goto L_0x0091
+            if (r2 != 0) goto L_0x0096
             r15 = 0
-        L_0x0091:
-            if (r15 == 0) goto L_0x00da
-            java.io.File r2 = new java.io.File     // Catch:{ Exception -> 0x0190 }
+        L_0x0096:
+            if (r15 == 0) goto L_0x00e1
+            java.io.File r2 = new java.io.File     // Catch:{ Exception -> 0x019d }
             r0 = r19
-            r2.<init>(r0)     // Catch:{ Exception -> 0x0190 }
-            r2.mkdirs()     // Catch:{ Exception -> 0x0190 }
-            java.io.FileInputStream r12 = r11.createInputStream()     // Catch:{ Exception -> 0x0190 }
-            java.io.FileOutputStream r17 = new java.io.FileOutputStream     // Catch:{ Exception -> 0x0190 }
+            r2.<init>(r0)     // Catch:{ Exception -> 0x019d }
+            r2.mkdirs()     // Catch:{ Exception -> 0x019d }
+            java.io.FileInputStream r12 = r11.createInputStream()     // Catch:{ Exception -> 0x019d }
+            java.io.FileOutputStream r17 = new java.io.FileOutputStream     // Catch:{ Exception -> 0x019d }
             r0 = r17
-            r0.<init>(r10)     // Catch:{ Exception -> 0x0190 }
+            r0.<init>(r10)     // Catch:{ Exception -> 0x019d }
             r13 = 0
             r2 = 1048576(0x100000, float:1.469368E-39)
-            byte[] r8 = new byte[r2]     // Catch:{ Exception -> 0x00ba, all -> 0x0189 }
-        L_0x00ad:
-            int r13 = r12.read(r8)     // Catch:{ Exception -> 0x00ba, all -> 0x0189 }
-            if (r13 <= 0) goto L_0x00d8
+            byte[] r8 = new byte[r2]     // Catch:{ Exception -> 0x00bf, all -> 0x0196 }
+        L_0x00b2:
+            int r13 = r12.read(r8)     // Catch:{ Exception -> 0x00bf, all -> 0x0196 }
+            if (r13 <= 0) goto L_0x00df
             r2 = 0
             r0 = r17
-            r0.write(r8, r2, r13)     // Catch:{ Exception -> 0x00ba, all -> 0x0189 }
-            goto L_0x00ad
-        L_0x00ba:
+            r0.write(r8, r2, r13)     // Catch:{ Exception -> 0x00bf, all -> 0x0196 }
+            goto L_0x00b2
+        L_0x00bf:
             r9 = move-exception
             r16 = r17
-        L_0x00bd:
-            r9.printStackTrace()     // Catch:{ all -> 0x0168 }
+        L_0x00c2:
+            r9.printStackTrace()     // Catch:{ all -> 0x0173 }
             java.lang.String r2 = "TXZAppLoader1.0"
             java.lang.String r3 = "load assets failed: unzip assets data failed"
-            android.util.Log.w(r2, r3)     // Catch:{ all -> 0x0168 }
+            android.util.Log.w(r2, r3)     // Catch:{ all -> 0x0173 }
             r2 = 0
-            if (r16 == 0) goto L_0x00cd
-            r16.close()     // Catch:{ Exception -> 0x018d }
-        L_0x00cd:
-            if (r12 == 0) goto L_0x00d2
-            r12.close()     // Catch:{ Exception -> 0x018d }
-        L_0x00d2:
-            if (r11 == 0) goto L_0x00d7
-            r11.close()     // Catch:{ Exception -> 0x018d }
-        L_0x00d7:
+            if (r16 == 0) goto L_0x00d4
+            r16.close()     // Catch:{ Exception -> 0x019a }
+        L_0x00d4:
+            if (r12 == 0) goto L_0x00d9
+            r12.close()     // Catch:{ Exception -> 0x019a }
+        L_0x00d9:
+            if (r11 == 0) goto L_0x00de
+            r11.close()     // Catch:{ Exception -> 0x019a }
+        L_0x00de:
             return r2
-        L_0x00d8:
-            r16 = r17
-        L_0x00da:
-            if (r16 == 0) goto L_0x00df
-            r16.close()     // Catch:{ Exception -> 0x0193 }
         L_0x00df:
-            if (r12 == 0) goto L_0x00e4
-            r12.close()     // Catch:{ Exception -> 0x0193 }
-        L_0x00e4:
-            if (r11 == 0) goto L_0x00e9
-            r11.close()     // Catch:{ Exception -> 0x0193 }
-        L_0x00e9:
+            r16 = r17
+        L_0x00e1:
+            if (r16 == 0) goto L_0x00e6
+            r16.close()     // Catch:{ Exception -> 0x01a0 }
+        L_0x00e6:
+            if (r12 == 0) goto L_0x00eb
+            r12.close()     // Catch:{ Exception -> 0x01a0 }
+        L_0x00eb:
+            if (r11 == 0) goto L_0x00f0
+            r11.close()     // Catch:{ Exception -> 0x01a0 }
+        L_0x00f0:
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             r2.<init>()
             android.content.pm.ApplicationInfo r3 = r20.getApplicationInfo()
@@ -523,61 +526,61 @@ public class Tr extends Application {
             java.lang.ClassLoader r6 = super.getClassLoader()
             r1.<init>(r2, r3, r4, r5, r6)
             java.lang.String r2 = "com.txznet.loader.ApkLoader"
-            java.lang.Class r7 = r1.loadClass(r2)     // Catch:{ Exception -> 0x0179 }
+            java.lang.Class r7 = r1.loadClass(r2)     // Catch:{ Exception -> 0x0184 }
             java.lang.String r2 = "process"
             r3 = 1
-            java.lang.Class[] r3 = new java.lang.Class[r3]     // Catch:{ Exception -> 0x0179 }
+            java.lang.Class[] r3 = new java.lang.Class[r3]     // Catch:{ Exception -> 0x0184 }
             r4 = 0
             java.lang.Class<android.app.Application> r5 = android.app.Application.class
-            r3[r4] = r5     // Catch:{ Exception -> 0x0179 }
-            java.lang.reflect.Method r14 = r7.getDeclaredMethod(r2, r3)     // Catch:{ Exception -> 0x0179 }
+            r3[r4] = r5     // Catch:{ Exception -> 0x0184 }
+            java.lang.reflect.Method r14 = r7.getDeclaredMethod(r2, r3)     // Catch:{ Exception -> 0x0184 }
             r2 = 0
             r3 = 2
-            java.lang.Object[] r3 = new java.lang.Object[r3]     // Catch:{ Exception -> 0x0179 }
+            java.lang.Object[] r3 = new java.lang.Object[r3]     // Catch:{ Exception -> 0x0184 }
             r4 = 0
-            r3[r4] = r20     // Catch:{ Exception -> 0x0179 }
+            r3[r4] = r20     // Catch:{ Exception -> 0x0184 }
             r4 = 1
-            r3[r4] = r1     // Catch:{ Exception -> 0x0179 }
-            r14.invoke(r2, r3)     // Catch:{ Exception -> 0x0179 }
+            r3[r4] = r1     // Catch:{ Exception -> 0x0184 }
+            r14.invoke(r2, r3)     // Catch:{ Exception -> 0x0184 }
             r2 = 1
-            goto L_0x00d7
-        L_0x0168:
-            r2 = move-exception
-        L_0x0169:
-            if (r16 == 0) goto L_0x016e
-            r16.close()     // Catch:{ Exception -> 0x0187 }
-        L_0x016e:
-            if (r12 == 0) goto L_0x0173
-            r12.close()     // Catch:{ Exception -> 0x0187 }
+            goto L_0x00de
         L_0x0173:
-            if (r11 == 0) goto L_0x0178
-            r11.close()     // Catch:{ Exception -> 0x0187 }
-        L_0x0178:
-            throw r2
+            r2 = move-exception
+        L_0x0174:
+            if (r16 == 0) goto L_0x0179
+            r16.close()     // Catch:{ Exception -> 0x0194 }
         L_0x0179:
+            if (r12 == 0) goto L_0x017e
+            r12.close()     // Catch:{ Exception -> 0x0194 }
+        L_0x017e:
+            if (r11 == 0) goto L_0x0183
+            r11.close()     // Catch:{ Exception -> 0x0194 }
+        L_0x0183:
+            throw r2
+        L_0x0184:
             r9 = move-exception
             r9.printStackTrace()
             java.lang.String r2 = "TXZAppLoader1.0"
             java.lang.String r3 = "load assets failed: proccess assets data failed"
             android.util.Log.w(r2, r3)
             r2 = 0
-            goto L_0x00d7
-        L_0x0187:
+            goto L_0x00de
+        L_0x0194:
             r3 = move-exception
-            goto L_0x0178
-        L_0x0189:
+            goto L_0x0183
+        L_0x0196:
             r2 = move-exception
             r16 = r17
-            goto L_0x0169
-        L_0x018d:
+            goto L_0x0174
+        L_0x019a:
             r3 = move-exception
-            goto L_0x00d7
-        L_0x0190:
+            goto L_0x00de
+        L_0x019d:
             r9 = move-exception
-            goto L_0x00bd
-        L_0x0193:
+            goto L_0x00c2
+        L_0x01a0:
             r2 = move-exception
-            goto L_0x00e9
+            goto L_0x00f0
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.base.Tr.Tk():boolean");
     }
@@ -604,20 +607,20 @@ public class Tr extends Application {
         T9(getApplicationInfo().dataDir + "/dexfiles");
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:53:0x0152, code lost:
-        if (T9() != false) goto L_0x0154;
+    /* JADX WARNING: Code restructure failed: missing block: B:53:0x015f, code lost:
+        if (T9() != false) goto L_0x0161;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:54:0x0154, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:54:0x0161, code lost:
         T("onCreate", android.app.Application.class, r18);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:55:0x015d, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:55:0x016b, code lost:
         return;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:59:0x0166, code lost:
-        if (Tn() != false) goto L_0x0154;
+    /* JADX WARNING: Code restructure failed: missing block: B:59:0x0174, code lost:
+        if (Tn() != false) goto L_0x0161;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:65:0x0177, code lost:
-        if (Tk() == false) goto L_0x0179;
+    /* JADX WARNING: Code restructure failed: missing block: B:65:0x0186, code lost:
+        if (Tk() == false) goto L_0x0188;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private void TE() {
@@ -666,7 +669,7 @@ public class Tr extends Application {
             r0.TO = r14
             r1 = 0
             boolean r14 = r18.Tr()
-            if (r14 == 0) goto L_0x0121
+            if (r14 == 0) goto L_0x012a
             r0 = r18
             android.content.SharedPreferences r14 = r0.Th
             java.lang.String r15 = "launchTimes"
@@ -674,64 +677,64 @@ public class Tr extends Application {
             java.lang.String r7 = r14.getString(r15, r16)
             java.lang.String r14 = ";"
             java.lang.String[] r8 = r7.split(r14)
-            if (r8 == 0) goto L_0x00aa
+            if (r8 == 0) goto L_0x00b2
             int r14 = r8.length
             int r15 = Ty
-            if (r14 < r15) goto L_0x00aa
+            if (r14 < r15) goto L_0x00b2
             r14 = 1
             r0 = r18
             r0.TO = r14
             int r14 = r8.length
             int r6 = r14 + -1
-        L_0x008c:
+        L_0x0094:
             int r14 = r8.length
             int r15 = Ty
             int r14 = r14 - r15
-            if (r6 < r14) goto L_0x00aa
+            if (r6 < r14) goto L_0x00b2
             r12 = 0
-            r14 = r8[r6]     // Catch:{ Exception -> 0x0186 }
-            long r12 = java.lang.Long.parseLong(r14)     // Catch:{ Exception -> 0x0186 }
-        L_0x009a:
+            r14 = r8[r6]     // Catch:{ Exception -> 0x0196 }
+            long r12 = java.lang.Long.parseLong(r14)     // Catch:{ Exception -> 0x0196 }
+        L_0x00a2:
             long r14 = java.lang.System.currentTimeMillis()
             long r14 = r14 - r12
             long r16 = Tr
             int r14 = (r14 > r16 ? 1 : (r14 == r16 ? 0 : -1))
-            if (r14 <= 0) goto L_0x00e9
+            if (r14 <= 0) goto L_0x00f1
             r14 = 0
             r0 = r18
             r0.TO = r14
-        L_0x00aa:
+        L_0x00b2:
             long r2 = java.lang.System.currentTimeMillis()
-            if (r8 == 0) goto L_0x00cd
+            if (r8 == 0) goto L_0x00d5
             int r14 = r8.length
             int r15 = Tn
-            if (r14 < r15) goto L_0x00cd
+            if (r14 < r15) goto L_0x00d5
             r1 = 1
             int r14 = r8.length
             int r6 = r14 + -1
-        L_0x00b9:
+        L_0x00c1:
             int r14 = r8.length
             int r15 = Tn
             int r14 = r14 - r15
-            if (r6 < r14) goto L_0x00cd
+            if (r6 < r14) goto L_0x00d5
             r12 = 0
-            r14 = r8[r6]     // Catch:{ Exception -> 0x0183 }
-            long r12 = java.lang.Long.parseLong(r14)     // Catch:{ Exception -> 0x0183 }
-        L_0x00c7:
+            r14 = r8[r6]     // Catch:{ Exception -> 0x0193 }
+            long r12 = java.lang.Long.parseLong(r14)     // Catch:{ Exception -> 0x0193 }
+        L_0x00cf:
             int r14 = (r2 > r12 ? 1 : (r2 == r12 ? 0 : -1))
-            if (r14 >= 0) goto L_0x00ec
+            if (r14 >= 0) goto L_0x00f4
             r8 = 0
             r1 = 0
-        L_0x00cd:
+        L_0x00d5:
             java.lang.StringBuilder r10 = new java.lang.StringBuilder
             r10.<init>()
             int r11 = Tn
-            if (r8 != 0) goto L_0x00f9
+            if (r8 != 0) goto L_0x0101
             r11 = 0
-        L_0x00d7:
+        L_0x00df:
             r6 = r11
-        L_0x00d8:
-            if (r6 <= 0) goto L_0x0100
+        L_0x00e0:
+            if (r6 <= 0) goto L_0x0108
             int r14 = r8.length
             int r14 = r14 - r6
             r14 = r8[r14]
@@ -739,31 +742,31 @@ public class Tr extends Application {
             r14 = 59
             r10.append(r14)
             int r6 = r6 + -1
-            goto L_0x00d8
-        L_0x00e9:
+            goto L_0x00e0
+        L_0x00f1:
             int r6 = r6 + -1
-            goto L_0x008c
-        L_0x00ec:
+            goto L_0x0094
+        L_0x00f4:
             long r14 = r2 - r12
             long r16 = Tr
             int r14 = (r14 > r16 ? 1 : (r14 == r16 ? 0 : -1))
-            if (r14 <= 0) goto L_0x00f6
+            if (r14 <= 0) goto L_0x00fe
             r1 = 0
-            goto L_0x00cd
-        L_0x00f6:
+            goto L_0x00d5
+        L_0x00fe:
             int r6 = r6 + -1
-            goto L_0x00b9
-        L_0x00f9:
+            goto L_0x00c1
+        L_0x0101:
             int r14 = r8.length
             int r15 = Tn
-            if (r14 >= r15) goto L_0x00d7
+            if (r14 >= r15) goto L_0x00df
             int r11 = r8.length
-            goto L_0x00d7
-        L_0x0100:
+            goto L_0x00df
+        L_0x0108:
             long r14 = android.os.SystemClock.elapsedRealtime()
-            long r16 = f416T
+            long r16 = f420T
             int r14 = (r14 > r16 ? 1 : (r14 == r16 ? 0 : -1))
-            if (r14 <= 0) goto L_0x015e
+            if (r14 <= 0) goto L_0x016c
             r10.append(r2)
             r0 = r18
             android.content.SharedPreferences r14 = r0.Th
@@ -772,13 +775,13 @@ public class Tr extends Application {
             java.lang.String r15 = r10.toString()
             r5.putString(r14, r15)
             r5.commit()
-        L_0x0121:
+        L_0x012a:
             r0 = r18
             boolean r14 = r0.TO
-            if (r14 == 0) goto L_0x012a
+            if (r14 == 0) goto L_0x0133
             r18.TZ()
-        L_0x012a:
-            if (r1 == 0) goto L_0x0162
+        L_0x0133:
+            if (r1 == 0) goto L_0x0170
             java.lang.String r14 = "TXZAppLoader1.0"
             java.lang.String r15 = "application need rollback"
             android.util.Log.w(r14, r15)
@@ -792,48 +795,48 @@ public class Tr extends Application {
             r15 = 0
             r0 = r18
             r0.T((java.lang.String) r14, (java.lang.Throwable) r15)
-        L_0x014b:
+        L_0x0158:
             com.txznet.comm.update.T.T((android.content.Context) r18)
-            boolean r14 = r18.T9()     // Catch:{ Exception -> 0x0172 }
-            if (r14 == 0) goto L_0x0173
-        L_0x0154:
+            boolean r14 = r18.T9()     // Catch:{ Exception -> 0x0181 }
+            if (r14 == 0) goto L_0x0182
+        L_0x0161:
             java.lang.String r14 = "onCreate"
             java.lang.Class<android.app.Application> r15 = android.app.Application.class
             r0 = r18
             T((java.lang.String) r14, r15, r0)
             return
-        L_0x015e:
+        L_0x016c:
             com.txznet.T.T.T5()
-            goto L_0x0121
-        L_0x0162:
-            boolean r14 = r18.Tn()     // Catch:{ Exception -> 0x0169 }
-            if (r14 == 0) goto L_0x014b
-            goto L_0x0154
-        L_0x0169:
+            goto L_0x012a
+        L_0x0170:
+            boolean r14 = r18.Tn()     // Catch:{ Exception -> 0x0177 }
+            if (r14 == 0) goto L_0x0158
+            goto L_0x0161
+        L_0x0177:
             r4 = move-exception
             java.lang.String r14 = "load outer exception"
             r0 = r18
             r0.T((java.lang.String) r14, (java.lang.Throwable) r4)
-            goto L_0x014b
-        L_0x0172:
+            goto L_0x0158
+        L_0x0181:
             r14 = move-exception
-        L_0x0173:
-            boolean r14 = r18.Tk()     // Catch:{ Exception -> 0x0181 }
-            if (r14 != 0) goto L_0x0154
-        L_0x0179:
+        L_0x0182:
+            boolean r14 = r18.Tk()     // Catch:{ Exception -> 0x0191 }
+            if (r14 != 0) goto L_0x0161
+        L_0x0188:
             java.lang.RuntimeException r14 = new java.lang.RuntimeException
             java.lang.String r15 = "load application failed"
             r14.<init>(r15)
             throw r14
-        L_0x0181:
+        L_0x0191:
             r14 = move-exception
-            goto L_0x0179
-        L_0x0183:
+            goto L_0x0188
+        L_0x0193:
             r14 = move-exception
-            goto L_0x00c7
-        L_0x0186:
+            goto L_0x00cf
+        L_0x0196:
             r14 = move-exception
-            goto L_0x009a
+            goto L_0x00a2
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.base.Tr.TE():void");
     }

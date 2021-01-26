@@ -1,17 +1,20 @@
 package com.ts.can.vw.golf.wc;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
+import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
@@ -29,6 +32,7 @@ public class CanGolfWcSeatDriveProfileActivity extends CanBaseActivity implement
     private static final int ITEM_YUEYE = 7;
     private static final int ITEM_YUEYEGXH = 8;
     public static boolean isEnd = false;
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private HorizontalScrollView hsv;
     private ParamButton mBtnNext;
     private ParamButton mBtnPre;
@@ -36,6 +40,7 @@ public class CanGolfWcSeatDriveProfileActivity extends CanBaseActivity implement
     private int mCount = 0;
     private ParamButton[] mDrvieProfiles = new ParamButton[8];
     private int[] mItemIds = {1, 2, 3, 4, 5, 6, 7, 8};
+    protected RelativeLayoutManager mManager;
     private CanDataInfo.GolfWcDrivingModeSelection mProfileAdt = new CanDataInfo.GolfWcDrivingModeSelection();
     private CanDataInfo.GolfWcDrivingModeSelection mProfileData = new CanDataInfo.GolfWcDrivingModeSelection();
     private int[] mProfileDnIds = {R.drawable.can_dzjcms_car02_dn, R.drawable.can_dzjcms_car02_dn, R.drawable.can_dzjcms_car03_dn, R.drawable.can_dzjcms_car01_dn, R.drawable.can_dzjcms_car04_dn, R.drawable.can_dzjcms_car05_dn, R.drawable.can_dzjcms_car07_dn, R.drawable.can_dzjcms_car08_dn};
@@ -46,27 +51,18 @@ public class CanGolfWcSeatDriveProfileActivity extends CanBaseActivity implement
     public void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.activity_can_golf_seat_drive_profile);
-        RelativeLayoutManager manager = new RelativeLayoutManager(this, R.id.can_golf_seat_drive_profile_layout);
-        this.mBtnPre = manager.AddButton(22, 195);
-        this.mBtnPre.setStateUpDn(R.drawable.lin_ac_bel_up_up, R.drawable.lin_ac_bel_up_dn);
-        this.mBtnPre.setOnClickListener(this);
-        this.mBtnPre.setTag(10);
-        this.mBtnPre.Show(false);
-        this.mBtnNext = manager.AddButton(947, 195);
-        this.mBtnNext.setStateUpDn(R.drawable.lin_ac_bel_dn_up, R.drawable.lin_ac_bel_dn_dn);
-        this.mBtnNext.setOnClickListener(this);
-        this.mBtnNext.setTag(11);
-        this.mBtnNext.Show(false);
-        this.hsv = new HorizontalScrollView(this);
-        this.hsv.setHorizontalScrollBarEnabled(false);
-        this.hsv.setHorizontalFadingEdgeEnabled(false);
-        manager.AddView(this.hsv, 115, Can.CAN_JAC_REFINE_OD, 812, 184);
-        this.mContainer = new LinearLayout(this);
-        this.mContainer.setOrientation(0);
-        this.mContainer.setGravity(16);
-        this.mContainer.setLayoutParams(new ViewGroup.LayoutParams(812, 184));
-        this.hsv.addView(this.mContainer);
+        this.mManager = new RelativeLayoutManager(this, R.id.can_golf_seat_drive_profile_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
         InitUI();
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     private ParamButton AddButton(int w, int h) {
@@ -80,6 +76,25 @@ public class CanGolfWcSeatDriveProfileActivity extends CanBaseActivity implement
     }
 
     private void InitUI() {
+        this.mBtnPre = this.mManager.AddButton(22, 195);
+        this.mBtnPre.setStateUpDn(R.drawable.lin_ac_bel_up_up, R.drawable.lin_ac_bel_up_dn);
+        this.mBtnPre.setOnClickListener(this);
+        this.mBtnPre.setTag(10);
+        this.mBtnPre.Show(false);
+        this.mBtnNext = this.mManager.AddButton(947, 195);
+        this.mBtnNext.setStateUpDn(R.drawable.lin_ac_bel_dn_up, R.drawable.lin_ac_bel_dn_dn);
+        this.mBtnNext.setOnClickListener(this);
+        this.mBtnNext.setTag(11);
+        this.mBtnNext.Show(false);
+        this.hsv = new HorizontalScrollView(this);
+        this.hsv.setHorizontalScrollBarEnabled(false);
+        this.hsv.setHorizontalFadingEdgeEnabled(false);
+        this.mManager.AddView(this.hsv, 115, 150, 812, 184);
+        this.mContainer = new LinearLayout(this);
+        this.mContainer.setOrientation(0);
+        this.mContainer.setGravity(16);
+        this.mContainer.setLayoutParams(new ViewGroup.LayoutParams(812, 184));
+        this.hsv.addView(this.mContainer);
         for (int i = 0; i < this.mDrvieProfiles.length; i++) {
             this.mDrvieProfiles[i] = AddButton(190, 184);
             this.mDrvieProfiles[i].setStateDrawable(this.mProfileUpIds[i], this.mProfileDnIds[i], this.mProfileDnIds[i]);

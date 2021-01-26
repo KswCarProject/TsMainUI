@@ -20,7 +20,7 @@ public class Tx extends Ts {
             int val = lexer.TK();
             lexer.T(16);
             if (object == null) {
-                fieldValues.put(this.f170T.Ty(), Integer.valueOf(val));
+                fieldValues.put(this.f173T.Ty(), Integer.valueOf(val));
             } else {
                 T(object, val);
             }
@@ -33,7 +33,7 @@ public class Tx extends Ts {
             }
             if (value != null || Tn() != Integer.TYPE) {
                 if (object == null) {
-                    fieldValues.put(this.f170T.Ty(), value);
+                    fieldValues.put(this.f173T.Ty(), value);
                 } else {
                     T(object, (Object) value);
                 }

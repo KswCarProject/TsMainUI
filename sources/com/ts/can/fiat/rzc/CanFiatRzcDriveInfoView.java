@@ -11,10 +11,12 @@ import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.canview.CanNumInuptDlg;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanFiatRzcDriveInfoView extends CanRelativeCarInfoView implements CanNumInuptDlg.onInputOK {
@@ -63,7 +65,7 @@ public class CanFiatRzcDriveInfoView extends CanRelativeCarInfoView implements C
                 return;
             case 3:
                 if (1 == this.mCurPage) {
-                    CanJni.FiatRzcCarSet(241, 1);
+                    CanJni.FiatRzcCarSet(Can.CAN_SITECHDEV_CW, 1);
                     return;
                 } else {
                     CanJni.FiatRzcCarSet(Can.CAN_MZD_LUOMU, 1);
@@ -94,7 +96,7 @@ public class CanFiatRzcDriveInfoView extends CanRelativeCarInfoView implements C
         this.mManager.AddImage(35, 17, R.drawable.can_psa_bg);
         this.mBtnLt[0] = AddBtn(0, 66, 41, R.drawable.can_psa_car_up, R.drawable.can_psa_car_dn);
         this.mBtnLt[1] = AddBtn(1, 66, Can.CAN_LEXUS_ZMYT, R.drawable.can_psa_01_up, R.drawable.can_psa_01_dn);
-        this.mBtnLt[2] = AddBtn(2, 66, 370, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
+        this.mBtnLt[2] = AddBtn(2, 66, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
         this.mBtnDelLog = this.mManager.AddButton(CanCameraUI.BTN_GEELY_YJX6_FXP, 408, Can.CAN_LEXUS_IZ, 77);
         SetCommBtn(this.mBtnDelLog, R.string.can_clear, 3, this);
         this.mIvIco0[0] = this.mManager.AddImage(285, 170, R.drawable.can_psa_icon_oil);
@@ -240,7 +242,7 @@ public class CanFiatRzcDriveInfoView extends CanRelativeCarInfoView implements C
             case 3:
                 return "MPG";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

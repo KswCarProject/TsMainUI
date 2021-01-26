@@ -12,6 +12,7 @@ import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGMWcTPMSView extends CanRelativeCarInfoView {
     protected CustomImgView[] mIvTyres;
@@ -75,13 +76,13 @@ public class CanGMWcTPMSView extends CanRelativeCarInfoView {
     }
 
     private void updateWarnStr(int index, int[] warns) {
-        String str = "";
+        String str = TXZResourceManager.STYLE_DEFAULT;
         for (int i = 0; i < warns.length; i++) {
             if (i2b(warns[i])) {
                 str = this.mWarnsArray[i];
             }
         }
-        if ("".equals(str)) {
+        if (TXZResourceManager.STYLE_DEFAULT.equals(str)) {
             str = this.mWarnsArray[3];
             this.mTvWarns[index].setTextColor(-1);
             this.mIvTyres[index].setSelected(false);

@@ -21,6 +21,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     public static final int ITEM_AVM_DSZXDZDJH = 65;
     public static final int ITEM_AVM_TITLE = 64;
     public static final int ITEM_BASE_TITLE = 1;
+    public static final int ITEM_BSZDGC = 8;
     public static final int ITEM_CDFZ_CSYJ = 54;
     public static final int ITEM_CDFZ_CSYJPC = 55;
     public static final int ITEM_CDFZ_CSYJTSY = 56;
@@ -31,6 +32,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     public static final int ITEM_CDFZ_YJFS = 51;
     public static final int ITEM_CDFZ_ZDQD = 53;
     public static final int ITEM_DCHYGFZ = 3;
+    public static final int ITEM_DLMS = 98;
     public static final int ITEM_HFYJ_BXFZ = 80;
     public static final int ITEM_HFYJ_DCHXYJ = 81;
     public static final int ITEM_HFYJ_HZWYJ = 82;
@@ -38,8 +40,9 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     public static final int ITEM_HFYJ_TITLE = 73;
     public static final int ITEM_HSJZDDJ = 2;
     public static final int ITEM_JCSZSYXH = 17;
+    public static final int ITEM_JSMS = 100;
     public static final int ITEM_JSMSJY = 87;
-    private static final int ITEM_MAX = 97;
+    private static final int ITEM_MAX = 100;
     public static final int ITEM_MBTSY = 18;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_QFZFZ_QFZYJ = 33;
@@ -49,6 +52,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     public static final int ITEM_SYSTEM_SET_LANG = 96;
     public static final int ITEM_SYSTEM_SET_THEME = 97;
     public static final int ITEM_SYSTEM_SET_TITLE = 89;
+    public static final int ITEM_WXCDKGGN = 10;
     public static final int ITEM_XH_TITLE = 16;
     public static final int ITEM_YBTSY1 = 4;
     public static final int ITEM_YBTSY2 = 5;
@@ -57,21 +61,28 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     public static final int ITEM_YCMQYX_TITLE = 84;
     public static final int ITEM_YCMQYX_ZXDZDJH = 85;
     public static final int ITEM_YLDX = 88;
+    public static final int ITEM_ZJCMDDJS = 9;
+    public static final int ITEM_ZNYB = 7;
+    public static final int ITEM_ZXMS = 99;
     public static final String TAG = "CanCs75CarDriveAssisActivity";
     private static final int[] mCdfzGnxzArr = {R.string.can_cdfz_jyj, R.string.can_cdfz_jjp, R.string.can_cdfz_yjjp};
     private static final int[] mCdfzYjfsArr = {R.string.can_type_vol, R.string.can_cdfz_zd, R.string.can_cdfz_syzd};
     private static final int[] mCdfzZdqd = {R.string.can_cdjg, R.string.can_mode_normal, R.string.can_cdjd};
     private static final int[] mCdfzlmdArr = {R.string.can_sensitivity_high, R.string.can_cdpyyzxt_1};
+    private static final int[] mDlmsArrays = {R.string.can_comfort, R.string.can_sport, R.string.can_eco};
+    private static final int[] mJsmsArrays = {R.string.can_comfort, R.string.can_sport, R.string.can_eco, R.string.can_individual};
     private static final int[] mLanguageArrays = {R.string.can_lang_cn, R.string.can_lang_en};
     private static final int[] mMbtisArr = {R.string.can_trunk_close, R.string.can_mbtsy_jsbts, R.string.can_mbtsy_jxsts, R.string.can_mbtsy_sbxsjts};
     private static final int[] mQpzyjlmdArr = {R.string.can_sensitivity_high, R.string.can_cdpyyzxt_1, R.string.can_sensitivity_low};
     private static final int[] mThemeArrays = {R.string.can_mzd_cx4_drive_auto, R.string.can_psa_eq_classic, R.string.can_sport, R.string.can_kj};
     private static final int[] mVolArrays = {R.string.can_mzd_cx4_voice_low, R.string.can_mzd_cx4_voice_middle, R.string.can_mzd_cx4_voice_high};
     private static String[] mYbtsyArr;
+    private static final int[] mZxmsArrays = {R.string.can_comfort, R.string.can_sport, R.string.can_light_qb};
     protected CanItemSwitchList mItemAvmCqldzdjh;
     protected CanItemSwitchList mItemAvmDszxdzdjh;
     private CanItemBlankTextList mItemAvmTitle;
     private CanItemBlankTextList mItemBaseTitle;
+    protected CanItemSwitchList mItemBszdgc;
     protected CanItemSwitchList mItemCdfzCsyj;
     protected CanItemProgressList mItemCdfzCsyjpc;
     protected CanItemSwitchList mItemCdfzCsyjtsy;
@@ -82,6 +93,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     protected CanItemPopupList mItemCdfzYjfs;
     protected CanItemPopupList mItemCdfzZdqd;
     protected CanItemSwitchList mItemDchygfz;
+    protected CanItemPopupList mItemDlms;
     protected CanItemSwitchList mItemHfyjBxfz;
     protected CanItemSwitchList mItemHfyjDchxyj;
     protected CanItemSwitchList mItemHfyjHzwyj;
@@ -89,6 +101,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     private CanItemBlankTextList mItemHfyjTitle;
     protected CanItemSwitchList mItemHsjzddj;
     protected CanItemSwitchList mItemJcszsyxh;
+    protected CanItemPopupList mItemJsms;
     protected CanItemSwitchList mItemJsmsjy;
     protected CanItemPopupList mItemLanguge;
     protected CanItemPopupList mItemMbtsy;
@@ -97,6 +110,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     protected CanItemPopupList mItemQpzyjlmd;
     private CanItemBlankTextList mItemSystemSetTitle;
     protected CanItemPopupList mItemTheme;
+    protected CanItemSwitchList mItemWxcdkggn;
     private CanItemBlankTextList mItemXhTitle;
     protected CanItemPopupList mItemYbtsy1;
     protected CanItemPopupList mItemYbtsy2;
@@ -106,6 +120,9 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
     protected CanItemSwitchList mItemYcmqyxZxdzdjh;
     protected CanItemPopupList mItemYldx;
     protected CanItemSwitchList mItemZdjjzd;
+    protected CanItemSwitchList mItemZjcmddjs;
+    protected CanItemSwitchList mItemZnyb;
+    protected CanItemPopupList mItemZxms;
     private CanScrollList mManager;
     protected CanDataInfo.CS75CarInfo mSetData = new CanDataInfo.CS75CarInfo();
     private boolean mbLayout;
@@ -263,12 +280,40 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
             this.mSetData.LangUpdate = 0;
             this.mItemLanguge.SetSel(this.mSetData.Lang - 1);
         }
-        if (!i2b(this.mSetData.YbztUpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mSetData.YbztUpdate)) {
+        if (i2b(this.mSetData.YbztUpdateOnce) && (!check || i2b(this.mSetData.YbztUpdate))) {
             this.mSetData.YbztUpdate = 0;
             this.mItemTheme.SetSel(this.mSetData.Ybzt - 1);
+        }
+        if (i2b(this.mSetData.ZnybUpdateOnce) && (!check || i2b(this.mSetData.ZnybUpdate))) {
+            this.mSetData.ZnybUpdate = 0;
+            this.mItemZnyb.SetCheck(SwSet(this.mSetData.Znyb));
+        }
+        if (i2b(this.mSetData.BszdgcUpdateOnce) && (!check || i2b(this.mSetData.BszdgcUpdate))) {
+            this.mSetData.BszdgcUpdate = 0;
+            this.mItemBszdgc.SetCheck(SwSet(this.mSetData.Bszdgc));
+        }
+        if (i2b(this.mSetData.ZjcmddjsUpdateOnce) && (!check || i2b(this.mSetData.ZjcmddjsUpdate))) {
+            this.mSetData.ZjcmddjsUpdate = 0;
+            this.mItemZjcmddjs.SetCheck(SwSet(this.mSetData.Zjcmddjs));
+        }
+        if (i2b(this.mSetData.DlmsUpdateOnce) && (!check || i2b(this.mSetData.DlmsUpdate))) {
+            this.mSetData.DlmsUpdate = 0;
+            this.mItemDlms.SetSel(this.mSetData.Dlms - 1);
+        }
+        if (i2b(this.mSetData.ZxmsUpdateOnce) && (!check || i2b(this.mSetData.ZxmsUpdate))) {
+            this.mSetData.ZxmsUpdate = 0;
+            this.mItemZxms.SetSel(this.mSetData.Zxms - 1);
+        }
+        if (i2b(this.mSetData.JsmsUpdateOnce) && (!check || i2b(this.mSetData.JsmsUpdate))) {
+            this.mSetData.JsmsUpdate = 0;
+            this.mItemJsms.SetSel(this.mSetData.Jsms - 1);
+        }
+        if (!i2b(this.mSetData.WxcdkggnUpdateOnce)) {
+            return;
+        }
+        if (!check || i2b(this.mSetData.WxcdkggnUpdate)) {
+            this.mSetData.WxcdkggnUpdate = 0;
+            this.mItemWxcdkggn.SetCheck(this.mSetData.Wxcdkggn - 1);
         }
     }
 
@@ -303,6 +348,8 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
         CanJni.Cs75CarQuery(82, 57);
         Sleep(10);
         CanJni.Cs75CarQuery(82, 58);
+        Sleep(10);
+        CanJni.Cs75CarQuery(82, 73);
     }
 
     /* access modifiers changed from: protected */
@@ -332,6 +379,10 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
         this.mItemYbtsy3 = AddPopupItem(R.string.can_bjtsy, mYbtsyArr, 6);
         this.mItemYldx = AddPopupItem(R.string.can_metert_vol, mVolArrays, 88);
         this.mItemJsmsjy = AddCheckItem(R.string.can_jsmsjy, 87);
+        this.mItemZnyb = AddCheckItem(R.string.can_znyb, 7);
+        this.mItemBszdgc = AddCheckItem(R.string.can_geely_boy_bscmzdgc, 8);
+        this.mItemZjcmddjs = AddCheckItem(R.string.can_zjcmddjs, 9);
+        this.mItemWxcdkggn = AddCheckItem(R.string.can_wxcd, 10);
         this.mItemXhTitle = AddTitleItem(R.string.can_cruise_crl);
         this.mItemJcszsyxh = AddCheckItem(R.string.can_cruise_jcszsyxh, 17);
         this.mItemMbtsy = AddPopupItem(R.string.can_cruise_mbtsy, mMbtisArr, 18);
@@ -364,11 +415,14 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
         this.mItemSystemSetTitle = AddTitleItem(R.string.can_system);
         this.mItemLanguge = AddPopupItem(R.string.can_language, mLanguageArrays, 96);
         this.mItemTheme = AddPopupItem(R.string.can_theme, mThemeArrays, 97);
+        this.mItemDlms = AddPopupItem(R.string.can_power_mode, mDlmsArrays, 98);
+        this.mItemZxms = AddPopupItem(R.string.can_zxms, mZxmsArrays, 99);
+        this.mItemJsms = AddPopupItem(R.string.can_psa_wc_jsms, mJsmsArrays, 100);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 97; i++) {
+        for (int i = 1; i <= 100; i++) {
             ShowItem(i);
         }
     }
@@ -415,6 +469,30 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 0;
                     break;
                 }
+            case 7:
+                if (CanJni.GetSubType() == 15) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 8:
+                if (CanJni.GetSubType() == 15) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 9:
+                if (CanJni.GetSubType() == 15) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 10:
+                if (CanJni.GetSubType() == 18) {
+                    ret = 1;
+                    break;
+                }
+                break;
             case 16:
                 if (CanJni.GetSubType() != 11 && CanJni.GetSubType() != 12) {
                     ret = 1;
@@ -471,7 +549,6 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 0;
                     break;
                 }
-                break;
             case 48:
                 if (CanJni.GetSubType() != 11 && CanJni.GetSubType() != 12) {
                     ret = 1;
@@ -507,6 +584,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 0;
                     break;
                 }
+                break;
             case 52:
                 if (CanJni.GetSubType() != 11 && CanJni.GetSubType() != 12) {
                     ret = 1;
@@ -549,6 +627,7 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 0;
                     break;
                 }
+                break;
             case 64:
                 if (CanJni.GetSubType() != 11 && CanJni.GetSubType() != 12) {
                     ret = 1;
@@ -565,7 +644,6 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 0;
                     break;
                 }
-                break;
             case 66:
                 if (CanJni.GetSubType() != 11 && CanJni.GetSubType() != 12) {
                     ret = 1;
@@ -607,7 +685,6 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 0;
                     break;
                 }
-                break;
             case 83:
                 if (CanJni.GetSubType() != 11 && CanJni.GetSubType() != 12) {
                     ret = 1;
@@ -633,7 +710,6 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 1;
                     break;
                 }
-                break;
             case 86:
                 if (CanJni.GetSubType() != 12) {
                     ret = 0;
@@ -672,6 +748,24 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                     ret = 1;
                     break;
                 }
+            case 98:
+                if (CanJni.GetSubType() == 15) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 99:
+                if (CanJni.GetSubType() == 15) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 100:
+                if (CanJni.GetSubType() == 15) {
+                    ret = 1;
+                    break;
+                }
+                break;
         }
         return i2b(ret);
     }
@@ -697,6 +791,18 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                 return;
             case 6:
                 this.mItemYbtsy3.ShowGone(show);
+                return;
+            case 7:
+                this.mItemZnyb.ShowGone(show);
+                return;
+            case 8:
+                this.mItemBszdgc.ShowGone(show);
+                return;
+            case 9:
+                this.mItemZjcmddjs.ShowGone(show);
+                return;
+            case 10:
+                this.mItemWxcdkggn.ShowGone(show);
                 return;
             case 16:
                 this.mItemXhTitle.ShowGone(show);
@@ -794,6 +900,15 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
             case 97:
                 this.mItemTheme.ShowGone(show);
                 return;
+            case 98:
+                this.mItemDlms.ShowGone(show);
+                return;
+            case 99:
+                this.mItemZxms.ShowGone(show);
+                return;
+            case 100:
+                this.mItemJsms.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -850,6 +965,18 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                 return;
             case 3:
                 CanJni.Cs75CarSet(2, NegSwSet(this.mSetData.Dchygfz));
+                return;
+            case 7:
+                CanJni.Cs75CarSet(60, NegSwSet(this.mSetData.Znyb));
+                return;
+            case 8:
+                CanJni.Cs75CarSet(61, NegSwSet(this.mSetData.Bszdgc));
+                return;
+            case 9:
+                CanJni.Cs75CarSet(62, NegSwSet(this.mSetData.Zjcmddjs));
+                return;
+            case 10:
+                CanJni.Cs75CarSet(73, NegSwSet(this.mSetData.Wxcdkggn));
                 return;
             case 17:
                 CanJni.Cs75CarSet(27, NegSwSet(this.mSetData.Jcszsyxh));
@@ -942,6 +1069,15 @@ public class CanCs75CarDriveAssisActivity extends CanBaseActivity implements Vie
                 return;
             case 97:
                 CanJni.Cs75CarSet(58, item + 1);
+                return;
+            case 98:
+                CanJni.Cs75CarSet(63, item + 1);
+                return;
+            case 99:
+                CanJni.Cs75CarSet(64, item + 1);
+                return;
+            case 100:
+                CanJni.Cs75CarSet(66, item + 1);
                 return;
             default:
                 return;

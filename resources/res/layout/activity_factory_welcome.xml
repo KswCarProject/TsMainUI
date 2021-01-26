@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView android:textSize="20sp" android:textColor="#ff00ff00" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="320px" android:layout_marginTop="30px" android:text="欢迎使用腾实4G测试系统V2.0"/>
+    <TextView android:textSize="20sp" android:textColor="#ff00ff00" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="320px" android:layout_marginTop="30px" android:text="欢迎使用腾实8259测试系统V3.0"/>
     <TextView android:textSize="20sp" android:textColor="#ffff0000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="320px" android:layout_marginTop="90px" android:text="非专用测试夹具请勿点击开始测试"/>
     <TextView android:textSize="20sp" android:textColor="#ffffffff" android:id="@+id/btn_fatctory_device" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="340px" android:layout_marginTop="150px" android:text=""/>
     <ImageView android:id="@+id/image_imei_device" android:layout_width="512px" android:layout_height="76px" android:layout_marginLeft="340px" android:layout_marginTop="200px"/>

@@ -13,7 +13,6 @@ import com.ts.can.CanBaseACView;
 import com.ts.can.CanCameraUI;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanBydS6S7ACView extends CanBaseACView {
     private static final int CLOSED = 16;
@@ -129,7 +128,7 @@ public class CanBydS6S7ACView extends CanBaseACView {
     /* access modifiers changed from: protected */
     public void InitData() {
         setBackgroundResource(R.drawable.can_rh7_bg);
-        this.mAutoMode = getRelativeManager().AddCusText(KeyDef.RKEY_AMS, 426, 118, 30);
+        this.mAutoMode = getRelativeManager().AddCusText(295, 426, 118, 30);
         this.mAutoMode.setTextColor(-1);
         this.mAutoMode.setTextSize(12.0f);
         this.mAutoMode.setText("AUTO");
@@ -153,13 +152,13 @@ public class CanBydS6S7ACView extends CanBaseACView {
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addS6S7Image(191, 198, mIcons[i]);
         }
-        this.mACMode[0] = addS6S7Button(KeyDef.RKEY_MEDIA_ANGLE, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        this.mACMode[1] = addS6S7Button(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_DFFG_S560, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        this.mACMode[2] = addS6S7Button(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 9);
+        this.mACMode[0] = addS6S7Button(305, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        this.mACMode[1] = addS6S7Button(305, Can.CAN_DFFG_S560, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        this.mACMode[2] = addS6S7Button(305, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 9);
         this.mStatusOutLoop = addS6S7Button(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 182, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 12);
         this.mStatusWindow = addS6S7Button(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 70, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 10);
-        this.mStatusRearWin = addS6S7Button(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_AMS, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 14);
-        this.mStatusAc = addS6S7Button(757, KeyDef.RKEY_AMS, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
+        this.mStatusRearWin = addS6S7Button(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 295, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 14);
+        this.mStatusAc = addS6S7Button(757, 295, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
         this.mStatusDual = addS6S7Button(757, 70, R.drawable.can_rh7_dual_up, R.drawable.can_rh7_dual_dn, 11);
         this.mStatusAuto = addS6S7Button(757, 182, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn, 13);
         this.mStatusPower = addS6S7Button(462, 406, R.drawable.can_rh7_del_up, R.drawable.can_rh7_del_dn, 16);

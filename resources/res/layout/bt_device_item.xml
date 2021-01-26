@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@android:color/transparent" android:layout_width="278px" android:layout_height="58px" android:minWidth="278px" android:minHeight="58px">
+    <TextView android:textSize="22px" android:textColor="@drawable/bt_pb_item_selector" android:ellipsize="end" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/btDeviceName" android:background="@drawable/bt_bluetooth_list_up" android:paddingLeft="20px" android:paddingRight="60px" android:layout_width="match_parent" android:layout_height="match_parent" android:text="iPhone 4s" android:singleLine="true" android:drawableLeft="@drawable/bt_connect_link" android:drawablePadding="10px"/>
+    <Button android:gravity="center_vertical" android:id="@+id/btnDelete" android:background="@drawable/bt_connect_delete" android:layout_width="58px" android:layout_height="58px" android:layout_marginRight="10px" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

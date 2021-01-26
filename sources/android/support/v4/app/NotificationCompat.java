@@ -944,13 +944,13 @@ public class NotificationCompat {
                 if (pages != null) {
                     Collections.addAll(this.mPages, pages);
                 }
-                this.mBackground = (Bitmap) wearableBundle.getParcelable(KEY_BACKGROUND);
+                this.mBackground = (Bitmap) wearableBundle.getParcelable("background");
                 this.mContentIcon = wearableBundle.getInt(KEY_CONTENT_ICON);
                 this.mContentIconGravity = wearableBundle.getInt(KEY_CONTENT_ICON_GRAVITY, 8388613);
                 this.mContentActionIndex = wearableBundle.getInt(KEY_CONTENT_ACTION_INDEX, -1);
                 this.mCustomSizePreset = wearableBundle.getInt(KEY_CUSTOM_SIZE_PRESET, 0);
                 this.mCustomContentHeight = wearableBundle.getInt(KEY_CUSTOM_CONTENT_HEIGHT);
-                this.mGravity = wearableBundle.getInt(KEY_GRAVITY, 80);
+                this.mGravity = wearableBundle.getInt("gravity", 80);
             }
         }
 
@@ -969,7 +969,7 @@ public class NotificationCompat {
                 wearableBundle.putParcelableArray(KEY_PAGES, (Parcelable[]) this.mPages.toArray(new Notification[this.mPages.size()]));
             }
             if (this.mBackground != null) {
-                wearableBundle.putParcelable(KEY_BACKGROUND, this.mBackground);
+                wearableBundle.putParcelable("background", this.mBackground);
             }
             if (this.mContentIcon != 0) {
                 wearableBundle.putInt(KEY_CONTENT_ICON, this.mContentIcon);
@@ -987,7 +987,7 @@ public class NotificationCompat {
                 wearableBundle.putInt(KEY_CUSTOM_CONTENT_HEIGHT, this.mCustomContentHeight);
             }
             if (this.mGravity != 80) {
-                wearableBundle.putInt(KEY_GRAVITY, this.mGravity);
+                wearableBundle.putInt("gravity", this.mGravity);
             }
             builder.getExtras().putBundle(EXTRA_WEARABLE_EXTENSIONS, wearableBundle);
             return builder;

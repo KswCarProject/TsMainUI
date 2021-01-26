@@ -13,7 +13,7 @@ import java.lang.ref.WeakReference;
 public abstract class Ty implements T {
 
     /* renamed from: T  reason: collision with root package name */
-    protected Reference<View> f326T;
+    protected Reference<View> f329T;
     protected boolean Tr;
 
     /* access modifiers changed from: protected */
@@ -30,12 +30,12 @@ public abstract class Ty implements T {
         if (view == null) {
             throw new IllegalArgumentException("view must not be null");
         }
-        this.f326T = new WeakReference(view);
+        this.f329T = new WeakReference(view);
         this.Tr = checkActualViewSize;
     }
 
     public int T() {
-        View view = this.f326T.get();
+        View view = this.f329T.get();
         if (view == null) {
             return 0;
         }
@@ -51,7 +51,7 @@ public abstract class Ty implements T {
     }
 
     public int Tr() {
-        View view = this.f326T.get();
+        View view = this.f329T.get();
         if (view == null) {
             return 0;
         }
@@ -71,21 +71,21 @@ public abstract class Ty implements T {
     }
 
     public View Tn() {
-        return this.f326T.get();
+        return this.f329T.get();
     }
 
     public boolean T9() {
-        return this.f326T.get() == null;
+        return this.f329T.get() == null;
     }
 
     public int Tk() {
-        View view = this.f326T.get();
+        View view = this.f329T.get();
         return view == null ? super.hashCode() : view.hashCode();
     }
 
     public boolean T(Drawable drawable) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            View view = this.f326T.get();
+            View view = this.f329T.get();
             if (view == null) {
                 return false;
             }
@@ -98,7 +98,7 @@ public abstract class Ty implements T {
 
     public boolean T(Bitmap bitmap) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            View view = this.f326T.get();
+            View view = this.f329T.get();
             if (view == null) {
                 return false;
             }

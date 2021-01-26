@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 public class T5 implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final T5 f141T = new T5();
+    public static final T5 f144T = new T5();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         return T(parser);

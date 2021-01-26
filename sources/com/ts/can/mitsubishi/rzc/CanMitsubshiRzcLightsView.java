@@ -40,7 +40,7 @@ public class CanMitsubshiRzcLightsView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(10, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(10, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(10, 160);
                     return;
                 } else if (item == 3) {
                     CanJni.MitSubishiRzcCarSet(10, 176);
@@ -59,7 +59,7 @@ public class CanMitsubshiRzcLightsView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(11, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(11, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(11, 160);
                     return;
                 } else {
                     return;
@@ -72,7 +72,7 @@ public class CanMitsubshiRzcLightsView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(12, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(12, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(12, 160);
                     return;
                 } else if (item == 3) {
                     CanJni.MitSubishiRzcCarSet(12, 176);
@@ -88,7 +88,7 @@ public class CanMitsubshiRzcLightsView extends CanScrollCarInfoView {
                     CanJni.MitSubishiRzcCarSet(13, 144);
                     return;
                 } else if (item == 2) {
-                    CanJni.MitSubishiRzcCarSet(13, Can.CAN_CHANA_CS75_WC);
+                    CanJni.MitSubishiRzcCarSet(13, 160);
                     return;
                 } else if (item == 3) {
                     CanJni.MitSubishiRzcCarSet(13, 176);

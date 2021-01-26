@@ -3,7 +3,9 @@ package com.txznet.comm.ui.TE;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.View;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tr.Tn;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,7 +18,7 @@ import org.json.JSONObject;
 public class T {
 
     /* renamed from: T  reason: collision with root package name */
-    public static int f533T = 2;
+    public static int f537T = 2;
     private static String T5 = null;
     private static int T6 = 1;
     private static String T9;
@@ -63,16 +65,16 @@ public class T {
         }
         String mAutoItemHeight = Tr.T9("config_list_full_screen");
         if (mAutoItemHeight != null) {
-            if (TextUtils.equals(mAutoItemHeight, "true")) {
+            if (TextUtils.equals(mAutoItemHeight, SdkConstants.VALUE_TRUE)) {
                 Tn.TK = true;
-            } else if (TextUtils.equals(mAutoItemHeight, "false")) {
+            } else if (TextUtils.equals(mAutoItemHeight, SdkConstants.VALUE_FALSE)) {
                 Tn.TK = false;
             }
         }
-        String mOrientation = Tr.T9("orientation");
-        if (TextUtils.equals(mOrientation, "horizontal")) {
+        String mOrientation = Tr.T9(SdkConstants.ATTR_ORIENTATION);
+        if (TextUtils.equals(mOrientation, SdkConstants.VALUE_HORIZONTAL)) {
             Tn.Ty(view);
-        } else if (TextUtils.equals(mOrientation, "vertical")) {
+        } else if (TextUtils.equals(mOrientation, SdkConstants.VALUE_VERTICAL)) {
             Tn.Tr(view);
         } else {
             Tn.T(view);
@@ -256,7 +258,7 @@ public class T {
                         case -1:
                             break;
                         case 1:
-                            Integer colorValue = T("" + attrItem.get(key));
+                            Integer colorValue = T(TXZResourceManager.STYLE_DEFAULT + attrItem.get(key));
                             if (colorValue == null) {
                                 break;
                             } else {
@@ -301,10 +303,10 @@ public class T {
         return -1;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:17:0x0034 A[SYNTHETIC, Splitter:B:17:0x0034] */
-    /* JADX WARNING: Removed duplicated region for block: B:20:0x0039 A[Catch:{ IOException -> 0x0054 }] */
-    /* JADX WARNING: Removed duplicated region for block: B:36:0x005c A[SYNTHETIC, Splitter:B:36:0x005c] */
-    /* JADX WARNING: Removed duplicated region for block: B:39:0x0061 A[Catch:{ IOException -> 0x0065 }] */
+    /* JADX WARNING: Removed duplicated region for block: B:17:0x0036 A[SYNTHETIC, Splitter:B:17:0x0036] */
+    /* JADX WARNING: Removed duplicated region for block: B:20:0x003b A[Catch:{ IOException -> 0x0056 }] */
+    /* JADX WARNING: Removed duplicated region for block: B:36:0x005e A[SYNTHETIC, Splitter:B:36:0x005e] */
+    /* JADX WARNING: Removed duplicated region for block: B:39:0x0063 A[Catch:{ IOException -> 0x0067 }] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public static java.lang.String T(java.io.File r9) {
         /*
@@ -314,86 +316,86 @@ public class T {
             java.lang.String r8 = ""
             r1.<init>(r8)
             boolean r8 = r9.exists()
-            if (r8 != 0) goto L_0x0012
+            if (r8 != 0) goto L_0x0014
             java.lang.String r8 = ""
-        L_0x0011:
+        L_0x0013:
             return r8
-        L_0x0012:
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch:{ Exception -> 0x0071 }
-            r4.<init>(r9)     // Catch:{ Exception -> 0x0071 }
-            java.io.InputStreamReader r7 = new java.io.InputStreamReader     // Catch:{ Exception -> 0x0073, all -> 0x006a }
-            r7.<init>(r4)     // Catch:{ Exception -> 0x0073, all -> 0x006a }
-            java.io.BufferedReader r0 = new java.io.BufferedReader     // Catch:{ Exception -> 0x002c, all -> 0x006d }
-            r0.<init>(r7)     // Catch:{ Exception -> 0x002c, all -> 0x006d }
+        L_0x0014:
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch:{ Exception -> 0x0073 }
+            r4.<init>(r9)     // Catch:{ Exception -> 0x0073 }
+            java.io.InputStreamReader r7 = new java.io.InputStreamReader     // Catch:{ Exception -> 0x0075, all -> 0x006c }
+            r7.<init>(r4)     // Catch:{ Exception -> 0x0075, all -> 0x006c }
+            java.io.BufferedReader r0 = new java.io.BufferedReader     // Catch:{ Exception -> 0x002e, all -> 0x006f }
+            r0.<init>(r7)     // Catch:{ Exception -> 0x002e, all -> 0x006f }
             r5 = 0
-        L_0x0022:
-            java.lang.String r5 = r0.readLine()     // Catch:{ Exception -> 0x002c, all -> 0x006d }
-            if (r5 == 0) goto L_0x003e
-            r1.append(r5)     // Catch:{ Exception -> 0x002c, all -> 0x006d }
-            goto L_0x0022
-        L_0x002c:
+        L_0x0024:
+            java.lang.String r5 = r0.readLine()     // Catch:{ Exception -> 0x002e, all -> 0x006f }
+            if (r5 == 0) goto L_0x0040
+            r1.append(r5)     // Catch:{ Exception -> 0x002e, all -> 0x006f }
+            goto L_0x0024
+        L_0x002e:
             r2 = move-exception
             r6 = r7
             r3 = r4
-        L_0x002f:
-            r2.printStackTrace()     // Catch:{ all -> 0x0059 }
-            if (r3 == 0) goto L_0x0037
-            r3.close()     // Catch:{ IOException -> 0x0054 }
-        L_0x0037:
-            if (r6 == 0) goto L_0x003c
-            r6.close()     // Catch:{ IOException -> 0x0054 }
-        L_0x003c:
-            r8 = 0
-            goto L_0x0011
+        L_0x0031:
+            r2.printStackTrace()     // Catch:{ all -> 0x005b }
+            if (r3 == 0) goto L_0x0039
+            r3.close()     // Catch:{ IOException -> 0x0056 }
+        L_0x0039:
+            if (r6 == 0) goto L_0x003e
+            r6.close()     // Catch:{ IOException -> 0x0056 }
         L_0x003e:
-            java.lang.String r8 = r1.toString()     // Catch:{ Exception -> 0x002c, all -> 0x006d }
-            if (r4 == 0) goto L_0x0047
-            r4.close()     // Catch:{ IOException -> 0x004f }
-        L_0x0047:
-            if (r7 == 0) goto L_0x004c
-            r7.close()     // Catch:{ IOException -> 0x004f }
-        L_0x004c:
+            r8 = 0
+            goto L_0x0013
+        L_0x0040:
+            java.lang.String r8 = r1.toString()     // Catch:{ Exception -> 0x002e, all -> 0x006f }
+            if (r4 == 0) goto L_0x0049
+            r4.close()     // Catch:{ IOException -> 0x0051 }
+        L_0x0049:
+            if (r7 == 0) goto L_0x004e
+            r7.close()     // Catch:{ IOException -> 0x0051 }
+        L_0x004e:
             r6 = r7
             r3 = r4
-            goto L_0x0011
-        L_0x004f:
+            goto L_0x0013
+        L_0x0051:
             r2 = move-exception
             r2.printStackTrace()
-            goto L_0x004c
-        L_0x0054:
+            goto L_0x004e
+        L_0x0056:
             r2 = move-exception
             r2.printStackTrace()
-            goto L_0x003c
-        L_0x0059:
+            goto L_0x003e
+        L_0x005b:
             r8 = move-exception
-        L_0x005a:
-            if (r3 == 0) goto L_0x005f
-            r3.close()     // Catch:{ IOException -> 0x0065 }
-        L_0x005f:
-            if (r6 == 0) goto L_0x0064
-            r6.close()     // Catch:{ IOException -> 0x0065 }
-        L_0x0064:
+        L_0x005c:
+            if (r3 == 0) goto L_0x0061
+            r3.close()     // Catch:{ IOException -> 0x0067 }
+        L_0x0061:
+            if (r6 == 0) goto L_0x0066
+            r6.close()     // Catch:{ IOException -> 0x0067 }
+        L_0x0066:
             throw r8
-        L_0x0065:
+        L_0x0067:
             r2 = move-exception
             r2.printStackTrace()
-            goto L_0x0064
-        L_0x006a:
+            goto L_0x0066
+        L_0x006c:
             r8 = move-exception
             r3 = r4
-            goto L_0x005a
-        L_0x006d:
+            goto L_0x005c
+        L_0x006f:
             r8 = move-exception
             r6 = r7
             r3 = r4
-            goto L_0x005a
-        L_0x0071:
-            r2 = move-exception
-            goto L_0x002f
+            goto L_0x005c
         L_0x0073:
             r2 = move-exception
+            goto L_0x0031
+        L_0x0075:
+            r2 = move-exception
             r3 = r4
-            goto L_0x002f
+            goto L_0x0031
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.ui.TE.T.T(java.io.File):java.lang.String");
     }
@@ -414,9 +416,9 @@ public class T {
             try {
                 TB = Boolean.valueOf(defvalue);
                 String animation = Tr.T9("chat_list_animation");
-                if ("true".equals(animation)) {
+                if (SdkConstants.VALUE_TRUE.equals(animation)) {
                     TB = true;
-                } else if ("false".equals(animation)) {
+                } else if (SdkConstants.VALUE_FALSE.equals(animation)) {
                     TB = false;
                 }
             } catch (Exception e) {
@@ -431,9 +433,9 @@ public class T {
             try {
                 TK = Boolean.valueOf(defvalue);
                 String animation = Tr.T9("chat_list_animation_at_first");
-                if ("true".equals(animation)) {
+                if (SdkConstants.VALUE_TRUE.equals(animation)) {
                     TK = true;
-                } else if ("false".equals(animation)) {
+                } else if (SdkConstants.VALUE_FALSE.equals(animation)) {
                     TK = false;
                 }
             } catch (Exception e) {

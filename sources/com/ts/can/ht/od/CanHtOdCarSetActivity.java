@@ -110,7 +110,7 @@ public class CanHtOdCarSetActivity extends CanCommonActivity implements CanItemP
     public void onItem(int id, int item) {
         switch (id) {
             case 4:
-                CanJni.HanTOdCarSet(Can.CAN_JAC_REFINE_OD, item);
+                CanJni.HanTOdCarSet(150, item);
                 return;
             case 5:
                 CanJni.HanTOdCarSet(151, item);
@@ -129,10 +129,10 @@ public class CanHtOdCarSetActivity extends CanCommonActivity implements CanItemP
                 CanJni.HanTOdCarSet(149, pos);
                 return;
             case 8:
-                CanJni.HanTOdCarSet(Can.CAN_AUDI_ZMYT, pos);
+                CanJni.HanTOdCarSet(152, pos);
                 return;
             case 9:
-                CanJni.HanTOdCarSet(Can.CAN_HYUNDAI_WC, pos);
+                CanJni.HanTOdCarSet(153, pos);
                 return;
             case 10:
                 CanJni.HanTOdCarSet(Can.CAN_HONDA_WC, pos);

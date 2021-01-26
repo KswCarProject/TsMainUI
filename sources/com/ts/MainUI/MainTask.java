@@ -7,6 +7,7 @@ public class MainTask {
     private static MainTask mMainTask = new MainTask();
     protected TaskCallBack mTaskCallBack;
     protected UserCallBack mUserCallBack;
+    protected UserCallBack mUserRadioCalllBack;
 
     public static MainTask GetInstance() {
         return mMainTask;
@@ -15,6 +16,11 @@ public class MainTask {
     public void SetUserCallBack(UserCallBack cb) {
         Log.i(TAG, "cb==" + cb);
         this.mUserCallBack = cb;
+    }
+
+    public void SetRadioUserCallBack(UserCallBack cb) {
+        Log.i(TAG, "cb==" + cb);
+        this.mUserRadioCalllBack = cb;
     }
 
     public void SetTaskCallBack(TaskCallBack cb) {

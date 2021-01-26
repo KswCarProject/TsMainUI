@@ -8,6 +8,7 @@ import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanItemTitleValList;
 import com.ts.canview.CanNumInuptDlg;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanBMWMiniSetLightActivity extends CanBMWMiniBaseActivity implements CanItemProgressList.onPosChange {
     public static final int ITEM_CIRCLE_LIGHT_BRI = 5;
@@ -47,9 +48,9 @@ public class CanBMWMiniSetLightActivity extends CanBMWMiniBaseActivity implement
             this.mItemYbLight.SetCheck(this.mSetData.fgYbd);
             int time = this.mSetData.HomeLightTime;
             if (time < 0 || time > 240) {
-                this.mItemHomeLight.SetVal("");
+                this.mItemHomeLight.SetVal(TXZResourceManager.STYLE_DEFAULT);
             } else {
-                this.mItemHomeLight.SetVal(String.valueOf(String.valueOf(time)) + " 秒");
+                this.mItemHomeLight.SetVal(String.valueOf(String.valueOf(time)) + " " + getResources().getString(R.string.can_sec));
             }
         }
     }
@@ -93,7 +94,7 @@ public class CanBMWMiniSetLightActivity extends CanBMWMiniBaseActivity implement
                 new CanNumInuptDlg(this, new CanNumInuptDlg.onInputOK() {
                     public void onOK(String val, int num, int id) {
                         if (num >= 0 && num <= 240) {
-                            CanBMWMiniSetLightActivity.this.mItemHomeLight.SetVal(String.valueOf(val) + " 秒");
+                            CanBMWMiniSetLightActivity.this.mItemHomeLight.SetVal(String.valueOf(val) + " " + CanBMWMiniSetLightActivity.this.getResources().getString(R.string.can_sec));
                             CanBMWMiniSetLightActivity.this.CarSet(36, num);
                         }
                     }

@@ -291,6 +291,6 @@ public class KeyDef {
     public static final int SKEY_VOLUP_5 = 778;
 
     static {
-        System.loadLibrary("ts70xhw");
+        System.loadLibrary("ts59xhw");
     }
 }

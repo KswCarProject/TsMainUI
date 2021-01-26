@@ -18,6 +18,7 @@ import com.ts.canview.CanItemProgressList;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanMzd3CDActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, CanItemProgressList.onPosChange {
@@ -48,7 +49,7 @@ public class CanMzd3CDActivity extends CanBaseActivity implements UserCallBack, 
     protected CustomTextView mSta;
     protected CanDataInfo.Axela_Cd_Sta mStaData = new CanDataInfo.Axela_Cd_Sta();
     protected int mStartCount = 0;
-    protected String[] mStrSta = {"无碟", "正在出碟", "", "正在入碟", "读取中", "播放", "暂停"};
+    protected String[] mStrSta = {"无碟", "正在出碟", TXZResourceManager.STYLE_DEFAULT, "正在入碟", "读取中", "播放", "暂停"};
     protected CustomTextView mTime;
     protected CustomTextView mTrack;
 
@@ -127,7 +128,7 @@ public class CanMzd3CDActivity extends CanBaseActivity implements UserCallBack, 
         }
         this.mStartCount++;
         if (this.mStartCount < 60 && this.mStartCount % 5 == 0) {
-            CanJni.AxelaCDCtrl(240, 0);
+            CanJni.AxelaCDCtrl(Can.CAN_VOLKS_XP, 0);
         }
     }
 
@@ -142,8 +143,8 @@ public class CanMzd3CDActivity extends CanBaseActivity implements UserCallBack, 
             this.mTime.setText(String.format("%02d:%02d / %02d:%02d", new Object[]{Integer.valueOf(this.mInfoData.CurMin), Integer.valueOf(this.mInfoData.CurSec), Integer.valueOf(this.mInfoData.TotalMin), Integer.valueOf(this.mInfoData.TotalSec)}));
             return;
         }
-        this.mTrack.setText("");
-        this.mTime.setText("");
+        this.mTrack.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTime.setText(TXZResourceManager.STYLE_DEFAULT);
     }
 
     /* access modifiers changed from: protected */
@@ -219,7 +220,7 @@ public class CanMzd3CDActivity extends CanBaseActivity implements UserCallBack, 
                     return;
                 case 4:
                     if (CanIF.IsExdMode()) {
-                        CanJni.AxelaCDCtrl(240, 0);
+                        CanJni.AxelaCDCtrl(Can.CAN_VOLKS_XP, 0);
                         return;
                     } else if (CanFunc.IsCamMode() == 0) {
                         CanFunc.showCanActivity(CanMzd3CDActivity.class);
@@ -229,7 +230,7 @@ public class CanMzd3CDActivity extends CanBaseActivity implements UserCallBack, 
                     }
                 case 16:
                     if (CanIF.IsExdMode()) {
-                        CanJni.AxelaCDCtrl(240, 0);
+                        CanJni.AxelaCDCtrl(Can.CAN_VOLKS_XP, 0);
                         return;
                     }
                     return;

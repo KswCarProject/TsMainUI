@@ -190,7 +190,7 @@ public class CanGolfRzcTeramonACView extends CanBaseACView {
                 CanJni.GolfSendCmd(188, Neg(mACInfo.fgRearLock));
                 return;
             case 8:
-                showWindow(v, CanCameraUI.BTN_GOLF_WC_MODE1, 120);
+                showWindow(v, 600, 120);
                 return;
             case 9:
                 showWindow(v, 621, 190);
@@ -292,8 +292,8 @@ public class CanGolfRzcTeramonACView extends CanBaseACView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mAutoWind = new String[]{"自动模式风量：轻", "自动模式风量：中", "自动模式风量：强"};
-        this.mAQSArray = new String[]{"非自动空气循环", "自动空气循环"};
+        this.mAutoWind = getStringArray(R.array.can_golf_scr_zdmsfl);
+        this.mAQSArray = getStringArray(R.array.can_golf_scr_zdnwxh);
         this.mLtHot = new CustomImgView[3];
         this.mRtHot = new CustomImgView[3];
     }
@@ -377,11 +377,11 @@ public class CanGolfRzcTeramonACView extends CanBaseACView {
         this.mRearTemp.setTextColor(-1);
         this.mRearTemp.setGravity(21);
         this.mRearTemp.setText("13℃");
-        this.mBtnLtHot = this.mManager.AddButton(30, Can.CAN_JAC_REFINE_OD);
+        this.mBtnLtHot = this.mManager.AddButton(30, 150);
         this.mBtnLtHot.setStateDrawable(R.drawable.conditioning_leftseat_up, R.drawable.conditioning_leftseat_dn, R.drawable.conditioning_leftseat_dn);
         this.mBtnLtHot.setTag(1);
         this.mBtnLtHot.setOnClickListener(this);
-        this.mBtnRtHot = this.mManager.AddButton(217, Can.CAN_JAC_REFINE_OD);
+        this.mBtnRtHot = this.mManager.AddButton(217, 150);
         this.mBtnRtHot.setStateDrawable(R.drawable.conditioning_rightseat_up, R.drawable.conditioning_rightseat_dn, R.drawable.conditioning_rightseat_dn);
         this.mBtnRtHot.setTag(2);
         this.mBtnRtHot.setOnClickListener(this);
@@ -416,7 +416,7 @@ public class CanGolfRzcTeramonACView extends CanBaseACView {
         this.mRearLight = this.mManager.AddImage(436, KeyDef.RKEY_res1);
         this.mRearLight.setStateDrawable(R.drawable.conditioning_heat_up, R.drawable.conditioning_heat_dn);
         this.mRearLight.Show(false);
-        this.mDual = this.mManager.AddImage(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, KeyDef.RKEY_res1);
+        this.mDual = this.mManager.AddImage(540, KeyDef.RKEY_res1);
         this.mDual.setStateDrawable(R.drawable.conditioning_dual_up, R.drawable.conditioning_dual_dn);
         this.mAc = this.mManager.AddImage(CanCameraUI.BTN_LANDWIND_2D_RIGHT, KeyDef.RKEY_res1);
         this.mAc.setStateDrawable(R.drawable.conditioning_ac_up, R.drawable.conditioning_ac_dn);

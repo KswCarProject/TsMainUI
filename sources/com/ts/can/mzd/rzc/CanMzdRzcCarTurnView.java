@@ -16,8 +16,20 @@ public class CanMzdRzcCarTurnView extends CanScrollCarInfoView {
     }
 
     public void onItem(int id, int item) {
-        if (id == 1) {
-            CanJni.MzdCx4CarSet(8, item);
+        switch (id) {
+            case 1:
+                if (item == 1) {
+                    CanJni.MzdCx4CarSet(8, 2);
+                    return;
+                } else if (item == 2) {
+                    CanJni.MzdCx4CarSet(8, 1);
+                    return;
+                } else {
+                    CanJni.MzdCx4CarSet(8, item);
+                    return;
+                }
+            default:
+                return;
         }
     }
 
@@ -41,7 +53,7 @@ public class CanMzdRzcCarTurnView extends CanScrollCarInfoView {
     public void InitData() {
         this.mItemTitleIds = new int[]{R.string.can_mzd_cx4_turn_three_light, R.string.can_mzd_cx4_turn_voice, R.string.can_teramont_model_reset};
         this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE};
-        this.mPopValueIds[1] = new int[]{R.string.can_mzd_cx4_voice_low, R.string.can_mzd_cx4_voice_high};
+        this.mPopValueIds[1] = new int[]{R.string.can_mzd_cx4_voice_low, R.string.can_mzd_cx4_voice_middle, R.string.can_mzd_cx4_voice_high};
         this.mSetData = new CanDataInfo.Mzd_Rzc_SetData();
     }
 

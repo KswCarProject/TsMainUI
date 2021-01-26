@@ -2,9 +2,12 @@ package com.ts.main.benz;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceManager;
+import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,17 +17,22 @@ import com.ts.MainUI.R;
 import com.ts.can.benc.withcd.CanBencWithCDCarFuncActivity;
 import java.lang.ref.WeakReference;
 
-public class DrivingComputeActivity extends Activity {
+public class DrivingComputeActivity extends Activity implements View.OnLongClickListener {
+    private static final String SPEED_PAN = "speed_pan";
+    private boolean is320SpeedPan;
+    private boolean isLastSpeedPan;
     private CanDataInfo.CAN_Msg mCanMsg = new CanDataInfo.CAN_Msg();
     private String mDistanceStr;
     private WeakHandler mHandler;
     private ImageView mIvHandBreak;
     private ImageView mIvRatePointer;
     private ImageView mIvSafeSeat;
+    private ImageView mIvSpeedPan;
     private ImageView mIvSpeedPointer;
     private int mLastRate = -1;
     private int mLastSpeed = -1;
     private ObjectAnimator mRateAnimator;
+    private SharedPreferences mSp;
     private ObjectAnimator mSpeedAnimator;
     private String mSpeedStr;
     private TextView mTvDistance;
@@ -40,6 +48,8 @@ public class DrivingComputeActivity extends Activity {
     }
 
     private void InitUI() {
+        this.mIvSpeedPan = (ImageView) findViewById(R.id.iv_speed_pan);
+        this.mIvSpeedPan.setOnLongClickListener(this);
         this.mIvSpeedPointer = (ImageView) findViewById(R.id.iv_speed_pointer);
         this.mIvRatePointer = (ImageView) findViewById(R.id.iv_rate_pointer);
         this.mIvSafeSeat = (ImageView) findViewById(R.id.iv_safe_seat);
@@ -54,11 +64,26 @@ public class DrivingComputeActivity extends Activity {
         this.mSpeedStr = String.valueOf(getString(R.string.can_curspeed)) + " :";
         this.mTvDistance.setText(" ---");
         this.mTvSpeed.setText(" ---");
+        this.mSp = PreferenceManager.getDefaultSharedPreferences(this);
+    }
+
+    public boolean onLongClick(View v) {
+        boolean z;
+        if (this.is320SpeedPan) {
+            z = false;
+        } else {
+            z = true;
+        }
+        this.is320SpeedPan = z;
+        UpdateData(false);
+        this.mSp.edit().putBoolean(SPEED_PAN, this.is320SpeedPan).apply();
+        return true;
     }
 
     /* access modifiers changed from: protected */
     public void onStart() {
         super.onStart();
+        this.is320SpeedPan = this.mSp.getBoolean(SPEED_PAN, false);
         UpdateData(false);
         this.mHandler = new WeakHandler(this);
         this.mHandler.sendEmptyMessageDelayed(0, 30);
@@ -118,15 +143,35 @@ public class DrivingComputeActivity extends Activity {
     }
 
     private void UpdateSpeed(int speed) {
-        if (this.mLastSpeed != speed) {
+        float startRotation;
+        float endRotation;
+        if (this.isLastSpeedPan != this.is320SpeedPan) {
+            if (this.is320SpeedPan) {
+                this.mIvSpeedPointer.setRotation(-129.0f);
+                this.mIvSpeedPan.setImageResource(R.drawable.driving_pan02_new);
+            } else {
+                this.mIvSpeedPointer.setRotation(-130.0f);
+                this.mIvSpeedPan.setImageResource(R.drawable.driving_pan01_new);
+            }
+        }
+        if (this.mLastSpeed != speed || this.isLastSpeedPan != this.is320SpeedPan) {
             if (this.mSpeedAnimator != null) {
                 this.mSpeedAnimator.end();
             }
-            this.mSpeedAnimator = ObjectAnimator.ofFloat(this.mIvSpeedPointer, "rotation", new float[]{-130.0f + (((float) this.mLastSpeed) * 1.0f), -130.0f + (((float) speed) * 1.0f)});
+            if (this.is320SpeedPan) {
+                float degree = (speed > 160 ? 128.0f : 129.0f) / 160.0f;
+                startRotation = -129.0f + (((float) this.mLastSpeed) * degree);
+                endRotation = -129.0f + (((float) speed) * degree);
+            } else {
+                startRotation = -130.0f + (((float) this.mLastSpeed) * 1.0f);
+                endRotation = -130.0f + (((float) speed) * 1.0f);
+            }
+            this.mSpeedAnimator = ObjectAnimator.ofFloat(this.mIvSpeedPointer, "rotation", new float[]{startRotation, endRotation});
             this.mSpeedAnimator.setInterpolator(new LinearInterpolator());
             this.mSpeedAnimator.setDuration(200);
             this.mSpeedAnimator.start();
             this.mLastSpeed = speed;
+            this.isLastSpeedPan = this.is320SpeedPan;
         }
     }
 

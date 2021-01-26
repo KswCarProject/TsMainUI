@@ -6,16 +6,16 @@ import java.util.Arrays;
 public final class T implements Cloneable {
 
     /* renamed from: T  reason: collision with root package name */
-    private int[] f282T;
+    private int[] f285T;
     private int Tr;
 
     public T() {
         this.Tr = 0;
-        this.f282T = new int[1];
+        this.f285T = new int[1];
     }
 
     T(int[] bits, int size) {
-        this.f282T = bits;
+        this.f285T = bits;
         this.Tr = size;
     }
 
@@ -28,21 +28,21 @@ public final class T implements Cloneable {
     }
 
     private void Tr(int size) {
-        if (size > (this.f282T.length << 5)) {
+        if (size > (this.f285T.length << 5)) {
             int[] newBits = Ty(size);
-            System.arraycopy(this.f282T, 0, newBits, 0, this.f282T.length);
-            this.f282T = newBits;
+            System.arraycopy(this.f285T, 0, newBits, 0, this.f285T.length);
+            this.f285T = newBits;
         }
     }
 
     public boolean T(int i) {
-        return (this.f282T[i / 32] & (1 << (i & 31))) != 0;
+        return (this.f285T[i / 32] & (1 << (i & 31))) != 0;
     }
 
     public void T(boolean bit) {
         Tr(this.Tr + 1);
         if (bit) {
-            int[] iArr = this.f282T;
+            int[] iArr = this.f285T;
             int i = this.Tr / 32;
             iArr[i] = iArr[i] | (1 << (this.Tr & 31));
         }
@@ -71,9 +71,9 @@ public final class T implements Cloneable {
         if (this.Tr != other.Tr) {
             throw new IllegalArgumentException("Sizes don't match");
         }
-        for (int i = 0; i < this.f282T.length; i++) {
-            int[] iArr = this.f282T;
-            iArr[i] = iArr[i] ^ other.f282T[i];
+        for (int i = 0; i < this.f285T.length; i++) {
+            int[] iArr = this.f285T;
+            iArr[i] = iArr[i] ^ other.f285T[i];
         }
     }
 
@@ -99,14 +99,14 @@ public final class T implements Cloneable {
             return false;
         }
         T other = (T) o;
-        if (this.Tr != other.Tr || !Arrays.equals(this.f282T, other.f282T)) {
+        if (this.Tr != other.Tr || !Arrays.equals(this.f285T, other.f285T)) {
             return false;
         }
         return true;
     }
 
     public int hashCode() {
-        return (this.Tr * 31) + Arrays.hashCode(this.f282T);
+        return (this.Tr * 31) + Arrays.hashCode(this.f285T);
     }
 
     public String toString() {
@@ -122,6 +122,6 @@ public final class T implements Cloneable {
 
     /* renamed from: Ty */
     public T clone() {
-        return new T((int[]) this.f282T.clone(), this.Tr);
+        return new T((int[]) this.f285T.clone(), this.Tr);
     }
 }

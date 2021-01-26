@@ -5,7 +5,11 @@ public class FcTestMode {
     public int HardType;
     public int KeyType;
     public int RadioIC;
+    public int Support_360View;
+    public int Support_AHD;
+    public int Support_carplay;
     public int USB_PORT;
+    public int audio;
     public int bGps;
     public int bIMEI;
     public int bSD;
@@ -108,6 +112,22 @@ public class FcTestMode {
 
     public void setRadioIC(int radioIC) {
         this.RadioIC = radioIC;
+    }
+
+    public void SetAutoAudio(int naudio) {
+        this.audio = naudio;
+    }
+
+    public void SetCarplay(int carplay) {
+        this.Support_carplay = carplay;
+    }
+
+    public void Set360View(int n360View) {
+        this.Support_360View = n360View;
+    }
+
+    public void SetAhd(int nahd) {
+        this.Support_AHD = nahd;
     }
 
     public String toString() {

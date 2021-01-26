@@ -6,30 +6,32 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Environment;
 import android.util.Log;
+import com.android.SdkConstants;
+import com.ts.main.common.MainUI;
 import com.txznet.comm.Tr.T;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.T9;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZService;
 import com.txznet.sdk.bean.WechatMessage;
-import com.txznet.sdk.tongting.IConstantData;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.texustek.mirror.aidl.BinderName;
 
 /* compiled from: Proguard */
 public class TXZWechatManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZWechatManager f854T = new TXZWechatManager();
+    private static TXZWechatManager f858T = new TXZWechatManager();
     /* access modifiers changed from: private */
     public Map<String, ImageListener> T5 = new HashMap();
     private boolean T9 = false;
     private Boolean TE = null;
     private BroadcastReceiver TZ = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
-            String id = intent.getStringExtra(IConstantData.KEY_ID);
+            String id = intent.getStringExtra("id");
             String img = intent.getStringExtra("img");
             if (!T9.T(id) && TXZWechatManager.this.T5.containsKey(id)) {
                 ((ImageListener) TXZWechatManager.this.T5.get(id)).onImageReady(id, img);
@@ -90,7 +92,7 @@ public class TXZWechatManager {
     }
 
     public static TXZWechatManager getInstance() {
-        return f854T;
+        return f858T;
     }
 
     /* access modifiers changed from: package-private */
@@ -144,11 +146,11 @@ public class TXZWechatManager {
 
     public void enableAutoSpeak(boolean auto) {
         this.TE = Boolean.valueOf(auto);
-        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.enableAutoSpeak", ("" + auto).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.enableAutoSpeak", (TXZResourceManager.STYLE_DEFAULT + auto).getBytes(), (Tn.Tr) null);
     }
 
     public void exit(boolean doLogout) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.exit", ("" + doLogout).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.exit", (TXZResourceManager.STYLE_DEFAULT + doLogout).getBytes(), (Tn.Tr) null);
     }
 
     public void cancelRecord() {
@@ -164,24 +166,24 @@ public class TXZWechatManager {
     }
 
     public void enableWakeupLogin(boolean enable) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.wakeupLogin", ("" + enable).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.wakeupLogin", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     public void enableWakupAsrCmd(boolean enable) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.enableWakupAsrCmd", ("" + enable).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.enableWakupAsrCmd", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     public void setLocMsgEnabled(boolean enable) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.setting.enableLocMsg", ("" + enable).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.setting.enableLocMsg", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     public void setLocShareEnabled(boolean enable) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.setting.enableLocShare", ("" + enable).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.setting.enableLocShare", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     @Deprecated
     public void enableUIFullScreen(boolean enable) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.set.ui_fullscreen", ("" + enable).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.set.ui_fullscreen", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     public void exit() {
@@ -212,11 +214,11 @@ public class TXZWechatManager {
     }
 
     public void setFilterGroupMessage(boolean enable) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.filter.groupmsg", ("" + enable).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.filter.groupmsg", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     public void setFilterGroupContact(boolean enable) {
-        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.filter.groupcon", ("" + enable).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.filter.groupcon", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     @Deprecated
@@ -226,14 +228,14 @@ public class TXZWechatManager {
 
     public void setVoiceText(String key, String value) {
         Tr builder = new Tr();
-        builder.T("key", (Object) key);
+        builder.T(BinderName.KEY, (Object) key);
         builder.T("value", (Object) value);
         Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.set.voice_tip", builder.Ty(), (Tn.Tr) null);
     }
 
     public void setWechatTipText(String key, String value) {
         Tr builder = new Tr();
-        builder.T("key", (Object) key);
+        builder.T(BinderName.KEY, (Object) key);
         builder.T("value", (Object) value);
         Tn.Tr().T("com.txznet.webchat", "wechat.ctrl.set.tip", builder.Ty(), (Tn.Tr) null);
     }
@@ -253,7 +255,7 @@ public class TXZWechatManager {
                     Tr builder = new Tr(data);
                     boolean casting = ((Boolean) builder.T("hasSpeak", Boolean.TYPE)).booleanValue();
                     boolean isGroup = ((Boolean) builder.T("isGroup", Boolean.TYPE)).booleanValue();
-                    tool.updateNotify((String) builder.T("msgId", String.class), (String) builder.T(IConstantData.KEY_ID, String.class), (String) builder.T("nick", String.class), isGroup, casting);
+                    tool.updateNotify((String) builder.T("msgId", String.class), (String) builder.T("id", String.class), (String) builder.T("nick", String.class), isGroup, casting);
                     return null;
                 } else if (!command.equals("notify.cancel")) {
                     return null;
@@ -294,28 +296,28 @@ public class TXZWechatManager {
                     tool.updateQR((String) new Tr(data).T("qrcode", String.class));
                     return null;
                 } else if (command.equals("qr.scanned")) {
-                    tool.QRScanned((String) new Tr(data).T("icon", String.class));
+                    tool.QRScanned((String) new Tr(data).T(SdkConstants.ATTR_ICON, String.class));
                     return null;
                 } else if (command.equals("login")) {
                     tool.login();
                     return null;
                 } else if (command.equals("update.self")) {
                     Tr builder = new Tr(data);
-                    tool.updateSelf((String) builder.T(IConstantData.KEY_ID, String.class), (String) builder.T("nick", String.class));
+                    tool.updateSelf((String) builder.T("id", String.class), (String) builder.T("nick", String.class));
                     return null;
                 } else if (command.equals("logout")) {
                     tool.logout();
                     return null;
                 } else if (command.equals("record.update")) {
                     Tr builder2 = new Tr(data);
-                    int timeRemain = ((Integer) builder2.T("time", Integer.class)).intValue();
-                    tool.updateRecordWin(timeRemain, (String) builder2.T(IConstantData.KEY_ID, String.class), (String) builder2.T("nick", String.class));
+                    int timeRemain = ((Integer) builder2.T(MainUI.NET_TIME_, Integer.class)).intValue();
+                    tool.updateRecordWin(timeRemain, (String) builder2.T("id", String.class), (String) builder2.T("nick", String.class));
                     return null;
                 } else if (command.equals("record.dismiss")) {
                     tool.dismissRecordWin(Boolean.valueOf(Boolean.parseBoolean(new String(data))).booleanValue());
                     return null;
                 } else if (command.equals("notify.status")) {
-                    tool.updateNotifyStatus(((Boolean) new Tr(data).T("enabled", Boolean.class)).booleanValue());
+                    tool.updateNotifyStatus(((Boolean) new Tr(data).T(SdkConstants.ATTR_ENABLED, Boolean.class)).booleanValue());
                     return null;
                 } else if (command.equals("chat.show")) {
                     Tr builder3 = new Tr(data);
@@ -327,7 +329,7 @@ public class TXZWechatManager {
                     Tr builder4 = new Tr(data);
                     boolean casting = ((Boolean) builder4.T("hasSpeak", Boolean.TYPE)).booleanValue();
                     boolean isGroup = ((Boolean) builder4.T("isGroup", Boolean.TYPE)).booleanValue();
-                    tool.updateNotify((String) builder4.T("msgId", String.class), (String) builder4.T(IConstantData.KEY_ID, String.class), (String) builder4.T("nick", String.class), isGroup, casting);
+                    tool.updateNotify((String) builder4.T("msgId", String.class), (String) builder4.T("id", String.class), (String) builder4.T("nick", String.class), isGroup, casting);
                     return null;
                 } else if (!command.equals("notify.cancel")) {
                     return null;

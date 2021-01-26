@@ -83,5 +83,9 @@ public class BtService extends Service {
         public void updateLastPhoneNum() throws RemoteException {
             BtService.this.bt.updateLastPhoneNum();
         }
+
+        public String getBtDevPin() throws RemoteException {
+            return BtService.this.bt.getDevPin();
+        }
     }
 }

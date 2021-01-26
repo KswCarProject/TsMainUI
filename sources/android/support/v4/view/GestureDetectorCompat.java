@@ -8,7 +8,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
-import com.ts.dvdplayer.definition.MediaDef;
 
 public class GestureDetectorCompat {
     private final GestureDetectorCompatImpl mImpl;
@@ -208,7 +207,7 @@ public class GestureDetectorCompat {
                     } else {
                         VelocityTracker velocityTracker = this.mVelocityTracker;
                         int pointerId = MotionEventCompat.getPointerId(ev, 0);
-                        velocityTracker.computeCurrentVelocity(MediaDef.PROGRESS_MAX, (float) this.mMaximumFlingVelocity);
+                        velocityTracker.computeCurrentVelocity(1000, (float) this.mMaximumFlingVelocity);
                         float velocityY = VelocityTrackerCompat.getYVelocity(velocityTracker, pointerId);
                         float velocityX = VelocityTrackerCompat.getXVelocity(velocityTracker, pointerId);
                         if (Math.abs(velocityY) > ((float) this.mMinimumFlingVelocity) || Math.abs(velocityX) > ((float) this.mMinimumFlingVelocity)) {
@@ -278,7 +277,7 @@ public class GestureDetectorCompat {
                     this.mDownFocusX = focusX;
                     this.mLastFocusY = focusY;
                     this.mDownFocusY = focusY;
-                    this.mVelocityTracker.computeCurrentVelocity(MediaDef.PROGRESS_MAX, (float) this.mMaximumFlingVelocity);
+                    this.mVelocityTracker.computeCurrentVelocity(1000, (float) this.mMaximumFlingVelocity);
                     int upIndex = MotionEventCompat.getActionIndex(ev);
                     int id1 = MotionEventCompat.getPointerId(ev, upIndex);
                     float x1 = VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, id1);

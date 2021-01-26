@@ -9,7 +9,7 @@ import com.txznet.comm.ui.Tn.Ty;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Tr f526T = new Tr();
+    private static Tr f530T = new Tr();
     private Boolean T9;
     private Tn.T Tn = new Tn.T() {
         public void T(int width, int height) {
@@ -33,7 +33,7 @@ public class Tr {
     }
 
     public static Tr T() {
-        return f526T;
+        return f530T;
     }
 
     /* access modifiers changed from: private */

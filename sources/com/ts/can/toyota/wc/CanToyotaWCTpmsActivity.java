@@ -12,6 +12,7 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanToyotaWCTpmsActivity extends CanToyotaWCBaseActivity implements UserCallBack, View.OnClickListener {
     public static final String TAG = "CanToyotaTpmsActivity";
@@ -40,13 +41,13 @@ public class CanToyotaWCTpmsActivity extends CanToyotaWCBaseActivity implements 
             this.mTyres1[i] = this.mManager.AddImage(((i % 2) * 116) + 441, ((i / 2) * 202) + 125);
             this.mTyres1[i].setStateDrawable(R.drawable.tpms_car_k_up, R.drawable.tpms_car_k_dn);
             this.mValue1[i] = this.mManager.AddCusText(((i % 2) * 410) + 209, ((i / 2) * Can.CAN_LEXUS_IZ) + 123, 209, 60);
-            this.mValue1[i].setText("");
+            this.mValue1[i].setText(TXZResourceManager.STYLE_DEFAULT);
             SetText(this.mValue1[i]);
         }
         this.mTyres1[4] = this.mManager.AddImage(481, 358);
         this.mTyres1[4].setStateDrawable(R.drawable.tpms_car_bk_up, R.drawable.tpms_car_bk_dn);
         this.mValue1[4] = this.mManager.AddCusText(410, 451, 209, 60);
-        this.mValue1[4].setText("");
+        this.mValue1[4].setText(TXZResourceManager.STYLE_DEFAULT);
         SetText(this.mValue1[4]);
     }
 

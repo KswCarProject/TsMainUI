@@ -17,7 +17,6 @@ import com.ts.can.CanFunc;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanGs8AcActivity extends CanBaseActivity implements UserCallBack, View.OnTouchListener {
     private static final int AC_MAX = 17;
@@ -80,18 +79,18 @@ public class CanGs8AcActivity extends CanBaseActivity implements UserCallBack, V
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, 198, this.mIcons[i]);
         }
-        this.mACMode[0] = this.mManager.AddImage(KeyDef.RKEY_MEDIA_ANGLE, 78);
+        this.mACMode[0] = this.mManager.AddImage(305, 78);
         this.mACMode[0].setStateDrawable(R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn);
-        this.mACMode[1] = this.mManager.AddImage(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_DFFG_S560);
+        this.mACMode[1] = this.mManager.AddImage(305, Can.CAN_DFFG_S560);
         this.mACMode[1].setStateDrawable(R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn);
-        this.mACMode[2] = this.mManager.AddImage(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_FLAT_WC);
+        this.mACMode[2] = this.mManager.AddImage(305, Can.CAN_FLAT_WC);
         this.mACMode[2].setStateDrawable(R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn);
         this.mStatusWindow = addButton(757, 408, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 10);
         this.mStatusOutLoop = addButton(757, 182, R.drawable.can_rh7_nxh_up, R.drawable.can_rh7_wxh_up, 12);
-        this.mStatusMode = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_AMS, R.drawable.can_rh7_mode_up, R.drawable.can_rh7_mode_dn, 14);
+        this.mStatusMode = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 295, R.drawable.can_rh7_mode_up, R.drawable.can_rh7_mode_dn, 14);
         this.mStatusDual = addButton(757, 70, R.drawable.can_rh7_3zone_up, R.drawable.can_rh7_3zone_dn, 11);
         this.mStatusAuto = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 182, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn, 13);
-        this.mStatusAc = addButton(757, KeyDef.RKEY_AMS, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
+        this.mStatusAc = addButton(757, 295, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
         this.mStatusAcRear = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 70, R.drawable.can_rh7_rear_up, R.drawable.can_rh7_rear_dn, 9);
         this.mStatusAcMax = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 408, R.drawable.can_rh7_max_up, R.drawable.can_rh7_max_dn, 17);
         addButton(50, 406, R.drawable.can_rh7_del_up, R.drawable.can_rh7_del_dn, 16);

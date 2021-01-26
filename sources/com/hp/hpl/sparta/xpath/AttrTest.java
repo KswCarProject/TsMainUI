@@ -1,5 +1,7 @@
 package com.hp.hpl.sparta.xpath;
 
+import com.android.SdkConstants;
+
 public class AttrTest extends NodeTest {
     private final String attrName_;
 
@@ -20,6 +22,6 @@ public class AttrTest extends NodeTest {
     }
 
     public String toString() {
-        return new StringBuffer().append("@").append(this.attrName_).toString();
+        return new StringBuffer().append(SdkConstants.PREFIX_RESOURCE_REF).append(this.attrName_).toString();
     }
 }

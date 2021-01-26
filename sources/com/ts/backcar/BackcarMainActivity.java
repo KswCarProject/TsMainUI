@@ -16,28 +16,14 @@ public class BackcarMainActivity extends Activity {
     /* access modifiers changed from: private */
     public Runnable CheckBackCarState = new Runnable() {
         public void run() {
-            if (MainUI.IsCameraMode() == 0) {
-                if (MainSet.GetInstance().IsHaveFcam() && FtSet.GetFcamTime() > 0) {
-                    switch (FtSet.GetFcamTime()) {
-                        case 1:
-                            MainSet.nFcamTime = 75;
-                            break;
-                        case 2:
-                            MainSet.nFcamTime = 125;
-                            break;
-                        case 3:
-                            MainSet.nFcamTime = 200;
-                            break;
-                    }
-                    WinShow.GotoWin(14, 0);
-                }
+            if (MainUI.IsCameraMode() == 0 || BackcarService.getInstance().bForceExit) {
                 if (!BackcarMainActivity.this.bActivityOntop) {
                     Log.i("scj", "Runnable  DestroyCamera");
                     BackcarMainActivity.this.DestroyCamera();
+                    BackcarMainActivity.this.CheckFcamMode();
                 }
-                BackcarMainActivity.this.finish();
-                MainUI.bIsInCamera = false;
                 BackcarMainActivity.this.mHandler.removeCallbacks(BackcarMainActivity.this.CheckBackCarState);
+                BackcarMainActivity.this.finish();
                 Log.i("scj", "finish");
                 return;
             }
@@ -47,18 +33,29 @@ public class BackcarMainActivity extends Activity {
     public boolean bActivityOntop = false;
     /* access modifiers changed from: private */
     public final Handler mHandler = new Handler();
-    int nTurnonLight = 0;
 
-    /* access modifiers changed from: protected */
-    public void onStop() {
-        super.onStop();
-        Log.i("scj", "back car onStop ");
-    }
-
-    /* access modifiers changed from: protected */
-    public void onDestroy() {
-        Log.i("scj", "back car onDestroy ");
-        super.onDestroy();
+    /* access modifiers changed from: package-private */
+    public void CheckFcamMode() {
+        if (!MainSet.GetInstance().IsHaveFcam()) {
+            Log.i("scj", "not have fcam");
+        } else if (FtSet.GetFcamTime() > 0 && MainUI.GetInstance().GetMcuState() == 0 && !BackcarService.getInstance().bForceExit) {
+            switch (FtSet.GetFcamTime()) {
+                case 1:
+                    MainSet.nFcamTime = 75;
+                    break;
+                case 2:
+                    MainSet.nFcamTime = 125;
+                    break;
+                case 3:
+                    MainSet.nFcamTime = 200;
+                    break;
+            }
+            if (MainSet.bIsFrontCam) {
+                MainSet.nFcamTime = 0;
+            }
+            WinShow.GotoWin(14, 0);
+            Log.i("scj", "goto fcam");
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -68,7 +65,7 @@ public class BackcarMainActivity extends Activity {
         getWindow().addFlags(256);
         getWindow().addFlags(512);
         setContentView(new View(this));
-        this.mHandler.postDelayed(this.CheckBackCarState, 30);
+        this.mHandler.postDelayed(this.CheckBackCarState, 300);
         super.onCreate(savedInstanceState);
     }
 
@@ -83,29 +80,44 @@ public class BackcarMainActivity extends Activity {
         if (MainUI.mCanInterface != null) {
             MainUI.mCanInterface.EnterCamera(0);
         }
+        MainUI.bIsInCamera = false;
     }
 
     /* access modifiers changed from: protected */
     public void onPause() {
+        super.onPause();
+        Log.i("scj", "back car onPause 1");
         if (this.bActivityOntop && MainUI.IsCameraMode() == 0) {
             Log.i("scj", "onPause  DestroyCamera");
             DestroyCamera();
+            CheckFcamMode();
         }
         if (MainUI.IsRightCamMode() == 1 && MainUI.IsCameraMode() == 1 && MainUI.mCanInterface != null) {
             MainUI.mCanInterface.EnterCamera(0);
         }
         this.bActivityOntop = false;
-        super.onPause();
+    }
+
+    /* access modifiers changed from: protected */
+    public void onStop() {
+        Log.i("scj", "back car onStop ");
+        super.onStop();
+    }
+
+    /* access modifiers changed from: protected */
+    public void onDestroy() {
+        Log.i("scj", "back car onDestroy ");
+        super.onDestroy();
     }
 
     /* access modifiers changed from: protected */
     public void onResume() {
         Log.i("scj", "back car onResume ");
-        TsDisplay.GetInstance().SetDispParat(0);
         MainSet.GetInstance().SetVideoChannel(0);
         if (MainUI.mCanInterface != null) {
             MainUI.mCanInterface.EnterCamera(1);
         }
+        TsDisplay.GetInstance().SetDispParat(0);
         this.bActivityOntop = true;
         super.onResume();
     }

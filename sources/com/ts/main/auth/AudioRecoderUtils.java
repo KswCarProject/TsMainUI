@@ -4,6 +4,7 @@ import android.media.MediaRecorder;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.File;
 import java.io.IOException;
 
@@ -81,7 +82,7 @@ public class AudioRecoderUtils {
         this.mMediaRecorder.release();
         this.mMediaRecorder = null;
         this.audioStatusUpdateListener.onStop(this.filePath);
-        this.filePath = "";
+        this.filePath = TXZResourceManager.STYLE_DEFAULT;
         return this.endTime - this.startTime;
     }
 
@@ -94,7 +95,7 @@ public class AudioRecoderUtils {
         if (file.exists()) {
             file.delete();
         }
-        this.filePath = "";
+        this.filePath = TXZResourceManager.STYLE_DEFAULT;
     }
 
     public void setOnAudioStatusUpdateListener(OnAudioStatusUpdateListener audioStatusUpdateListener2) {

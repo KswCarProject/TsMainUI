@@ -68,10 +68,10 @@ public class CanLandWindAcActivity extends CanBaseActivity implements UserCallBa
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, 218, this.mIcons[i]);
         }
-        this.mACMode[0] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        this.mACMode[1] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
-        this.mACMode[2] = addButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        this.mACMode[3] = addButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
+        this.mACMode[0] = addButton(305, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        this.mACMode[1] = addButton(305, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
+        this.mACMode[2] = addButton(305, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        this.mACMode[3] = addButton(305, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
         this.mStatusWindow = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 98, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 11);
         this.mStatusOutLoop = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 210, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 13);
         this.mStatusAuto = addButton(757, 210, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn, 14);
@@ -188,13 +188,13 @@ public class CanLandWindAcActivity extends CanBaseActivity implements UserCallBa
                     break;
                 case 4:
                     if (Can.mACInfo.nWindValue != 7) {
-                        CanJni.LoadWindRzcAcKey(0, ((Can.mACInfo.nWindValue + 1) << 4) & 240, 0, 0, 0);
+                        CanJni.LoadWindRzcAcKey(0, ((Can.mACInfo.nWindValue + 1) << 4) & Can.CAN_VOLKS_XP, 0, 0, 0);
                         break;
                     }
                     break;
                 case 5:
                     if (Can.mACInfo.nWindValue != 0) {
-                        CanJni.LoadWindRzcAcKey(0, ((Can.mACInfo.nWindValue - 1) << 4) & 240, 0, 0, 0);
+                        CanJni.LoadWindRzcAcKey(0, ((Can.mACInfo.nWindValue - 1) << 4) & Can.CAN_VOLKS_XP, 0, 0, 0);
                         break;
                     }
                     break;

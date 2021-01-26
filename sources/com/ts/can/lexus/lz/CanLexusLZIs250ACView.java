@@ -13,7 +13,6 @@ import com.ts.can.CanBaseACView;
 import com.ts.can.CanCameraUI;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanLexusLZIs250ACView extends CanBaseACView {
     private static final int CLOSED = 16;
@@ -131,7 +130,7 @@ public class CanLexusLZIs250ACView extends CanBaseACView {
     /* access modifiers changed from: protected */
     public void InitData() {
         setBackgroundResource(R.drawable.can_rh7_bg);
-        this.mAutoMode = getRelativeManager().AddCusText(KeyDef.RKEY_AMS, 426, 118, 30);
+        this.mAutoMode = getRelativeManager().AddCusText(295, 426, 118, 30);
         this.mAutoMode.setTextColor(-1);
         this.mAutoMode.setTextSize(12.0f);
         this.mAutoMode.setText("AUTO");
@@ -155,14 +154,14 @@ public class CanLexusLZIs250ACView extends CanBaseACView {
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addLexusImage(191, 198, mIcons[i]);
         }
-        this.mACMode[0] = addLexusButton(KeyDef.RKEY_MEDIA_ANGLE, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        this.mACMode[1] = addLexusButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_DFFG_S560, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        this.mACMode[2] = addLexusButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 8);
+        this.mACMode[0] = addLexusButton(305, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        this.mACMode[1] = addLexusButton(305, Can.CAN_DFFG_S560, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        this.mACMode[2] = addLexusButton(305, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 8);
         this.mStatusMode = addLexusButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 407, R.drawable.can_rh7_mode_up, R.drawable.can_rh7_mode_dn, 18);
         this.mStatusOutLoop = addLexusButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 182, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 12);
         this.mStatusWindow = addLexusButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 70, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 10);
-        this.mStatusRearWin = addLexusButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_AMS, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 14);
-        this.mStatusAc = addLexusButton(757, KeyDef.RKEY_AMS, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
+        this.mStatusRearWin = addLexusButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 295, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 14);
+        this.mStatusAc = addLexusButton(757, 295, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
         this.mStatusDual = addLexusButton(757, 70, R.drawable.can_rh7_dual_up, R.drawable.can_rh7_dual_dn, 11);
         this.mStatusAuto = addLexusButton(757, 182, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn, 13);
         this.mStatusAutoMode = addLexusButton(757, 407, R.drawable.can_rh7_05_up, R.drawable.can_rh7_05_dn, 17);

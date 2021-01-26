@@ -34,7 +34,7 @@ public class Tr extends Tk {
         content.setMinHeight((int) com.txznet.comm.ui.TE.Tr.Tn("y70"));
         com.txznet.comm.Ty.Tk.T(content, this.T9);
         com.txznet.comm.Ty.Tk.T(content, this.Tk);
-        content.setText(viewData.f442T);
+        content.setText(viewData.f446T);
         title.setPadding(content.getPaddingLeft(), 0, 0, 0);
         com.txznet.comm.Ty.Tk.T(title, this.T9 - 2.0f);
         title.setText(Html.fromHtml(viewData.Tr));
@@ -42,7 +42,7 @@ public class Tr extends Tk {
             mLayout.setOnClickListener(viewData.Ty);
         }
         Tn.T adapter = new Tn.T();
-        adapter.f462T = data.Ty();
+        adapter.f466T = data.Ty();
         adapter.Tr = mLayout;
         adapter.Tn = T9();
         return adapter;

@@ -55,6 +55,8 @@ public class StSet {
 
     public static native int GetRvol();
 
+    public static native int GetScreenTimeout();
+
     public static native int GetSvol();
 
     public static native int GetTconSet(int[] iArr);
@@ -105,6 +107,8 @@ public class StSet {
 
     public static native int SetSave();
 
+    public static native int SetScreenTimeout(int i);
+
     public static native int SetSvol(int i);
 
     public static native int SetTconSet(int[] iArr);
@@ -114,6 +118,6 @@ public class StSet {
     public static native int Setmvwns(int i);
 
     static {
-        System.loadLibrary("ts70xhw");
+        System.loadLibrary("ts59xhw");
     }
 }

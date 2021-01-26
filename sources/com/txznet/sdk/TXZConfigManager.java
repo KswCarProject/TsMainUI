@@ -48,7 +48,7 @@ public class TXZConfigManager {
     public static final String VERSION = "20180731201905_53518";
 
     /* renamed from: T  reason: collision with root package name */
-    ConnectListener f722T = null;
+    ConnectListener f726T = null;
     /* access modifiers changed from: private */
     public ActiveListener T0;
     T T5 = new T();
@@ -63,11 +63,11 @@ public class TXZConfigManager {
             if ("com.txznet.txz".equals(serviceName)) {
                 com.txznet.comm.Tr.Tr.Tn.T("txz disconnected");
                 boolean unused = TXZConfigManager.this.TV = false;
-                if (TXZConfigManager.this.f722T != null) {
-                    if (!TXZService.f816T) {
-                        TXZConfigManager.this.f722T.onExcepiton();
+                if (TXZConfigManager.this.f726T != null) {
+                    if (!TXZService.f820T) {
+                        TXZConfigManager.this.f726T.onExcepiton();
                     }
-                    TXZConfigManager.this.f722T.onDisconnect();
+                    TXZConfigManager.this.f726T.onDisconnect();
                 }
             }
         }
@@ -76,8 +76,8 @@ public class TXZConfigManager {
             if ("com.txznet.txz".equals(serviceName)) {
                 com.txznet.comm.Tr.Tr.Tn.T("txz connected: initializeSDK");
                 TXZConfigManager.this.Ty();
-                if (TXZConfigManager.this.f722T != null) {
-                    TXZConfigManager.this.f722T.onConnect();
+                if (TXZConfigManager.this.f726T != null) {
+                    TXZConfigManager.this.f726T.onConnect();
                 }
             }
         }
@@ -166,14 +166,14 @@ public class TXZConfigManager {
     public boolean TV = false;
     private Runnable TX = new Runnable() {
         public void run() {
-            if (!TXZService.f816T || !(TXZPowerManager.f784T == null || TXZPowerManager.f784T.booleanValue())) {
+            if (!TXZService.f820T || !(TXZPowerManager.f788T == null || TXZPowerManager.f788T.booleanValue())) {
                 TXZService.T("sdk.init.", TXZConfigManager.this.TM);
                 byte[] param = null;
                 if (TXZConfigManager.this.Tr != null) {
                     Tr doc = new Tr();
                     doc.T(MusicInvokeConstants.KEY_PUSH_VERSION, (Object) TXZConfigManager.VERSION);
-                    if (TXZConfigManager.this.Tr.f739T != null) {
-                        doc.T("appId", (Object) TXZConfigManager.this.Tr.f739T);
+                    if (TXZConfigManager.this.Tr.f743T != null) {
+                        doc.T("appId", (Object) TXZConfigManager.this.Tr.f743T);
                     }
                     if (TXZConfigManager.this.Tr.Tr != null) {
                         doc.T("appToken", (Object) TXZConfigManager.this.Tr.Tr);
@@ -624,7 +624,7 @@ public class TXZConfigManager {
         public static final int WIN_RECORD_IMPL_YIDONG = 4;
 
         /* renamed from: T  reason: collision with root package name */
-        String f739T = null;
+        String f743T = null;
         Integer T0 = null;
         Boolean T2 = null;
         String T4 = null;
@@ -686,12 +686,12 @@ public class TXZConfigManager {
         String Tz;
 
         public InitParam(String appId, String appToken) {
-            this.f739T = appId;
+            this.f743T = appId;
             this.Tr = appToken;
         }
 
         public InitParam setAppId(String appId) {
-            this.f739T = appId;
+            this.f743T = appId;
             return this;
         }
 
@@ -807,7 +807,7 @@ public class TXZConfigManager {
 
         public InitParam setWakeupKeyWordsThreshold(String jsonScoreKws) {
             if (jsonScoreKws == null) {
-                jsonScoreKws = "";
+                jsonScoreKws = TXZResourceManager.STYLE_DEFAULT;
             }
             this.TF = jsonScoreKws;
             return this;
@@ -1002,7 +1002,7 @@ public class TXZConfigManager {
     }
 
     public void setConnectListener(ConnectListener listener) {
-        this.f722T = listener;
+        this.f726T = listener;
     }
 
     public boolean isInitedSuccess() {
@@ -1034,7 +1034,7 @@ public class TXZConfigManager {
                 Ty();
                 return;
             }
-            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "", (byte[]) null, (Tn.Tr) null);
+            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", TXZResourceManager.STYLE_DEFAULT, (byte[]) null, (Tn.Tr) null);
             com.txznet.comm.Tr.T.T.T().Tr();
             com.txznet.comm.Tr.Tr.Tr.Tr();
         }
@@ -1042,7 +1042,7 @@ public class TXZConfigManager {
 
     /* access modifiers changed from: package-private */
     public void Ty() {
-        if (!TXZService.f816T || !(TXZPowerManager.f784T == null || TXZPowerManager.f784T.booleanValue())) {
+        if (!TXZService.f820T || !(TXZPowerManager.f788T == null || TXZPowerManager.f788T.booleanValue())) {
             com.txznet.comm.Tr.Tn.Tr().T(this.TX);
             com.txznet.comm.Tr.Tn.Tr().T(this.TX, 0);
         }
@@ -1084,13 +1084,13 @@ public class TXZConfigManager {
     public void enableWinAnim(boolean enable) {
         com.txznet.comm.Tr.Tr.Tn.T("enableWinAnim enable:" + enable);
         this.Tk = Boolean.valueOf(enable);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.win.enableAnim", ("" + enable).getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.win.enableAnim", (TXZResourceManager.STYLE_DEFAULT + enable).getBytes(), (Tn.Tr) null);
     }
 
     public void enableCoverDefaultKeywords(boolean enable) {
         com.txznet.comm.Tr.Tr.Tn.T("TXZConfigManager::enableCoverDefaultKeywords, enable=" + enable);
         this.TZ = Boolean.valueOf(enable);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.enableCoverDefaultKeywords", ("" + enable).toString().getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.enableCoverDefaultKeywords", (TXZResourceManager.STYLE_DEFAULT + enable).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setWakeupKeywordsNew(String... keywords) {
@@ -1151,7 +1151,7 @@ public class TXZConfigManager {
     static class T implements TXZService.T {
 
         /* renamed from: T  reason: collision with root package name */
-        public UserConfigListener f741T = null;
+        public UserConfigListener f745T = null;
 
         T() {
         }
@@ -1159,11 +1159,11 @@ public class TXZConfigManager {
         public byte[] T(String packageName, String command, byte[] data) {
             try {
                 if ("onChangeWakeupKeywords".equals(command)) {
-                    if (this.f741T != null) {
-                        this.f741T.onChangeWakeupKeywords((String[]) new com.txznet.comm.Ty.Tr(new String(data)).T("kws", String[].class));
+                    if (this.f745T != null) {
+                        this.f745T.onChangeWakeupKeywords((String[]) new com.txznet.comm.Ty.Tr(new String(data)).T("kws", String[].class));
                     }
-                } else if ("onChangeCommunicationStyle".equals(command) && this.f741T != null) {
-                    this.f741T.onChangeCommunicationStyle(new String(data));
+                } else if ("onChangeCommunicationStyle".equals(command) && this.f745T != null) {
+                    this.f745T.onChangeCommunicationStyle(new String(data));
                 }
             } catch (Exception e) {
             }
@@ -1173,7 +1173,7 @@ public class TXZConfigManager {
 
     public void setUserConfigListener(UserConfigListener listener) {
         TXZService.T p = null;
-        this.T5.f741T = listener;
+        this.T5.f745T = listener;
         if (listener != null) {
             p = this.T5;
         }
@@ -1182,17 +1182,17 @@ public class TXZConfigManager {
 
     public void enableChangeWakeupKeywords(boolean enable) {
         this.Tv = Boolean.valueOf(enable);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.enableChangeWakeupKeywords", ("" + enable).toString().getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.enableChangeWakeupKeywords", (TXZResourceManager.STYLE_DEFAULT + enable).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void enableQueryTrafficTicket(boolean enable) {
         this.Th = Boolean.valueOf(enable);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.enable.ticket", (enable + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.enable.ticket", (enable + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setLogLevel(String packageName, int level) {
         this.TI.put(packageName, Integer.valueOf(level));
-        com.txznet.comm.Tr.Tn.Tr().T(packageName, "comm.log.setConsoleLogLevel", ("" + level).getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T(packageName, "comm.log.setConsoleLogLevel", (TXZResourceManager.STYLE_DEFAULT + level).getBytes(), (Tn.Tr) null);
     }
 
     public void setLogLevel(int level) {
@@ -1220,14 +1220,14 @@ public class TXZConfigManager {
         if (this.Tr != null) {
             this.Tr.setWakeupThreshhold(threshHold);
         }
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.set.wkscore", ("" + threshHold).toString().getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.set.wkscore", (TXZResourceManager.STYLE_DEFAULT + threshHold).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setAsrWakeupThreshhold(float threshHold) {
         if (this.Tr != null) {
             this.Tr.setAsrWakeupThreshhold(threshHold);
         }
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.set.asrwkscore", ("" + threshHold).toString().getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.set.asrwkscore", (TXZResourceManager.STYLE_DEFAULT + threshHold).toString().getBytes(), (Tn.Tr) null);
     }
 
     public boolean setDefaultConfig(String jsonConfig) {
@@ -1281,66 +1281,66 @@ public class TXZConfigManager {
     @Deprecated
     public void setPoiSearchActivityFinishDelay(long finishDelay) {
         this.TF = finishDelay;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.poi.finish", (this.TF + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.poi.finish", (this.TF + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     @Deprecated
     public void setPoiSearchActivityStartNavFinishDelay(long finishDelay) {
         this.Tj = finishDelay;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.poi.afterStartNav.finish", (this.Tj + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.poi.afterStartNav.finish", (this.Tj + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setSelectListTimeout(long delay) {
         this.TF = delay;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.poi.finish", (this.TF + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.poi.finish", (this.TF + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setConfirAsrWinDismissDelay(long delay) {
         this.TB = delay;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.wx.dismiss", (this.TB + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.nav.wx.dismiss", (this.TB + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     @Deprecated
     public void setDisplayLvCount(int count) {
         this.TK = count;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.selector.show.count", (this.TK + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.selector.show.count", (this.TK + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setPoiSearchCount(int count) {
         this.TK = count;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.selector.show.count", (this.TK + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.selector.show.count", (this.TK + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setPagingBenchmarkCount(int count) {
         this.TO = count;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.setDisplayCount", (this.TO + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.setDisplayCount", (this.TO + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setMoviePagingBenchmarkCount(int count) {
         this.TN = count;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.setMovieDisplayCount", (this.TN + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.setMovieDisplayCount", (this.TN + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setBanSelectListAsr(boolean isBanAsr) {
         this.Ts = Boolean.valueOf(isBanAsr);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.toggleWp", (isBanAsr + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.toggleWp", (isBanAsr + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setBeepTimeOut(int timeOut) {
         if (this.Tr != null) {
             this.Tr.setBeepTimeOut(timeOut);
         }
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.set.beeptimeout", ("" + timeOut).toString().getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.set.beeptimeout", (TXZResourceManager.STYLE_DEFAULT + timeOut).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setChatMaxEmpty(int count) {
         this.TG = Integer.valueOf(count);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.set.MaxEmpty", ("" + count).toString().getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.set.MaxEmpty", (TXZResourceManager.STYLE_DEFAULT + count).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setChatMaxUnknow(int count) {
         this.Tu = Integer.valueOf(count);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.set.MaxUnknow", ("" + count).toString().getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.set.MaxUnknow", (TXZResourceManager.STYLE_DEFAULT + count).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setAsrServiceMode(AsrServiceMode asrServiceMode) {
@@ -1357,7 +1357,7 @@ public class TXZConfigManager {
         if (this.Tr != null) {
             this.Tr.forceStopWkWhenTts(force);
         }
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.forceStopWkWhenTts", ("" + force).getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.wakeup.forceStopWkWhenTts", (TXZResourceManager.STYLE_DEFAULT + force).getBytes(), (Tn.Tr) null);
     }
 
     public void disableChangeWakeupKeywordsStyle(String style) {
@@ -1382,12 +1382,12 @@ public class TXZConfigManager {
         this.mHideSettingOptions = Integer.valueOf(sensitivity ? this.mHideSettingOptions.intValue() | 8 : this.mHideSettingOptions.intValue());
         this.mHideSettingOptions = Integer.valueOf(ttsSpeed ? this.mHideSettingOptions.intValue() | 16 : this.mHideSettingOptions.intValue());
         this.mHideSettingOptions = Integer.valueOf(reset ? this.mHideSettingOptions.intValue() | 32 : this.mHideSettingOptions.intValue());
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.setting.hideOptions", ("" + this.mHideSettingOptions).getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.setting.hideOptions", (TXZResourceManager.STYLE_DEFAULT + this.mHideSettingOptions).getBytes(), (Tn.Tr) null);
     }
 
     public void enableSettingWkWordsEditable(boolean editable) {
         this.mSettingWkWordsEditable = Boolean.valueOf(editable);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.setting.wkwordsEditable", ("" + this.mSettingWkWordsEditable).getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.setting.wkwordsEditable", (TXZResourceManager.STYLE_DEFAULT + this.mSettingWkWordsEditable).getBytes(), (Tn.Tr) null);
     }
 
     public void setStyleBindWithWakeupKeywords(boolean bind) {
@@ -1435,7 +1435,7 @@ public class TXZConfigManager {
 
     public void setEnableRecording(boolean enable) {
         this.TL = enable;
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.enableRecording", ("" + this.TL).getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.enableRecording", (TXZResourceManager.STYLE_DEFAULT + this.TL).getBytes(), (Tn.Tr) null);
     }
 
     public void setInterruptTips(String text) {
@@ -1447,6 +1447,6 @@ public class TXZConfigManager {
 
     public void setNeedHelpFloat(boolean needFloat) {
         this.Ta = Boolean.valueOf(needFloat);
-        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.setNeedHelpFloat", (needFloat + "").getBytes(), (Tn.Tr) null);
+        com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.config.setNeedHelpFloat", (needFloat + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 }

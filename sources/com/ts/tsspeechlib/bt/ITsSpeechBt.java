@@ -18,6 +18,8 @@ public interface ITsSpeechBt extends IInterface {
 
     int getBtMusicState() throws RemoteException;
 
+    List<PhonebookData> getBtPbList() throws RemoteException;
+
     int getBtPhoneState() throws RemoteException;
 
     void onAnswerPhone() throws RemoteException;
@@ -47,6 +49,7 @@ public interface ITsSpeechBt extends IInterface {
         static final int TRANSACTION_getBtConnectState = 4;
         static final int TRANSACTION_getBtDEV = 6;
         static final int TRANSACTION_getBtMusicState = 7;
+        static final int TRANSACTION_getBtPbList = 17;
         static final int TRANSACTION_getBtPhoneState = 5;
         static final int TRANSACTION_onAnswerPhone = 2;
         static final int TRANSACTION_onBtMusicNext = 11;
@@ -164,6 +167,12 @@ public interface ITsSpeechBt extends IInterface {
                     data.enforceInterface(DESCRIPTOR);
                     closeBtMusic();
                     reply.writeNoException();
+                    return true;
+                case 17:
+                    data.enforceInterface(DESCRIPTOR);
+                    List<PhonebookData> _result6 = getBtPbList();
+                    reply.writeNoException();
+                    reply.writeTypedList(_result6);
                     return true;
                 case 1598968902:
                     reply.writeString(DESCRIPTOR);
@@ -396,6 +405,20 @@ public interface ITsSpeechBt extends IInterface {
                     _data.writeInterfaceToken(Stub.DESCRIPTOR);
                     this.mRemote.transact(16, _data, _reply, 0);
                     _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public List<PhonebookData> getBtPbList() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(17, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createTypedArrayList(PhonebookData.CREATOR);
                 } finally {
                     _reply.recycle();
                     _data.recycle();

@@ -4,7 +4,7 @@ package com.txznet.comm.ui.T5.T;
 public class TG extends TM {
 
     /* renamed from: T  reason: collision with root package name */
-    public String f437T;
+    public String f441T;
     public String Tr;
     public int Ty;
 
@@ -13,7 +13,7 @@ public class TG extends TM {
     }
 
     public void T(String qrCode) {
-        this.f437T = qrCode;
+        this.f441T = qrCode;
     }
 
     public void Tr(String title) {

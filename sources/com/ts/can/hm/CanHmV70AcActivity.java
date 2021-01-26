@@ -94,7 +94,7 @@ public class CanHmV70AcActivity extends CanBaseActivity implements UserCallBack,
                 this.mImgTemp[i] = this.mManager.AddImage(426, Can.CAN_GM_CAPTIVA_OD);
                 this.mImgTemp[i].setStateDrawable(R.drawable.can_haima_tmp03_up, R.drawable.can_haima_tmp03_dn);
             } else {
-                this.mImgTemp[i] = this.mManager.AddImage(((i - 1) * 21) + Can.CAN_HYUNDAI_WC, Can.CAN_GM_CAPTIVA_OD);
+                this.mImgTemp[i] = this.mManager.AddImage(((i - 1) * 21) + 153, Can.CAN_GM_CAPTIVA_OD);
                 this.mImgTemp[i].setStateDrawable(R.drawable.can_haima_tmp02_up, R.drawable.can_haima_tmp02_dn);
             }
         }
@@ -305,10 +305,10 @@ public class CanHmV70AcActivity extends CanBaseActivity implements UserCallBack,
                     CanJni.HmV70CarSet(161, 1);
                     break;
                 case 13:
-                    CanJni.HmV70CarSet(Can.CAN_CHANA_CS75_WC, 0);
+                    CanJni.HmV70CarSet(160, 0);
                     break;
                 case 14:
-                    CanJni.HmV70CarSet(Can.CAN_CHANA_CS75_WC, 1);
+                    CanJni.HmV70CarSet(160, 1);
                     break;
                 case 15:
                     CanJni.HmV70CarSet(176, 1);

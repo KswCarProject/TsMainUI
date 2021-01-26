@@ -13,7 +13,6 @@ import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.RelativeLayoutManager;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanFordRzcTpmsView extends CanRelativeCarInfoView {
     private CustomImgView mCarBg;
@@ -69,13 +68,13 @@ public class CanFordRzcTpmsView extends CanRelativeCarInfoView {
         SetText(this.mTyreValue[4]);
         this.mTempValue[4] = this.mManager.AddCusText(410, 280, 209, 60);
         SetText(this.mTempValue[4]);
-        this.mTxtXslc = this.mManager.AddCusText(CanCameraUI.BTN_CC_WC_DIRECTION1, 420, KeyDef.RKEY_MEDIA_ZOOM, 60);
+        this.mTxtXslc = this.mManager.AddCusText(CanCameraUI.BTN_CC_WC_DIRECTION1, 420, 309, 60);
         SetConsumpText(this.mTxtXslc);
-        this.mTxtXhlc = this.mManager.AddCusText(CanCameraUI.BTN_CC_WC_DIRECTION1, 480, KeyDef.RKEY_MEDIA_ZOOM, 60);
+        this.mTxtXhlc = this.mManager.AddCusText(CanCameraUI.BTN_CC_WC_DIRECTION1, 480, 309, 60);
         SetConsumpText(this.mTxtXhlc);
         this.mTxtPjyh = this.mManager.AddCusText(10, 420, 359, 60);
         SetConsumpText(this.mTxtPjyh);
-        this.mTxtSyyl = this.mManager.AddCusText(10, 480, KeyDef.RKEY_MEDIA_ZOOM, 60);
+        this.mTxtSyyl = this.mManager.AddCusText(10, 480, 500, 60);
         SetConsumpText(this.mTxtSyyl);
     }
 
@@ -95,6 +94,8 @@ public class CanFordRzcTpmsView extends CanRelativeCarInfoView {
     }
 
     private void showTyres() {
+        String str;
+        String str2;
         TextView[] tvVal = this.mTyreValue;
         for (int i = 0; i < 4; i++) {
             this.mTyres[i].SetSel(this.mTpmsData.PreSta[i]);
@@ -127,10 +128,16 @@ public class CanFordRzcTpmsView extends CanRelativeCarInfoView {
             this.mTxtPjyh.setText(String.valueOf(getString(R.string.can_pjyh)) + ": " + String.format("%.1f", new Object[]{Double.valueOf(((double) ((this.mTpmsData.Pjyh * 2) + 1)) * 0.1d)}) + "L/100km");
         }
         if (this.mTpmsData.Syyl / 2 > 100) {
-            this.mTxtSyyl.setText(String.valueOf(getString(R.string.can_rest_oil)) + ": --");
-            return;
+            str = String.valueOf(getString(R.string.can_rest_oil)) + ": --";
+        } else {
+            str = String.valueOf(getString(R.string.can_rest_oil)) + ": " + String.format("%.1f", new Object[]{Double.valueOf(((double) this.mTpmsData.Syyl) * 0.5d)}) + "%";
         }
-        this.mTxtSyyl.setText(String.valueOf(getString(R.string.can_rest_oil)) + ": " + String.format("%.1f", new Object[]{Double.valueOf(((double) this.mTpmsData.Syyl) * 0.5d)}) + "%");
+        if (this.mTpmsData.Jysm > 100) {
+            str2 = String.format("%s   %s", new Object[]{str, String.valueOf(getString(R.string.can_oil_life)) + ": --"});
+        } else {
+            str2 = String.format("%s   %s", new Object[]{str, String.valueOf(getString(R.string.can_oil_life)) + ": " + String.format("%d", new Object[]{Integer.valueOf(this.mTpmsData.Jysm)}) + "%"});
+        }
+        this.mTxtSyyl.setText(str2);
     }
 
     private void SetText(CustomTextView tv) {

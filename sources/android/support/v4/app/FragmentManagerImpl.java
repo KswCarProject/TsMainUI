@@ -444,254 +444,254 @@ final class FragmentManagerImpl extends FragmentManager {
     }
 
     /* access modifiers changed from: package-private */
-    /* JADX WARNING: Code restructure failed: missing block: B:100:0x0202, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:100:0x020f, code lost:
         android.util.Log.v(TAG, "moveto STARTED: " + r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:101:0x021a, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:101:0x0229, code lost:
         r11.performStart();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:103:0x021e, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:103:0x022d, code lost:
         if (r12 <= 4) goto L_0x0046;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:105:0x0222, code lost:
-        if (DEBUG == false) goto L_0x023c;
+    /* JADX WARNING: Code restructure failed: missing block: B:105:0x0231, code lost:
+        if (DEBUG == false) goto L_0x024d;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:106:0x0224, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:106:0x0233, code lost:
         android.util.Log.v(TAG, "moveto RESUMED: " + r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:107:0x023c, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:107:0x024d, code lost:
         r11.mResumed = true;
         r11.performResume();
         r11.mSavedFragmentState = null;
         r11.mSavedViewState = null;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:109:0x024f, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:109:0x0260, code lost:
         r11.mInnerView = null;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:115:0x025f, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:115:0x0270, code lost:
         if (r12 >= 1) goto L_0x0046;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:117:0x0263, code lost:
-        if (r10.mDestroyed == false) goto L_0x0271;
+    /* JADX WARNING: Code restructure failed: missing block: B:117:0x0274, code lost:
+        if (r10.mDestroyed == false) goto L_0x0282;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:119:0x0267, code lost:
-        if (r11.mAnimatingAway == null) goto L_0x0271;
+    /* JADX WARNING: Code restructure failed: missing block: B:119:0x0278, code lost:
+        if (r11.mAnimatingAway == null) goto L_0x0282;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:120:0x0269, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:120:0x027a, code lost:
         r9 = r11.mAnimatingAway;
         r11.mAnimatingAway = null;
         r9.clearAnimation();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:122:0x0273, code lost:
-        if (r11.mAnimatingAway == null) goto L_0x0356;
+    /* JADX WARNING: Code restructure failed: missing block: B:122:0x0284, code lost:
+        if (r11.mAnimatingAway == null) goto L_0x036f;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:123:0x0275, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:123:0x0286, code lost:
         r11.mStateAfterAnimating = r12;
         r12 = 1;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:131:0x02a0, code lost:
-        if (r12 >= 4) goto L_0x02c1;
+    /* JADX WARNING: Code restructure failed: missing block: B:131:0x02b3, code lost:
+        if (r12 >= 4) goto L_0x02d6;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:133:0x02a4, code lost:
-        if (DEBUG == false) goto L_0x02be;
+    /* JADX WARNING: Code restructure failed: missing block: B:133:0x02b7, code lost:
+        if (DEBUG == false) goto L_0x02d3;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:134:0x02a6, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:134:0x02b9, code lost:
         android.util.Log.v(TAG, "movefrom STARTED: " + r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:135:0x02be, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:135:0x02d3, code lost:
         r11.performStop();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:137:0x02c2, code lost:
-        if (r12 >= 3) goto L_0x02e3;
+    /* JADX WARNING: Code restructure failed: missing block: B:137:0x02d7, code lost:
+        if (r12 >= 3) goto L_0x02fa;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:139:0x02c6, code lost:
-        if (DEBUG == false) goto L_0x02e0;
+    /* JADX WARNING: Code restructure failed: missing block: B:139:0x02db, code lost:
+        if (DEBUG == false) goto L_0x02f7;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:140:0x02c8, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:140:0x02dd, code lost:
         android.util.Log.v(TAG, "movefrom STOPPED: " + r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:141:0x02e0, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:141:0x02f7, code lost:
         r11.performReallyStop();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:143:0x02e4, code lost:
-        if (r12 >= 2) goto L_0x025e;
+    /* JADX WARNING: Code restructure failed: missing block: B:143:0x02fb, code lost:
+        if (r12 >= 2) goto L_0x026f;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:145:0x02e8, code lost:
-        if (DEBUG == false) goto L_0x0302;
+    /* JADX WARNING: Code restructure failed: missing block: B:145:0x02ff, code lost:
+        if (DEBUG == false) goto L_0x031b;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:146:0x02ea, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:146:0x0301, code lost:
         android.util.Log.v(TAG, "movefrom ACTIVITY_CREATED: " + r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:148:0x0304, code lost:
-        if (r11.mView == null) goto L_0x0315;
+    /* JADX WARNING: Code restructure failed: missing block: B:148:0x031d, code lost:
+        if (r11.mView == null) goto L_0x032e;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:150:0x030c, code lost:
-        if (r10.mActivity.isFinishing() != false) goto L_0x0315;
+    /* JADX WARNING: Code restructure failed: missing block: B:150:0x0325, code lost:
+        if (r10.mActivity.isFinishing() != false) goto L_0x032e;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:152:0x0310, code lost:
-        if (r11.mSavedViewState != null) goto L_0x0315;
+    /* JADX WARNING: Code restructure failed: missing block: B:152:0x0329, code lost:
+        if (r11.mSavedViewState != null) goto L_0x032e;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:153:0x0312, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:153:0x032b, code lost:
         saveFragmentViewState(r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:154:0x0315, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:154:0x032e, code lost:
         r11.performDestroyView();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:155:0x031a, code lost:
-        if (r11.mView == null) goto L_0x034b;
+    /* JADX WARNING: Code restructure failed: missing block: B:155:0x0333, code lost:
+        if (r11.mView == null) goto L_0x0364;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:157:0x031e, code lost:
-        if (r11.mContainer == null) goto L_0x034b;
+    /* JADX WARNING: Code restructure failed: missing block: B:157:0x0337, code lost:
+        if (r11.mContainer == null) goto L_0x0364;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:158:0x0320, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:158:0x0339, code lost:
         r6 = null;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:159:0x0323, code lost:
-        if (r10.mCurState <= 0) goto L_0x032e;
+    /* JADX WARNING: Code restructure failed: missing block: B:159:0x033c, code lost:
+        if (r10.mCurState <= 0) goto L_0x0347;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:161:0x0327, code lost:
-        if (r10.mDestroyed != false) goto L_0x032e;
+    /* JADX WARNING: Code restructure failed: missing block: B:161:0x0340, code lost:
+        if (r10.mDestroyed != false) goto L_0x0347;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:162:0x0329, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:162:0x0342, code lost:
         r6 = loadAnimation(r11, r13, false, r14);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:163:0x032e, code lost:
-        if (r6 == null) goto L_0x0344;
+    /* JADX WARNING: Code restructure failed: missing block: B:163:0x0347, code lost:
+        if (r6 == null) goto L_0x035d;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:164:0x0330, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:164:0x0349, code lost:
         r8 = r11;
         r11.mAnimatingAway = r11.mView;
         r11.mStateAfterAnimating = r12;
         r6.setAnimationListener(new android.support.v4.app.FragmentManagerImpl.AnonymousClass5(r10));
         r11.mView.startAnimation(r6);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:165:0x0344, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:165:0x035d, code lost:
         r11.mContainer.removeView(r11.mView);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:166:0x034b, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:166:0x0364, code lost:
         r11.mContainer = null;
         r11.mView = null;
         r11.mInnerView = null;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:168:0x0358, code lost:
-        if (DEBUG == false) goto L_0x0372;
+    /* JADX WARNING: Code restructure failed: missing block: B:168:0x0371, code lost:
+        if (DEBUG == false) goto L_0x038d;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:169:0x035a, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:169:0x0373, code lost:
         android.util.Log.v(TAG, "movefrom CREATED: " + r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:171:0x0374, code lost:
-        if (r11.mRetaining != false) goto L_0x0379;
+    /* JADX WARNING: Code restructure failed: missing block: B:171:0x038f, code lost:
+        if (r11.mRetaining != false) goto L_0x0394;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:172:0x0376, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:172:0x0391, code lost:
         r11.performDestroy();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:173:0x0379, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:173:0x0394, code lost:
         r11.mCalled = false;
         r11.onDetach();
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:174:0x0381, code lost:
-        if (r11.mCalled != false) goto L_0x03a2;
+    /* JADX WARNING: Code restructure failed: missing block: B:174:0x039c, code lost:
+        if (r11.mCalled != false) goto L_0x03bf;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:176:0x03a1, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:176:0x03be, code lost:
         throw new android.support.v4.app.SuperNotCalledException("Fragment " + r11 + " did not call through to super.onDetach()");
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:177:0x03a2, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:177:0x03bf, code lost:
         if (r15 != false) goto L_0x0046;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:179:0x03a6, code lost:
-        if (r11.mRetaining != false) goto L_0x03ad;
+    /* JADX WARNING: Code restructure failed: missing block: B:179:0x03c3, code lost:
+        if (r11.mRetaining != false) goto L_0x03ca;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:180:0x03a8, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:180:0x03c5, code lost:
         makeInactive(r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:181:0x03ad, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:181:0x03ca, code lost:
         r11.mActivity = null;
         r11.mParentFragment = null;
         r11.mFragmentManager = null;
         r11.mChildFragmentManager = null;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:67:0x012f, code lost:
-        if (r12 <= 1) goto L_0x01fb;
+    /* JADX WARNING: Code restructure failed: missing block: B:67:0x0137, code lost:
+        if (r12 <= 1) goto L_0x0208;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:69:0x0133, code lost:
-        if (DEBUG == false) goto L_0x014d;
+    /* JADX WARNING: Code restructure failed: missing block: B:69:0x013b, code lost:
+        if (DEBUG == false) goto L_0x0157;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:70:0x0135, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:70:0x013d, code lost:
         android.util.Log.v(TAG, "moveto ACTIVITY_CREATED: " + r11);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:72:0x014f, code lost:
-        if (r11.mFromLayout != false) goto L_0x01ea;
+    /* JADX WARNING: Code restructure failed: missing block: B:72:0x0159, code lost:
+        if (r11.mFromLayout != false) goto L_0x01f7;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:73:0x0151, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:73:0x015b, code lost:
         r7 = null;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:74:0x0154, code lost:
-        if (r11.mContainerId == 0) goto L_0x01a5;
+    /* JADX WARNING: Code restructure failed: missing block: B:74:0x015e, code lost:
+        if (r11.mContainerId == 0) goto L_0x01b2;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:75:0x0156, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:75:0x0160, code lost:
         r7 = (android.view.ViewGroup) r10.mContainer.findViewById(r11.mContainerId);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:76:0x0160, code lost:
-        if (r7 != null) goto L_0x01a5;
+    /* JADX WARNING: Code restructure failed: missing block: B:76:0x016a, code lost:
+        if (r7 != null) goto L_0x01b2;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:78:0x0164, code lost:
-        if (r11.mRestored != false) goto L_0x01a5;
+    /* JADX WARNING: Code restructure failed: missing block: B:78:0x016e, code lost:
+        if (r11.mRestored != false) goto L_0x01b2;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:79:0x0166, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:79:0x0170, code lost:
         throwException(new java.lang.IllegalArgumentException("No view found for id 0x" + java.lang.Integer.toHexString(r11.mContainerId) + " (" + r11.getResources().getResourceName(r11.mContainerId) + ") for fragment " + r11));
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:80:0x01a5, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:80:0x01b2, code lost:
         r11.mContainer = r7;
         r11.mView = r11.performCreateView(r11.getLayoutInflater(r11.mSavedFragmentState), r7, r11.mSavedFragmentState);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:81:0x01b7, code lost:
-        if (r11.mView == null) goto L_0x024f;
+    /* JADX WARNING: Code restructure failed: missing block: B:81:0x01c4, code lost:
+        if (r11.mView == null) goto L_0x0260;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:82:0x01b9, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:82:0x01c6, code lost:
         r11.mInnerView = r11.mView;
         r11.mView = android.support.v4.app.NoSaveStateFrameLayout.wrap(r11.mView);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:83:0x01c5, code lost:
-        if (r7 == null) goto L_0x01d8;
+    /* JADX WARNING: Code restructure failed: missing block: B:83:0x01d2, code lost:
+        if (r7 == null) goto L_0x01e5;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:84:0x01c7, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:84:0x01d4, code lost:
         r6 = loadAnimation(r11, r13, true, r14);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:85:0x01cc, code lost:
-        if (r6 == null) goto L_0x01d3;
+    /* JADX WARNING: Code restructure failed: missing block: B:85:0x01d9, code lost:
+        if (r6 == null) goto L_0x01e0;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:86:0x01ce, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:86:0x01db, code lost:
         r11.mView.startAnimation(r6);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:87:0x01d3, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:87:0x01e0, code lost:
         r7.addView(r11.mView);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:89:0x01da, code lost:
-        if (r11.mHidden == false) goto L_0x01e3;
+    /* JADX WARNING: Code restructure failed: missing block: B:89:0x01e7, code lost:
+        if (r11.mHidden == false) goto L_0x01f0;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:90:0x01dc, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:90:0x01e9, code lost:
         r11.mView.setVisibility(8);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:91:0x01e3, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:91:0x01f0, code lost:
         r11.onViewCreated(r11.mView, r11.mSavedFragmentState);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:92:0x01ea, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:92:0x01f7, code lost:
         r11.performActivityCreated(r11.mSavedFragmentState);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:93:0x01f1, code lost:
-        if (r11.mView == null) goto L_0x01f8;
+    /* JADX WARNING: Code restructure failed: missing block: B:93:0x01fe, code lost:
+        if (r11.mView == null) goto L_0x0205;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:94:0x01f3, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:94:0x0200, code lost:
         r11.restoreViewState(r11.mSavedFragmentState);
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:95:0x01f8, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:95:0x0205, code lost:
         r11.mSavedFragmentState = null;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:97:0x01fc, code lost:
-        if (r12 <= 3) goto L_0x021d;
+    /* JADX WARNING: Code restructure failed: missing block: B:97:0x0209, code lost:
+        if (r12 <= 3) goto L_0x022c;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:99:0x0200, code lost:
-        if (DEBUG == false) goto L_0x021a;
+    /* JADX WARNING: Code restructure failed: missing block: B:99:0x020d, code lost:
+        if (DEBUG == false) goto L_0x0229;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public void moveToState(android.support.v4.app.Fragment r11, int r12, int r13, int r14, boolean r15) {
@@ -722,7 +722,7 @@ final class FragmentManagerImpl extends FragmentManager {
             r12 = 3
         L_0x0023:
             int r0 = r11.mState
-            if (r0 >= r12) goto L_0x0253
+            if (r0 >= r12) goto L_0x0264
             boolean r0 = r11.mFromLayout
             if (r0 == 0) goto L_0x0030
             boolean r0 = r11.mInLayout
@@ -745,10 +745,10 @@ final class FragmentManagerImpl extends FragmentManager {
             int r0 = r11.mState
             switch(r0) {
                 case 0: goto L_0x0049;
-                case 1: goto L_0x012e;
-                case 2: goto L_0x01fb;
-                case 3: goto L_0x01fb;
-                case 4: goto L_0x021d;
+                case 1: goto L_0x0136;
+                case 2: goto L_0x0208;
+                case 3: goto L_0x0208;
+                case 4: goto L_0x022c;
                 default: goto L_0x0046;
             }
         L_0x0046:
@@ -756,7 +756,7 @@ final class FragmentManagerImpl extends FragmentManager {
             goto L_0x002f
         L_0x0049:
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x0065
+            if (r0 == 0) goto L_0x0067
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -765,9 +765,9 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x0065:
+        L_0x0067:
             android.os.Bundle r0 = r11.mSavedFragmentState
-            if (r0 == 0) goto L_0x00a2
+            if (r0 == 0) goto L_0x00a8
             android.os.Bundle r0 = r11.mSavedFragmentState
             java.lang.String r1 = "android:view_state"
             android.util.SparseArray r0 = r0.getSparseParcelableArray(r1)
@@ -777,42 +777,42 @@ final class FragmentManagerImpl extends FragmentManager {
             android.support.v4.app.Fragment r0 = r10.getFragment(r0, r1)
             r11.mTarget = r0
             android.support.v4.app.Fragment r0 = r11.mTarget
-            if (r0 == 0) goto L_0x008c
+            if (r0 == 0) goto L_0x0091
             android.os.Bundle r0 = r11.mSavedFragmentState
             java.lang.String r1 = "android:target_req_state"
             r2 = 0
             int r0 = r0.getInt(r1, r2)
             r11.mTargetRequestCode = r0
-        L_0x008c:
+        L_0x0091:
             android.os.Bundle r0 = r11.mSavedFragmentState
             java.lang.String r1 = "android:user_visible_hint"
             r2 = 1
             boolean r0 = r0.getBoolean(r1, r2)
             r11.mUserVisibleHint = r0
             boolean r0 = r11.mUserVisibleHint
-            if (r0 != 0) goto L_0x00a2
+            if (r0 != 0) goto L_0x00a8
             r0 = 1
             r11.mDeferStart = r0
             r0 = 3
-            if (r12 <= r0) goto L_0x00a2
+            if (r12 <= r0) goto L_0x00a8
             r12 = 3
-        L_0x00a2:
+        L_0x00a8:
             android.support.v4.app.FragmentActivity r0 = r10.mActivity
             r11.mActivity = r0
             android.support.v4.app.Fragment r0 = r10.mParent
             r11.mParentFragment = r0
             android.support.v4.app.Fragment r0 = r10.mParent
-            if (r0 == 0) goto L_0x00df
+            if (r0 == 0) goto L_0x00e7
             android.support.v4.app.Fragment r0 = r10.mParent
             android.support.v4.app.FragmentManagerImpl r0 = r0.mChildFragmentManager
-        L_0x00b2:
+        L_0x00b8:
             r11.mFragmentManager = r0
             r0 = 0
             r11.mCalled = r0
             android.support.v4.app.FragmentActivity r0 = r10.mActivity
             r11.onAttach(r0)
             boolean r0 = r11.mCalled
-            if (r0 != 0) goto L_0x00e4
+            if (r0 != 0) goto L_0x00ec
             android.support.v4.app.SuperNotCalledException r0 = new android.support.v4.app.SuperNotCalledException
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -824,25 +824,25 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.String r1 = r1.toString()
             r0.<init>(r1)
             throw r0
-        L_0x00df:
+        L_0x00e7:
             android.support.v4.app.FragmentActivity r0 = r10.mActivity
             android.support.v4.app.FragmentManagerImpl r0 = r0.mFragments
-            goto L_0x00b2
-        L_0x00e4:
+            goto L_0x00b8
+        L_0x00ec:
             android.support.v4.app.Fragment r0 = r11.mParentFragment
-            if (r0 != 0) goto L_0x00ed
+            if (r0 != 0) goto L_0x00f5
             android.support.v4.app.FragmentActivity r0 = r10.mActivity
             r0.onAttachFragment(r11)
-        L_0x00ed:
+        L_0x00f5:
             boolean r0 = r11.mRetaining
-            if (r0 != 0) goto L_0x00f6
+            if (r0 != 0) goto L_0x00fe
             android.os.Bundle r0 = r11.mSavedFragmentState
             r11.performCreate(r0)
-        L_0x00f6:
+        L_0x00fe:
             r0 = 0
             r11.mRetaining = r0
             boolean r0 = r11.mFromLayout
-            if (r0 == 0) goto L_0x012e
+            if (r0 == 0) goto L_0x0136
             android.os.Bundle r0 = r11.mSavedFragmentState
             android.view.LayoutInflater r0 = r11.getLayoutInflater(r0)
             r1 = 0
@@ -850,26 +850,26 @@ final class FragmentManagerImpl extends FragmentManager {
             android.view.View r0 = r11.performCreateView(r0, r1, r2)
             r11.mView = r0
             android.view.View r0 = r11.mView
-            if (r0 == 0) goto L_0x024a
+            if (r0 == 0) goto L_0x025b
             android.view.View r0 = r11.mView
             r11.mInnerView = r0
             android.view.View r0 = r11.mView
             android.view.ViewGroup r0 = android.support.v4.app.NoSaveStateFrameLayout.wrap(r0)
             r11.mView = r0
             boolean r0 = r11.mHidden
-            if (r0 == 0) goto L_0x0127
+            if (r0 == 0) goto L_0x012f
             android.view.View r0 = r11.mView
             r1 = 8
             r0.setVisibility(r1)
-        L_0x0127:
+        L_0x012f:
             android.view.View r0 = r11.mView
             android.os.Bundle r1 = r11.mSavedFragmentState
             r11.onViewCreated(r0, r1)
-        L_0x012e:
+        L_0x0136:
             r0 = 1
-            if (r12 <= r0) goto L_0x01fb
+            if (r12 <= r0) goto L_0x0208
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x014d
+            if (r0 == 0) goto L_0x0157
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -878,19 +878,19 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x014d:
+        L_0x0157:
             boolean r0 = r11.mFromLayout
-            if (r0 != 0) goto L_0x01ea
+            if (r0 != 0) goto L_0x01f7
             r7 = 0
             int r0 = r11.mContainerId
-            if (r0 == 0) goto L_0x01a5
+            if (r0 == 0) goto L_0x01b2
             android.support.v4.app.FragmentContainer r0 = r10.mContainer
             int r1 = r11.mContainerId
             android.view.View r7 = r0.findViewById(r1)
             android.view.ViewGroup r7 = (android.view.ViewGroup) r7
-            if (r7 != 0) goto L_0x01a5
+            if (r7 != 0) goto L_0x01b2
             boolean r0 = r11.mRestored
-            if (r0 != 0) goto L_0x01a5
+            if (r0 != 0) goto L_0x01b2
             java.lang.IllegalArgumentException r0 = new java.lang.IllegalArgumentException
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -911,7 +911,7 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.String r1 = r1.toString()
             r0.<init>(r1)
             r10.throwException(r0)
-        L_0x01a5:
+        L_0x01b2:
             r11.mContainer = r7
             android.os.Bundle r0 = r11.mSavedFragmentState
             android.view.LayoutInflater r0 = r11.getLayoutInflater(r0)
@@ -919,46 +919,46 @@ final class FragmentManagerImpl extends FragmentManager {
             android.view.View r0 = r11.performCreateView(r0, r7, r1)
             r11.mView = r0
             android.view.View r0 = r11.mView
-            if (r0 == 0) goto L_0x024f
+            if (r0 == 0) goto L_0x0260
             android.view.View r0 = r11.mView
             r11.mInnerView = r0
             android.view.View r0 = r11.mView
             android.view.ViewGroup r0 = android.support.v4.app.NoSaveStateFrameLayout.wrap(r0)
             r11.mView = r0
-            if (r7 == 0) goto L_0x01d8
+            if (r7 == 0) goto L_0x01e5
             r0 = 1
             android.view.animation.Animation r6 = r10.loadAnimation(r11, r13, r0, r14)
-            if (r6 == 0) goto L_0x01d3
+            if (r6 == 0) goto L_0x01e0
             android.view.View r0 = r11.mView
             r0.startAnimation(r6)
-        L_0x01d3:
+        L_0x01e0:
             android.view.View r0 = r11.mView
             r7.addView(r0)
-        L_0x01d8:
+        L_0x01e5:
             boolean r0 = r11.mHidden
-            if (r0 == 0) goto L_0x01e3
+            if (r0 == 0) goto L_0x01f0
             android.view.View r0 = r11.mView
             r1 = 8
             r0.setVisibility(r1)
-        L_0x01e3:
+        L_0x01f0:
             android.view.View r0 = r11.mView
             android.os.Bundle r1 = r11.mSavedFragmentState
             r11.onViewCreated(r0, r1)
-        L_0x01ea:
+        L_0x01f7:
             android.os.Bundle r0 = r11.mSavedFragmentState
             r11.performActivityCreated(r0)
             android.view.View r0 = r11.mView
-            if (r0 == 0) goto L_0x01f8
+            if (r0 == 0) goto L_0x0205
             android.os.Bundle r0 = r11.mSavedFragmentState
             r11.restoreViewState(r0)
-        L_0x01f8:
+        L_0x0205:
             r0 = 0
             r11.mSavedFragmentState = r0
-        L_0x01fb:
+        L_0x0208:
             r0 = 3
-            if (r12 <= r0) goto L_0x021d
+            if (r12 <= r0) goto L_0x022c
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x021a
+            if (r0 == 0) goto L_0x0229
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -967,13 +967,13 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x021a:
+        L_0x0229:
             r11.performStart()
-        L_0x021d:
+        L_0x022c:
             r0 = 4
             if (r12 <= r0) goto L_0x0046
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x023c
+            if (r0 == 0) goto L_0x024d
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -982,7 +982,7 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x023c:
+        L_0x024d:
             r0 = 1
             r11.mResumed = r0
             r11.performResume()
@@ -991,50 +991,50 @@ final class FragmentManagerImpl extends FragmentManager {
             r0 = 0
             r11.mSavedViewState = r0
             goto L_0x0046
-        L_0x024a:
+        L_0x025b:
             r0 = 0
             r11.mInnerView = r0
-            goto L_0x012e
-        L_0x024f:
+            goto L_0x0136
+        L_0x0260:
             r0 = 0
             r11.mInnerView = r0
-            goto L_0x01ea
-        L_0x0253:
+            goto L_0x01f7
+        L_0x0264:
             int r0 = r11.mState
             if (r0 <= r12) goto L_0x0046
             int r0 = r11.mState
             switch(r0) {
-                case 1: goto L_0x025e;
-                case 2: goto L_0x02e3;
-                case 3: goto L_0x02c1;
-                case 4: goto L_0x029f;
-                case 5: goto L_0x027a;
-                default: goto L_0x025c;
+                case 1: goto L_0x026f;
+                case 2: goto L_0x02fa;
+                case 3: goto L_0x02d6;
+                case 4: goto L_0x02b2;
+                case 5: goto L_0x028b;
+                default: goto L_0x026d;
             }
-        L_0x025c:
+        L_0x026d:
             goto L_0x0046
-        L_0x025e:
+        L_0x026f:
             r0 = 1
             if (r12 >= r0) goto L_0x0046
             boolean r0 = r10.mDestroyed
-            if (r0 == 0) goto L_0x0271
+            if (r0 == 0) goto L_0x0282
             android.view.View r0 = r11.mAnimatingAway
-            if (r0 == 0) goto L_0x0271
+            if (r0 == 0) goto L_0x0282
             android.view.View r9 = r11.mAnimatingAway
             r0 = 0
             r11.mAnimatingAway = r0
             r9.clearAnimation()
-        L_0x0271:
+        L_0x0282:
             android.view.View r0 = r11.mAnimatingAway
-            if (r0 == 0) goto L_0x0356
+            if (r0 == 0) goto L_0x036f
             r11.mStateAfterAnimating = r12
             r12 = 1
             goto L_0x0046
-        L_0x027a:
+        L_0x028b:
             r0 = 5
-            if (r12 >= r0) goto L_0x029f
+            if (r12 >= r0) goto L_0x02b2
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x0299
+            if (r0 == 0) goto L_0x02ac
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -1043,15 +1043,15 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x0299:
+        L_0x02ac:
             r11.performPause()
             r0 = 0
             r11.mResumed = r0
-        L_0x029f:
+        L_0x02b2:
             r0 = 4
-            if (r12 >= r0) goto L_0x02c1
+            if (r12 >= r0) goto L_0x02d6
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x02be
+            if (r0 == 0) goto L_0x02d3
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -1060,13 +1060,13 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x02be:
+        L_0x02d3:
             r11.performStop()
-        L_0x02c1:
+        L_0x02d6:
             r0 = 3
-            if (r12 >= r0) goto L_0x02e3
+            if (r12 >= r0) goto L_0x02fa
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x02e0
+            if (r0 == 0) goto L_0x02f7
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -1075,13 +1075,13 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x02e0:
+        L_0x02f7:
             r11.performReallyStop()
-        L_0x02e3:
+        L_0x02fa:
             r0 = 2
-            if (r12 >= r0) goto L_0x025e
+            if (r12 >= r0) goto L_0x026f
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x0302
+            if (r0 == 0) goto L_0x031b
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -1090,30 +1090,30 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x0302:
+        L_0x031b:
             android.view.View r0 = r11.mView
-            if (r0 == 0) goto L_0x0315
+            if (r0 == 0) goto L_0x032e
             android.support.v4.app.FragmentActivity r0 = r10.mActivity
             boolean r0 = r0.isFinishing()
-            if (r0 != 0) goto L_0x0315
+            if (r0 != 0) goto L_0x032e
             android.util.SparseArray<android.os.Parcelable> r0 = r11.mSavedViewState
-            if (r0 != 0) goto L_0x0315
+            if (r0 != 0) goto L_0x032e
             r10.saveFragmentViewState(r11)
-        L_0x0315:
+        L_0x032e:
             r11.performDestroyView()
             android.view.View r0 = r11.mView
-            if (r0 == 0) goto L_0x034b
+            if (r0 == 0) goto L_0x0364
             android.view.ViewGroup r0 = r11.mContainer
-            if (r0 == 0) goto L_0x034b
+            if (r0 == 0) goto L_0x0364
             r6 = 0
             int r0 = r10.mCurState
-            if (r0 <= 0) goto L_0x032e
+            if (r0 <= 0) goto L_0x0347
             boolean r0 = r10.mDestroyed
-            if (r0 != 0) goto L_0x032e
+            if (r0 != 0) goto L_0x0347
             r0 = 0
             android.view.animation.Animation r6 = r10.loadAnimation(r11, r13, r0, r14)
-        L_0x032e:
-            if (r6 == 0) goto L_0x0344
+        L_0x0347:
+            if (r6 == 0) goto L_0x035d
             r8 = r11
             android.view.View r0 = r11.mView
             r11.mAnimatingAway = r0
@@ -1123,21 +1123,21 @@ final class FragmentManagerImpl extends FragmentManager {
             r6.setAnimationListener(r0)
             android.view.View r0 = r11.mView
             r0.startAnimation(r6)
-        L_0x0344:
+        L_0x035d:
             android.view.ViewGroup r0 = r11.mContainer
             android.view.View r1 = r11.mView
             r0.removeView(r1)
-        L_0x034b:
+        L_0x0364:
             r0 = 0
             r11.mContainer = r0
             r0 = 0
             r11.mView = r0
             r0 = 0
             r11.mInnerView = r0
-            goto L_0x025e
-        L_0x0356:
+            goto L_0x026f
+        L_0x036f:
             boolean r0 = DEBUG
-            if (r0 == 0) goto L_0x0372
+            if (r0 == 0) goto L_0x038d
             java.lang.String r0 = "FragmentManager"
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -1146,16 +1146,16 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.StringBuilder r1 = r1.append(r11)
             java.lang.String r1 = r1.toString()
             android.util.Log.v(r0, r1)
-        L_0x0372:
+        L_0x038d:
             boolean r0 = r11.mRetaining
-            if (r0 != 0) goto L_0x0379
+            if (r0 != 0) goto L_0x0394
             r11.performDestroy()
-        L_0x0379:
+        L_0x0394:
             r0 = 0
             r11.mCalled = r0
             r11.onDetach()
             boolean r0 = r11.mCalled
-            if (r0 != 0) goto L_0x03a2
+            if (r0 != 0) goto L_0x03bf
             android.support.v4.app.SuperNotCalledException r0 = new android.support.v4.app.SuperNotCalledException
             java.lang.StringBuilder r1 = new java.lang.StringBuilder
             r1.<init>()
@@ -1167,13 +1167,13 @@ final class FragmentManagerImpl extends FragmentManager {
             java.lang.String r1 = r1.toString()
             r0.<init>(r1)
             throw r0
-        L_0x03a2:
+        L_0x03bf:
             if (r15 != 0) goto L_0x0046
             boolean r0 = r11.mRetaining
-            if (r0 != 0) goto L_0x03ad
+            if (r0 != 0) goto L_0x03ca
             r10.makeInactive(r11)
             goto L_0x0046
-        L_0x03ad:
+        L_0x03ca:
             r0 = 0
             r11.mActivity = r0
             r0 = 0
@@ -1560,14 +1560,14 @@ final class FragmentManagerImpl extends FragmentManager {
         }
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:35:0x0081, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:35:0x0083, code lost:
         r8.mExecutingActions = true;
         r2 = 0;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:36:0x0085, code lost:
-        if (r2 >= r4) goto L_0x0099;
+    /* JADX WARNING: Code restructure failed: missing block: B:36:0x0087, code lost:
+        if (r2 >= r4) goto L_0x009b;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:37:0x0087, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:37:0x0089, code lost:
         r8.mTmpActions[r2].run();
         r8.mTmpActions[r2] = null;
         r2 = r2 + 1;
@@ -1578,79 +1578,79 @@ final class FragmentManagerImpl extends FragmentManager {
             r8 = this;
             r7 = 0
             boolean r5 = r8.mExecutingActions
-            if (r5 == 0) goto L_0x000d
+            if (r5 == 0) goto L_0x000e
             java.lang.IllegalStateException r5 = new java.lang.IllegalStateException
             java.lang.String r6 = "Recursive entry to executePendingTransactions"
             r5.<init>(r6)
             throw r5
-        L_0x000d:
+        L_0x000e:
             android.os.Looper r5 = android.os.Looper.myLooper()
             android.support.v4.app.FragmentActivity r6 = r8.mActivity
             android.os.Handler r6 = r6.mHandler
             android.os.Looper r6 = r6.getLooper()
-            if (r5 == r6) goto L_0x0023
+            if (r5 == r6) goto L_0x0025
             java.lang.IllegalStateException r5 = new java.lang.IllegalStateException
             java.lang.String r6 = "Must be called from main thread of process"
             r5.<init>(r6)
             throw r5
-        L_0x0023:
+        L_0x0025:
             r0 = 0
-        L_0x0024:
+        L_0x0026:
             monitor-enter(r8)
-            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0096 }
-            if (r5 == 0) goto L_0x0031
-            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0096 }
-            int r5 = r5.size()     // Catch:{ all -> 0x0096 }
-            if (r5 != 0) goto L_0x0058
-        L_0x0031:
-            monitor-exit(r8)     // Catch:{ all -> 0x0096 }
+            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0098 }
+            if (r5 == 0) goto L_0x0033
+            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0098 }
+            int r5 = r5.size()     // Catch:{ all -> 0x0098 }
+            if (r5 != 0) goto L_0x005a
+        L_0x0033:
+            monitor-exit(r8)     // Catch:{ all -> 0x0098 }
             boolean r5 = r8.mHavePendingDeferredStart
-            if (r5 == 0) goto L_0x00a4
+            if (r5 == 0) goto L_0x00a6
             r3 = 0
             r2 = 0
-        L_0x0038:
+        L_0x003a:
             java.util.ArrayList<android.support.v4.app.Fragment> r5 = r8.mActive
             int r5 = r5.size()
-            if (r2 >= r5) goto L_0x009d
+            if (r2 >= r5) goto L_0x009f
             java.util.ArrayList<android.support.v4.app.Fragment> r5 = r8.mActive
             java.lang.Object r1 = r5.get(r2)
             android.support.v4.app.Fragment r1 = (android.support.v4.app.Fragment) r1
-            if (r1 == 0) goto L_0x0055
+            if (r1 == 0) goto L_0x0057
             android.support.v4.app.LoaderManagerImpl r5 = r1.mLoaderManager
-            if (r5 == 0) goto L_0x0055
+            if (r5 == 0) goto L_0x0057
             android.support.v4.app.LoaderManagerImpl r5 = r1.mLoaderManager
             boolean r5 = r5.hasRunningLoaders()
             r3 = r3 | r5
-        L_0x0055:
+        L_0x0057:
             int r2 = r2 + 1
-            goto L_0x0038
-        L_0x0058:
-            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0096 }
-            int r4 = r5.size()     // Catch:{ all -> 0x0096 }
-            java.lang.Runnable[] r5 = r8.mTmpActions     // Catch:{ all -> 0x0096 }
-            if (r5 == 0) goto L_0x0067
-            java.lang.Runnable[] r5 = r8.mTmpActions     // Catch:{ all -> 0x0096 }
-            int r5 = r5.length     // Catch:{ all -> 0x0096 }
-            if (r5 >= r4) goto L_0x006b
-        L_0x0067:
-            java.lang.Runnable[] r5 = new java.lang.Runnable[r4]     // Catch:{ all -> 0x0096 }
-            r8.mTmpActions = r5     // Catch:{ all -> 0x0096 }
-        L_0x006b:
-            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0096 }
-            java.lang.Runnable[] r6 = r8.mTmpActions     // Catch:{ all -> 0x0096 }
-            r5.toArray(r6)     // Catch:{ all -> 0x0096 }
-            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0096 }
-            r5.clear()     // Catch:{ all -> 0x0096 }
-            android.support.v4.app.FragmentActivity r5 = r8.mActivity     // Catch:{ all -> 0x0096 }
-            android.os.Handler r5 = r5.mHandler     // Catch:{ all -> 0x0096 }
-            java.lang.Runnable r6 = r8.mExecCommit     // Catch:{ all -> 0x0096 }
-            r5.removeCallbacks(r6)     // Catch:{ all -> 0x0096 }
-            monitor-exit(r8)     // Catch:{ all -> 0x0096 }
+            goto L_0x003a
+        L_0x005a:
+            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0098 }
+            int r4 = r5.size()     // Catch:{ all -> 0x0098 }
+            java.lang.Runnable[] r5 = r8.mTmpActions     // Catch:{ all -> 0x0098 }
+            if (r5 == 0) goto L_0x0069
+            java.lang.Runnable[] r5 = r8.mTmpActions     // Catch:{ all -> 0x0098 }
+            int r5 = r5.length     // Catch:{ all -> 0x0098 }
+            if (r5 >= r4) goto L_0x006d
+        L_0x0069:
+            java.lang.Runnable[] r5 = new java.lang.Runnable[r4]     // Catch:{ all -> 0x0098 }
+            r8.mTmpActions = r5     // Catch:{ all -> 0x0098 }
+        L_0x006d:
+            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0098 }
+            java.lang.Runnable[] r6 = r8.mTmpActions     // Catch:{ all -> 0x0098 }
+            r5.toArray(r6)     // Catch:{ all -> 0x0098 }
+            java.util.ArrayList<java.lang.Runnable> r5 = r8.mPendingActions     // Catch:{ all -> 0x0098 }
+            r5.clear()     // Catch:{ all -> 0x0098 }
+            android.support.v4.app.FragmentActivity r5 = r8.mActivity     // Catch:{ all -> 0x0098 }
+            android.os.Handler r5 = r5.mHandler     // Catch:{ all -> 0x0098 }
+            java.lang.Runnable r6 = r8.mExecCommit     // Catch:{ all -> 0x0098 }
+            r5.removeCallbacks(r6)     // Catch:{ all -> 0x0098 }
+            monitor-exit(r8)     // Catch:{ all -> 0x0098 }
             r5 = 1
             r8.mExecutingActions = r5
             r2 = 0
-        L_0x0085:
-            if (r2 >= r4) goto L_0x0099
+        L_0x0087:
+            if (r2 >= r4) goto L_0x009b
             java.lang.Runnable[] r5 = r8.mTmpActions
             r5 = r5[r2]
             r5.run()
@@ -1658,20 +1658,20 @@ final class FragmentManagerImpl extends FragmentManager {
             r6 = 0
             r5[r2] = r6
             int r2 = r2 + 1
-            goto L_0x0085
-        L_0x0096:
+            goto L_0x0087
+        L_0x0098:
             r5 = move-exception
-            monitor-exit(r8)     // Catch:{ all -> 0x0096 }
+            monitor-exit(r8)     // Catch:{ all -> 0x0098 }
             throw r5
-        L_0x0099:
+        L_0x009b:
             r8.mExecutingActions = r7
             r0 = 1
-            goto L_0x0024
-        L_0x009d:
-            if (r3 != 0) goto L_0x00a4
+            goto L_0x0026
+        L_0x009f:
+            if (r3 != 0) goto L_0x00a6
             r8.mHavePendingDeferredStart = r7
             r8.startPendingDeferredFragments()
-        L_0x00a4:
+        L_0x00a6:
             return r0
         */
         throw new UnsupportedOperationException("Method not decompiled: android.support.v4.app.FragmentManagerImpl.execPendingActions():boolean");

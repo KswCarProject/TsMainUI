@@ -131,7 +131,7 @@ public class TE extends Tu {
             this.Tk.clear();
         }
         com.txznet.comm.ui.T5.T.Tu poiListViewData = (com.txznet.comm.ui.T5.T.Tu) data;
-        this.Tg = !this.Ti && poiListViewData.f457T;
+        this.Tg = !this.Ti && poiListViewData.f461T;
         this.TU = poiListViewData.Tk.equals(Poi.PoiAction.ACTION_NAV_HISTORY);
         Tn.T titleViewAdapter = T6.T().T((TM) poiListViewData);
         this.Tn = poiListViewData.Tn.Tk;
@@ -150,20 +150,20 @@ public class TE extends Tu {
         llContent.setLayoutAnimation(Ty.T());
         llContent.setLayoutAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                if (TE.this.f463T != null) {
-                    TE.this.f463T.T(animation, 1);
+                if (TE.this.f467T != null) {
+                    TE.this.f467T.T(animation, 1);
                 }
             }
 
             public void onAnimationRepeat(Animation animation) {
-                if (TE.this.f463T != null) {
-                    TE.this.f463T.T(animation, 2);
+                if (TE.this.f467T != null) {
+                    TE.this.f467T.T(animation, 2);
                 }
             }
 
             public void onAnimationEnd(Animation animation) {
-                if (TE.this.f463T != null) {
-                    TE.this.f463T.T(animation, 3);
+                if (TE.this.f467T != null) {
+                    TE.this.f467T.T(animation, 3);
                 }
             }
         });
@@ -182,7 +182,7 @@ public class TE extends Tu {
             i++;
         }
         Tn.T viewAdapter = new Tn.T();
-        viewAdapter.f462T = data.Ty();
+        viewAdapter.f466T = data.Ty();
         viewAdapter.Tr = llLayout;
         viewAdapter.Ty = true;
         viewAdapter.Tn = T9();

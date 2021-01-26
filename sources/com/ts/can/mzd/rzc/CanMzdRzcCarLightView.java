@@ -9,10 +9,12 @@ import com.ts.can.CanScrollCarInfoView;
 import com.ts.canview.CanItemMsgBox;
 
 public class CanMzdRzcCarLightView extends CanScrollCarInfoView {
+    private static final int ITEM_LIGHT_HJZM = 6;
+    private static final int ITEM_RST = 7;
     private CanDataInfo.Mzd_Rzc_SetData mSetData;
 
     public CanMzdRzcCarLightView(Activity activity) {
-        super(activity, 7);
+        super(activity, 8);
     }
 
     public void onItem(int id, int item) {
@@ -26,6 +28,8 @@ public class CanMzdRzcCarLightView extends CanScrollCarInfoView {
             CanJni.MzdCx4CarSet(13, item);
         } else if (id == 5) {
             CanJni.MzdCx4CarSet(15, item);
+        } else if (id == 6) {
+            CanJni.MzdCx4CarSet(134, item);
         }
     }
 
@@ -36,7 +40,7 @@ public class CanMzdRzcCarLightView extends CanScrollCarInfoView {
         int id = ((Integer) v.getTag()).intValue();
         if (id == 2) {
             CanJni.MzdCx4CarSet(14, Neg(this.mSetData.zsyzxqzdxt));
-        } else if (id == 6) {
+        } else if (id == 7) {
             new CanItemMsgBox(id, getActivity(), R.string.can_teramont_reset_notice, new CanItemMsgBox.onMsgBoxClick() {
                 public void onOK(int param) {
                     CanJni.MzdCx4CarSet(16, 0);
@@ -47,13 +51,14 @@ public class CanMzdRzcCarLightView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_mzd_cx4_light_open_auto_off, R.string.can_mzd_cx4_light_close_auto_off, R.string.can_mzd_cx4_light_turn_system, R.string.can_mzd_cx4_light_off_noticer, R.string.can_mzd_cx4_light_off_timer, R.string.can_mzd_cx4_light_auto_open, R.string.can_teramont_model_reset};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE};
+        this.mItemTitleIds = new int[]{R.string.can_mzd_cx4_light_open_auto_off, R.string.can_mzd_cx4_light_close_auto_off, R.string.can_mzd_cx4_light_turn_system, R.string.can_mzd_cx4_light_off_noticer, R.string.can_mzd_cx4_light_off_timer, R.string.can_mzd_cx4_light_auto_open, R.string.can_evt_light, R.string.can_teramont_model_reset};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE};
         this.mPopValueIds[0] = new int[]{R.string.can_mzd_cx4_time_10min, R.string.can_mzd_cx4_time_30min, R.string.can_mzd_cx4_time_60min};
         this.mPopValueIds[1] = new int[]{R.string.can_mzd_cx4_time_7_5s, R.string.can_mzd_cx4_time_15s, R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s};
         this.mPopValueIds[3] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_voice_low, R.string.can_mzd_cx4_voice_high};
         this.mPopValueIds[4] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s, R.string.can_mzd_cx4_time_90s, R.string.can_mzd_cx4_time_120s};
         this.mPopValueIds[5] = new int[]{R.string.can_mzd_cx4_light_dark, R.string.can_mzd_cx4_light_middle_dark, R.string.can_mzd_cx4_light_middle, R.string.can_mzd_cx4_light_middle_lighter, R.string.can_mzd_cx4_light_lighter};
+        this.mPopValueIds[6] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_light_dark, R.string.can_mzd_cx4_light_middle_dark, R.string.can_mzd_cx4_light_lighter};
         this.mSetData = new CanDataInfo.Mzd_Rzc_SetData();
     }
 
@@ -64,7 +69,7 @@ public class CanMzdRzcCarLightView extends CanScrollCarInfoView {
         }
         if (!check || i2b(this.mSetData.Update)) {
             this.mSetData.Update = 0;
-            updateItem(new int[]{this.mSetData.cmdkscndzdxm, this.mSetData.cmgbscndzdxm, this.mSetData.zsyzxqzdxt, this.mSetData.cdwgtsq, this.mSetData.ddgbdsq, this.mSetData.zdddkq});
+            updateItem(new int[]{this.mSetData.cmdkscndzdxm, this.mSetData.cmgbscndzdxm, this.mSetData.zsyzxqzdxt, this.mSetData.cdwgtsq, this.mSetData.ddgbdsq, this.mSetData.zdddkq, this.mSetData.Hjzm});
         }
     }
 

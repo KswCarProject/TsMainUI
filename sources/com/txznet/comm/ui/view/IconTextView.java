@@ -19,7 +19,7 @@ import com.txznet.comm.ui.TZ.Tn;
 public class IconTextView extends RelativeLayout implements IKeepClass {
 
     /* renamed from: T  reason: collision with root package name */
-    private ImageView f652T;
+    private ImageView f656T;
     private float T5;
     private int T9;
     private Context TE;
@@ -74,7 +74,7 @@ public class IconTextView extends RelativeLayout implements IKeepClass {
         int ivIconWidth = (int) Tn.Tr(Tn.TD);
         int ivIconHeight = (int) Tn.Tr(Tn.Tf);
         View view = Tr.Tr(mLayoutId);
-        this.f652T = (ImageView) Tr.T("itv_icon_iv", view);
+        this.f656T = (ImageView) Tr.T("itv_icon_iv", view);
         this.Tr = (TextView) Tr.T("itv_title_tv", view);
         this.Ty = (TextView) Tr.T("itv_head_tv", view);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Ty.getLayoutParams();
@@ -86,10 +86,10 @@ public class IconTextView extends RelativeLayout implements IKeepClass {
         layoutParams2.bottomMargin = tvTitleBottomMargin;
         layoutParams2.leftMargin = tvTitleLeftMargin;
         this.Tr.setLayoutParams(layoutParams2);
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f652T.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f656T.getLayoutParams();
         layoutParams3.width = ivIconWidth;
         layoutParams3.height = ivIconHeight;
-        this.f652T.setLayoutParams(layoutParams3);
+        this.f656T.setLayoutParams(layoutParams3);
         boolean z2 = T.T() == 2;
         if (T.T() == 1) {
             z = true;
@@ -97,7 +97,7 @@ public class IconTextView extends RelativeLayout implements IKeepClass {
             z = false;
         }
         if (z2 || z) {
-            View mIconImageViewParent = (View) this.f652T.getParent();
+            View mIconImageViewParent = (View) this.f656T.getParent();
             LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) mIconImageViewParent.getLayoutParams();
             layoutParams4.topMargin = (int) Tr.Tn("y16");
             mIconImageViewParent.setLayoutParams(layoutParams4);
@@ -112,7 +112,7 @@ public class IconTextView extends RelativeLayout implements IKeepClass {
     }
 
     public void setDrawable(Drawable d) {
-        this.f652T.setImageDrawable(d);
+        this.f656T.setImageDrawable(d);
     }
 
     public void setTitle(String t) {

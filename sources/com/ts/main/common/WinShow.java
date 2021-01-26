@@ -4,19 +4,26 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.SystemProperties;
 import android.util.Log;
+import com.android.SdkConstants;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
+import com.ts.MainUI.TsDisplay;
 import com.ts.bt.BtExe;
 import com.ts.can.CanIF;
-import com.ts.main.txz.AmapAuto;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
+import java.io.File;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class WinShow {
+    public static int NewOldMode = 255;
     private static final String TAG = "WinShow";
     public static final int WIN_ATV = 23;
     public static final int WIN_AUTH = 16;
@@ -43,11 +50,24 @@ public class WinShow {
     public static final int WIN_TRAFFICRECORD = 12;
     public static final int WIN_USB1 = 4;
     public static final int WIN_USB2 = 5;
+    private static int cmmbtoAux = -2;
     public static Context mContext = null;
     private static int nDelayTime = 300;
+    private static int nDelaynewTime = 30;
     public static int nOldMode = 255;
+    static int oldState = 255;
+
+    private static int getFirstNumber(String s) {
+        Matcher m = Pattern.compile("\\d+").matcher(s);
+        if (m.find()) {
+            return Integer.parseInt(m.group());
+        }
+        return -1;
+    }
 
     public static int show(String sPackage, String sActivity) {
+        String version;
+        int logov;
         Intent intent1 = new Intent();
         intent1.setClassName(sPackage, sActivity);
         if (mContext.getPackageManager().resolveActivity(intent1, 0) == null) {
@@ -67,6 +87,22 @@ public class WinShow {
         ComponentName componetName = new ComponentName(sPackage, sActivity);
         Intent intent = new Intent();
         intent.setComponent(componetName);
+        if (sActivity.equals("com.ts.logoset.LogoSetMainActivity") && (version = SystemProperties.get("forfan.version.info")) != null) {
+            try {
+                if (version.length() == 0) {
+                    logov = getFirstNumber(MainSet.getSystemVersion());
+                } else {
+                    logov = getFirstNumber(version);
+                    int buildv = getFirstNumber(MainSet.getSystemVersion());
+                    if (logov < buildv) {
+                        logov = buildv;
+                    }
+                }
+                intent.putExtra("android_version", logov);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
         intent.addFlags(337641472);
         mContext.startActivity(intent);
         return 1;
@@ -99,20 +135,19 @@ public class WinShow {
     }
 
     public static String getTopPackName() {
-        List<ActivityManager.RunningTaskInfo> taskInfos = ((ActivityManager) mContext.getSystemService("activity")).getRunningTasks(1);
-        if (taskInfos.isEmpty()) {
-            return "";
+        List<ActivityManager.RunningTaskInfo> taskInfos = ((ActivityManager) mContext.getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningTasks(1);
+        if (!taskInfos.isEmpty()) {
+            return taskInfos.get(0).topActivity.getPackageName();
         }
-        ComponentName componentName = taskInfos.get(0).baseActivity;
-        return taskInfos.get(0).topActivity.getPackageName();
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public static String getTopActivityName() {
-        List<ActivityManager.RunningTaskInfo> taskInfos = ((ActivityManager) mContext.getSystemService("activity")).getRunningTasks(1);
+        List<ActivityManager.RunningTaskInfo> taskInfos = ((ActivityManager) mContext.getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningTasks(1);
         if (!taskInfos.isEmpty()) {
             return taskInfos.get(0).topActivity.getClassName();
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public static boolean IsRadioActivity() {
@@ -127,8 +162,16 @@ public class WinShow {
     }
 
     public static boolean IsHaveDvd() {
-        if (Mcu.GetDisc() == 2) {
-            return true;
+        return new File("/storage/cdfs").exists();
+    }
+
+    static boolean IsHaveExtUsb() {
+        String[] strSDMountedPath = MainSet.GetInstance().GetMountedStorage();
+        Log.i(TAG, "IsHaveExtUsb.length  ==" + strSDMountedPath.length);
+        for (int i = 0; i < strSDMountedPath.length; i++) {
+            if (!strSDMountedPath[i].contains("sdcard0") && !strSDMountedPath[i].contains("cdfs")) {
+                return true;
+            }
         }
         return false;
     }
@@ -139,7 +182,6 @@ public class WinShow {
         }
         switch (nMode) {
             case 1:
-            case 4:
             case 6:
             case 7:
             case 15:
@@ -153,19 +195,38 @@ public class WinShow {
                 if (FtSet.IsIconExist(nMode) == 0 || MainSet.GetInstance().IsHaveApk("com.mxtech.videoplayer.pro")) {
                     return false;
                 }
-                return true;
+                if (MainSet.GetInstance().IsCustom("FYDZ")) {
+                    if (FtSet.IsIconExist(nMode) != 1 || !IsHaveExtUsb()) {
+                        return false;
+                    }
+                    return true;
+                } else if (FtSet.IsIconExist(nMode) == 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            case 4:
+                if (MainSet.GetInstance().IsCustom("FYDZ")) {
+                    if (FtSet.IsIconExist(nMode) != 1 || !IsHaveExtUsb()) {
+                        return false;
+                    }
+                    return true;
+                } else if (FtSet.IsIconExist(nMode) == 1) {
+                    return true;
+                } else {
+                    return false;
+                }
             case 5:
-                if (BtExe.getBtInstance().isConnected()) {
+                if (MainSet.GetInstance().IsCustom("FYDZ") || MainSet.GetInstance().IsCustom("TSKJ")) {
                     return true;
                 }
-                Log.i(TAG, "isConnected = " + BtExe.getBtInstance().isConnected());
-                return false;
+                return BtExe.getBtInstance().isConnected();
             case 8:
             case 10:
             case 11:
             case 13:
             case 14:
-                if (!MainSet.IsXPH5() || MainSet.IsXPH5_HZ()) {
+                if ((!MainSet.IsXPH5() || MainSet.IsXPH5_HZ()) && mContext.getResources().getIdentifier("aux_mode_enabled", SdkConstants.TAG_STRING, mContext.getPackageName()) <= 0) {
                     return false;
                 }
                 return true;
@@ -189,9 +250,36 @@ public class WinShow {
                 nOldMode = 255;
             }
         }
+        if (nDelaynewTime > 0) {
+            nDelaynewTime--;
+        }
+    }
+
+    public static void SetWorkMode(int mode) {
+        NewOldMode = mode;
     }
 
     public static void DealModeKey() {
+        if (MainSet.GetInstance().IsCustom("FYDZ") || MainSet.GetInstance().IsCustom("TSKJ")) {
+            Log.i(TAG, "nOldMode = " + nOldMode);
+            int n = NewOldMode;
+            if (nDelaynewTime <= 0) {
+                for (int i = 0; i <= 15; i++) {
+                    n++;
+                    if (n > 15) {
+                        n = 1;
+                    }
+                    if (IsModeValid(n)) {
+                        NewOldMode = n;
+                        TsEnterMode(n);
+                        nDelaynewTime = 25;
+                        return;
+                    }
+                }
+                return;
+            }
+            return;
+        }
         Log.i(TAG, "nOldMode = " + nOldMode);
         Log.i(TAG, "Evc.GetInstance().Evol.workmode = " + Iop.GetWorkMode());
         Log.i(TAG, "nDelayTime = " + nDelayTime);
@@ -201,33 +289,55 @@ public class WinShow {
         }
         nDelayTime = 300;
         nOldMode = Iop.GetWorkMode();
-        int n = Iop.GetWorkMode();
-        for (int i = 0; i <= 15; i++) {
-            n++;
-            if (n > 15) {
-                n = 1;
+        int n2 = Iop.GetWorkMode();
+        for (int i2 = 0; i2 <= 15; i2++) {
+            n2++;
+            if (n2 > 15) {
+                n2 = 1;
             }
-            if (IsModeValid(n)) {
-                Log.i(TAG, "DealModeKey = " + n + "nOldMode==" + nOldMode);
-                TsEnterMode(n);
+            if (IsModeValid(n2)) {
+                Log.i(TAG, "DealModeKey = " + n2 + "nOldMode==" + nOldMode);
+                TsEnterMode(n2);
                 return;
             }
         }
     }
 
     public static int TsEnterMode(int nMode) {
-        if (MainSet.IsGLSXVer().booleanValue() && nMode != 0 && MainSet.GetInstance().IsHaveApk("com.glsx.ddbox")) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName("com.glsx.ddbox", "com.glsx.launcher.service.LauncherService"));
-            mContext.startService(intent);
+        if (cmmbtoAux == -2) {
+            cmmbtoAux = mContext.getResources().getIdentifier("cmmb_transto_aux", SdkConstants.TAG_STRING, mContext.getPackageName());
         }
         switch (nMode) {
             case 0:
                 Evc.GetInstance().evol_workmode_set(0);
-                if (!MainSet.IsGLSXVer().booleanValue() || !MainSet.IsGLlastmem() || !MainSet.GetInstance().IsHaveApk(AmapAuto.GetInstance().ReadMem())) {
-                    return 1;
+                int nBatFirst = Mcu.GetPowState() & 1;
+                String MemStr = Evc.GetInstance().ReadMem();
+                if (MemStr == null || nBatFirst != 0 || (!MainSet.GetInstance().IsTwcjw() && !MainSet.GetInstance().Support_lastMem())) {
+                    MainUI.GetInstance().BackToLauncher();
+                } else if (MainSet.GetInstance().GetNaviPath().equals(MemStr) || "com.ts.MainUI".equals(MemStr)) {
+                    MainUI.GetInstance().BackToLauncher();
+                } else if (mContext != null) {
+                    if (MainSet.GetInstance().Support_lastMem()) {
+                        String[] setOptions = mContext.getResources().getStringArray(R.array.supprot_last_memory_apps);
+                        int i = 0;
+                        while (true) {
+                            if (i < setOptions.length) {
+                                if (!setOptions[i].equals(MemStr)) {
+                                    i++;
+                                } else if (mContext.getPackageManager().getLaunchIntentForPackage(MemStr) != null) {
+                                    MainSet.GetInstance().openApplication(mContext, MemStr);
+                                } else {
+                                    MainUI.GetInstance().BackToLauncher();
+                                }
+                            }
+                        }
+                    } else if (mContext.getPackageManager().getLaunchIntentForPackage(MemStr) != null) {
+                        MainSet.GetInstance().openApplication(mContext, MemStr);
+                    } else {
+                        MainUI.GetInstance().BackToLauncher();
+                    }
                 }
-                MainSet.GetInstance().openApplication(mContext, AmapAuto.GetInstance().ReadMem());
+                Evc.GetInstance().WriteMem("test");
                 return 1;
             case 1:
                 GotoWin(2, 0);
@@ -247,6 +357,7 @@ public class WinShow {
                     return 1;
                 }
                 GotoWin(7, 0);
+                Evc.GetInstance().evol_workmode_set(5);
                 return 1;
             case 6:
                 if (118 == CanJni.GetCanFsTp()) {
@@ -254,6 +365,9 @@ public class WinShow {
                     return 1;
                 } else if (242 == CanJni.GetCanFsTp()) {
                     CanIF.GotoExdMode();
+                    return 1;
+                } else if (cmmbtoAux > 0) {
+                    GotoWin(9, 0);
                     return 1;
                 } else {
                     GotoWin(8, 0);
@@ -284,7 +398,21 @@ public class WinShow {
     }
 
     public static void ShowVideoWin() {
+        SetVideoShowParat(2);
         show("com.ts.dvdplayer", "com.ts.dvdplayer.USBActivity");
+    }
+
+    public static void ShowGoogleWin() {
+        show("com.ts.MainUI", "com.ts.main.googleVoice.GoogleVoiceActivity");
+    }
+
+    public static void SetVideoShowParat(int state) {
+        if ((MainSet.GetInstance().IsCustom("XPH") || MainSet.GetSerid().contains("XPH")) && oldState != state) {
+            TsDisplay.GetInstance().SetSrcMute(10);
+            Iop.SetGamma(state);
+            Log.i(TAG, " SetVideoShowParat===" + state);
+            oldState = state;
+        }
     }
 
     public static void GotoWin(int nWin, int nParat1) {
@@ -302,13 +430,13 @@ public class WinShow {
                 show("com.android.sdvdplayer", "com.android.sdvdplayer.SDVDPlayer");
                 return;
             case 4:
-                if (!MainSet.GetInstance().IsHaveApk("com.mxtech.videoplayer.pro") || mContext.getResources().getString(R.string.custom_num_show).equals("MCX")) {
+                if (!MainSet.GetInstance().IsHaveApk("com.mxtech.videoplayer.pro") || mContext.getResources().getString(R.string.custom_num).equals("MCXI")) {
+                    SetVideoShowParat(2);
                     show("com.ts.dvdplayer", "com.ts.dvdplayer.USBActivity");
                     return;
-                } else {
-                    MainSet.GetInstance().openApplication(mContext, "com.mxtech.videoplayer.pro");
-                    return;
                 }
+                MainSet.GetInstance().openApplication(mContext, "com.mxtech.videoplayer.pro");
+                return;
             case 6:
                 show("com.ts.dvdplayer", "com.ts.dvdplayer.SDActivity");
                 return;
@@ -362,7 +490,10 @@ public class WinShow {
                         show("com.ts.MainUI", "com.ts.set.SetVolumeActivity");
                         return;
                     case 3:
-                        show("com.ts.MainUI", "com.ts.set.SettingSoundActivity");
+                        if (!getTopActivityName().equals("com.ts.set.dsp.SetDspMainActivity") && !getTopActivityName().equals("com.ts.set.SettingSoundActivity")) {
+                            show("com.ts.MainUI", "com.ts.set.SettingSoundActivity");
+                            return;
+                        }
                         return;
                     case 4:
                         show("com.ts.MainUI", "com.ts.set.SettingVideoActivity");
@@ -389,7 +520,7 @@ public class WinShow {
                         return;
                 }
             case 13:
-                show("com.ts.ipodplayer", "com.ts.ipodplayer.activity.IpodMainActivity");
+                show("com.ts.ipodplayer", "com.autochips.ipodplayer.ipodclient.ipodview.IPodActivity");
                 Evc.GetInstance().evol_workmode_set(10);
                 return;
             case 14:
@@ -402,10 +533,7 @@ public class WinShow {
                 show("com.ts.MainUI", "com.ts.main.auth.AuthActivity");
                 return;
             case 17:
-                if (MainSet.GetScreenType() != 3 && MainSet.GetScreenType() != 3) {
-                    show("com.ts.logoset", "com.ts.logoset.LogoSetMainActivity");
-                    return;
-                }
+                show("com.ts.logoset", "com.ts.logoset.LogoSetMainActivity");
                 return;
             case 18:
                 show("com.ts.MainUI", "com.ts.can.CanMcuUpdateActivity");

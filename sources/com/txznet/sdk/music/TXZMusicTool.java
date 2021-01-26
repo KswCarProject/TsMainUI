@@ -1,12 +1,14 @@
 package com.txznet.sdk.music;
 
 import com.Tn.Tr.Tk.T;
+import com.android.SdkConstants;
 import com.ts.can.bmw.mini.CanBMWMiniServiceDetailActivity;
 import com.txznet.Tr.T;
 import com.txznet.comm.Tr.T;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZMusicManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.tongting.IConstantData;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ import java.util.List;
 public class TXZMusicTool implements TXZMusicManager.MusicTool {
 
     /* renamed from: T  reason: collision with root package name */
-    static TXZMusicTool f873T = new TXZMusicTool();
+    static TXZMusicTool f877T = new TXZMusicTool();
     static List<TXZMusicModel> T5 = new ArrayList();
     static boolean T9 = false;
     static PlayMode TE = PlayMode.PLAY_MODE_LOOP_SINGLE;
@@ -95,7 +97,7 @@ public class TXZMusicTool implements TXZMusicManager.MusicTool {
     public static TXZMusicTool getInstance() {
         try {
             if (T.Tr().getPackageManager().getApplicationInfo("com.txznet.music", 8192) != null) {
-                return f873T;
+                return f877T;
             }
         } catch (Exception e) {
         }
@@ -235,7 +237,7 @@ public class TXZMusicTool implements TXZMusicManager.MusicTool {
                     ((TXZMusicStatusListener) Tr).onModeChange();
                 }
                 return true;
-            } else if (mode.equals("all")) {
+            } else if (mode.equals(SdkConstants.SUPPRESS_ALL)) {
                 TE = PlayMode.PLAY_MODE_LOOP_ALL;
                 if (Tr != null && (Tr instanceof TXZMusicStatusListener)) {
                     ((TXZMusicStatusListener) Tr).onModeChange();
@@ -323,7 +325,7 @@ public class TXZMusicTool implements TXZMusicManager.MusicTool {
     }
 
     public void playIndex(int index) {
-        Tn.Tr().T("com.txznet.music", "music.playIndex", ("" + index).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.music", "music.playIndex", (TXZResourceManager.STYLE_DEFAULT + index).getBytes(), (Tn.Tr) null);
     }
 
     public void favourIndex(int index, boolean favour) {

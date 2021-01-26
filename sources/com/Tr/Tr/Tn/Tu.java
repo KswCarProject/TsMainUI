@@ -19,7 +19,7 @@ public final class Tu extends Ts {
         if (contents.length() != 8) {
             throw new IllegalArgumentException("Requested contents should be 8 digits long, but got " + contents.length());
         }
-        int parities = TG.f275T[Integer.parseInt(contents.substring(7, 8))];
+        int parities = TG.f278T[Integer.parseInt(contents.substring(7, 8))];
         boolean[] result = new boolean[51];
         int pos = Tr(result, 0, TO.Tr, true) + 0;
         for (int i = 1; i <= 6; i++) {

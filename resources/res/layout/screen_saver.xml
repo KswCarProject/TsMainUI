@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/clock_nums" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:id="@+id/hour" android:background="#000" android:layout_width="0px" android:layout_height="142px" android:src="@drawable/clock_digital_num00" android:layout_weight="1"/>
+        <ImageView android:background="#00000000" android:layout_width="0px" android:layout_height="142px" android:layout_weight="0.3"/>
+        <ImageView android:id="@+id/hour_unit" android:background="#000" android:layout_width="0px" android:layout_height="142px" android:src="@drawable/clock_digital_num00" android:layout_weight="1"/>
+        <ImageView android:background="#00000000" android:layout_width="0px" android:layout_height="142px" android:layout_weight="0.1"/>
+        <ImageView android:id="@+id/clock_colon" android:background="#000" android:layout_width="0px" android:layout_height="142px" android:src="@drawable/clock_digital_point" android:layout_weight="1"/>
+        <ImageView android:background="#00000000" android:layout_width="0px" android:layout_height="142px" android:layout_weight="0.1"/>
+        <ImageView android:id="@+id/minute" android:background="#000" android:layout_width="0px" android:layout_height="142px" android:src="@drawable/clock_digital_num00" android:layout_weight="1"/>
+        <ImageView android:background="#00000000" android:layout_width="0px" android:layout_height="142px" android:layout_weight="0.3"/>
+        <ImageView android:id="@+id/minute_unit" android:background="#000" android:layout_width="0px" android:layout_height="142px" android:src="@drawable/clock_digital_num00" android:layout_weight="1"/>
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="142px">
+            <TextView android:textSize="26px" android:textColor="#fff" android:id="@+id/text_am" android:layout_width="wrap_content" android:layout_height="0px" android:layout_marginLeft="10px" android:text="AM" android:layout_weight="1" android:layout_toRightOf="@+id/clock_nums" android:layout_alignTop="@+id/clock_nums"/>
+            <TextView android:textSize="26px" android:textColor="#fff" android:gravity="bottom" android:id="@+id/text_pm" android:layout_width="wrap_content" android:layout_height="0px" android:layout_marginLeft="10px" android:text="PM" android:layout_weight="1" android:layout_toRightOf="@+id/clock_nums" android:layout_alignBottom="@+id/clock_nums"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="26px" android:textColor="#fff" android:gravity="center" android:id="@+id/clock_date" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20px" android:layout_below="@+id/clock_nums"/>
+</RelativeLayout>

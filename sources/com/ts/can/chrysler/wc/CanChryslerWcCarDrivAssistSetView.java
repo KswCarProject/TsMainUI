@@ -162,7 +162,7 @@ public class CanChryslerWcCarDrivAssistSetView extends CanScrollCarInfoView {
         iArr2[1] = 15;
         iArr2[2] = 1;
         iArr[2] = iArr2;
-        this.mPopValueIds[3] = new int[]{R.string.can_type_vol, R.string.can_vol_img};
+        this.mPopValueIds[3] = new int[]{R.string.can_type_vol, R.string.can_vol_img, R.string.can_mzd_cx4_mode_off};
         this.mPopValueIds[4] = new int[]{R.string.can_ac_low, R.string.can_ac_mid, R.string.can_ac_high};
         this.mPopValueIds[5] = new int[]{R.string.can_jp_early, R.string.can_ac_mid, R.string.can_jp_late};
         this.mPopValueIds[7] = new int[]{R.string.can_sdqfwxjgjl_3, R.string.can_sdqfwxjgjl_1};

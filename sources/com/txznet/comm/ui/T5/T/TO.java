@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class TO extends TB {
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f439T;
+    public boolean f443T;
     public Boolean T5;
     public Double T6;
     private ArrayList<Poi> TF = new ArrayList<>();
@@ -46,9 +46,9 @@ public class TO extends TB {
         this.Tv = (Double) data.T("destinationLat", Double.class);
         this.Th = (Double) data.T("destinationLng", Double.class);
         this.T5 = (Boolean) data.T("listmodel", Boolean.class);
-        this.f439T = false;
+        this.f443T = false;
         if (!TextUtils.isEmpty(business) && business.equals("business")) {
-            this.f439T = true;
+            this.f443T = true;
         }
         JSONArray obJsonArray = (JSONArray) data.T("pois", JSONArray.class);
         if (obJsonArray != null) {

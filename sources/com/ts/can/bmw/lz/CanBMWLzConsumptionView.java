@@ -9,6 +9,7 @@ import com.ts.can.CanScrollCarInfoView;
 import com.ts.canview.CanItemMsgBox;
 import com.ts.canview.CanItemTextBtnList;
 import com.ts.canview.CanItemTitleValList;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanBMWLzConsumptionView extends CanScrollCarInfoView implements CanItemMsgBox.onMsgBoxClick {
     protected static final int ITEM_ARRIVAL_TIME = 3;
@@ -17,10 +18,10 @@ public class CanBMWLzConsumptionView extends CanScrollCarInfoView implements Can
     protected static final int ITEM_CONSUMPTION1_RESET = 4;
     protected static final int ITEM_CONSUMPTION2 = 1;
     protected static final int ITEM_CONSUMPTION2_RESET = 5;
-    String mConsumDw = "";
+    String mConsumDw = TXZResourceManager.STYLE_DEFAULT;
     private CanDataInfo.BmwLz_FuleData mFuleData;
     private CanDataInfo.BmwLz_SetData mSetData;
-    String mSpeedDw = "";
+    String mSpeedDw = TXZResourceManager.STYLE_DEFAULT;
 
     public CanBMWLzConsumptionView(Activity activity) {
         super(activity, 6);

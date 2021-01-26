@@ -1,5 +1,6 @@
 package T.T.T;
 
+import com.android.SdkConstants;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +14,7 @@ public class T {
     private static T Ty;
 
     /* renamed from: T  reason: collision with root package name */
-    private Map<Character, Character> f127T = new HashMap();
+    private Map<Character, Character> f130T = new HashMap();
     private Map<Character, Character> Tr = new HashMap();
 
     public static T T() throws IOException {
@@ -39,7 +40,7 @@ public class T {
     }
 
     private List<Character> Tr() throws IOException {
-        List<Character> cs = T("/cfg/ts.tab", "UTF-8");
+        List<Character> cs = T("/cfg/ts.tab", SdkConstants.INI_CHARSET);
         if (cs.size() % 2 == 0) {
             return cs;
         }
@@ -49,7 +50,7 @@ public class T {
     private T() throws IOException {
         List<Character> cs = Tr();
         for (int i = 0; i < cs.size(); i += 2) {
-            this.f127T.put(cs.get(i), cs.get(i + 1));
+            this.f130T.put(cs.get(i), cs.get(i + 1));
             this.Tr.put(cs.get(i + 1), cs.get(i));
         }
     }

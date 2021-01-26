@@ -16,6 +16,7 @@ import com.ts.can.CanIF;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanMzdWcCDView extends CanRelativeCarInfoView {
@@ -104,7 +105,7 @@ public class CanMzdWcCDView extends CanRelativeCarInfoView {
         this.mSta = AddTxtLt(84, 123, 300, 40);
         this.mSong = AddTxtLt(84, 181, 300, 40);
         this.mAlbum = AddTxtLt(84, Can.CAN_GM_CAPTIVA_OD, 300, 40);
-        this.mArtist = AddTxtLt(84, KeyDef.RKEY_RADIO_SCAN, 300, 40);
+        this.mArtist = AddTxtLt(84, 296, 300, 40);
         this.mTrack = AddTxtLt(450, 23, 360, 55);
         this.mTrack.SetPixelSize(40);
         this.mTime = AddTxtLt(362, KeyDef.RKEY_res4, 300, 35);
@@ -133,7 +134,7 @@ public class CanMzdWcCDView extends CanRelativeCarInfoView {
             if (this.mCDInfo.DiscSta < this.mStrSta.length) {
                 this.mSta.setText(this.mStrSta[this.mCDInfo.DiscSta]);
             } else {
-                this.mSta.setText("");
+                this.mSta.setText(TXZResourceManager.STYLE_DEFAULT);
             }
             this.mBtnRpt.setSelected(this.mCDInfo.Rpt == 2);
             this.mBtnRdm.setSelected(this.mCDInfo.Rdm == 2);
@@ -151,11 +152,11 @@ public class CanMzdWcCDView extends CanRelativeCarInfoView {
                     this.mTime.setText(String.format("%02d:%02d / %02d:%02d", new Object[]{Integer.valueOf(min), Integer.valueOf(second), Integer.valueOf(totalMin), Integer.valueOf(totalSecond)}));
                 }
             } else {
-                this.mTime.setText("");
-                this.mTrack.setText("");
-                this.mSong.setText("");
-                this.mArtist.setText("");
-                this.mAlbum.setText("");
+                this.mTime.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mTrack.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mSong.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mArtist.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mAlbum.setText(TXZResourceManager.STYLE_DEFAULT);
             }
         }
         if (i2b(this.mCdIds.UpdateOnce) && (!check || i2b(this.mCdIds.Update))) {

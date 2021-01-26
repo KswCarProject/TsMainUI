@@ -13,7 +13,7 @@ public class CanHyundaiCarInfoView extends CanScrollCarInfoView {
     static int nOldLangTick = 0;
 
     public CanHyundaiCarInfoView(Activity activity) {
-        super(activity, 3);
+        super(activity, 4);
     }
 
     public void onItem(int id, int item) {
@@ -30,13 +30,15 @@ public class CanHyundaiCarInfoView extends CanScrollCarInfoView {
             enterSubWin(CanCarInfoSub1Activity.class, 1);
         } else if (id == 2) {
             enterSubWin(CanCarInfoSub1Activity.class, 2);
+        } else if (id == 3) {
+            enterSubWin(CanCarInfoSub1Activity.class, 3);
         }
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_car_type_select, R.string.can_bcdhsz, R.string.can_mzd_cx4_other};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE};
+        this.mItemTitleIds = new int[]{R.string.can_car_type_select, R.string.can_bcdhsz, R.string.can_mzd_cx4_other, R.string.can_amp_set};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE};
     }
 
     public void ResetData(boolean check) {

@@ -13,6 +13,7 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanHondaDAConsumpCurrentActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack {
@@ -85,7 +86,7 @@ public class CanHondaDAConsumpCurrentActivity extends CanBaseActivity implements
         this.mMark[1] = this.mManager.AddCusText(694, 59, 45, 34);
         this.mMark[1].setGravity(17);
         this.mMark[1].SetPxSize(30);
-        this.mMark[1].setText(MainSet.SP_XH_FORD);
+        this.mMark[1].setText("10");
         this.mMark[2] = this.mManager.AddCusText(KeyDef.SKEY_PP_1, 59, 45, 34);
         this.mMark[2].setGravity(21);
         this.mMark[2].SetPxSize(30);
@@ -151,7 +152,7 @@ public class CanHondaDAConsumpCurrentActivity extends CanBaseActivity implements
         this.mMark[1] = this.mManager.AddCusText(CanCameraUI.BTN_TRUMPCHI_GS7_MODE8, 79, 45, 34);
         this.mMark[1].setGravity(17);
         this.mMark[1].SetPxSize(30);
-        this.mMark[1].setText(MainSet.SP_XH_FORD);
+        this.mMark[1].setText("10");
         this.mMark[2] = this.mManager.AddCusText(697, 79, 45, 34);
         this.mMark[2].setGravity(21);
         this.mMark[2].SetPxSize(30);
@@ -243,7 +244,7 @@ public class CanHondaDAConsumpCurrentActivity extends CanBaseActivity implements
             case 2:
                 return "l/100km";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

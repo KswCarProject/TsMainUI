@@ -1,6 +1,7 @@
 package com.txznet.T;
 
 import android.util.Log;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tr.Tn;
 import com.txznet.txz.util.T9;
 import com.txznet.txz.util.TE;
@@ -14,10 +15,10 @@ public class Tr extends DexClassLoader {
     private static Long Tr = null;
 
     /* renamed from: T  reason: collision with root package name */
-    String f350T;
+    String f354T;
 
     public static ClassLoader T(String dexPath, String dexUnzipDir, String optimizedDirectory, String librarySearchPath, ClassLoader parent) {
-        if (!dexPath.endsWith(".apk")) {
+        if (!dexPath.endsWith(SdkConstants.DOT_ANDROID_PACKAGE)) {
             return parent;
         }
         if (Tr == null) {
@@ -51,11 +52,11 @@ public class Tr extends DexClassLoader {
 
     public Tr(String dexPath, String dexUnzipDir, String optimizedDirectory, String librarySearchPath, ClassLoader parent) {
         super(T(dexPath), optimizedDirectory, librarySearchPath, T(dexPath, dexUnzipDir, optimizedDirectory, librarySearchPath, parent));
-        this.f350T = librarySearchPath;
+        this.f354T = librarySearchPath;
     }
 
     public String findLibrary(String name) {
-        File fLibPath = new File(this.f350T, "lib" + name + ".so");
+        File fLibPath = new File(this.f354T, "lib" + name + ".so");
         if (fLibPath.exists()) {
             String ret = fLibPath.getAbsolutePath();
             fLibPath.setExecutable(true, false);

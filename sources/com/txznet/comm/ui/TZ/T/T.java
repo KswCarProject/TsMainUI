@@ -1,6 +1,5 @@
 package com.txznet.comm.ui.TZ.T;
 
-import com.ts.dvdplayer.definition.MediaDef;
 import java.util.HashMap;
 
 /* compiled from: Proguard */
@@ -50,7 +49,7 @@ public class T extends com.txznet.comm.ui.TZ.T {
     }
 
     public T() {
-        this.f539T = 15;
+        this.f543T = 15;
         this.Tr = 44;
         this.Ty = 44;
         this.Tn = 56;
@@ -75,7 +74,7 @@ public class T extends com.txznet.comm.ui.TZ.T {
         this.Tx = 0;
         this.T0 = 10;
         this.TV = 4;
-        this.Tb = MediaDef.PROGRESS_MAX;
-        this.TM = MediaDef.PROGRESS_MAX;
+        this.Tb = 1000;
+        this.TM = 1000;
     }
 }

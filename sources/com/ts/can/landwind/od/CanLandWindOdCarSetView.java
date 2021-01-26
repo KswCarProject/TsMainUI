@@ -21,10 +21,10 @@ public class CanLandWindOdCarSetView extends CanScrollCarInfoView {
                 CanJni.LandWindOdCarSet(146, item);
                 return;
             case 6:
-                CanJni.LandWindOdCarSet(Can.CAN_AUDI_ZMYT, item);
+                CanJni.LandWindOdCarSet(152, item);
                 return;
             case 7:
-                CanJni.LandWindOdCarSet(Can.CAN_HYUNDAI_WC, item);
+                CanJni.LandWindOdCarSet(153, item);
                 return;
             case 8:
                 CanJni.LandWindOdCarSet(Can.CAN_CC_WC, item);
@@ -49,7 +49,7 @@ public class CanLandWindOdCarSetView extends CanScrollCarInfoView {
         } else if (id == 3) {
             CanJni.LandWindOdCarSet(149, Neg(this.mCarSet.Rjxcd));
         } else if (id == 4) {
-            CanJni.LandWindOdCarSet(Can.CAN_JAC_REFINE_OD, Neg(this.mCarSet.Ybd));
+            CanJni.LandWindOdCarSet(150, Neg(this.mCarSet.Ybd));
         } else if (id == 5) {
             CanJni.LandWindOdCarSet(151, Neg(this.mCarSet.Hsjzdzd));
         }

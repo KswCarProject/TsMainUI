@@ -11,7 +11,6 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanBaseACWidgetView;
 import com.ts.can.CanCameraUI;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.yyw.ts70xhw.KeyDef;
@@ -90,7 +89,7 @@ public class CanCorollaACBottomView extends CanBaseACWidgetView implements View.
     }
 
     public void InitUI() {
-        getManager().AddImage(0, 0, CanToyotaDJCarDeviceView.ITEM_PLAY, 130).setBackgroundResource(R.drawable.can_spcom_air_bg);
+        getManager().AddImage(0, 0, 768, 130).setBackgroundResource(R.drawable.can_spcom_air_bg);
         this.mBtnVolDec = AddBtn(1, 9, 8, 62, 115, R.drawable.can_spcom_air_vol_dec_up, R.drawable.can_spcom_air_vol_dec_dn);
         this.mBtnVolInc = AddBtn(2, 697, 8, 62, 115, R.drawable.can_spcom_air_vol_inc_up, R.drawable.can_spcom_air_vol_inc_dn);
         this.mBtnLtTempInc = AddBtn(3, 81, 8, 74, 41, R.drawable.can_spcom_air_heighten_up, R.drawable.can_spcom_air_heighten_dn);

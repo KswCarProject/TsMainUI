@@ -1,7 +1,10 @@
 package com.ts.can.vw.golf.wc;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
@@ -23,6 +26,7 @@ public class CanGolfWcDrivingDataActivity extends CanBaseActivity implements Vie
     public static final int PAGE_LTERM = 1;
     public static final int PAGE_REFU = 2;
     public static final int PAGE_START = 0;
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private static final String[] mOilDW = {"L/100km", "km/l", "mpg(UK)", "mpg(US)"};
     protected CanDataInfo.GolfDrivingComm mAvgConData = new CanDataInfo.GolfDrivingComm();
     protected TextView mAvgConsumption;
@@ -52,6 +56,20 @@ public class CanGolfWcDrivingDataActivity extends CanBaseActivity implements Vie
         super.onCreate(arg0);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
+        InitUI();
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
+    }
+
+    private void InitUI() {
         this.mCenterTitle = this.mManager.AddText(362, 30, 300, 90);
         this.mCenterTitle.setTextColor(-1);
         this.mCenterTitle.setTextSize(0, 60.0f);
@@ -68,9 +86,9 @@ public class CanGolfWcDrivingDataActivity extends CanBaseActivity implements Vie
         this.mBotCar = this.mManager.AddImage(0, 450, 1024, 83);
         this.mBotCar.setImageResource(R.drawable.can_golf_car01);
         this.mTextVal = new TextView[8];
-        this.mTextVal[0] = this.mManager.AddText(62, Can.CAN_CHANA_CS75_WC, Can.CAN_NISSAN_XFY, 60);
-        this.mTextVal[1] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, Can.CAN_CHANA_CS75_WC, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
-        this.mTextVal[2] = this.mManager.AddText(712, Can.CAN_CHANA_CS75_WC, 300, 60);
+        this.mTextVal[0] = this.mManager.AddText(62, 160, Can.CAN_NISSAN_XFY, 60);
+        this.mTextVal[1] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, 160, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
+        this.mTextVal[2] = this.mManager.AddText(712, 160, 300, 60);
         this.mTextVal[3] = this.mManager.AddText(62, 260, Can.CAN_NISSAN_XFY, 60);
         this.mTextVal[4] = this.mManager.AddText(KeyDef.RKEY_MEDIA_OSD, 260, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 60);
         if (CanJni.GetSubType() != 1) {

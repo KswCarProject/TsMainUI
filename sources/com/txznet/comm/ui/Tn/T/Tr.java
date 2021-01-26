@@ -10,17 +10,17 @@ import com.txznet.comm.ui.Tn.T;
 public class Tr extends T {
 
     /* renamed from: T  reason: collision with root package name */
-    private ListView f552T;
+    private ListView f556T;
     private com.txznet.comm.ui.T.T Tr = new com.txznet.comm.ui.T.T();
     private Context Ty;
 
     public Tr(Context context) {
         this.Ty = context;
-        this.f552T = new ListView(context);
-        this.f552T.setDivider(new ColorDrawable(-7829368));
-        this.f552T.setSelector(new ColorDrawable(0));
-        this.f552T.setVerticalScrollBarEnabled(false);
-        this.f552T.setAdapter(this.Tr);
+        this.f556T = new ListView(context);
+        this.f556T.setDivider(new ColorDrawable(-7829368));
+        this.f556T.setSelector(new ColorDrawable(0));
+        this.f556T.setVerticalScrollBarEnabled(false);
+        this.f556T.setAdapter(this.Tr);
     }
 
     public void T(View view) {
@@ -28,18 +28,18 @@ public class Tr extends T {
     }
 
     public View T() {
-        return this.f552T;
+        return this.f556T;
     }
 
     public void Tr() {
-        this.f552T.setSelection(this.Tr.getCount() - 1);
-        this.f552T.requestLayout();
+        this.f556T.setSelection(this.Tr.getCount() - 1);
+        this.f556T.requestLayout();
     }
 
     public void Ty() {
         this.Tr.T();
         this.Tr = new com.txznet.comm.ui.T.T();
-        this.f552T.setAdapter(this.Tr);
+        this.f556T.setAdapter(this.Tr);
     }
 
     public void Tn() {

@@ -25,10 +25,11 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
     private static final int ITEM_HSJZDZD = 5;
     private static final int ITEM_JD_SETUP = 2;
     private static final int ITEM_LANG = 18;
-    private static final int ITEM_MAX = 19;
+    private static final int ITEM_MAX = 20;
     private static final int ITEM_MIN = 0;
     private static final int ITEM_PARGING_SETTING = 8;
     private static final int ITEM_PKEY_NAVI = 19;
+    private static final int ITEM_QLDZDKQGN = 20;
     private static final int ITEM_QPZYJXT = 14;
     private static final int ITEM_ROOF_MODE = 12;
     private static final int ITEM_SEAT_MEMOTY = 7;
@@ -63,6 +64,7 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
     private CanScrollList mManager;
     private CanItemPopupList mParkingSettingsItem;
     private CanItemPopupList mPkeyNaivItem;
+    private CanItemSwitchList mQldzdkqgn;
     private CanItemSwitchList mQpzyjxt;
     private CanItemPopupList mRoofModeItem;
     private CanItemPopupList mSeatMemoryItem;
@@ -106,6 +108,7 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
         this.mZdjjzzxt = this.mManager.addItemCheckBox(R.string.can_zdjjzdxt, 15, this);
         this.mZnqt = this.mManager.addItemCheckBox(R.string.can_smart_qt, 16, this);
         this.mTcsz = this.mManager.addItemCheckBox(R.string.can_cch9_trailer, 17, this);
+        this.mQldzdkqgn = this.mManager.addItemCheckBox(R.string.can_ycmqyx_qldzdjh, 20, this);
     }
 
     /* access modifiers changed from: protected */
@@ -118,7 +121,7 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
     }
 
     private void LayoutUI() {
-        for (int i = 0; i <= 19; i++) {
+        for (int i = 0; i <= 20; i++) {
             ShowItem(i);
         }
     }
@@ -226,6 +229,11 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
             case 19:
                 ret = 1;
                 break;
+            case 20:
+                if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 14) {
+                    ret = 1;
+                    break;
+                }
         }
         return i2b(ret);
     }
@@ -293,6 +301,9 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
             case 19:
                 this.mPkeyNaivItem.ShowGone(show);
                 return;
+            case 20:
+                this.mQldzdkqgn.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -327,6 +338,7 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
             this.mZnqt.SetCheck(this.mCarInfo.Znqt);
             this.mTcsz.SetCheck(this.mCarInfo.Tcsz);
             this.mLangItem.SetSel(this.mCarInfo.Lang);
+            this.mQldzdkqgn.SetCheck(this.mCarInfo.Qldzdkqgn);
         }
         if (this.nPkeySetb != FtSet.Getyw6() || !check) {
             this.mPkeyNaivItem.SetSel(FtSet.Getyw6());
@@ -408,6 +420,9 @@ public class CanCCH6RzcCarInfoActivity extends CanBaseActivity implements UserCa
                 return;
             case 17:
                 CanJni.CCH6CarSetRzc(25, Neg(this.mCarInfo.Tcsz), 0);
+                return;
+            case 20:
+                CanJni.CCH6CarSetRzc(28, Neg(this.mCarInfo.Qldzdkqgn), 0);
                 return;
             default:
                 return;

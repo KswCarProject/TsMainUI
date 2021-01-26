@@ -4,7 +4,7 @@ package com.Tr.Tr;
 public abstract class Tk extends Exception {
 
     /* renamed from: T  reason: collision with root package name */
-    protected static final boolean f258T;
+    protected static final boolean f261T;
     protected static final StackTraceElement[] Tr = new StackTraceElement[0];
 
     static {
@@ -14,7 +14,7 @@ public abstract class Tk extends Exception {
         } else {
             z = false;
         }
-        f258T = z;
+        f261T = z;
     }
 
     Tk() {

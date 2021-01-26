@@ -4,14 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
-import com.ts.main.common.MainSet;
 
 public class CanRZygSetSafeAssistActivity extends CanRZygBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
     public static final int ITEM_CAR_TYPE = 17;
@@ -40,7 +38,7 @@ public class CanRZygSetSafeAssistActivity extends CanRZygBaseActivity implements
     public static final int ITEM_YLGYSYG = 12;
     public static final int ITEM_YXBCYS = 15;
     public static final String TAG = "CanRZygSetSafeAssistActivity";
-    private static final String[] mCarTypeArr = {MainSet.SP_XPH5, MainSet.SP_RLF_KORON};
+    private static final String[] mCarTypeArr = {"1", "2"};
     private static final int[] mCdpljgArr = {R.string.can_jp_early, R.string.can_ac_mid, R.string.can_jp_late};
     private static final int[] mCdpljzldArr = {R.string.can_ac_low, R.string.can_ac_mid, R.string.can_ac_high};
     private static final int[] mLdlxArr = {R.string.can_type_vol, R.string.can_vol_img};
@@ -117,7 +115,7 @@ public class CanRZygSetSafeAssistActivity extends CanRZygBaseActivity implements
 
     /* access modifiers changed from: protected */
     public void QueryData() {
-        Query(64, Can.CAN_CHANA_CS75_WC);
+        Query(64, 160);
     }
 
     /* access modifiers changed from: protected */

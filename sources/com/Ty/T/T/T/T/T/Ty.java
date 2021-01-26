@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 class Ty implements Closeable {
 
     /* renamed from: T  reason: collision with root package name */
-    private final InputStream f303T;
+    private final InputStream f306T;
     private int T9;
     private int Tn;
     /* access modifiers changed from: private */
@@ -28,20 +28,20 @@ class Ty implements Closeable {
             throw new NullPointerException();
         } else if (capacity < 0) {
             throw new IllegalArgumentException("capacity <= 0");
-        } else if (!charset.equals(Tn.f301T)) {
+        } else if (!charset.equals(Tn.f304T)) {
             throw new IllegalArgumentException("Unsupported encoding");
         } else {
-            this.f303T = in;
+            this.f306T = in;
             this.Tr = charset;
             this.Ty = new byte[capacity];
         }
     }
 
     public void close() throws IOException {
-        synchronized (this.f303T) {
+        synchronized (this.f306T) {
             if (this.Ty != null) {
                 this.Ty = null;
-                this.f303T.close();
+                this.f306T.close();
             }
         }
     }
@@ -49,7 +49,7 @@ class Ty implements Closeable {
     public String T() throws IOException {
         int i;
         String res;
-        synchronized (this.f303T) {
+        synchronized (this.f306T) {
             if (this.Ty == null) {
                 throw new IOException("LineReader is closed");
             }
@@ -100,7 +100,7 @@ class Ty implements Closeable {
     }
 
     private void Tr() throws IOException {
-        int result = this.f303T.read(this.Ty, 0, this.Ty.length);
+        int result = this.f306T.read(this.Ty, 0, this.Ty.length);
         if (result == -1) {
             throw new EOFException();
         }

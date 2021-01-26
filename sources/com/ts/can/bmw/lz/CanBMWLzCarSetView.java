@@ -132,8 +132,8 @@ public class CanBMWLzCarSetView extends CanScrollCarInfoView implements CanItemM
         this.mPopValueIds[2] = new int[]{R.string.can_temperature_c, R.string.can_temperature_f};
         this.mPopValueIds[3] = new int[]{R.string.can_fuels_lkm, R.string.can_fuels_mpg, R.string.can_fuels_kml};
         this.mPopValueIds[4] = new int[]{R.string.can_distance_km, R.string.can_distance_mile};
-        this.mPopValueIds[6] = new int[]{R.string.app_name};
-        this.mPopValueIds[9] = new int[]{R.string.app_name};
+        this.mPopValueIds[6] = new int[]{R.string.app_name, R.string.app_name};
+        this.mPopValueIds[9] = new int[]{R.string.app_name, R.string.app_name};
         this.mSetData = new CanDataInfo.BmwLz_SetData();
     }
 

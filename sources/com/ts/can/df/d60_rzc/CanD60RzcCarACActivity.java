@@ -155,10 +155,10 @@ public class CanD60RzcCarACActivity extends CanCommonActivity implements View.On
         }
         this.mTvLeftTemp = container.addText(53, Can.CAN_TEANA_OLD_DJ, 95, 61);
         this.mTvRightTemp = container.addText(883, Can.CAN_TEANA_OLD_DJ, 95, 61);
-        this.mBtnModeHead = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, 108);
-        this.mBtnModeHeadFoot = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, 185);
-        this.mBtnModeFoot = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, 264);
-        this.mBtnModeFootFront = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_res5);
+        this.mBtnModeHead = container.addButton(305, 108);
+        this.mBtnModeHeadFoot = container.addButton(305, 185);
+        this.mBtnModeFoot = container.addButton(305, 264);
+        this.mBtnModeFootFront = container.addButton(305, KeyDef.RKEY_res5);
         this.mBtnDual = container.addButton(200, 20);
         this.mBtnAcMax = container.addButton(KeyDef.RKEY_MEDIA_SLOW, 20);
         this.mBtnFront = container.addButton(450, 17);

@@ -2,7 +2,6 @@ package com.ts.main.touch;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.SystemProperties;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -11,8 +10,8 @@ import android.widget.Toast;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
-import com.ts.can.CanCameraUI;
 import com.ts.main.common.MainSet;
+import com.ts.main.common.MainUI;
 import com.yyw.ts70xhw.FtSet;
 
 public class TouchActivity extends Activity implements UserCallBack {
@@ -34,12 +33,10 @@ public class TouchActivity extends Activity implements UserCallBack {
         this.touchButtonView = (TextView) findViewById(R.id.touch_button);
         this.touchButtonView.setTextSize(0, 45.0f);
         this.touchinfo.setText(R.string.touch_mes_info);
-        int mScrW = SystemProperties.getInt("ro.forfan.hardware.width", 1024);
-        int mScrH = SystemProperties.getInt("ro.forfan.hardware.height", CanCameraUI.BTN_GOLF_WC_MODE1);
-        int nTouchX = SystemProperties.getInt("ro.forfan.touchwidth", 0);
-        int nTouchY = SystemProperties.getInt("ro.forfan.touchheight", 0);
+        int nTouchX = MainUI.GetTouchX();
+        int nTouchY = MainUI.GetTouchY();
         this.touchZB.setTextSize(0, 25.0f);
-        this.touchZB.setText("SrcX=" + mScrW + " SrcY=" + mScrH + " nTouchX=" + nTouchX + " nTouchY=" + nTouchY);
+        this.touchZB.setText("SrcX=" + MainUI.GetSrcW() + " SrcY=" + MainUI.GetSrcH() + " nTouchX=" + nTouchX + " nTouchY=" + nTouchY);
     }
 
     /* access modifiers changed from: package-private */
@@ -95,22 +92,11 @@ public class TouchActivity extends Activity implements UserCallBack {
 
     /* access modifiers changed from: package-private */
     public int CacuXYSwape(int X, int Y, int nStep) {
-        int mScrW = SystemProperties.getInt("ro.forfan.hardware.width", 1024);
-        int mScrH = SystemProperties.getInt("ro.forfan.hardware.height", CanCameraUI.BTN_GOLF_WC_MODE1);
+        int mScrW = MainUI.GetSrcW();
+        int mScrH = MainUI.GetSrcH();
         if (MainSet.GetScreenType() == 3) {
-            mScrW = SystemProperties.getInt("ro.forfan.hardware.height", CanCameraUI.BTN_GOLF_WC_MODE1);
-            mScrH = SystemProperties.getInt("ro.forfan.hardware.width", 1024);
-        }
-        if (mScrW == 800 && mScrH == 480) {
-            mScrW = 1024;
-            mScrH = CanCameraUI.BTN_GOLF_WC_MODE1;
-        }
-        if (mScrW == 800 && mScrH == 600) {
-            mScrW = 1024;
-            mScrH = CanCameraUI.BTN_GOLF_WC_MODE1;
-        } else if (mScrW == 800 && mScrH == 1280 && MainSet.IsFlkj()) {
-            mScrW = 1280;
-            mScrH = 800;
+            mScrW = MainUI.GetSrcH();
+            mScrH = MainUI.GetSrcW();
         }
         switch (nStep) {
             case 1:

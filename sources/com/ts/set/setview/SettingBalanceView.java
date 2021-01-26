@@ -11,14 +11,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import com.ts.MainUI.R;
-import com.yyw.ts70xhw.Iop;
+import com.txznet.sdk.TXZResourceManager;
 
 public class SettingBalanceView extends View {
     private static final int BK_X_DT = 0;
     private static final int BK_Y_DT = 0;
-    private static final int PT_HALF = 16;
-    private static final int SP_DT = 16;
-    private int fadLockedValue = -1;
+    private static int PT_HALF = 18;
+    private static int SP_DT = 18;
     private int mBal;
     private Bitmap mBmpBk;
     private Bitmap mBmpPtDn;
@@ -29,6 +28,7 @@ public class SettingBalanceView extends View {
     private Paint mPaint;
     private int mPtCenX;
     private int mPtCenY;
+    private Resources res;
 
     public interface onTouchBalanceChanged {
         void onChanged(View view, int i, int i2);
@@ -70,44 +70,41 @@ public class SettingBalanceView extends View {
     /* access modifiers changed from: protected */
     public void onDraw(Canvas canvas) {
         getPtCenXY();
-        canvas.drawBitmap(this.mBmpBk, 16.0f, 16.0f, this.mPaint);
-        Log.e("", "x = " + (this.mPtCenX - 16) + " y = " + (this.mPtCenY - 16));
+        canvas.drawBitmap(this.mBmpBk, (float) (PT_HALF + 0), (float) (PT_HALF + 0), this.mPaint);
+        Log.e(TXZResourceManager.STYLE_DEFAULT, "x = " + (this.mPtCenX - PT_HALF) + " y = " + (this.mPtCenY - PT_HALF));
         if (this.mDragFlg) {
-            canvas.drawBitmap(this.mBmpPtDn, (float) (this.mPtCenX - 16), (float) (this.mPtCenY - 16), this.mPaint);
+            canvas.drawBitmap(this.mBmpPtDn, (float) (this.mPtCenX - PT_HALF), (float) (this.mPtCenY - PT_HALF), this.mPaint);
         } else {
-            canvas.drawBitmap(this.mBmpPtUp, (float) (this.mPtCenX - 16), (float) (this.mPtCenY - 16), this.mPaint);
+            canvas.drawBitmap(this.mBmpPtUp, (float) (this.mPtCenX - PT_HALF), (float) (this.mPtCenY - PT_HALF), this.mPaint);
         }
         super.onDraw(canvas);
     }
 
     /* access modifiers changed from: package-private */
     public void getPtCenXY() {
-        this.mPtCenX = (this.mBal * 16) + 16;
-        this.mPtCenY = (this.mFad * 16) + 16;
-    }
-
-    private void dealFadLock(Context context) {
-        int id = getResources().getIdentifier("eq_fad_locked", "string", context.getPackageName());
-        if (id != 0) {
-            try {
-                this.fadLockedValue = Integer.parseInt(getResources().getString(id));
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-        }
-        if (this.fadLockedValue >= 0) {
-            Iop.FadSet(this.fadLockedValue);
-        }
+        this.mPtCenX = (this.mBal * SP_DT) + PT_HALF + 0 + stringToInteger(R.string.mDot_move);
+        this.mPtCenY = (this.mFad * SP_DT) + PT_HALF + 0 + stringToInteger(R.string.mDot_move);
     }
 
     private void initImage(Context context) {
         this.mPaint = new Paint();
-        Resources res = context.getResources();
-        this.mBmpBk = ((BitmapDrawable) res.getDrawable(R.drawable.setup_balance_seat)).getBitmap();
-        this.mBmpPtDn = ((BitmapDrawable) res.getDrawable(R.drawable.setup_bal_dot_dn)).getBitmap();
-        this.mBmpPtUp = ((BitmapDrawable) res.getDrawable(R.drawable.setup_bal_dot_up)).getBitmap();
-        Log.e("", "x = " + this.mBmpPtUp.getWidth() + " y = " + this.mBmpPtUp.getHeight());
-        dealFadLock(context);
+        this.res = context.getResources();
+        this.mBmpBk = ((BitmapDrawable) this.res.getDrawable(R.drawable.setup_balance_seat)).getBitmap();
+        this.mBmpPtDn = ((BitmapDrawable) this.res.getDrawable(R.drawable.setup_bal_dot_dn)).getBitmap();
+        this.mBmpPtUp = ((BitmapDrawable) this.res.getDrawable(R.drawable.setup_bal_dot_up)).getBitmap();
+        Log.e(TXZResourceManager.STYLE_DEFAULT, "x = " + this.mBmpPtUp.getWidth() + " y = " + this.mBmpPtUp.getHeight());
+        PT_HALF = stringToInteger(R.string.mDot_width_half);
+        SP_DT = stringToInteger(R.string.mImg_seat_lattice_width);
+    }
+
+    private int stringToInteger(int id) {
+        try {
+            return Integer.parseInt(this.res.getString(id));
+        } catch (NumberFormatException e) {
+            Log.d("com.ts.MainUI", "SettingBalanceView reason:" + e.toString());
+            e.printStackTrace();
+            return 0;
+        }
     }
 
     private void dealTouch(int x, int y) {
@@ -118,8 +115,8 @@ public class SettingBalanceView extends View {
         if (dx <= 0) {
             curBal = 0;
         } else {
-            curBal = dx / 16;
-            if (dx % 16 >= 8) {
+            curBal = dx / SP_DT;
+            if (dx % SP_DT >= SP_DT / 2) {
                 curBal++;
             }
             if (curBal > 14) {
@@ -129,16 +126,13 @@ public class SettingBalanceView extends View {
         if (dy <= 0) {
             curFad = 0;
         } else {
-            curFad = dy / 16;
-            if (dy % 16 >= 8) {
+            curFad = dy / SP_DT;
+            if (dy % SP_DT >= SP_DT / 2) {
                 curFad++;
             }
             if (curFad > 14) {
                 curFad = 14;
             }
-        }
-        if (this.fadLockedValue >= 0 && curFad != this.fadLockedValue) {
-            curFad = this.fadLockedValue;
         }
         if (curBal != this.mBal || curFad != this.mFad) {
             setBalance(curFad, curBal);
@@ -150,7 +144,7 @@ public class SettingBalanceView extends View {
 
     private void checkDrag(int x, int y) {
         getPtCenXY();
-        if (x >= this.mPtCenX - 16 && x <= this.mPtCenX + 16 && y >= this.mPtCenY - 16 && y <= this.mPtCenY + 16) {
+        if (x >= this.mPtCenX - PT_HALF && x <= this.mPtCenX + PT_HALF && y >= this.mPtCenY - PT_HALF && y <= this.mPtCenY + PT_HALF) {
             this.mDragFlg = true;
             invalidate();
         }

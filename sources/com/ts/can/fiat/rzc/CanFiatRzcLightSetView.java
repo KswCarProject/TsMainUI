@@ -12,17 +12,21 @@ public class CanFiatRzcLightSetView extends CanScrollCarInfoView {
     private static final int ITEM_COURTESY_LIGHTS = 2;
     private static final int ITEM_DAYTIME_LIGHTS = 0;
     private static final int ITEM_FLASH_LIGHTS_WLOCK = 3;
-    private static final int ITEM_MAX = 4;
+    private static final int ITEM_HEADLIGHT_SENSITIVITY = 4;
+    private static final int ITEM_MAX = 5;
     CanDataInfo.FlatRzcSetData mSetData;
 
     public CanFiatRzcLightSetView(Activity activity) {
-        super(activity, 4);
+        super(activity, 5);
     }
 
     public void onItem(int id, int item) {
         switch (id) {
             case 2:
                 CanJni.FiatRzcCarSet(18, item);
+                return;
+            case 4:
+                CanJni.FiatRzcCarSet(20, item);
                 return;
             default:
                 return;
@@ -50,9 +54,10 @@ public class CanFiatRzcLightSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_car_rjzmd, R.string.can_corneringLights, R.string.can_courtesy_lights, R.string.can_scszxdss};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH};
+        this.mItemTitleIds = new int[]{R.string.can_car_rjzmd, R.string.can_corneringLights, R.string.can_courtesy_lights, R.string.can_scszxdss, R.string.can_headlightsens};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP};
         this.mPopValueIds[2] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_mode_on, R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s, R.string.can_mzd_cx4_time_90s};
+        this.mPopValueIds[4] = new int[]{R.string.can_headlightsens_1, R.string.can_headlightsens_2, R.string.can_headlightsens_3};
         this.mSetData = new CanDataInfo.FlatRzcSetData();
     }
 
@@ -67,6 +72,7 @@ public class CanFiatRzcLightSetView extends CanScrollCarInfoView {
             updateItem(1, this.mSetData.CorneringLight);
             updateItem(2, this.mSetData.CourtesyLights);
             updateItem(3, this.mSetData.FlashLightswLock);
+            updateItem(4, this.mSetData.HeadlightSensitivity);
         }
     }
 
@@ -78,6 +84,8 @@ public class CanFiatRzcLightSetView extends CanScrollCarInfoView {
         CanJni.FiatRzcQuery(128, 18);
         Sleep(5);
         CanJni.FiatRzcQuery(128, 19);
+        Sleep(5);
+        CanJni.FiatRzcQuery(128, 20);
         Sleep(5);
     }
 }

@@ -2,11 +2,11 @@ package com.ts.can;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -16,6 +16,7 @@ import com.ts.canview.CanVerticalBar;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanToyotaTripHistoryActivity extends CanToyotaBaseActivity implements UserCallBack, View.OnClickListener {
@@ -23,6 +24,7 @@ public class CanToyotaTripHistoryActivity extends CanToyotaBaseActivity implemen
     private static final int ID_PERMIN = 1280;
     private static final int ID_UPDATE = 1282;
     public static final String TAG = "CanToyotaTripHistoryActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private ParamButton mBtnClear;
     private ParamButton mBtnPerMin;
     private ParamButton mBtnUpdate;
@@ -37,22 +39,22 @@ public class CanToyotaTripHistoryActivity extends CanToyotaBaseActivity implemen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
-        if (MainSet.GetScreenType() == 3) {
-            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
-            lp.width = 1024;
-            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
-            lp.gravity = 17;
-            this.mManager.GetLayout().setLayoutParams(lp);
-        }
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
         this.mManager.AddImage(45, 67, R.drawable.fuel_consumption_line02);
         this.mTrip = new CanVerticalBar[6];
         for (int i = 0; i < this.mTrip.length; i++) {
             this.mTrip[i] = new CanVerticalBar((Context) this, R.drawable.fuel_consumption_pillars03);
             this.mTrip[i].setMinMax(0.0f, 100.0f);
             if (i == 0) {
-                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - (i * Can.CAN_AUDI_ZMYT), 71);
+                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - (i * 152), 71);
             } else {
-                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - ((6 - i) * Can.CAN_AUDI_ZMYT), 71);
+                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - ((6 - i) * 152), 71);
             }
         }
         TextView tv = this.mManager.AddText(760, 395, 100, 30);
@@ -73,7 +75,7 @@ public class CanToyotaTripHistoryActivity extends CanToyotaBaseActivity implemen
         if (MainSet.GetScreenType() == 5) {
             this.mBtnPerMin = this.mManager.AddButton(1044, 54);
             this.mBtnClear = this.mManager.AddButton(1044, 174);
-            this.mBtnUpdate = this.mManager.AddButton(1044, KeyDef.RKEY_FF);
+            this.mBtnUpdate = this.mManager.AddButton(1044, 293);
         } else {
             this.mBtnPerMin = this.mManager.AddButton(44, 455);
             this.mBtnClear = this.mManager.AddButton(344, 455);
@@ -91,7 +93,11 @@ public class CanToyotaTripHistoryActivity extends CanToyotaBaseActivity implemen
         if (MainSet.GetScreenType() == 3) {
             this.mManager.GetLayout().setScaleX(0.78f);
             this.mManager.GetLayout().setScaleY(0.79f);
+            return;
         }
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     /* access modifiers changed from: protected */
@@ -128,7 +134,7 @@ public class CanToyotaTripHistoryActivity extends CanToyotaBaseActivity implemen
             this.mDW.setText(GetDWStr(this.mTripData.DW));
             int base = 10;
             if (this.mTripData.DW == 0) {
-                max = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max = 600;
                 base = 20;
             } else {
                 max = 300;
@@ -152,7 +158,7 @@ public class CanToyotaTripHistoryActivity extends CanToyotaBaseActivity implemen
             case 2:
                 return "L/100KM";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

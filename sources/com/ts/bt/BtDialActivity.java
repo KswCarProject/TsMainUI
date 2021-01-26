@@ -1,6 +1,7 @@
 package com.ts.bt;
 
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,34 +14,35 @@ import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.main.common.MainSet;
 import com.ts.main.common.MainVolume;
+import com.txznet.sdk.TXZResourceManager;
 
-@SuppressLint({"NewApi"})
+@SuppressLint({"NewApi", "Override"})
 public class BtDialActivity extends BtBaseActivity implements View.OnClickListener, View.OnLongClickListener, UserCallBack {
     public static final int BT_ACTIVITY_ID = 2;
     public static final boolean DEBUG = true;
     private static final String TAG = "BTDialPadActivity";
     View.OnClickListener NumClickListen = new View.OnClickListener() {
         public void onClick(View v) {
-            String strKey = "";
+            String strKey = TXZResourceManager.STYLE_DEFAULT;
             int id = v.getId();
             if (id == R.id.bt_btn_dial_num1) {
-                strKey = MainSet.SP_XPH5;
+                strKey = "1";
             } else if (id == R.id.bt_btn_dial_num2) {
-                strKey = MainSet.SP_RLF_KORON;
+                strKey = "2";
             } else if (id == R.id.bt_btn_dial_num3) {
-                strKey = MainSet.SP_XH_DMAX;
+                strKey = "3";
             } else if (id == R.id.bt_btn_dial_num4) {
                 strKey = MainSet.SP_KS_QOROS;
             } else if (id == R.id.bt_btn_dial_num5) {
-                strKey = MainSet.SP_LM_WR;
-            } else if (id == R.id.bt_btn_dial_num6) {
-                strKey = MainSet.SP_YSJ_QP;
-            } else if (id == R.id.bt_btn_dial_num7) {
                 strKey = MainSet.SP_TW_CJW;
+            } else if (id == R.id.bt_btn_dial_num6) {
+                strKey = MainSet.SP_XS_DZ;
+            } else if (id == R.id.bt_btn_dial_num7) {
+                strKey = MainSet.SP_PCBA_VOL;
             } else if (id == R.id.bt_btn_dial_num8) {
-                strKey = MainSet.SP_FLKJ;
+                strKey = "8";
             } else if (id == R.id.bt_btn_dial_num9) {
-                strKey = MainSet.SP_FXCARPLAY;
+                strKey = "9";
             } else if (id == R.id.bt_btn_dial_numx) {
                 strKey = "*";
             } else if (id == R.id.bt_btn_dial_num0) {
@@ -53,8 +55,10 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
             if (!strKey.isEmpty()) {
                 BtDialActivity.this.addKey(strKey);
             }
-            BtDialActivity.this.mbSubFocus = 2;
-            BtDialActivity.this.updateFocus(v);
+            if (!BtDialActivity.this.mIsInMultiWindowMode) {
+                BtDialActivity.this.mbSubFocus = 2;
+                BtDialActivity.this.updateFocus(v);
+            }
         }
     };
     private ImageButton btnCall;
@@ -86,9 +90,34 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bt_dial);
-        this.mLength = getResources().getInteger(R.integer.bt_dial_input_length);
+        this.mIsInMultiWindowMode = isInMultiWindowMode();
+        updateLayout(this.mIsInMultiWindowMode);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateLayout(boolean isInMultiWindowMode) {
+        if (isInMultiWindowMode) {
+            setContentView(R.layout.activity_bt_dial_s);
+            this.mLength = getResources().getInteger(R.integer.bt_dial_input_length_s);
+        } else {
+            setContentView(R.layout.activity_bt_dial);
+            this.mLength = getResources().getInteger(R.integer.bt_dial_input_length);
+        }
         initView();
+    }
+
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
+        this.mIsInMultiWindowMode = isInMultiWindowMode;
+        updateMultiChange(isInMultiWindowMode);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateMultiChange(boolean isInMultiWindowMode) {
+        updateLayout(isInMultiWindowMode);
+        SubItemsInit(this, 2);
+        updateInputText();
+        this.mOldSta = BtExe.mCallSta;
     }
 
     /* access modifiers changed from: protected */
@@ -100,7 +129,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
     public void onResume() {
         super.onResume();
         SubItemsInit(this, 2);
-        if (this.isShowActivity) {
+        if (this.isShowActivity && !this.mIsInMultiWindowMode) {
             EnterSubFocus();
         }
         updateInputText();
@@ -116,7 +145,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
         if (view.getId() != R.id.bt_btn_dial_bkspace) {
             return false;
         }
-        mBaseStrDialNo = "";
+        mBaseStrDialNo = TXZResourceManager.STYLE_DEFAULT;
         updateInputText();
         this.mbSubFocus = 2;
         updateFocus(view);
@@ -183,36 +212,44 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
         this.btnSW.setOnClickListener(this);
         this.btnMerge.setOnClickListener(this);
         this.btnExchange.setOnClickListener(this);
-        this.mFocusView = new View[20];
-        this.mFocusView[0] = this.btnNum1;
-        this.mFocusView[1] = this.btnNum2;
-        this.mFocusView[2] = this.btnNum3;
-        this.mFocusView[3] = this.btnDel;
-        this.mFocusView[4] = this.btnNum4;
-        this.mFocusView[5] = this.btnNum5;
-        this.mFocusView[6] = this.btnNum6;
-        this.mFocusView[7] = this.btnMicMute;
-        this.mFocusView[8] = this.btnNum7;
-        this.mFocusView[9] = this.btnNum8;
-        this.mFocusView[10] = this.btnNum9;
-        this.mFocusView[11] = this.btnSound;
-        this.mFocusView[12] = this.btnNumJ;
-        this.mFocusView[13] = this.btnNum0;
-        this.mFocusView[14] = this.btnNumX;
-        this.mFocusView[15] = this.btnSW;
-        this.mFocusView[16] = this.btnMerge;
-        this.mFocusView[17] = this.btnExchange;
-        this.mFocusView[18] = this.btnCall;
-        this.mFocusView[19] = this.btnHangup;
-        if (this.mbSubFocus == 2) {
-            updateFocus(this.mFocusView[0]);
+        if (!this.mIsInMultiWindowMode) {
+            this.mFocusView = new View[20];
+            this.mFocusView[0] = this.btnNum1;
+            this.mFocusView[1] = this.btnNum2;
+            this.mFocusView[2] = this.btnNum3;
+            this.mFocusView[3] = this.btnDel;
+            this.mFocusView[4] = this.btnNum4;
+            this.mFocusView[5] = this.btnNum5;
+            this.mFocusView[6] = this.btnNum6;
+            this.mFocusView[7] = this.btnMicMute;
+            this.mFocusView[8] = this.btnNum7;
+            this.mFocusView[9] = this.btnNum8;
+            this.mFocusView[10] = this.btnNum9;
+            this.mFocusView[11] = this.btnSound;
+            this.mFocusView[12] = this.btnNumJ;
+            this.mFocusView[13] = this.btnNum0;
+            this.mFocusView[14] = this.btnNumX;
+            this.mFocusView[15] = this.btnSW;
+            this.mFocusView[16] = this.btnMerge;
+            this.mFocusView[17] = this.btnExchange;
+            this.mFocusView[18] = this.btnCall;
+            this.mFocusView[19] = this.btnHangup;
+            if (this.mbSubFocus == 2) {
+                updateFocus(this.mFocusView[0]);
+            }
         }
     }
 
     /* access modifiers changed from: package-private */
     public void updateAudioFocus() {
         if (this.bt.getAudioState() == 2) {
-            this.btnSW.setBackgroundResource(R.drawable.bt_audio_bt);
+            if (this.mIsInMultiWindowMode) {
+                this.btnSW.setBackgroundResource(R.drawable.bt_audio_bt_s);
+            } else {
+                this.btnSW.setBackgroundResource(R.drawable.bt_audio_bt);
+            }
+        } else if (this.mIsInMultiWindowMode) {
+            this.btnSW.setBackgroundResource(R.drawable.bt_audio_phone_s);
         } else {
             this.btnSW.setBackgroundResource(R.drawable.bt_audio_phone);
         }
@@ -222,7 +259,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
         int id = v.getId();
         if (id == R.id.bt_btn_dial_bkspace) {
             if (mBaseStrDialNo.length() <= 1) {
-                mBaseStrDialNo = "";
+                mBaseStrDialNo = TXZResourceManager.STYLE_DEFAULT;
             } else {
                 mBaseStrDialNo = mBaseStrDialNo.substring(0, mBaseStrDialNo.length() - 1);
             }
@@ -230,7 +267,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
         } else if (id == R.id.bt_btn_dial_mute) {
             this.bt.micMute();
         } else if (id == R.id.bt_btn_dial_sw) {
-            if (this.bt.getCallValue() == 0) {
+            if (this.bt.getCallValue() == 4) {
                 this.bt.audioSwitch();
                 updateAudioFocus();
             }
@@ -244,7 +281,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
                         BtExe.isAddCall = false;
                         if (!TextUtils.isEmpty(mBaseStrDialNo)) {
                             this.bt.dial(mBaseStrDialNo);
-                            mBaseStrDialNo = "";
+                            mBaseStrDialNo = TXZResourceManager.STYLE_DEFAULT;
                         } else {
                             BtCallMsgbox.GetInstance().Show(1);
                         }
@@ -254,7 +291,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
                 }
             } else if (mBaseStrDialNo != null && !mBaseStrDialNo.isEmpty()) {
                 this.bt.dial(mBaseStrDialNo);
-                mBaseStrDialNo = "";
+                mBaseStrDialNo = TXZResourceManager.STYLE_DEFAULT;
             } else if (BtExe.mLastPhoneNo != null && !BtExe.mLastPhoneNo.isEmpty()) {
                 BtExe.getBtInstance().updateLastPhoneNum();
                 mBaseStrDialNo = BtExe.mLastPhoneNo;
@@ -266,12 +303,16 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
         } else if (id == R.id.bt_btn_dial_sound) {
             MainVolume.GetInstance().VolWinShow();
         } else if (id == R.id.bt_btn_dial_merge) {
-            this.bt.answer(0);
+            if (BtExe.getBtInstance().isMultiCall()) {
+                this.bt.mergeCalls();
+            }
         } else if (id == R.id.bt_btn_dial_exchange) {
-            this.bt.answer(1);
+            this.bt.hold();
         }
-        this.mbSubFocus = 2;
-        updateFocus(v);
+        if (!this.mIsInMultiWindowMode) {
+            this.mbSubFocus = 2;
+            updateFocus(v);
+        }
     }
 
     /* access modifiers changed from: package-private */
@@ -291,7 +332,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
 
     /* access modifiers changed from: package-private */
     public void clearInput() {
-        mBaseStrDialNo = "";
+        mBaseStrDialNo = TXZResourceManager.STYLE_DEFAULT;
         updateInputText();
     }
 
@@ -381,7 +422,7 @@ public class BtDialActivity extends BtBaseActivity implements View.OnClickListen
             case 20:
                 DialNext();
                 return true;
-            case 21:
+            case 22:
                 if (this.mbSubFocus != 2) {
                     return true;
                 }

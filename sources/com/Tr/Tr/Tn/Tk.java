@@ -27,7 +27,7 @@ public final class Tk extends Tj {
             if (indexInString < 0) {
                 throw new IllegalArgumentException("Bad contents: " + contents);
             }
-            T(T9.f273T[indexInString], widths);
+            T(T9.f276T[indexInString], widths);
             for (int i2 = 0; i2 < 9; i2++) {
                 codeWidth += widths[i2];
             }
@@ -38,7 +38,7 @@ public final class Tk extends Tj {
         int[] narrowWhite = {1};
         int pos2 = pos + Tr(result, pos, narrowWhite, false);
         for (int i3 = 0; i3 < length; i3++) {
-            T(T9.f273T["0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%".indexOf(contents.charAt(i3))], widths);
+            T(T9.f276T["0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%".indexOf(contents.charAt(i3))], widths);
             int pos3 = pos2 + Tr(result, pos2, widths, true);
             pos2 = pos3 + Tr(result, pos3, narrowWhite, false);
         }

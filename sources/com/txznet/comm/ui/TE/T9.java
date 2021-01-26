@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class T9 {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final AtomicInteger f534T = new AtomicInteger(1);
+    private static final AtomicInteger f538T = new AtomicInteger(1);
 
     public static int T() {
         int result;
@@ -17,12 +17,12 @@ public class T9 {
             return View.generateViewId();
         }
         do {
-            result = f534T.get();
+            result = f538T.get();
             newValue = result + 1;
             if (newValue > 16777215) {
                 newValue = 1;
             }
-        } while (!f534T.compareAndSet(result, newValue));
+        } while (!f538T.compareAndSet(result, newValue));
         return result;
     }
 }

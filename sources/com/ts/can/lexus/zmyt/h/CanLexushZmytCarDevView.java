@@ -6,6 +6,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.RelativeLayout;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
@@ -25,6 +26,7 @@ import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 
 public class CanLexushZmytCarDevView extends CanRelativeCarInfoView {
+    public static int mBtCnt = 0;
     public static int mOldBtSta = 0;
     public static boolean mfgAutoEnt = false;
     public static boolean mfgFinish = false;
@@ -86,9 +88,19 @@ public class CanLexushZmytCarDevView extends CanRelativeCarInfoView {
         mfgFinish = false;
         TsDisplay.GetInstance().SetDispParat(-1);
         MainSet.GetInstance().SetVideoChannel(2);
+        if (CanFunc.getInstance().IsCore() == 1) {
+            BackcarService.getInstance().SetSource(1);
+        }
         this.mCameraView = (AutoFitTextureView) getActivity().findViewById(R.id.DevtextureView);
         this.mCameraView.setOnTouchListener(this);
         BackcarService.getInstance().StartCamera(this.mCameraView, false);
+        if (CanFunc.getInstance().IsCore() == 1 && CanFunc.IsRviewDis() > 0) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mCameraView.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.leftMargin = 0;
+            this.mCameraView.setLayoutParams(layoutParams);
+        }
         this.mManager = new RelativeLayoutManager(getActivity(), R.id.can_lexus_withcd_base_layout);
         this.mManager.GetLayout().setOnTouchListener(this);
         this.mManager.GetLayout().setClickable(true);
@@ -110,17 +122,33 @@ public class CanLexushZmytCarDevView extends CanRelativeCarInfoView {
     }
 
     public static void Init() {
-        if (FtSet.Getlgb1() != 0) {
+        if (CanLexushZmytCarFuncView.RvsMode() == 1) {
             Mcu.SendXKey(33);
+        } else if (CanLexushZmytCarFuncView.RvsMode() == 2) {
+            Mcu.SendXKey(35);
+        } else if (CanLexushZmytCarFuncView.RvsMode() == 3) {
+            Mcu.SendXKey(36);
         } else {
             Mcu.SendXKey(34);
         }
-        if (FtSet.Getlgb2() == 1) {
+        if (CanFunc.getInstance().IsCore() == 1) {
+            if (CanLexushZmytCarFuncView.RCamera() <= 0 || CanLexushZmytCarFuncView.RvsMode() == 2) {
+                Mcu.SendXKey(40);
+            } else {
+                Mcu.SendXKey(41);
+            }
+        } else if (CanLexushZmytCarFuncView.RCamera() > 0) {
             Mcu.SendXKey(41);
         } else {
             Mcu.SendXKey(40);
         }
         Mcu.SendXKey(CanLexushZmytCarInitView.HostRes() + 50);
+        CanLexushZmytCarInitView.SetCamType(0, 0, 0);
+        if (CanLexushZmytCarInitView.IsLvdsType() == 0 && CanFunc.getInstance().IsCore() == 1) {
+            Mcu.ReqOrgTiming(32);
+        } else if (CanLexushZmytCarInitView.IsLvdsType() == 1 && CanFunc.getInstance().IsCore() == 1) {
+            Mcu.ReqOrgTiming(33);
+        }
         Mcu.SendXKey(CanLexushZmytCarFuncView.RvsDelay() + 42);
         if (FtSet.IsIconExist(1) == 0) {
             Iop.RstPort(0);
@@ -136,13 +164,32 @@ public class CanLexushZmytCarDevView extends CanRelativeCarInfoView {
     }
 
     public static void DealDevEvent() {
-        BtExe bt = BtExe.getBtInstance();
-        if (mOldBtSta != bt.getSta() && FtSet.IsIconExist(1) == 0) {
-            mOldBtSta = bt.getSta();
-            if ((mOldBtSta == 3 || mOldBtSta == 2 || mOldBtSta == 4) && CanIF.IsExdMode()) {
-                Iop.RstPort(1);
-            } else {
-                Iop.RstPort(0);
+        BtExe btInstance = BtExe.getBtInstance();
+        if (FtSet.IsIconExist(1) == 0) {
+            switch (mOldBtSta) {
+                case 0:
+                    if (Iop.GetMediaOrBlue() > 0) {
+                        mOldBtSta = 1;
+                        mBtCnt = 10;
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (mBtCnt <= 0) {
+                        mOldBtSta = 2;
+                        Iop.RstPort(1);
+                        break;
+                    } else {
+                        mBtCnt--;
+                        break;
+                    }
+                case 2:
+                    if (Iop.GetMediaOrBlue() == 0) {
+                        Iop.RstPort(0);
+                        mOldBtSta = 0;
+                        break;
+                    }
+                    break;
             }
         }
         if (CanIF.mGpsVoiceDelay > 0) {

@@ -29,7 +29,7 @@ public class Th extends T0 {
     private static Th Tn = new Th();
 
     /* renamed from: T  reason: collision with root package name */
-    AdapterView.OnItemClickListener f480T = new AdapterView.OnItemClickListener() {
+    AdapterView.OnItemClickListener f484T = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
             try {
                 T.C0019T viewHolder = (T.C0019T) view.getTag();
@@ -55,7 +55,7 @@ public class Th extends T0 {
     class Tr {
 
         /* renamed from: T  reason: collision with root package name */
-        View f485T;
+        View f489T;
         ListView T5 = null;
         ListView T9 = null;
         TextView TE = null;
@@ -81,14 +81,14 @@ public class Th extends T0 {
         this.T9 = (TA) data;
         Tn.T adapter = new Tn.T();
         adapter.Tr = T9();
-        adapter.f462T = 29;
+        adapter.f466T = 29;
         return adapter;
     }
 
     private View T9() {
         this.Tr = new Tr();
         LinearLayout layout = new LinearLayout(com.txznet.comm.Tr.T.Tr());
-        this.Tr.f485T = layout;
+        this.Tr.f489T = layout;
         layout.setBackgroundColor(Color.parseColor("#FF0A0A0A"));
         layout.setOrientation(1);
         RelativeLayout relativeLayout = new RelativeLayout(com.txznet.comm.Tr.T.Tr());
@@ -238,15 +238,15 @@ public class Th extends T0 {
         lvNomCity.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         llContent.addView(lvNomCity);
         rlBack.setOnClickListener(this.Tk);
-        if (this.T9.f430T == null || this.T9.f430T.size() <= 0) {
+        if (this.T9.f434T == null || this.T9.f434T.size() <= 0) {
             this.Tr.Tr.setVisibility(8);
             this.Tr.Ty.setVisibility(8);
         } else {
             this.Tr.Tr.setVisibility(0);
             this.Tr.Ty.setVisibility(0);
-            this.Tr.Ty.setAdapter(new T(com.txznet.comm.Tr.T.Tr(), this.T9.f430T));
+            this.Tr.Ty.setAdapter(new T(com.txznet.comm.Tr.T.Tr(), this.T9.f434T));
             T(this.Tr.Ty);
-            this.Tr.Ty.setOnItemClickListener(this.f480T);
+            this.Tr.Ty.setOnItemClickListener(this.f484T);
         }
         if (this.T9.Tn == null || this.T9.Tn.size() <= 0) {
             this.Tr.Tn.setVisibility(8);
@@ -256,7 +256,7 @@ public class Th extends T0 {
             this.Tr.T9.setVisibility(0);
             this.Tr.T9.setAdapter(new T(com.txznet.comm.Tr.T.Tr(), this.T9.Tn));
             T(this.Tr.T9);
-            this.Tr.T9.setOnItemClickListener(this.f480T);
+            this.Tr.T9.setOnItemClickListener(this.f484T);
         }
         if (this.T9.Ty == null || this.T9.Ty.size() <= 0) {
             this.Tr.Tk.setVisibility(8);
@@ -266,7 +266,7 @@ public class Th extends T0 {
             this.Tr.TZ.setVisibility(0);
             this.Tr.TZ.setAdapter(new T(com.txznet.comm.Tr.T.Tr(), this.T9.Ty));
             T(this.Tr.TZ);
-            this.Tr.TZ.setOnItemClickListener(this.f480T);
+            this.Tr.TZ.setOnItemClickListener(this.f484T);
         }
         if (this.T9.Tr == null || this.T9.Tr.size() <= 0) {
             this.Tr.T5.setVisibility(8);
@@ -276,7 +276,7 @@ public class Th extends T0 {
             this.Tr.TE.setVisibility(0);
             this.Tr.T5.setAdapter(new T(com.txznet.comm.Tr.T.Tr(), this.T9.Tr));
             T(this.Tr.T5);
-            this.Tr.T5.setOnItemClickListener(this.f480T);
+            this.Tr.T5.setOnItemClickListener(this.f484T);
         }
         return layout;
     }
@@ -304,26 +304,26 @@ public class Th extends T0 {
     public class T extends BaseAdapter {
 
         /* renamed from: T  reason: collision with root package name */
-        List f483T;
+        List f487T;
         Context Tr;
 
         public T(Context context, List<String> displayList) {
             this.Tr = context;
-            this.f483T = displayList;
+            this.f487T = displayList;
         }
 
         public int getCount() {
-            if (this.f483T != null) {
-                return this.f483T.size();
+            if (this.f487T != null) {
+                return this.f487T.size();
             }
             return 0;
         }
 
         public Object getItem(int position) {
-            if (this.f483T == null || this.f483T.size() <= 0) {
+            if (this.f487T == null || this.f487T.size() <= 0) {
                 return null;
             }
-            return this.f483T.get(position);
+            return this.f487T.get(position);
         }
 
         public long getItemId(int position) {
@@ -334,13 +334,13 @@ public class Th extends T0 {
             C0019T itemViewHolder;
             if (convertView == null) {
                 itemViewHolder = T();
-                convertView = itemViewHolder.f484T;
+                convertView = itemViewHolder.f488T;
                 convertView.setTag(itemViewHolder);
             } else {
                 itemViewHolder = (C0019T) convertView.getTag();
             }
-            if (this.f483T != null) {
-                itemViewHolder.Tr.setText((String) this.f483T.get(position));
+            if (this.f487T != null) {
+                itemViewHolder.Tr.setText((String) this.f487T.get(position));
             }
             return convertView;
         }
@@ -350,7 +350,7 @@ public class Th extends T0 {
         class C0019T {
 
             /* renamed from: T  reason: collision with root package name */
-            RelativeLayout f484T;
+            RelativeLayout f488T;
             TextView Tr;
             ImageView Ty;
 
@@ -360,9 +360,9 @@ public class Th extends T0 {
 
         private C0019T T() {
             C0019T itemViewHolder = new C0019T();
-            itemViewHolder.f484T = new RelativeLayout(com.txznet.comm.Tr.T.Tr());
-            itemViewHolder.f484T.setDescendantFocusability(Radio.AFS_FLAG);
-            itemViewHolder.f484T.setLayoutParams(new AbsListView.LayoutParams(-1, (int) com.txznet.comm.ui.TE.Tr.Tn("y80")));
+            itemViewHolder.f488T = new RelativeLayout(com.txznet.comm.Tr.T.Tr());
+            itemViewHolder.f488T.setDescendantFocusability(Radio.AFS_FLAG);
+            itemViewHolder.f488T.setLayoutParams(new AbsListView.LayoutParams(-1, (int) com.txznet.comm.ui.TE.Tr.Tn("y80")));
             itemViewHolder.Tr = new TextView(com.txznet.comm.Tr.T.Tr());
             itemViewHolder.Tr.setTextColor(Color.parseColor("#FFFFFF"));
             itemViewHolder.Tr.setFocusable(false);
@@ -370,7 +370,7 @@ public class Th extends T0 {
             itemViewHolder.Tr.setPadding((int) com.txznet.comm.ui.TE.Tr.Tn("X60"), 0, 0, 0);
             itemViewHolder.Tr.setTextSize(com.txznet.comm.ui.TE.Tr.Tn("y35"));
             itemViewHolder.Tr.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            itemViewHolder.f484T.addView(itemViewHolder.Tr);
+            itemViewHolder.f488T.addView(itemViewHolder.Tr);
             itemViewHolder.Ty = new ImageView(com.txznet.comm.Tr.T.Tr());
             itemViewHolder.Ty.setFocusable(false);
             itemViewHolder.Ty.setPadding(0, 0, 0, (int) com.txznet.comm.ui.TE.Tr.Tn("x60"));
@@ -380,7 +380,7 @@ public class Th extends T0 {
             rlLayoutParams.addRule(15);
             rlLayoutParams.addRule(11);
             itemViewHolder.Ty.setLayoutParams(rlLayoutParams);
-            itemViewHolder.f484T.addView(itemViewHolder.Ty);
+            itemViewHolder.f488T.addView(itemViewHolder.Ty);
             return itemViewHolder;
         }
     }

@@ -1,6 +1,7 @@
 package com.hp.hpl.sparta;
 
 import com.ts.can.CanCameraUI;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.music.MusicInvokeConstants;
 import java.io.IOException;
 import java.io.Reader;
@@ -610,7 +611,7 @@ class ParseCharStream implements ParseSource {
         String readName = readName();
         String str = (String) this.entities_.get(readName);
         if (str == null) {
-            str = "";
+            str = TXZResourceManager.STYLE_DEFAULT;
             if (this.isExternalDtd_) {
                 this.log_.warning(new StringBuffer().append("&").append(readName).append("; not found -- possibly defined in external DTD)").toString(), this.systemId_, getLineNumber());
             } else {
@@ -745,7 +746,7 @@ class ParseCharStream implements ParseSource {
         String readName = readName();
         String str = (String) this.pes_.get(readName);
         if (str == null) {
-            str = "";
+            str = TXZResourceManager.STYLE_DEFAULT;
             this.log_.warning(new StringBuffer().append("No declaration of %").append(readName).append(";").toString(), this.systemId_, getLineNumber());
         }
         readChar(';');
@@ -874,7 +875,7 @@ class ParseCharStream implements ParseSource {
 
     /* access modifiers changed from: package-private */
     public final String getHistory() {
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     /* access modifiers changed from: package-private */

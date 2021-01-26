@@ -13,7 +13,6 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.factoryset.FsCanActivity;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
@@ -100,7 +99,7 @@ public class CanDtV80BatteryInfosView extends CanRelativeCarInfoView {
         setShowGone((View) this.mTvMaxV, isDtV80Type1());
         setShowGone((View) this.mTvMinV, isDtV80Type1());
         ScrollView scrollView = new ScrollView(getActivity());
-        getRelativeManager().AddView(scrollView, 0, Can.CAN_JAC_REFINE_OD, -1, -1);
+        getRelativeManager().AddView(scrollView, 0, 150, -1, -1);
         this.mManager = new RelativeLayoutManager(new RelativeLayout(getActivity()));
         scrollView.addView(this.mManager.GetLayout(), -1, -1);
         if (isDtV80Type1()) {
@@ -111,10 +110,10 @@ public class CanDtV80BatteryInfosView extends CanRelativeCarInfoView {
             this.mTvTempArrays = new TextView[36];
         }
         for (int i = 0; i < this.mTvVArrays.length; i++) {
-            this.mTvVArrays[i] = AddVText(((i % 6) * Can.CAN_CHANA_CS75_WC) + 50, ((i / 6) * 80) + 10, String.format("%02d：- -", new Object[]{Integer.valueOf(i + 1)}));
+            this.mTvVArrays[i] = AddVText(((i % 6) * 160) + 50, ((i / 6) * 80) + 10, String.format("%02d：- -", new Object[]{Integer.valueOf(i + 1)}));
         }
         for (int i2 = 0; i2 < this.mTvTempArrays.length; i2++) {
-            this.mTvTempArrays[i2] = AddVText(((i2 % 6) * Can.CAN_CHANA_CS75_WC) + 50, ((i2 / 6) * 80) + 10, String.format("%02d：- -", new Object[]{Integer.valueOf(i2 + 1)}));
+            this.mTvTempArrays[i2] = AddVText(((i2 % 6) * 160) + 50, ((i2 / 6) * 80) + 10, String.format("%02d：- -", new Object[]{Integer.valueOf(i2 + 1)}));
         }
         this.mMsg3 = new CanDataInfo.DT_V80_BMS_MSG_3();
         this.mMsg4 = new CanDataInfo.DT_V80_BMS_MSG_4();
@@ -163,7 +162,7 @@ public class CanDtV80BatteryInfosView extends CanRelativeCarInfoView {
             if (isDtV80Type1()) {
                 return String.format("%.3fV", new Object[]{Float.valueOf(((float) value) * 0.001f)});
             }
-            return String.format("%.3fV", new Object[]{Float.valueOf(((float) (value + MediaDef.PROGRESS_MAX)) * 0.001f)});
+            return String.format("%.3fV", new Object[]{Float.valueOf(((float) (value + 1000)) * 0.001f)});
         }
     }
 
@@ -253,7 +252,7 @@ public class CanDtV80BatteryInfosView extends CanRelativeCarInfoView {
         if (isDtV80Type1()) {
             this.mTvVArrays[i].setText(String.format("%02d : %.3fV", new Object[]{Integer.valueOf(i + 1), Float.valueOf(((float) value) * 0.001f)}));
         } else {
-            this.mTvVArrays[i].setText(String.format("%02d : %.3fV", new Object[]{Integer.valueOf(i + 1), Float.valueOf(((float) (value + MediaDef.PROGRESS_MAX)) * 0.001f)}));
+            this.mTvVArrays[i].setText(String.format("%02d : %.3fV", new Object[]{Integer.valueOf(i + 1), Float.valueOf(((float) (value + 1000)) * 0.001f)}));
         }
     }
 

@@ -9,17 +9,25 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Toast;
 import com.ts.MainUI.Evc;
+import com.ts.MainUI.R;
 import com.ts.can.CanIF;
 import com.ts.main.common.MainSet;
 import com.ts.main.common.WinShow;
 import com.ts.main.txz.TxzReg;
 import com.ts.set.setview.SetMainGpsItem;
 import com.ts.set.setview.UISetSroView;
+import com.txznet.sdk.TXZResourceManager;
+import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.StSet;
 import java.util.ArrayList;
 import java.util.List;
+import org.texustek.mirror.aidl.BinderName;
 
 public class SettingGpsPathActivity extends Activity implements View.OnClickListener {
     public static final String ACTION_RECOGNIZE_CMD_B = "com.globalconstant.BROADCAST_CAR_SEND_CMD";
@@ -64,28 +72,29 @@ public class SettingGpsPathActivity extends Activity implements View.OnClickList
 
     class PInfo {
         /* access modifiers changed from: private */
-        public String appname = "";
+        public String appname = TXZResourceManager.STYLE_DEFAULT;
         /* access modifiers changed from: private */
         public Drawable icon;
         /* access modifiers changed from: private */
-        public String pname = "";
+        public String pname = TXZResourceManager.STYLE_DEFAULT;
         /* access modifiers changed from: private */
         public int versionCode = 0;
         /* access modifiers changed from: private */
-        public String versionName = "";
+        public String versionName = TXZResourceManager.STYLE_DEFAULT;
 
         PInfo() {
         }
 
         /* access modifiers changed from: private */
         public void prettyPrint() {
-            Log.i("taskmanger", String.valueOf(this.appname) + "\t" + this.pname + "\t" + this.versionName + "\t" + this.versionCode + "\t" + this.icon);
+            Log.i("taskmanger", String.valueOf(this.appname) + " " + this.pname + " " + this.versionName + " " + this.versionCode + " " + this.icon);
         }
     }
 
     private void listPackages() {
         this.apps = getInstalledApps(false);
         int max = this.apps.size();
+        int nHave = 0;
         for (int i = 0; i < max; i++) {
             if (MainSet.IsAvalidPackName(this.apps.get(i).pname) && MainSet.IsAvalidAPPName(this.apps.get(i).appname)) {
                 this.apps.get(i).prettyPrint();
@@ -93,7 +102,11 @@ public class SettingGpsPathActivity extends Activity implements View.OnClickList
                 Myitem.SetUserCallback(i, this);
                 Myitem.GetImageTile().setBackground(this.apps.get(i).icon);
                 UISetSroView.AddView(Myitem.GetView());
+                nHave++;
             }
+        }
+        if (nHave == 0) {
+            Toast.makeText(this, "No NaviApp", 0).show();
         }
     }
 
@@ -129,24 +142,30 @@ public class SettingGpsPathActivity extends Activity implements View.OnClickList
         int n = ((Integer) v.getTag()).intValue();
         StSet.SetNaviName(StrToByte128(this.apps.get(n).appname));
         StSet.SetNaviPack(StrToByte128(this.apps.get(n).pname));
-        StSet.SetSave();
+        Iop.tsxhwSleep();
         byte[] byteNavipath = new byte[128];
         StSet.GetNaviPack(byteNavipath);
         String NaviPath = CanIF.byte2String(byteNavipath);
         Intent Aintent = new Intent();
-        Aintent.setAction("com.globalconstant.BROADCAST_CAR_SEND_CMD");
-        Aintent.putExtra("domain", "navigation");
+        Aintent.setAction(ACTION_RECOGNIZE_CMD_B);
+        Aintent.putExtra("domain", BinderName.NAVI);
         Aintent.putExtra("action", "sendNaviAppPck");
         Aintent.putExtra("naviAppPck", NaviPath);
         sendBroadcast(Aintent);
         Evc.GetInstance().AddNaviWhileList(NaviPath);
         TxzReg.GetInstance().SetNaviType(NaviPath);
-        Evc.GetInstance().AddNaviWhileList(NaviPath);
         Log.i("xxxx", "addToWhiteList4GIS true    " + NaviPath);
-        this.m_dialgo = new AlertDialog.Builder(this).setTitle("").setMessage("                    " + this.apps.get(n).appname).setPositiveButton(getResources().getString(17039370), new DialogInterface.OnClickListener() {
+        this.m_dialgo = new AlertDialog.Builder(this).setTitle(TXZResourceManager.STYLE_DEFAULT).setMessage("                    " + this.apps.get(n).appname).setPositiveButton(getResources().getString(R.string.set_general_enter), new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 WinShow.GotoWin(1, 0);
+                SettingGpsPathActivity.this.finish();
             }
         }).show();
+        Window dialogWindow = this.m_dialgo.getWindow();
+        Display d = getWindowManager().getDefaultDisplay();
+        WindowManager.LayoutParams p = dialogWindow.getAttributes();
+        p.width = (int) (((double) d.getWidth()) * 0.5d);
+        p.gravity = 17;
+        dialogWindow.setAttributes(p);
     }
 }

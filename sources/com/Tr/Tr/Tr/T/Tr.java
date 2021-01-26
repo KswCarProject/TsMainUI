@@ -4,14 +4,14 @@ package com.Tr.Tr.Tr.T;
 final class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private final T f284T;
+    private final T f287T;
     private final int[] Tr;
 
     Tr(T field, int[] coefficients) {
         if (coefficients.length == 0) {
             throw new IllegalArgumentException();
         }
-        this.f284T = field;
+        this.f287T = field;
         int coefficientsLength = coefficients.length;
         if (coefficientsLength <= 1 || coefficients[0] != 0) {
             this.Tr = coefficients;
@@ -51,7 +51,7 @@ final class Tr {
 
     /* access modifiers changed from: package-private */
     public Tr T(Tr other) {
-        if (!this.f284T.equals(other.f284T)) {
+        if (!this.f287T.equals(other.f287T)) {
             throw new IllegalArgumentException("GenericGFPolys do not have same GenericGF field");
         } else if (Ty()) {
             return other;
@@ -72,16 +72,16 @@ final class Tr {
             for (int i = lengthDiff; i < largerCoefficients.length; i++) {
                 sumDiff[i] = T.Tr(smallerCoefficients[i - lengthDiff], largerCoefficients[i]);
             }
-            return new Tr(this.f284T, sumDiff);
+            return new Tr(this.f287T, sumDiff);
         }
     }
 
     /* access modifiers changed from: package-private */
     public Tr Tr(Tr other) {
-        if (!this.f284T.equals(other.f284T)) {
+        if (!this.f287T.equals(other.f287T)) {
             throw new IllegalArgumentException("GenericGFPolys do not have same GenericGF field");
         } else if (Ty() || other.Ty()) {
-            return this.f284T.T();
+            return this.f287T.T();
         } else {
             int[] aCoefficients = this.Tr;
             int aLength = aCoefficients.length;
@@ -91,10 +91,10 @@ final class Tr {
             for (int i = 0; i < aLength; i++) {
                 int aCoeff = aCoefficients[i];
                 for (int j = 0; j < bLength; j++) {
-                    product[i + j] = T.Tr(product[i + j], this.f284T.Ty(aCoeff, bCoefficients[j]));
+                    product[i + j] = T.Tr(product[i + j], this.f287T.Ty(aCoeff, bCoefficients[j]));
                 }
             }
-            return new Tr(this.f284T, product);
+            return new Tr(this.f287T, product);
         }
     }
 
@@ -103,32 +103,32 @@ final class Tr {
         if (degree < 0) {
             throw new IllegalArgumentException();
         } else if (coefficient == 0) {
-            return this.f284T.T();
+            return this.f287T.T();
         } else {
             int size = this.Tr.length;
             int[] product = new int[(size + degree)];
             for (int i = 0; i < size; i++) {
-                product[i] = this.f284T.Ty(this.Tr[i], coefficient);
+                product[i] = this.f287T.Ty(this.Tr[i], coefficient);
             }
-            return new Tr(this.f284T, product);
+            return new Tr(this.f287T, product);
         }
     }
 
     /* access modifiers changed from: package-private */
     public Tr[] Ty(Tr other) {
-        if (!this.f284T.equals(other.f284T)) {
+        if (!this.f287T.equals(other.f287T)) {
             throw new IllegalArgumentException("GenericGFPolys do not have same GenericGF field");
         } else if (other.Ty()) {
             throw new IllegalArgumentException("Divide by 0");
         } else {
-            Tr quotient = this.f284T.T();
+            Tr quotient = this.f287T.T();
             Tr remainder = this;
-            int inverseDenominatorLeadingTerm = this.f284T.Ty(other.T(other.Tr()));
+            int inverseDenominatorLeadingTerm = this.f287T.Ty(other.T(other.Tr()));
             while (remainder.Tr() >= other.Tr() && !remainder.Ty()) {
                 int degreeDifference = remainder.Tr() - other.Tr();
-                int scale = this.f284T.Ty(remainder.T(remainder.Tr()), inverseDenominatorLeadingTerm);
+                int scale = this.f287T.Ty(remainder.T(remainder.Tr()), inverseDenominatorLeadingTerm);
                 Tr term = other.T(degreeDifference, scale);
-                quotient = quotient.T(this.f284T.T(degreeDifference, scale));
+                quotient = quotient.T(this.f287T.T(degreeDifference, scale));
                 remainder = remainder.T(term);
             }
             return new Tr[]{quotient, remainder};
@@ -147,7 +147,7 @@ final class Tr {
                     result.append(" + ");
                 }
                 if (degree == 0 || coefficient != 1) {
-                    int alphaPower = this.f284T.Tr(coefficient);
+                    int alphaPower = this.f287T.Tr(coefficient);
                     if (alphaPower == 0) {
                         result.append('1');
                     } else if (alphaPower == 1) {

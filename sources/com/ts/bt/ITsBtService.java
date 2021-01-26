@@ -22,6 +22,8 @@ public interface ITsBtService extends IInterface {
 
     String getBtDevName() throws RemoteException;
 
+    String getBtDevPin() throws RemoteException;
+
     String getBtPhoneName() throws RemoteException;
 
     String getLastPhoneNo() throws RemoteException;
@@ -49,6 +51,7 @@ public interface ITsBtService extends IInterface {
         static final int TRANSACTION_disconnect = 5;
         static final int TRANSACTION_downLoad = 10;
         static final int TRANSACTION_getBtDevName = 1;
+        static final int TRANSACTION_getBtDevPin = 17;
         static final int TRANSACTION_getBtPhoneName = 2;
         static final int TRANSACTION_getLastPhoneNo = 14;
         static final int TRANSACTION_getPbInfo = 3;
@@ -165,6 +168,12 @@ public interface ITsBtService extends IInterface {
                     data.enforceInterface(DESCRIPTOR);
                     updateLastPhoneNum();
                     reply.writeNoException();
+                    return true;
+                case 17:
+                    data.enforceInterface(DESCRIPTOR);
+                    String _result7 = getBtDevPin();
+                    reply.writeNoException();
+                    reply.writeString(_result7);
                     return true;
                 case 1598968902:
                     reply.writeString(DESCRIPTOR);
@@ -403,6 +412,20 @@ public interface ITsBtService extends IInterface {
                     _data.writeInterfaceToken(Stub.DESCRIPTOR);
                     this.mRemote.transact(16, _data, _reply, 0);
                     _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public String getBtDevPin() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(17, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readString();
                 } finally {
                     _reply.recycle();
                     _data.recycle();

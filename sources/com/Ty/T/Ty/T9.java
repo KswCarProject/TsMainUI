@@ -2,7 +2,8 @@ package com.Ty.T.Ty;
 
 import android.content.Context;
 import android.os.Environment;
-import com.txznet.sdk.tongting.IConstantData;
+import com.android.SdkConstants;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.File;
 import java.io.IOException;
 
@@ -18,9 +19,9 @@ public final class T9 {
         try {
             externalStorageState = Environment.getExternalStorageState();
         } catch (NullPointerException e) {
-            externalStorageState = "";
+            externalStorageState = TXZResourceManager.STYLE_DEFAULT;
         } catch (IncompatibleClassChangeError e2) {
-            externalStorageState = "";
+            externalStorageState = TXZResourceManager.STYLE_DEFAULT;
         }
         if (preferExternal && "mounted".equals(externalStorageState) && Tn(context)) {
             appCacheDir = Ty(context);
@@ -50,7 +51,7 @@ public final class T9 {
     }
 
     private static File Ty(Context context) {
-        File appCacheDir = new File(new File(new File(new File(Environment.getExternalStorageDirectory(), "Android"), IConstantData.KEY_DATA), context.getPackageName()), "cache");
+        File appCacheDir = new File(new File(new File(new File(Environment.getExternalStorageDirectory(), "Android"), "data"), context.getPackageName()), SdkConstants.FD_CACHE);
         if (appCacheDir.exists()) {
             return appCacheDir;
         }

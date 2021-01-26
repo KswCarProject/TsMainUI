@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class TC implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TC f145T = new TC();
+    public static final TC f148T = new TC();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         Long longObject;

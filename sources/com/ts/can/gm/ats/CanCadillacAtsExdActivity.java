@@ -20,6 +20,8 @@ import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
 import com.ts.can.CanIF;
+import com.ts.can.gm.xt5.CanCadillacXt5CarFuncActivity;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
@@ -49,6 +51,7 @@ public class CanCadillacAtsExdActivity extends CanBaseActivity implements UserCa
     private static final int BTN_VOL_DEC = 2;
     private static final int BTN_VOL_INC = 3;
     public static final String TAG = "CanCadillacAtsExdActivity";
+    public static int mBtCnt = 0;
     public static int mOldBtSta = 0;
     public static boolean mfgAutoEnt = false;
     public static boolean mfgFinish = false;
@@ -88,6 +91,9 @@ public class CanCadillacAtsExdActivity extends CanBaseActivity implements UserCa
             this.mManager.GetLayout().setOnTouchListener(this);
             this.mManager.GetLayout().setClickable(true);
         }
+        if (CanFunc.getInstance().IsCore() == 1) {
+            this.mManager.GetLayout().setTranslationY(119.0f);
+        }
         this.mBtnFav = addButton(1, 133, R.drawable.cad_ac_fav_up, R.drawable.cad_ac_fav_dn, 0);
         this.mBtnHome = addButton(673, 133, R.drawable.cad_ac_home_up, R.drawable.cad_ac_home_dn, 1);
         this.mBtnVolDec = addButton(1, 275, R.drawable.cad_ac_up_up, R.drawable.cad_ac_up_dn, 2);
@@ -96,10 +102,10 @@ public class CanCadillacAtsExdActivity extends CanBaseActivity implements UserCa
         this.mBtnNext = addButton(443, 275, R.drawable.cad_ac_next_up, R.drawable.cad_ac_next_dn, 5);
         this.mBtnSelInc = addButton(705, 275, R.drawable.cad_ac_dn_up, R.drawable.cad_ac_dn_dn, 6);
         this.mBtnSelDec = addButton(516, 275, R.drawable.cad_ac_up_up, R.drawable.cad_ac_up_dn, 7);
-        this.mBtnRadio = addButton(163, 370, R.drawable.cad_ac_radio_up, R.drawable.cad_ac_radio_dn, 8);
-        this.mBtnMedia = addButton(274, 370, R.drawable.cad_ac_media_up, R.drawable.cad_ac_media_dn, 9);
-        this.mBtnPhone = addButton(385, 370, R.drawable.cad_ac_phone_up, R.drawable.cad_ac_phone_dn, 10);
-        this.mBtnBack = addButton(496, 370, R.drawable.cad_ac_back_up, R.drawable.cad_ac_back_dn, 11);
+        this.mBtnRadio = addButton(163, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_radio_up, R.drawable.cad_ac_radio_dn, 8);
+        this.mBtnMedia = addButton(274, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_media_up, R.drawable.cad_ac_media_dn, 9);
+        this.mBtnPhone = addButton(385, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_phone_up, R.drawable.cad_ac_phone_dn, 10);
+        this.mBtnBack = addButton(496, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_back_up, R.drawable.cad_ac_back_dn, 11);
         this.mBtnPower = addButton(76, 268, R.drawable.cad_ac_shut_up, R.drawable.cad_ac_shut_dn, 18);
         this.mBtnMenu = addButton(CanCameraUI.BTN_VW_WC_MODE2, 268, R.drawable.cad_ac_menu_up, R.drawable.cad_ac_menu_dn, 19);
     }
@@ -140,6 +146,9 @@ public class CanCadillacAtsExdActivity extends CanBaseActivity implements UserCa
         Log.d(TAG, "onResume");
         TsDisplay.GetInstance().SetDispParat(-1);
         MainSet.GetInstance().SetVideoChannel(2);
+        if (CanFunc.getInstance().IsCore() == 1) {
+            BackcarService.getInstance().SetSource(1);
+        }
         this.mCameraView = (AutoFitTextureView) findViewById(R.id.DevtextureView);
         BackcarService.getInstance().StartCamera(this.mCameraView, false);
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(-1, -1);
@@ -355,21 +364,32 @@ public class CanCadillacAtsExdActivity extends CanBaseActivity implements UserCa
             Mcu.SendXKey(33);
         } else if (FtSet.Getlgb1() == 2) {
             Mcu.SendXKey(35);
+        } else if (FtSet.Getlgb1() == 3) {
+            Mcu.SendXKey(36);
         } else {
             Mcu.SendXKey(34);
         }
-        if (FtSet.Getlgb2() == 1) {
+        if (CanFunc.getInstance().IsCore() == 1) {
+            if (FtSet.Getlgb2() != 1 || CanCadillacXt5CarFuncActivity.RvsMode() == 2) {
+                Mcu.SendXKey(40);
+            } else {
+                Mcu.SendXKey(41);
+            }
+        } else if (FtSet.Getlgb2() == 1) {
             Mcu.SendXKey(41);
         } else {
             Mcu.SendXKey(40);
         }
-        if (CanJni.GetSubType() == 7 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 8) {
+        if (CanFunc.getInstance().IsCore() == 1) {
+            Mcu.SendXKey(CanCadillacXt5CarFuncActivity.HostRes() + 50);
+        } else if (CanJni.GetSubType() == 7 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 8) {
             Mcu.SendXKey(51);
         } else if (CanJni.GetSubType() == 11) {
             Mcu.SendXKey(52);
         } else {
             Mcu.SendXKey(50);
         }
+        CanCadillacXt5CarFuncActivity.SetCamType(0, 0, 0);
         byte[] fileMsg = new byte[8];
         int sta = CanFunc.GetFileData(CanFunc.Can_Factory_Set_fileName, fileMsg);
         if (!(sta != 0 && fileMsg[0] == 88 && fileMsg[1] == CanJni.GetSubType())) {
@@ -392,6 +412,37 @@ public class CanCadillacAtsExdActivity extends CanBaseActivity implements UserCa
     }
 
     public static void DealDevUseAll() {
+        if (FtSet.IsIconExist(1) == 0 && CanFunc.getInstance().IsCore() == 1) {
+            switch (mOldBtSta) {
+                case 0:
+                    if (Iop.GetMediaOrBlue() > 0) {
+                        mOldBtSta = 1;
+                        mBtCnt = 10;
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (mBtCnt <= 0) {
+                        mOldBtSta = 2;
+                        Log.d(TAG, "Bt call on ");
+                        Iop.RstPort(0);
+                        CanJni.GmSbCarMoudleCtl(2, 1);
+                        break;
+                    } else {
+                        mBtCnt--;
+                        break;
+                    }
+                case 2:
+                    if (Iop.GetMediaOrBlue() == 0) {
+                        Log.d(TAG, "Bt call of ");
+                        Iop.RstPort(1);
+                        CanJni.GmSbCarMoudleCtl(2, 0);
+                        mOldBtSta = 0;
+                        break;
+                    }
+                    break;
+            }
+        }
         if (CanIF.mGpsVoiceDelay > 0) {
             CanIF.mGpsVoiceDelay--;
             if (CanIF.mGpsVoiceDelay == 0) {
@@ -407,6 +458,8 @@ public class CanCadillacAtsExdActivity extends CanBaseActivity implements UserCa
         if (mStaData.Sta >= 1 && FtSet.IsIconExist(1) == 0) {
             Iop.RstPort(1);
         }
-        showCadillacAtsWin();
+        if (CanFunc.IsCamMode() == 0) {
+            showCadillacAtsWin();
+        }
     }
 }

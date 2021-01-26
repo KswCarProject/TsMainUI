@@ -5,6 +5,7 @@ import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import com.android.SdkConstants;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -16,6 +17,7 @@ import com.ts.can.CanFunc;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 import java.io.UnsupportedEncodingException;
 
@@ -79,21 +81,21 @@ public class CanTeanaWcCarDeviceView extends CanRelativeCarInfoView {
         this.m_fgSt = AddFlagText(473, 175, 100, 40);
         this.m_fgAutop = AddFlagText(CanCameraUI.BTN_CHANA_CS75_MODE4, 175, 100, 40);
         this.m_RadioMenu = AddMenuText(130, Can.CAN_NISSAN_XFY, 767, 50);
-        this.m_FreqText = AddMsgText(130, KeyDef.RKEY_MEDIA_SUBT, 767, 45);
+        this.m_FreqText = AddMsgText(130, 310, 767, 45);
         this.m_fgCdFolder = AddFlagText(Can.CAN_BENC_ZMYT, 175, Can.CAN_BENC_ZMYT, 40);
         this.m_fgCdFolder.setTextSize(0, 22.0f);
         this.m_fgCdRepeat = AddFlagText(280, 175, 130, 40);
         this.m_fgCdRepeat.setTextSize(0, 22.0f);
         this.m_fgCdRandom = AddFlagText(410, 175, 130, 40);
         this.m_fgCdRandom.setTextSize(0, 22.0f);
-        this.m_fgCdScane = AddFlagText(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 175, 120, 40);
+        this.m_fgCdScane = AddFlagText(540, 175, 120, 40);
         this.m_fgCdScane.setTextSize(0, 22.0f);
         for (int i = 0; i < 6; i++) {
             this.m_CdSta[i] = getRelativeManager().AddImage((i * 35) + 666, 183, mDsicNumArr[i]);
             this.m_CdSta[i].Show(false);
         }
         this.m_CdMenu = AddMenuText(277, Can.CAN_NISSAN_XFY, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 50);
-        this.m_CdText = AddMsgText(130, KeyDef.RKEY_MEDIA_SUBT, 767, 45);
+        this.m_CdText = AddMsgText(130, 310, 767, 45);
         this.m_AuxMenu = AddMenuText(130, Can.CAN_NISSAN_XFY, 767, 50);
         this.m_AuxMenu.setText("AUX");
         this.m_PwrMenu = AddMenuText(130, Can.CAN_NISSAN_XFY, 767, 50);
@@ -381,7 +383,7 @@ public class CanTeanaWcCarDeviceView extends CanRelativeCarInfoView {
         try {
             return new String(data, 0, len, "GBK");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -420,7 +422,7 @@ public class CanTeanaWcCarDeviceView extends CanRelativeCarInfoView {
             } else if (val3 == 5) {
                 stringAudio3 = "  " + (val3 - 5);
             } else {
-                stringAudio3 = "-" + (5 - val3);
+                stringAudio3 = SdkConstants.RES_QUALIFIER_SEP + (5 - val3);
             }
             return "Bass     " + stringAudio3;
         } else if (data == 5) {
@@ -430,7 +432,7 @@ public class CanTeanaWcCarDeviceView extends CanRelativeCarInfoView {
             } else if (val4 == 5) {
                 stringAudio2 = "  " + (val4 - 5);
             } else {
-                stringAudio2 = "-" + (5 - val4);
+                stringAudio2 = SdkConstants.RES_QUALIFIER_SEP + (5 - val4);
             }
             return "Treble     " + stringAudio2;
         } else if (data != 6) {
@@ -539,7 +541,7 @@ public class CanTeanaWcCarDeviceView extends CanRelativeCarInfoView {
         String text = new StringBuilder(String.valueOf(freq)).toString();
         StringBuilder sb = new StringBuilder(text);
         if (text.length() < 3) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         sb.insert(text.length() - 2, ".");
         return sb.toString();

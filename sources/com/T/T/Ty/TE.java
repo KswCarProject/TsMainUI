@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class TE implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TE f199T = new TE();
+    public static final TE f202T = new TE();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         Trs out = serializer.Tv();

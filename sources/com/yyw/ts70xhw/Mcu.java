@@ -24,14 +24,15 @@ public class Mcu {
     public static final int XKEY_CLOSA = 7;
     public static final int XKEY_EJCECT = 0;
     public static final int XKEY_EJFOR = 18;
-    public static final int XKEY_MUSICSTREAM_0 = 240;
-    public static final int XKEY_MUSICSTREAM_1 = 241;
     public static final int XKEY_OPEN1 = 4;
     public static final int XKEY_OPENA = 5;
     public static final int XKEY_POWOF = 16;
     public static final int XKEY_POWON = 17;
+    public static final int XKEY_ROTATE = 23;
     public static final int XKEY_RSTACC = 19;
     public static final int XKEY_RSTPOW = 20;
+    public static final int XKEY_SLEEP = 25;
+    public static final int XKEY_WAKE = 24;
     public static final int XKEY_XT5 = 32;
 
     public static native int BklTurn();
@@ -143,6 +144,6 @@ public class Mcu {
     public static native int mcutask();
 
     static {
-        System.loadLibrary("ts70xhw");
+        System.loadLibrary("ts59xhw");
     }
 }

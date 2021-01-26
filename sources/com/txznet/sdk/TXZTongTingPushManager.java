@@ -14,7 +14,7 @@ import org.json.JSONException;
 public class TXZTongTingPushManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static volatile TXZTongTingPushManager f835T;
+    private static volatile TXZTongTingPushManager f839T;
     /* access modifiers changed from: private */
     public PushTool Tn;
     /* access modifiers changed from: private */
@@ -40,14 +40,14 @@ public class TXZTongTingPushManager {
     }
 
     public static TXZTongTingPushManager getInstance() {
-        if (f835T == null) {
+        if (f839T == null) {
             synchronized (TXZTongTingPushManager.class) {
-                if (f835T == null) {
-                    f835T = new TXZTongTingPushManager();
+                if (f839T == null) {
+                    f839T = new TXZTongTingPushManager();
                 }
             }
         }
-        return f835T;
+        return f839T;
     }
 
     /* compiled from: Proguard */
@@ -99,7 +99,7 @@ public class TXZTongTingPushManager {
                         try {
                             Tr jsonData = new Tr(val.getString(i));
                             TXZMusicManager.MusicModel model = new TXZMusicManager.MusicModel();
-                            model.f754T = (String) jsonData.T(MusicInvokeConstants.KEY_TITLE, String.class);
+                            model.f758T = (String) jsonData.T(MusicInvokeConstants.KEY_TITLE, String.class);
                             musicModels.add(model);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -134,7 +134,7 @@ public class TXZTongTingPushManager {
                     return new byte[0];
                 } else {
                     TXZMusicManager.MusicModel model = new TXZMusicManager.MusicModel();
-                    model.f754T = (String) jsonBuilder.T(MusicInvokeConstants.KEY_TITLE, String.class);
+                    model.f758T = (String) jsonBuilder.T(MusicInvokeConstants.KEY_TITLE, String.class);
                     model.Tr = (String) jsonBuilder.T(MusicInvokeConstants.KEY_ALBUM_NAME, String.class);
                     model.TE = (String) jsonBuilder.T(MusicInvokeConstants.KEY_SUB_TITLE, String.class);
                     model.T9 = (String) jsonBuilder.T(MusicInvokeConstants.KEY_PUSH_ICON, String.class);

@@ -12,6 +12,7 @@ import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanSciDstTPMSView extends CanRelativeCarInfoView {
     protected CustomImgView[] mIvTyres;
@@ -83,7 +84,7 @@ public class CanSciDstTPMSView extends CanRelativeCarInfoView {
             case 3:
                 return this.mWarnsArray[getInt(1, preWarn[1])];
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

@@ -1,14 +1,13 @@
 package com.mediatek.miravision.setting;
 
 import android.content.Context;
-import android.os.SystemProperties;
 import android.util.Log;
 import com.mediatek.pq.PictureQuality;
 
 public class MiraVisionJni {
     public static final int AAL_FUNC_CABC = 2;
     public static final int AAL_FUNC_DRE = 4;
-    private static final String AAL_FUNC_PROPERTY_NAME = "persist.sys.aal.function";
+    private static final String AAL_FUNC_PROPERTY_NAME = "persist.vendor.sys.aal.function";
     public static final int PIC_MODE_STANDARD = 0;
     public static final int PIC_MODE_USER_DEF = 2;
     public static final int PIC_MODE_VIVID = 1;
@@ -69,22 +68,6 @@ public class MiraVisionJni {
     public static boolean nativeSetPQColorRegion(int isEnable, int startX, int startY, int endX, int endY) {
         Log.v(TAG, "nativeSetPQColorRegion");
         return PictureQuality.setColorRegion(isEnable, startX, startY, endX, endY);
-    }
-
-    public static Range nativeGetColorEffectIndexRange() {
-        Range r = new Range();
-        Log.v(TAG, "getColorEffectIndex");
-        PictureQuality.Range PQrange = PictureQuality.getColorEffectIndexRange();
-        r.set(PQrange.min, PQrange.max, PQrange.defaultValue);
-        return r;
-    }
-
-    public static int getColorEffectIndex() {
-        return PictureQuality.getColorEffectIndex();
-    }
-
-    public static void setColorEffectIndex(int index) {
-        PictureQuality.setColorEffectIndex(index);
     }
 
     public static Range getContrastIndexRange() {
@@ -171,6 +154,14 @@ public class MiraVisionJni {
         PictureQuality.setDynamicContrastIndex(index);
     }
 
+    public static int getColorEffectIndex() {
+        return PictureQuality.getColorEffectIndex();
+    }
+
+    public static void setColorEffectIndex(int index) {
+        PictureQuality.setColorEffectIndex(index);
+    }
+
     public static boolean nativeEnableODDemo(int isEnable) {
         if (isEnable == 2) {
             Log.v(TAG, "nativeEnableODDemo, query OD support!");
@@ -182,6 +173,30 @@ public class MiraVisionJni {
         Log.v(TAG, "nativeEnableODDemo..");
         PictureQuality.enableOD(isEnable);
         return true;
+    }
+
+    public static Range getBlueLightIndexRange() {
+        Range r = new Range();
+        Log.v(TAG, "getBlueLightIndexRange");
+        PictureQuality.Range PQrange = PictureQuality.getBlueLightStrengthRange();
+        r.set(PQrange.min, PQrange.max, PQrange.defaultValue);
+        return r;
+    }
+
+    public static void setBlueLightIndex(int index) {
+        PictureQuality.setBlueLightStrength(index);
+    }
+
+    public static int getBlueLightIndex() {
+        return PictureQuality.getBlueLightStrength();
+    }
+
+    public static boolean enableBlueLight(boolean enable) {
+        return PictureQuality.enableBlueLight(enable);
+    }
+
+    public static boolean isBlueLightEnabled() {
+        return PictureQuality.isBlueLightEnabled();
     }
 
     public static Range getGammaIndexRange() {
@@ -201,16 +216,15 @@ public class MiraVisionJni {
     }
 
     public static void setAALFunction(int func) {
-        SystemProperties.set(AAL_FUNC_PROPERTY_NAME, Integer.toString(func));
-        nativeSetAALFunction(func);
+        PictureQuality.setAALFunctionProperty(func);
     }
 
     public static int getAALFunction() {
-        return SystemProperties.getInt(AAL_FUNC_PROPERTY_NAME, 6);
+        return 1;
     }
 
     public static int getDefaultAALFunction() {
-        return 6;
+        return 2;
     }
 
     public static Range getUserBrightnessRange() {
@@ -223,15 +237,5 @@ public class MiraVisionJni {
     }
 
     public static void resetPQ(Context context) {
-        Log.d(TAG, "resetPQ");
-        PictureQuality.setContrastIndex(PictureQuality.getContrastIndexRange().defaultValue);
-        PictureQuality.setSaturationIndex(PictureQuality.getSaturationIndexRange().defaultValue);
-        PictureQuality.setSharpnessIndex(PictureQuality.getSharpnessIndexRange().defaultValue);
-        PictureQuality.setPicBrightnessIndex(PictureQuality.getPicBrightnessIndexRange().defaultValue);
-        PictureQuality.setGammaIndex(PictureQuality.getGammaIndexRange().defaultValue);
-        PictureQuality.setDynamicContrastIndex(PictureQuality.getDynamicContrastIndexRange().defaultValue);
-        PictureQuality.enableOD(0);
-        setAALFunction(getDefaultAALFunction());
-        PictureQuality.setPictureMode(0);
     }
 }

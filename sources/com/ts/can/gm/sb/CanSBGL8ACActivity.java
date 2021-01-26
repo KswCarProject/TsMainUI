@@ -16,7 +16,7 @@ import com.ts.can.CanFunc;
 import com.ts.canview.RelativeLayoutContainer;
 import com.ts.other.ParamButton;
 import com.txznet.sdk.TXZPoiSearchManager;
-import com.yyw.ts70xhw.KeyDef;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanSBGL8ACActivity extends CanCommonActivity implements View.OnClickListener, View.OnTouchListener {
     private static int AC_SHOW_TIME = TXZPoiSearchManager.DEFAULT_NEARBY_RADIUS;
@@ -73,15 +73,15 @@ public class CanSBGL8ACActivity extends CanCommonActivity implements View.OnClic
         this.mTvSyncState = this.mContainer.addText(455, 183, 113, 44);
         this.mTvWindState = this.mContainer.addText(372, 280);
         this.mContainer.setTextStyle(this.mTvLeftTemp, 0, 17, -1, 30).setTextStyle(this.mTvRightTemp, 0, 17, -1, 30).setTextStyle2(this.mTvACToggle, R.string.can_gl8_2017_close, 17, 14).setColorUpDnSelList(this.mTvACToggle, -1, Color.parseColor("#FFCC00")).setTextStyle2(this.mTvAuto, R.string.can_gl8_2017_auto, 17, 20).setColorUpDnSelList(this.mTvAuto, -1, Color.parseColor("#FFCC00")).setIdTouchListener(this.mTvAuto, 12, this).setTextStyle2(this.mTvRearSeat, R.string.can_gl8_2017_rear_seat, 17, 20).setColorUpDnList(this.mTvRearSeat, -1, Color.parseColor("#FFCC00")).setIdClickListener(this.mTvRearSeat, 13, this).setTextStyle2(this.mTvSyncState, R.string.can_gl8_2017_sync_already, 17, 18).setColorUpDnSelList(this.mTvSyncState, -1, Color.parseColor("#06ebf9")).setIdTouchListener(this.mTvSyncState, 14, this).setTextStyle(this.mTvWindState, 0, 17, -1, 18);
-        this.mIvWindIcon = this.mContainer.addImage(375, KeyDef.RKEY_FR, R.drawable.can_gl18_ac_fan_00);
+        this.mIvWindIcon = this.mContainer.addImage(375, 294, R.drawable.can_gl18_ac_fan_00);
         this.mBtnAC = this.mContainer.addButton(261, 70);
         this.mBtnLoop = this.mContainer.addButton(389, 67);
         ParamButton windDecrease = this.mContainer.addButton(Can.CAN_TOYOTA_SP_XP, 284);
         ParamButton windIncrease = this.mContainer.addButton(671, 284);
         ParamButton leftIncrease = this.mContainer.addButton(49, 68);
-        ParamButton leftDecrease = this.mContainer.addButton(49, KeyDef.RKEY_FR);
+        ParamButton leftDecrease = this.mContainer.addButton(49, 294);
         ParamButton rightIncrease = this.mContainer.addButton(858, 68);
-        ParamButton rightDecrease = this.mContainer.addButton(858, KeyDef.RKEY_FR);
+        ParamButton rightDecrease = this.mContainer.addButton(858, 294);
         this.mBtnHeadMode = this.mContainer.addButton(176, 445);
         this.mBtnHeadFootMode = this.mContainer.addButton(360, 445);
         this.mBtnFootMode = this.mContainer.addButton(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST2, 445);
@@ -143,8 +143,8 @@ public class CanSBGL8ACActivity extends CanCommonActivity implements View.OnClic
     }
 
     private void updateTempValue(String ltTemp, String rtTemp) {
-        this.mTvLeftTemp.setText(TextUtils.isEmpty(ltTemp) ? "" : ltTemp.replace("℃", "°"));
-        this.mTvRightTemp.setText(TextUtils.isEmpty(rtTemp) ? "" : rtTemp.replace("℃", "°"));
+        this.mTvLeftTemp.setText(TextUtils.isEmpty(ltTemp) ? TXZResourceManager.STYLE_DEFAULT : ltTemp.replace("℃", "°"));
+        this.mTvRightTemp.setText(TextUtils.isEmpty(rtTemp) ? TXZResourceManager.STYLE_DEFAULT : rtTemp.replace("℃", "°"));
     }
 
     private void updateACState(int autoAc, int ac) {

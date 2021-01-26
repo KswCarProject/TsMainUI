@@ -6,6 +6,7 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.widget.Toast;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -89,7 +90,7 @@ public class WifiAdmin {
         if (results != null) {
             this.mWifiList = new ArrayList();
             for (ScanResult result : results) {
-                if (!(result.SSID == null || result.SSID.length() == 0 || result.capabilities.contains("[IBSS]"))) {
+                if (!(result.SSID == null || result.SSID.length() == 0)) {
                     boolean found = false;
                     Iterator<ScanResult> it = this.mWifiList.iterator();
                     while (true) {
@@ -218,7 +219,7 @@ public class WifiAdmin {
             this.mWifiManager.removeNetwork(tempConfig.networkId);
         }
         if (Type == 1) {
-            config.wepKeys[0] = "";
+            config.wepKeys[0] = TXZResourceManager.STYLE_DEFAULT;
             config.allowedKeyManagement.set(0);
             config.wepTxKeyIndex = 0;
         }

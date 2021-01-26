@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.ts.MainUI.R;
 import com.ts.canview.CanNumInuptDlg;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanBMWMiniServiceDetailActivity extends CanBMWMiniBaseActivity {
     private static final int ITEM_MONTH = 1;
@@ -48,10 +49,10 @@ public class CanBMWMiniServiceDetailActivity extends CanBMWMiniBaseActivity {
     /* access modifiers changed from: protected */
     public void AddItemView() {
         addIcon(300, 120, this.mIconArrays[this.mItemNum]);
-        addText(500, Can.CAN_CHANA_CS75_WC, this.mServiceArrays[this.mItemNum], -16711936);
+        addText(500, 160, this.mServiceArrays[this.mItemNum], -16711936);
         addText(300, Can.CAN_NISSAN_XFY, this.mNoticeArrays[this.mItemStatus], -256);
         this.mDateLayout = addDate(300, 300);
-        this.mTvDistance = addText(300, 380, "", -1);
+        this.mTvDistance = addText(300, 380, TXZResourceManager.STYLE_DEFAULT, -1);
     }
 
     /* access modifiers changed from: protected */

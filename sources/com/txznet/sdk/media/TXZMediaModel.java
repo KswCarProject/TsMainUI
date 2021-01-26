@@ -1,7 +1,7 @@
 package com.txznet.sdk.media;
 
+import com.android.SdkConstants;
 import com.txznet.sdk.TXZMusicManager;
-import com.txznet.sdk.tongting.IConstantData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class TXZMediaModel {
 
     /* renamed from: T  reason: collision with root package name */
-    private String f872T;
+    private String f876T;
     private String T9;
     private String TZ;
     private String Tk;
@@ -18,7 +18,7 @@ public class TXZMediaModel {
     private String[] Ty;
 
     public void setTitle(String title) {
-        this.f872T = title;
+        this.f876T = title;
     }
 
     public void setKeywords(String[] keywords) {
@@ -54,7 +54,7 @@ public class TXZMediaModel {
     }
 
     public String getTitle() {
-        return this.f872T;
+        return this.f876T;
     }
 
     public String[] getKeywords() {
@@ -84,8 +84,8 @@ public class TXZMediaModel {
     public JSONObject toJsonObject() {
         JSONObject obj = new JSONObject();
         try {
-            obj.put(IConstantData.KEY_TITLE, this.f872T);
-            obj.put("text", this.Tn);
+            obj.put("title", this.f876T);
+            obj.put(SdkConstants.ATTR_TEXT, this.Tn);
             obj.put("album", this.T9);
             obj.put("category", this.Tk);
             obj.put("subcategory", this.TZ);
@@ -119,11 +119,11 @@ public class TXZMediaModel {
         }
         TXZMediaModel model = new TXZMediaModel();
         try {
-            if (obj.has(IConstantData.KEY_TITLE)) {
-                model.setTitle(obj.getString(IConstantData.KEY_TITLE));
+            if (obj.has("title")) {
+                model.setTitle(obj.getString("title"));
             }
-            if (obj.has("text")) {
-                model.setAsrText(obj.getString("text"));
+            if (obj.has(SdkConstants.ATTR_TEXT)) {
+                model.setAsrText(obj.getString(SdkConstants.ATTR_TEXT));
             }
             if (obj.has("album")) {
                 model.setAlbum(obj.getString("album"));

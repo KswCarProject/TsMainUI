@@ -1,9 +1,11 @@
 package com.ts.can;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
@@ -31,6 +33,7 @@ public class CanHondaDAAcActivity extends CanBaseActivity implements UserCallBac
     private static final int ITEM_MODE_WIND6 = 12;
     private static final int ITEM_MODE_WIND7 = 13;
     public static final String TAG = "CanHondaDaAcActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     protected static boolean mfgJump;
     private ParamButton mAcOf;
     private ParamButton mAcOn;
@@ -54,7 +57,18 @@ public class CanHondaDAAcActivity extends CanBaseActivity implements UserCallBac
         } else if (MainSet.GetScreenType() == 3) {
             initScreen_768x432();
         } else {
+            this.mManager = new RelativeLayoutManager(this, R.id.can_hondda_sy_ac_layout);
+            getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+            Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+            lp.width = 1024;
+            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+            lp.gravity = 17;
+            this.mManager.GetLayout().setLayoutParams(lp);
             initCommonScreen();
+            this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+            this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+            Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
         }
     }
 
@@ -133,7 +147,6 @@ public class CanHondaDAAcActivity extends CanBaseActivity implements UserCallBac
     }
 
     private void initCommonScreen() {
-        this.mManager = new RelativeLayoutManager(this, R.id.can_hondda_sy_ac_layout);
         this.mLtTemp = this.mManager.AddText(17, 7, 131, 59);
         this.mLtTemp.setTextSize(0, 40.0f);
         this.mLtTemp.setTextColor(-1);

@@ -12,14 +12,14 @@ public interface T {
     public static class C0023T implements T {
 
         /* renamed from: T  reason: collision with root package name */
-        private OutputStream f904T;
+        private OutputStream f908T;
 
         public C0023T(OutputStream out) {
-            this.f904T = out;
+            this.f908T = out;
         }
 
         public int T(byte[] data, int offset, int len) throws IOException {
-            this.f904T.write(data, offset, len);
+            this.f908T.write(data, offset, len);
             return len;
         }
     }

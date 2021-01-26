@@ -1,6 +1,9 @@
 package com.ts.can.vw.golf.wc;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -10,10 +13,12 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.canview.MyProgressBar;
-import com.ts.main.common.MainSet;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfWcConvConsumersActivity extends CanBaseActivity implements UserCallBack {
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private static String[] mWarnTips;
     private TextView mConCenter;
     private TextView mConDW;
@@ -24,16 +29,30 @@ public class CanGolfWcConvConsumersActivity extends CanBaseActivity implements U
     private CanDataInfo.GolfConvConsumers mConsumersData = new CanDataInfo.GolfConvConsumers();
     private CanDataInfo.GolfWcConvConWarn mConsumersWarn = new CanDataInfo.GolfWcConvConWarn();
     private RelativeLayoutManager mManager;
-    private String[] mMaxArrays = {"1/4", "3/8", "1/2", MainSet.SP_XPH5, "3/2", MainSet.SP_RLF_KORON};
-    private String[] mMiddleArrays = {"1/8", "3/16", "1/4", "1/2", "3/4", MainSet.SP_XPH5};
+    private String[] mMaxArrays = {"1/4", "3/8", "1/2", "1", "3/2", "2"};
+    private String[] mMiddleArrays = {"1/8", "3/16", "1/4", "1/2", "3/4", "1"};
     private TextView[] mTvWarns = new TextView[7];
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.activity_can_comm_relative);
-        mWarnTips = getResources().getStringArray(R.array.can_conv_tips);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
+        InitUI();
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
+    }
+
+    private void InitUI() {
+        mWarnTips = getResources().getStringArray(R.array.can_conv_tips);
         this.mConTitle = this.mManager.AddText(100, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 300, 50);
         this.mConTitle.setText(R.string.can_consumption);
         this.mConTitle.setGravity(19);
@@ -56,13 +75,13 @@ public class CanGolfWcConvConsumersActivity extends CanBaseActivity implements U
         this.mConMax.setGravity(21);
         this.mConMax.setTextSize(0, 25.0f);
         this.mConMax.setTextColor(-1);
-        this.mConDW = this.mManager.AddText(877, 370, 100, 40);
+        this.mConDW = this.mManager.AddText(877, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, 100, 40);
         this.mConDW.setGravity(21);
         this.mConDW.setTextSize(0, 25.0f);
         this.mConDW.setTextColor(-1);
         for (int i = 0; i < this.mTvWarns.length; i++) {
             this.mTvWarns[i] = this.mManager.AddText(100, (i * 53) + 10, 800, 50);
-            this.mTvWarns[i].setText("");
+            this.mTvWarns[i].setText(TXZResourceManager.STYLE_DEFAULT);
             this.mTvWarns[i].setGravity(19);
             this.mTvWarns[i].setTextSize(0, 28.0f);
             this.mTvWarns[i].setTextColor(-1);
@@ -106,7 +125,7 @@ public class CanGolfWcConvConsumersActivity extends CanBaseActivity implements U
                         }
                         this.mTvWarns[i].setText(mWarnTips[indexs[i]]);
                     } else {
-                        this.mTvWarns[i].setText("");
+                        this.mTvWarns[i].setText(TXZResourceManager.STYLE_DEFAULT);
                     }
                 }
             }

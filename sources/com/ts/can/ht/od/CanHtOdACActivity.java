@@ -75,10 +75,10 @@ public class CanHtOdACActivity extends CanBaseActivity implements UserCallBack, 
         this.mWindProg = new MyProgressBar(this, R.drawable.can_yl_rect_up, R.drawable.can_yl_rect_dn);
         this.mWindProg.SetMinMax(0, 7);
         this.mWindProg.SetCurPos(1);
-        this.mManager.AddViewWrapContent(this.mWindProg, 352, KeyDef.RKEY_PRE);
+        this.mManager.AddViewWrapContent(this.mWindProg, 352, 292);
         this.mBtnWindDec = AddBtn(5, 287, 271, R.drawable.can_yl_jian_up, R.drawable.can_yl_jian_dn);
         this.mBtnWindInc = AddBtn(6, KeyDef.SKEY_SPEECH_3, 271, R.drawable.can_yl_jia_up, R.drawable.can_yl_jia_dn);
-        this.mIvWindAuto = this.mManager.AddImage(CanCameraUI.BTN_TRUMPCHI_GS7_MODE6, KeyDef.RKEY_RADIO_SCAN, R.drawable.can_yl_wind_auto);
+        this.mIvWindAuto = this.mManager.AddImage(CanCameraUI.BTN_TRUMPCHI_GS7_MODE6, 296, R.drawable.can_yl_wind_auto);
         this.mManager.AddImage(CanCameraUI.BTN_TRUMPCHI_GS7_MODE4, 76, R.drawable.can_mg_people);
         this.mIvWindUp = this.mManager.AddImage(CanCameraUI.BTN_VW_WC_MODE1, 62, R.drawable.can_mg_wind);
         this.mIvWindPx = this.mManager.AddImage(569, 89, R.drawable.can_mg_right);

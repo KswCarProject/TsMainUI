@@ -8,7 +8,7 @@ import com.T.T.Tn;
 import com.T.T.Tr.T.Ts;
 import com.T.T.Tr.Tk;
 import com.T.T.Tr.Tv;
-import com.ts.main.common.MainSet;
+import com.android.SdkConstants;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -40,7 +40,7 @@ import java.util.concurrent.ConcurrentMap;
 public class TZ {
 
     /* renamed from: T  reason: collision with root package name */
-    private static ConcurrentMap<String, Class<?>> f132T = new ConcurrentHashMap();
+    private static ConcurrentMap<String, Class<?>> f135T = new ConcurrentHashMap();
 
     public static final String T(Object value) {
         if (value == null) {
@@ -343,13 +343,13 @@ public class TZ {
             if (str.length() == 0) {
                 return null;
             }
-            if ("true".equals(str)) {
+            if (SdkConstants.VALUE_TRUE.equals(str)) {
                 return Boolean.TRUE;
             }
-            if ("false".equals(str)) {
+            if (SdkConstants.VALUE_FALSE.equals(str)) {
                 return Boolean.FALSE;
             }
-            if (MainSet.SP_XPH5.equals(str)) {
+            if ("1".equals(str)) {
                 return Boolean.TRUE;
             }
         }
@@ -371,7 +371,7 @@ public class TZ {
                     return obj;
                 }
                 Map map = (Map) obj;
-                if (clazz != Object.class || map.containsKey(T.f128T)) {
+                if (clazz != Object.class || map.containsKey(T.f131T)) {
                     return T((Map<String, Object>) (Map) obj, clazz, mapping);
                 }
                 return obj;
@@ -463,7 +463,7 @@ public class TZ {
             }
             if (obj instanceof Number) {
                 int ordinal = ((Number) obj).intValue();
-                for (Object value : (Object[]) clazz.getMethod("values", new Class[0]).invoke((Object) null, new Object[0])) {
+                for (Object value : (Object[]) clazz.getMethod(SdkConstants.FD_RES_VALUES, new Class[0]).invoke((Object) null, new Object[0])) {
                     Enum e = (Enum) value;
                     if (e.ordinal() == ordinal) {
                         return e;
@@ -546,7 +546,7 @@ public class TZ {
                 throw new Tn(e.getMessage(), e);
             }
         } else {
-            Object iClassObject = map.get(T.f128T);
+            Object iClassObject = map.get(T.f131T);
             if (iClassObject instanceof String) {
                 String className = (String) iClassObject;
                 Class<?> loadClazz = T(className);
@@ -599,34 +599,34 @@ public class TZ {
         if (className == null) {
             className = clazz.getName();
         }
-        f132T.put(className, clazz);
+        f135T.put(className, clazz);
     }
 
     public static void T() {
-        f132T.put("byte", Byte.TYPE);
-        f132T.put("short", Short.TYPE);
-        f132T.put("int", Integer.TYPE);
-        f132T.put("long", Long.TYPE);
-        f132T.put("float", Float.TYPE);
-        f132T.put("double", Double.TYPE);
-        f132T.put("boolean", Boolean.TYPE);
-        f132T.put("char", Character.TYPE);
-        f132T.put("[byte", byte[].class);
-        f132T.put("[short", short[].class);
-        f132T.put("[int", int[].class);
-        f132T.put("[long", long[].class);
-        f132T.put("[float", float[].class);
-        f132T.put("[double", double[].class);
-        f132T.put("[boolean", boolean[].class);
-        f132T.put("[char", char[].class);
-        f132T.put(HashMap.class.getName(), HashMap.class);
+        f135T.put("byte", Byte.TYPE);
+        f135T.put("short", Short.TYPE);
+        f135T.put("int", Integer.TYPE);
+        f135T.put("long", Long.TYPE);
+        f135T.put("float", Float.TYPE);
+        f135T.put("double", Double.TYPE);
+        f135T.put("boolean", Boolean.TYPE);
+        f135T.put("char", Character.TYPE);
+        f135T.put("[byte", byte[].class);
+        f135T.put("[short", short[].class);
+        f135T.put("[int", int[].class);
+        f135T.put("[long", long[].class);
+        f135T.put("[float", float[].class);
+        f135T.put("[double", double[].class);
+        f135T.put("[boolean", boolean[].class);
+        f135T.put("[char", char[].class);
+        f135T.put(HashMap.class.getName(), HashMap.class);
     }
 
     public static Class<?> T(String className) {
         if (className == null || className.length() == 0) {
             return null;
         }
-        Class<?> clazz = (Class) f132T.get(className);
+        Class<?> clazz = (Class) f135T.get(className);
         if (clazz != null) {
             return clazz;
         }

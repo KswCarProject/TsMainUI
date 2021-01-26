@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 public final class T9 {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final int[][] f252T;
+    private static final int[][] f255T;
     private int T5;
     private Charset T9;
     private int TE;
@@ -2812,7 +2812,7 @@ public final class T9 {
         iArr3[926] = 67474;
         iArr3[927] = 69554;
         iArr3[928] = 116714;
-        f252T = new int[][]{iArr, iArr2, iArr3};
+        f255T = new int[][]{iArr, iArr2, iArr3};
     }
 
     public T9() {
@@ -2895,15 +2895,15 @@ public final class T9 {
                 left = ((y / 3) * 30) + (c - 1);
                 right = ((y / 3) * 30) + (errorCorrectionLevel * 3) + ((r - 1) % 3);
             }
-            T(f252T[cluster][left], 17, logic.Tr());
+            T(f255T[cluster][left], 17, logic.Tr());
             for (int x = 0; x < c; x++) {
-                T(f252T[cluster][fullCodewords.charAt(idx)], 17, logic.Tr());
+                T(f255T[cluster][fullCodewords.charAt(idx)], 17, logic.Tr());
                 idx++;
             }
             if (this.Ty) {
                 T(260649, 1, logic.Tr());
             } else {
-                T(f252T[cluster][right], 17, logic.Tr());
+                T(f255T[cluster][right], 17, logic.Tr());
                 T(260649, 18, logic.Tr());
             }
         }

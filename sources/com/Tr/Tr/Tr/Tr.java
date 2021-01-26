@@ -7,7 +7,7 @@ import java.util.Arrays;
 public final class Tr implements Cloneable {
 
     /* renamed from: T  reason: collision with root package name */
-    private final int f286T;
+    private final int f289T;
     private final int[] Tn;
     private final int Tr;
     private final int Ty;
@@ -20,14 +20,14 @@ public final class Tr implements Cloneable {
         if (width <= 0 || height <= 0) {
             throw new IllegalArgumentException("Both dimensions must be greater than 0");
         }
-        this.f286T = width;
+        this.f289T = width;
         this.Tr = height;
         this.Ty = (width + 31) / 32;
         this.Tn = new int[(this.Ty * height)];
     }
 
     private Tr(int width, int height, int rowSize, int[] bits) {
-        this.f286T = width;
+        this.f289T = width;
         this.Tr = height;
         this.Ty = rowSize;
         this.Tn = bits;
@@ -58,7 +58,7 @@ public final class Tr implements Cloneable {
         } else {
             int right = left + width;
             int bottom = top + height;
-            if (bottom > this.Tr || right > this.f286T) {
+            if (bottom > this.Tr || right > this.f289T) {
                 throw new IllegalArgumentException("The region must fit inside the matrix");
             }
             for (int y = top; y < bottom; y++) {
@@ -73,7 +73,7 @@ public final class Tr implements Cloneable {
     }
 
     public int Tr() {
-        return this.f286T;
+        return this.f289T;
     }
 
     public int Ty() {
@@ -85,14 +85,14 @@ public final class Tr implements Cloneable {
             return false;
         }
         Tr other = (Tr) o;
-        if (this.f286T == other.f286T && this.Tr == other.Tr && this.Ty == other.Ty && Arrays.equals(this.Tn, other.Tn)) {
+        if (this.f289T == other.f289T && this.Tr == other.Tr && this.Ty == other.Ty && Arrays.equals(this.Tn, other.Tn)) {
             return true;
         }
         return false;
     }
 
     public int hashCode() {
-        return (((((((this.f286T * 31) + this.f286T) * 31) + this.Tr) * 31) + this.Ty) * 31) + Arrays.hashCode(this.Tn);
+        return (((((((this.f289T * 31) + this.f289T) * 31) + this.Tr) * 31) + this.Ty) * 31) + Arrays.hashCode(this.Tn);
     }
 
     public String toString() {
@@ -105,9 +105,9 @@ public final class Tr implements Cloneable {
 
     private String T(String setString, String unsetString, String lineSeparator) {
         String str;
-        StringBuilder result = new StringBuilder(this.Tr * (this.f286T + 1));
+        StringBuilder result = new StringBuilder(this.Tr * (this.f289T + 1));
         for (int y = 0; y < this.Tr; y++) {
-            for (int x = 0; x < this.f286T; x++) {
+            for (int x = 0; x < this.f289T; x++) {
                 if (T(x, y)) {
                     str = setString;
                 } else {
@@ -122,6 +122,6 @@ public final class Tr implements Cloneable {
 
     /* renamed from: Tn */
     public Tr clone() {
-        return new Tr(this.f286T, this.Tr, this.Ty, (int[]) this.Tn.clone());
+        return new Tr(this.f289T, this.Tr, this.Ty, (int[]) this.Tn.clone());
     }
 }

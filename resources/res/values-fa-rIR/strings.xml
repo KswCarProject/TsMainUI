@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="str_bt_sub_connect">اتصال</string>
-    <string name="str_bt_sub_dial">شماره گیری کنید</string>
+    <string name="str_bt_sub_dial">در حال تماس</string>
     <string name="str_bt_sub_pb">کتاب</string>
     <string name="str_bt_sub_log">Log</string>
     <string name="str_bt_sub_music">موسیقی</string>
     <string name="str_bt_call_in">تماس ورودی</string>
-    <string name="str_bt_call_out">شماره گیری</string>
-    <string name="str_bt_call_active">تماس بگیرید</string>
+    <string name="str_bt_call_out">پایان تماس</string>
+    <string name="str_bt_call_active">فعال</string>
     <string name="str_bt_call_end">پایان تماس</string>
-    <string name="bt_connect_first_msg">بلوتوث قطع شده است</string>
+    <string name="bt_connect_first_msg">عدم اتصال بلوتوث</string>
     <string name="bt_si_text">نتیجه</string>
     <string name="str_bt_reset">تنظیم مجدد بلوتوث</string>
     <string name="str_bt_ok">خوب</string>
@@ -66,12 +66,12 @@
     <string name="title_activity_cmmb_main">DTV</string>
     <string name="title_activity_radio_local">RadioLocalActivity</string>
     <string name="title_activity_dvr_main">DVR</string>
-    <string name="title_activity_navi_main">ناوی</string>
+    <string name="title_activity_navi_main">نقشه</string>
     <string name="title_activity_fcamera_main">F-CAM</string>
     <string name="title_activity_ipod_main">iPod</string>
-    <string name="title_activity_avin_main">AV_IN</string>
+    <string name="title_activity_avin_main">ورودی تصویر</string>
     <string name="title_activity_sdmain">موسیقی</string>
-    <string name="title_activity_usbmain">ویدئو</string>
+    <string name="title_activity_usbmain">ویدیو</string>
     <string name="title_activity_dvd_main">دیسک</string>
     <string name="title_activity_dvd_box_main">DvdBox</string>
     <string name="title_activity_set_main">تنظیم خودرو</string>
@@ -85,7 +85,7 @@
     <string name="title_activity_can_ac">Air Condition</string>
     <string name="title_activity_car_info">Car Info</string>
     <string name="title_activity_bt">بلوتوث</string>
-    <string name="title_activity_btmusic">BT موسیقی</string>
+    <string name="title_activity_btmusic">موزیک بلوتوث</string>
     <string name="title_activity_onstar">OnStar</string>
     <string name="title_activity_can_radio">Car Radio</string>
     <string name="title_activity_can_cd">Car CD</string>
@@ -93,7 +93,7 @@
     <string name="title_activity_tpmsmain">TPMS</string>
     <string name="title_activity_tpmsset_main">Setting</string>
     <string name="title_activity_weather">BT SWC</string>
-    <string name="title_activity_adasmain">ADAS</string>
+    <string name="title_activity_adasmain">DSP</string>
     <string name="title_activity_360view">360View</string>
     <string name="str_bt_bluetooth">بلوتوث</string>
     <string name="title_activity_Dialer">تلفن</string>
@@ -105,9 +105,9 @@
     <string name="Laucher_out_temp">Out Temperature:</string>
     <string name="Laucher_out_temp_dw1">℃</string>
     <string name="Laucher_out_temp_dw2">℉</string>
-    <string name="set_general_enter">خوب</string>
+    <string name="set_general_enter">بله</string>
     <string name="set_general_cancel">لغو</string>
-    <string name="set_common_switch_on">بر</string>
+    <string name="set_common_switch_on">روشن</string>
     <string name="set_common_switch_off">خاموش</string>
     <string name="vol_common_mainvol">حجم</string>
     <string name="vol_common_btvol">حجم</string>

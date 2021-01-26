@@ -63,20 +63,20 @@ public class T5 extends TA {
         llContent.setLayoutAnimation(Ty.T());
         llContent.setLayoutAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                if (T5.this.f463T != null) {
-                    T5.this.f463T.T(animation, 1);
+                if (T5.this.f467T != null) {
+                    T5.this.f467T.T(animation, 1);
                 }
             }
 
             public void onAnimationRepeat(Animation animation) {
-                if (T5.this.f463T != null) {
-                    T5.this.f463T.T(animation, 2);
+                if (T5.this.f467T != null) {
+                    T5.this.f467T.T(animation, 2);
                 }
             }
 
             public void onAnimationEnd(Animation animation) {
-                if (T5.this.f463T != null) {
-                    T5.this.f463T.T(animation, 3);
+                if (T5.this.f467T != null) {
+                    T5.this.f467T.T(animation, 3);
                 }
             }
         });
@@ -94,7 +94,7 @@ public class T5 extends TA {
             this.TZ.add(itemView);
         }
         Tn.T viewAdapter = new Tn.T();
-        viewAdapter.f462T = data.Ty();
+        viewAdapter.f466T = data.Ty();
         viewAdapter.Tr = llLayout;
         viewAdapter.Ty = true;
         viewAdapter.Tn = T9();

@@ -8,11 +8,13 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.widget.Toast;
-import com.autochips.storage.EnvironmentATC;
+import com.android.SdkConstants;
+import com.lgb.canmodule.Can;
 import com.ts.MainUI.R;
 import com.ts.MainUI.TsFile;
 import com.ts.bt.ContactInfo;
-import com.yyw.ts70xhw.FtSet;
+import com.ts.can.CanIF;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 import java.io.File;
@@ -33,14 +35,12 @@ public class KeyTouch {
     private static final String TAG = "KeyTouch";
     static int TickNum = 100;
     private static final String screenpath = "abc腾实截图/";
-    EnvironmentATC EnvATC;
     int TickStep = 0;
     private int TouchTime = 0;
     boolean bDown;
     long clicktime = 0;
     int inputSource = 0;
     Context mContext = null;
-    private String[] mGarmarData = {"arm_gamma", "cam_gamma", "dvd_gamma", "usb_gamma", "aux_gamma", "tv_gamma", "fcam_gamma"};
     int nDelaytime = 0;
     private int[] nPoint = new int[3];
     private int[] nPointOld = new int[3];
@@ -126,9 +126,7 @@ public class KeyTouch {
                         String text = TsFile.readFileSdcardFile(String.valueOf(mCtouchPath[i]) + "/" + COUTCH_CONFIG);
                         if (text.indexOf(ContactInfo.COMBINATION_SEPERATOR) >= 0) {
                             String[] stringCFG = text.split(ContactInfo.COMBINATION_SEPERATOR);
-                            if (!stringCFG[0].startsWith("0x") || stringCFG.length != 186) {
-                                Toast.makeText(this.mContext, "电容参数错误", 0).show();
-                            } else {
+                            if (stringCFG[0].startsWith("0x") && stringCFG.length == 186) {
                                 byte[] touchdata = new byte[186];
                                 for (int j = 0; j < stringCFG.length; j++) {
                                     if (stringCFG[i].startsWith("0x")) {
@@ -138,6 +136,18 @@ public class KeyTouch {
                                 }
                                 Iop.WriteTouch(touchdata);
                                 Toast.makeText(this.mContext, "电容屏参数写入成功", 0).show();
+                            } else if (!stringCFG[0].startsWith("0x") || stringCFG.length != 228) {
+                                Toast.makeText(this.mContext, "电容参数错误", 0).show();
+                            } else {
+                                byte[] touchdata2 = new byte[Can.CAN_TEANA_OLD_DJ];
+                                for (int j2 = 0; j2 < stringCFG.length; j2++) {
+                                    if (stringCFG[i].startsWith("0x")) {
+                                        touchdata2[j2] = (byte) Integer.parseInt(stringCFG[j2].substring(2, stringCFG[j2].length()), 16);
+                                        Log.i(TAG, "touchdata[==" + j2 + "]=" + touchdata2[j2]);
+                                    }
+                                }
+                                Iop.WriteTouch(touchdata2);
+                                Toast.makeText(this.mContext, "电容屏2参数写入成功", 0).show();
                             }
                         }
                     } catch (IOException e) {
@@ -150,7 +160,6 @@ public class KeyTouch {
 
     public void Inint(Context MyContext) {
         this.mContext = MyContext;
-        this.EnvATC = new EnvironmentATC(this.mContext);
         this.inputSource = getSource(this.inputSource, 4098);
     }
 
@@ -185,7 +194,7 @@ public class KeyTouch {
                             this.clicktime = SystemClock.uptimeMillis();
                             this.TickStep = 1;
                         } else if (this.TickStep == 1 && SystemClock.uptimeMillis() - this.clicktime < 500) {
-                            takeScreenShot("");
+                            takeScreenShot(TXZResourceManager.STYLE_DEFAULT);
                         }
                     }
                 }
@@ -194,42 +203,29 @@ public class KeyTouch {
                 }
                 this.TouchTime = 0;
                 if (this.nPointOld[0] > 0) {
-                    Log.i(TAG, "nPointOld[0]==" + this.nPointOld[0]);
-                    Log.i(TAG, "nPointOld[1]==" + this.nPointOld[1]);
-                    Log.i(TAG, "nPointOld[2]==" + this.nPointOld[2]);
-                    if (MainSet.IsFlkj()) {
-                        if (Mcu.BklisOn() == 0) {
+                    ScreenSaver.clearTimeCount();
+                    if (MainSet.IsShowBrughtness()) {
+                        if (this.nPointOld[1] > 4 && this.nPointOld[1] < MainUI.mScrW && this.nPointOld[2] > 0 && this.nPointOld[2] < MainUI.mScrH) {
+                            CanIF.TouchDownEven();
+                            if (Mcu.BklisOn() == 0 && !MainCScreen.GetInstance().IsMuteKey(this.nPointOld[1], this.nPointOld[2])) {
+                                Mcu.BklTurn();
+                                Log.i(TAG, "Mcu.BklTurn();==");
+                            }
+                        }
+                    } else if (this.nPointOld[1] > 4 && this.nPointOld[1] < MainUI.mScrW && this.nPointOld[2] > 55 && this.nPointOld[2] < MainUI.mScrH) {
+                        CanIF.TouchDownEven();
+                        if (Mcu.BklisOn() == 0 && !MainCScreen.GetInstance().IsMuteKey(this.nPointOld[1], this.nPointOld[2])) {
                             Mcu.BklTurn();
                             Log.i(TAG, "Mcu.BklTurn();==");
                         }
-                    } else if (this.nPointOld[1] > 0 && this.nPointOld[1] < MainUI.mScrW && this.nPointOld[2] > 0 && this.nPointOld[2] < MainUI.mScrH && Mcu.BklisOn() == 0) {
-                        Mcu.BklTurn();
-                        Log.i(TAG, "Mcu.BklTurn();==");
                     }
                 }
             } else if (this.nPointOld[0] >= 4) {
-                this.TouchTime++;
-                if (this.TouchTime == 130) {
-                    WinShow.show("com.ts.MainUI", "com.ts.main.touch.TouchActivity");
+                if (this.nPoint[1] > 0 && this.nPoint[1] < MainUI.mScrW && this.nPoint[2] > 0 && this.nPoint[2] < MainUI.mScrH) {
+                    this.TouchTime++;
                 }
-                Log.i(TAG, "TouchTime==" + this.TouchTime);
-                Log.i(TAG, "nPoint[0]==" + this.nPoint[0]);
-                Log.i(TAG, "nPoint[1]==" + this.nPoint[1]);
-                Log.i(TAG, "nPoint[2]==" + this.nPoint[2]);
-            } else if (this.nPoint[0] == 1) {
-                this.TouchTime++;
-                if (this.TouchTime == 130) {
-                    boolean bShow = false;
-                    if (FtSet.GetCtXYswap() == 3) {
-                        if (this.nPoint[1] > 0 && MainUI.mScrW - this.nPoint[1] < 50 && this.nPoint[2] > 0 && this.nPoint[2] < 50) {
-                            bShow = true;
-                        }
-                    } else if (this.nPoint[1] > 0 && this.nPoint[1] < 50 && this.nPoint[2] > 0 && this.nPoint[2] < 50) {
-                        bShow = true;
-                    }
-                    if (bShow && !MainSet.IsFlkj()) {
-                        MainAlterwin.GetInstance().ShowMessageWin(String.valueOf(this.mContext.getResources().getString(R.string.custom_num)) + MainSet.GetHMIVersion());
-                    }
+                if (this.TouchTime == 130 && !MainSet.seiid.contains("ZHYC")) {
+                    WinShow.show("com.ts.MainUI", "com.ts.main.touch.TouchActivity");
                 }
                 Log.i(TAG, "TouchTime==" + this.TouchTime);
                 Log.i(TAG, "nPoint[0]==" + this.nPoint[0]);
@@ -293,9 +289,6 @@ public class KeyTouch {
         }
     }
 
-    private void sendToucXYSync(MotionEvent event) {
-    }
-
     public void sendKeyClick(int keyCode) {
         final int nkeyCode = keyCode;
         new Thread() {
@@ -321,32 +314,19 @@ public class KeyTouch {
         return ((((long) sf.getBlockCount()) * ((long) sf.getBlockSize())) / 1024) / 1024;
     }
 
-    /* access modifiers changed from: package-private */
-    public boolean FathIsExits(String path) {
-        if (!TsFile.fileIsExists(String.valueOf(path) + screenpath + "Screeanshot.dat")) {
-            TsFile.NewDir(String.valueOf(path) + screenpath);
-            try {
-                TsFile.writeFileSdcardFile(String.valueOf(path) + screenpath + "Screeanshot.dat", "abc");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        if (TsFile.fileIsExists(String.valueOf(path) + screenpath + "Screeanshot.dat")) {
-            return true;
-        }
-        return false;
-    }
-
     public boolean takeScreenShot(String imagePath) {
-        String[] strSDMountedPath = this.EnvATC.getStorageMountedPaths();
+        String[] strSDMountedPath = MainSet.GetInstance().GetMountedStorage();
+        if (strSDMountedPath == null) {
+            return false;
+        }
         Log.i(TAG, "strSDMountedPath.length ==" + strSDMountedPath.length);
         int i = 0;
         while (true) {
             if (i < strSDMountedPath.length) {
                 Log.i(TAG, "strSDMountedPath[i] ==" + strSDMountedPath[i]);
-                if (!strSDMountedPath[i].contains("emulated") && !strSDMountedPath[i].contains("cdfs")) {
+                if (!strSDMountedPath[i].contains("sdcard0") && !strSDMountedPath[i].contains("cdfs")) {
                     TsFile.NewDir(String.valueOf(strSDMountedPath[i]) + "/" + screenpath);
-                    imagePath = String.valueOf(strSDMountedPath[i]) + "/" + screenpath + new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.US).format(new Date()) + ".png";
+                    imagePath = String.valueOf(strSDMountedPath[i]) + "/" + screenpath + new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.US).format(new Date()) + SdkConstants.DOT_PNG;
                     Log.i(TAG, "imagePath ==" + imagePath);
                     break;
                 }
@@ -355,8 +335,8 @@ public class KeyTouch {
                 break;
             }
         }
-        if (imagePath.equals("")) {
-            Toast.makeText(this.mContext, "截图找不到盘符", 0).show();
+        if (imagePath.equals(TXZResourceManager.STYLE_DEFAULT)) {
+            Toast.makeText(this.mContext, this.mContext.getResources().getString(R.string.touch_cannot_finddisc), 0).show();
             return false;
         }
         try {

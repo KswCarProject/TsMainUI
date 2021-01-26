@@ -11,7 +11,7 @@ import java.sql.Time;
 public class TrE implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TrE f163T = new TrE();
+    public static final TrE f166T = new TrE();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         long longVal;

@@ -22,7 +22,7 @@ import java.util.TimeZone;
 public class T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    private final TrO f192T;
+    private final TrO f195T;
     private String T5;
     private TrB T6;
     private List<TrZ> T9;
@@ -52,7 +52,7 @@ public class T7 {
         this.TE = "\t";
         this.Th = null;
         this.Tr = out;
-        this.f192T = config;
+        this.f195T = config;
     }
 
     public DateFormat T() {
@@ -207,39 +207,39 @@ public class T7 {
     }
 
     public final void T(String text) {
-        TrD.f218T.T(this, text);
+        TrD.f221T.T(this, text);
     }
 
     public Trh T(Class<?> clazz) {
-        Trh writer = (Trh) this.f192T.T(clazz);
+        Trh writer = (Trh) this.f195T.T(clazz);
         if (writer == null) {
             if (Map.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, Trk.f222T);
+                this.f195T.T(clazz, Trk.f225T);
             } else if (List.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, Try.f229T);
+                this.f195T.T(clazz, Try.f232T);
             } else if (Collection.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, Ts.f230T);
+                this.f195T.T(clazz, Ts.f233T);
             } else if (Date.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, Tu.f232T);
+                this.f195T.T(clazz, Tu.f235T);
             } else if (Ty.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, T3.f188T);
+                this.f195T.T(clazz, T3.f191T);
             } else if (Tk.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, T1.f186T);
+                this.f195T.T(clazz, T1.f189T);
             } else if (clazz.isEnum() || (clazz.getSuperclass() != null && clazz.getSuperclass().isEnum())) {
-                this.f192T.T(clazz, TA.f195T);
+                this.f195T.T(clazz, TA.f198T);
             } else if (clazz.isArray()) {
                 Class<?> componentType = clazz.getComponentType();
-                this.f192T.T(clazz, new Tr(componentType, T(componentType)));
+                this.f195T.T(clazz, new Tr(componentType, T(componentType)));
             } else if (Throwable.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, new T0(clazz));
+                this.f195T.T(clazz, new T0(clazz));
             } else if (TimeZone.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, TrA.f216T);
+                this.f195T.T(clazz, TrA.f219T);
             } else if (Charset.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, Trx.f228T);
+                this.f195T.T(clazz, Trx.f231T);
             } else if (Enumeration.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, Tx.f235T);
+                this.f195T.T(clazz, Tx.f238T);
             } else if (Calendar.class.isAssignableFrom(clazz)) {
-                this.f192T.T(clazz, TF.f200T);
+                this.f195T.T(clazz, TF.f203T);
             } else {
                 boolean isCglibProxy = false;
                 boolean isJavassistProxy = false;
@@ -263,15 +263,15 @@ public class T7 {
                 }
                 if (isCglibProxy || isJavassistProxy) {
                     Trh superWriter = T((Class<?>) clazz.getSuperclass());
-                    this.f192T.T(clazz, superWriter);
+                    this.f195T.T(clazz, superWriter);
                     return superWriter;
                 } else if (Proxy.isProxyClass(clazz)) {
-                    this.f192T.T(clazz, this.f192T.T(clazz));
+                    this.f195T.T(clazz, this.f195T.T(clazz));
                 } else {
-                    this.f192T.T(clazz, this.f192T.T(clazz));
+                    this.f195T.T(clazz, this.f195T.T(clazz));
                 }
             }
-            writer = (Trh) this.f192T.T(clazz);
+            writer = (Trh) this.f195T.T(clazz);
         }
         return writer;
     }

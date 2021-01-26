@@ -33,7 +33,7 @@ public class T9 extends TF {
         Tj helpTipsViewData = (Tj) data;
         this.T9 = LayoutInflater.from(T.Tr()).inflate(R.layout.help_tip_view, (ViewGroup) null);
         LinearLayout llContent = (LinearLayout) this.T9.findViewById(R.id.llContent);
-        ((TextView) this.T9.findViewById(R.id.tvTitle)).setText(helpTipsViewData.f445T);
+        ((TextView) this.T9.findViewById(R.id.tvTitle)).setText(helpTipsViewData.f449T);
         llContent.removeAllViews();
         llContent.setGravity(1);
         int itemHeight = (int) (((float) com.txznet.comm.ui.TE.T.T(false)) * 0.8f);
@@ -41,7 +41,7 @@ public class T9 extends TF {
             Tj.T bean = helpTipsViewData.T().get(i);
             View view = LayoutInflater.from(T.Tr()).inflate(R.layout.help_tip_view_item, (ViewGroup) null);
             ImageView icon = (ImageView) view.findViewById(R.id.icon);
-            icon.setImageDrawable(Tr.Ty(bean.f446T));
+            icon.setImageDrawable(Tr.Ty(bean.f450T));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) icon.getLayoutParams();
             layoutParams.width = (int) com.txznet.comm.ui.TZ.Tn.Tr(com.txznet.comm.ui.TZ.Tn.TB);
             layoutParams.height = (int) com.txznet.comm.ui.TZ.Tn.Tr(com.txznet.comm.ui.TZ.Tn.TK);
@@ -61,7 +61,7 @@ public class T9 extends TF {
             llContent.addView(view, params);
         }
         Tn.T adapter = new Tn.T();
-        adapter.f462T = data.Ty();
+        adapter.f466T = data.Ty();
         adapter.Tr = this.T9;
         adapter.Tn = T9();
         return adapter;
@@ -71,7 +71,7 @@ public class T9 extends TF {
         LinearLayout.LayoutParams params;
         Tj helpTipsViewData = (Tj) data;
         LinearLayout llContent = (LinearLayout) this.T9.findViewById(R.id.llContent);
-        ((TextView) this.T9.findViewById(R.id.tvTitle)).setText(helpTipsViewData.f445T);
+        ((TextView) this.T9.findViewById(R.id.tvTitle)).setText(helpTipsViewData.f449T);
         llContent.removeAllViews();
         llContent.setGravity(1);
         int itemHeight = (int) (((float) com.txznet.comm.ui.TE.T.T(false)) * 0.8f);
@@ -79,7 +79,7 @@ public class T9 extends TF {
             Tj.T bean = helpTipsViewData.T().get(i);
             View view = LayoutInflater.from(T.Tr()).inflate(R.layout.help_tip_view_item, (ViewGroup) null);
             ImageView icon = (ImageView) view.findViewById(R.id.icon);
-            icon.setImageDrawable(Tr.Ty(bean.f446T));
+            icon.setImageDrawable(Tr.Ty(bean.f450T));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) icon.getLayoutParams();
             layoutParams.width = (int) com.txznet.comm.ui.TZ.Tn.Tr(com.txznet.comm.ui.TZ.Tn.TB);
             layoutParams.height = (int) com.txznet.comm.ui.TZ.Tn.Tr(com.txznet.comm.ui.TZ.Tn.TK);

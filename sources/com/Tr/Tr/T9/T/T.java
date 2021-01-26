@@ -6,16 +6,16 @@ import java.lang.reflect.Array;
 public final class T {
 
     /* renamed from: T  reason: collision with root package name */
-    private final Tr[] f251T;
+    private final Tr[] f254T;
     private final int Tn;
     private int Tr;
     private final int Ty;
 
     T(int height, int width) {
-        this.f251T = new Tr[height];
-        int matrixLength = this.f251T.length;
+        this.f254T = new Tr[height];
+        int matrixLength = this.f254T.length;
         for (int i = 0; i < matrixLength; i++) {
-            this.f251T[i] = new Tr(((width + 4) * 17) + 1);
+            this.f254T[i] = new Tr(((width + 4) * 17) + 1);
         }
         this.Tn = width * 17;
         this.Ty = height;
@@ -29,14 +29,14 @@ public final class T {
 
     /* access modifiers changed from: package-private */
     public Tr Tr() {
-        return this.f251T[this.Tr];
+        return this.f254T[this.Tr];
     }
 
     public byte[][] T(int xScale, int yScale) {
         byte[][] matrixOut = (byte[][]) Array.newInstance(Byte.TYPE, new int[]{this.Ty * yScale, this.Tn * xScale});
         int yMax = this.Ty * yScale;
         for (int i = 0; i < yMax; i++) {
-            matrixOut[(yMax - i) - 1] = this.f251T[i / yScale].T(xScale);
+            matrixOut[(yMax - i) - 1] = this.f254T[i / yScale].T(xScale);
         }
         return matrixOut;
     }

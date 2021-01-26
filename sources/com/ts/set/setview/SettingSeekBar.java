@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import com.ts.MainUI.R;
@@ -21,6 +22,8 @@ public class SettingSeekBar extends View {
     private Bitmap mBmpBk;
     private int mBmpH;
     private Bitmap mBmpPoint;
+    private int mBmpPointH;
+    private int mBmpPointW;
     private Bitmap mBmpProgress;
     private int mBmpW;
     private int mCurPos = 0;
@@ -65,17 +68,17 @@ public class SettingSeekBar extends View {
         int drawH = 0;
         Rect src = new Rect();
         new Rect();
-        canvas.drawBitmap(this.mBmpBk, (float) this.mBkX, (float) this.mBkY, this.mPaint);
         if (this.mCurPos != 0 && this.mMaxPos != 0 && this.mCurPos <= this.mMaxPos) {
-            drawH = (this.mCurPos * 202) / this.mMaxPos;
+            drawH = ((this.mBmpH - this.mBmpPointH) * this.mCurPos) / this.mMaxPos;
             int i = (this.mCurPos * this.mBmpW) / this.mMaxPos;
             src.left = 0;
-            src.top = 221 - drawH;
-            src.right = 39;
-            src.bottom = 221;
+            src.top = this.mBmpH - drawH;
+            src.right = this.mBmpW;
+            src.bottom = this.mBmpH;
             canvas.drawBitmap(this.mBmpProgress, src, src, this.mPaint);
         }
-        canvas.drawBitmap(this.mBmpPoint, 0.0f, (float) ((221 - drawH) - 19), this.mPaint);
+        canvas.drawBitmap(this.mBmpPoint, 0.0f, (float) ((this.mBmpH - drawH) - this.mBmpPointH), this.mPaint);
+        canvas.drawBitmap(this.mBmpBk, (float) this.mBkX, (float) this.mBkY, this.mPaint);
         super.onDraw(canvas);
     }
 
@@ -84,22 +87,25 @@ public class SettingSeekBar extends View {
         this.mBkX = 0;
         this.mBkY = 0;
         Resources res = context.getResources();
-        this.mBmpBk = ((BitmapDrawable) res.getDrawable(R.drawable.setup_seekbar_track)).getBitmap();
-        this.mBmpProgress = ((BitmapDrawable) res.getDrawable(R.drawable.setup_seekbar_progress)).getBitmap();
-        this.mBmpPoint = ((BitmapDrawable) res.getDrawable(R.drawable.setup_seekbar_thumb)).getBitmap();
+        this.mBmpBk = ((BitmapDrawable) res.getDrawable(R.drawable.set_eq_sound_pillar)).getBitmap();
+        this.mBmpProgress = ((BitmapDrawable) res.getDrawable(R.drawable.set_eq_sound_orange)).getBitmap();
+        this.mBmpPoint = ((BitmapDrawable) res.getDrawable(R.drawable.set_eq_sound_cover)).getBitmap();
         this.mBmpW = this.mBmpProgress.getWidth();
         this.mBmpH = this.mBmpProgress.getHeight();
+        Log.d("hdd", String.valueOf(this.mBmpW) + "---" + this.mBmpH);
+        this.mBmpPointW = this.mBmpPoint.getWidth();
+        this.mBmpPointH = this.mBmpPoint.getHeight();
     }
 
     private void dealTouch(int x, int y) {
         int pos;
         int i = this.mCurPos;
-        if (y < 19) {
+        if (y < this.mBmpPointH) {
             pos = this.mMaxPos;
-        } else if (y > 221) {
+        } else if (y > this.mBmpH) {
             pos = 0;
         } else {
-            pos = ((221 - y) * this.mMaxPos) / 202;
+            pos = ((this.mBmpH - y) * this.mMaxPos) / (this.mBmpH - this.mBmpPointH);
         }
         if (pos != this.mCurPos) {
             this.mCurPos = pos;

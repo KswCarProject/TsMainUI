@@ -7,7 +7,7 @@ import java.lang.reflect.Type;
 public class TM implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TM f151T = new TM();
+    public static final TM f154T = new TM();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         return parser.T9();

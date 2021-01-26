@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/bt_connect_kuang_bg" android:layout_width="364px" android:layout_height="match_parent">
+    <ProgressBar android:id="@+id/progressbar_scanning" android:visibility="gone" android:layout_width="30px" android:layout_height="30px" android:indeterminateDrawable="@drawable/bt_loading" android:layout_centerInParent="true"/>
+    <ListView android:scrollbarStyle="outsideInset" android:id="@+id/lv" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="@android:color/transparent"/>
+</RelativeLayout>

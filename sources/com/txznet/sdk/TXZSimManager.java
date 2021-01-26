@@ -8,7 +8,7 @@ import com.txznet.sdk.TXZService;
 public class TXZSimManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZSimManager f817T = new TXZSimManager();
+    private static TXZSimManager f821T = new TXZSimManager();
     /* access modifiers changed from: private */
     public SimTool Tr;
     private boolean Ty;
@@ -26,7 +26,7 @@ public class TXZSimManager {
     }
 
     public static TXZSimManager getInstance() {
-        return f817T;
+        return f821T;
     }
 
     public void onReconnectTXZ() {

@@ -51,7 +51,7 @@ public class CanKoleosACActivity extends CanCommonACActivity {
     public void InitModeButtons(boolean isTouchable, boolean isClickable) {
         this.mBtnModeArrays = new ParamButton[3];
         for (int i = 0; i < this.mBtnModeArrays.length; i++) {
-            this.mBtnModeArrays[i] = this.mContainer.addButton(KeyDef.RKEY_MEDIA_ANGLE, (i * 100) + 108);
+            this.mBtnModeArrays[i] = this.mContainer.addButton(305, (i * 100) + 108);
             this.mContainer.setDrawableUpDnSel(this.mBtnModeArrays[i], mModeArrays[i * 2], mModeArrays[(i * 2) + 1]);
             if (isTouchable) {
                 this.mContainer.setIdTouchListener(this.mBtnModeArrays[i], i + 6, this);

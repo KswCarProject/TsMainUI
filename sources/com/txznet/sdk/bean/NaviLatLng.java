@@ -8,15 +8,15 @@ import org.json.JSONObject;
 public class NaviLatLng {
 
     /* renamed from: T  reason: collision with root package name */
-    private double f864T;
+    private double f868T;
     private double Tr;
 
     public double getLatitude() {
-        return this.f864T;
+        return this.f868T;
     }
 
     public void setLatitude(double latitude) {
-        this.f864T = latitude;
+        this.f868T = latitude;
     }
 
     public double getLongitude() {
@@ -30,7 +30,7 @@ public class NaviLatLng {
     /* access modifiers changed from: protected */
     public Tr T() {
         Tr json = new Tr();
-        json.T("mLatitude", (Object) Double.valueOf(this.f864T));
+        json.T("mLatitude", (Object) Double.valueOf(this.f868T));
         json.T("mLongitude", (Object) Double.valueOf(this.Tr));
         return json;
     }
@@ -45,7 +45,7 @@ public class NaviLatLng {
 
     /* access modifiers changed from: protected */
     public void T(Tr json) {
-        this.f864T = ((Double) json.T("mLatitude", Double.class, Double.valueOf(0.0d))).doubleValue();
+        this.f868T = ((Double) json.T("mLatitude", Double.class, Double.valueOf(0.0d))).doubleValue();
         this.Tr = ((Double) json.T("mLongitude", Double.class, Double.valueOf(0.0d))).doubleValue();
     }
 
@@ -58,7 +58,7 @@ public class NaviLatLng {
     public String toJson() {
         JSONObject jo = new JSONObject();
         try {
-            jo.put("mLatitude", this.f864T);
+            jo.put("mLatitude", this.f868T);
             jo.put("mLongitude", this.Tr);
         } catch (JSONException e) {
             e.printStackTrace();

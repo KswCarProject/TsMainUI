@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/setup_storage_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <Button android:id="@+id/btn_back" android:background="@drawable/btn_back" android:layout_width="60px" android:layout_height="60px" android:layout_marginLeft="11px" android:layout_marginTop="7px"/>
+    <TextView android:textSize="25px" android:textColor="#039083" android:gravity="center_vertical" android:id="@+id/tv_back" android:layout_width="700px" android:layout_height="56px" android:layout_marginLeft="100px" android:layout_marginTop="6px" android:text="@string/back_title"/>
+    <TextView android:textSize="50px" android:textColor="#6d6d6d" android:ellipsize="end" android:gravity="left" android:id="@+id/tv_cur" android:layout_width="484px" android:layout_height="66px" android:layout_marginLeft="108px" android:layout_marginTop="227px" android:singleLine="true"/>
+    <TextView android:textSize="25px" android:textColor="@android:color/black" android:ellipsize="end" android:gravity="left" android:id="@+id/tv_total" android:layout_width="463px" android:layout_height="32px" android:layout_marginLeft="129px" android:layout_marginTop="307px" android:singleLine="true"/>
+    <ImageView android:id="@+id/img_pro" android:layout_width="175px" android:layout_height="175px" android:layout_marginLeft="739px" android:layout_marginTop="210px"/>
+    <TextView android:textSize="38px" android:textColor="#039083" android:ellipsize="end" android:gravity="center" android:id="@+id/tv_pro" android:layout_width="175px" android:layout_height="45px" android:layout_marginLeft="739px" android:layout_marginTop="261px" android:singleLine="true"/>
+    <TextView android:textSize="25px" android:textColor="#039083" android:ellipsize="end" android:gravity="center" android:layout_width="175px" android:layout_height="31px" android:layout_marginLeft="739px" android:layout_marginTop="313px" android:text="@string/already_used" android:singleLine="true"/>
+</RelativeLayout>

@@ -18,7 +18,6 @@ import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
 import com.ts.canview.CanItemSeekBar;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
@@ -60,7 +59,7 @@ public class CanLexusIs250CarDevActivity extends CanBaseActivity implements User
     private static long mLastTick = 0;
     public static boolean mfgFinish = false;
     public static boolean mfgShow = false;
-    private String[] BtnName = {"TRAF", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, "SCAN", "UP", "AUDIO", "DN", "P.SEL", "ASL", "MUTE"};
+    private String[] BtnName = {"TRAF", "1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, "SCAN", "UP", "AUDIO", "DN", "P.SEL", "ASL", "MUTE"};
     /* access modifiers changed from: private */
     public String[] CdSta = {"LOAD", "READ", "EJECT", "NO DISC", "CHECK DISC", "BUSY", "PLAY"};
     /* access modifiers changed from: private */
@@ -124,7 +123,7 @@ public class CanLexusIs250CarDevActivity extends CanBaseActivity implements User
                     } else {
                         CanLexusIs250CarDevActivity.this.mTextV2.setText(String.format("CH%d", new Object[]{Integer.valueOf(CanLexusIs250CarDevActivity.this.mCurMedia.Pre)}));
                     }
-                    int Qian = (CanLexusIs250CarDevActivity.this.mCurMedia.Frq / MediaDef.PROGRESS_MAX) % 10;
+                    int Qian = (CanLexusIs250CarDevActivity.this.mCurMedia.Frq / 1000) % 10;
                     int Bai = (CanLexusIs250CarDevActivity.this.mCurMedia.Frq / 100) % 10;
                     int Shi = (CanLexusIs250CarDevActivity.this.mCurMedia.Frq / 10) % 10;
                     int Ge = CanLexusIs250CarDevActivity.this.mCurMedia.Frq % 10;
@@ -133,7 +132,7 @@ public class CanLexusIs250CarDevActivity extends CanBaseActivity implements User
                             view.drawImage(CanLexusIs250CarDevActivity.mFreqNumArr[1], 444, 0);
                         }
                         view.drawImage(CanLexusIs250CarDevActivity.mFreqNumArr[Bai], 492, 0);
-                        view.drawImage(CanLexusIs250CarDevActivity.mFreqNumArr[Shi], CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 0);
+                        view.drawImage(CanLexusIs250CarDevActivity.mFreqNumArr[Shi], 540, 0);
                         view.drawImage(CanLexusIs250CarDevActivity.mFreqNumArr[Ge], 588, 0);
                     } else {
                         if (CanLexusIs250CarDevActivity.this.mCurMedia.Frq >= 10000) {
@@ -205,7 +204,7 @@ public class CanLexusIs250CarDevActivity extends CanBaseActivity implements User
         this.mFADItem = AddSeekBar(60, 255, -7, 7, 22);
         this.mBALItem = AddSeekBar(60, KeyDef.RKEY_MEDIA_SLOW, -7, 7, 23);
         this.mAudioTexts[0] = AddText("低音", 430, 95, 24);
-        this.mAudioTexts[1] = AddText("中音", 430, (int) Can.CAN_CHANA_CS75_WC, 24);
+        this.mAudioTexts[1] = AddText("中音", 430, 160, 24);
         this.mAudioTexts[2] = AddText("高音", 430, (int) Can.CAN_BENZ_SMART_OD, 24);
         this.mAudioTexts[3] = AddText("前后", 430, 290, 24);
         this.mAudioTexts[4] = AddText("左右", 430, 355, 24);

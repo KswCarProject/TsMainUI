@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="tpms_general_disp">
-        <item>TEMP Unit</item>
-        <item>Pressure Unit</item>
-        <item>MAX TEMP</item>
-        <item>MAX Pressure</item>
-        <item>MIN Pressure</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>Flat Tire</item>
-        <item>Low Voltage</item>
-        <item>No Signal</item>
-        <item>Low Pressure</item>
-        <item>High Pressure</item>
-        <item>Start study</item>
-        <item>studying</item>
-    </array>
     <array name="set_main_options">
         <item>כללי</item>
         <item>תצוגה</item>
@@ -28,7 +12,7 @@
         <item>אודות ההתקן</item>
     </array>
     <array name="set_genera_options">
-        <item>זמן המתנה</item>
+        <item>מצב שינה</item>
         <item>זיהוי דיבור</item>
         <item>AssistiveTouch</item>
         <item>עוצמה בנסיעה לאחור</item>
@@ -59,6 +43,7 @@
         <item>מזגן</item>
         <item>וידאו אחורי</item>
         <item>מצלמה קדמית</item>
+        <item>סוג המצלמה</item>
     </array>
     <array name="set_navi_options">
         <item>הפעלה אוטומטית ניווט</item>
@@ -88,5 +73,22 @@
         <item>רווח</item>
         <item>תדר גבוה</item>
         <item>רווח</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+        <item>High Temp</item>
     </array>
 </resources>

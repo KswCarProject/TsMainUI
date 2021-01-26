@@ -2,9 +2,12 @@ package com.ts.can.mzd.cx4.bnr;
 
 import android.app.Activity;
 import android.os.SystemClock;
+import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -24,6 +27,7 @@ import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanMzdCx4BnrDetailInfoView extends CanRelativeCarInfoView {
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private static long mLastWarnTime = 0;
     private static boolean mWin;
     private static boolean mfgJump = false;
@@ -76,9 +80,19 @@ public class CanMzdCx4BnrDetailInfoView extends CanRelativeCarInfoView {
         this.mScreenHeight = outMetrics.heightPixels;
         if (this.mScreenHeight == 400) {
             BaseUI_1024x400();
-        } else {
-            BaseUI();
+            return;
         }
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
+        BaseUI();
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     private int getDimen(int resId) {
@@ -95,7 +109,7 @@ public class CanMzdCx4BnrDetailInfoView extends CanRelativeCarInfoView {
         this.mParkingIcon = addImageState(516, Can.CAN_BENC_ZMYT, R.drawable.canvw_parking_up_1024x400, R.drawable.canvw_parking_dn_1024x400);
         this.mTrunkUpIcon = addImageState(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6, Can.CAN_BYD_M6_DJ, R.drawable.canvw_trunk_up_1024x400, R.drawable.canvw_trunk_dn_1024x400);
         addImage(KeyDef.RKEY_MEDIA_STOP, 119, R.drawable.canvw_car3_up_1024x400);
-        this.mDoorIcons[0] = addImage(KeyDef.RKEY_MEDIA_SUBT, 184, R.drawable.canvw_left_door_dn_1024x400);
+        this.mDoorIcons[0] = addImage(310, 184, R.drawable.canvw_left_door_dn_1024x400);
         this.mDoorIcons[1] = addImage(416, 184, R.drawable.canvw_right_door_dn_1024x400);
         this.mDoorIcons[2] = addImage(KeyDef.RKEY_EJECT, Can.CAN_JIANGLING_MYX, R.drawable.canvw_left_door01_dn_1024x400);
         this.mDoorIcons[3] = addImage(410, Can.CAN_JIANGLING_MYX, R.drawable.canvw_right_door01_dn_1024x400);
@@ -109,53 +123,51 @@ public class CanMzdCx4BnrDetailInfoView extends CanRelativeCarInfoView {
         this.mTempItem = addTextView(65, Can.CAN_BENC_ZMYT, R.string.can_out_temp, -1, false);
         this.mElctricItem = addTextView(148, 66, R.string.can_battery, -1, false);
         this.mSeatBeltItem = addTextView(KeyDef.RKEY_EJECT, 5, R.string.can_drive_safe_belt, -1, false);
-        this.mSideBeltItem = addTextView(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 66, R.string.can_passenger_safe_belt, -1, false);
+        this.mSideBeltItem = addTextView(540, 66, R.string.can_passenger_safe_belt, -1, false);
         this.mParkingItem = addTextView(620, 146, R.string.can_brake, -1, false);
         this.mTrunkUpItem = addTextView(CanCameraUI.BTN_LANDWIND_2D3D, Can.CAN_NISSAN_XFY, R.string.can_trunk, -1, false);
-        this.mRPMItem = addTextView(KeyDef.SKEY_RETURN_2, 32, R.string.can_rpm, -16777216, true);
-        this.mSpeedItem = addTextView(KeyDef.SKEY_RETURN_2, 135, R.string.can_curspeed, -16777216, true);
-        this.mDistanceItem = addTextView(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_driving_mileage, -16777216, true);
+        this.mRPMItem = addTextView(KeyDef.SKEY_RETURN_2, 32, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mSpeedItem = addTextView(KeyDef.SKEY_RETURN_2, 135, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mDistanceItem = addTextView(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private void BaseUI() {
         this.mManager.GetLayout().setBackgroundResource(R.drawable.can_vw_carinfo_bg);
-        int dx = getDimen(R.dimen.x_vw_carinfo_flg);
-        int dy = getDimen(R.dimen.y_vw_carinfo_flg);
-        this.mWaterIcon = addImageState(dx + 181, dy + KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_up);
-        this.mMachineIcon = addImageState(dx + 217, dy + 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_dn);
-        this.mBatteryIcon = addImageState(dx + KeyDef.RKEY_ANGLEDN, dy + 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
-        this.mSeatBeltIcon = addImageState(dx + 446, dy + 33, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
-        this.mSideBeltIcon = addImageState(dx + 594, dy + 71, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
-        this.mParkingIcon = addImageState(dx + 696, dy + 173, R.drawable.canvw_parking_up, R.drawable.canvw_parking_dn);
-        this.mTrunkUpIcon = addImageState(dx + 734, dy + KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_trunk_up, R.drawable.canvw_trunk_dn);
-        addImage(dx + 432, getDimen(R.dimen.y1_vw_carinfo_flg) + 145, R.drawable.canvw_car3_up);
-        this.mDoorIcons[0] = addImage(dx + 422, getDimen(R.dimen.y1_vw_carinfo_flg) + Can.CAN_FLAT_WC, R.drawable.canvw_left_door_dn);
-        this.mDoorIcons[1] = addImage(dx + CanCameraUI.BTN_TRUMPCHI_GS7_MODE4, getDimen(R.dimen.y1_vw_carinfo_flg) + Can.CAN_FLAT_WC, R.drawable.canvw_right_door_dn);
-        this.mDoorIcons[2] = addImage(dx + 428, getDimen(R.dimen.y1_vw_carinfo_flg) + 290, R.drawable.canvw_left_door01_dn);
-        this.mDoorIcons[3] = addImage(dx + 555, getDimen(R.dimen.y1_vw_carinfo_flg) + 290, R.drawable.canvw_right_door01_dn);
-        this.mDoorIcons[4] = addImage(dx + 469, getDimen(R.dimen.y1_vw_carinfo_flg) + 373, R.drawable.canvw_car3trunk_dn);
-        this.mDoorIcons[5] = addImage(dx + 457, getDimen(R.dimen.y1_vw_carinfo_flg) + Can.CAN_FORD_WC, R.drawable.canvw_head_door);
+        this.mWaterIcon = addImageState(181, KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_up);
+        this.mMachineIcon = addImageState(217, 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_dn);
+        this.mBatteryIcon = addImageState(KeyDef.RKEY_ANGLEDN, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
+        this.mSeatBeltIcon = addImageState(446, 33, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
+        this.mSideBeltIcon = addImageState(594, 71, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
+        this.mParkingIcon = addImageState(696, 173, R.drawable.canvw_parking_up, R.drawable.canvw_parking_dn);
+        this.mTrunkUpIcon = addImageState(734, KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_trunk_up, R.drawable.canvw_trunk_dn);
+        addImage(432, 145, R.drawable.canvw_car3_up);
+        this.mDoorIcons[0] = addImage(422, Can.CAN_FLAT_WC, R.drawable.canvw_left_door_dn);
+        this.mDoorIcons[1] = addImage(CanCameraUI.BTN_TRUMPCHI_GS7_MODE4, Can.CAN_FLAT_WC, R.drawable.canvw_right_door_dn);
+        this.mDoorIcons[2] = addImage(428, 290, R.drawable.canvw_left_door01_dn);
+        this.mDoorIcons[3] = addImage(555, 290, R.drawable.canvw_right_door01_dn);
+        this.mDoorIcons[4] = addImage(469, 373, R.drawable.canvw_car3trunk_dn);
+        this.mDoorIcons[5] = addImage(457, Can.CAN_FORD_WC, R.drawable.canvw_head_door);
         showDoor(0, 0, 0, 0, 0, 0);
-        addImage(getDimen(R.dimen.x1_vw_carinfo_flg) + 11, getDimen(R.dimen.y2_vw_carinfo_flg) + 429, R.drawable.canvw_speed_up);
-        addImage(dx + 347, getDimen(R.dimen.y2_vw_carinfo_flg) + 429, R.drawable.canvw_instant_up);
-        addImage(getDimen(R.dimen.x2_vw_carinfo_flg) + 683, getDimen(R.dimen.y2_vw_carinfo_flg) + 429, R.drawable.canvw_road_haul_up);
-        this.mWaterItem = addTextView(dx + 60, dy + KeyDef.RKEY_MEDIA_SLOW, R.string.can_car_water_temp, -1, true);
-        this.mTempItem = addTextView(dx + 77, dy + 180, R.string.can_out_temp, -1, true);
-        this.mElctricItem = addTextView(dx + 218, dy + 78, R.string.can_battery, -1, false);
-        this.mSeatBeltItem = addTextView(dx + 430, dy + 5, R.string.can_drive_safe_belt, -1, false);
-        this.mSideBeltItem = addTextView(dx + 720, dy + 78, R.string.can_passenger_safe_belt, -1, false);
-        this.mParkingItem = addTextView(dx + KeyDef.SKEY_CALLDN_4, dy + 180, R.string.can_brake, -1, false);
-        this.mTrunkUpItem = addTextView(dx + 859, dy + KeyDef.RKEY_MEDIA_SLOW, R.string.can_trunk, -1, false);
-        this.mRPMItem = addTextView(getDimen(R.dimen.x1_vw_carinfo_flg) + 161, getDimen(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_rpm, -16777216, true);
-        this.mSpeedItem = addTextView(dx + 515, getDimen(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_curspeed, -16777216, true);
-        this.mDistanceItem = addTextView(getDimen(R.dimen.x2_vw_carinfo_flg) + 855, getDimen(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_driving_mileage, -16777216, true);
+        addImage(11, 429, R.drawable.canvw_speed_up);
+        addImage(347, 429, R.drawable.canvw_instant_up);
+        addImage(683, 429, R.drawable.canvw_road_haul_up);
+        this.mWaterItem = addTextView(60, KeyDef.RKEY_MEDIA_SLOW, R.string.can_car_water_temp, -1, true);
+        this.mTempItem = addTextView(77, 180, R.string.can_out_temp, -1, true);
+        this.mElctricItem = addTextView(218, 78, R.string.can_battery, -1, false);
+        this.mSeatBeltItem = addTextView(430, 5, R.string.can_drive_safe_belt, -1, false);
+        this.mSideBeltItem = addTextView(720, 78, R.string.can_passenger_safe_belt, -1, false);
+        this.mParkingItem = addTextView(KeyDef.SKEY_CALLDN_4, 180, R.string.can_brake, -1, false);
+        this.mTrunkUpItem = addTextView(859, KeyDef.RKEY_MEDIA_SLOW, R.string.can_trunk, -1, false);
+        this.mRPMItem = addTextView(161, 445, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mSpeedItem = addTextView(515, 445, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mDistanceItem = addTextView(855, 445, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private void BaseUI_1280x480() {
         this.mManager.GetLayout().setBackgroundResource(R.drawable.can_vw_carinfo_bg_1280x480);
         this.mWaterIcon = addImageState(161, KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_up);
         this.mMachineIcon = addImageState(197, 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_dn);
-        this.mBatteryIcon = addImageState(KeyDef.RKEY_LOC, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
+        this.mBatteryIcon = addImageState(298, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
         this.mSeatBeltIcon = addImageState(436, 33, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
         this.mSideBeltIcon = addImageState(CanCameraUI.BTN_CHANA_CS75_MODE5, 71, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
         this.mParkingIcon = addImageState(676, 173, R.drawable.canvw_parking_up, R.drawable.canvw_parking_dn);
@@ -170,7 +182,7 @@ public class CanMzdCx4BnrDetailInfoView extends CanRelativeCarInfoView {
         showDoor(0, 0, 0, 0, 0, 0);
         addImage(922, 38, R.drawable.canvw_speed_up);
         addImage(922, 165, R.drawable.canvw_instant_up);
-        addImage(922, KeyDef.RKEY_PRE, R.drawable.canvw_road_haul_up);
+        addImage(922, 292, R.drawable.canvw_road_haul_up);
         this.mWaterItem = addTextView(60, KeyDef.RKEY_MEDIA_SLOW, R.string.can_car_water_temp, -1, false);
         this.mTempItem = addTextView(97, 180, R.string.can_out_temp, -1, false);
         this.mElctricItem = addTextView(198, 78, R.string.can_battery, -1, false);
@@ -178,9 +190,9 @@ public class CanMzdCx4BnrDetailInfoView extends CanRelativeCarInfoView {
         this.mSideBeltItem = addTextView(CanCameraUI.BTN_CC_WC_DIRECTION1, 78, R.string.can_passenger_safe_belt, -1, false);
         this.mParkingItem = addTextView(802, 180, R.string.can_brake, -1, false);
         this.mTrunkUpItem = addTextView(KeyDef.SKEY_RETURN_1, KeyDef.RKEY_MEDIA_SLOW, R.string.can_trunk, -1, false);
-        this.mRPMItem = addTextView(1080, 57, R.string.can_rpm, -16777216, true);
-        this.mSpeedItem = addTextView(1080, 184, R.string.can_curspeed, -16777216, true);
-        this.mDistanceItem = addTextView(1080, KeyDef.RKEY_MEDIA_SEL, R.string.can_driving_mileage, -16777216, true);
+        this.mRPMItem = addTextView(1080, 57, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mSpeedItem = addTextView(1080, 184, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mDistanceItem = addTextView(1080, 311, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private void showDoor(int lf, int rf, int lr, int rr, int back, int head) {
@@ -242,7 +254,7 @@ public class CanMzdCx4BnrDetailInfoView extends CanRelativeCarInfoView {
     }
 
     private TextView addTextView(int x, int y, int textId, int color, boolean isCenterAlign) {
-        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(Can.CAN_CHANA_CS75_WC, -2);
+        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(160, -2);
         layoutLp.leftMargin = x;
         layoutLp.topMargin = y;
         LinearLayout layout = new LinearLayout(getActivity());

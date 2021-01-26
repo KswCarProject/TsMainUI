@@ -13,7 +13,7 @@ public abstract class T5 extends Dialog {
     public static int T5 = 260;
 
     /* renamed from: T  reason: collision with root package name */
-    private boolean f501T;
+    private boolean f505T;
     protected boolean TE;
     protected boolean TZ;
     protected View Tk;
@@ -178,7 +178,7 @@ public abstract class T5 extends Dialog {
 
     public void show() {
         super.show();
-        if (this.f501T && this.Tv != null) {
+        if (this.f505T && this.Tv != null) {
             this.Tv.T();
         }
         this.Tr = true;

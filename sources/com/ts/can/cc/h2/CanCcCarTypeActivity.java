@@ -25,21 +25,25 @@ import com.yyw.ts70xhw.Mcu;
 
 public class CanCcCarTypeActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
     public static final int ITEM_AMP_SET = 4;
+    public static final int ITEM_AVM_SET = 8;
     public static final int ITEM_CARCHAIR_SET = 5;
     public static final int ITEM_CARSTATUS_SET = 6;
     public static final int ITEM_CAR_INFO = 3;
     public static final int ITEM_CAR_SET = 2;
-    private static final int ITEM_MAX = 6;
+    public static final int ITEM_DRIVE_ASSIST = 7;
+    private static final int ITEM_MAX = 8;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_TYPE = 1;
     public static final String TAG = "CanCcCarTypeActivity";
     private String[] mCarTypeArray;
     private CanItemTextBtnList mItemAmpSet;
+    private CanItemTextBtnList mItemAvmSet;
     private CanItemTextBtnList mItemCarChairSet;
     private CanItemTextBtnList mItemCarInfo;
     private CanItemTextBtnList mItemCarSet;
     private CanItemTextBtnList mItemCarStatusSet;
     private CanItemCarType mItemCarType;
+    private CanItemTextBtnList mItemDriveAssist;
     private CanScrollList mManager;
     private boolean mbLayout;
 
@@ -96,11 +100,17 @@ public class CanCcCarTypeActivity extends CanBaseActivity implements View.OnClic
         this.mItemCarStatusSet = new CanItemTextBtnList((Context) this, R.string.can_seat_status);
         this.mItemCarStatusSet.SetIdClickListener(this, 6);
         this.mManager.AddView(this.mItemCarStatusSet.GetView());
+        this.mItemDriveAssist = new CanItemTextBtnList((Context) this, R.string.can_jsfz);
+        this.mItemDriveAssist.SetIdClickListener(this, 7);
+        this.mManager.AddView(this.mItemDriveAssist.GetView());
+        this.mItemAvmSet = new CanItemTextBtnList((Context) this, R.string.can_honda_qjyxxtsz);
+        this.mItemAvmSet.SetIdClickListener(this, 8);
+        this.mManager.AddView(this.mItemAvmSet.GetView());
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 8; i++) {
             ShowItem(i);
         }
     }
@@ -113,12 +123,12 @@ public class CanCcCarTypeActivity extends CanBaseActivity implements View.OnClic
                 ret = 1;
                 break;
             case 2:
-                if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 13 || CanJni.GetSubType() == 14) {
                     ret = 1;
                     break;
                 }
             case 3:
-                if (CanJni.GetSubType() == 8 || CanJni.GetSubType() == 3 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 8 || CanJni.GetSubType() == 3 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 13) {
                     ret = 1;
                     break;
                 }
@@ -134,6 +144,16 @@ public class CanCcCarTypeActivity extends CanBaseActivity implements View.OnClic
                 }
             case 6:
                 if (CanJni.GetSubType() == 10 || CanJni.GetSubType() == 8) {
+                    ret = 1;
+                    break;
+                }
+            case 7:
+                if (CanJni.GetSubType() == 14 || CanJni.GetSubType() == 8) {
+                    ret = 1;
+                    break;
+                }
+            case 8:
+                if (CanJni.GetSubType() == 14 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 8) {
                     ret = 1;
                     break;
                 }
@@ -159,6 +179,12 @@ public class CanCcCarTypeActivity extends CanBaseActivity implements View.OnClic
                 return;
             case 6:
                 this.mItemCarStatusSet.ShowGone(show);
+                return;
+            case 7:
+                this.mItemDriveAssist.ShowGone(show);
+                return;
+            case 8:
+                this.mItemAvmSet.ShowGone(show);
                 return;
             default:
                 return;
@@ -197,12 +223,16 @@ public class CanCcCarTypeActivity extends CanBaseActivity implements View.OnClic
                 enterSubWin(CanCCH9RzcAmpSetActivity.class);
                 return;
             case 5:
-                CanFunc.getInstance();
                 CanFunc.showCanActivity(CanCarInfoSub1Activity.class, -1);
                 return;
             case 6:
-                CanFunc.getInstance();
                 CanFunc.showCanActivity(CanCarInfoSub1Activity.class, -2);
+                return;
+            case 7:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 1);
+                return;
+            case 8:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 2);
                 return;
             default:
                 return;

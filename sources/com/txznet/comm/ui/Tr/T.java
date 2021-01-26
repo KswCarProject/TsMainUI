@@ -1,5 +1,6 @@
 package com.txznet.comm.ui.Tr;
 
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import com.txznet.comm.ui.T9.Tk;
 import com.txznet.comm.ui.TE.Tr;
@@ -10,10 +11,10 @@ public class T {
     private static T Tn;
 
     /* renamed from: T  reason: collision with root package name */
-    HashMap<String, Object> f560T = null;
+    HashMap<String, Object> f564T = null;
     private Object T9 = new Object();
     private Float Tk = null;
-    public int Tr = -16777216;
+    public int Tr = ViewCompat.MEASURED_STATE_MASK;
     public int Ty = 15;
 
     private T() {
@@ -41,15 +42,15 @@ public class T {
     }
 
     private void Ty() {
-        this.f560T = com.txznet.comm.ui.TE.T.T(this.f560T, com.txznet.comm.Ty.T.T9);
+        this.f564T = com.txznet.comm.ui.TE.T.T(this.f564T, com.txznet.comm.Ty.T.T9);
     }
 
     private void Tn() {
-        this.f560T = com.txznet.comm.ui.TE.T.T(this.f560T, "/etc/txz/theme.cfg");
-        this.f560T = com.txznet.comm.ui.TE.T.T(this.f560T, "/system/txz/theme.cfg");
-        this.f560T = com.txznet.comm.ui.TE.T.T(this.f560T, "/system/app/theme.cfg");
-        this.f560T = com.txznet.comm.ui.TE.T.T(this.f560T, "/custom/etc/theme.cfg");
-        this.f560T = com.txznet.comm.ui.TE.T.T(this.f560T, "/vendor/txz/theme.cfg");
+        this.f564T = com.txznet.comm.ui.TE.T.T(this.f564T, "/etc/txz/theme.cfg");
+        this.f564T = com.txznet.comm.ui.TE.T.T(this.f564T, "/system/txz/theme.cfg");
+        this.f564T = com.txznet.comm.ui.TE.T.T(this.f564T, "/system/app/theme.cfg");
+        this.f564T = com.txznet.comm.ui.TE.T.T(this.f564T, "/custom/etc/theme.cfg");
+        this.f564T = com.txznet.comm.ui.TE.T.T(this.f564T, "/vendor/txz/theme.cfg");
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for TypeSearchVarInfo{r7v17, resolved type: java.lang.Object} */
@@ -67,7 +68,7 @@ public class T {
             int r7 = com.txznet.comm.ui.TE.T.T()
             if (r7 != r10) goto L_0x0023
             java.util.HashMap r7 = com.txznet.comm.ui.TZ.T.Ty.Tr()
-            r12.f560T = r7
+            r12.f564T = r7
         L_0x0014:
             java.util.HashMap r2 = new java.util.HashMap
             r2.<init>()
@@ -75,108 +76,108 @@ public class T {
             boolean r7 = android.text.TextUtils.isEmpty(r6)
             if (r7 == 0) goto L_0x004a
         L_0x0020:
-            if (r2 != 0) goto L_0x00f6
+            if (r2 != 0) goto L_0x00fd
         L_0x0022:
             return
         L_0x0023:
             int r7 = com.txznet.comm.ui.TE.T.T()
             if (r7 != r8) goto L_0x0030
             java.util.HashMap r7 = com.txznet.comm.ui.TZ.T.Tn.Tr()
-            r12.f560T = r7
+            r12.f564T = r7
             goto L_0x0014
         L_0x0030:
             int r7 = com.txznet.comm.ui.TE.T.T()
             if (r7 != r11) goto L_0x003d
             java.util.HashMap r7 = com.txznet.comm.ui.TZ.T.Tr.Tr()
-            r12.f560T = r7
+            r12.f564T = r7
             goto L_0x0014
         L_0x003d:
             int r7 = com.txznet.comm.ui.TE.T.T()
             if (r7 != r9) goto L_0x0014
             java.util.HashMap r7 = com.txznet.comm.ui.TZ.T.T.T()
-            r12.f560T = r7
+            r12.f564T = r7
             goto L_0x0014
         L_0x004a:
-            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f0 }
-            if (r7 != r10) goto L_0x0084
-            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f0 }
-            r8.<init>()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f0 }
+            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f7 }
+            if (r7 != r10) goto L_0x0087
+            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f7 }
+            r8.<init>()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f7 }
             java.lang.String r9 = "ThemeConfigLarge"
-            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f0 }
-            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f0 }
-        L_0x006b:
+            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f7 }
+            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f7 }
+        L_0x006c:
             if (r1 == 0) goto L_0x0020
             java.lang.String r7 = "getConfig"
             r8 = 0
-            java.lang.Class[] r8 = new java.lang.Class[r8]     // Catch:{ Exception -> 0x00ea }
-            java.lang.reflect.Method r4 = r1.getMethod(r7, r8)     // Catch:{ Exception -> 0x00ea }
+            java.lang.Class[] r8 = new java.lang.Class[r8]     // Catch:{ Exception -> 0x00f1 }
+            java.lang.reflect.Method r4 = r1.getMethod(r7, r8)     // Catch:{ Exception -> 0x00f1 }
             java.lang.String r7 = "getConfig"
             r8 = 0
-            java.lang.Object[] r8 = new java.lang.Object[r8]     // Catch:{ Exception -> 0x00ea }
-            java.lang.Object r7 = r4.invoke(r7, r8)     // Catch:{ Exception -> 0x00ea }
+            java.lang.Object[] r8 = new java.lang.Object[r8]     // Catch:{ Exception -> 0x00f1 }
+            java.lang.Object r7 = r4.invoke(r7, r8)     // Catch:{ Exception -> 0x00f1 }
             r0 = r7
-            java.util.HashMap r0 = (java.util.HashMap) r0     // Catch:{ Exception -> 0x00ea }
+            java.util.HashMap r0 = (java.util.HashMap) r0     // Catch:{ Exception -> 0x00f1 }
             r2 = r0
             goto L_0x0020
-        L_0x0084:
-            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f0 }
-            if (r7 != r8) goto L_0x00a6
-            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f0 }
-            r8.<init>()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f0 }
+        L_0x0087:
+            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f7 }
+            if (r7 != r8) goto L_0x00aa
+            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f7 }
+            r8.<init>()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f7 }
             java.lang.String r9 = "ThemeConfigSmall"
-            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f0 }
-            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f0 }
-            goto L_0x006b
-        L_0x00a6:
-            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f0 }
-            if (r7 != r11) goto L_0x00c8
-            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f0 }
-            r8.<init>()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f0 }
+            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f7 }
+            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f7 }
+            goto L_0x006c
+        L_0x00aa:
+            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f7 }
+            if (r7 != r11) goto L_0x00cd
+            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f7 }
+            r8.<init>()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f7 }
             java.lang.String r9 = "ThemeConfigCar"
-            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f0 }
-            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f0 }
-            goto L_0x006b
-        L_0x00c8:
-            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f0 }
-            if (r7 != r9) goto L_0x006b
-            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f0 }
-            r8.<init>()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f0 }
+            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f7 }
+            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f7 }
+            goto L_0x006c
+        L_0x00cd:
+            int r7 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x00f7 }
+            if (r7 != r9) goto L_0x006c
+            com.txznet.comm.ui.Tk.T r7 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00f7 }
+            r8.<init>()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.StringBuilder r8 = r8.append(r6)     // Catch:{ Exception -> 0x00f7 }
             java.lang.String r9 = "ThemeConfig"
-            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f0 }
-            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f0 }
-            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f0 }
-            goto L_0x006b
-        L_0x00ea:
+            java.lang.StringBuilder r8 = r8.append(r9)     // Catch:{ Exception -> 0x00f7 }
+            java.lang.String r8 = r8.toString()     // Catch:{ Exception -> 0x00f7 }
+            java.lang.Class r1 = r7.Ty(r8)     // Catch:{ Exception -> 0x00f7 }
+            goto L_0x006c
+        L_0x00f1:
             r3 = move-exception
-            r3.printStackTrace()     // Catch:{ Exception -> 0x00f0 }
+            r3.printStackTrace()     // Catch:{ Exception -> 0x00f7 }
             goto L_0x0020
-        L_0x00f0:
+        L_0x00f7:
             r3 = move-exception
             r3.printStackTrace()
             goto L_0x0020
-        L_0x00f6:
+        L_0x00fd:
             java.util.Set r7 = r2.keySet()
             java.util.Iterator r7 = r7.iterator()
-        L_0x00fe:
+        L_0x0105:
             boolean r8 = r7.hasNext()
             if (r8 == 0) goto L_0x0022
             java.lang.Object r5 = r7.next()
             java.lang.String r5 = (java.lang.String) r5
-            java.util.HashMap<java.lang.String, java.lang.Object> r8 = r12.f560T
+            java.util.HashMap<java.lang.String, java.lang.Object> r8 = r12.f564T
             java.lang.Object r9 = r2.get(r5)
             r8.put(r5, r9)
-            goto L_0x00fe
+            goto L_0x0105
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.ui.Tr.T.T9():void");
     }
@@ -185,14 +186,14 @@ public class T {
         Object obj = null;
         synchronized (this.T9) {
             if (!TextUtils.isEmpty(attrName)) {
-                if (this.f560T == null) {
+                if (this.f564T == null) {
                     if (com.txznet.comm.ui.TE.T.Tr(attrName) == 2) {
                         obj = Float.valueOf(T(this.Ty));
                     } else if (com.txznet.comm.ui.TE.T.Tr(attrName) == 1) {
                         obj = Integer.valueOf(this.Tr);
                     }
                 }
-                if (this.f560T == null || this.f560T.get(attrName) == null) {
+                if (this.f564T == null || this.f564T.get(attrName) == null) {
                     int splitIndex = attrName.indexOf(".");
                     if (splitIndex != -1 && splitIndex < attrName.length()) {
                         obj = T(attrName.substring(splitIndex + 1, attrName.length()));
@@ -202,7 +203,7 @@ public class T {
                         obj = Float.valueOf(T(this.Ty));
                     }
                 } else {
-                    obj = com.txznet.comm.ui.TE.T.Tr(attrName) == 2 ? Float.valueOf(T(((Integer) this.f560T.get(attrName)).intValue())) : this.f560T.get(attrName);
+                    obj = com.txznet.comm.ui.TE.T.Tr(attrName) == 2 ? Float.valueOf(T(((Integer) this.f564T.get(attrName)).intValue())) : this.f564T.get(attrName);
                 }
             }
         }
@@ -215,9 +216,9 @@ public class T {
             if (TextUtils.isEmpty(colorName)) {
                 Ty2 = this.Tr;
             } else {
-                if (!(this.f560T == null || this.f560T.get(colorName) == null)) {
+                if (!(this.f564T == null || this.f564T.get(colorName) == null)) {
                     try {
-                        Ty2 = ((Integer) this.f560T.get(colorName)).intValue();
+                        Ty2 = ((Integer) this.f564T.get(colorName)).intValue();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

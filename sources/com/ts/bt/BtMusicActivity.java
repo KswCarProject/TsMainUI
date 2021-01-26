@@ -1,6 +1,7 @@
 package com.ts.bt;
 
 import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,9 +11,10 @@ import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.main.common.MainSet;
 import com.ts.main.common.MainVolume;
 
-@SuppressLint({"NewApi"})
+@SuppressLint({"NewApi", "Override"})
 public class BtMusicActivity extends BtBaseActivity implements View.OnClickListener, UserCallBack {
     public static final int BT_ACTIVITY_ID = 7;
     public static final byte CMD_UPDATE_PLAY_POSITION = 2;
@@ -35,14 +37,39 @@ public class BtMusicActivity extends BtBaseActivity implements View.OnClickListe
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bt_music);
-        initView();
+        this.mIsInMultiWindowMode = isInMultiWindowMode();
+        updateLayout(this.mIsInMultiWindowMode);
         if (!this.bt.isConnected()) {
             showActivity(1);
             finish();
         } else if (this.D.booleanValue()) {
             Log.d(TAG, "+ onCreat()+");
         }
+    }
+
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
+        this.mIsInMultiWindowMode = isInMultiWindowMode;
+        updateMultiChange(isInMultiWindowMode);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateMultiChange(boolean isInMultiWindowMode) {
+        updateLayout(isInMultiWindowMode);
+        MainSet.PushActivityForMul(5, isInMultiWindowMode());
+        SubItemsInit(this, 7);
+        resetData();
+        UpdateUI();
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateLayout(boolean isInMultiWindowMode) {
+        if (isInMultiWindowMode) {
+            setContentView(R.layout.activity_bt_music_s);
+        } else {
+            setContentView(R.layout.activity_bt_music);
+        }
+        initView();
     }
 
     /* access modifiers changed from: protected */
@@ -66,7 +93,7 @@ public class BtMusicActivity extends BtBaseActivity implements View.OnClickListe
     public void onResume() {
         super.onResume();
         SubItemsInit(this, 7);
-        if (this.isShowActivity) {
+        if (this.isShowActivity && !this.mIsInMultiWindowMode) {
             EnterSubFocus();
         }
         if (this.D.booleanValue()) {
@@ -74,7 +101,7 @@ public class BtMusicActivity extends BtBaseActivity implements View.OnClickListe
         }
         this.bt.regMetadataCallback();
         Evc.GetInstance().evol_workmode_set(5);
-        if (this.bt.getMusicState() != 1) {
+        if (!this.bt.isBtMusicPlaying()) {
             this.bt.musicPlay();
         }
         UpdateUI();
@@ -109,8 +136,10 @@ public class BtMusicActivity extends BtBaseActivity implements View.OnClickListe
         } else if (id == R.id.btn_music_mute) {
             MainVolume.GetInstance().VolWinShow();
         }
-        this.mbSubFocus = 2;
-        updateFocus(v);
+        if (!isInMultiWindowMode()) {
+            this.mbSubFocus = 2;
+            updateFocus(v);
+        }
     }
 
     private void initView() {
@@ -128,11 +157,13 @@ public class BtMusicActivity extends BtBaseActivity implements View.OnClickListe
         this.mTvName = (TextView) findViewById(R.id.tv_music_title);
         this.mTvAlbum = (TextView) findViewById(R.id.tv_music_icon_album);
         this.mTvArtist = (TextView) findViewById(R.id.tv_music_icon_artist);
-        this.mFocusView[0] = this.prevbutton;
-        this.mFocusView[1] = this.playbutton;
-        this.mFocusView[2] = this.pausebutton;
-        this.mFocusView[3] = this.nextbutton;
-        this.mFocusView[4] = this.mutebutton;
+        if (!isInMultiWindowMode()) {
+            this.mFocusView[0] = this.prevbutton;
+            this.mFocusView[1] = this.playbutton;
+            this.mFocusView[2] = this.pausebutton;
+            this.mFocusView[3] = this.nextbutton;
+            this.mFocusView[4] = this.mutebutton;
+        }
     }
 
     public void onTimer() {

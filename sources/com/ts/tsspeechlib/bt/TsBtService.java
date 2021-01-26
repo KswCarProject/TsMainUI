@@ -6,13 +6,13 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
 import com.ts.bt.BtExe;
-import com.ts.main.common.WinShow;
 import com.ts.tsspeechlib.bt.ITsSpeechBt;
 import java.util.List;
 
 public class TsBtService extends Service {
     private static final String ACTION_CLOSE_BT = "com.ts.speech.action.closebt";
     private static final String ACTION_CLOSE_BTMUISC = "com.ts.speech.action.closebtmusic";
+    public static final String BROADCAST_LANCHER_FUNC_CLOSEMEDIA = "forfan.intent.action.CLOSEMEDIA";
     private mTsSpeechBt mBinder;
 
     public IBinder onBind(Intent arg0) {
@@ -100,8 +100,13 @@ public class TsBtService extends Service {
         }
 
         public void closeBtMusic() throws RemoteException {
-            WinShow.TsEnterMode(0);
-            TsBtService.this.sendBroadcast(new Intent(TsBtService.ACTION_CLOSE_BTMUISC));
+            Intent intent = new Intent("forfan.intent.action.CLOSEMEDIA");
+            intent.putExtra("mode", 5);
+            TsBtService.this.sendBroadcast(intent);
+        }
+
+        public List<PhonebookData> getBtPbList() throws RemoteException {
+            return BtExe.getBtInstance().getPbData();
         }
     }
 }

@@ -135,7 +135,7 @@ public class Tq extends Tu {
         }
         TO poiListViewData = (TO) data;
         this.Ti = com.txznet.comm.ui.TE.Tn.T();
-        if (this.Ti || !poiListViewData.f439T) {
+        if (this.Ti || !poiListViewData.f443T) {
             z = false;
         } else {
             z = true;
@@ -156,20 +156,20 @@ public class Tq extends Tu {
         llContent.setLayoutAnimation(Ty.T());
         llContent.setLayoutAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                if (Tq.this.f463T != null) {
-                    Tq.this.f463T.T(animation, 1);
+                if (Tq.this.f467T != null) {
+                    Tq.this.f467T.T(animation, 1);
                 }
             }
 
             public void onAnimationRepeat(Animation animation) {
-                if (Tq.this.f463T != null) {
-                    Tq.this.f463T.T(animation, 2);
+                if (Tq.this.f467T != null) {
+                    Tq.this.f467T.T(animation, 2);
                 }
             }
 
             public void onAnimationEnd(Animation animation) {
-                if (Tq.this.f463T != null) {
-                    Tq.this.f463T.T(animation, 3);
+                if (Tq.this.f467T != null) {
+                    Tq.this.f467T.T(animation, 3);
                 }
             }
         });
@@ -188,7 +188,7 @@ public class Tq extends Tu {
             this.TE.add(itemView);
         }
         Tn.T viewAdapter = new Tn.T();
-        viewAdapter.f462T = data.Ty();
+        viewAdapter.f466T = data.Ty();
         viewAdapter.Tr = llLayout;
         viewAdapter.Ty = true;
         viewAdapter.Tn = T9();

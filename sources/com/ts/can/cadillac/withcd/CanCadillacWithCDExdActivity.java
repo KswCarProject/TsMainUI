@@ -20,6 +20,7 @@ import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
 import com.ts.can.CanIF;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
@@ -103,10 +104,10 @@ public class CanCadillacWithCDExdActivity extends CanBaseActivity implements Use
         this.mBtnNext = addButton(443, 275, R.drawable.cad_ac_next_up, R.drawable.cad_ac_next_dn, 5);
         this.mBtnSelInc = addButton(705, 275, R.drawable.cad_ac_dn_up, R.drawable.cad_ac_dn_dn, 6);
         this.mBtnSelDec = addButton(516, 275, R.drawable.cad_ac_up_up, R.drawable.cad_ac_up_dn, 7);
-        this.mBtnRadio = addButton(163, 370, R.drawable.cad_ac_radio_up, R.drawable.cad_ac_radio_dn, 8);
-        this.mBtnMedia = addButton(274, 370, R.drawable.cad_ac_media_up, R.drawable.cad_ac_media_dn, 9);
-        this.mBtnPhone = addButton(385, 370, R.drawable.cad_ac_phone_up, R.drawable.cad_ac_phone_dn, 10);
-        this.mBtnBack = addButton(496, 370, R.drawable.cad_ac_back_up, R.drawable.cad_ac_back_dn, 11);
+        this.mBtnRadio = addButton(163, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_radio_up, R.drawable.cad_ac_radio_dn, 8);
+        this.mBtnMedia = addButton(274, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_media_up, R.drawable.cad_ac_media_dn, 9);
+        this.mBtnPhone = addButton(385, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_phone_up, R.drawable.cad_ac_phone_dn, 10);
+        this.mBtnBack = addButton(496, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.cad_ac_back_up, R.drawable.cad_ac_back_dn, 11);
         this.mBtnPower = addButton(76, 268, R.drawable.cad_ac_shut_up, R.drawable.cad_ac_shut_dn, 18);
         this.mBtnMenu = addButton(CanCameraUI.BTN_VW_WC_MODE2, 268, R.drawable.cad_ac_menu_up, R.drawable.cad_ac_menu_dn, 19);
         for (int i = 0; i < 6; i++) {
@@ -150,7 +151,7 @@ public class CanCadillacWithCDExdActivity extends CanBaseActivity implements Use
         this.mBtnSelInc = addButton(913, 129, R.drawable.xjr_kdlk_up_up, R.drawable.xjr_kdlk_up_dn, 6);
         this.mBtnSelDec = addButton(913, 280, R.drawable.xjr_kdlk_down_up, R.drawable.xjr_kdlk_down_dn, 7);
         for (int i = 0; i < 5; i++) {
-            this.mBtnRadioNum[i] = addButton((i * Can.CAN_JAC_REFINE_OD) + 144, KeyDef.RKEY_EJECT_L, 149, 85, 0, 0, i + 12);
+            this.mBtnRadioNum[i] = addButton((i * 150) + 144, KeyDef.RKEY_EJECT_L, 149, 85, 0, 0, i + 12);
         }
     }
 

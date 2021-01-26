@@ -13,11 +13,11 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 import com.yyw.ts70xhw.Mcu;
 
@@ -97,7 +97,7 @@ public class CanCadillacACBottomView implements View.OnTouchListener {
     }
 
     private void addChildViews() {
-        this.mManager.AddImage(0, 0, CanToyotaDJCarDeviceView.ITEM_PLAY, 131).setBackgroundResource(R.drawable.cad_ac_bel_bg);
+        this.mManager.AddImage(0, 0, 768, 131).setBackgroundResource(R.drawable.cad_ac_bel_bg);
         this.mBtnLight = AddBtn(1, 3, 8, 92, 57, R.drawable.cad_ac_bel_bright_up, R.drawable.cad_ac_bel_bright_dn);
         this.mBtnOff = AddBtn(2, 3, 69, 92, 57, R.drawable.cad_ac_bel_off_up, R.drawable.cad_ac_bel_off_dn);
         this.mBtnVolInc = AddBtn(17, 674, 8, 92, 57, R.drawable.cad_ac_bel_addsound_up, R.drawable.cad_ac_bel_addsound_dn);
@@ -235,7 +235,10 @@ public class CanCadillacACBottomView implements View.OnTouchListener {
             if (CanJni.GetCanFsTp() != 88) {
                 switch (Id) {
                     case 1:
-                        Mcu.SetCkey(6);
+                        if (Mcu.BklisOn() > 0) {
+                            Mcu.SetCkey(6);
+                            break;
+                        }
                         break;
                     case 2:
                         CanJni.CadillacWithCDSendKey(74, 1);
@@ -273,7 +276,10 @@ public class CanCadillacACBottomView implements View.OnTouchListener {
             } else {
                 switch (Id) {
                     case 1:
-                        Mcu.SetCkey(6);
+                        if (Mcu.BklisOn() > 0) {
+                            Mcu.SetCkey(6);
+                            break;
+                        }
                         break;
                     case 2:
                         CanJni.GmSbAcSet(8, 1);
@@ -378,7 +384,7 @@ public class CanCadillacACBottomView implements View.OnTouchListener {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(28);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(17);
         return temp;
     }

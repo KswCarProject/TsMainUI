@@ -9,9 +9,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import com.mediatek.galleryfeature.pq.filter.Filter;
 import com.ts.MainUI.R;
 import com.ts.MainUI.TsDisplay;
-import com.yyw.ts70xhw.FtSet;
+import com.ts.can.CanCameraUI;
 
 public class ScreenSet {
     private static final String TAG = "ScreenSet";
@@ -150,10 +151,7 @@ public class ScreenSet {
             }
 
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2) {
-                if (FtSet.GetCam8824() == 0) {
-                    progress = ((progress + 1) / 10) * 10;
-                }
-                ScreenSet.this.mTsDisplay.UISetVal(ScreenSet.this.nShowSrc, ScreenSet.this.nShowType, progress);
+                ScreenSet.this.mTsDisplay.UISetVal(ScreenSet.this.nShowSrc, ScreenSet.this.nShowType, ((progress + 1) / 10) * 10);
                 ScreenSet.this.TexShowInfo.setText(new StringBuilder().append(ScreenSet.this.mTsDisplay.UIGetVal(ScreenSet.this.nShowSrc, ScreenSet.this.nShowType)).toString());
             }
         });
@@ -172,6 +170,18 @@ public class ScreenSet {
         }
     }
 
+    public void Inint() {
+        Filter MyFilter = new Filter();
+        Log.i(TAG, "Brightness Range=" + MyFilter.nativeGetBrightnessAdjRange());
+        Log.i(TAG, "Contrast Range=" + MyFilter.nativeGetContrastAdjRange());
+        Log.i(TAG, "Hue Range=" + MyFilter.nativeGetHueAdjRange());
+        Log.i(TAG, "sta Range=" + MyFilter.nativeGetSatAdjRange());
+        Log.i(TAG, "Brightness default=" + MyFilter.nativeGetBrightnessAdjIndex());
+        Log.i(TAG, "Contrast default=" + MyFilter.nativeGetContrastAdjIndex());
+        Log.i(TAG, "Hue default=" + MyFilter.nativeGetHueAdjIndex());
+        Log.i(TAG, "sta default=" + MyFilter.nativeGetSatAdjIndex());
+    }
+
     public void Show(int nSrc) {
         this.nShowSrc = nSrc;
         if (this.DialogView == null) {
@@ -184,11 +194,17 @@ public class ScreenSet {
             this.wManager = (WindowManager) this.MyContext.getSystemService("window");
             this.wmParams.type = 2010;
             this.wmParams.format = 1;
-            this.wmParams.gravity = 83;
-            this.wmParams.x = 200;
-            this.wmParams.y = 200;
-            this.wmParams.width = 800;
-            this.wmParams.height = 200;
+            if (MainSet.GetScreenType() == 3 || MainSet.GetScreenType() == 6) {
+                this.wmParams.gravity = 17;
+                this.wmParams.width = CanCameraUI.BTN_TRUMPCHI_GS7_MODE5;
+                this.wmParams.height = 200;
+            } else {
+                this.wmParams.gravity = 83;
+                this.wmParams.x = 200;
+                this.wmParams.y = 200;
+                this.wmParams.width = 800;
+                this.wmParams.height = 200;
+            }
             this.wManager.addView(this.DialogView, this.wmParams);
             this.bShow = true;
         }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="fs_icon_num_per_row">5</integer>
-    <integer name="fs_can_door_item_starty">0</integer>
+    <integer name="volbar_sizex">976</integer>
+    <integer name="carplay_disp_width">768</integer>
+    <integer name="carplay_disp_height">894</integer>
+    <integer name="fs_can_door_item_starty">175</integer>
     <integer name="fs_can_door_item_marginy">55</integer>
     <integer name="fs_lang_num_per_row">4</integer>
-    <integer name="bt_dial_input_length">20</integer>
-    <integer name="bt_dial_input_length_s">16</integer>
+    <integer name="bt_dial_input_length">22</integer>
+    <integer name="bt_dial_input_length_s">23</integer>
 </resources>

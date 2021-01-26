@@ -6,6 +6,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanChanaODCSXXView extends CanScrollCarInfoView {
     private CanDataInfo.ChanAOd_MaintenData mSetData;
@@ -39,7 +40,7 @@ public class CanChanaODCSXXView extends CanScrollCarInfoView {
         if (!check || i2b(this.mSetData.Update)) {
             this.mSetData.Update = 0;
             if (this.mSetData.Range > 8190) {
-                updateItem(0, this.mSetData.Range, "");
+                updateItem(0, this.mSetData.Range, TXZResourceManager.STYLE_DEFAULT);
                 return;
             }
             updateItem(0, this.mSetData.Range, String.format("%d KM", new Object[]{Integer.valueOf(this.mSetData.Range)}));

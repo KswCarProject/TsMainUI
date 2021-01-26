@@ -16,11 +16,11 @@ final class TF extends Ty {
                 break;
             }
             char c = context.Tr();
-            context.f292T++;
+            context.f295T++;
             T(c, buffer);
             if (buffer.length() % 3 == 0) {
                 T(context, buffer);
-                int newMode = Tv.T(context.T(), context.f292T, T());
+                int newMode = Tv.T(context.T(), context.f295T, T());
                 if (newMode != T()) {
                     context.Tr(newMode);
                     break;
@@ -54,7 +54,7 @@ final class TF extends Ty {
     public void Tr(TE context, StringBuilder buffer) {
         context.Tv();
         int available = context.T5().Tk() - context.Tn();
-        context.f292T -= buffer.length();
+        context.f295T -= buffer.length();
         if (context.TE() > 1 || available > 1 || context.TE() != available) {
             context.T(254);
         }

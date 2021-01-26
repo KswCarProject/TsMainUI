@@ -14,6 +14,7 @@ import com.ts.can.CanCameraUI;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanZotyeX5NewTmpsActivity extends CanBaseActivity implements UserCallBack {
     protected CanDataInfo.ZtX5TPMSData mData = new CanDataInfo.ZtX5TPMSData();
@@ -39,7 +40,7 @@ public class CanZotyeX5NewTmpsActivity extends CanBaseActivity implements UserCa
             this.mTvTemp[i] = this.mManager.AddCusText(((i % 2) * CanCameraUI.BTN_TRUMPCHI_GS7_MODE4) + 97, ((i / 2) * Can.CAN_CC_HF_DJ) + 130, 138, 50);
             this.mTvTemp[i].SetPixelSize(35);
             this.mTvTemp[i].setGravity(3);
-            this.mTvWarn[i] = this.mManager.AddCusText(((i % 2) * CanCameraUI.BTN_TRUMPCHI_GS7_MODE4) + 210, ((i / 2) * Can.CAN_CC_HF_DJ) + 44, Can.CAN_BJ20_WC, Can.CAN_AUDI_ZMYT);
+            this.mTvWarn[i] = this.mManager.AddCusText(((i % 2) * CanCameraUI.BTN_TRUMPCHI_GS7_MODE4) + 210, ((i / 2) * Can.CAN_CC_HF_DJ) + 44, Can.CAN_BJ20_WC, 152);
             this.mTvWarn[i].SetPixelSize(22);
             this.mTvWarn[i].setGravity(3);
             this.mTvWarn[i].setTextColor(SupportMenu.CATEGORY_MASK);
@@ -145,7 +146,7 @@ public class CanZotyeX5NewTmpsActivity extends CanBaseActivity implements UserCa
     }
 
     public String GetWarnStr(int temp1, int temp2, int temp3, int temp4, int temp5, int temp6, int temp7, int temp8, int temp9, int temp10, int temp11) {
-        String stringw = "";
+        String stringw = TXZResourceManager.STYLE_DEFAULT;
         if (temp1 != 0) {
             stringw = this.mWarnStatus[0];
         }

@@ -17,12 +17,12 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanCarDeviceActivity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanRelativeCarInfoView;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
 import com.txznet.sdk.TXZPoiSearchManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 import java.util.ArrayList;
 
@@ -144,7 +144,7 @@ public class CanToyotaDJCarDeviceView extends CanRelativeCarInfoView implements 
                     return;
                 }
                 return;
-            case ITEM_PLAY /*768*/:
+            case 768:
                 if (keycode != 2) {
                     CdCtrl(17, keycode);
                     return;
@@ -298,7 +298,7 @@ public class CanToyotaDJCarDeviceView extends CanRelativeCarInfoView implements 
                         if (curFreq > 999) {
                             view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[1], CanToyotaDJCarDeviceView.this.amXStart + (CanToyotaDJCarDeviceView.this.amXdt * 0), CanToyotaDJCarDeviceView.this.yMFNum);
                         }
-                        view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq % MediaDef.PROGRESS_MAX) / 100], CanToyotaDJCarDeviceView.this.amXStart + (CanToyotaDJCarDeviceView.this.amXdt * 1), CanToyotaDJCarDeviceView.this.yMFNum);
+                        view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq % 1000) / 100], CanToyotaDJCarDeviceView.this.amXStart + (CanToyotaDJCarDeviceView.this.amXdt * 1), CanToyotaDJCarDeviceView.this.yMFNum);
                         view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq % 100) / 10], CanToyotaDJCarDeviceView.this.amXStart + (CanToyotaDJCarDeviceView.this.amXdt * 2), CanToyotaDJCarDeviceView.this.yMFNum);
                         view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[curFreq % 10], CanToyotaDJCarDeviceView.this.amXStart + (CanToyotaDJCarDeviceView.this.amXdt * 3), CanToyotaDJCarDeviceView.this.yMFNum);
                     } else if (CanToyotaDJCarDeviceView.this.mSourceInfo.Band == 1 || CanToyotaDJCarDeviceView.this.mSourceInfo.Band == 2) {
@@ -306,8 +306,8 @@ public class CanToyotaDJCarDeviceView extends CanRelativeCarInfoView implements 
                         if (curFreq2 > 9999) {
                             view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[1], CanToyotaDJCarDeviceView.this.ptMFNums[0], CanToyotaDJCarDeviceView.this.yMFNum);
                         }
-                        view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq2 % TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) / MediaDef.PROGRESS_MAX], CanToyotaDJCarDeviceView.this.ptMFNums[1], CanToyotaDJCarDeviceView.this.yMFNum);
-                        view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq2 % MediaDef.PROGRESS_MAX) / 100], CanToyotaDJCarDeviceView.this.ptMFNums[2], CanToyotaDJCarDeviceView.this.yMFNum);
+                        view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq2 % TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) / 1000], CanToyotaDJCarDeviceView.this.ptMFNums[1], CanToyotaDJCarDeviceView.this.yMFNum);
+                        view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq2 % 1000) / 100], CanToyotaDJCarDeviceView.this.ptMFNums[2], CanToyotaDJCarDeviceView.this.yMFNum);
                         view.drawImage(R.drawable.can_radio_point_up, CanToyotaDJCarDeviceView.this.xMFDot, CanToyotaDJCarDeviceView.this.yMFDot);
                         view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[(curFreq2 % 100) / 10], CanToyotaDJCarDeviceView.this.ptMFNums[3], CanToyotaDJCarDeviceView.this.yMFNum);
                         view.drawImage(CanToyotaDJCarDeviceView.mFreqNum[curFreq2 % 10], CanToyotaDJCarDeviceView.this.ptMFNums[4], CanToyotaDJCarDeviceView.this.yMFNum);
@@ -322,7 +322,7 @@ public class CanToyotaDJCarDeviceView extends CanRelativeCarInfoView implements 
         this.mDiscManager.GetLayout().setBackgroundResource(R.drawable.can_jeep_ycsb_bg02);
         AddBtn(this.mDiscManager, 256, 123, CanCameraUI.BTN_TRUMPCHI_GS4_MODE5, R.drawable.can_jeep_ycsb_down_up, R.drawable.can_jeep_ycsb_down_dn);
         AddBtn(this.mDiscManager, 512, 257, CanCameraUI.BTN_TRUMPCHI_GS4_MODE5, R.drawable.can_jeep_ycsb_prv_up, R.drawable.can_jeep_ycsb_prv_dn);
-        AddBtn(this.mDiscManager, ITEM_PLAY, 391, CanCameraUI.BTN_TRUMPCHI_GS4_MODE5, R.drawable.can_jeep_ycsb_play_up, R.drawable.can_jeep_ycsb_play_dn);
+        AddBtn(this.mDiscManager, 768, 391, CanCameraUI.BTN_TRUMPCHI_GS4_MODE5, R.drawable.can_jeep_ycsb_play_up, R.drawable.can_jeep_ycsb_play_dn);
         AddBtn(this.mDiscManager, 1024, CanCameraUI.BTN_GEELY_YJX6_GJ, CanCameraUI.BTN_TRUMPCHI_GS4_MODE5, R.drawable.can_jeep_ycsb_pause_up, R.drawable.can_jeep_ycsb_pause_dn);
         AddBtn(this.mDiscManager, 1280, 660, CanCameraUI.BTN_TRUMPCHI_GS4_MODE5, R.drawable.can_jeep_ycsb_next_up, R.drawable.can_jeep_ycsb_next_dn);
         AddBtn(this.mDiscManager, ITEM_FF, KeyDef.SKEY_CHUP_1, CanCameraUI.BTN_TRUMPCHI_GS4_MODE5, R.drawable.can_jeep_ycsb_speed_up, R.drawable.can_jeep_ycsb_speed_dn);
@@ -504,7 +504,7 @@ public class CanToyotaDJCarDeviceView extends CanRelativeCarInfoView implements 
         String text = new StringBuilder(String.valueOf(freq)).toString();
         StringBuilder sb = new StringBuilder(text);
         if (text.length() < 3) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         sb.insert(text.length() - 1, ".");
         return sb.toString();

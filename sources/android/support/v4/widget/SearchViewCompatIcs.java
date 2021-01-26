@@ -3,6 +3,7 @@ package android.support.v4.widget;
 import android.content.Context;
 import android.view.View;
 import android.widget.SearchView;
+import com.txznet.sdk.TXZResourceManager;
 
 class SearchViewCompatIcs {
     SearchViewCompatIcs() {
@@ -14,7 +15,7 @@ class SearchViewCompatIcs {
         }
 
         public void onActionViewCollapsed() {
-            setQuery("", false);
+            setQuery(TXZResourceManager.STYLE_DEFAULT, false);
             super.onActionViewCollapsed();
         }
     }

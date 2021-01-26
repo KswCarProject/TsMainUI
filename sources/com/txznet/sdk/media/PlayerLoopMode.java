@@ -9,14 +9,14 @@ public enum PlayerLoopMode {
     
 
     /* renamed from: T  reason: collision with root package name */
-    private String f870T;
+    private String f874T;
 
     private PlayerLoopMode(String modeStr) {
-        this.f870T = modeStr;
+        this.f874T = modeStr;
     }
 
     public String toModeStr() {
-        return this.f870T;
+        return this.f874T;
     }
 
     public static PlayerLoopMode fromModeStr(String modeStr) {

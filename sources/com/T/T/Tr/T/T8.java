@@ -23,7 +23,7 @@ public class T8 extends Ts {
             long val = lexer.TM();
             lexer.T(16);
             if (object == null) {
-                fieldValues.put(this.f170T.Ty(), Long.valueOf(val));
+                fieldValues.put(this.f173T.Ty(), Long.valueOf(val));
             } else {
                 T(object, val);
             }
@@ -36,7 +36,7 @@ public class T8 extends Ts {
             }
             if (value != null || Tn() != Long.TYPE) {
                 if (object == null) {
-                    fieldValues.put(this.f170T.Ty(), value);
+                    fieldValues.put(this.f173T.Ty(), value);
                 } else {
                     T(object, (Object) value);
                 }

@@ -12,7 +12,7 @@ import java.util.List;
 public class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    public static List<T.C0008T> f888T = new ArrayList();
+    public static List<T.C0008T> f892T = new ArrayList();
     private static String Tr = (com.txznet.T.T.T().getApplicationInfo().dataDir + "/dex");
     private static String Ty = (com.txznet.T.T.T().getApplicationInfo().dataDir + "/solibs");
 
@@ -39,7 +39,7 @@ public class Ty {
                     info.Tr = className;
                     info.Ty = T(path);
                     info.Tn = objPlugin.T();
-                    f888T.add(info);
+                    f892T.add(info);
                     return objPlugin.T(loader, path, data);
                 default:
                     return null;

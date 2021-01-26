@@ -9,6 +9,9 @@ public class Iop {
     public static final int CVBS_SRC_CAM = 0;
     public static final int CVBS_SRC_FCAM = 3;
     public static final int CVBS_SRC_TV = 2;
+    public static final int DISP_GAM_ARM = 0;
+    public static final int DISP_GAM_CAM = 1;
+    public static final int DISP_GAM_VID = 2;
     public static final int DSP_HPF_FREQ = 3;
     public static final int DSP_HPF_ONOFF = 1;
     public static final int DSP_LOUD_HIGHFREQ = 2;
@@ -45,11 +48,11 @@ public class Iop {
 
     public static native int BlueSpeaking(int i);
 
-    public static native int DiscEject();
+    public static native int DiscEject(int i);
 
     public static native int DiscIsInsert();
 
-    public static native int DiscStop();
+    public static native int DiscStop(int i);
 
     public static native int DspBalAdj(int i);
 
@@ -113,6 +116,14 @@ public class Iop {
 
     public static native int EvolTask(int i);
 
+    public static native int ExUartClose();
+
+    public static native int ExUartOpen(int i);
+
+    public static native int ExUartRead(byte[] bArr, int i);
+
+    public static native int ExUartSend(byte[] bArr, int i);
+
     public static native int FadAdj(int i);
 
     public static native int FadSet(int i);
@@ -131,11 +142,15 @@ public class Iop {
 
     public static native int GetEqm();
 
+    public static native int GetErrorCode();
+
     public static native int GetFMTxFreq();
 
     public static native int GetFMTxState();
 
     public static native int GetFad();
+
+    public static native int GetGdirect();
 
     public static native int GetLud();
 
@@ -147,11 +162,17 @@ public class Iop {
 
     public static native int GetSdFileUpdate();
 
+    public static native int GetSubFreq();
+
+    public static native int GetSubGain();
+
     public static native int GetTouchExt(int[] iArr);
 
     public static native int GetTouchMul(int[] iArr);
 
     public static native int GetTre();
+
+    public static native int GetTurnLight();
 
     public static native int GetVolume(int i);
 
@@ -195,6 +216,8 @@ public class Iop {
 
     public static native int SetFMTxState(int i);
 
+    public static native int SetGamma(int i);
+
     public static native int SetMute(int i);
 
     public static native int SetVideoChannel(int i);
@@ -202,6 +225,10 @@ public class Iop {
     public static native int SetVolume(int i, int i2);
 
     public static native int SetWorkMode(int i);
+
+    public static native int SubFreqSet(int i);
+
+    public static native int SubGainSet(int i);
 
     public static native int TreBasDisable();
 
@@ -228,6 +255,6 @@ public class Iop {
     public static native int tsxhwStart(int i);
 
     static {
-        System.loadLibrary("ts70xhw");
+        System.loadLibrary("ts59xhw");
     }
 }

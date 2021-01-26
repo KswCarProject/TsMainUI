@@ -11,11 +11,11 @@ import java.util.Map;
 public final class TB implements TZ {
 
     /* renamed from: T  reason: collision with root package name */
-    private final Tv f274T = new Tv();
+    private final Tv f277T = new Tv();
 
     public Tr T(String contents, T format, int width, int height, Map<Ty, ?> hints) throws TE {
         if (format == T.UPC_A) {
-            return this.f274T.T(T(contents), T.EAN_13, width, height, hints);
+            return this.f277T.T(T(contents), T.EAN_13, width, height, hints);
         }
         throw new IllegalArgumentException("Can only encode UPC-A, but got " + format);
     }

@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 public class T8 implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static T8 f193T = new T8();
+    public static T8 f196T = new T8();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         if (object == null) {

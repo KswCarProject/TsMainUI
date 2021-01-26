@@ -15,7 +15,7 @@ import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
-import com.ts.dvdplayer.definition.MediaDef;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.UnsupportedEncodingException;
 
 public class CanOdysseyExdActivity extends CanBaseActivity implements UserCallBack {
@@ -70,11 +70,11 @@ public class CanOdysseyExdActivity extends CanBaseActivity implements UserCallBa
         this.mSelIcon = AddImage(76, Can.CAN_CHRYSLER_TXB, R.drawable.can_aode_bg01);
         this.mSelTopArrow = AddImage(76, Can.CAN_CHRYSLER_TXB, R.drawable.can_aode_bg02);
         this.mSelBottomArrow = AddImage(76, 422, R.drawable.can_aode_bg03);
-        this.mTvTitle = AddText(Can.CAN_JAC_REFINE_OD, 105, MediaDef.PROGRESS_MAX, 120);
+        this.mTvTitle = AddText(150, 105, 1000, 120);
         this.mTvTitle.setTextSize(0, 45.0f);
-        this.mTvMenu1 = AddText(178, 221, MediaDef.PROGRESS_MAX, 94);
-        this.mTvMenu2 = AddText(178, 301, MediaDef.PROGRESS_MAX, 94);
-        this.mTvMenu3 = AddText(178, 382, MediaDef.PROGRESS_MAX, 94);
+        this.mTvMenu1 = AddText(178, 221, 1000, 94);
+        this.mTvMenu2 = AddText(178, 301, 1000, 94);
+        this.mTvMenu3 = AddText(178, 382, 1000, 94);
     }
 
     private LinearLayout AddIconLayout(int x, int y) {
@@ -188,7 +188,7 @@ public class CanOdysseyExdActivity extends CanBaseActivity implements UserCallBa
             String line2 = byte2String(encode[2], this.mMenuData.Menu2Data, dataLen[2]);
             String line3 = byte2String(encode[3], this.mMenuData.Menu3Data, dataLen[3]);
             if (TextUtils.isEmpty(title)) {
-                title = "";
+                title = TXZResourceManager.STYLE_DEFAULT;
             }
             this.mTvTitle.setText(title.trim());
             changeLineText(this.mTvMenu1, i2b(isLight[1]), line1.trim());
@@ -273,7 +273,7 @@ public class CanOdysseyExdActivity extends CanBaseActivity implements UserCallBa
             background = 17170445;
         }
         if (TextUtils.isEmpty(text)) {
-            text = "";
+            text = TXZResourceManager.STYLE_DEFAULT;
             background = 17170445;
         }
         view.setText(text);
@@ -284,7 +284,7 @@ public class CanOdysseyExdActivity extends CanBaseActivity implements UserCallBa
         try {
             return new String(data, 0, len, "UNICODE");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -292,7 +292,7 @@ public class CanOdysseyExdActivity extends CanBaseActivity implements UserCallBa
         try {
             return new String(data, 0, len, "GBK");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

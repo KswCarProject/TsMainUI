@@ -7,17 +7,17 @@ import java.io.IOException;
 public class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    private int f906T = 32000;
+    private int f910T = 32000;
     private byte[] Tr = null;
     private int Ty = 0;
 
     public Ty(int cacheSize) {
-        this.f906T = cacheSize;
+        this.f910T = cacheSize;
     }
 
     public void T(byte[] data, int offset, int len) {
         if (this.Tr == null) {
-            this.Tr = new byte[this.f906T];
+            this.Tr = new byte[this.f910T];
         }
         if (len > this.Tr.length) {
             offset += len - this.Tr.length;

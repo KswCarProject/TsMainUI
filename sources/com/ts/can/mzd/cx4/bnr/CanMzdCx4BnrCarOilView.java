@@ -3,6 +3,7 @@ package com.ts.can.mzd.cx4.bnr;
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -15,9 +16,11 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.canview.CanVerticalBar;
 import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanMzdCx4BnrCarOilView extends CanRelativeCarInfoView {
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private CanDataInfo.Cx4_Ave_Oil_His mAveOilHis;
     private CanVerticalBar[] mIvAveOils;
     private CanVerticalBar[] mIvMinOils;
@@ -45,20 +48,19 @@ public class CanMzdCx4BnrCarOilView extends CanRelativeCarInfoView {
         this.mMinOilInfo = new CanDataInfo.Cx4_Min_Oil_Info();
         if (MainSet.GetScreenType() == 5) {
             BaseUI_1280x480();
-        } else {
-            BaseUI();
+            return;
         }
-        DisplayMetrics mDisplayMetrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
-        if (mDisplayMetrics.heightPixels == 400) {
-            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getRelativeManager().GetLayout().getLayoutParams();
-            lp.width = 1024;
-            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
-            lp.gravity = 17;
-            getRelativeManager().GetLayout().setLayoutParams(lp);
-            BaseUI();
-            getRelativeManager().GetLayout().setScaleY(0.66f);
-        }
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getRelativeManager().GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        getRelativeManager().GetLayout().setLayoutParams(lp);
+        BaseUI();
+        getRelativeManager().GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        getRelativeManager().GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     /* access modifiers changed from: protected */
@@ -122,7 +124,7 @@ public class CanMzdCx4BnrCarOilView extends CanRelativeCarInfoView {
             if (avgOils[i] > 0) {
                 this.mTvAveValue[(this.mTvAveValue.length - 1) - i].setText(String.format("%.1f", new Object[]{Float.valueOf(((float) avgOils[i]) * 0.1f)}));
             } else {
-                this.mTvAveValue[(this.mTvAveValue.length - 1) - i].setText("");
+                this.mTvAveValue[(this.mTvAveValue.length - 1) - i].setText(TXZResourceManager.STYLE_DEFAULT);
             }
         }
     }
@@ -130,7 +132,7 @@ public class CanMzdCx4BnrCarOilView extends CanRelativeCarInfoView {
     private void showAvgOilIcons(int[] avgOils) {
         for (int i = 0; i < this.mIvAveOils.length; i++) {
             if (avgOils[i] > 150) {
-                this.mIvAveOils[(this.mIvAveOils.length - 1) - i].setCurPos(Can.CAN_JAC_REFINE_OD);
+                this.mIvAveOils[(this.mIvAveOils.length - 1) - i].setCurPos(150);
             } else {
                 this.mIvAveOils[(this.mIvAveOils.length - 1) - i].setCurPos(avgOils[i]);
             }
@@ -140,7 +142,7 @@ public class CanMzdCx4BnrCarOilView extends CanRelativeCarInfoView {
     private void showMinOilIcons(int[] minOils) {
         for (int i = 0; i < this.mIvMinOils.length; i++) {
             if (minOils[i] > 150) {
-                this.mIvMinOils[i].setCurPos(Can.CAN_JAC_REFINE_OD);
+                this.mIvMinOils[i].setCurPos(150);
             } else {
                 this.mIvMinOils[i].setCurPos(minOils[i]);
             }

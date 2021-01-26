@@ -88,7 +88,7 @@ public class SetSoundProgressList implements View.OnClickListener, View.OnTouchL
         this.mBtnSub.setStateUpDn(R.drawable.setup_bal_up_up, R.drawable.setup_bal_up_dn);
         this.mBtnSub.setTag(1);
         this.mBtnSub.setOnClickListener(this);
-        this.mBmpProgress = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.setup_seekbar_progress)).getBitmap();
+        this.mBmpProgress = ((BitmapDrawable) context.getResources().getDrawable(R.drawable.set_eq_sound_orange)).getBitmap();
         this.mBmpW = this.mBmpProgress.getWidth();
         this.mBmpH = this.mBmpProgress.getHeight();
         this.mVal = (TextView) this.mView.findViewById(R.id.val_sound);
@@ -96,11 +96,11 @@ public class SetSoundProgressList implements View.OnClickListener, View.OnTouchL
         this.mImgProgress.setOnTouchListener(this);
         this.mImgProgress.setUserPaint(new CustomImgView.onPaint() {
             public boolean userPaint(CustomImgView view, Canvas canvas, Paint paint) {
-                view.drawImage(R.drawable.setup_seekbar_track, SetSoundProgressList.this.mBkX, SetSoundProgressList.this.mBkY);
+                view.drawImage(R.drawable.set_eq_sound_pillar, SetSoundProgressList.this.mBkX, SetSoundProgressList.this.mBkY);
                 if (SetSoundProgressList.this.mCur >= SetSoundProgressList.this.mMin && SetSoundProgressList.this.mCur <= SetSoundProgressList.this.mMax) {
                     Rect src = new Rect();
                     Rect dst = new Rect();
-                    int drawW = ((SetSoundProgressList.this.mCur - SetSoundProgressList.this.mMin) * Can.CAN_LIEBAO_WC) / (SetSoundProgressList.this.mMax - SetSoundProgressList.this.mMin);
+                    int drawW = ((SetSoundProgressList.this.mCur - SetSoundProgressList.this.mMin) * Can.CAN_MZD_TXB) / (SetSoundProgressList.this.mMax - SetSoundProgressList.this.mMin);
                     src.left = 0;
                     src.top = 0;
                     src.right = drawW;

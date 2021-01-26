@@ -23,6 +23,7 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfRzcVehicleStatusView extends CanRelativeCarInfoView implements CanItemMsgBox.onMsgBoxClick {
     public static final int BTN_REPORTS = 1;
@@ -147,10 +148,10 @@ public class CanGolfRzcVehicleStatusView extends CanRelativeCarInfoView implemen
         this.mImgTpmsCar.setImageResource(R.drawable.can_golf_car02);
         this.mTpmsTip = new TextView[4];
         for (int i = 0; i < this.mTpmsTip.length; i++) {
-            this.mTpmsTip[i] = this.mManager.AddText(29, (i * 50) + Can.CAN_JAC_REFINE_OD, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 50);
+            this.mTpmsTip[i] = this.mManager.AddText(29, (i * 50) + 150, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 50);
             this.mTpmsTip[i].setTextSize(0, 35.0f);
             this.mTpmsTip[i].setTextColor(-1);
-            this.mTpmsTip[i].setText("");
+            this.mTpmsTip[i].setText(TXZResourceManager.STYLE_DEFAULT);
             this.mTpmsTip[i].setGravity(19);
         }
         this.mTpmsTip[0].setText(R.string.can_tpms_tip1);
@@ -168,7 +169,7 @@ public class CanGolfRzcVehicleStatusView extends CanRelativeCarInfoView implemen
     private void initTyresViews() {
         this.mBtnTyresStatus = this.mManager.AddButton(28, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 386, 80);
         this.mBtnTyresStatus.setStateUpDn(R.drawable.can_golf_teramont_up, R.drawable.can_golf_teramont_dn);
-        this.mBtnTyresStatus.setText("");
+        this.mBtnTyresStatus.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mBtnTyresStatus.setPadding(30, 0, 0, 0);
         this.mBtnTyresStatus.setTextColor(-1);
         this.mBtnTyresStatus.setTextSize(0, 30.0f);
@@ -176,36 +177,36 @@ public class CanGolfRzcVehicleStatusView extends CanRelativeCarInfoView implemen
         this.mBtnTyresStatus.setOnClickListener(this);
         this.mRealTyres = new TextView[4];
         for (int i = 0; i < this.mRealTyres.length; i++) {
-            this.mRealTyres[i] = this.mManager.AddText(((i / 2) * 300) + CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, ((i % 2) * Can.CAN_CHANA_CS75_WC) + Can.CAN_CHANA_CS75_WC);
+            this.mRealTyres[i] = this.mManager.AddText(((i / 2) * 300) + 540, ((i % 2) * 160) + 160);
             this.mRealTyres[i].setTextSize(0, 35.0f);
             this.mRealTyres[i].setTextColor(-1);
-            this.mRealTyres[i].setText("");
+            this.mRealTyres[i].setText(TXZResourceManager.STYLE_DEFAULT);
             this.mRealTyres[i].setGravity(17);
         }
         this.mReferenceTyres = new TextView[4];
         for (int i2 = 0; i2 < this.mReferenceTyres.length; i2++) {
-            this.mReferenceTyres[i2] = this.mManager.AddText(((i2 / 2) * 300) + CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, ((i2 % 2) * Can.CAN_CHANA_CS75_WC) + 210);
+            this.mReferenceTyres[i2] = this.mManager.AddText(((i2 / 2) * 300) + 540, ((i2 % 2) * 160) + 210);
             this.mReferenceTyres[i2].setTextSize(0, 25.0f);
             this.mReferenceTyres[i2].setTextColor(Color.parseColor("#a1a1a1"));
-            this.mReferenceTyres[i2].setText("");
+            this.mReferenceTyres[i2].setText(TXZResourceManager.STYLE_DEFAULT);
             this.mReferenceTyres[i2].setGravity(17);
         }
         this.mTyresUnit = this.mManager.AddText(CanCameraUI.BTN_CC_WC_DIRECTION1, 450);
         this.mTyresUnit.setTextSize(0, 35.0f);
         this.mTyresUnit.setTextColor(-1);
-        this.mTyresUnit.setText("");
+        this.mTyresUnit.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mTyresArray = getStringArray(R.array.can_golf_teramont_tyres_array);
         this.mIvTyres = new CustomImgView[4];
         for (int i3 = 0; i3 < 4; i3++) {
             this.mIvTyres[i3] = this.mManager.AddImage(((i3 % 2) * 103) + 652, ((i3 / 2) * 135) + 193);
             this.mIvTyres[i3].setStateDrawable(R.drawable.can_golf_car_tyre_up, R.drawable.can_golf_car_tyre_dn);
         }
-        this.mImgTyresCar = this.mManager.AddImage(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, Can.CAN_JAC_REFINE_OD, 348, 267);
+        this.mImgTyresCar = this.mManager.AddImage(540, 150, 348, 267);
         this.mImgTyresCar.setImageResource(R.drawable.can_golf_tyres_car);
-        this.mTyresWarm = this.mManager.AddText(45, Can.CAN_JAC_REFINE_OD);
+        this.mTyresWarm = this.mManager.AddText(45, 150);
         this.mTyresWarm.setTextSize(0, 40.0f);
         this.mTyresWarm.setTextColor(-1);
-        this.mTyresWarm.setText("");
+        this.mTyresWarm.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mTyresWarnArray = getStringArray(R.array.can_golf_teramont_tyres_warn_array);
     }
 
@@ -314,7 +315,7 @@ public class CanGolfRzcVehicleStatusView extends CanRelativeCarInfoView implemen
                     } else {
                         this.mTyresWarm.setTextColor(SupportMenu.CATEGORY_MASK);
                         if (this.mTpmsWarn.WarnType > 4) {
-                            this.mTyresWarm.setText("");
+                            this.mTyresWarm.setText(TXZResourceManager.STYLE_DEFAULT);
                         } else {
                             this.mTyresWarm.setText(this.mTyresWarnArray[this.mTpmsWarn.WarnType - 1]);
                         }
@@ -346,7 +347,7 @@ public class CanGolfRzcVehicleStatusView extends CanRelativeCarInfoView implemen
                         if (index < CanGolfRzcReportsView.mStrReports.length) {
                             this.mTvOneReport.setText(CanGolfRzcReportsView.mStrReports[index]);
                         } else {
-                            this.mTvOneReport.setText("");
+                            this.mTvOneReport.setText(TXZResourceManager.STYLE_DEFAULT);
                         }
                     } else if (this.mReportData.Num > 1) {
                         this.mBtnReports.Show(true);

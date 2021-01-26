@@ -24,8 +24,9 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
     public static final int ITEM_FEEDBACK_TONE = 11;
     public static final int ITEM_KEY2_UNLOCK = 5;
     public static final int ITEM_LOCK_FLASH = 7;
-    private static final int ITEM_MAX = 15;
+    private static final int ITEM_MAX = 16;
     private static final int ITEM_MIN = 1;
+    public static final int ITEM_OIL_CONSUMP_UNIT = 16;
     public static final int ITEM_ONE_KEY_START = 8;
     public static final int ITEM_OPEN_LINK_UNLOCK = 6;
     public static final int ITEM_REMOTE2_UNLOCK = 4;
@@ -36,6 +37,7 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
     private static int[] mStrAutoDoorUnlockArr = {R.string.can_off, R.string.can_door_unlock_key1, R.string.can_shifttoP};
     private static int[] mStrConServicesArr = {R.string.can_off, R.string.can_onwhilestopped, R.string.can_on};
     private static int[] mStrConServicesRzcArr = {R.string.can_off, R.string.can_on, R.string.can_onwhilestopped};
+    private static int[] mStrOilConsumpUnitArr = {R.string.can_fuels_kml, R.string.can_fuels_lkm};
     private static int[] mStrRelockTimer = {R.string.can_off, R.string.can_30s, R.string.can_60s, R.string.can_90s};
     private static int[] mStrSmartUnlockArr = {R.string.can_unlock_all_seats, R.string.can_unlock_cab};
     private static int[] mStrWirelessLockArr = {R.string.can_off, R.string.can_door_unlock_key1};
@@ -49,6 +51,7 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
     private CanItemProgressList mItemFeedBackTone;
     private CanItemCheckList mItemKey2Unlock;
     private CanItemCheckList mItemLockFlash;
+    private CanItemPopupList mItemOilConsumptionUnit;
     private CanItemCheckList mItemOneKeyStart;
     private CanItemCheckList mItemOpenLinkUnlock;
     private CanItemCheckList mItemRemote2Unlock;
@@ -97,6 +100,7 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
             this.mItemWirelessLock.SetSel(this.mSetData.WirelessLock);
             this.mItemAutoDoorUnlock.SetSel(this.mSetData.AutoDoorUnlock);
             this.mItemAutoDoorLock.SetSel(this.mSetData.AutoDoorLock);
+            this.mItemOilConsumptionUnit.SetSel(this.mSetData.ConsumptionUnit);
         }
     }
 
@@ -121,7 +125,7 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
     /* access modifiers changed from: protected */
     public void InitUI() {
         this.mManager = new CanScrollList(this);
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= 16; i++) {
             InitItem(i);
         }
     }
@@ -129,7 +133,7 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
     /* access modifiers changed from: protected */
     public void LayoutUI() {
         this.mManager.RemoveAllViews();
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= 16; i++) {
             AddItem(i);
         }
     }
@@ -182,6 +186,12 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
                 break;
             case 15:
                 ret = this.mAdtData.AutoDoorLock;
+                break;
+            case 16:
+                if (CanJni.GetCanFsTp() == 3) {
+                    ret = 1;
+                    break;
+                }
                 break;
         }
         return i2b(ret);
@@ -247,6 +257,10 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
                 this.mItemAutoDoorLock = new CanItemPopupList((Context) this, R.string.can_zmzdsd, mStrAutoDoorLockArr, (CanItemPopupList.onPopItemClick) this);
                 this.mItemAutoDoorLock.SetId(item);
                 return;
+            case 16:
+                this.mItemOilConsumptionUnit = new CanItemPopupList((Context) this, R.string.can_YH_DW, mStrOilConsumpUnitArr, (CanItemPopupList.onPopItemClick) this);
+                this.mItemOilConsumptionUnit.SetId(item);
+                return;
             default:
                 return;
         }
@@ -300,6 +314,9 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
                     return;
                 case 15:
                     this.mManager.AddView(this.mItemAutoDoorLock.GetView());
+                    return;
+                case 16:
+                    this.mManager.AddView(this.mItemOilConsumptionUnit.GetView());
                     return;
                 default:
                     return;
@@ -386,6 +403,9 @@ public class CanToyotaSetLockActivity extends CanToyotaBaseActivity implements V
                 return;
             case 15:
                 CarSet(38, item);
+                return;
+            case 16:
+                CarSet(25, item);
                 return;
             default:
                 return;

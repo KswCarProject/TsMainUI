@@ -10,7 +10,7 @@ import com.txznet.comm.ui.IKeepClass;
 public class BoundedLinearLayout extends FrameLayout implements IKeepClass {
 
     /* renamed from: T  reason: collision with root package name */
-    private int f649T;
+    private int f653T;
     private int Tr;
 
     public BoundedLinearLayout(Context context) {
@@ -22,7 +22,7 @@ public class BoundedLinearLayout extends FrameLayout implements IKeepClass {
     }
 
     public void setBoundedWidth(int mBoundedWidth) {
-        this.f649T = mBoundedWidth;
+        this.f653T = mBoundedWidth;
         invalidate();
     }
 
@@ -34,8 +34,8 @@ public class BoundedLinearLayout extends FrameLayout implements IKeepClass {
     /* access modifiers changed from: protected */
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int measuredWidth = View.MeasureSpec.getSize(widthMeasureSpec);
-        if (this.f649T > 0 && this.f649T < measuredWidth) {
-            widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f649T, View.MeasureSpec.getMode(widthMeasureSpec));
+        if (this.f653T > 0 && this.f653T < measuredWidth) {
+            widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.f653T, View.MeasureSpec.getMode(widthMeasureSpec));
         }
         int measuredHeight = View.MeasureSpec.getSize(heightMeasureSpec);
         if (this.Tr > 0 && this.Tr < measuredHeight) {

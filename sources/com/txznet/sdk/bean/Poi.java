@@ -2,6 +2,7 @@ package com.txznet.sdk.bean;
 
 import com.txznet.comm.Tr.Tr.Ty;
 import com.txznet.comm.Ty.Tr;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.tongting.IConstantData;
 import org.json.JSONObject;
 
@@ -27,7 +28,7 @@ public class Poi {
     public static final int POI_TYPE_TXZ = 3;
 
     /* renamed from: T  reason: collision with root package name */
-    private static double f865T = 52.35987755982988d;
+    private static double f869T = 52.35987755982988d;
     int TA = 1;
     double TB;
     CoordType TD = CoordType.GCJ02;
@@ -199,7 +200,7 @@ public class Poi {
         json.T("lat", (Object) Double.valueOf(getLat()));
         json.T("lng", (Object) Double.valueOf(getLng()));
         json.T("city", (Object) getCity());
-        json.T(IConstantData.KEY_NAME, (Object) getName());
+        json.T("name", (Object) getName());
         json.T("geo", (Object) getGeoinfo());
         json.T("distance", (Object) Integer.valueOf(getDistance()));
         json.T("action", (Object) getAction());
@@ -223,7 +224,7 @@ public class Poi {
         this.Tj = ((Double) json.T("lat", Double.class, Double.valueOf(0.0d))).doubleValue();
         this.TB = ((Double) json.T("lng", Double.class, Double.valueOf(0.0d))).doubleValue();
         this.TN = (String) json.T("city", String.class);
-        this.TO = (String) json.T(IConstantData.KEY_NAME, String.class);
+        this.TO = (String) json.T("name", String.class);
         this.Ts = (String) json.T("geo", String.class);
         this.TK = ((Integer) json.T("distance", Integer.class, 0)).intValue();
         this.Tu = (String) json.T("action", String.class);
@@ -231,7 +232,7 @@ public class Poi {
         this.Tf = ((Integer) json.T(IConstantData.KEY_SOURCE_FROM, Integer.class, 1)).intValue();
         this.Tt = (String) json.T("extre", String.class);
         this.TA = ((Integer) json.T("poitype", Integer.class, 1)).intValue();
-        if (type == null || type.equals("")) {
+        if (type == null || type.equals(TXZResourceManager.STYLE_DEFAULT)) {
             this.TD = CoordType.GCJ02;
         } else if (type.equals("BAIDU")) {
             this.TD = CoordType.BAIDU;
@@ -249,8 +250,8 @@ public class Poi {
     public static double[] Convert_BD09_To_GCJ02(double lat, double lng) {
         double x = lng - 0.0065d;
         double y = lat - 0.006d;
-        double z = Math.sqrt((x * x) + (y * y)) - (2.0E-5d * Math.sin(f865T * y));
-        double theta = Math.atan2(y, x) - (3.0E-6d * Math.cos(f865T * x));
+        double z = Math.sqrt((x * x) + (y * y)) - (2.0E-5d * Math.sin(f869T * y));
+        double theta = Math.atan2(y, x) - (3.0E-6d * Math.cos(f869T * x));
         return new double[]{z * Math.sin(theta), z * Math.cos(theta)};
     }
 }

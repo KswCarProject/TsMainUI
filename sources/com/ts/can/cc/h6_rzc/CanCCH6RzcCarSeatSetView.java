@@ -9,6 +9,7 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
@@ -156,7 +157,7 @@ public class CanCCH6RzcCarSeatSetView extends CanRelativeCarInfoView {
             this.mRtWindVal[i2] = mManager.AddImage((i2 * 40) + 659, 285);
             this.mRtWindVal[i2].setStateDrawable(R.drawable.conditioning_rect_up, R.drawable.conditioning_rect_blue);
         }
-        AddParaButton(this.mBtnRearHot, 4, 222, 370, R.drawable.can_chairhot_lt_up, R.drawable.can_chairhot_lt_dn);
+        AddParaButton(this.mBtnRearHot, 4, 222, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.can_chairhot_lt_up, R.drawable.can_chairhot_lt_dn);
         for (int i3 = 0; i3 < 3; i3++) {
             this.mRearHotVal[i3] = mManager.AddImage((i3 * 40) + Can.CAN_LUXGEN_WC, 455);
             this.mRearHotVal[i3].setStateDrawable(R.drawable.conditioning_rect_up, R.drawable.conditioning_rect_dn);

@@ -13,6 +13,7 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanKoleosTpmsView extends CanRelativeCarInfoView {
     private static final int[] mTips = {R.string.can_tpms_openning, R.string.can_tpms_show, R.string.can_tpms_adjust, R.string.can_tpms_failure, R.string.can_tpms_check, R.string.can_tpms_damage};
@@ -44,7 +45,7 @@ public class CanKoleosTpmsView extends CanRelativeCarInfoView {
 
     private static void showToast(Context context, int index) {
         if (mToast == null) {
-            mToast = Toast.makeText(context, "", 1);
+            mToast = Toast.makeText(context, TXZResourceManager.STYLE_DEFAULT, 1);
         }
         mToast.setText(mTips[index]);
         mToast.show();

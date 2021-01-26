@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/progrecess" android:background="@drawable/main_volume_bg" android:layout_width="568px" android:layout_height="210px">
+    <SeekBar android:id="@+id/seekBar1" android:background="@null" android:paddingLeft="0px" android:paddingTop="6px" android:paddingRight="0px" android:paddingBottom="6px" android:layout_width="532px" android:layout_height="31px" android:layout_marginBottom="45px" android:max="30" android:progress="30" android:progressDrawable="@drawable/special_vol_progress_bar" android:minWidth="530px" android:minHeight="31px" android:thumb="@null" android:thumbOffset="0px" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:splitTrack="false"/>
+    <Button android:textSize="32px" android:textColor="#fff" android:id="@+id/volmodename" android:background="@drawable/main_volume_btn" android:layout_width="70px" android:layout_height="70px" android:layout_marginLeft="200px" android:layout_marginTop="5px" android:text=""/>
+    <TextView android:textSize="32px" android:textColor="#fff" android:id="@+id/volsize" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="290px" android:layout_marginTop="15px" android:text="10"/>
+</RelativeLayout>

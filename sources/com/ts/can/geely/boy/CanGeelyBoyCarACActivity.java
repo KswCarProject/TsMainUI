@@ -147,20 +147,20 @@ public class CanGeelyBoyCarACActivity extends CanCommonActivity {
         }
         this.mTvLeftTemp = container.addText(53, 198, 92, 61);
         this.mTvRightTemp = container.addText(883, 198, 92, 61);
-        this.mBtnModeHead = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, 78);
-        this.mBtnModeHeadFoot = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_DFFG_S560);
-        this.mBtnModeFoot = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_LIEBAO_WC);
-        this.mBtnModeFootFront = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_MEDIA_OSD);
+        this.mBtnModeHead = container.addButton(305, 78);
+        this.mBtnModeHeadFoot = container.addButton(305, Can.CAN_DFFG_S560);
+        this.mBtnModeFoot = container.addButton(305, Can.CAN_LIEBAO_WC);
+        this.mBtnModeFootFront = container.addButton(305, KeyDef.RKEY_MEDIA_OSD);
         this.mBtnAc = container.addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 40);
         this.mBtnLooper = container.addButton(757, 40);
-        this.mBtnAuto = container.addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, Can.CAN_AUDI_ZMYT);
-        this.mBtnDual = container.addButton(757, Can.CAN_AUDI_ZMYT);
+        this.mBtnAuto = container.addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 152);
+        this.mBtnDual = container.addButton(757, 152);
         this.mBtnFront = container.addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 265);
         this.mBtnRear = container.addButton(757, 265);
         this.mBtnAcMax = container.addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 378);
         this.mBtnAcToggle = container.addButton(757, 373, 100, 100);
         this.mIvIon = container.addImage(470, 410, R.drawable.can_rh7_ion);
-        TextView mode = container.addText(KeyDef.RKEY_MEDIA_ANGLE, 435);
+        TextView mode = container.addText(305, 435);
         container.setDrawableUpDn(leftTempIncrease, R.drawable.can_rh7_jia_up, R.drawable.can_rh7_jia_dn).setDrawableUpDn(leftTempDecrease, R.drawable.can_rh7_jian_up, R.drawable.can_rh7_jian_dn).setDrawableUpDn(rightTempIncrease, R.drawable.can_rh7_jia_up, R.drawable.can_rh7_jia_dn).setDrawableUpDn(rightTempDecrease, R.drawable.can_rh7_jian_up, R.drawable.can_rh7_jian_dn).setDrawableUpDn(windIncrease, R.drawable.can_rh7_fsb_up, R.drawable.can_rh7_fsb_dn).setDrawableUpDn(windDecrease, R.drawable.can_rh7_fsb_up, R.drawable.can_rh7_fsb_dn).setDrawableUpDnSel(this.mBtnModeHead, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn).setDrawableUpDnSel(this.mBtnModeHeadFoot, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn).setDrawableUpDnSel(this.mBtnModeFoot, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn).setDrawableUpDnSel(this.mBtnModeFootFront, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn).setDrawableUpDnSel(this.mBtnAc, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn).setDrawableUpDnSel(this.mBtnLooper, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_nxh_dn).setDrawableUpDnSel(this.mBtnAuto, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn).setDrawableUpDnSel(this.mBtnDual, R.drawable.can_rh7_dual_up, R.drawable.can_rh7_dual_dn).setDrawableUpDnSel(this.mBtnFront, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn).setDrawableUpDnSel(this.mBtnRear, R.drawable.can_rh7_window01_up, R.drawable.can_rh7_window01_dn).setDrawableUpDnSel(this.mBtnAcMax, R.drawable.can_rh7_max_up, R.drawable.can_rh7_max_dn).setDrawableUpDnSel(this.mBtnAcToggle, R.drawable.can_rh7_del_up, R.drawable.can_rh7_del_dn).setTextStyle(this.mTvLeftTemp, 0, 17, Color.parseColor("#08D2D3"), 18).setTextStyle(this.mTvRightTemp, 0, 17, Color.parseColor("#08D2D3"), 18).setTextStyle(mode, "MODE", 17, -1, 24).setColorUpDnList(mode, -1, Color.parseColor("#0066FF")).setIdClickListener(leftTempIncrease, 0, this).setIdClickListener(leftTempDecrease, 1, this).setIdClickListener(rightTempIncrease, 2, this).setIdClickListener(rightTempDecrease, 3, this).setIdClickListener(windIncrease, 4, this).setIdClickListener(windDecrease, 5, this).setIdClickListener(this.mBtnModeHead, 6, this).setIdClickListener(this.mBtnModeHeadFoot, 7, this).setIdClickListener(this.mBtnModeFoot, 8, this).setIdClickListener(this.mBtnModeFootFront, 9, this).setIdClickListener(this.mBtnAc, 10, this).setIdClickListener(this.mBtnLooper, 11, this).setIdClickListener(this.mBtnAuto, 12, this).setIdClickListener(this.mBtnDual, 13, this).setIdClickListener(this.mBtnFront, 14, this).setIdClickListener(this.mBtnRear, 15, this).setIdClickListener(this.mBtnAcMax, 16, this).setIdClickListener(this.mBtnAcToggle, 18, this).setIdClickListener(mode, 19, this);
     }
 

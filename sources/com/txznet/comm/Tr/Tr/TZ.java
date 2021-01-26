@@ -1,6 +1,7 @@
 package com.txznet.comm.Tr.Tr;
 
 import android.util.Log;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 
@@ -8,7 +9,7 @@ import com.txznet.comm.Ty.Tr;
 public class TZ {
 
     /* renamed from: T  reason: collision with root package name */
-    private static T f389T = null;
+    private static T f393T = null;
 
     /* compiled from: Proguard */
     public static abstract class T {
@@ -38,17 +39,17 @@ public class TZ {
     }
 
     public static void T(String event, byte[] data) {
-        if (f389T == null) {
+        if (f393T == null) {
             Log.i("RecorderUtil", "recordCallBack == null");
         } else if (event.equals("end")) {
-            f389T.T(((Integer) new Tr(new String(data)).T("length", Integer.class)).intValue());
+            f393T.T(((Integer) new Tr(new String(data)).T("length", Integer.class)).intValue());
         } else if (event.equals("parse")) {
             Tr json = new Tr(new String(data));
-            f389T.T(((Integer) json.T("length", Integer.class)).intValue(), (String) json.T("text", String.class), (String) json.T("url", String.class));
+            f393T.T(((Integer) json.T("length", Integer.class)).intValue(), (String) json.T(SdkConstants.ATTR_TEXT, String.class), (String) json.T("url", String.class));
         } else if (event.equals("cancel")) {
-            f389T.Tn();
+            f393T.Tn();
         } else if (event.equals("begin")) {
-            f389T.T();
+            f393T.T();
         } else if (event.equals("mute")) {
             int time = 0;
             try {
@@ -56,11 +57,11 @@ public class TZ {
             } catch (NumberFormatException e) {
                 Log.e("RecorderUtil", "convert string to int error");
             }
-            f389T.Tn(time);
+            f393T.Tn(time);
         } else if (event.equals("mutetimeout")) {
-            f389T.Ty();
+            f393T.Ty();
         } else if (event.equals("speechtimeout")) {
-            f389T.Tr();
+            f393T.Tr();
         } else if (event.equals("volume")) {
             int vol = 0;
             try {
@@ -68,7 +69,7 @@ public class TZ {
             } catch (NumberFormatException e2) {
                 Log.e("RecorderUtil", "convert string to int error");
             }
-            f389T.Ty(vol);
+            f393T.Ty(vol);
         } else if (event.equals("error")) {
             int err = 0;
             try {
@@ -76,9 +77,9 @@ public class TZ {
             } catch (NumberFormatException e3) {
                 Log.e("RecorderUtil", "convert string to int error");
             }
-            f389T.Tr(err);
+            f393T.Tr(err);
         } else if (event.equals("mp3buf")) {
-            f389T.T(data);
+            f393T.T(data);
         }
     }
 }

@@ -18,7 +18,7 @@ import com.txznet.comm.ui.Ty;
 public class Tn extends TE implements T {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Tn f521T;
+    private static Tn f525T;
     private Tr.T T6 = new Tr.T() {
         public void T() {
             Tn.this.dismiss();
@@ -56,22 +56,22 @@ public class Tn extends TE implements T {
     }
 
     public static Tn Ty() {
-        if (f521T == null) {
+        if (f525T == null) {
             synchronized (Tn.class) {
-                if (f521T == null) {
-                    f521T = new Tn();
+                if (f525T == null) {
+                    f525T = new Tn();
                 }
             }
         }
-        return f521T;
+        return f525T;
     }
 
     public void T(boolean isFullScreen) {
         if (this.TZ != isFullScreen) {
             com.txznet.comm.Tr.Tr.Tn.T("setIsFullScreenDialog:" + isFullScreen);
-            f521T = new Tn(isFullScreen);
-            f521T.T(com.txznet.comm.ui.Tn.Tn.T().T5());
-            f521T.T();
+            f525T = new Tn(isFullScreen);
+            f525T.T(com.txznet.comm.ui.Tn.Tn.T().T5());
+            f525T.T();
         }
     }
 
@@ -220,6 +220,6 @@ public class Tn extends TE implements T {
             return;
         }
         TE();
-        f521T = new Tn(this.TZ);
+        f525T = new Tn(this.TZ);
     }
 }

@@ -47,10 +47,11 @@ public class SetOptionsDefinition {
     public static final int VIDEO_BACK_LINE = 2;
     public static final int VIDEO_BACK_MIRROR = 3;
     public static final int VIDEO_BACK_TRACK = 1;
+    public static final int VIDEO_CAMTYPE = 7;
     public static final int VIDEO_FORBIDDEN = 0;
     public static final int VIDEO_FORMAT = 5;
     public static final int VIDEO_FRONTCAM_TIME = 6;
-    public static final int VIDEO_MAX = 7;
+    public static final int VIDEO_MAX = 8;
     public static final int VOLUME_ALARM = 4;
     public static final int VOLUME_BT = 2;
     public static final int VOLUME_MAX = 6;

@@ -2,7 +2,6 @@ package com.ts.can.vw.rzc.golf;
 
 import android.app.Activity;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -53,7 +52,7 @@ public class CanGolfRzcUnitSetView extends CanScrollCarInfoView {
                 CanJni.GolfSendCmd(149, item);
                 return;
             case 6:
-                CanJni.GolfSendCmd(Can.CAN_JAC_REFINE_OD, item);
+                CanJni.GolfSendCmd(150, item);
                 return;
             default:
                 return;
@@ -91,7 +90,7 @@ public class CanGolfRzcUnitSetView extends CanScrollCarInfoView {
         mVolumeDW = new String[]{"L", "gal(UK)", "gal(US)"};
         mOilDW = new String[]{"mpg(UK)", "L/100km", "mpg(US)", "km/l"};
         mTyresDW = new String[]{"bar", "psi", "kPa"};
-        mHdlDW = new String[]{"KWH/100KM", "KM/KWH"};
+        mHdlDW = new String[]{"KWH/100KM", "KM/KWH", "Mi/KWh", "Mi/KWh"};
         getScrollManager().RemoveAllViews();
         this.mItemObjects[0] = getScrollManager().addItemPopupList(this.mItemTitleIds[0], mRangeDW, 0, (CanItemPopupList.onPopItemClick) this);
         this.mItemObjects[1] = getScrollManager().addItemPopupList(this.mItemTitleIds[1], mSpeedDW, 1, (CanItemPopupList.onPopItemClick) this);
@@ -100,7 +99,7 @@ public class CanGolfRzcUnitSetView extends CanScrollCarInfoView {
         this.mItemObjects[4] = getScrollManager().addItemPopupList(this.mItemTitleIds[4], mOilDW, 4, (CanItemPopupList.onPopItemClick) this);
         this.mItemObjects[5] = getScrollManager().addItemPopupList(this.mItemTitleIds[5], mTyresDW, 5, (CanItemPopupList.onPopItemClick) this);
         this.mItemObjects[6] = getScrollManager().addItemPopupList(this.mItemTitleIds[6], mHdlDW, 6, (CanItemPopupList.onPopItemClick) this);
-        if (CanJni.GetSubType() == 4) {
+        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5) {
             showItem(6, 1);
         } else {
             showItem(6, 0);

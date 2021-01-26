@@ -1,66 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="set_main_options">
-        <item>Общие</item>
+        <item>Общий</item>
         <item>Дисплей</item>
-        <item>Громкость</item>
+        <item>Объем</item>
         <item>Звук</item>
-        <item>Настройки видео</item>
+        <item>Видео</item>
         <item>Навигация</item>
-        <item>Блютус</item>
-        <item>Кнопки на руле</item>
-        <item>Версия ПО</item>
+        <item>Блютуз</item>
+        <item>SWC</item>
+        <item>Об устройстве</item>
     </array>
     <array name="set_genera_options">
         <item>Время ожидания</item>
         <item>Распознавание речи</item>
-        <item>Тач ассистент</item>
-        <item>Громкость при заднем ходе</item>
-        <item>Лого загрузки</item>
-        <item>Память для виртуальных CD</item>
-        <item>Сброс всех настроек</item>
-        <item>Удаление всего содержимого</item>
+        <item>Assistive Touch</item>
+        <item>Звук при заднем ходе</item>
+        <item>Логотип загрузки</item>
+        <item>Виртуальное устройство хранения CD</item>
+        <item>Сбросить все настройки</item>
+        <item>Стереть все содержимое</item>
     </array>
     <array name="set_display_options">
-        <item>Яркость экрана днём</item>
-        <item>Яркость экрана ночью</item>
-        <item>Авто режим</item>
-        <item>Цвет подсветки клавиш</item>
+        <item>Дневная подсветка</item>
+        <item>Ночная подсветка</item>
+        <item>Автоматический режим</item>
+        <item>Ключевой светлый цвет</item>
     </array>
     <array name="set_volume_options">
-        <item>Громкость медиа</item>
-        <item>Громкость навигации</item>
-        <item>Громкость BT</item>
+        <item>Медиа Том</item>
+        <item>Нави Громкость</item>
+        <item>BT Громкость</item>
         <item>Громкость звонка</item>
-        <item>Громкость будильн.</item>
-        <item>Громкость системная</item>
+        <item>Громкость будильника</item>
+        <item>Объем системы</item>
     </array>
     <array name="set_video_options">
-        <item>Запрет видео в движении</item>
-        <item>Линии ассистента парковки</item>
-        <item>Линии парковки</item>
-        <item>Камера зеркально</item>
+        <item>Отключить видео в движении</item>
+        <item>Парковочные линии</item>
+        <item>Обратная линия предупреждения</item>
+        <item>Зеркальная камера заднего вида</item>
         <item>Кондиционер</item>
-        <item>Камера заднего вида</item>
-        <item>Камера переднего вида</item>
+        <item>Заднее видео</item>
+        <item>Передняя камера</item>
     </array>
     <array name="set_navi_options">
-        <item>Автостарт навигации</item>
-        <item>Путь к файлу навигации</item>
-        <item>Микширование</item>
+        <item>Автозапуск Навигация</item>
+        <item>Путь файла</item>
+        <item>Navi Mix</item>
     </array>
     <array name="set_bt_options">
-        <item>Пин код</item>
-        <item>Автом.Соединение</item>
-        <item>Автом.Поднятие</item>
+        <item>Пин-код</item>
+        <item>Автоматическое подключение</item>
+        <item>Автоматический ответ</item>
     </array>
     <array name="set_eqpment_options">
-        <item>HMI</item>
+        <item>HDMI</item>
         <item>MCU</item>
-        <item>MEDIA</item>
+        <item>Медиа</item>
         <item>CAN</item>
         <item>BTV</item>
-        <item>DVDROM</item>
+        <item>DVD ROM</item>
+    </array>
+    <array name="str_dsp_flags">
+        <item>32</item>
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+        <item>1k</item>
+        <item>1.5k</item>
+        <item>2k</item>
+        <item>2.5k</item>
+        <item>3k</item>
+        <item>3.5k</item>
+        <item>4k</item>
+        <item>4.5k</item>
+        <item>5k</item>
+        <item>5.5k</item>
+        <item>6k</item>
+        <item>7k</item>
+        <item>8k</item>
+        <item>9k</item>
+        <item>10k</item>
+        <item>11k</item>
+        <item>12k</item>
+        <item>13k</item>
+        <item>14k</item>
+        <item>15k</item>
+        <item>16k</item>
+        <item>17k</item>
+        <item>18k</item>
+        <item>19k</item>
+        <item>20k</item>
     </array>
     <array name="str_dsp_subwoofer_arrays">
         <item>Усиление</item>

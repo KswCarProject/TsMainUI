@@ -1,13 +1,12 @@
 package com.txznet.sdk;
 
 import android.text.TextUtils;
-import com.ts.main.txz.AmapAuto;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Tr.Tr.T;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZSceneManager;
 import com.txznet.sdk.TXZService;
-import com.txznet.sdk.tongting.IConstantData;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,7 +21,7 @@ public class TXZAsrManager {
     private static TXZAsrManager T9 = new TXZAsrManager();
 
     /* renamed from: T  reason: collision with root package name */
-    Boolean f693T = null;
+    Boolean f697T = null;
     private HashMap<String, String> T5;
     private Float T6 = null;
     private Integer TB = null;
@@ -118,8 +117,8 @@ public class TXZAsrManager {
         if (this.Tr != null) {
             setCloseWinWhenEndCmd(this.Tr.booleanValue());
         }
-        if (this.f693T != null) {
-            enableFMOnlineCmds(this.f693T.booleanValue());
+        if (this.f697T != null) {
+            enableFMOnlineCmds(this.f697T.booleanValue());
         }
         if (this.TE != null) {
             setAsrDelayAfterBeep(this.TE.intValue());
@@ -146,7 +145,7 @@ public class TXZAsrManager {
     public void setAsrDelayAfterBeep(int delay) {
         if (delay >= 0) {
             this.TE = Integer.valueOf(delay);
-            Tn.Tr().T("com.txznet.txz", "comm.asr.set.asrDelayAfterBeep", ("" + delay).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.txz", "comm.asr.set.asrDelayAfterBeep", (TXZResourceManager.STYLE_DEFAULT + delay).getBytes(), (Tn.Tr) null);
         }
     }
 
@@ -160,7 +159,7 @@ public class TXZAsrManager {
 
     public void restart(String hint) {
         if (hint == null || hint.length() == 0) {
-            hint = "";
+            hint = TXZResourceManager.STYLE_DEFAULT;
         }
         Tn.Tr().T("com.txznet.txz", "comm.asr.restartWithRecordWin", hint.getBytes(), (Tn.Tr) null);
     }
@@ -287,17 +286,17 @@ public class TXZAsrManager {
 
     public void setBOS(int val) {
         this.TB = Integer.valueOf(val);
-        Tn.Tr().T("com.txznet.txz", "comm.asr.set.bos", ("" + val).toString().getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "comm.asr.set.bos", (TXZResourceManager.STYLE_DEFAULT + val).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setEOS(int val) {
         this.TK = Integer.valueOf(val);
-        Tn.Tr().T("com.txznet.txz", "comm.asr.set.eos", ("" + val).toString().getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "comm.asr.set.eos", (TXZResourceManager.STYLE_DEFAULT + val).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void enableFMOnlineCmds(boolean enable) {
-        this.f693T = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "comm.asr.enableFMOnlineCmds", ("" + this.f693T).getBytes(), (Tn.Tr) null);
+        this.f697T = Boolean.valueOf(enable);
+        Tn.Tr().T("com.txznet.txz", "comm.asr.enableFMOnlineCmds", (TXZResourceManager.STYLE_DEFAULT + this.f697T).getBytes(), (Tn.Tr) null);
     }
 
     public boolean regCommandForFM(float from, float to, final String callback_data) {
@@ -400,7 +399,7 @@ public class TXZAsrManager {
 
     public void setCloseWinWhenEndCmd(boolean isClose) {
         this.Tr = Boolean.valueOf(isClose);
-        Tn.Tr().T("com.txznet.txz", "txz.config.end.close", (isClose + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.config.end.close", (isClose + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void addCommandListener(CommandListener listener) {
@@ -456,13 +455,13 @@ public class TXZAsrManager {
     public static class AsrOption {
 
         /* renamed from: T  reason: collision with root package name */
-        Integer f702T = null;
+        Integer f706T = null;
         Boolean Tn = null;
         Integer Tr = null;
         Integer Ty = null;
 
         public AsrOption setBOS(int bos) {
-            this.f702T = Integer.valueOf(bos);
+            this.f706T = Integer.valueOf(bos);
             return this;
         }
 
@@ -493,7 +492,7 @@ public class TXZAsrManager {
         Tn.Tr().T("com.txznet.txz", "comm.asr.setAsrTool", (byte[]) null, (Tn.Tr) null);
         TXZService.T("tool.asr.", new TXZService.T() {
             public byte[] T(String packageName, String command, final byte[] data) {
-                if (AmapAuto.CMDSTOP.equals(command)) {
+                if ("stop".equals(command)) {
                     com.txznet.comm.Tr.Tr.Tn.T("asr tool stop");
                     TXZAsrManager.this.Tn.stop();
                 } else if ("cancel".equals(command)) {
@@ -502,7 +501,7 @@ public class TXZAsrManager {
                 } else if ("start".equals(command)) {
                     final Tr json = new Tr(data);
                     AsrOption option = new AsrOption();
-                    option.f702T = (Integer) json.T("BOS", Integer.class);
+                    option.f706T = (Integer) json.T("BOS", Integer.class);
                     option.Tr = (Integer) json.T("EOS", Integer.class);
                     option.Ty = (Integer) json.T("KeySpeechTimeout", Integer.class);
                     option.Tn = (Boolean) json.T("Manual", Boolean.class);
@@ -516,7 +515,7 @@ public class TXZAsrManager {
                         public void onSceneResult(TXZSceneManager.SceneType sceneType, String sceneData) {
                             com.txznet.comm.Tr.Tr.Tn.T("asr tool onSenceResult: SenceType=" + sceneType.name() + ", data: \n" + sceneData);
                             json.T("volume");
-                            json.T(IConstantData.KEY_DATA, (Object) sceneData);
+                            json.T("data", (Object) sceneData);
                             Tn.Tr().T("com.txznet.txz", "txz.tool.asr.onSenceResult", json.Ty(), (Tn.Tr) null);
                         }
 
@@ -562,7 +561,7 @@ public class TXZAsrManager {
                         public void onTextResult(String text) {
                             Tr json = new Tr();
                             json.T("scene", (Object) "_raw_online");
-                            json.T("text", (Object) text);
+                            json.T(SdkConstants.ATTR_TEXT, (Object) text);
                             onSceneResult(TXZSceneManager.SceneType.SCENE_TYPE_UNKNOW, json.toString());
                         }
                     });

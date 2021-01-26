@@ -16,7 +16,7 @@ public class TXZPoiSearchManager {
     public static final int ERROR_CODE_UNKNOW = 1;
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZPoiSearchManager f777T = new TXZPoiSearchManager();
+    private static TXZPoiSearchManager f781T = new TXZPoiSearchManager();
     private Boolean T9 = null;
     private Boolean TZ = null;
     private Boolean Tk = null;
@@ -65,7 +65,7 @@ public class TXZPoiSearchManager {
     }
 
     public static TXZPoiSearchManager getInstance() {
-        return f777T;
+        return f781T;
     }
 
     /* access modifiers changed from: package-private */
@@ -97,11 +97,11 @@ public class TXZPoiSearchManager {
     public static class SearchPoiSuggestion {
 
         /* renamed from: T  reason: collision with root package name */
-        List<String> f783T;
+        List<String> f787T;
         List<String> Tr;
 
         public SearchPoiSuggestion setCity(List<String> city) {
-            this.f783T = city;
+            this.f787T = city;
             return this;
         }
 
@@ -111,7 +111,7 @@ public class TXZPoiSearchManager {
         }
 
         public List<String> getCity() {
-            return this.f783T;
+            return this.f787T;
         }
 
         public List<String> getKeywrods() {
@@ -123,17 +123,17 @@ public class TXZPoiSearchManager {
     public static class PoiSearchInfo {
 
         /* renamed from: T  reason: collision with root package name */
-        boolean f780T = true;
+        boolean f784T = true;
         int Tn = 1;
         int Tr = -4098;
         int Ty = 0;
 
         public boolean isTxzPoiToolComplete() {
-            return this.f780T;
+            return this.f784T;
         }
 
         public void setTxzPoiToolComplete(boolean txzPoiToolComplete) {
-            this.f780T = txzPoiToolComplete;
+            this.f784T = txzPoiToolComplete;
         }
 
         public int getPoiSourceConf() {
@@ -165,7 +165,7 @@ public class TXZPoiSearchManager {
     public static class PoiSearchOption {
 
         /* renamed from: T  reason: collision with root package name */
-        private PoiSearchInfo f781T = new PoiSearchInfo();
+        private PoiSearchInfo f785T = new PoiSearchInfo();
         protected int T5 = TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT;
         protected String TE;
         protected int TZ = 10;
@@ -198,11 +198,11 @@ public class TXZPoiSearchManager {
         }
 
         public PoiSearchInfo getSearchInfo() {
-            return this.f781T;
+            return this.f785T;
         }
 
         public PoiSearchInfo setSearchInfo(PoiSearchInfo info) {
-            this.f781T = info;
+            this.f785T = info;
             return info;
         }
     }
@@ -250,7 +250,7 @@ public class TXZPoiSearchManager {
     public static class NearbyPoiSearchOption extends CityPoiSearchOption {
 
         /* renamed from: T  reason: collision with root package name */
-        protected double f779T;
+        protected double f783T;
         protected double Tr;
         protected int Ty = -1;
 
@@ -269,11 +269,11 @@ public class TXZPoiSearchManager {
         }
 
         public double getCenterLat() {
-            return this.f779T;
+            return this.f783T;
         }
 
         public NearbyPoiSearchOption setCenterLat(double lat) {
-            this.f779T = lat;
+            this.f783T = lat;
             return this;
         }
 
@@ -306,17 +306,17 @@ public class TXZPoiSearchManager {
     public static class BoundPoiSearchOption extends CityPoiSearchOption {
 
         /* renamed from: T  reason: collision with root package name */
-        protected double f778T;
+        protected double f782T;
         protected double Tn;
         protected double Tr;
         protected double Ty;
 
         public double getMinLat() {
-            return this.f778T;
+            return this.f782T;
         }
 
         public BoundPoiSearchOption setMinLat(double minLat) {
-            this.f778T = minLat;
+            this.f782T = minLat;
             return this;
         }
 

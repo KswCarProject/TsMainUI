@@ -1,6 +1,7 @@
 package com.ts.bt;
 
 import android.text.TextUtils;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.tongting.IConstantData;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -75,7 +76,7 @@ public class ContactInfo {
     public JSONObject toJson() {
         try {
             JSONObject jsonObj = new JSONObject();
-            jsonObj.put(IConstantData.KEY_NAME, getName());
+            jsonObj.put("name", getName());
             JSONArray pinyinArray = new JSONArray();
             String[] pinyins = getPinyin();
             if (pinyins != null) {
@@ -106,7 +107,7 @@ public class ContactInfo {
     public JSONObject toJson2() {
         try {
             JSONObject jsonObj = new JSONObject();
-            jsonObj.put(IConstantData.KEY_NAME, getName());
+            jsonObj.put("name", getName());
             JSONArray phoneInfoArray = new JSONArray();
             for (PhoneInfo phoneInfo : this.phoneInfos) {
                 phoneInfoArray.put(phoneInfo.toJson());
@@ -174,14 +175,14 @@ public class ContactInfo {
         public static final String PHONE_REGEX = "(^(\\+86)|[\\(\\)-[\\s]])";
         private final String LANDLINE_NUM_REGEX = "[0]{0,1}[0-9]{2,3}[0-9]{7,8}";
         private final String MOBILE_NUM_REGEX = "[1]{1}[3,4,5,7,8]{1}[0-9]{9}";
-        private String flag = "";
-        private String location = "";
+        private String flag = TXZResourceManager.STYLE_DEFAULT;
+        private String location = TXZResourceManager.STYLE_DEFAULT;
         private Pattern mLandlineNumPattern = Pattern.compile("[0]{0,1}[0-9]{2,3}[0-9]{7,8}");
         private Pattern mMobileNumPattern = Pattern.compile("[1]{1}[3,4,5,7,8]{1}[0-9]{9}");
-        private String numId = "";
-        private String number = "";
-        private String operator = "";
-        private String type = "";
+        private String numId = TXZResourceManager.STYLE_DEFAULT;
+        private String number = TXZResourceManager.STYLE_DEFAULT;
+        private String operator = TXZResourceManager.STYLE_DEFAULT;
+        private String type = TXZResourceManager.STYLE_DEFAULT;
 
         public String getNumber() {
             return this.number;
@@ -189,7 +190,7 @@ public class ContactInfo {
 
         public void setNumber(String number2) {
             if (!TextUtils.isEmpty(number2)) {
-                this.number = number2.replaceAll(PHONE_REGEX, "");
+                this.number = number2.replaceAll(PHONE_REGEX, TXZResourceManager.STYLE_DEFAULT);
             }
         }
 
@@ -257,7 +258,7 @@ public class ContactInfo {
             jsonObj.put("number", this.number);
             jsonObj.put("location", this.location);
             jsonObj.put("operator", this.operator);
-            jsonObj.put(IConstantData.KEY_TYPE, this.type);
+            jsonObj.put("type", this.type);
             jsonObj.put(IConstantData.KEY_FLAG, this.flag);
             return jsonObj;
         }

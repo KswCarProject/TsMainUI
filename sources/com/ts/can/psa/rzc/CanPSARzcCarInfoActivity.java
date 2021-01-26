@@ -7,34 +7,35 @@ import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
-import com.ts.can.psa.CanPSACheckInfoActivity;
-import com.ts.can.psa.CanPSACruiseSpeedActivity;
-import com.ts.can.psa.CanPSADriveInfoActivity;
-import com.ts.can.psa.CanPSAFuncInfoActivity;
-import com.ts.can.psa.CanPSAMemTabActivity;
-import com.ts.can.psa.CanPSASpeedLimitActivity;
-import com.ts.can.psa.CanPSAWarnInfoActivity;
+import com.ts.can.CanCarInfoSub1Activity;
+import com.ts.can.CanFunc;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanItemTextBtnList;
 import com.ts.canview.CanScrollList;
 
 public class CanPSARzcCarInfoActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack {
+    public static final int ITEM_AIR = 11;
+    public static final int ITEM_AMP = 10;
     public static final int ITEM_CAR_SET = 1;
     public static final int ITEM_CHECK_INFO = 3;
     public static final int ITEM_CRUISE_SPEED = 6;
     public static final int ITEM_DRIVE_INFO = 2;
     public static final int ITEM_FUNC_INFO = 5;
-    private static final int ITEM_MAX = 8;
+    public static final int ITEM_LANG = 9;
+    private static final int ITEM_MAX = 11;
     public static final int ITEM_MEM_TAB = 8;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_SPEED_LIMIT = 7;
     public static final int ITEM_WARN_INFO = 4;
     public static final String TAG = "CanPSARzcCarInfoActivity";
+    private CanItemTextBtnList mItemAirInfo;
+    private CanItemTextBtnList mItemAmpInfo;
     private CanItemTextBtnList mItemCarSet;
     private CanItemTextBtnList mItemCheckInfo;
     private CanItemTextBtnList mItemCruiseSpeed;
     private CanItemTextBtnList mItemDriveInfo;
     private CanItemTextBtnList mItemFuncInfo;
+    private CanItemTextBtnList mItemLang;
     private CanItemTextBtnList mItemMemTab;
     private CanItemTextBtnList mItemSpeedLimit;
     private CanItemTextBtnList mItemWarnInfo;
@@ -81,6 +82,9 @@ public class CanPSARzcCarInfoActivity extends CanBaseActivity implements View.On
         this.mItemCruiseSpeed = AddTextBtn(R.string.can_xh_speed, 6);
         this.mItemSpeedLimit = AddTextBtn(R.string.can_speed_limit, 7);
         this.mItemMemTab = AddTextBtn(R.string.can_c4_l_mem_tab, 8);
+        this.mItemLang = AddTextBtn(R.string.can_psa_wc_lang_settings_info, 9);
+        this.mItemAmpInfo = AddTextBtn(R.string.can_amp_set, 10);
+        this.mItemAirInfo = AddTextBtn(R.string.can_ac_set, 11);
         LayoutUI();
     }
 
@@ -94,7 +98,7 @@ public class CanPSARzcCarInfoActivity extends CanBaseActivity implements View.On
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 8; i++) {
+        for (int i = 1; i <= 11; i++) {
             ShowItem(i);
         }
     }
@@ -125,6 +129,15 @@ public class CanPSARzcCarInfoActivity extends CanBaseActivity implements View.On
                 ret = 1;
                 break;
             case 8:
+                ret = 1;
+                break;
+            case 9:
+                ret = 1;
+                break;
+            case 10:
+                ret = 1;
+                break;
+            case 11:
                 ret = 1;
                 break;
         }
@@ -159,6 +172,15 @@ public class CanPSARzcCarInfoActivity extends CanBaseActivity implements View.On
             case 8:
                 this.mItemMemTab.ShowGone(show);
                 return;
+            case 9:
+                this.mItemLang.ShowGone(show);
+                return;
+            case 10:
+                this.mItemAmpInfo.ShowGone(show);
+                return;
+            case 11:
+                this.mItemAirInfo.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -179,25 +201,34 @@ public class CanPSARzcCarInfoActivity extends CanBaseActivity implements View.On
                 enterSubWin(CanPSARzcCarSetActivity.class);
                 return;
             case 2:
-                enterSubWin(CanPSADriveInfoActivity.class);
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 1);
                 return;
             case 3:
-                enterSubWin(CanPSACheckInfoActivity.class);
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 2);
                 return;
             case 4:
-                enterSubWin(CanPSAWarnInfoActivity.class);
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 3);
                 return;
             case 5:
-                enterSubWin(CanPSAFuncInfoActivity.class);
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 4);
                 return;
             case 6:
-                enterSubWin(CanPSACruiseSpeedActivity.class);
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 5);
                 return;
             case 7:
-                enterSubWin(CanPSASpeedLimitActivity.class);
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 6);
                 return;
             case 8:
-                enterSubWin(CanPSAMemTabActivity.class);
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 7);
+                return;
+            case 9:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 8);
+                return;
+            case 10:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 9);
+                return;
+            case 11:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 10);
                 return;
             default:
                 return;

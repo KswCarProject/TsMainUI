@@ -12,11 +12,11 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.KeyDef;
 import com.yyw.ts70xhw.Mcu;
@@ -121,7 +121,7 @@ public class CanLincsMkcACControlView implements View.OnTouchListener {
     }
 
     private void addChildViews() {
-        this.backgroundView = this.mManager.AddImage(0, 0, CanToyotaDJCarDeviceView.ITEM_PLAY, 719);
+        this.backgroundView = this.mManager.AddImage(0, 0, 768, 719);
         this.backgroundView.setBackgroundResource(R.drawable.lin_ac_bg01);
         this.mBtnPower = AddBtn(1, 191, Can.CAN_NISSAN_RICH6_WC, 72, 68, R.drawable.lin_ac_shut_up, R.drawable.lin_ac_shut_dn);
         this.mBtnPre = AddBtn(2, 265, Can.CAN_NISSAN_RICH6_WC, 72, 68, R.drawable.lin_ac_prve_up, R.drawable.lin_ac_prve_dn);
@@ -138,7 +138,7 @@ public class CanLincsMkcACControlView implements View.OnTouchListener {
         this.mHl[7] = AddImage(CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE2, CanCameraUI.BTN_TRUMPCHI_GS7_MODE6, 35, 8, R.drawable.lin_ac_1pro_up);
         this.mHl[8] = AddImage(350, CanCameraUI.BTN_CCH9_MODE9, 67, 9, R.drawable.lin_ac_2pro_up);
         this.mWindVal[0] = AddImage(279, 362, 26, 26, R.drawable.lin_ac_ac_icon);
-        this.mWindVal[1] = AddImage(KeyDef.RKEY_MEDIA_TITLE, 346, 26, 26, R.drawable.lin_ac_fan01_up);
+        this.mWindVal[1] = AddImage(306, 346, 26, 26, R.drawable.lin_ac_fan01_up);
         this.mWindVal[2] = AddImage(KeyDef.RKEY_RDS_PTY, KeyDef.RKEY_DEL, 26, 26, R.drawable.lin_ac_fan02_up);
         this.mWindVal[3] = AddImage(358, KeyDef.RKEY_RADIO_5S, 26, 26, R.drawable.lin_ac_fan03_up);
         this.mWindVal[4] = AddImage(386, KeyDef.RKEY_RADIO_5S, 26, 26, R.drawable.lin_ac_fan04_up);
@@ -146,7 +146,7 @@ public class CanLincsMkcACControlView implements View.OnTouchListener {
         this.mWindVal[6] = AddImage(439, 346, 26, 26, R.drawable.lin_ac_fan06_up);
         this.mBtnAcPower = AddBtn(6, 66, 389, 62, 47, R.drawable.lin_ac_closed_up, R.drawable.lin_ac_closed_dn);
         this.mBtnLtTempInc = AddBtn(7, 131, 386, 62, 47, R.drawable.lin_ac_red_up, R.drawable.lin_ac_red_dn);
-        this.mBtnRtTempInc = AddBtn(12, CanCameraUI.BTN_CHANA_CS75_MODE7, 386, 62, 47, R.drawable.lin_ac_red_up, R.drawable.lin_ac_red_dn);
+        this.mBtnRtTempInc = AddBtn(12, 576, 386, 62, 47, R.drawable.lin_ac_red_up, R.drawable.lin_ac_red_dn);
         this.mBtnMax = AddBtn(9, 196, 385, 73, 47, R.drawable.lin_ac_max_up, R.drawable.lin_ac_max_dn);
         this.mBtnAcMax = AddBtn(11, 500, 385, 73, 47, R.drawable.lin_ac_maxac_up, R.drawable.lin_ac_maxac_dn);
         this.mBtnLoopMode = AddBtn(14, CanCameraUI.BTN_LANDWIND_2D_FRONT, 389, 62, 47, R.drawable.lin_ac_wxh_up, R.drawable.lin_ac_wxh_dn);
@@ -516,7 +516,7 @@ public class CanLincsMkcACControlView implements View.OnTouchListener {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(28);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(17);
         return temp;
     }

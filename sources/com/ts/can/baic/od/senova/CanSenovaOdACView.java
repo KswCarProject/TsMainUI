@@ -138,7 +138,7 @@ public class CanSenovaOdACView extends CanBaseACView {
     public void InitModeButtons(boolean isTouchable, boolean isClickable) {
         this.mBtnModeArrays = new ParamButton[4];
         for (int i = 0; i < this.mBtnModeArrays.length; i++) {
-            this.mBtnModeArrays[i] = this.mContainer.addButton(KeyDef.RKEY_MEDIA_ANGLE, (i * 80) + 108);
+            this.mBtnModeArrays[i] = this.mContainer.addButton(305, (i * 80) + 108);
             ParamButton btnMode = this.mBtnModeArrays[i];
             this.mContainer.setDrawableUpDnSel(btnMode, mModeArrays[i * 2], mModeArrays[(i * 2) + 1]);
             if (isTouchable) {

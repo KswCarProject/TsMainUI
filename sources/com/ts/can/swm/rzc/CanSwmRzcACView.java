@@ -13,6 +13,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanSwmRzcACView extends CanBaseACView {
@@ -176,12 +177,12 @@ public class CanSwmRzcACView extends CanBaseACView {
         this.mBtnWdDn = AddBtn(11, 461, 164, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
         this.mBtnWdUpDn = AddBtn(12, 604, 164, R.drawable.can_jeep_ac_04_up, R.drawable.can_jeep_ac_04_dn);
         this.mBtnWdUp = AddBtn(21, 747, 164, R.drawable.can_jeep_ac_10_up, R.drawable.can_jeep_ac_10_dn);
-        this.mBtnLtWind = AddBtn(26, 536, KeyDef.RKEY_FR, R.drawable.can_jeep_ac_lchair03_up, R.drawable.can_jeep_ac_lchair03_dn);
+        this.mBtnLtWind = AddBtn(26, 536, 294, R.drawable.can_jeep_ac_lchair03_up, R.drawable.can_jeep_ac_lchair03_dn);
         this.mBtnLtWind.setPadding(0, 0, 162, 0);
         this.mBtnLtWind.setTextSize(0, 30.0f);
         this.mBtnLtWind.setGravity(21);
         this.mBtnLtWind.setTextColor(-1);
-        this.mBtnLtHot = AddBtn(15, 241, KeyDef.RKEY_FR, R.drawable.can_jeep_ac_lchair_up, R.drawable.can_jeep_ac_lchair_dn);
+        this.mBtnLtHot = AddBtn(15, Can.CAN_SITECHDEV_CW, 294, R.drawable.can_jeep_ac_lchair_up, R.drawable.can_jeep_ac_lchair_dn);
         this.mBtnLtHot.setPadding(0, 0, 162, 0);
         this.mBtnLtHot.setTextSize(0, 30.0f);
         this.mBtnLtHot.setGravity(21);
@@ -274,7 +275,7 @@ public class CanSwmRzcACView extends CanBaseACView {
         this.mBtnSync.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
             return;
         }

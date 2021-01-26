@@ -16,7 +16,7 @@ public abstract class WinDialog extends Dialog implements IKeepClass {
     public static int Tv = 260;
 
     /* renamed from: T  reason: collision with root package name */
-    private Object f566T;
+    private Object f570T;
     protected Ty T6;
     protected boolean TZ;
     protected Runnable Th;
@@ -145,12 +145,12 @@ public abstract class WinDialog extends Dialog implements IKeepClass {
     }
 
     public WinDialog setData(Object data) {
-        this.f566T = data;
+        this.f570T = data;
         return this;
     }
 
     public Object getData() {
-        return this.f566T;
+        return this.f570T;
     }
 
     public void requestScreenLock() {

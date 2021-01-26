@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import com.ts.MainUI.R;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 /* compiled from: CanFordSyncUIActivity */
 class SyncSKey {
@@ -32,7 +33,7 @@ class SyncSKey {
     public void SetTextIco(String txt, int ico) {
         SetIco(ico);
         if (ico != 0) {
-            SetText("");
+            SetText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             SetText(txt);
         }

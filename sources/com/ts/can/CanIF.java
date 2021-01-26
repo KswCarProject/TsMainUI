@@ -3,18 +3,19 @@ package com.ts.can;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Log;
+import com.android.SdkConstants;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.bt.BtExe;
 import com.ts.main.common.MainUI;
 import com.ts.main.common.WinShow;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.KeyDef;
 import com.yyw.ts70xhw.Mcu;
 import java.util.Arrays;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 public class CanIF {
     public static final int AC_FML_KEY_AC = 4;
@@ -196,7 +197,16 @@ public class CanIF {
             }
             return new String(data, 0, bytes, "UNICODE");
         } catch (Exception e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
+        }
+    }
+
+    public static String Utf82String(byte[] b) {
+        try {
+            return new String(b, SdkConstants.INI_CHARSET);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -214,7 +224,7 @@ public class CanIF {
             }
         }
         if (Datalen == 0) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         try {
             if (Datalen == b.length) {
@@ -223,7 +233,7 @@ public class CanIF {
             return new String(Arrays.copyOf(b, Datalen), "GBK");
         } catch (Exception e) {
             e.printStackTrace();
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -300,6 +310,9 @@ public class CanIF {
                 CanJni.HmS5CameraSet(0);
                 return true;
             case 47:
+                if (CanJni.GetSubType() != 0 && CanJni.GetSubType() != 1) {
+                    return false;
+                }
                 CanJni.QCCamSwitch();
                 return true;
             case 145:
@@ -473,7 +486,17 @@ public class CanIF {
             case Can.CAN_BENC_ZMYT:
                 WinShow.show("com.ts.MainUI", "com.ts.can.benc.withcd.CanBencWithCDExdActivity");
                 return;
-            case Can.CAN_AUDI_ZMYT:
+            case 144:
+                if (CanJni.GetSubType() == 6 && IsHaveIco(15) != 0) {
+                    WinShow.show("com.ts.MainUI", "com.ts.can.CanBaseCarDeviceActivity");
+                }
+                return;
+            case 146:
+                if ((CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9) && IsHaveIco(15) != 0) {
+                    WinShow.show("com.ts.MainUI", "com.ts.can.CanBaseCarDeviceActivity");
+                }
+                return;
+            case 152:
                 WinShow.show("com.ts.MainUI", "com.ts.can.audi.xhd.CanAudiWithCDExdActivity");
                 return;
             case Can.CAN_HONDA_WC:
@@ -521,13 +544,18 @@ public class CanIF {
             case 266:
             case 274:
             case 284:
+            case 294:
                 WinShow.show("com.ts.MainUI", "com.ts.can.CanCarDeviceActivity");
                 return;
             case Can.CAN_LEXUS_ZMYT:
             case 276:
+            case 289:
+            case 298:
+            case 303:
                 WinShow.show("com.ts.MainUI", "com.ts.can.CanCarDeviceActivity");
                 return;
             case 260:
+            case 293:
                 if (IsHaveIco(15) != 0) {
                     WinShow.show("com.ts.MainUI", "com.ts.can.CanBaseCarDeviceActivity");
                 }
@@ -591,22 +619,22 @@ public class CanIF {
     private static int DealHondaODKey(int nKey) {
         switch (nKey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.HondaOdTouchKey(145, 3);
                 CanJni.HondaOdTouchKey(145, 0);
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.HondaOdTouchKey(145, 4);
                 CanJni.HondaOdTouchKey(145, 0);
                 return 1;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 CanJni.HondaOdTouchKey(145, 1);
                 CanJni.HondaOdTouchKey(145, 0);
                 return 1;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 CanJni.HondaOdTouchKey(145, 2);
                 CanJni.HondaOdTouchKey(145, 0);
                 return 1;
@@ -618,11 +646,11 @@ public class CanIF {
     private static int DealHondaOldSysWcKey(int nKey) {
         switch (nKey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.HondaOldSysWcMediaCmd(7, 0);
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.HondaOldSysWcMediaCmd(7, 1);
                 return 1;
             case 68:
@@ -681,19 +709,19 @@ public class CanIF {
                 RadioCtrl(16, 0);
                 return 1;
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 RadioCtrl(1, 0);
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 RadioCtrl(1, 1);
                 return 1;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 RadioCtrl(1, 0);
                 return 1;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 RadioCtrl(1, 1);
                 return 1;
             case 51:
@@ -720,15 +748,15 @@ public class CanIF {
                 RadioCtrl(2, 1);
                 return 1;
             case 58:
-            case KeyDef.RKEY_AMS /*295*/:
+            case 295:
                 RadioCtrl(19, 1);
                 return 1;
             case 59:
-            case KeyDef.RKEY_RADIO_SCAN /*296*/:
+            case 296:
                 RadioCtrl(17, 1);
                 return 1;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 RadioCtrl(1, 0);
                 return 1;
             case 67:
@@ -787,19 +815,19 @@ public class CanIF {
     public static int DealCrownWcCDKey(int nKey) {
         switch (nKey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CrownWcNext();
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CrownWcPrev();
                 break;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 CrownWcFF();
                 break;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 CrownWcFR();
                 break;
             case 61:
@@ -811,7 +839,7 @@ public class CanIF {
                 CrownWcRpt();
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 CrownWcNext();
                 break;
             case 67:
@@ -885,19 +913,19 @@ public class CanIF {
         CanJni.MzdWcGetCDInfo(cdInfo);
         switch (nKey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 MzdWcNext();
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 MzdWcPrev();
                 break;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 MzdWcFF();
                 break;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 MzdWcFR();
                 break;
             case 61:
@@ -909,7 +937,7 @@ public class CanIF {
                 MzdWcRpt(cdInfo.Rpt);
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 MzdWcNext();
                 break;
             case 67:
@@ -1011,19 +1039,19 @@ public class CanIF {
                 CanJni.AccordRadioCtrl(80, 0);
                 return 1;
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.AccordRadioCtrl(48, 1);
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.AccordRadioCtrl(48, 2);
                 return 1;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 CanJni.AccordRadioCtrl(48, 1);
                 return 1;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 CanJni.AccordRadioCtrl(48, 2);
                 return 1;
             case 51:
@@ -1044,15 +1072,15 @@ public class CanIF {
                 CanJni.AccordRadioCtrl(53, 1);
                 return 1;
             case 58:
-            case KeyDef.RKEY_AMS /*295*/:
+            case 295:
                 CanJni.AccordRadioCtrl(52, 1);
                 return 1;
             case 59:
-            case KeyDef.RKEY_RADIO_SCAN /*296*/:
+            case 296:
                 CanJni.AccordRadioCtrl(49, 1);
                 return 1;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 CanJni.AccordRadioCtrl(48, 1);
                 return 1;
             case 67:
@@ -1142,19 +1170,19 @@ public class CanIF {
                 CanJni.Yg9XbsRadioCtrl(80, 0);
                 return 1;
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.Yg9XbsRadioCtrl(2, 0);
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.Yg9XbsRadioCtrl(3, 0);
                 return 1;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 CanJni.Yg9XbsRadioCtrl(4, 0);
                 return 1;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 CanJni.Yg9XbsRadioCtrl(5, 2);
                 return 1;
             case 51:
@@ -1175,14 +1203,14 @@ public class CanIF {
                 CanJni.Yg9XbsRadioCtrl(9, 0);
                 return 1;
             case 58:
-            case KeyDef.RKEY_AMS /*295*/:
+            case 295:
                 return 1;
             case 59:
-            case KeyDef.RKEY_RADIO_SCAN /*296*/:
+            case 296:
                 CanJni.Yg9XbsRadioCtrl(10, 0);
                 return 1;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 CanJni.Yg9XbsRadioCtrl(8, 0);
                 return 1;
             case 67:
@@ -1241,35 +1269,35 @@ public class CanIF {
     public static int DealChrOthKey(int nkey) {
         switch (nkey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.ChrOthCDCtrl(4, 0);
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.ChrOthCDCtrl(3, 0);
                 break;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 CanJni.ChrOthCDCtrl(5, 0);
                 break;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 CanJni.ChrOthCDCtrl(6, 0);
                 break;
             case 60:
-            case KeyDef.RKEY_MEDIA_PP /*299*/:
-                CanJni.ChrOthCDCtrl(240, 0);
+            case 299:
+                CanJni.ChrOthCDCtrl(Can.CAN_VOLKS_XP, 0);
                 break;
             case 61:
             case 300:
-                CanJni.ChrOthCDCtrl(241, 0);
+                CanJni.ChrOthCDCtrl(Can.CAN_SITECHDEV_CW, 0);
                 break;
             case 62:
             case 301:
                 CanJni.ChrOthCDCtrl(Can.CAN_MZD_LUOMU, 0);
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 CanJni.ChrOthCDCtrl(4, 0);
                 break;
             case 67:
@@ -1303,7 +1331,7 @@ public class CanIF {
                 CanJni.ChrOthCDCtrl(3, 0);
                 break;
             case KeyDef.SKEY_PP_1 /*824*/:
-                CanJni.ChrOthCDCtrl(240, 0);
+                CanJni.ChrOthCDCtrl(Can.CAN_VOLKS_XP, 0);
                 break;
         }
         return 1;
@@ -1342,19 +1370,19 @@ public class CanIF {
                 CanJni.CrstourRadioCtrl(1, 0);
                 return 1;
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.CrstourRadioCtrl(4, 0);
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.CrstourRadioCtrl(5, 0);
                 return 1;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 CanJni.CrstourRadioCtrl(4, 0);
                 return 1;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 CanJni.CrstourRadioCtrl(5, 0);
                 return 1;
             case 51:
@@ -1375,15 +1403,15 @@ public class CanIF {
                 CanJni.CrstourRadioCtrl(9, 0);
                 return 1;
             case 58:
-            case KeyDef.RKEY_AMS /*295*/:
+            case 295:
                 CanJni.CrstourRadioCtrl(12, 1);
                 return 1;
             case 59:
-            case KeyDef.RKEY_RADIO_SCAN /*296*/:
+            case 296:
                 CanJni.CrstourRadioCtrl(10, 1);
                 return 1;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 CanJni.CrstourRadioCtrl(4, 0);
                 return 1;
             case 67:
@@ -1444,23 +1472,23 @@ public class CanIF {
         CanJni.ChryslerWcGetCDInfo(mCdInfo);
         switch (nkey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.ChryslerWcCdCmd(4, 0, 0);
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.ChryslerWcCdCmd(3, 0, 0);
                 break;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 CanJni.ChryslerWcCdCmd(4, 1, 0);
                 break;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 CanJni.ChryslerWcCdCmd(3, 1, 0);
                 break;
             case 60:
-            case KeyDef.RKEY_MEDIA_PP /*299*/:
+            case 299:
                 if (mCdInfo.DiscSta != 1) {
                     CanJni.ChryslerWcCdCmd(1, 0, 0);
                     break;
@@ -1478,7 +1506,7 @@ public class CanIF {
                     break;
                 }
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 CanJni.ChryslerWcCdCmd(3, 0, 0);
                 break;
             case 67:
@@ -1542,15 +1570,15 @@ public class CanIF {
     public static int DealFiatAllKey(int nkey) {
         switch (nkey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 FiatAllNext();
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 FiatAllPrev();
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 FiatAllNext();
                 break;
             case 67:
@@ -1604,15 +1632,15 @@ public class CanIF {
     public static int DealFiatBravoKey(int nkey) {
         switch (nkey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 FiatBravoNext();
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 FiatBravoPrev();
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 FiatBravoNext();
                 break;
             case 67:
@@ -1680,15 +1708,15 @@ public class CanIF {
     public static int DealMzd3Key(int nkey) {
         switch (nkey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 Mzd3Next();
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 Mzd3Prev();
                 break;
             case 60:
-            case KeyDef.RKEY_MEDIA_PP /*299*/:
+            case 299:
                 Mzd3PP();
                 break;
             case 61:
@@ -1700,7 +1728,7 @@ public class CanIF {
                 Mzd3Rpt();
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 Mzd3Next();
                 break;
             case 67:
@@ -1771,15 +1799,15 @@ public class CanIF {
     public static int DealMzdCx4Key(int key) {
         switch (key) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 MzdCx4Next();
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 MzdCx4Prev();
                 break;
             case 60:
-            case KeyDef.RKEY_MEDIA_PP /*299*/:
+            case 299:
                 MzdCx4PP();
                 break;
             case 61:
@@ -1791,7 +1819,7 @@ public class CanIF {
                 MzdCx4Rpt();
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 MzdCx4Next();
                 break;
             case 67:
@@ -1861,27 +1889,27 @@ public class CanIF {
     public static int DealPg408Key(int nkey) {
         switch (nkey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 Pg408Next();
                 break;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 Pg408Prev();
                 break;
             case 46:
-            case KeyDef.RKEY_FF /*293*/:
+            case 293:
                 Pg408Ff();
                 break;
             case 47:
-            case KeyDef.RKEY_FR /*294*/:
+            case 294:
                 Pg408Fr();
                 break;
             case 60:
-            case KeyDef.RKEY_MEDIA_PP /*299*/:
+            case 299:
                 Pg408Play();
                 break;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 Pg408Prev();
                 break;
             case 67:
@@ -1921,19 +1949,19 @@ public class CanIF {
     private static int DealCcHfDjKey(int nKey) {
         switch (nKey) {
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 CanJni.CcHfDjMediaKey(8, 1);
                 CanJni.CcHfDjMediaKey(8, 0);
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 CanJni.CcHfDjMediaKey(9, 1);
                 CanJni.CcHfDjMediaKey(9, 0);
                 return 1;
             case 46:
             case 47:
-            case KeyDef.RKEY_FF /*293*/:
-            case KeyDef.RKEY_FR /*294*/:
+            case 293:
+            case 294:
                 return 1;
             case 515:
                 CanJni.CcHfDjMediaKey(9, 1);
@@ -1952,7 +1980,7 @@ public class CanIF {
         byte[] msg = new byte[8];
         msg[0] = -15;
         msg[1] = 17;
-        msg[2] = WrcManager.WrcCallback.MINI_KEY_2;
+        msg[2] = 34;
         msg[3] = 51;
         msg[4] = (byte) key;
         msg[5] = (byte) (((key + 343) & 255) ^ 255);
@@ -2100,9 +2128,23 @@ public class CanIF {
         CanJni.GetCarInfo(mCarInfo);
     }
 
+    public static int LandRoverZmytCmd(int para, int para2, int para3) {
+        if (CanJni.GetCanType() == 289) {
+            switch (para) {
+                case 16:
+                    CanJni.LandRoverZmytKeyCmd(para2, para3);
+                    break;
+                case 17:
+                    CanJni.LandRoverZmytReqControl(80, para2);
+                    break;
+            }
+        }
+        return 0;
+    }
+
     public static int IsPhoneActive() {
         BtExe bt = BtExe.getBtInstance();
-        if (bt.getSta() == 3 || bt.getSta() == 2 || bt.getSta() == 4) {
+        if (bt.getSta() == 3 || bt.getSta() == 2 || bt.getSta() == 4 || Iop.GetMediaOrBlue() > 0) {
             return 1;
         }
         return 0;
@@ -2157,6 +2199,15 @@ public class CanIF {
             default:
                 return false;
         }
+    }
+
+    public static int GetMjbFlData() {
+        if (CanJni.GetCanType() != 311) {
+            return 255;
+        }
+        CanDataInfo.MjbFl_LightInfo mLightData = new CanDataInfo.MjbFl_LightInfo();
+        CanJni.MjbFlGetLightSensorInfo(mLightData);
+        return mLightData.Val;
     }
 
     public static void DealSpeakVoice(int sta) {
@@ -2249,19 +2300,22 @@ public class CanIF {
                     CanJni.GMGetOnStar(mStaData2, new CanDataInfo.GM_PhoneInfo());
                     CanDataInfo.GmSb_CarSta mCarSta3 = new CanDataInfo.GmSb_CarSta();
                     CanJni.GmSbCarGetCarSta(mCarSta3);
-                    if (sta == 0 || !IsExdMode() || mCarSta3.Mode == 6) {
+                    if (sta != 0 && IsExdMode() && mCarSta3.Mode != 6) {
+                        mGpsVoiceDelay = 0;
+                        Log.d(TAG, "GpsVoice on " + mStaData2.Sta);
+                        if (mStaData2.Sta == 0) {
+                            Iop.RstPort(0);
+                        }
+                        CanJni.GmSbCarMoudleCtl(2, 1);
+                        return;
+                    } else if (IsPhoneActive() == 0) {
                         CanJni.GmSbCarMoudleCtl(2, 0);
                         mGpsVoiceDelay = 7;
                         Log.d(TAG, "GpsVoice off");
                         return;
+                    } else {
+                        return;
                     }
-                    mGpsVoiceDelay = 0;
-                    Log.d(TAG, "GpsVoice on " + mStaData2.Sta);
-                    if (mStaData2.Sta == 0) {
-                        Iop.RstPort(0);
-                    }
-                    CanJni.GmSbCarMoudleCtl(2, 1);
-                    return;
                 } else {
                     return;
                 }
@@ -2295,15 +2349,18 @@ public class CanIF {
                 Log.d(TAG, "GpsVoice off");
                 return;
             case 138:
-                CanDataInfo.BmwWithCD_WorkMode mWorkMode = new CanDataInfo.BmwWithCD_WorkMode();
-                CanJni.BmwWithCDGetWorkMode(mWorkMode);
-                if (sta == 0 || mWorkMode.VedioMode == 0) {
-                    Iop.RstPort(0);
-                    Log.d(TAG, "GpsVoice off");
+                if (CanJni.GetSubType() != 1) {
+                    CanDataInfo.BmwWithCD_WorkMode mWorkMode = new CanDataInfo.BmwWithCD_WorkMode();
+                    CanJni.BmwWithCDGetWorkMode(mWorkMode);
+                    if (sta == 0 || mWorkMode.VedioMode == 0) {
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
+                    Log.d(TAG, "GpsVoice on");
+                    Iop.RstPort(1);
                     return;
                 }
-                Log.d(TAG, "GpsVoice on");
-                Iop.RstPort(1);
                 return;
             case Can.CAN_BENC_ZMYT:
                 mfgDealGps = false;
@@ -2336,11 +2393,14 @@ public class CanIF {
                     mfgDealGps = true;
                     return;
                 }
-            case Can.CAN_AUDI_ZMYT:
+            case 152:
                 if (!IsExdMode()) {
-                    mGpsVoiceDelay = 0;
-                    Iop.RstPort(0);
-                    Log.d(TAG, "GpsVoice off");
+                    if (IsPhoneActive() == 0) {
+                        mGpsVoiceDelay = 0;
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
                     return;
                 } else if (sta == 0 && IsPhoneActive() == 0) {
                     mGpsVoiceDelay = 0;
@@ -2353,26 +2413,32 @@ public class CanIF {
                     return;
                 }
             case 176:
-                if (!IsExdMode() && CanJni.GetSubType() != 1) {
-                    mGpsVoiceDelay = 0;
-                    Iop.RstPort(0);
-                    Log.d(TAG, "GpsVoice off");
+                if (IsExdMode() || CanJni.GetSubType() == 1) {
+                    if (sta == 0 && IsPhoneActive() == 0) {
+                        mGpsVoiceDelay = 0;
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
+                    mGpsVoiceDelay = 7;
+                    Log.d(TAG, "GpsVoice delay");
                     return;
-                } else if (sta == 0 && IsPhoneActive() == 0) {
+                } else if (IsPhoneActive() == 0) {
                     mGpsVoiceDelay = 0;
                     Iop.RstPort(0);
                     Log.d(TAG, "GpsVoice off");
                     return;
                 } else {
-                    mGpsVoiceDelay = 7;
-                    Log.d(TAG, "GpsVoice delay");
                     return;
                 }
             case Can.CAN_LEXUS_ZMYT:
                 if (!IsExdMode()) {
-                    mGpsVoiceDelay = 0;
-                    Iop.RstPort(0);
-                    Log.d(TAG, "GpsVoice off");
+                    if (IsPhoneActive() == 0) {
+                        mGpsVoiceDelay = 0;
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
                     return;
                 } else if (sta == 0 && IsPhoneActive() == 0) {
                     mGpsVoiceDelay = 0;
@@ -2412,9 +2478,12 @@ public class CanIF {
                 return;
             case 276:
                 if (!IsExdMode()) {
-                    mGpsVoiceDelay = 0;
-                    Iop.RstPort(0);
-                    Log.d(TAG, "GpsVoice off");
+                    if (IsPhoneActive() == 0) {
+                        mGpsVoiceDelay = 0;
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
                     return;
                 } else if (sta == 0 && IsPhoneActive() == 0) {
                     mGpsVoiceDelay = 0;
@@ -2435,9 +2504,78 @@ public class CanIF {
                 Iop.RstPort(1);
                 Log.d(TAG, "GpsVoice on");
                 return;
+            case 289:
+                if (!IsExdMode()) {
+                    if (IsPhoneActive() == 0) {
+                        mGpsVoiceDelay = 0;
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
+                    return;
+                } else if (sta == 0 && IsPhoneActive() == 0) {
+                    mGpsVoiceDelay = 0;
+                    Iop.RstPort(0);
+                    Log.d(TAG, "GpsVoice off");
+                    return;
+                } else {
+                    mGpsVoiceDelay = 7;
+                    Log.d(TAG, "GpsVoice delay");
+                    return;
+                }
+            case 298:
+                if (!IsExdMode()) {
+                    if (IsPhoneActive() == 0) {
+                        mGpsVoiceDelay = 0;
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
+                    return;
+                } else if (sta == 0 && IsPhoneActive() == 0) {
+                    mGpsVoiceDelay = 0;
+                    Iop.RstPort(0);
+                    Log.d(TAG, "GpsVoice off");
+                    return;
+                } else {
+                    mGpsVoiceDelay = 7;
+                    Log.d(TAG, "GpsVoice delay");
+                    return;
+                }
+            case 303:
+                if (!IsExdMode()) {
+                    if (IsPhoneActive() == 0) {
+                        mGpsVoiceDelay = 0;
+                        Iop.RstPort(0);
+                        Log.d(TAG, "GpsVoice off");
+                        return;
+                    }
+                    return;
+                } else if (sta == 0 && IsPhoneActive() == 0) {
+                    mGpsVoiceDelay = 0;
+                    Iop.RstPort(0);
+                    Log.d(TAG, "GpsVoice off");
+                    return;
+                } else {
+                    mGpsVoiceDelay = 7;
+                    Log.d(TAG, "GpsVoice delay");
+                    return;
+                }
             default:
                 return;
         }
+    }
+
+    public static int IsRightTurn() {
+        return Can.mCarMsg.TurnRight;
+    }
+
+    public static int IsLeftTurn() {
+        return Can.mCarMsg.TurnLeft;
+    }
+
+    public static int IsWarningLight() {
+        return Can.mCarMsg.WarnLed;
     }
 
     protected static boolean int2Bool(int val) {
@@ -2630,7 +2768,7 @@ public class CanIF {
             r2 = 140(0x8c, float:1.96E-43)
             if (r1 != r2) goto L_0x00a8
             int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
-            r1 = r1 & 1
+            r1 = r1 & 3
             if (r1 != r0) goto L_0x0076
             goto L_0x0016
         L_0x00a8:
@@ -2638,7 +2776,7 @@ public class CanIF {
             r2 = 152(0x98, float:2.13E-43)
             if (r1 != r2) goto L_0x00ba
             int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
-            r1 = r1 & 1
+            r1 = r1 & 3
             if (r1 != r0) goto L_0x0076
             goto L_0x0016
         L_0x00ba:
@@ -2646,7 +2784,7 @@ public class CanIF {
             r2 = 176(0xb0, float:2.47E-43)
             if (r1 != r2) goto L_0x00cc
             int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
-            r1 = r1 & 1
+            r1 = r1 & 3
             if (r1 != r0) goto L_0x0076
             goto L_0x0016
         L_0x00cc:
@@ -2667,9 +2805,43 @@ public class CanIF {
         L_0x00ee:
             int r1 = com.lgb.canmodule.CanJni.GetCanType()
             r2 = 276(0x114, float:3.87E-43)
-            if (r1 != r2) goto L_0x0076
+            if (r1 != r2) goto L_0x0100
             int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
-            r1 = r1 & 1
+            r1 = r1 & 3
+            if (r1 != r0) goto L_0x0076
+            goto L_0x0016
+        L_0x0100:
+            int r1 = com.lgb.canmodule.CanJni.GetCanType()
+            r2 = 289(0x121, float:4.05E-43)
+            if (r1 != r2) goto L_0x0112
+            int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
+            r1 = r1 & 3
+            if (r1 != r0) goto L_0x0076
+            goto L_0x0016
+        L_0x0112:
+            int r1 = com.lgb.canmodule.CanJni.GetCanType()
+            r2 = 298(0x12a, float:4.18E-43)
+            if (r1 != r2) goto L_0x0124
+            int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
+            r1 = r1 & 3
+            if (r1 != r0) goto L_0x0076
+            goto L_0x0016
+        L_0x0124:
+            int r1 = com.lgb.canmodule.CanJni.GetCanType()
+            r2 = 303(0x12f, float:4.25E-43)
+            if (r1 != r2) goto L_0x0136
+            int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
+            r1 = r1 & 3
+            if (r1 != r0) goto L_0x0076
+            goto L_0x0016
+        L_0x0136:
+            r1 = 138(0x8a, float:1.93E-43)
+            int r2 = com.lgb.canmodule.CanJni.GetCanType()
+            if (r1 != r2) goto L_0x0076
+            int r1 = com.lgb.canmodule.CanJni.GetSubType()
+            if (r0 != r1) goto L_0x0076
+            int r1 = com.yyw.ts70xhw.FtSet.Getlgb1()
+            r1 = r1 & 25
             if (r1 != r0) goto L_0x0076
             goto L_0x0016
         */
@@ -2688,7 +2860,7 @@ public class CanIF {
         } else if (key == 5) {
             msg[3] = 64;
         } else if (key == 11) {
-            msg[3] = WrcManager.WrcCallback.KEY_CENTER;
+            msg[3] = 16;
         } else if (key == 8) {
             msg[3] = 2;
         } else if (key == 12) {
@@ -2752,13 +2924,20 @@ public class CanIF {
     }
 
     public static void TouchDownEven() {
-        switch (CanJni.GetCanType()) {
-            case Can.CAN_BENC_ZMYT:
-                Mcu.SendXKey(70);
-                Log.d(TAG, "TouchDownEven");
-                return;
-            default:
-                return;
+        if ((FtSet.Getyw15() & 3) <= 0) {
+            switch (CanJni.GetCanType()) {
+                case Can.CAN_BENC_ZMYT:
+                case 152:
+                case 176:
+                case Can.CAN_LEXUS_ZMYT:
+                case 276:
+                case 289:
+                    Mcu.SendXKey(70);
+                    Log.d(TAG, "TouchDownEven");
+                    return;
+                default:
+                    return;
+            }
         }
     }
 
@@ -2769,18 +2948,28 @@ public class CanIF {
         }
         switch (cmd) {
             case 0:
-                int temp2 = FtSet.Getlgb1();
-                if (FtSet.GetCamTrack() > 0) {
-                    temp = temp2 & 191;
+                if (CanJni.GetSubType() == 1) {
+                    if (Sta <= 0) {
+                        CanJni.BmwWithCDCarSet(1, 0, 0, 0);
+                        break;
+                    } else {
+                        CanJni.BmwWithCDCarSet(1, 1, 0, 0);
+                        break;
+                    }
                 } else {
-                    temp = temp2 | 64;
-                }
-                if (Sta <= 0) {
-                    CanJni.BmwWithCDCarSet(149, temp & Can.CAN_MG_ZS_WC, 0, 0);
-                    break;
-                } else {
-                    CanJni.BmwWithCDCarSet(149, temp | 4, 0, 0);
-                    break;
+                    int temp2 = FtSet.Getlgb1();
+                    if (FtSet.GetCamTrack() > 0) {
+                        temp = temp2 & 191;
+                    } else {
+                        temp = temp2 | 64;
+                    }
+                    if (Sta <= 0) {
+                        CanJni.BmwWithCDCarSet(149, temp & Can.CAN_MG_ZS_WC, 0, 0);
+                        break;
+                    } else {
+                        CanJni.BmwWithCDCarSet(149, temp | 4, 0, 0);
+                        break;
+                    }
                 }
             case 1:
                 if (Sta <= 0) {
@@ -2841,13 +3030,13 @@ public class CanIF {
     }
 
     public static String GetTsResStr(Context context, String name) {
-        int resStr = GetResId(context, name, "string", "com.ts.MainUI");
+        int resStr = GetResId(context, name, SdkConstants.TAG_STRING, "com.ts.MainUI");
         if (resStr > 0) {
             Log.d(TAG, "###Get resStr = " + resStr);
             return context.getResources().getString(resStr);
         }
         Log.d(TAG, "###Can't Get resStr = " + resStr);
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public static String[] GetTsResStrArray(Context context, String name) {

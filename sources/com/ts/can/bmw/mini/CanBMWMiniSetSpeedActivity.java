@@ -5,6 +5,7 @@ import com.ts.MainUI.R;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanItemTitleValList;
 import com.ts.canview.CanNumInuptDlg;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanBMWMiniSetSpeedActivity extends CanBMWMiniBaseActivity {
     public static final int ITEM_SPEED_SELECT_VALUE = 2;
@@ -54,7 +55,7 @@ public class CanBMWMiniSetSpeedActivity extends CanBMWMiniBaseActivity {
 
     private void setSpeed(int speed) {
         if (speed < 0 || speed > 400) {
-            this.mItemValue.SetVal("");
+            this.mItemValue.SetVal(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mItemValue.SetVal(String.valueOf(String.valueOf(speed)) + " KM/H");
         }

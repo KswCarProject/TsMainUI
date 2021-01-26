@@ -1,5 +1,6 @@
 package com.T.T.Ty;
 
+import com.autochips.camera.util.DVRConst;
 import java.io.IOException;
 import java.lang.reflect.Type;
 
@@ -7,11 +8,11 @@ import java.lang.reflect.Type;
 public class Tr implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    private final Class<?> f212T;
+    private final Class<?> f215T;
     private final Trh Tr;
 
     public Tr(Class<?> componentType, Trh compObjectSerializer) {
-        this.f212T = componentType;
+        this.f215T = componentType;
         this.Tr = compObjectSerializer;
     }
 
@@ -30,8 +31,8 @@ public class Tr implements Trh {
                     }
                     Object item = array[i];
                     if (item == null) {
-                        out.append((CharSequence) "null");
-                    } else if (item.getClass() == this.f212T) {
+                        out.append((CharSequence) DVRConst.UNKOWN_CAMERA_ID);
+                    } else if (item.getClass() == this.f215T) {
                         this.Tr.T(serializer, item, Integer.valueOf(i), (Type) null);
                     } else {
                         serializer.T(item.getClass()).T(serializer, item, Integer.valueOf(i), (Type) null);

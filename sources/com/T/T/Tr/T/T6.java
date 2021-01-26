@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 public class T6 implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final T6 f142T = new T6();
+    public static final T6 f145T = new T6();
 
     public <T> T T(Ty parser, Type type, Object fieldName) {
         T9 lexer = parser.Th();

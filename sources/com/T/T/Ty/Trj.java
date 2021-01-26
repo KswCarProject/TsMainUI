@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class Trj implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Trj f221T = new Trj();
+    public static final Trj f224T = new Trj();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         Object item;

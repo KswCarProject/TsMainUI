@@ -36,12 +36,12 @@ public class T extends T9 {
         content.setMinHeight((int) Tr.Tn("y70"));
         com.txznet.comm.Ty.Tk.T(content, this.T9);
         com.txznet.comm.Ty.Tk.T(content, this.Tk);
-        content.setText(Html.fromHtml(viewData.f447T));
+        content.setText(Html.fromHtml(viewData.f451T));
         if (viewData.Tr != null) {
             mLayout.setOnClickListener(viewData.Tr);
         }
         Tn.T adapter = new Tn.T();
-        adapter.f462T = data.Ty();
+        adapter.f466T = data.Ty();
         adapter.Tr = mLayout;
         adapter.Tn = T9();
         return adapter;

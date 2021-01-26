@@ -47,7 +47,7 @@ public class CanAllUpdateActivity extends Activity {
     private Button mStart;
     private String[] mStrCanSta;
     private String[] mStrMsg;
-    private final String[] mStrSpinner = {"XP"};
+    private final String[] mStrSpinner = {"XP", "FL"};
     /* access modifiers changed from: private */
     public AllMcuUpdater mUpdater;
     private CanDataInfo.CAN_VerInfo m_CanVer = new CanDataInfo.CAN_VerInfo();

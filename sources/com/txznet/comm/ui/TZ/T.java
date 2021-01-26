@@ -1,6 +1,5 @@
 package com.txznet.comm.ui.TZ;
 
-import com.ts.dvdplayer.definition.MediaDef;
 import java.util.HashMap;
 
 /* compiled from: Proguard */
@@ -8,7 +7,7 @@ public class T {
     public static HashMap<String, Object> TX;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f539T = 15;
+    public int f543T = 15;
     public int T0;
     public int T5 = 0;
     public int T6 = 2;
@@ -20,12 +19,12 @@ public class T {
     public int TF = 6;
     public int TG = 220;
     public int TK = 48;
-    public int TM = MediaDef.PROGRESS_MAX;
+    public int TM = 1000;
     public int TN = 56;
     public int TO = 48;
     public int TV;
     public int TZ = 0;
-    public int Tb = MediaDef.PROGRESS_MAX;
+    public int Tb = 1000;
     public int Te = 1;
     public int Tf;
     public int Th = 2;

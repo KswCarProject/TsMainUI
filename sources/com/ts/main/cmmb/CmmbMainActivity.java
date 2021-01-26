@@ -1,8 +1,7 @@
 package com.ts.main.cmmb;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -23,7 +22,9 @@ import com.ts.main.common.MainUI;
 import com.ts.main.common.ScreenSet;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
+import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 
 public class CmmbMainActivity extends Activity implements UserCallBack {
@@ -32,37 +33,25 @@ public class CmmbMainActivity extends Activity implements UserCallBack {
     ParamButton[] BtnCmmb = new ParamButton[8];
     AvShowMainItem CMMBShow = new AvShowMainItem();
     RelativeLayoutManager CmmbManage;
-    int Iphone = 0;
     private int[] Ysj_btn_Icondn = {R.drawable.dtv_list_dn, R.drawable.dtv_up_dn, R.drawable.dtv_down_dn, R.drawable.dtv_left_dn, R.drawable.dtv_right_dn, R.drawable.dtv_ok_dn, R.drawable.dtv_return_dn};
     private int[] Ysj_btn_Iconup = {R.drawable.dtv_list_up, R.drawable.dtv_up_up, R.drawable.dtv_down_up, R.drawable.dtv_left_up, R.drawable.dtv_right_up, R.drawable.dtv_ok_up, R.drawable.dtv_return_up};
-    /* access modifiers changed from: private */
-    public Evc mEvc = Evc.GetInstance();
+    private Evc mEvc = Evc.GetInstance();
     long nTime = 0;
+
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
+        MainSet.PushActivityForMul(6, isInMultiWindowMode);
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
+    }
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avin_main);
+        MainSet.GetInstance().FtSetInint();
         this.CMMBShow.Inint(this, (RelativeLayout) findViewById(R.id.activity_avin_mainid), 2);
+        this.CMMBShow.SetIsHaveVol(true);
         this.CMMBShow.InintCommonBtn();
-        if (MainSet.GetScreenType() == 7) {
-            this.CMMBShow.GetVideoName().setText("同屏传输");
-            new AlertDialog.Builder(this).setTitle("系统提示").setMessage("请根据您插入的手机选择相应的模式").setPositiveButton("苹果手机", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    CmmbMainActivity.this.Iphone = 1;
-                    CmmbMainActivity.this.mEvc.evol_workmode_set(6);
-                    dialog.dismiss();
-                }
-            }).setNegativeButton("安卓手机", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    CmmbMainActivity.this.Iphone = 0;
-                    CmmbMainActivity.this.mEvc.evol_workmode_set(5);
-                    dialog.dismiss();
-                }
-            }).show();
-        } else {
-            this.CMMBShow.GetVideoName().setText(R.string.title_activity_cmmb_main);
-        }
+        this.CMMBShow.GetVideoName().setText(R.string.title_activity_cmmb_main);
         this.CmmbManage = new RelativeLayoutManager(this, R.id.activity_avin_mainid);
         if (FtSet.GetDtvType() == 1) {
             for (int i = 0; i < 7; i++) {
@@ -108,11 +97,7 @@ public class CmmbMainActivity extends Activity implements UserCallBack {
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == 0) {
             Log.i("onTouchEvent", "x = " + event.getX() + "y=" + event.getY());
-            if (MainSet.GetScreenType() == 3) {
-                Cmmb.GetInstance().SendTouch((int) ((event.getX() * 255.0f) / ((float) getResources().getDisplayMetrics().widthPixels)), (int) ((event.getY() * 255.0f) / ((float) getResources().getDisplayMetrics().heightPixels)));
-            } else {
-                Cmmb.GetInstance().SendTouch(((int) event.getX()) / 4, (((int) event.getY()) * 32) / 75);
-            }
+            Cmmb.GetInstance().SendTouch((int) ((event.getX() * 255.0f) / ((float) getResources().getDisplayMetrics().widthPixels)), (int) ((event.getY() * 255.0f) / ((float) getResources().getDisplayMetrics().heightPixels)));
             if (FtSet.GetDtvType() != 0) {
                 this.CMMBShow.DealKeyTouch();
             } else {
@@ -126,30 +111,16 @@ public class CmmbMainActivity extends Activity implements UserCallBack {
 
     /* access modifiers changed from: protected */
     public void onResume() {
-        if (MainSet.GetScreenType() == 7) {
-            this.CMMBShow.nDelayNum = 0;
-        } else {
+        if (Iop.GetWorkMode() != 6) {
             this.CMMBShow.nDelayNum = 90;
-        }
-        MainTask.GetInstance().SetUserCallBack(this);
-        if (MainSet.GetScreenType() != 7) {
-            this.mEvc.evol_workmode_set(6);
-        } else if (this.Iphone == 1) {
-            this.mEvc.evol_workmode_set(6);
         } else {
-            this.mEvc.evol_workmode_set(5);
+            this.CMMBShow.nDelayNum = 0;
         }
-        Mcu.SetCmmbstate((byte) 1);
+        this.CMMBShow.bCameraReady = BackcarService.getInstance().bIninOK;
+        MainTask.GetInstance().SetUserCallBack(this);
         this.CMMBShow.ShowMode(1, true);
         this.CMMBShow.nShowMode = 0;
-        TsDisplay.GetInstance().SetDispParat(2);
-        if (MainSet.GetInstance().IsTwcjw() || FtSet.GetExUart() == 1) {
-            MainSet.GetInstance().SetVideoChannel(2);
-        } else {
-            MainSet.GetInstance().SetVideoChannel(1);
-        }
-        BackcarService.getInstance().StartCamera((AutoFitTextureView) findViewById(R.id.textureView), true);
-        MainSet.GetInstance().TwShowTitle(getResources().getString(R.string.title_activity_cmmb_main));
+        EnterCmmb();
         super.onResume();
     }
 
@@ -159,13 +130,17 @@ public class CmmbMainActivity extends Activity implements UserCallBack {
         if (MainUI.IsCameraMode() == 1) {
             TsDisplay.GetInstance().SetSrcMute(5);
         }
-        this.CMMBShow.nShowMode = 0;
-        this.CMMBShow.ShowMode(2, true);
-        this.CMMBShow.nShowMode = 0;
-        MainTask.GetInstance().SetUserCallBack((UserCallBack) null);
-        MainSet.GetInstance().TwShowTitle("");
         BackcarService.getInstance().StopCamera();
+        this.CMMBShow.ShowMode(5, false);
+        MainTask.GetInstance().SetUserCallBack((UserCallBack) null);
+        MainSet.GetInstance().TwShowTitle(TXZResourceManager.STYLE_DEFAULT);
         TsDisplay.GetInstance().SetDispParat(-1);
+        if (MainUI.IsCameraMode() == 0) {
+            BackcarService.getInstance().ShowRearDisplay();
+        }
+        if (BackcarService.getInstance().bIsAvm360()) {
+            MainSet.GetInstance().SetVideoChannel(0);
+        }
         super.onPause();
     }
 
@@ -174,34 +149,53 @@ public class CmmbMainActivity extends Activity implements UserCallBack {
         if (FtSet.GetDtvType() == 1) {
             for (int i = 0; i < 7; i++) {
                 if (bShow) {
-                    this.BtnCmmb[i].setVisibility(0);
-                } else {
+                    if (this.BtnCmmb[i] != null) {
+                        this.BtnCmmb[i].setVisibility(0);
+                    }
+                } else if (this.BtnCmmb[i] != null) {
                     this.BtnCmmb[i].setVisibility(4);
                 }
             }
         }
     }
 
+    /* access modifiers changed from: package-private */
+    public void EnterCmmb() {
+        if (BackcarService.getInstance().bIninOK) {
+            this.mEvc.evol_workmode_set(6);
+            Mcu.SetCmmbstate((byte) 1);
+            MainSet.GetInstance().SetVideoChannel(1);
+            BackcarService.getInstance().StartCamera((AutoFitTextureView) findViewById(R.id.textureView), false);
+            MainSet.GetInstance().TwShowTitle(getResources().getString(R.string.title_activity_cmmb_main));
+            TsDisplay.GetInstance().SetDispParat(2);
+            this.CMMBShow.bCameraReady = BackcarService.getInstance().bIninOK;
+        }
+    }
+
     public void UserAll() {
-        this.CMMBShow.SignalDetect();
-        if (nOldMode != this.CMMBShow.nShowMode) {
-            nOldMode = this.CMMBShow.nShowMode;
-            switch (this.CMMBShow.nShowMode) {
-                case 1:
-                    ShowCmmbBtn(true);
-                    return;
-                case 2:
-                    ShowCmmbBtn(true);
-                    return;
-                case 3:
-                    ShowCmmbBtn(true);
-                    return;
-                case 4:
-                    ShowCmmbBtn(false);
-                    return;
-                default:
-                    return;
+        if (this.CMMBShow.bCameraReady) {
+            this.CMMBShow.SignalDetect();
+            if (nOldMode != this.CMMBShow.nShowMode) {
+                nOldMode = this.CMMBShow.nShowMode;
+                switch (this.CMMBShow.nShowMode) {
+                    case 1:
+                        ShowCmmbBtn(true);
+                        return;
+                    case 2:
+                        ShowCmmbBtn(true);
+                        return;
+                    case 3:
+                        ShowCmmbBtn(true);
+                        return;
+                    case 4:
+                        ShowCmmbBtn(false);
+                        return;
+                    default:
+                        return;
+                }
             }
+        } else {
+            EnterCmmb();
         }
     }
 }

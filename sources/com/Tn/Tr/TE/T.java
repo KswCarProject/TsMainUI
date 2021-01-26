@@ -42,7 +42,7 @@ public interface T {
             this.Th = null;
             this.T6 = null;
             this.Te = null;
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 
@@ -227,7 +227,7 @@ public interface T {
 
         public static Tr[] Tn() {
             if (TL == null) {
-                synchronized (com.Tr.T.T.Ty.f241T) {
+                synchronized (com.Tr.T.T.Ty.f244T) {
                     if (TL == null) {
                         TL = new Tr[0];
                     }
@@ -275,7 +275,7 @@ public interface T {
             this.TX = null;
             this.TP = null;
             this.TI = null;
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 
@@ -628,7 +628,7 @@ public interface T {
             this.Tr = null;
             this.Ty = null;
             this.Tn = Tr.Tn();
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 

@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss.expanded;
 
+import com.autochips.camera.util.DVRConst;
 import com.google.zxing.oned.rss.DataCharacter;
 import com.google.zxing.oned.rss.FinderPattern;
 
@@ -41,7 +42,7 @@ final class ExpandedPair {
     }
 
     public String toString() {
-        return "[ " + this.leftChar + " , " + this.rightChar + " : " + (this.finderPattern == null ? "null" : Integer.valueOf(this.finderPattern.getValue())) + " ]";
+        return "[ " + this.leftChar + " , " + this.rightChar + " : " + (this.finderPattern == null ? DVRConst.UNKOWN_CAMERA_ID : Integer.valueOf(this.finderPattern.getValue())) + " ]";
     }
 
     public boolean equals(Object o) {

@@ -36,7 +36,7 @@ public class CanNissanRzcCarInfoView extends CanScrollCarInfoView {
         this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CAR_TYPE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE};
         this.mPopValueIds[0] = new int[]{R.array.can_fs_declare_199};
         this.mPopValueIds[2] = new int[]{R.string.can_language_chinese, R.string.can_language_english};
-        if (CanJni.GetSubType() == 2) {
+        if (CanJni.GetSubType() == 2 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 4 || CanJni.GetSubType() == 7) {
             this.mItemVisibles[3] = 1;
         } else {
             this.mItemVisibles[3] = 0;

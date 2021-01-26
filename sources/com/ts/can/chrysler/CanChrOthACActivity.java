@@ -15,7 +15,6 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.MyProgressBar;
 import com.ts.main.common.MainSet;
@@ -23,6 +22,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.KeyDef;
 
@@ -117,7 +117,7 @@ public class CanChrOthACActivity extends CanBaseActivity implements UserCallBack
         this.mTvRtTemp = AddTemp(CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE5, 183, 100, 50);
         this.mTvRtTemp.SetPixelSize(30);
         this.mBtnWdPx = AddBtn(9, 182, 126, 77, 77, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
-        this.mBtnWdPxDn = AddBtn(10, KeyDef.RKEY_PRE, 126, 77, 77, R.drawable.can_jeep_ac_02_up, R.drawable.can_jeep_ac_02_dn);
+        this.mBtnWdPxDn = AddBtn(10, 292, 126, 77, 77, R.drawable.can_jeep_ac_02_up, R.drawable.can_jeep_ac_02_dn);
         this.mBtnWdDn = AddBtn(11, CanCameraUI.BTN_TRUMPCHI_GS4_MODE3, 126, 77, 77, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
         this.mBtnWdUpDn = AddBtn(12, 512, 126, 77, 77, R.drawable.can_jeep_ac_04_up, R.drawable.can_jeep_ac_04_dn);
         this.mBtnLtHot = AddBtn(15, 182, Can.CAN_SE_DX7_RZC, 187, 62, R.drawable.can_jeep_ac_lchair_up, R.drawable.can_jeep_ac_lchair_dn);
@@ -161,12 +161,12 @@ public class CanChrOthACActivity extends CanBaseActivity implements UserCallBack
         this.mBtnRtTempDec = AddBtn(14, 890, KeyDef.RKEY_res1, R.drawable.can_jeep_ac_leng_up, R.drawable.can_jeep_ac_leng_dn);
         this.mBtnRtTempInc = AddBtn(13, 890, 124, R.drawable.can_jeep_ac_re_up, R.drawable.can_jeep_ac_re_dn);
         this.mTvRtTemp = AddTemp(889, Can.CAN_FORD_SYNC3, 95, 51);
-        this.mBtnWdPx = AddBtn(9, 241, 144, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
+        this.mBtnWdPx = AddBtn(9, Can.CAN_SITECHDEV_CW, 144, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
         this.mBtnWdPxDn = AddBtn(10, 388, 144, R.drawable.can_jeep_ac_02_up, R.drawable.can_jeep_ac_02_dn);
         this.mBtnWdDn = AddBtn(11, 536, 144, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
         this.mBtnWdUpDn = AddBtn(12, 683, 144, R.drawable.can_jeep_ac_04_up, R.drawable.can_jeep_ac_04_dn);
-        this.mBtnLtHot = AddBtn(15, 241, KeyDef.RKEY_FR, R.drawable.can_jeep_ac_lchair_up, R.drawable.can_jeep_ac_lchair_dn);
-        this.mBtnRtHot = AddBtn(16, 536, KeyDef.RKEY_FR, R.drawable.can_jeep_ac_rchair_up, R.drawable.can_jeep_ac_rchair_dn);
+        this.mBtnLtHot = AddBtn(15, Can.CAN_SITECHDEV_CW, 294, R.drawable.can_jeep_ac_lchair_up, R.drawable.can_jeep_ac_lchair_dn);
+        this.mBtnRtHot = AddBtn(16, 536, 294, R.drawable.can_jeep_ac_rchair_up, R.drawable.can_jeep_ac_rchair_dn);
         this.mBtnLtHot.setPadding(0, 0, 162, 0);
         this.mBtnLtHot.setTextSize(0, 30.0f);
         this.mBtnLtHot.setGravity(21);
@@ -188,7 +188,7 @@ public class CanChrOthACActivity extends CanBaseActivity implements UserCallBack
             this.mBtnAc = AddBtn(2, 260, 25, R.drawable.can_jeep_ac_ac_up, R.drawable.can_jeep_ac_ac_dn);
             this.mBtnLoop = AddBtn(3, 430, 25, R.drawable.can_jeep_ac_nxh_up, R.drawable.can_jeep_ac_nxh_dn);
             this.mBtnForeWind = AddBtn(5, 599, 25, R.drawable.can_jeep_ac_window_up, R.drawable.can_jeep_ac_window_dn);
-            this.mBtnRearWind = AddBtn(6, CanToyotaDJCarDeviceView.ITEM_PLAY, 25, R.drawable.can_jeep_ac_rear_up, R.drawable.can_jeep_ac_rear_dn);
+            this.mBtnRearWind = AddBtn(6, 768, 25, R.drawable.can_jeep_ac_rear_up, R.drawable.can_jeep_ac_rear_dn);
             for (int i = 0; i < 7; i++) {
                 this.mWindLevel[i] = this.mManager.AddImageEx((i * 66) + 283, 443, 66, 40, 0);
                 this.mWindLevel[i].setStateDrawable(R.drawable.can_jeep_dcac_pro01_up, R.drawable.can_jeep_dcac_pro_dn);
@@ -376,7 +376,7 @@ public class CanChrOthACActivity extends CanBaseActivity implements UserCallBack
         this.mBtnSync.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
             if (this.mWindLevel[0] != null) {
                 for (int i = 0; i < 7; i++) {

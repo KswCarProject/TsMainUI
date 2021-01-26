@@ -20,7 +20,7 @@ import java.util.Locale;
 public class Ty implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Thread.UncaughtExceptionHandler f419T = Thread.getDefaultUncaughtExceptionHandler();
+    private static Thread.UncaughtExceptionHandler f423T = Thread.getDefaultUncaughtExceptionHandler();
     /* access modifiers changed from: private */
     public static Tr T9;
     private static Ty Tk = new Ty();
@@ -85,7 +85,7 @@ public class Ty implements Thread.UncaughtExceptionHandler {
         Writer writer = new StringWriter();
         ex.printStackTrace(new PrintWriter(writer));
         Log.e("CrashCommonHandler", writer.toString());
-        if (f419T != null) {
+        if (f423T != null) {
             Process.killProcess(Process.myPid());
             System.exit(0);
             return;
@@ -129,7 +129,7 @@ public class Ty implements Thread.UncaughtExceptionHandler {
         pw.print("App Version: ");
         pw.print(com.txznet.comm.Tn.T.Tr);
         pw.print('_');
-        pw.println(com.txznet.comm.Tn.T.f353T);
+        pw.println(com.txznet.comm.Tn.T.f357T);
         pw.println("Compile Version: " + com.txznet.T.T.Ty());
         pw.print("OS Version: ");
         pw.print(Build.VERSION.RELEASE);

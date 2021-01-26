@@ -21,7 +21,7 @@ import com.txznet.comm.ui.Ty;
 public class TZ extends TE {
 
     /* renamed from: T  reason: collision with root package name */
-    public static int f503T;
+    public static int f507T;
     private static int T6 = 0;
     public static Boolean T9 = null;
     private static boolean Te = false;
@@ -83,7 +83,7 @@ public class TZ extends TE {
         if (!(Tn > 0 || Tn == -1 || Tn == -2)) {
             Tn = -1;
         }
-        layoutParams.x = f503T;
+        layoutParams.x = f507T;
         layoutParams.y = Tr;
         layoutParams.width = Ty;
         layoutParams.height = Tn;

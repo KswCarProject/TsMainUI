@@ -1,7 +1,7 @@
 package com.Ty.T.T.T.T.T;
 
-import com.ts.main.common.MainSet;
 import com.ts.main.common.ShellUtils;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.BufferedWriter;
 import java.io.Closeable;
 import java.io.EOFException;
@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 final class T implements Closeable {
 
     /* renamed from: T  reason: collision with root package name */
-    static final Pattern f295T = Pattern.compile("[a-z0-9_-]{1,64}");
+    static final Pattern f298T = Pattern.compile("[a-z0-9_-]{1,64}");
     /* access modifiers changed from: private */
     public static final OutputStream TK = new OutputStream() {
         public void write(int b) throws IOException {
@@ -104,7 +104,7 @@ final class T implements Closeable {
                 try {
                     cache.Tk();
                     cache.TZ();
-                    cache.Te = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(cache.Tn, true), Tn.f301T));
+                    cache.Te = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(cache.Tn, true), Tn.f304T));
                     return cache;
                 } catch (IOException journalIsCorrupt) {
                     System.out.println("DiskLruCache " + directory + " is corrupt: " + journalIsCorrupt.getMessage() + ", removing");
@@ -120,14 +120,14 @@ final class T implements Closeable {
 
     private void Tk() throws IOException {
         int lineCount;
-        Ty reader = new Ty(new FileInputStream(this.Tn), Tn.f301T);
+        Ty reader = new Ty(new FileInputStream(this.Tn), Tn.f304T);
         try {
             String magic = reader.T();
             String version = reader.T();
             String appVersionString = reader.T();
             String valueCountString = reader.T();
             String blank = reader.T();
-            if (!"libcore.io.DiskLruCache".equals(magic) || !MainSet.SP_XPH5.equals(version) || !Integer.toString(this.TZ).equals(appVersionString) || !Integer.toString(this.Tv).equals(valueCountString) || !"".equals(blank)) {
+            if (!"libcore.io.DiskLruCache".equals(magic) || !"1".equals(version) || !Integer.toString(this.TZ).equals(appVersionString) || !Integer.toString(this.Tv).equals(valueCountString) || !TXZResourceManager.STYLE_DEFAULT.equals(blank)) {
                 throw new IOException("unexpected journal header: [" + magic + ", " + version + ", " + valueCountString + ", " + blank + "]");
             }
             lineCount = 0;
@@ -204,11 +204,11 @@ final class T implements Closeable {
         if (this.Te != null) {
             this.Te.close();
         }
-        Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.T9), Tn.f301T));
+        Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.T9), Tn.f304T));
         try {
             writer.write("libcore.io.DiskLruCache");
             writer.write(ShellUtils.COMMAND_LINE_END);
-            writer.write(MainSet.SP_XPH5);
+            writer.write("1");
             writer.write(ShellUtils.COMMAND_LINE_END);
             writer.write(Integer.toString(this.TZ));
             writer.write(ShellUtils.COMMAND_LINE_END);
@@ -228,7 +228,7 @@ final class T implements Closeable {
             }
             T(this.T9, this.Tn, false);
             this.Tk.delete();
-            this.Te = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.Tn, true), Tn.f301T));
+            this.Te = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(this.Tn, true), Tn.f304T));
         } catch (Throwable th) {
             writer.close();
             throw th;
@@ -291,7 +291,7 @@ final class T implements Closeable {
         return T(key, -1);
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:20:0x0063, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:20:0x0064, code lost:
         if (com.Ty.T.T.T.T.T.T.Tr.T(r1) != null) goto L_0x0020;
      */
     /* Code decompiled incorrectly, please refer to instructions dump. */
@@ -300,52 +300,52 @@ final class T implements Closeable {
             r5 = this;
             r0 = 0
             monitor-enter(r5)
-            r5.Tv()     // Catch:{ all -> 0x005c }
-            r5.T9((java.lang.String) r6)     // Catch:{ all -> 0x005c }
-            java.util.LinkedHashMap<java.lang.String, com.Ty.T.T.T.T.T.T$Tr> r2 = r5.Tq     // Catch:{ all -> 0x005c }
-            java.lang.Object r1 = r2.get(r6)     // Catch:{ all -> 0x005c }
-            com.Ty.T.T.T.T.T.T$Tr r1 = (com.Ty.T.T.T.T.T.T.Tr) r1     // Catch:{ all -> 0x005c }
+            r5.Tv()     // Catch:{ all -> 0x005d }
+            r5.T9((java.lang.String) r6)     // Catch:{ all -> 0x005d }
+            java.util.LinkedHashMap<java.lang.String, com.Ty.T.T.T.T.T.T$Tr> r2 = r5.Tq     // Catch:{ all -> 0x005d }
+            java.lang.Object r1 = r2.get(r6)     // Catch:{ all -> 0x005d }
+            com.Ty.T.T.T.T.T.T$Tr r1 = (com.Ty.T.T.T.T.T.T.Tr) r1     // Catch:{ all -> 0x005d }
             r2 = -1
             int r2 = (r7 > r2 ? 1 : (r7 == r2 ? 0 : -1))
             if (r2 == 0) goto L_0x0022
             if (r1 == 0) goto L_0x0020
-            long r2 = r1.Tk     // Catch:{ all -> 0x005c }
+            long r2 = r1.Tk     // Catch:{ all -> 0x005d }
             int r2 = (r2 > r7 ? 1 : (r2 == r7 ? 0 : -1))
             if (r2 == 0) goto L_0x0022
         L_0x0020:
             monitor-exit(r5)
             return r0
         L_0x0022:
-            if (r1 != 0) goto L_0x005f
-            com.Ty.T.T.T.T.T.T$Tr r1 = new com.Ty.T.T.T.T.T.T$Tr     // Catch:{ all -> 0x005c }
+            if (r1 != 0) goto L_0x0060
+            com.Ty.T.T.T.T.T.T$Tr r1 = new com.Ty.T.T.T.T.T.T$Tr     // Catch:{ all -> 0x005d }
             r2 = 0
-            r1.<init>(r6)     // Catch:{ all -> 0x005c }
-            java.util.LinkedHashMap<java.lang.String, com.Ty.T.T.T.T.T.T$Tr> r2 = r5.Tq     // Catch:{ all -> 0x005c }
-            r2.put(r6, r1)     // Catch:{ all -> 0x005c }
+            r1.<init>(r6)     // Catch:{ all -> 0x005d }
+            java.util.LinkedHashMap<java.lang.String, com.Ty.T.T.T.T.T.T$Tr> r2 = r5.Tq     // Catch:{ all -> 0x005d }
+            r2.put(r6, r1)     // Catch:{ all -> 0x005d }
         L_0x002f:
-            com.Ty.T.T.T.T.T.T$T r0 = new com.Ty.T.T.T.T.T.T$T     // Catch:{ all -> 0x005c }
+            com.Ty.T.T.T.T.T.T$T r0 = new com.Ty.T.T.T.T.T.T$T     // Catch:{ all -> 0x005d }
             r2 = 0
-            r0.<init>(r1)     // Catch:{ all -> 0x005c }
-            com.Ty.T.T.T.T.T.T.C0009T unused = r1.T9 = r0     // Catch:{ all -> 0x005c }
-            java.io.Writer r2 = r5.Te     // Catch:{ all -> 0x005c }
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch:{ all -> 0x005c }
-            r3.<init>()     // Catch:{ all -> 0x005c }
+            r0.<init>(r1)     // Catch:{ all -> 0x005d }
+            com.Ty.T.T.T.T.T.T.C0009T unused = r1.T9 = r0     // Catch:{ all -> 0x005d }
+            java.io.Writer r2 = r5.Te     // Catch:{ all -> 0x005d }
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch:{ all -> 0x005d }
+            r3.<init>()     // Catch:{ all -> 0x005d }
             java.lang.String r4 = "DIRTY "
-            java.lang.StringBuilder r3 = r3.append(r4)     // Catch:{ all -> 0x005c }
-            java.lang.StringBuilder r3 = r3.append(r6)     // Catch:{ all -> 0x005c }
+            java.lang.StringBuilder r3 = r3.append(r4)     // Catch:{ all -> 0x005d }
+            java.lang.StringBuilder r3 = r3.append(r6)     // Catch:{ all -> 0x005d }
             r4 = 10
-            java.lang.StringBuilder r3 = r3.append(r4)     // Catch:{ all -> 0x005c }
-            java.lang.String r3 = r3.toString()     // Catch:{ all -> 0x005c }
-            r2.write(r3)     // Catch:{ all -> 0x005c }
-            java.io.Writer r2 = r5.Te     // Catch:{ all -> 0x005c }
-            r2.flush()     // Catch:{ all -> 0x005c }
+            java.lang.StringBuilder r3 = r3.append(r4)     // Catch:{ all -> 0x005d }
+            java.lang.String r3 = r3.toString()     // Catch:{ all -> 0x005d }
+            r2.write(r3)     // Catch:{ all -> 0x005d }
+            java.io.Writer r2 = r5.Te     // Catch:{ all -> 0x005d }
+            r2.flush()     // Catch:{ all -> 0x005d }
             goto L_0x0020
-        L_0x005c:
+        L_0x005d:
             r2 = move-exception
             monitor-exit(r5)
             throw r2
-        L_0x005f:
-            com.Ty.T.T.T.T.T.T$T r2 = r1.T9     // Catch:{ all -> 0x005c }
+        L_0x0060:
+            com.Ty.T.T.T.T.T.T$T r2 = r1.T9     // Catch:{ all -> 0x005d }
             if (r2 == 0) goto L_0x002f
             goto L_0x0020
         */
@@ -500,7 +500,7 @@ final class T implements Closeable {
     }
 
     private void T9(String key) {
-        if (!f295T.matcher(key).matches()) {
+        if (!f298T.matcher(key).matches()) {
             throw new IllegalArgumentException("keys must match regex [a-z0-9_-]{1,64}: \"" + key + "\"");
         }
     }
@@ -676,11 +676,11 @@ final class T implements Closeable {
         }
 
         public File T(int i) {
-            return new File(T.this.Ty, this.Tr + "" + i);
+            return new File(T.this.Ty, this.Tr + TXZResourceManager.STYLE_DEFAULT + i);
         }
 
         public File Tr(int i) {
-            return new File(T.this.Ty, this.Tr + "" + i + ".tmp");
+            return new File(T.this.Ty, this.Tr + TXZResourceManager.STYLE_DEFAULT + i + ".tmp");
         }
     }
 }

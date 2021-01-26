@@ -12,7 +12,7 @@
         <item>o zářízení</item>
     </array>
     <array name="set_genera_options">
-        <item>pohotovostní doba</item>
+        <item>Režim spánku</item>
         <item>rozpoznání řeči</item>
         <item>asistent dotyku ikon</item>
         <item>reverzní zvukové potlačení</item>
@@ -43,6 +43,7 @@
         <item>zobrazení displeje</item>
         <item>zadní parkovací kamera</item>
         <item>přední parkovací kamera</item>
+        <item>Typ fotoaparátu</item>
     </array>
     <array name="set_navi_options">
         <item>automatický start navigace</item>

@@ -12,14 +12,14 @@ import java.util.Calendar;
 /* compiled from: Proguard */
 public abstract class T9 implements Closeable {
     protected static final int[] TF = new int[103];
-    protected static final char[] Te = ("\"" + T.f128T + "\":\"").toCharArray();
+    protected static final char[] Te = ("\"" + T.f131T + "\":\"").toCharArray();
     private static final ThreadLocal<SoftReference<char[]>> Tj = new ThreadLocal<>();
     protected static boolean[] Tq = new boolean[256];
 
     /* renamed from: T  reason: collision with root package name */
-    protected int f176T;
+    protected int f179T;
     protected int T5;
-    protected TE T6 = TE.f177T;
+    protected TE T6 = TE.f180T;
     protected int T9;
     protected int TE;
     protected char[] TZ;
@@ -88,7 +88,7 @@ public abstract class T9 implements Closeable {
                 return;
             } else if (this.Tn == ',') {
                 Tq();
-                this.f176T = 16;
+                this.f179T = 16;
                 return;
             } else if (this.Tn >= '0' && this.Tn <= '9') {
                 Tb();
@@ -113,15 +113,15 @@ public abstract class T9 implements Closeable {
                         return;
                     case '(':
                         Tq();
-                        this.f176T = 10;
+                        this.f179T = 10;
                         return;
                     case ')':
                         Tq();
-                        this.f176T = 11;
+                        this.f179T = 11;
                         return;
                     case ':':
                         Tq();
-                        this.f176T = 17;
+                        this.f179T = 17;
                         return;
                     case 'S':
                         TV();
@@ -131,11 +131,11 @@ public abstract class T9 implements Closeable {
                         return;
                     case '[':
                         Tq();
-                        this.f176T = 14;
+                        this.f179T = 14;
                         return;
                     case ']':
                         Tq();
-                        this.f176T = 15;
+                        this.f179T = 15;
                         return;
                     case 'f':
                         Tt();
@@ -148,21 +148,21 @@ public abstract class T9 implements Closeable {
                         return;
                     case '{':
                         Tq();
-                        this.f176T = 12;
+                        this.f179T = 12;
                         return;
                     case '}':
                         Tq();
-                        this.f176T = 13;
+                        this.f179T = 13;
                         return;
                     default:
                         if (!T6()) {
-                            this.f176T = 1;
+                            this.f179T = 1;
                             Tq();
                             return;
-                        } else if (this.f176T == 20) {
+                        } else if (this.f179T == 20) {
                             throw new Tn("EOF error");
                         } else {
-                            this.f176T = 20;
+                            this.f179T = 20;
                             int i = this.Tk;
                             this.T9 = i;
                             this.Tr = i;
@@ -187,11 +187,11 @@ public abstract class T9 implements Closeable {
                         Tj();
                         return;
                     } else if (this.Tn == '[') {
-                        this.f176T = 14;
+                        this.f179T = 14;
                         Tq();
                         return;
                     } else if (this.Tn == '{') {
-                        this.f176T = 12;
+                        this.f179T = 12;
                         Tq();
                         return;
                     }
@@ -206,59 +206,59 @@ public abstract class T9 implements Closeable {
                         Tb();
                         return;
                     } else if (this.Tn == '[') {
-                        this.f176T = 14;
+                        this.f179T = 14;
                         Tq();
                         return;
                     } else if (this.Tn == '{') {
-                        this.f176T = 12;
+                        this.f179T = 12;
                         Tq();
                         return;
                     }
                     break;
                 case 12:
                     if (this.Tn == '{') {
-                        this.f176T = 12;
+                        this.f179T = 12;
                         Tq();
                         return;
                     } else if (this.Tn == '[') {
-                        this.f176T = 14;
+                        this.f179T = 14;
                         Tq();
                         return;
                     }
                     break;
                 case 14:
                     if (this.Tn == '[') {
-                        this.f176T = 14;
+                        this.f179T = 14;
                         Tq();
                         return;
                     } else if (this.Tn == '{') {
-                        this.f176T = 12;
+                        this.f179T = 12;
                         Tq();
                         return;
                     }
                     break;
                 case 15:
                     if (this.Tn == ']') {
-                        this.f176T = 15;
+                        this.f179T = 15;
                         Tq();
                         return;
                     }
                     break;
                 case 16:
                     if (this.Tn == ',') {
-                        this.f176T = 16;
+                        this.f179T = 16;
                         Tq();
                         return;
                     } else if (this.Tn == '}') {
-                        this.f176T = 13;
+                        this.f179T = 13;
                         Tq();
                         return;
                     } else if (this.Tn == ']') {
-                        this.f176T = 15;
+                        this.f179T = 15;
                         Tq();
                         return;
                     } else if (this.Tn == 26) {
-                        this.f176T = 20;
+                        this.f179T = 20;
                         return;
                     }
                     break;
@@ -269,7 +269,7 @@ public abstract class T9 implements Closeable {
                     break;
             }
             if (this.Tn == 26) {
-                this.f176T = 20;
+                this.f179T = 20;
                 return;
             }
             if (this.Tn == ' ' || this.Tn == 10 || this.Tn == 13 || this.Tn == 9 || this.Tn == 12 || this.Tn == 8) {
@@ -306,11 +306,11 @@ public abstract class T9 implements Closeable {
     }
 
     public final int Tn() {
-        return this.f176T;
+        return this.f179T;
     }
 
     public final String T9() {
-        return TZ.T(this.f176T);
+        return TZ.T(this.f179T);
     }
 
     public final int Tk() {
@@ -429,21 +429,21 @@ public abstract class T9 implements Closeable {
                 }
             } else if (expect == 12) {
                 if (this.Tn == '{') {
-                    this.f176T = 12;
+                    this.f179T = 12;
                     Tq();
                     return;
                 } else if (this.Tn == '[') {
-                    this.f176T = 14;
+                    this.f179T = 14;
                     Tq();
                     return;
                 }
             } else if (expect == 14) {
                 if (this.Tn == '[') {
-                    this.f176T = 14;
+                    this.f179T = 14;
                     Tq();
                     return;
                 } else if (this.Tn == '{') {
-                    this.f176T = 12;
+                    this.f179T = 12;
                     Tq();
                     return;
                 }
@@ -485,14 +485,14 @@ public abstract class T9 implements Closeable {
             throw new Tn("syntax error");
         } else if (this.Tn == '}') {
             Tq();
-            this.f176T = 13;
+            this.f179T = 13;
             return null;
         } else if (this.Tn == ',') {
             Tq();
-            this.f176T = 16;
+            this.f179T = 16;
             return null;
         } else if (this.Tn == 26) {
-            this.f176T = 20;
+            this.f179T = 20;
             return null;
         } else if (T(Tn.AllowUnQuotedFieldNames)) {
             return Tr(symbolTable);
@@ -511,7 +511,7 @@ public abstract class T9 implements Closeable {
             this.T9 = i;
             char chLocal = Ty(i);
             if (chLocal == quote) {
-                this.f176T = 4;
+                this.f179T = 4;
                 Tq();
                 if (!hasSpecial) {
                     return T(this.T5 + 1, this.TE, hash, symbolTable);
@@ -686,7 +686,7 @@ public abstract class T9 implements Closeable {
             this.TE++;
         }
         this.Tn = Ty(this.T9);
-        this.f176T = 18;
+        this.f179T = 18;
         if (this.TE == 4 && hash == 3392903 && Ty(this.T5) == 'n' && Ty(this.T5 + 1) == 'u' && Ty(this.T5 + 2) == 'l' && Ty(this.T5 + 3) == 'l') {
             return null;
         }
@@ -701,7 +701,7 @@ public abstract class T9 implements Closeable {
             this.T9 = i;
             char ch = Ty(i);
             if (ch == '\"') {
-                this.f176T = 4;
+                this.f179T = 4;
                 int i2 = this.T9 + 1;
                 this.T9 = i2;
                 this.Tn = Ty(i2);
@@ -908,7 +908,7 @@ public abstract class T9 implements Closeable {
         }
         Tq();
         if (this.Tn == ' ' || this.Tn == ',' || this.Tn == '}' || this.Tn == ']' || this.Tn == 10 || this.Tn == 13 || this.Tn == 9 || this.Tn == 26 || this.Tn == 12 || this.Tn == 8) {
-            this.f176T = 6;
+            this.f179T = 6;
             return;
         }
         throw new Tn("scan true error");
@@ -944,7 +944,7 @@ public abstract class T9 implements Closeable {
         }
         Tq();
         if (this.Tn == ' ' || this.Tn == 10 || this.Tn == 13 || this.Tn == 9 || this.Tn == 12 || this.Tn == 8 || this.Tn == '[' || this.Tn == '(') {
-            this.f176T = 22;
+            this.f179T = 22;
             return;
         }
         throw new Tn("scan set error");
@@ -966,7 +966,7 @@ public abstract class T9 implements Closeable {
             }
             Tq();
             if (this.Tn == ' ' || this.Tn == ',' || this.Tn == '}' || this.Tn == ']' || this.Tn == 10 || this.Tn == 13 || this.Tn == 9 || this.Tn == 26 || this.Tn == 12 || this.Tn == 8) {
-                this.f176T = 8;
+                this.f179T = 8;
                 return;
             }
             throw new Tn("scan true error");
@@ -979,7 +979,7 @@ public abstract class T9 implements Closeable {
             }
             Tq();
             if (this.Tn == ' ' || this.Tn == ',' || this.Tn == '}' || this.Tn == ']' || this.Tn == 10 || this.Tn == 13 || this.Tn == 9 || this.Tn == 26 || this.Tn == 12 || this.Tn == 8) {
-                this.f176T = 9;
+                this.f179T = 9;
                 return;
             }
             throw new Tn("scan true error");
@@ -1008,7 +1008,7 @@ public abstract class T9 implements Closeable {
         }
         Tq();
         if (this.Tn == ' ' || this.Tn == ',' || this.Tn == '}' || this.Tn == ']' || this.Tn == 10 || this.Tn == 13 || this.Tn == 9 || this.Tn == 26 || this.Tn == 12 || this.Tn == 8) {
-            this.f176T = 7;
+            this.f179T = 7;
             return;
         }
         throw new Tn("scan false error");
@@ -1023,9 +1023,9 @@ public abstract class T9 implements Closeable {
         } while (Character.isLetterOrDigit(this.Tn));
         Integer tok = this.T6.T(Tf());
         if (tok != null) {
-            this.f176T = tok.intValue();
+            this.f179T = tok.intValue();
         } else {
-            this.f176T = 18;
+            this.f179T = 18;
         }
     }
 
@@ -1057,7 +1057,7 @@ public abstract class T9 implements Closeable {
             this.T9 = i;
             char chLocal = Ty(i);
             if (chLocal == '\'') {
-                this.f176T = 4;
+                this.f179T = 4;
                 Tq();
                 return;
             } else if (chLocal == 26) {
@@ -1184,7 +1184,7 @@ public abstract class T9 implements Closeable {
         }
         Tq();
         if (this.Tn == ' ' || this.Tn == 10 || this.Tn == 13 || this.Tn == 9 || this.Tn == 12 || this.Tn == 8 || this.Tn == '[' || this.Tn == '(') {
-            this.f176T = 21;
+            this.f179T = 21;
             return;
         }
         throw new Tn("scan set error");
@@ -1258,9 +1258,9 @@ public abstract class T9 implements Closeable {
             isDouble = true;
         }
         if (isDouble) {
-            this.f176T = 3;
+            this.f179T = 3;
         } else {
-            this.f176T = 2;
+            this.f179T = 2;
         }
     }
 

@@ -17,6 +17,7 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
@@ -167,13 +168,13 @@ public class CanACActivity extends CanBaseActivity implements UserCallBack {
         }
         if (98 == CanJni.GetCanFsTp()) {
             if (isLandScreen) {
-                this.mHeat = this.mManager.AddText(460, 85, 240, 50);
-                this.mEnerey = this.mManager.AddText(45, 300, 240, 50);
+                this.mHeat = this.mManager.AddText(460, 85, Can.CAN_VOLKS_XP, 50);
+                this.mEnerey = this.mManager.AddText(45, 300, Can.CAN_VOLKS_XP, 50);
                 this.mHeat.setTextSize(0, 26.0f);
                 this.mEnerey.setTextSize(0, 26.0f);
             } else {
-                this.mHeat = this.mManager.AddText(480, 120, 240, 50);
-                this.mEnerey = this.mManager.AddText(50, 370, 240, 50);
+                this.mHeat = this.mManager.AddText(480, 120, Can.CAN_VOLKS_XP, 50);
+                this.mEnerey = this.mManager.AddText(50, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, Can.CAN_VOLKS_XP, 50);
                 this.mHeat.setTextSize(0, 35.0f);
                 this.mEnerey.setTextSize(0, 35.0f);
             }

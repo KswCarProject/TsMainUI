@@ -10,10 +10,10 @@ import java.util.Map;
 public final class T implements TZ {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final Charset f243T = Charset.forName("ISO-8859-1");
+    private static final Charset f246T = Charset.forName("ISO-8859-1");
 
     public Tr T(String contents, com.Tr.Tr.T format, int width, int height, Map<Ty, ?> hints) {
-        Charset charset = f243T;
+        Charset charset = f246T;
         int eccPercent = 33;
         int layers = 0;
         if (hints != null) {

@@ -3,6 +3,7 @@ package com.ts.can.renault.kadjar;
 import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
@@ -28,7 +29,7 @@ public class CanKadjarExdView extends CanRelativeCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitUI() {
-        this.mTxtCenter = getRelativeManager().AddCusText(KeyDef.RKEY_MEDIA_OSD, 240, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 90);
+        this.mTxtCenter = getRelativeManager().AddCusText(KeyDef.RKEY_MEDIA_OSD, Can.CAN_VOLKS_XP, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 90);
         this.mTxtCenter.setGravity(17);
         this.mTxtCenter.setPadding(0, 0, 0, 0);
         this.mTxtCenter.SetPixelSize(75);

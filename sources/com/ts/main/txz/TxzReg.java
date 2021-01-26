@@ -4,12 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.util.Log;
-import com.lgb.canmodule.CanJni;
-import com.ts.MainUI.AuthServer;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
+import com.ts.backcar.BackcarService;
 import com.ts.bt.BtExe;
 import com.ts.bt.ContactInfo;
 import com.ts.can.CanCameraUI;
@@ -18,7 +16,6 @@ import com.ts.main.common.MainSet;
 import com.ts.main.common.MainUI;
 import com.ts.main.common.WinShow;
 import com.ts.main.common.tool;
-import com.ts.main.txz.hongfan.HFMusicAndRadioTool;
 import com.txznet.sdk.TXZAsrManager;
 import com.txznet.sdk.TXZCallManager;
 import com.txznet.sdk.TXZConfigManager;
@@ -37,17 +34,11 @@ import com.txznet.sdk.TXZTtsManager;
 import com.txznet.sdk.bean.Poi;
 import com.txznet.sdk.bean.WeatherData;
 import com.txznet.sdk.media.InvokeConstants;
-import com.txznet.sdk.tongting.IConstantData;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 import com.yyw.ts70xhw.Radio;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -130,7 +121,10 @@ public class TxzReg {
     int[] WeNaviStringID = {R.array.open_wenavi, R.array.navi_to_aim, R.array.navi_to_sharer};
     public boolean bInintOK = false;
     boolean bIsConnect = false;
+    public boolean bKilled = false;
+    public boolean bSleep = false;
     boolean bSync = false;
+    public boolean binint0 = false;
     float fhz = 0.0f;
     /* access modifiers changed from: private */
     public TXZCallManager.CallToolStatusListener mCallToolStatusListener;
@@ -144,9 +138,9 @@ public class TxzReg {
                     if (action != null && !action.isEmpty()) {
                         if (action.equals("close")) {
                             Log.d(TxzReg.TAG, "close");
-                            if (json.optString(IConstantData.KEY_NAME).equals("同听")) {
+                            if (json.optString("name").equals("同听")) {
                                 MainSet.GetInstance();
-                                MainSet.SendIntent("com.txznet.music.close.app");
+                                MainSet.SendIntent("com.txznet.music.close.app", (String) null);
                             }
                             TXZResourceManager.getInstance().speakTextOnRecordWin("将为您执行该操作", true, new Runnable() {
                                 public void run() {
@@ -155,8 +149,8 @@ public class TxzReg {
                                 }
                             });
                             return true;
-                        } else if (action.equals(InvokeConstants.INVOKE_OPEN)) {
-                            Log.d(TxzReg.TAG, InvokeConstants.INVOKE_OPEN);
+                        } else if (action.equals("open")) {
+                            Log.d(TxzReg.TAG, "open");
                         }
                     }
                 } catch (JSONException e) {
@@ -168,17 +162,12 @@ public class TxzReg {
     };
     Evc mEvc = Evc.GetInstance();
     int mHz = 0;
-    /* access modifiers changed from: private */
-    public TXZMusicManager.MusicToolStatusListener mMusicToolStatusListener;
     BtExe m_BtExe = BtExe.getBtInstance();
     TXZAsrManager m_Txz = TXZAsrManager.getInstance();
-    Map<String, String> map = new HashMap();
     /* access modifiers changed from: private */
     public Context myContext = null;
     TXZNavManager.NavToolStatusListener myNavStatusListener = null;
     int nIndex = 0;
-    int nKeyDelay = 0;
-    int nKeyNum = 0;
     int nNaviType = 1;
     int nPowerState = -1;
     int nState = -1;
@@ -189,15 +178,23 @@ public class TxzReg {
             try {
                 String action = new JSONObject(data).optString("action");
                 Log.e("Prisoner", "action " + action);
-                if ("next".equals(action)) {
-                    Mcu.SetCkey(44);
-                    TXZAsrManager.getInstance().cancel();
+                if (InvokeConstants.INVOKE_NEXT.equals(action)) {
+                    TXZResourceManager.getInstance().speakTextOnRecordWin("将为您播放下一曲", true, new Runnable() {
+                        public void run() {
+                            Mcu.SetCkey(44);
+                            TXZAsrManager.getInstance().cancel();
+                        }
+                    });
                     return true;
                 } else if (!InvokeConstants.INVOKE_PREV.equals(action)) {
                     return false;
                 } else {
-                    Mcu.SetCkey(45);
-                    TXZAsrManager.getInstance().cancel();
+                    TXZResourceManager.getInstance().speakTextOnRecordWin("将为您播放上一曲", true, new Runnable() {
+                        public void run() {
+                            Mcu.SetCkey(45);
+                            TXZAsrManager.getInstance().cancel();
+                        }
+                    });
                     return true;
                 }
             } catch (JSONException e) {
@@ -208,10 +205,11 @@ public class TxzReg {
     };
     String[] tWVoiceCmdStrings = {"TWOPEN_KK_BOX", "TWOPEN_MISER_BOX", "TWOPEN_YOUTUBE", "TWOPEN_LTV", "TWOPEN_TPMS", "TWOPEN_SJTV", "TWOPEN_GOOGLE", "TWOPEN_GOOGLEMAP"};
     int[] tWVoiceCmdStringsID = {R.array.tw_open_kkbox, R.array.tw_open_mixer, R.array.tw_open_youtube, R.array.tw_open_ltv, R.array.tw_open_tpms, R.array.tw_open_sijitv, R.array.tw_open_google, R.array.tw_open_googlemap};
-    Class<?> txzExtraCmdClass;
-    Method txzExtraCmdDeal;
-    Map<String, Integer> txzExtraCmdMap;
     String[] weNaviCmdStrings = {"OPEN_WENAVI", "WENAVI_TO_AIM", "WENAVI_TO_SHARE"};
+
+    static void SetWinShow(boolean bShow) {
+        bWinShow = bShow;
+    }
 
     public static TxzReg GetInstance() {
         if (m_TxzReg == null) {
@@ -237,27 +235,29 @@ public class TxzReg {
         }
     }
 
-    /* access modifiers changed from: package-private */
     public void SetTXZToSleep() {
-        Log.i(TAG, "SetTXZToSleep");
-        TXZPowerManager.getInstance().notifyPowerAction(TXZPowerManager.PowerAction.POWER_ACTION_BEFORE_SLEEP);
-        TXZPowerManager.getInstance().releaseTXZ();
+        if (this.bInintOK && !this.bSleep) {
+            Log.i(TAG, "SetTXZToSleep");
+            TXZPowerManager.getInstance().notifyPowerAction(TXZPowerManager.PowerAction.POWER_ACTION_BEFORE_SLEEP);
+            TXZPowerManager.getInstance().releaseTXZ();
+            this.bSleep = true;
+        }
     }
 
-    /* access modifiers changed from: package-private */
-    public void SetTXZWakeUp() {
+    public boolean SetTXZWakeUp() {
+        if (!this.bInintOK) {
+            return false;
+        }
         Log.i(TAG, "SetTXZWakeUp");
         TXZPowerManager.getInstance().reinitTXZ(new Runnable() {
             public void run() {
-                FtSet.GetSpeechMode();
                 Log.i(TxzReg.TAG, "txz reinitTXZ ok");
-                TxzReg.this.bInintOK = true;
                 TxzReg.this.bIsConnect = false;
-                TxzReg.this.SetBtState(3, (TXZCallManager.Contact) null);
-                TxzReg.this.SetTXZState(FtSet.GetSpeechMode());
+                TxzReg.this.bSleep = false;
+                TXZPowerManager.getInstance().notifyPowerAction(TXZPowerManager.PowerAction.POWER_ACTION_WAKEUP);
             }
         });
-        TXZPowerManager.getInstance().notifyPowerAction(TXZPowerManager.PowerAction.POWER_ACTION_WAKEUP);
+        return true;
     }
 
     public void SetNaviType(String PackName) {
@@ -280,24 +280,52 @@ public class TxzReg {
         }
     }
 
+    public void SetTxzInBackCamera(boolean bBackCar) {
+        if (!this.bInintOK) {
+            return;
+        }
+        if (bBackCar) {
+            TXZPowerManager.getInstance().notifyPowerAction(TXZPowerManager.PowerAction.POWER_ACTION_ENTER_REVERSE);
+        } else {
+            TXZPowerManager.getInstance().notifyPowerAction(TXZPowerManager.PowerAction.POWER_ACTION_QUIT_REVERSE);
+        }
+    }
+
+    public void TxzMicState(boolean bEnable) {
+        if (!this.bInintOK) {
+            return;
+        }
+        if (bEnable) {
+            TXZConfigManager.getInstance().setEnableRecording(true);
+            SetBtState(3, (TXZCallManager.Contact) null);
+            return;
+        }
+        TXZConfigManager.getInstance().setEnableRecording(false);
+        SetBtState(1, (TXZCallManager.Contact) null);
+    }
+
     public void SetTXZState(int nState2) {
         if (this.bInintOK) {
             switch (nState2) {
                 case 1:
                     SetKeyWordsWakeUp(true);
                     SetRecordBtnShow(false);
+                    TXZConfigManager.getInstance().setEnableRecording(true);
                     return;
                 case 2:
                     SetKeyWordsWakeUp(false);
                     SetRecordBtnShow(true);
+                    TXZConfigManager.getInstance().setEnableRecording(true);
                     return;
                 case 3:
                     SetKeyWordsWakeUp(false);
                     SetRecordBtnShow(false);
+                    TXZConfigManager.getInstance().setEnableRecording(false);
                     return;
                 default:
                     SetKeyWordsWakeUp(true);
                     SetRecordBtnShow(true);
+                    TXZConfigManager.getInstance().setEnableRecording(true);
                     return;
             }
         }
@@ -315,9 +343,6 @@ public class TxzReg {
 
     /* access modifiers changed from: package-private */
     public void SetKeyWordsWakeUp(boolean bWake) {
-        if (!this.bInintOK) {
-            return;
-        }
         if (!bWake) {
             TXZConfigManager.getInstance().setWakeupKeywordsNew(new String[0]);
             TXZConfigManager.getInstance().enableChangeWakeupKeywords(false);
@@ -330,22 +355,17 @@ public class TxzReg {
     }
 
     public void SetRecordBtnShow(boolean bShow) {
-        if (this.myContext != null) {
-            if (bShow) {
-                Intent intent = new Intent();
-                intent.setAction("com.ts.myvoice.VoiceService");
-                this.myContext.startService(intent);
-            } else {
-                Intent intent2 = new Intent();
-                intent2.setAction("com.ts.myvoice.VoiceService");
-                this.myContext.stopService(intent2);
-            }
-            TXZConfigManager.getInstance().showFloatTool(TXZConfigManager.FloatToolType.FLOAT_NONE);
+        if (bShow) {
+            Intent intent = new Intent();
+            intent.setPackage("com.ts.myvoice");
+            intent.setAction("com.ts.myvoice.VoiceService");
+            this.myContext.startService(intent);
+            return;
         }
-    }
-
-    public void AddMusicList(Map<String, String> map2) {
-        Log.i(TAG, "AddMusicList");
+        Intent intent2 = new Intent();
+        intent2.setPackage("com.ts.myvoice");
+        intent2.setAction("com.ts.myvoice.VoiceService");
+        this.myContext.stopService(intent2);
     }
 
     public int Task(int nParat) {
@@ -360,36 +380,22 @@ public class TxzReg {
             this.mEvc.Evol_vol_tune(0);
             this.nVolDn--;
         }
-        if (this.nKeyDelay > 0) {
-            this.nKeyDelay--;
-            if (this.nKeyDelay == 0) {
-                Mcu.SetCkey(this.nKeyNum);
-            }
-        }
         if (!this.bInintOK || this.bIsConnect == this.m_BtExe.isConnected()) {
             return 1;
         }
         Log.i(TAG, "bIsConnect ===" + this.bIsConnect);
         Log.i(TAG, "mCallToolStatusListener ===" + this.mCallToolStatusListener);
         this.bIsConnect = this.m_BtExe.isConnected();
-        if (!this.m_BtExe.isConnected()) {
-            MainSet.GetInstance();
-            if (MainSet.IsGLSXVer().booleanValue()) {
-                if (this.mCallToolStatusListener == null) {
-                    return 1;
-                }
-                this.mCallToolStatusListener.onEnabled();
-                return 1;
-            } else if (this.mCallToolStatusListener == null) {
-                return 1;
-            } else {
-                this.mCallToolStatusListener.onDisabled("请先连接蓝牙");
+        if (this.m_BtExe.isConnected()) {
+            if (this.mCallToolStatusListener == null) {
                 return 1;
             }
+            this.mCallToolStatusListener.onEnabled();
+            return 1;
         } else if (this.mCallToolStatusListener == null) {
             return 1;
         } else {
-            this.mCallToolStatusListener.onEnabled();
+            this.mCallToolStatusListener.onDisabled("请先连接蓝牙");
             return 1;
         }
     }
@@ -447,9 +453,10 @@ public class TxzReg {
 
     /* access modifiers changed from: package-private */
     public void InintBT() {
+        Log.i(TAG, "InintBT");
         TXZCallManager.getInstance().setCallTool(new TXZCallManager.CallTool() {
             public void setStatusListener(TXZCallManager.CallToolStatusListener listener) {
-                Log.i(TxzReg.TAG, "setStatusListener");
+                Log.i(TxzReg.TAG, "setStatusListener11");
                 TxzReg.this.mCallToolStatusListener = listener;
             }
 
@@ -473,8 +480,6 @@ public class TxzReg {
             public boolean makeCall(TXZCallManager.Contact contact) {
                 if (BtExe.getBtInstance().isConnected()) {
                     TxzReg.this.m_BtExe.dial(contact.getNumber());
-                } else {
-                    Glsx.GetInstance().Dail(contact);
                 }
                 Log.i(TxzReg.TAG, "makeCall");
                 return false;
@@ -494,214 +499,11 @@ public class TxzReg {
         TXZAsrManager.getInstance().regCommandForAM(CanCameraUI.BTN_GEELY_YJX6_MODE3, CanCameraUI.BTN_MG_2D, "OPEN_AM_FREQ");
     }
 
-    private void InintDDHPlayIndex(String data) {
-        List<String> playlist = new ArrayList<>();
-        for (int i = 0; i <= 30; i++) {
-            playlist.add("播放第" + i + "首");
-            playlist.add("听第" + i + "首");
-        }
-        TXZAsrManager.getInstance().regCommand((Collection<String>) playlist, data);
-        playlist.clear();
-    }
-
-    private void initMusicTool() {
-        TXZMusicManager.getInstance().setMusicTool((TXZMusicManager.MusicTool) new TXZMusicManager.MusicTool() {
-            public void unfavourMusic() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                    public void run() {
-                    }
-                });
-                Log.i(TxzReg.TAG, "unfavourMusic==");
-            }
-
-            public void switchSong() {
-                Log.i(TxzReg.TAG, "switchSong");
-                Mcu.SetCkey(44);
-                Glsx.GetInstance().PlayCmd(3);
-            }
-
-            public void switchModeRandom() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                    public void run() {
-                    }
-                });
-                Log.i(TxzReg.TAG, "switchModeRandom==");
-            }
-
-            public void switchModeLoopOne() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                    public void run() {
-                    }
-                });
-                Log.i(TxzReg.TAG, "switchModeLoopOne==");
-            }
-
-            public void switchModeLoopAll() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                    public void run() {
-                    }
-                });
-                Log.i(TxzReg.TAG, "switchModeLoopAll==");
-            }
-
-            public void setStatusListener(TXZMusicManager.MusicToolStatusListener listener) {
-                TxzReg.this.mMusicToolStatusListener = listener;
-            }
-
-            public void prev() {
-                Mcu.SetCkey(45);
-                Log.i(TxzReg.TAG, InvokeConstants.INVOKE_PREV);
-                Glsx.GetInstance().PlayCmd(2);
-            }
-
-            public void playRandom() {
-                WinShow.GotoWin(6, 0);
-            }
-
-            private String toArrayString(String[] ss) {
-                if (ss == null || ss.length == 0) {
-                    return null;
-                }
-                StringBuilder s = new StringBuilder();
-                for (String t : ss) {
-                    if (s.length() > 0) {
-                        s.append(',');
-                    }
-                    s.append(t);
-                }
-                return s.toString();
-            }
-
-            public void playMusic(TXZMusicManager.MusicModel model) {
-                boolean bPlay = false;
-                Log.i(TxzReg.TAG, "model.getTitle()==" + model.getTitle());
-                Log.i(TxzReg.TAG, "model.getAlbum()==" + model.getAlbum());
-                Log.i(TxzReg.TAG, "model.getArtist()==" + model.getArtist());
-                if (MainSet.nPlayer == 2) {
-                    Cyb.GetInstance().playMusic(String.valueOf(model.getArtist()[0]) + model.getTitle());
-                    return;
-                }
-                if (!(TxzReg.this.map == null || model.getTitle() == null)) {
-                    for (String key : TxzReg.this.map.keySet()) {
-                        Log.i(TxzReg.TAG, "playlisname map.filename()==" + key);
-                        if (key.contains(model.getTitle())) {
-                            Log.i(TxzReg.TAG, "playlisname map.data==" + TxzReg.this.map.get(key));
-                            if (MainUI.GetInstance().mTsPlayerService != null) {
-                                try {
-                                    MainUI.GetInstance().mTsPlayerService.playByPath(TxzReg.this.map.get(key));
-                                    bPlay = true;
-                                } catch (RemoteException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                }
-                if (!bPlay) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_local_not_have_this_song), true, new Runnable() {
-                        public void run() {
-                        }
-                    });
-                }
-            }
-
-            public void playFavourMusic() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                    public void run() {
-                    }
-                });
-            }
-
-            public void play() {
-                if (MainSet.nPlayer == 2) {
-                    Cyb.GetInstance().playResume();
-                    return;
-                }
-                WinShow.GotoWin(6, 0);
-                Mcu.SetCkey(90);
-            }
-
-            public void pause() {
-                Mcu.SetCkey(91);
-            }
-
-            public void exit() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_close_audio), true, new Runnable() {
-                    public void run() {
-                        if (Iop.GetWorkMode() == 4) {
-                            TxzReg.this.BackToLaucher();
-                            TxzReg.this.mEvc.evol_workmode_set(0);
-                        }
-                    }
-                });
-            }
-
-            public void next() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_play_next), true, new Runnable() {
-                    public void run() {
-                        Mcu.SetCkey(44);
-                    }
-                });
-            }
-
-            public boolean isPlaying() {
-                return false;
-            }
-
-            public TXZMusicManager.MusicModel getCurrentMusicModel() {
-                return null;
-            }
-
-            public void favourMusic() {
-                TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                    public void run() {
-                    }
-                });
-            }
-
-            public void continuePlay() {
-            }
-        });
-    }
-
     /* access modifiers changed from: package-private */
     public void RegTwCommand() {
         for (int i = 0; i < this.tWVoiceCmdStrings.length; i++) {
             this.m_Txz.regCommand(this.myContext.getResources().getStringArray(this.tWVoiceCmdStringsID[i]), this.tWVoiceCmdStrings[i]);
         }
-    }
-
-    /* access modifiers changed from: package-private */
-    public void RegSQCommond() {
-        for (int i = 0; i < this.SQACCmdStrings.length; i++) {
-            this.m_Txz.regCommand(this.myContext.getResources().getStringArray(this.SQACStringID[i]), this.SQACCmdStrings[i]);
-        }
-        List<String> TempIncSet = new ArrayList<>();
-        for (int i2 = 1; i2 <= 8; i2++) {
-            TempIncSet.add("帮我把空调温度调高" + i2 + "度");
-            TempIncSet.add("我想把温度升高" + i2 + "度");
-            TempIncSet.add("增加" + i2 + "度");
-        }
-        TXZAsrManager.getInstance().regCommand((Collection<String>) TempIncSet, "AC_TEMP_INC_SET");
-        TempIncSet.clear();
-        List<String> TempDecSet = new ArrayList<>();
-        for (int i3 = 1; i3 <= 8; i3++) {
-            TempDecSet.add("帮我把空调温度降低" + i3 + "度");
-            TempDecSet.add("我想把温度减少" + i3 + "度");
-            TempDecSet.add("调低" + i3 + "度");
-        }
-        TXZAsrManager.getInstance().regCommand((Collection<String>) TempDecSet, "AC_TEMP_DEC_SET");
-        TempDecSet.clear();
-        List<String> TempSet = new ArrayList<>();
-        for (int i4 = 16; i4 <= 31; i4++) {
-            TempSet.add("把空调温度调成" + i4 + "度");
-            TempSet.add("温度" + i4 + "度");
-            TempSet.add("空调设置为" + i4 + "度");
-            TempSet.add("空调升高成" + i4 + "度");
-            TempSet.add("温度降低到" + i4 + "度");
-        }
-        TXZAsrManager.getInstance().regCommand((Collection<String>) TempSet, "AC_TEMP_SET");
-        TempSet.clear();
     }
 
     /* access modifiers changed from: package-private */
@@ -728,7 +530,7 @@ public class TxzReg {
                         MainSet.GetInstance().openApplication(this.myContext, "tv.fourgtv.fourgtv");
                         break;
                     case 6:
-                        MainSet.GetInstance().openApplication(this.myContext, "com.google.android.googlequicksearchbox");
+                        MainSet.GetInstance().openApplication(this.myContext, MainUI.GOOGLE_SPEECH_PNAME);
                         break;
                     case 7:
                         MainSet.GetInstance().openApplication(this.myContext, "com.google.android.apps.maps");
@@ -739,190 +541,10 @@ public class TxzReg {
     }
 
     /* access modifiers changed from: package-private */
-    public void DealSQCommond(String cmd, String data) {
-        Log.i(TAG, "DealSQCommond===" + cmd + " " + data);
-        if (data.equals("AC_TEMP_INC_SET")) {
-            int index = cmd.length() - 1;
-            String strList = cmd.substring(index - 1, index);
-            Log.i(TAG, "index===" + strList);
-            this.nIndex = Integer.parseInt(strList);
-            if (this.nIndex > 0 && this.nIndex <= 8) {
-                TXZResourceManager.getInstance().speakTextOnRecordWin("将为您调高" + this.nIndex + "度", true, new Runnable() {
-                    public void run() {
-                        CanIF.DealMgAcSpeadkSet(5, TxzReg.this.nIndex);
-                    }
-                });
-            }
-        } else if (data.equals("AC_TEMP_DEC_SET")) {
-            int index2 = cmd.length() - 1;
-            String strList2 = cmd.substring(index2 - 1, index2);
-            Log.i(TAG, "index===" + strList2);
-            this.nIndex = Integer.parseInt(strList2);
-            if (this.nIndex > 0 && this.nIndex <= 8) {
-                TXZResourceManager.getInstance().speakTextOnRecordWin("将为您调低" + this.nIndex + "度", true, new Runnable() {
-                    public void run() {
-                        CanIF.DealMgAcSpeadkSet(6, TxzReg.this.nIndex);
-                    }
-                });
-            }
-        } else if (data.equals("AC_TEMP_SET")) {
-            int index3 = cmd.length() - 1;
-            String strList3 = cmd.substring(index3 - 2, index3);
-            Log.i(TAG, "index===" + strList3);
-            this.nIndex = Integer.parseInt(strList3);
-            if (this.nIndex > 0) {
-                TXZResourceManager.getInstance().speakTextOnRecordWin("将为您调节到" + this.nIndex + "度", true, new Runnable() {
-                    public void run() {
-                        CanIF.DealMgAcSpeadkSet(7, TxzReg.this.nIndex);
-                    }
-                });
-            }
-        }
-        for (int i = 0; i < this.SQACCmdStrings.length; i++) {
-            if (this.SQACCmdStrings[i].equals(data)) {
-                switch (i) {
-                    case 0:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您打开空调", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(1, 0);
-                            }
-                        });
-                        break;
-                    case 1:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您关闭空调", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(2, 0);
-                            }
-                        });
-                        break;
-                    case 2:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您调高温度", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(3, 0);
-                            }
-                        });
-                        break;
-                    case 3:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您降低温度", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(4, 0);
-                            }
-                        });
-                        break;
-                    case 4:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("为您将温度调节到最高", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(8, 0);
-                            }
-                        });
-                        break;
-                    case 5:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("为您将温度调节到最低", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(9, 0);
-                            }
-                        });
-                        break;
-                    case 6:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您增加风量", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(10, 0);
-                            }
-                        });
-                        break;
-                    case 7:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您减小风量", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(11, 0);
-                            }
-                        });
-                        break;
-                    case 8:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("为您将风量调到最大", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(12, 0);
-                            }
-                        });
-                        break;
-                    case 9:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("为您将风量调到最小", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(13, 0);
-                            }
-                        });
-                        break;
-                    case 10:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("打开天窗", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(14, 0);
-                            }
-                        });
-                        break;
-                    case 11:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("关闭天窗", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(15, 0);
-                            }
-                        });
-                        break;
-                    case 12:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您打开主驾驶车窗", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(16, 0);
-                            }
-                        });
-                        break;
-                    case 13:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您关闭主驾驶车窗", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(18, 0);
-                            }
-                        });
-                        break;
-                    case 14:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您打开副驾驶车窗", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(17, 0);
-                            }
-                        });
-                        break;
-                    case 15:
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您关闭副驾驶车窗", true, new Runnable() {
-                            public void run() {
-                                CanIF.DealMgAcSpeadkSet(19, 0);
-                            }
-                        });
-                        break;
-                }
-            }
-        }
-    }
-
-    /* access modifiers changed from: package-private */
     public void SetUserCommand() {
         if (this.myContext != null) {
-            for (int i = 0; i < this.weNaviCmdStrings.length; i++) {
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(this.WeNaviStringID[i]), this.weNaviCmdStrings[i]);
-            }
-            if (26 == CanJni.GetCanType()) {
-                RegSQCommond();
-            }
             if (MainSet.GetInstance().IsTwcjw()) {
                 RegTwCommand();
-            }
-            MainSet.GetInstance();
-            if (MainSet.IsGLSXVer().booleanValue()) {
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_glsx_ddbox), "DDBOX_OPEN");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_glsx_ddbox_lk), "DDBOX_OPEN_LK");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_czdh), "OPEN_CZDH");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_wzch), "CLOSE_WZCX");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_glsx_ddbox_HumNavi), "DDBOX_OPEN_HUMNAVI");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_glsx_ddbox_ddbx), "DDBOX_OPEN_DDBX");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_glsx_ddbox_hcz), "DDBOX_OPEN_DDHCZ");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_glsx_ddbox_dljy), "DDBOX_OPEN_DDDLJY");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.glsx_ddbox_qflk), "DDBOX_CHECK_QFLK");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_xmly), "OPEN_XMLY");
-                this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.close_xmly), "CLOSE_XMLY");
             }
             this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_navi), "OPEN_NAVI");
             if (FtSet.IsIconExist(1) == 1) {
@@ -940,21 +562,6 @@ public class TxzReg {
             this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_dvd), "OPEN_DVD");
             this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.close_dvd), "CLOSE_DVD");
             this.m_Txz.regCommand(this.myContext.getResources().getStringArray(R.array.open_dvr), "OPEN_DVR");
-            int id = this.myContext.getResources().getIdentifier("txz_extra_cmd", "string", this.myContext.getPackageName());
-            if (id != 0 && this.myContext.getResources().getString(id).equals("true")) {
-                try {
-                    this.txzExtraCmdClass = Class.forName("com.ts.txz.TxzExtraCmd");
-                    this.txzExtraCmdDeal = this.txzExtraCmdClass.getDeclaredMethod("dealTxzExtraCmd", new Class[]{String.class});
-                    this.txzExtraCmdMap = (Map) this.txzExtraCmdClass.getDeclaredMethod("getTxzExtraCmdMap", (Class[]) null).invoke((Object) null, (Object[]) null);
-                    if (this.txzExtraCmdMap != null) {
-                        for (Map.Entry<String, Integer> entry : this.txzExtraCmdMap.entrySet()) {
-                            this.m_Txz.regCommand(this.myContext.getResources().getStringArray(entry.getValue().intValue()), entry.getKey());
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 
@@ -973,7 +580,7 @@ public class TxzReg {
         if (this.myContext != null) {
             return this.myContext.getResources().getString(nID);
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     /* access modifiers changed from: package-private */
@@ -989,79 +596,8 @@ public class TxzReg {
         this.m_Txz.addCommandListener(new TXZAsrManager.CommandListener() {
             public void onCommand(String cmd, String data) {
                 Log.i(TxzReg.TAG, "onCommand===" + cmd + "  " + data);
-                if (data.equals("OPEN_WENAVI")) {
-                    TxzReg.this.SetWeNaviCmd(TXZConfigManager.INIT_ERROR_ASR);
-                } else if (data.equals("WENAVI_TO_AIM")) {
-                    TxzReg.this.SetWeNaviCmd(TXZConfigManager.INIT_ERROR_TTS);
-                } else if (data.equals("WENAVI_TO_SHARE")) {
-                    TxzReg.this.SetWeNaviCmd(TXZConfigManager.INIT_ERROR_WAKEUP);
-                }
-                if (26 == CanJni.GetCanType()) {
-                    TxzReg.this.DealSQCommond(cmd, data);
-                }
                 if (MainSet.GetInstance().IsTwcjw()) {
                     TxzReg.this.DealTwCommond(cmd, data);
-                }
-                if (data.equals("DDBOX_OPEN")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenDDBOX();
-                        }
-                    });
-                } else if (data.equals("DDBOX_OPEN_MUSIC")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_music), true, new Runnable() {
-                        public void run() {
-                            MainSet.GetInstance().StartKw();
-                        }
-                    });
-                } else if (data.equals("DDBOX_OPEN_LK")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_lk), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenApp(30);
-                        }
-                    });
-                } else if (data.equals("OPEN_CZDH")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_czdh), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenApp(50);
-                        }
-                    });
-                } else if (data.equals("CLOSE_WZCX")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_wzcx), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenApp(25);
-                        }
-                    });
-                } else if (data.equals("DDBOX_OPEN_HUMNAVI")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_humnavi), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenApp(5);
-                        }
-                    });
-                } else if (data.equals("DDBOX_OPEN_DDBX")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_ddbx), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenApp(32);
-                        }
-                    });
-                } else if (data.equals("DDBOX_OPEN_DDHCZ")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_hcz), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenApp(40);
-                        }
-                    });
-                } else if (data.equals("DDBOX_OPEN_DDDLJY")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_open_ddjy), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().OpenApp(12);
-                        }
-                    });
-                } else if (data.equals("DDBOX_CHECK_QFLK")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.ddbox_check_qflk), true, new Runnable() {
-                        public void run() {
-                            Glsx.GetInstance().CheckLk(0);
-                        }
-                    });
                 }
                 if (data.equals("OPEN_RADIO")) {
                     TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_open_radio), true, new Runnable() {
@@ -1079,7 +615,9 @@ public class TxzReg {
                     TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_close_radio), true, new Runnable() {
                         public void run() {
                             if (Iop.GetWorkMode() == 1) {
-                                TxzReg.this.BackToLaucher();
+                                if (WinShow.IsRadioActivity()) {
+                                    TxzReg.this.BackToLaucher();
+                                }
                                 TxzReg.this.mEvc.evol_workmode_set(0);
                             }
                         }
@@ -1087,8 +625,7 @@ public class TxzReg {
                 } else if (data.equals("OPEN_AUDIO")) {
                     TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_open_music), true, new Runnable() {
                         public void run() {
-                            MainSet.GetInstance();
-                            if (!MainSet.IsGLSXVer().booleanValue() || !MainSet.GetInstance().StartKw()) {
+                            if (MainSet.nPlayer != 1 || !MainSet.GetInstance().StartKw()) {
                                 WinShow.GotoWin(6, 0);
                             }
                         }
@@ -1181,42 +718,6 @@ public class TxzReg {
                     }
                     TXZTtsManager.getInstance().speakText("请先连接蓝牙");
                     WinShow.GotoWin(7, 0);
-                } else if (data.equals("SINGLE_LOOP")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                        public void run() {
-                        }
-                    });
-                } else if (data.equals("LOOP_ALL")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                        public void run() {
-                        }
-                    });
-                } else if (data.equals("RANDOM_LOOP")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                        public void run() {
-                        }
-                    });
-                } else if (data.equals("MUSIC_FAVOURITE")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                        public void run() {
-                        }
-                    });
-                } else if (data.equals("CANCEL_MUSIC_FAVOURITE")) {
-                    TXZResourceManager.getInstance().speakTextOnRecordWin(TxzReg.this.GetResString(R.string.txz_no_support_this_cmd), true, new Runnable() {
-                        public void run() {
-                        }
-                    });
-                } else if (data.startsWith("OPEN_PALY_LSIT")) {
-                    String strList = cmd.substring(cmd.indexOf("第") + 1, cmd.indexOf("首"));
-                    Log.i(TxzReg.TAG, "strList===" + strList);
-                    TxzReg.this.nIndex = Integer.parseInt(strList);
-                    if (TxzReg.this.nIndex > 0 && TxzReg.this.nIndex <= 30) {
-                        TXZResourceManager.getInstance().speakTextOnRecordWin("将为您播放第" + TxzReg.this.nIndex + "首", true, new Runnable() {
-                            public void run() {
-                                Glsx.GetInstance().PlayIndex(TxzReg.this.nIndex);
-                            }
-                        });
-                    }
                 } else if (data.startsWith("OPEN_FM_FREQ#")) {
                     float hz = Float.parseFloat(data.substring("OPEN_FM_FREQ#".length()));
                     if (Iop.GetWorkMode() != 1) {
@@ -1279,12 +780,6 @@ public class TxzReg {
                         }
                     });
                     Log.i(TxzReg.TAG, "OPEN_AM_FREQ===" + data.substring("OPEN_AM_FREQ#".length()) + "  " + hz3);
-                } else if (TxzReg.this.txzExtraCmdDeal != null) {
-                    try {
-                        TxzReg.this.txzExtraCmdDeal.invoke((Object) null, new Object[]{data});
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
-                    }
                 }
             }
         });
@@ -1348,24 +843,16 @@ public class TxzReg {
                 if (arg0) {
                     if (MainSet.GetInstance().IsXT5()) {
                         Evc.GetInstance().evol_navi_set(1, false);
-                        return;
-                    }
-                    MainSet.GetInstance();
-                    if (MainSet.IsMkz()) {
-                        CanIF.DealSpeakVoice(1);
                     } else {
                         TxzReg.this.mEvc.evol_popmute_set(Iop.GetWorkMode());
                     }
-                } else if (!MainSet.GetInstance().IsXT5()) {
-                    MainSet.GetInstance();
-                    if (MainSet.IsMkz()) {
-                        CanIF.DealSpeakVoice(0);
-                    } else if ((Radio.GetDispFlag() & 8) == 0 || Iop.GetWorkMode() != 1) {
-                        TxzReg.this.mEvc.evol_popmute_clr(Iop.GetWorkMode());
-                        Log.i(TxzReg.TAG, "onEndAsr");
+                } else if (MainSet.GetInstance().IsXT5()) {
+                    if (Evc.nNaviSpeeking == 0) {
+                        TxzReg.this.mEvc.evol_navi_set(0, false);
                     }
-                } else if (Evc.nNaviSpeeking == 0) {
-                    Evc.GetInstance().evol_navi_set(0, false);
+                } else if ((Radio.GetDispFlag() & 8) == 0 || Iop.GetWorkMode() != 1) {
+                    TxzReg.this.mEvc.evol_popmute_clr(Iop.GetWorkMode());
+                    Log.i(TxzReg.TAG, "onEndAsr");
                 }
             }
         });
@@ -1389,12 +876,96 @@ public class TxzReg {
         }
     }
 
-    /* access modifiers changed from: package-private */
-    public boolean bSupportOkGoole() {
-        if (this.myContext.getResources().getString(R.string.custom_okgoogle_cmd).equals(MainSet.SP_XPH5)) {
-            return true;
+    public void DealVoiceType(String type, String command) {
+        Log.i(TAG, "type= " + type);
+        Log.i(TAG, "command= " + command);
+        if ("TURNUP_VOL".equals(type)) {
+            this.nVolUp = 5;
+        } else if ("TURNDN_VOL".equals(type)) {
+            this.nVolDn = 5;
+        } else if ("TURN_MUTE".equals(type)) {
+            this.mEvc.evol_mut_set(1);
+        } else if ("PLAY_PREV".equals(type)) {
+            Mcu.SetCkey(45);
+        } else if ("PLAY_NEXT".equals(type)) {
+            Mcu.SetCkey(44);
+        } else if ("PLAY_SONG".equals(type)) {
+            Mcu.SetCkey(90);
+        } else if ("PAUSE_SONG".equals(type)) {
+            Mcu.SetCkey(91);
+        } else if ("TOUCH_CEL".equals(type)) {
+            WinShow.show("com.ts.MainUI", "com.ts.main.touch.TouchActivity");
+        } else if ("DDH_TO_LAUNCHER".equals(type)) {
+        } else {
+            if ("TURN_DTM".equals(type)) {
+                if (Mcu.BklisOn() == 0) {
+                    Mcu.BklTurn();
+                }
+            } else if ("TURNOFF_DTM".equals(type)) {
+                if (Mcu.BklisOn() == 1) {
+                    Mcu.BklTurn();
+                }
+            } else if ("TURNONGOOGLE".equals(type)) {
+                if (MainSet.GetInstance().IsHaveApk(MainUI.GOOGLE_ASSISANT_PNAME)) {
+                    MainUI.GetInstance().WakeUpGoogleAssiant();
+                } else if (MainSet.GetInstance().IsHaveApk(MainUI.GOOGLE_SPEECH_PNAME)) {
+                    MainUI.GetInstance().WakeUpGoogle();
+                }
+            } else if ("TURNONVOICE".equals(type)) {
+                MainSet.SendIntent("com.kingwaytek.naviking3d.BROADCAST_START_VR", (String) null);
+            } else if ("TURN_ON_RADIO".equals(type)) {
+                if (FtSet.IsIconExist(1) == 1) {
+                    WinShow.GotoWin(2, 0);
+                }
+            } else if ("TURN_OFF_RADIO".equals(type)) {
+                if (Iop.GetWorkMode() == 1) {
+                    BackToLaucher();
+                    this.mEvc.evol_workmode_set(0);
+                }
+            } else if ("TURN_ON_NAVI".equals(type)) {
+                WinShow.GotoWin(1, 0);
+            } else if ("TURN_OFF_NAVI".equals(type)) {
+                AmapAuto.QuiteNavi();
+            } else if ("TURN_ON_MUSIC".equals(type)) {
+                if (FtSet.IsIconExist(4) == 1) {
+                    WinShow.GotoWin(6, 0);
+                }
+            } else if ("TURN_OFF_MUSIC".equals(type)) {
+                if (Iop.GetWorkMode() == 4 || Iop.GetWorkMode() == 0) {
+                    BackToLaucher();
+                    this.mEvc.evol_workmode_set(0);
+                }
+            } else if ("TURN_ON_VIDEO".equals(type)) {
+                WinShow.GotoWin(4, 0);
+            } else if ("TURN_OFF_VIDEO".equals(type)) {
+                if (Iop.GetWorkMode() == 3) {
+                    this.mEvc.evol_workmode_set(0);
+                    BackToLaucher();
+                } else if (Iop.GetWorkMode() == 0 && MainSet.GetInstance().IsHaveApk("com.mxtech.videoplayer.pro")) {
+                    tool.GetInstance().killProcess("com.mxtech.videoplayer.pro");
+                }
+            } else if ("TURNONAVM_LEFT".equals(type)) {
+                BackcarService.getInstance().StartAvm(2);
+            } else if ("TURNONAVM_RIGHT".equals(type)) {
+                BackcarService.getInstance().StartAvm(3);
+            } else if ("TURNONAVM_FRONT".equals(type)) {
+                BackcarService.getInstance().StartAvm(0);
+            } else if ("TURNONAVM_REAR".equals(type)) {
+                BackcarService.getInstance().StartAvm(1);
+            } else if ("TURNONAVM_3D".equals(type)) {
+                BackcarService.getInstance().Avm3dMode(1);
+            } else if ("TURNONAVM_2D".equals(type)) {
+                BackcarService.getInstance().Avm2dMode(1);
+            } else if ("TURNONAVM_LIMIT".equals(type)) {
+                BackcarService.getInstance().AvmLIMITMode();
+            } else if ("TURNONAVM_CLIFF".equals(type)) {
+                BackcarService.getInstance().AvmCLIFFdMode();
+            } else if ("TURN_ON_AVM_".equals(type)) {
+                BackcarService.getInstance().StartAvm(255);
+            } else if ("TURN_OFF_AVM_".equals(type)) {
+                BackcarService.getInstance().StopAvmforce();
+            }
         }
-        return false;
     }
 
     /* access modifiers changed from: package-private */
@@ -1409,168 +980,73 @@ public class TxzReg {
             }
 
             public void onCommandSelected(String type, String command) {
-                Log.i(TxzReg.TAG, "type= " + type);
-                Log.i(TxzReg.TAG, "command= " + command);
-                if ("TURNUP_VOL".equals(type)) {
-                    TxzReg.this.nVolUp = 5;
-                } else if ("TURNDN_VOL".equals(type)) {
-                    TxzReg.this.nVolDn = 5;
-                } else if ("TURN_MUTE".equals(type)) {
-                    TxzReg.this.mEvc.evol_mut_set(1);
-                } else if ("PLAY_PREV".equals(type)) {
-                    if (Iop.GetWorkMode() != 0) {
-                        Mcu.SetCkey(45);
-                    } else if (MainSet.nPlayer == 2) {
-                        Cyb.GetInstance().playPrevious();
-                    } else {
-                        TxzReg.this.nKeyDelay = 5;
-                        TxzReg.this.nKeyNum = 45;
-                    }
-                } else if ("PLAY_NEXT".equals(type)) {
-                    if (Iop.GetWorkMode() != 0) {
-                        Mcu.SetCkey(44);
-                    } else if (MainSet.nPlayer == 2) {
-                        Cyb.GetInstance().playNext();
-                    } else {
-                        TxzReg.this.nKeyDelay = 5;
-                        TxzReg.this.nKeyNum = 44;
-                    }
-                } else if ("PLAY_SONG".equals(type)) {
-                    TxzReg.this.nKeyDelay = 5;
-                    TxzReg.this.nKeyNum = 90;
-                } else if ("PAUSE_SONG".equals(type)) {
-                    TxzReg.this.nKeyDelay = 5;
-                    TxzReg.this.nKeyNum = 91;
-                } else if ("TOUCH_CEL".equals(type)) {
-                    WinShow.show("com.ts.MainUI", "com.ts.main.touch.TouchActivity");
-                } else if (!"DDH_TO_LAUNCHER".equals(type)) {
-                    if ("TURN_DTM".equals(type)) {
-                        if (Mcu.BklisOn() == 0) {
-                            Mcu.BklTurn();
-                        }
-                    } else if ("TURNOFF_DTM".equals(type)) {
-                        if (Mcu.BklisOn() == 1) {
-                            Mcu.BklTurn();
-                        }
-                    } else if ("TURNONGOOGLE".equals(type)) {
-                        if (MainSet.GetInstance().IsTwcjw() || TxzReg.this.bSupportOkGoole()) {
-                            MainUI.GetInstance().StartGoogleVoice();
-                        }
-                    } else if ("TURNONVOICE".equals(type)) {
-                        MainSet.GetInstance();
-                        MainSet.SendIntent("com.kingwaytek.naviking3d.BROADCAST_START_VR");
-                    } else if ("TURN_ON_RADIO".equals(type)) {
-                        if (FtSet.IsIconExist(1) == 1) {
-                            WinShow.GotoWin(2, 0);
-                        }
-                    } else if ("TURN_OFF_RADIO".equals(type)) {
-                        if (Iop.GetWorkMode() == 1) {
-                            TxzReg.this.BackToLaucher();
-                            TxzReg.this.mEvc.evol_workmode_set(0);
-                        }
-                    } else if ("TURN_ON_NAVI".equals(type)) {
-                        WinShow.GotoWin(1, 0);
-                    } else if ("TURN_ON_MUSIC".equals(type)) {
-                        MainSet.GetInstance();
-                        if (MainSet.IsGLSXVer().booleanValue()) {
-                            if (TxzReg.this.myContext != null) {
-                                MainSet.GetInstance().openApplication(TxzReg.this.myContext, "cn.kuwo.kwmusiccar");
-                            }
-                        } else if (FtSet.IsIconExist(4) == 1) {
-                            WinShow.GotoWin(6, 0);
-                        }
-                    } else if ("TURN_OFF_MUSIC".equals(type)) {
-                        if (MainSet.IsGLSXVer().booleanValue()) {
-                            tool.GetInstance().killProcess("cn.kuwo.kwmusiccar");
-                        } else if (Iop.GetWorkMode() == 4 || Iop.GetWorkMode() == 0) {
-                            TxzReg.this.BackToLaucher();
-                            TxzReg.this.mEvc.evol_workmode_set(0);
-                        }
-                    } else if ("TURN_ON_KWMUSIC".equals(type)) {
-                        if (FtSet.IsIconExist(4) == 1) {
-                            WinShow.GotoWin(6, 0);
-                        }
-                    } else if ("TURN_OFF_KWMUSIC".equals(type)) {
-                        if (Iop.GetWorkMode() == 4 || Iop.GetWorkMode() == 0) {
-                            TxzReg.this.BackToLaucher();
-                            TxzReg.this.mEvc.evol_workmode_set(0);
-                        }
-                    } else if ("TURN_OFF_NAVI".equals(type)) {
-                        AmapAuto.QuiteNavi();
-                    } else if ("TURN_ON_VIDEO".equals(type)) {
-                        WinShow.GotoWin(4, 0);
-                    } else if ("TURN_OFF_VIDEO".equals(type)) {
-                        if (Iop.GetWorkMode() == 3) {
-                            TxzReg.this.mEvc.evol_workmode_set(0);
-                            TxzReg.this.BackToLaucher();
-                        } else if (MainSet.GetInstance().IsHaveApk("com.mxtech.videoplayer.pro")) {
-                            tool.GetInstance().killProcess("com.mxtech.videoplayer.pro");
-                        }
-                    } else if ("TURN_TO_MAIN".equals(type)) {
-                        Mcu.SetCkey(8);
-                    }
+                if (FtSet.GetSpeechMode() <= 1) {
+                    TxzReg.this.DealVoiceType(type, command);
                 }
                 super.onCommandSelected(type, command);
                 TXZAsrManager.getInstance().cancel();
             }
         };
-        if (bSupportOkGoole()) {
+        if (BackcarService.getInstance().bIsAvm360()) {
+            myCallback.addCommand("TURNONAVM_LEFT", new String[]{"打开左视"});
+            myCallback.addCommand("TURNONAVM_RIGHT", new String[]{"打开右视"});
+            myCallback.addCommand("TURNONAVM_FRONT", new String[]{"打开前视"});
+            myCallback.addCommand("TURNONAVM_REAR", new String[]{"打开后视"});
+            myCallback.addCommand("TURNONAVM_LIMIT", new String[]{"切换限宽模式"});
+            myCallback.addCommand("TURN_ON_AVM_", new String[]{"打开三六零", "打开360", "打开全景"});
+            myCallback.addCommand("TURN_OFF_AVM_", new String[]{"关闭三六零", "关闭360", "关闭全景"});
+        }
+        if (MainSet.GetInstance().SupportOKGoogle()) {
+            myCallback.addCommand("TURNONGOOGLE", new String[]{"OK Google", "OK骨狗", "OK酷狗"});
+        } else if (!MainSet.GetInstance().IsTwcjw() && MainSet.GetInstance().IsHaveApk(MainUI.GOOGLE_SPEECH_PNAME)) {
             myCallback.addCommand("TURNONGOOGLE", new String[]{"OK Google", "OK骨狗", "OK酷狗"});
         }
         if (MainSet.GetInstance().IsTwcjw()) {
-            myCallback.addCommand("TURNONGOOGLE", new String[]{"OK Google", "OK骨狗", "OK酷狗"});
             myCallback.addCommand("TURNONVOICE", new String[]{"打开声控导航"});
+            myCallback.addCommand("TURN_DTM", new String[]{"打开荧幕"});
+            myCallback.addCommand("TURNOFF_DTM", new String[]{"关闭荧幕"});
+        } else {
             myCallback.addCommand("TURN_DTM", new String[]{"打开屏幕"});
             myCallback.addCommand("TURNOFF_DTM", new String[]{"关闭屏幕"});
-        } else {
             myCallback.addCommand("TURNUP_VOL", new String[]{"调大音量", "调高音量"});
             myCallback.addCommand("TURNDN_VOL", new String[]{"调小音量", "调低音量"});
-            if (MainSet.IsGLSXVer().booleanValue()) {
-                myCallback.addCommand("PLAY_PREV", new String[]{"上一首", "上一台", "上一曲"});
-                myCallback.addCommand("PLAY_NEXT", new String[]{"下一首", "下一台", "下一曲"});
-            } else {
-                myCallback.addCommand("PLAY_PREV", new String[]{"上一首", "上一台"});
-                myCallback.addCommand("PLAY_NEXT", new String[]{"下一首", "下一台"});
-            }
+            myCallback.addCommand("PLAY_PREV", new String[]{"上一首", "上一台"});
+            myCallback.addCommand("PLAY_NEXT", new String[]{"下一首", "下一台"});
             myCallback.addCommand("PLAY_SONG", new String[]{"开始播放"});
             myCallback.addCommand("PAUSE_SONG", new String[]{"暂停播放"});
-            myCallback.addCommand("TURN_DTM", new String[]{"打开屏幕"});
-            myCallback.addCommand("TURNOFF_DTM", new String[]{"关闭屏幕"});
-            myCallback.addCommand("TURN_ON_NAVI", new String[]{"打开导航"});
-            myCallback.addCommand("TURN_OFF_NAVI", new String[]{"关闭导航", "退出导航"});
             myCallback.addCommand("TURN_ON_RADIO", new String[]{"打开收音机"});
-            myCallback.addCommand("TURN_OFF_RADIO", new String[]{"关闭收音机", "退出收音机"});
+            myCallback.addCommand("TURN_OFF_RADIO", new String[]{"关闭收音机"});
             myCallback.addCommand("TURN_ON_MUSIC", new String[]{"打开音乐"});
-            myCallback.addCommand("TURN_OFF_MUSIC", new String[]{"关闭音乐", "退出音乐"});
-            if (MainSet.IsGLSXVer().booleanValue()) {
-                myCallback.addCommand("TURN_ON_KWMUSIC", new String[]{"打开本地音乐"});
-                myCallback.addCommand("TURN_OFF_KWMUSIC", new String[]{"关闭本地音乐", "退出本地音乐"});
-            }
+            myCallback.addCommand("TURN_OFF_MUSIC", new String[]{"关闭音乐"});
             myCallback.addCommand("TURN_ON_VIDEO", new String[]{"打开视频"});
-            myCallback.addCommand("TURN_OFF_VIDEO", new String[]{"关闭视频", "退出视频"});
-            myCallback.addCommand("TURN_TO_MAIN", new String[]{"返回主页"});
+            myCallback.addCommand("TURN_OFF_VIDEO", new String[]{"关闭视频"});
+            myCallback.addCommand("TURN_ON_NAVI", new String[]{"打开导航"});
+            myCallback.addCommand("TURN_OFF_NAVI", new String[]{"关闭导航"});
         }
         TXZAsrManager.getInstance().useWakeupAsAsr(myCallback);
     }
 
-    /* access modifiers changed from: private */
-    public void InitSenceTool() {
+    private void InitSenceTool() {
         TXZSenceManager.getInstance().setSenceTool(TXZSenceManager.SenceType.SENCE_TYPE_APP, this.mCommandSenceTool);
     }
 
+    public void Destroy() {
+    }
+
+    public void ReSet() {
+        this.bKilled = true;
+    }
+
     public void Inint0(Context m_Context) {
-        if (!this.bInintOK && MainSet.GetInstance().IsHaveApk("com.txznet.txz") && AuthServer.GetInstance().IsAuthOk()) {
+        if (!this.binint0 && MainSet.GetInstance().IsHaveApk("com.txznet.txz")) {
+            this.binint0 = true;
             byte[] appid = new byte[32];
             Mcu.Getid32(appid);
             byte[] token = new byte[40];
             Mcu.Getid40(token);
-            Log.i(TAG, "fiel not exit == " + CanIF.byte2String(appid));
-            Log.i(TAG, "fiel not exit ==" + CanIF.byte2String(token));
-            if (MainSet.GetInstance().IsCustom("YONG")) {
-                Inint(m_Context, MainSet.GetInstance().GetSerid(), "9308b09cf2378c115003ba434585d052", "44585821cb0cb30c77aefd3f920a56b930385271");
-            } else {
-                Inint(m_Context, MainSet.GetInstance().GetSerid(), CanIF.byte2String(appid), CanIF.byte2String(token));
-            }
+            Log.i(TAG, "appid == " + CanIF.byte2String(appid));
+            Log.i(TAG, "token ==" + CanIF.byte2String(token));
+            Inint(m_Context, MainSet.GetSerid(), CanIF.byte2String(appid), CanIF.byte2String(token));
         }
     }
 
@@ -1591,7 +1067,6 @@ public class TxzReg {
 
     /* access modifiers changed from: package-private */
     public void PapaGoNaviToPoi(Poi MyPoi) {
-        Log.i(TAG, "MyPoi.getName()==" + MyPoi.getName());
         Log.i(TAG, "MyPoi.getLat()==" + MyPoi.getLat());
         Log.i(TAG, "MyPoi.getLng()==" + MyPoi.getLng());
         Intent intent = new Intent();
@@ -1676,14 +1151,15 @@ public class TxzReg {
         });
     }
 
+    public void SetContext(Context m_Context) {
+        this.myContext = m_Context;
+    }
+
     public void Inint(Context m_Context, String mcuid, String app_id, String toke) {
-        if (mcuid != null) {
+        if (mcuid != null && mcuid.length() >= 4) {
             Log.i(TAG, "txz initialize start==" + mcuid.substring(0, 4));
-            Evc.GetInstance().AddNaviWhileList("com.txznet.txz");
-            Evc.GetInstance().AddNaviWhileList("com.iflytek.speechcloud");
-            Evc.GetInstance().AddNaviWhileList("com.iflytek.vflynote");
             this.myContext = m_Context;
-            TXZConfigManager.getInstance().initialize(m_Context, new TXZConfigManager.InitParam(app_id, toke).setAppCustomId(mcuid.substring(0, 4)).setUUID(mcuid).setEnableServiceContact(false).setWakeupKeywordsNew(m_Context.getResources().getStringArray(R.array.txz_sdk_init_wakeup_keywords)).setTtsType(TXZConfigManager.TtsEngineType.TTS_YUNZHISHENG).setAsrType(TXZConfigManager.AsrEngineType.ASR_YUNZHISHENG).setFloatToolType(TXZConfigManager.FloatToolType.FLOAT_NONE), new TXZConfigManager.InitListener() {
+            TXZConfigManager.getInstance().initialize(m_Context, new TXZConfigManager.InitParam(app_id, toke).setAppCustomId(mcuid.substring(0, 4)).setUUID(mcuid).setWakeupKeywordsNew(m_Context.getResources().getStringArray(R.array.txz_sdk_init_wakeup_keywords)).setTtsType(TXZConfigManager.TtsEngineType.TTS_YUNZHISHENG).setAsrType(TXZConfigManager.AsrEngineType.ASR_YUNZHISHENG).setFloatToolType(TXZConfigManager.FloatToolType.FLOAT_NONE), new TXZConfigManager.InitListener() {
                 public void onSuccess() {
                     TXZConfigManager.getInstance().setUseHQualityWakeupModel(true);
                     TXZPoiSearchManager.getInstance().setMapPoiViewEnable(false);
@@ -1693,40 +1169,27 @@ public class TxzReg {
                     Log.i(TxzReg.TAG, "txz initialize ok");
                     if (MainSet.GetScreenType() == 3) {
                         TXZRecordWinManager.getInstance().enableFullScreen(false);
-                    } else if (MainSet.IsQOROS()) {
-                        TXZRecordWinManager.getInstance().enableFullScreen(false);
                     } else {
                         TXZRecordWinManager.getInstance().enableFullScreen(true);
                     }
                     if (TxzReg.this.myContext != null) {
                         if (TxzReg.this.myContext.getResources().getString(R.string.custom_txz_forbiden_wakeup_cmd).equals("0")) {
-                            if (MainSet.GetScreenType() != 7) {
-                                TxzReg.this.RegistUserDefault();
-                            }
-                            TXZSceneManager.getInstance().setSceneTool(TXZSceneManager.SceneType.SCENE_TYPE_MUSIC, TxzReg.this.sceneTool);
-                        } else {
-                            TXZSceneManager.getInstance().setSceneTool(TXZSceneManager.SceneType.SCENE_TYPE_MUSIC, TxzReg.this.sceneTool);
+                            TxzReg.this.RegistUserDefault();
                         }
-                    }
-                    if (MainSet.GetInstance().IsHaveApk("com.papago.s1OBU") || MainSet.GetInstance().IsHaveApk("com.google.android.apps.maps")) {
-                        TxzReg.this.InintNaviManage();
+                        TXZSceneManager.getInstance().setSceneTool(TXZSceneManager.SceneType.SCENE_TYPE_MUSIC, TxzReg.this.sceneTool);
                     }
                     TxzReg.this.bIsConnect = false;
-                    if (FtSet.IsIconExist(1) == 1 && MainSet.GetInstance().IsTwcjw()) {
+                    if (FtSet.IsIconExist(1) == 1) {
                         TxzReg.this.InintRadio();
                     }
                     TxzReg.this.InintBT();
                     TxzReg.this.SetUserCommand();
                     TXZMusicManager.getInstance().setNotOpenAppPName(new String[]{"com.txznet.music"});
-                    if (MainSet.nPlayer == 2) {
-                        HFMusicAndRadioTool.getInstance().init(TxzReg.this.myContext, Cyb.GetInstance().mMediaAPI);
-                    }
-                    TxzReg.this.InitSenceTool();
+                    TXZMusicManager.getInstance().setMusicTool(TXZMusicManager.MusicToolType.MUSIC_TOOL_KUWO);
                     TxzReg.this.SetVoiceState();
                     TxzReg.this.AddListenser();
                     TXZResourceManager.getInstance().setTextResourceString("RS_VOICE_UNKNOW_LOCAL", "识别不了该指令");
                     TxzReg.this.InintLinMin();
-                    Log.i(TxzReg.TAG, "txz FtSet.GetXuNiDisc()==" + FtSet.GetXuNiDisc());
                     TXZStatusManager.getInstance().setAudioFocusLogic(new Runnable() {
                         public void run() {
                         }
@@ -1735,6 +1198,7 @@ public class TxzReg {
                         }
                     });
                     TxzReg.this.bInintOK = true;
+                    TxzReg.SetWinShow(false);
                     BtExe.getBtInstance().UpdatePbMap();
                     if (MainUI.IsCameraMode() == 0) {
                         TxzReg.this.SetTXZState(FtSet.GetSpeechMode());
@@ -1742,47 +1206,11 @@ public class TxzReg {
                 }
 
                 public void onError(int errCode, String errDesc) {
-                    MainUI.GetInstance().nDelayToVoice = 200;
                     TxzReg.this.bInintOK = false;
                     Log.i(TxzReg.TAG, "txz initialize faile" + errCode);
                 }
             });
         }
-    }
-
-    private boolean regCommandForFM(float from, float to, String data) {
-        if (from > to) {
-            return false;
-        }
-        float from2 = (float) (Math.floor((double) (10.0f * from)) / 10.0d);
-        float to2 = (float) (Math.floor((double) (10.0f * to)) / 10.0d);
-        List<String> fres = new ArrayList<>();
-        for (float i = from2; ((double) i) <= ((double) to2) + 0.1d; i = (float) (((double) i) + 0.1d)) {
-            String str = String.valueOf("调频") + ((float) (Math.floor((double) (10.0f * i)) / 10.0d));
-            fres.add(str);
-            fres.add(str.replace(".", "点"));
-        }
-        TXZAsrManager.getInstance().regCommand((Collection<String>) fres, data);
-        fres.clear();
-        for (int i2 = 88; i2 <= 108; i2++) {
-            fres.add(String.valueOf("调频") + i2);
-        }
-        TXZAsrManager.getInstance().regCommand((Collection<String>) fres, data);
-        return true;
-    }
-
-    private boolean regCommandForAM(int from, int to, String data) {
-        if (from > to) {
-            return false;
-        }
-        List<String> fres = new ArrayList<>();
-        for (int i = from; i <= to + 9; i += 9) {
-            fres.add(String.valueOf("调幅") + i);
-            fres.add(String.valueOf("AM") + i);
-        }
-        TXZAsrManager.getInstance().regCommand((Collection<String>) fres, data);
-        fres.clear();
-        return true;
     }
 
     public void SpeakText(String str) {

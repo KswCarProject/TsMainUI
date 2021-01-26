@@ -12,6 +12,7 @@ import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanPorscheOdTPMSView extends CanRelativeCarInfoView {
     protected CustomImgView[] mIvTyres;
@@ -66,7 +67,7 @@ public class CanPorscheOdTPMSView extends CanRelativeCarInfoView {
             case 2:
                 return String.valueOf(data * 10) + "kPa";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="364px" android:layout_height="81px" android:minHeight="81px">
+    <ImageView android:id="@+id/iv_device_type" android:clickable="false" android:layout_width="22px" android:layout_height="30px" android:layout_marginLeft="25px" android:layout_centerVertical="true"/>
+    <TextView android:textSize="24px" android:textColor="@android:color/black" android:ellipsize="end" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/tv" android:background="@drawable/bt_connect_kuang_list_up" android:paddingLeft="65px" android:paddingRight="50px" android:layout_width="match_parent" android:layout_height="match_parent" android:text="iPhone 4s" android:singleLine="true" android:drawablePadding="15px"/>
+    <ProgressBar android:id="@+id/progressbar_bonding" android:visibility="gone" android:layout_width="30px" android:layout_height="30px" android:layout_marginRight="15px" android:indeterminateDrawable="@drawable/bt_item_loading" android:layout_alignParentRight="true" android:layout_centerVertical="true"/>
+</RelativeLayout>

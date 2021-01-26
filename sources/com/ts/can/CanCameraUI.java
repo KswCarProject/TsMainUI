@@ -11,6 +11,7 @@ import android.support.v4.internal.view.SupportMenu;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
@@ -31,21 +32,24 @@ import com.ts.backcar.AutoFitTextureView;
 import com.ts.backcar.BackCarSound;
 import com.ts.backcar.BackcarService;
 import com.ts.can.RadarUIView;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarDevView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarDevView;
 import com.ts.can.audi.xhd.CanAudiWithCDExdActivity;
 import com.ts.can.benc.withcd.CanBencWithCDCarFuncActivity;
 import com.ts.can.benc.withcd.CanBencWithCDExdActivity;
+import com.ts.can.bmw.withcd.CanBmwWithCdCarCvbsDevView;
 import com.ts.can.bmw.zmyt.CanBmwZmytWithCDExdActivity;
 import com.ts.can.cadillac.withcd.CanCadillacWithCDExdActivity;
 import com.ts.can.cadillac.xhd.CanCadillacAtsXhdExdActivity;
 import com.ts.can.gm.ats.CanCadillacAtsExdActivity;
 import com.ts.can.gm.mkc.CanLincsMkcExdActivity;
 import com.ts.can.gm.xt5.CanCadillacXt5ExdActivity;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarDevView;
 import com.ts.can.lexus.zmyt.CanLexusZMYTCarDevView;
 import com.ts.can.lexus.zmyt.h.CanLexushZmytCarDevView;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.can.volvo.xfy.CanVolvoXfyCarDeviceActivity;
 import com.ts.canview.CanVerticalBar;
-import com.ts.dvdplayer.definition.MediaDef;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.main.common.MainSet;
 import com.ts.main.common.MainUI;
 import com.ts.main.common.MainVolume;
@@ -70,6 +74,14 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public static final int BTN_BLSU_OD_MODE2 = 1401;
     public static final int BTN_BLSU_OD_MODE3 = 1402;
     public static final int BTN_BLSU_OD_MODE4 = 1403;
+    public static final int BTN_BLSU_RZC_T5_2D = 1670;
+    public static final int BTN_BLSU_RZC_T5_3D = 1671;
+    public static final int BTN_BLSU_RZC_T5_DN = 1675;
+    public static final int BTN_BLSU_RZC_T5_FULL = 1673;
+    public static final int BTN_BLSU_RZC_T5_L = 1676;
+    public static final int BTN_BLSU_RZC_T5_R = 1677;
+    public static final int BTN_BLSU_RZC_T5_RETURN = 1672;
+    public static final int BTN_BLSU_RZC_T5_UP = 1674;
     public static final int BTN_BLSU_T5_2D = 550;
     public static final int BTN_BLSU_T5_3D = 551;
     public static final int BTN_BLSU_T5_FULL = 553;
@@ -232,6 +244,14 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public static final int BTN_JAC_REFINE_MODE2 = 1101;
     public static final int BTN_JAC_REFINE_MODE3 = 1102;
     public static final int BTN_JAC_REFINE_MODE4 = 1103;
+    public static final int BTN_JAC_REFINE_WC_2D = 1705;
+    public static final int BTN_JAC_REFINE_WC_3D = 1704;
+    public static final int BTN_JAC_REFINE_WC_ESC = 1707;
+    public static final int BTN_JAC_REFINE_WC_FULL = 1706;
+    public static final int BTN_JAC_REFINE_WC_MODE1 = 1700;
+    public static final int BTN_JAC_REFINE_WC_MODE2 = 1701;
+    public static final int BTN_JAC_REFINE_WC_MODE3 = 1702;
+    public static final int BTN_JAC_REFINE_WC_MODE4 = 1703;
     public static final int BTN_LANDWINDOD_2D3D = 1560;
     public static final int BTN_LANDWINDOD_2D_ALL = 1561;
     public static final int BTN_LANDWINDOD_2D_FRONT = 1562;
@@ -279,6 +299,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public static final int BTN_MG_YS = 1628;
     public static final int BTN_MG_ZS = 1624;
     public static final int BTN_MITSUBISHI_RZC_CAMERA = 1460;
+    public static final int BTN_MZD_RZC_MODE = 1680;
     public static final int BTN_NISSAN_XTRAL_RVS_ASSIST1 = 540;
     public static final int BTN_NISSAN_XTRAL_RVS_ASSIST10 = 549;
     public static final int BTN_NISSAN_XTRAL_RVS_ASSIST11 = 550;
@@ -292,6 +313,29 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public static final int BTN_NISSAN_XTRAL_RVS_ASSIST7 = 546;
     public static final int BTN_NISSAN_XTRAL_RVS_ASSIST8 = 547;
     public static final int BTN_NISSAN_XTRAL_RVS_ASSIST9 = 548;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST1 = 1640;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST10 = 1649;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST11 = 1650;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST12 = 1651;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST13 = 1652;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST14 = 1653;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST15 = 1654;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST16 = 1655;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST17 = 1656;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST18 = 1657;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST19 = 1658;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST2 = 1641;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST20 = 1659;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST21 = 1660;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST22 = 1661;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST23 = 1662;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST3 = 1642;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST4 = 1643;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST5 = 1644;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST6 = 1645;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST7 = 1646;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST8 = 1647;
+    public static final int BTN_NISSAN_XTRAL_RZC_RVS_ASSIST9 = 1648;
     public static final int BTN_PORSCHE_LZ_CAR = 1500;
     public static final int BTN_PORSCHE_LZ_DOWN = 1497;
     public static final int BTN_PORSCHE_LZ_ESC = 1502;
@@ -305,6 +349,13 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public static final int BTN_PORSCHE_LZ_MODE6 = 1495;
     public static final int BTN_PORSCHE_LZ_RIGHT = 1499;
     public static final int BTN_PORSCHE_LZ_SHOWCAR = 1501;
+    public static final int BTN_PORSCHE_OD_MODE1 = 1690;
+    public static final int BTN_PORSCHE_OD_MODE2 = 1691;
+    public static final int BTN_PORSCHE_OD_MODE3 = 1692;
+    public static final int BTN_PORSCHE_OD_MODE4 = 1693;
+    public static final int BTN_PORSCHE_OD_MODE5 = 1694;
+    public static final int BTN_PORSCHE_OD_MODE6 = 1695;
+    public static final int BTN_PORSCHE_OD_MODE7 = 1696;
     public static final int BTN_PRODOC_MODE1 = 1350;
     public static final int BTN_PRODOC_MODE2 = 1351;
     public static final int BTN_PRODOC_MODE3 = 1352;
@@ -453,6 +504,8 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private ParamButton[] mBtnBaicHSS6WcMode;
     private ParamButton[] mBtnBlsuOdMode;
     private ParamButton[] mBtnBlsuOdStats;
+    private ParamButton[] mBtnBlsuRzcT5;
+    private ParamButton[] mBtnBlsuRzcT5Dir;
     private ParamButton[] mBtnBlsuT5;
     private ParamButton mBtnCCH2Esc;
     private ParamButton[] mBtnCCH2Mode;
@@ -502,6 +555,9 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private ParamButton mBtnJacRefineEsc;
     private ParamButton[] mBtnJacRefineMode;
     private ParamButton[] mBtnJacRefineStats;
+    private ParamButton mBtnJacRefineWcEsc;
+    private ParamButton[] mBtnJacRefineWcMode;
+    private ParamButton[] mBtnJacRefineWcStats;
     private ParamButton[] mBtnLandWind;
     private ParamButton[] mBtnLandWindOd;
     private ParamButton[] mBtnLiFanCamMode;
@@ -510,9 +566,12 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private ParamButton[] mBtnMgZsWcMode;
     private ParamButton mBtnMitSubshiRzcMode;
     private ParamButton mBtnMode_HyRzc;
+    private ParamButton mBtnMzdRzcMode;
+    private ParamButton[] mBtnNissanRzcRvs;
     private ParamButton[] mBtnPorscheLZCar;
     private ParamButton[] mBtnPorscheLZMode;
     private ParamButton[] mBtnPraDoCam360;
+    private ParamButton[] mBtnProscheOdMode;
     private ParamButton mBtnPsaRzcEsc;
     private ParamButton[] mBtnPsaRzcMode;
     private ParamButton[] mBtnRav4Cam360;
@@ -551,6 +610,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private ParamButton[] mBtnZotyeX5WcMode;
     private CanDataInfo.BydDjRadar mBydDjRadar;
     private CanDataInfo.GolfCarRvsCameraMode mCameraMode;
+    private SurfaceView mCameraSurfaceView;
     private TextView mCameraText;
     private AutoFitTextureView mCameraView;
     private CanVerticalBar mCanVerticalBar;
@@ -586,6 +646,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private CustomImgView[] mIvSubuarAids;
     private ImageView mIvWarnning;
     private CanDataInfo.JAC_AVM_DATA mJacAvmData;
+    private CanDataInfo.JacWc_AvmInfo mJacWcAvmData;
     private CanDataInfo.LandWindOd_CarSet mLandWindOdCarSet = new CanDataInfo.LandWindOd_CarSet();
     private CanDataInfo.LandWind_Avm mLandwindAvm = new CanDataInfo.LandWind_Avm();
     private RelativeLayout mLayout;
@@ -594,10 +655,19 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private ArrayList<View> mListBotView = new ArrayList<>();
     private CanDataInfo.MG_GS_AVMDATA mMgGsAvmdata;
     private CanDataInfo.MgZsWc_Avm mMgZsWcAvm;
+    private CustomTextView[] mNissanRzcDeclare;
+    private CustomTextView[] mNissanRzcDeclare2;
+    private String[] mNissanRzcDeclareArr;
+    private CanDataInfo.CanTeanaAvmData mNissanRzcRvsAss;
+    private CustomTextView mNissanRzcTsy;
+    private String[] mNissanRzcTsyArr;
+    private CustomImgView[] mNissanRzcView;
     private int mOldCamPort = -1;
     private int mOldFrCamera = -1;
     private boolean mOldXt5UI = false;
+    private CustomImgView mPorscheAvmView;
     private CanDataInfo.CanPorCheLz_AvmData mPorscheLZData;
+    private CanDataInfo.PorscheOdAvmData mPorscheOdData;
     /* access modifiers changed from: private */
     public ProgressBar mProgressBar;
     public int mRadarVoice = 0;
@@ -607,6 +677,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private LinearLayout mRightRadarLayout;
     private RadarUIView mRightRearRadar;
     private RadarUIView mRightSideRadar;
+    private int mRotate = 2;
     private CanDataInfo.MgZsWc_Rvs mRvsData;
     private ScaleCameraUIView mScaleEpsLineView;
     private CanDataInfo.SenovaOd_CameraSta mSenovaOdCamera;
@@ -639,7 +710,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     private CanDataInfo.AccordXbsCamMode mYg9Set;
     private CanDataInfo.ZtCameraSta mZtCamera;
     private CanDataInfo.PsaRzcAvm m_PsaRzcAvm;
-    private boolean mbResume;
+    private boolean mbResume = false;
     /* access modifiers changed from: private */
     public boolean mfgFullScr = true;
     private boolean mfgShowCanBtn = false;
@@ -649,6 +720,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public boolean mfgShowTrack = false;
     int nCurSignalSta;
     int nDelayCheck = 0;
+    public int nLayoutReLoad = 0;
     int nSignalSta = 255;
 
     protected CanCameraUI() {
@@ -682,7 +754,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnChanaODMode.setTag(Integer.valueOf(BTN_CHANA_OD_MODE));
         this.mBtnChanaODMode.setStateUpDn(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
         this.mBtnChanaODMode.setOnClickListener(this);
-        setViewPos(this.mBtnChanaODMode, 100, 465, Can.CAN_JAC_REFINE_OD, 60);
+        setViewPos(this.mBtnChanaODMode, 100, 465, 150, 60);
     }
 
     private void InitPorcheLz(Context context) {
@@ -695,7 +767,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mListBotView.add(this.mBtnPorscheLZMode[i]);
         }
         this.mBtnPorscheLZMode[0].setStateDrawable(R.drawable.can_gs5_bot_22_up, R.drawable.can_gs5_bot_22_dn, R.drawable.can_gs5_bot_22_dn);
-        setViewPosBottom(this.mBtnPorscheLZMode[0], Can.CAN_JAC_REFINE_OD, 18, 82, 72);
+        setViewPosBottom(this.mBtnPorscheLZMode[0], 150, 18, 82, 72);
         this.mBtnPorscheLZMode[1].setStateDrawable(R.drawable.can_gs5_bot_10_up, R.drawable.can_gs5_bot_10_dn, R.drawable.can_gs5_bot_10_dn);
         setViewPosBottom(this.mBtnPorscheLZMode[1], Can.CAN_NISSAN_XFY, 18, 82, 72);
         this.mBtnPorscheLZMode[2].setStateDrawable(R.drawable.can_gs5_bot_21_up, R.drawable.can_gs5_bot_21_dn, R.drawable.can_gs5_bot_21_dn);
@@ -715,7 +787,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mCarBg = new CustomImgView(context);
         this.mCarBg.setBackgroundColor(Color.rgb(32, 32, 32));
         this.mCarBg.setVisibility(8);
-        setViewPos(this.mCarBg, 0, 95, KeyDef.RKEY_MEDIA_ZOOM, 410);
+        setViewPos(this.mCarBg, 0, 95, 309, 410);
         this.mBtnPorscheLZCar = new ParamButton[5];
         for (int i2 = 0; i2 < this.mBtnPorscheLZCar.length; i2++) {
             this.mBtnPorscheLZCar[i2] = new ParamButton(context);
@@ -746,6 +818,37 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         setViewPos(this.mBtnPorscheLZCar[3], 201, Can.CAN_NISSAN_XFY, 108, 99);
         this.mBtnPorscheLZCar[4].setStateDrawable(R.drawable.can_radar_set_car, R.drawable.can_radar_set_car, R.drawable.can_radar_set_car);
         setViewPos(this.mBtnPorscheLZCar[4], 108, 194, 93, 212);
+        if (CanJni.GetSubType() == 1) {
+            this.mPorscheAvmView = new CustomImgView(context);
+            this.mListBotView.add(this.mPorscheAvmView);
+            this.mPorscheAvmView.setBackgroundResource(R.drawable.can_porsche_avm_car);
+            setViewPos(this.mPorscheAvmView, 75, 112, Can.CAN_BYD_M6_DJ, 508);
+        }
+    }
+
+    private void InitPorcheOd(Context context) {
+        this.mPorscheOdData = new CanDataInfo.PorscheOdAvmData();
+        this.mBtnProscheOdMode = new ParamButton[7];
+        for (int i = 0; i < this.mBtnProscheOdMode.length; i++) {
+            this.mBtnProscheOdMode[i] = new ParamButton(context);
+            this.mBtnProscheOdMode[i].setTag(Integer.valueOf(i + BTN_PORSCHE_OD_MODE1));
+            this.mBtnProscheOdMode[i].setOnClickListener(this);
+            this.mListBotView.add(this.mBtnProscheOdMode[i]);
+        }
+        this.mBtnProscheOdMode[0].setStateDrawable(R.drawable.can_gs5_bot_01_up, R.drawable.can_gs5_bot_01_dn, R.drawable.can_gs5_bot_01_dn);
+        setViewPosBottom(this.mBtnProscheOdMode[0], 150, 18, 82, 72);
+        this.mBtnProscheOdMode[1].setStateDrawable(R.drawable.can_gs5_bot_02_up, R.drawable.can_gs5_bot_02_dn, R.drawable.can_gs5_bot_02_dn);
+        setViewPosBottom(this.mBtnProscheOdMode[1], Can.CAN_NISSAN_XFY, 18, 82, 72);
+        this.mBtnProscheOdMode[2].setStateDrawable(R.drawable.can_gs5_bot_19_up, R.drawable.can_gs5_bot_19_dn, R.drawable.can_gs5_bot_19_dn);
+        setViewPosBottom(this.mBtnProscheOdMode[2], 350, 18, 82, 72);
+        this.mBtnProscheOdMode[3].setStateDrawable(R.drawable.can_gs5_bot_11_up, R.drawable.can_gs5_bot_11_dn, R.drawable.can_gs5_bot_11_dn);
+        setViewPosBottom(this.mBtnProscheOdMode[3], 450, 18, 82, 72);
+        this.mBtnProscheOdMode[4].setStateDrawable(R.drawable.can_gs5_bot_16_up, R.drawable.can_gs5_bot_16_dn, R.drawable.can_gs5_bot_16_dn);
+        setViewPosBottom(this.mBtnProscheOdMode[4], 550, 18, 82, 72);
+        this.mBtnProscheOdMode[5].setStateDrawable(R.drawable.can_gs5_bot_10_up, R.drawable.can_gs5_bot_10_dn, R.drawable.can_gs5_bot_10_dn);
+        setViewPosBottom(this.mBtnProscheOdMode[5], BTN_LANDWIND_3D_LEFT_UP, 18, 82, 72);
+        this.mBtnProscheOdMode[6].setStateDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn, R.drawable.can_camera_track_esc_dn);
+        setViewPosBottom(this.mBtnProscheOdMode[6], 909, 0, 115, 60);
     }
 
     private void InitChanaCos1Wc(Context context) {
@@ -877,7 +980,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         for (int i = 0; i < this.mBtnGolfWcMode.length; i++) {
             this.mBtnGolfWcMode[i] = new ParamButton(context);
             this.mBtnGolfWcMode[i].setOnClickListener(this);
-            this.mBtnGolfWcMode[i].setTag(Integer.valueOf(i + BTN_GOLF_WC_MODE1));
+            this.mBtnGolfWcMode[i].setTag(Integer.valueOf(i + 600));
             this.mListBotView.add(this.mBtnGolfWcMode[i]);
         }
         this.mBtnGolfWcMode[0].setDrawable(R.drawable.can_gs5_bot_05_up, R.drawable.can_gs5_bot_05_dn);
@@ -957,6 +1060,12 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnViewWC3.setTag(622);
         this.mBtnViewWC3.setBackgroundColor(0);
         this.mBtnViewWC3.setOnTouchListener(this);
+        if (MainSet.GetScreenType() == 10) {
+            setViewPos(this.mBtnViewWC1, 91, 588, 138, 125);
+            setViewPos(this.mBtnViewWC2, 731, 588, 138, 125);
+            setViewPos(this.mBtnViewWC3, 1051, 588, 138, 125);
+            return;
+        }
         setViewPos(this.mBtnViewWC1, 73, 490, 110, 104);
         setViewPos(this.mBtnViewWC2, 585, 490, 110, 104);
         setViewPos(this.mBtnViewWC3, KeyDef.SKEY_RETURN_3, 490, 110, 104);
@@ -1030,11 +1139,15 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             setViewPos(this.mBtnRav4Cam360[0], 32, 440, 196, 111);
             setViewPos(this.mBtnRav4Cam360[1], 286, 440, 196, 111);
             setViewPos(this.mBtnRav4Cam360[2], BTN_CHANA_CS75_MODE3, 440, 196, 111);
-            return;
+        } else if (MainSet.GetScreenType() == 10) {
+            setViewPos(this.mBtnRav4Cam360[0], 40, 578, Can.CAN_FORD_MONDEO_XFY, 133);
+            setViewPos(this.mBtnRav4Cam360[1], 678, 578, Can.CAN_FORD_MONDEO_XFY, 133);
+            setViewPos(this.mBtnRav4Cam360[2], BTN_TRUMPCHI_WC_MODE3, 578, Can.CAN_FORD_MONDEO_XFY, 133);
+        } else {
+            setViewPos(this.mBtnRav4Cam360[0], 32, 482, 196, 111);
+            setViewPos(this.mBtnRav4Cam360[1], BTN_NISSAN_XTRAL_RVS_ASSIST3, 482, 196, 111);
+            setViewPos(this.mBtnRav4Cam360[2], 802, 482, 196, 111);
         }
-        setViewPos(this.mBtnRav4Cam360[0], 32, 482, 196, 111);
-        setViewPos(this.mBtnRav4Cam360[1], BTN_NISSAN_XTRAL_RVS_ASSIST3, 482, 196, 111);
-        setViewPos(this.mBtnRav4Cam360[2], 802, 482, 196, 111);
     }
 
     public void InitPraDo(Context context) {
@@ -1060,11 +1173,15 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             setViewPos(this.mBtnPraDoCam360[1], 20, 440, 196, 111);
             setViewPos(this.mBtnPraDoCam360[2], BTN_CHANA_CS75_MODE3, 440, 196, 111);
             setViewPos(this.mBtnPraDoCam360[3], BTN_CHANA_CS75_MODE3, 20, 196, 111);
-            return;
+        } else if (MainSet.GetScreenType() == 10) {
+            setViewPos(this.mBtnPraDoCam360[1], 25, 578, Can.CAN_FORD_MONDEO_XFY, 133);
+            setViewPos(this.mBtnPraDoCam360[2], BTN_TRUMPCHI_WC_MODE3, 578, Can.CAN_FORD_MONDEO_XFY, 133);
+            setViewPos(this.mBtnPraDoCam360[3], BTN_TRUMPCHI_WC_MODE3, 24, Can.CAN_FORD_MONDEO_XFY, 133);
+        } else {
+            setViewPos(this.mBtnPraDoCam360[1], 20, 482, 196, 111);
+            setViewPos(this.mBtnPraDoCam360[2], 802, 482, 196, 111);
+            setViewPos(this.mBtnPraDoCam360[3], 802, 20, 196, 111);
         }
-        setViewPos(this.mBtnPraDoCam360[1], 20, 482, 196, 111);
-        setViewPos(this.mBtnPraDoCam360[2], 802, 482, 196, 111);
-        setViewPos(this.mBtnPraDoCam360[3], 802, 20, 196, 111);
     }
 
     public void InitGolfMagoten(Context context) {
@@ -1094,7 +1211,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnZotyeEsc.setOnClickListener(this);
         this.mBtnZotyeEsc.setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
         this.mListBotView.add(this.mBtnZotyeEsc);
-        setViewPos(this.mBtnZotyeEsc, 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnZotyeEsc, 909, 540, 115, 60);
         for (int i = 0; i < this.mBtnZotyeMode.length; i++) {
             this.mBtnZotyeMode[i] = new ParamButton(context);
             this.mBtnZotyeMode[i].setTag(Integer.valueOf(i + BTN_ZOYTE_MODE1));
@@ -1121,7 +1238,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mHyundaiAssist = new CanDataInfo.HyundaiAssist();
         for (int i = 0; i < this.mBtnHyundaiXpFrontMode.length; i++) {
             this.mBtnHyundaiXpFrontMode[i] = new ParamButton(context);
-            this.mBtnHyundaiXpFrontMode[i].setTag(Integer.valueOf(i + BTN_HYUNDAI_XP_FRONT_MODE1));
+            this.mBtnHyundaiXpFrontMode[i].setTag(Integer.valueOf(i + 1170));
             this.mBtnHyundaiXpFrontMode[i].setOnClickListener(this);
             this.mListBotView.add(this.mBtnHyundaiXpFrontMode[i]);
         }
@@ -1172,7 +1289,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnZotyeX5WcEsc.setOnClickListener(this);
         this.mBtnZotyeX5WcEsc.setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
         this.mListBotView.add(this.mBtnZotyeX5WcEsc);
-        setViewPos(this.mBtnZotyeX5WcEsc, 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnZotyeX5WcEsc, 909, 540, 115, 60);
         for (int i = 0; i < this.mBtnZotyeX5WcMode.length; i++) {
             this.mBtnZotyeX5WcMode[i] = new ParamButton(context);
             this.mBtnZotyeX5WcMode[i].setTag(Integer.valueOf(i + BTN_ZOYTEX5_WC_MODE1));
@@ -1227,7 +1344,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnCs75Mode.setTag(151);
         this.mBtnCs75Mode.setStateUpDn(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
         this.mBtnCs75Mode.setOnClickListener(this);
-        setViewPos(this.mBtnCs75Mode, 100, 465, Can.CAN_JAC_REFINE_OD, 60);
+        setViewPos(this.mBtnCs75Mode, 100, 465, 150, 60);
     }
 
     public void InitCs75Avm(Context context) {
@@ -1283,7 +1400,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnLiFanCamMode[0].setDrawable(R.drawable.can_gs5_bot_05_up, R.drawable.can_gs5_bot_05_dn);
         setViewPos(this.mBtnLiFanCamMode[0], 40, 500, 82, 72);
         this.mBtnLiFanCamMode[1].setDrawable(R.drawable.can_gs5_bot_04_up, R.drawable.can_gs5_bot_04_dn);
-        setViewPos(this.mBtnLiFanCamMode[1], Can.CAN_CHANA_CS75_WC, 500, 82, 72);
+        setViewPos(this.mBtnLiFanCamMode[1], 160, 500, 82, 72);
     }
 
     private void InitCCH2(Context context) {
@@ -1292,7 +1409,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnCCH2Esc.setOnClickListener(this);
         this.mBtnCCH2Esc.setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
         this.mListBotView.add(this.mBtnCCH2Esc);
-        setViewPos(this.mBtnCCH2Esc, 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnCCH2Esc, 909, 540, 115, 60);
         this.mBtnCCH2Mode = new ParamButton[3];
         for (int i = 0; i < this.mBtnCCH2Mode.length; i++) {
             this.mBtnCCH2Mode[i] = new ParamButton(context);
@@ -1356,11 +1473,11 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnCCH9Direction[0].setDrawable(R.drawable.can_eps_park_fx01_up, R.drawable.can_eps_park_fx01_dn);
         setViewPos(this.mBtnCCH9Direction[0], 694, 170, 59, 59);
         this.mBtnCCH9Direction[1].setDrawable(R.drawable.can_eps_park_fx02_up, R.drawable.can_eps_park_fx02_dn);
-        setViewPos(this.mBtnCCH9Direction[1], 694, KeyDef.RKEY_MEDIA_SEL, 59, 59);
+        setViewPos(this.mBtnCCH9Direction[1], 694, 311, 59, 59);
         this.mBtnCCH9Direction[2].setDrawable(R.drawable.can_eps_park_fx03_up, R.drawable.can_eps_park_fx03_dn);
-        setViewPos(this.mBtnCCH9Direction[2], 624, 240, 59, 59);
+        setViewPos(this.mBtnCCH9Direction[2], 624, Can.CAN_VOLKS_XP, 59, 59);
         this.mBtnCCH9Direction[3].setDrawable(R.drawable.can_eps_park_fx04_up, R.drawable.can_eps_park_fx04_dn);
-        setViewPos(this.mBtnCCH9Direction[3], 765, 240, 59, 59);
+        setViewPos(this.mBtnCCH9Direction[3], 765, Can.CAN_VOLKS_XP, 59, 59);
         this.mBtnCCH9Bot = new ParamButton[4];
         for (int i3 = 0; i3 < this.mBtnCCH9Bot.length; i3++) {
             this.mBtnCCH9Bot[i3] = new ParamButton(context);
@@ -1437,7 +1554,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mListBotView.add(this.mBtnVenuciaMode[i]);
         }
         this.mBtnVenuciaMode[0].setDrawable(R.drawable.can_gs5_bot_10_up, R.drawable.can_gs5_bot_10_dn);
-        setViewPos(this.mBtnVenuciaMode[0], 45, Can.CAN_JAC_REFINE_OD, 82, 72);
+        setViewPos(this.mBtnVenuciaMode[0], 45, 150, 82, 72);
         this.mBtnVenuciaMode[1].setDrawable(R.drawable.can_gs5_bot_08_up, R.drawable.can_gs5_bot_08_dn);
         setViewPos(this.mBtnVenuciaMode[1], 45, Can.CAN_NISSAN_XFY, 82, 72);
         this.mBtnVenuciaMode[2].setDrawable(R.drawable.can_gs5_bot_09_up, R.drawable.can_gs5_bot_09_dn);
@@ -1474,7 +1591,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnHmS7Line.setOnClickListener(this);
         this.mBtnHmS7Line.setTag(Integer.valueOf(BTN_HMS7_HELP_LINE));
         this.mBtnHmS7Line.setDrawable(R.drawable.can_camera_tarack_line_up, R.drawable.can_camera_tarack_line_dn);
-        setViewPos(this.mBtnHmS7Line, BTN_GOLF_WC_MODE1, 500, 128, 64);
+        setViewPos(this.mBtnHmS7Line, 600, 500, 128, 64);
         this.mListBotView.add(this.mBtnHmS7Line);
         this.mBtnHmS7Esc.setOnClickListener(this);
         this.mBtnHmS7Esc.setTag(Integer.valueOf(BTN_HMS7_ESC));
@@ -1524,12 +1641,12 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnGeelyYjX6Esc.setOnClickListener(this);
         this.mBtnGeelyYjX6Esc.setTag(Integer.valueOf(BTN_GEELY_YJX6_ESC));
         this.mBtnGeelyYjX6Esc.setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
-        setViewPos(this.mBtnGeelyYjX6Esc, 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnGeelyYjX6Esc, 909, 540, 115, 60);
         this.mListBotView.add(this.mBtnGeelyYjX6Esc);
         this.mBtnGeelyYjX6GJ.setOnClickListener(this);
         this.mBtnGeelyYjX6GJ.setTag(Integer.valueOf(BTN_GEELY_YJX6_GJ));
         this.mBtnGeelyYjX6GJ.setDrawable(R.drawable.can_camera_tarack_line_up, R.drawable.can_camera_tarack_line_dn);
-        setViewPos(this.mBtnGeelyYjX6GJ, 0, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnGeelyYjX6GJ, 0, 540, 115, 60);
         this.mListBotView.add(this.mBtnGeelyYjX6GJ);
         this.mBtnGeelyYjX6FXP.setOnClickListener(this);
         this.mBtnGeelyYjX6FXP.setTag(Integer.valueOf(BTN_GEELY_YJX6_FXP));
@@ -1584,12 +1701,12 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             } else {
                 this.mBtnXtralRvs[i].setOnClickListener(this);
             }
-            this.mBtnXtralRvs[i].setTag(Integer.valueOf(i + BTN_NISSAN_XTRAL_RVS_ASSIST1));
+            this.mBtnXtralRvs[i].setTag(Integer.valueOf(i + 540));
             this.mBtnXtralRvs[i].Show(false);
             this.mListBotView.add(this.mBtnXtralRvs[i]);
         }
         this.mBtnXtralRvs[0].setDrawable(R.drawable.can_oj_left_big_up, R.drawable.can_oj_left_big_dn);
-        setViewPos(this.mBtnXtralRvs[0], 106, 215, 95, Can.CAN_CHANA_CS75_WC);
+        setViewPos(this.mBtnXtralRvs[0], 106, 215, 95, 160);
         this.mBtnXtralRvs[1].setDrawable(R.drawable.can_oj_up_up, R.drawable.can_oj_up_dn);
         setViewPos(this.mBtnXtralRvs[1], KeyDef.RKEY_EJECT, 168, 96, 68);
         this.mBtnXtralRvs[2].setDrawable(R.drawable.can_oj_down_up, R.drawable.can_oj_down_dn);
@@ -1599,7 +1716,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnXtralRvs[4].setDrawable(R.drawable.can_oj_right_up, R.drawable.can_oj_right_dn);
         setViewPos(this.mBtnXtralRvs[4], 412, 259, 96, 68);
         this.mBtnXtralRvs[5].setDrawable(R.drawable.can_oj_right_big_up, R.drawable.can_oj_right_big_dn);
-        setViewPos(this.mBtnXtralRvs[5], BTN_GEELY_YJX6_FXP, 215, 95, Can.CAN_CHANA_CS75_WC);
+        setViewPos(this.mBtnXtralRvs[5], BTN_GEELY_YJX6_FXP, 215, 95, 160);
         this.mBtnXtralRvs[6].setDrawable(R.drawable.can_oj_car_up, R.drawable.can_oj_car_dn);
         setViewPos(this.mBtnXtralRvs[6], 459, 450, 161, 91);
         this.mBtnXtralRvs[7].setDrawable(R.drawable.can_qj_sjx_up, R.drawable.can_qj_sjx_dn);
@@ -1610,15 +1727,15 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         setViewPos(this.mBtnXtralRvs[9], 283, 450, 161, 91);
         this.mBtnXtralRvs[10].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
         setViewPos(this.mBtnXtralRvs[10], 106, 450, 161, 91);
-        this.mBtnXtralRvs[10].setText("Cancel");
+        this.mBtnXtralRvs[10].setText(R.string.can_assist_cancel);
         this.mBtnXtralRvs[10].setTextSize(0, 27.0f);
         this.mBtnXtralRvs[11].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
         setViewPos(this.mBtnXtralRvs[11], 283, 450, 161, 91);
-        this.mBtnXtralRvs[11].setText("Start");
+        this.mBtnXtralRvs[11].setText(R.string.can_assist_start);
         this.mBtnXtralRvs[11].setTextSize(0, 27.0f);
         this.mBtnXtralRvs[12].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
         setViewPos(this.mBtnXtralRvs[12], 459, 450, 161, 91);
-        this.mBtnXtralRvs[12].setText("Back");
+        this.mBtnXtralRvs[12].setText(R.string.can_assist_back);
         this.mBtnXtralRvs[12].setTextSize(0, 27.0f);
         this.mXtralView = new CustomImgView[2];
         for (int i2 = 0; i2 < this.mXtralView.length; i2++) {
@@ -1639,7 +1756,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mXtralTsy.setTextSize(0, 33.0f);
         this.mXtralTsy.setGravity(1);
         this.mXtralTsy.setTextColor(-16711936);
-        setViewPos(this.mXtralTsy, 0, 15, 620, 50);
+        setViewPos(this.mXtralTsy, 0, 15, 620, 120);
         this.mXtralDeclareArr = context.getResources().getStringArray(R.array.can_nissan_xtral_rvs_declare);
         this.mXtralDeclare = new CustomTextView[7];
         for (int i3 = 0; i3 < this.mXtralDeclare.length; i3++) {
@@ -1651,24 +1768,28 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mXtralDeclare[0].setGravity(3);
         this.mXtralDeclare[0].setTextColor(-1);
         this.mXtralDeclare[0].setText(this.mXtralDeclareArr[0]);
-        setViewPos(this.mXtralDeclare[0], 0, 55, CanToyotaDJCarDeviceView.ITEM_PLAY, 60);
+        setViewPos(this.mXtralDeclare[0], 0, 55, 768, 60);
         for (int i4 = 1; i4 < 4; i4++) {
             this.mXtralDeclare[i4].setTextSize(0, 38.0f);
             this.mXtralDeclare[i4].setGravity(3);
             this.mXtralDeclare[i4].setTextColor(-1);
             this.mXtralDeclare[i4].setText(this.mXtralDeclareArr[i4]);
-            setViewPos(this.mXtralDeclare[i4], 0, (i4 * 60) + 90, CanToyotaDJCarDeviceView.ITEM_PLAY, 50);
+            setViewPos(this.mXtralDeclare[i4], 0, (i4 * 60) + 90, 768, 50);
         }
         for (int i5 = 4; i5 < 7; i5++) {
             this.mXtralDeclare[i5].setTextSize(0, 30.0f);
             this.mXtralDeclare[i5].setGravity(3);
             this.mXtralDeclare[i5].setTextColor(-256);
             this.mXtralDeclare[i5].setText(this.mXtralDeclareArr[i5]);
-            setViewPos(this.mXtralDeclare[i5], 0, (i5 * 40) + 190, CanToyotaDJCarDeviceView.ITEM_PLAY, 50);
+            setViewPos(this.mXtralDeclare[i5], 0, (i5 * 40) + 190, 768, 50);
         }
     }
 
     private void InitXtralRvsAssist(Context context) {
+        int dy = 0;
+        if (MainSet.GetScreenType() == 10) {
+            dy = 120;
+        }
         this.mXtralRvsAss = new CanDataInfo.CanTeanaAvmData();
         this.mXtralWcRvsAss = new CanDataInfo.NissanWcAvmUI();
         this.mBtnXtralRvs = new ParamButton[13];
@@ -1679,12 +1800,12 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             } else {
                 this.mBtnXtralRvs[i].setOnClickListener(this);
             }
-            this.mBtnXtralRvs[i].setTag(Integer.valueOf(i + BTN_NISSAN_XTRAL_RVS_ASSIST1));
+            this.mBtnXtralRvs[i].setTag(Integer.valueOf(i + 540));
             this.mBtnXtralRvs[i].Show(false);
             this.mListBotView.add(this.mBtnXtralRvs[i]);
         }
         this.mBtnXtralRvs[0].setDrawable(R.drawable.can_oj_left_big_up, R.drawable.can_oj_left_big_dn);
-        setViewPos(this.mBtnXtralRvs[0], 106, 215, 95, Can.CAN_CHANA_CS75_WC);
+        setViewPos(this.mBtnXtralRvs[0], 106, 215, 95, 160);
         this.mBtnXtralRvs[1].setDrawable(R.drawable.can_oj_up_up, R.drawable.can_oj_up_dn);
         setViewPos(this.mBtnXtralRvs[1], KeyDef.RKEY_EJECT, 168, 96, 68);
         this.mBtnXtralRvs[2].setDrawable(R.drawable.can_oj_down_up, R.drawable.can_oj_down_dn);
@@ -1694,26 +1815,26 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnXtralRvs[4].setDrawable(R.drawable.can_oj_right_up, R.drawable.can_oj_right_dn);
         setViewPos(this.mBtnXtralRvs[4], 412, 259, 96, 68);
         this.mBtnXtralRvs[5].setDrawable(R.drawable.can_oj_right_big_up, R.drawable.can_oj_right_big_dn);
-        setViewPos(this.mBtnXtralRvs[5], BTN_GEELY_YJX6_FXP, 215, 95, Can.CAN_CHANA_CS75_WC);
+        setViewPos(this.mBtnXtralRvs[5], BTN_GEELY_YJX6_FXP, 215, 95, 160);
         this.mBtnXtralRvs[6].setDrawable(R.drawable.can_oj_car_up, R.drawable.can_oj_car_dn);
-        setViewPos(this.mBtnXtralRvs[6], 459, 500, 161, 91);
+        setViewPos(this.mBtnXtralRvs[6], 459, dy + 500, 161, 91);
         this.mBtnXtralRvs[7].setDrawable(R.drawable.can_qj_sjx_up, R.drawable.can_qj_sjx_dn);
-        setViewPos(this.mBtnXtralRvs[7], 750, 500, 161, 91);
+        setViewPos(this.mBtnXtralRvs[7], 750, dy + 500, 161, 91);
         this.mBtnXtralRvs[8].setDrawable(R.drawable.can_oj_pa_up, R.drawable.can_oj_pa_dn);
-        setViewPos(this.mBtnXtralRvs[8], 459, 500, 161, 91);
+        setViewPos(this.mBtnXtralRvs[8], 459, dy + 500, 161, 91);
         this.mBtnXtralRvs[9].setDrawable(R.drawable.can_oj_park_up, R.drawable.can_oj_park_dn);
-        setViewPos(this.mBtnXtralRvs[9], 283, 500, 161, 91);
+        setViewPos(this.mBtnXtralRvs[9], 283, dy + 500, 161, 91);
         this.mBtnXtralRvs[10].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
-        setViewPos(this.mBtnXtralRvs[10], 106, 500, 161, 91);
-        this.mBtnXtralRvs[10].setText("Cancel");
+        setViewPos(this.mBtnXtralRvs[10], 106, dy + 500, 161, 91);
+        this.mBtnXtralRvs[10].setText(R.string.can_assist_cancel);
         this.mBtnXtralRvs[10].setTextSize(0, 27.0f);
         this.mBtnXtralRvs[11].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
-        setViewPos(this.mBtnXtralRvs[11], 283, 500, 161, 91);
-        this.mBtnXtralRvs[11].setText("Start");
+        setViewPos(this.mBtnXtralRvs[11], 283, dy + 500, 161, 91);
+        this.mBtnXtralRvs[11].setText(R.string.can_assist_start);
         this.mBtnXtralRvs[11].setTextSize(0, 27.0f);
         this.mBtnXtralRvs[12].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
-        setViewPos(this.mBtnXtralRvs[12], 459, 500, 161, 91);
-        this.mBtnXtralRvs[12].setText("Back");
+        setViewPos(this.mBtnXtralRvs[12], 459, dy + 500, 161, 91);
+        this.mBtnXtralRvs[12].setText(R.string.can_assist_back);
         this.mBtnXtralRvs[12].setTextSize(0, 27.0f);
         this.mXtralView = new CustomImgView[2];
         for (int i2 = 0; i2 < this.mXtralView.length; i2++) {
@@ -1724,7 +1845,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mXtralView[0].Show(false);
         setViewPos(this.mXtralView[0], KeyDef.RKEY_EJECT_L, 263, 59, 60);
         this.mXtralView[1].setStateDrawable(R.drawable.can_oj_car, R.drawable.can_oj_car02);
-        setViewPos(this.mXtralView[1], 18, BTN_HMS7_ESC, 75, 82);
+        setViewPos(this.mXtralView[1], 18, dy + BTN_HMS7_ESC, 75, 82);
         if (CanJni.GetCanFsTp() == 149) {
             this.mXtralTsyArr = context.getResources().getStringArray(R.array.can_nissan_wc_xtral_rvs_tsy);
         } else {
@@ -1734,7 +1855,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mXtralTsy.setTextSize(0, 33.0f);
         this.mXtralTsy.setGravity(1);
         this.mXtralTsy.setTextColor(-16711936);
-        setViewPos(this.mXtralTsy, 0, 15, 620, 50);
+        setViewPos(this.mXtralTsy, 0, 15, BTN_CS75_WC_MODE, 120);
         this.mXtralDeclareArr = context.getResources().getStringArray(R.array.can_nissan_xtral_rvs_declare);
         this.mXtralDeclare = new CustomTextView[7];
         for (int i3 = 0; i3 < this.mXtralDeclare.length; i3++) {
@@ -1761,6 +1882,135 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mXtralDeclare[i5].setText(this.mXtralDeclareArr[i5]);
             setViewPos(this.mXtralDeclare[i5], 0, (i5 * 40) + 190, 1024, 50);
         }
+    }
+
+    private void InitNissanRzcRvsAssist(Context context) {
+        int dy = 0;
+        if (MainSet.GetScreenType() == 10) {
+            dy = 120;
+        }
+        this.mNissanRzcRvsAss = new CanDataInfo.CanTeanaAvmData();
+        this.mBtnNissanRzcRvs = new ParamButton[23];
+        for (int i = 0; i < this.mBtnNissanRzcRvs.length; i++) {
+            this.mBtnNissanRzcRvs[i] = new ParamButton(context);
+            this.mBtnNissanRzcRvs[i].setOnClickListener(this);
+            this.mBtnNissanRzcRvs[i].setTag(Integer.valueOf(i + BTN_NISSAN_XTRAL_RZC_RVS_ASSIST1));
+            this.mBtnNissanRzcRvs[i].Show(false);
+            this.mListBotView.add(this.mBtnNissanRzcRvs[i]);
+        }
+        this.mBtnNissanRzcRvs[0].setDrawable(R.drawable.can_oj_left_big_up, R.drawable.can_oj_left_big_dn);
+        setViewPos(this.mBtnNissanRzcRvs[0], 106, 215, 95, 160);
+        this.mBtnNissanRzcRvs[1].setDrawable(R.drawable.can_oj_up_up, R.drawable.can_oj_up_dn);
+        setViewPos(this.mBtnNissanRzcRvs[1], KeyDef.RKEY_EJECT, 168, 96, 68);
+        this.mBtnNissanRzcRvs[2].setDrawable(R.drawable.can_oj_down_up, R.drawable.can_oj_down_dn);
+        setViewPos(this.mBtnNissanRzcRvs[2], KeyDef.RKEY_EJECT, 352, 96, 68);
+        this.mBtnNissanRzcRvs[3].setDrawable(R.drawable.can_oj_left_up, R.drawable.can_oj_left_dn);
+        setViewPos(this.mBtnNissanRzcRvs[3], 218, 259, 96, 68);
+        this.mBtnNissanRzcRvs[4].setDrawable(R.drawable.can_oj_right_up, R.drawable.can_oj_right_dn);
+        setViewPos(this.mBtnNissanRzcRvs[4], 412, 259, 96, 68);
+        this.mBtnNissanRzcRvs[5].setDrawable(R.drawable.can_oj_right_big_up, R.drawable.can_oj_right_big_dn);
+        setViewPos(this.mBtnNissanRzcRvs[5], BTN_GEELY_YJX6_FXP, 215, 95, 160);
+        this.mBtnNissanRzcRvs[6].setDrawable(R.drawable.can_oj_car_up, R.drawable.can_oj_car_dn);
+        setViewPos(this.mBtnNissanRzcRvs[6], 459, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[7].setDrawable(R.drawable.can_qj_sjx_up, R.drawable.can_qj_sjx_dn);
+        setViewPos(this.mBtnNissanRzcRvs[7], 750, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[8].setDrawable(R.drawable.can_oj_pa_up, R.drawable.can_oj_pa_dn);
+        setViewPos(this.mBtnNissanRzcRvs[8], 459, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[9].setDrawable(R.drawable.can_oj_park_up, R.drawable.can_oj_park_dn);
+        setViewPos(this.mBtnNissanRzcRvs[9], 283, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[10].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
+        setViewPos(this.mBtnNissanRzcRvs[10], 106, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[10].setText(R.string.can_assist_cancel);
+        this.mBtnNissanRzcRvs[10].setTextSize(0, 27.0f);
+        this.mBtnNissanRzcRvs[11].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
+        setViewPos(this.mBtnNissanRzcRvs[11], 283, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[11].setText(R.string.can_assist_start);
+        this.mBtnNissanRzcRvs[11].setTextSize(0, 27.0f);
+        this.mBtnNissanRzcRvs[12].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
+        setViewPos(this.mBtnNissanRzcRvs[12], 459, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[12].setText(R.string.can_assist_back);
+        this.mBtnNissanRzcRvs[12].setTextSize(0, 27.0f);
+        this.mBtnNissanRzcRvs[13].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
+        setViewPos(this.mBtnNissanRzcRvs[13], 459, dy + 500, 161, 91);
+        this.mBtnNissanRzcRvs[13].setText("Hint");
+        this.mBtnNissanRzcRvs[13].setTextSize(0, 27.0f);
+        this.mBtnNissanRzcRvs[14].setDrawable(R.drawable.can_teana_aid_czs01_up, R.drawable.can_teana_aid_czs01_dn);
+        setViewPos(this.mBtnNissanRzcRvs[14], 52, 110, 214, 128);
+        this.mBtnNissanRzcRvs[15].setDrawable(R.drawable.can_teana_aid_czs02_up, R.drawable.can_teana_aid_czs02_dn);
+        setViewPos(this.mBtnNissanRzcRvs[15], 277, 110, 214, 128);
+        this.mBtnNissanRzcRvs[16].setDrawable(R.drawable.can_teana_aid_pxs01_up, R.drawable.can_teana_aid_pxs01_dn);
+        setViewPos(this.mBtnNissanRzcRvs[16], 52, 291, 214, 128);
+        this.mBtnNissanRzcRvs[17].setDrawable(R.drawable.can_teana_aid_pxs02_up, R.drawable.can_teana_aid_pxs02_dn);
+        setViewPos(this.mBtnNissanRzcRvs[17], 277, 291, 214, 128);
+        this.mBtnNissanRzcRvs[18].setDrawable(R.drawable.can_teana_aid_xls01_up, R.drawable.can_teana_aid_xls01_dn);
+        setViewPos(this.mBtnNissanRzcRvs[18], 52, 110, 214, 128);
+        this.mBtnNissanRzcRvs[19].setDrawable(R.drawable.can_teana_aid_xls02_up, R.drawable.can_teana_aid_xls02_dn);
+        setViewPos(this.mBtnNissanRzcRvs[19], 277, 110, 214, 128);
+        this.mBtnNissanRzcRvs[20].setDrawable(R.drawable.can_teana_aid_pulldown_up, R.drawable.can_teana_aid_pulldown_dn);
+        setViewPos(this.mBtnNissanRzcRvs[20], 496, 344, 80, 75);
+        this.mBtnNissanRzcRvs[21].setDrawable(R.drawable.can_teana_aid_pullup_up, R.drawable.can_teana_aid_pullup_dn);
+        setViewPos(this.mBtnNissanRzcRvs[21], 496, 110, 80, 75);
+        this.mNissanRzcView = new CustomImgView[2];
+        for (int i2 = 0; i2 < this.mNissanRzcView.length; i2++) {
+            this.mNissanRzcView[i2] = new CustomImgView(context);
+            this.mListBotView.add(this.mNissanRzcView[i2]);
+        }
+        this.mNissanRzcView[0].setStateDrawable(R.drawable.can_oj_center, R.drawable.can_oj_center);
+        this.mNissanRzcView[0].Show(false);
+        setViewPos(this.mNissanRzcView[0], KeyDef.RKEY_EJECT_L, 263, 59, 60);
+        this.mNissanRzcView[1].setStateDrawable(R.drawable.can_oj_car, R.drawable.can_oj_car02);
+        setViewPos(this.mNissanRzcView[1], 18, dy + BTN_HMS7_ESC, 75, 82);
+        this.mNissanRzcTsyArr = context.getResources().getStringArray(R.array.can_nissan_xtral_rvs_tsy);
+        this.mNissanRzcTsy = new CustomTextView(context);
+        this.mNissanRzcTsy.setTextSize(0, 33.0f);
+        this.mNissanRzcTsy.setGravity(1);
+        this.mNissanRzcTsy.setTextColor(-16711936);
+        setViewPos(this.mNissanRzcTsy, 0, 15, 620, 120);
+        if (CanJni.GetSubType() == 8) {
+            this.mNissanRzcDeclareArr = context.getResources().getStringArray(R.array.can_nissan_teana_rvs_declare);
+        } else {
+            this.mNissanRzcDeclareArr = context.getResources().getStringArray(R.array.can_nissan_xtral_rvs_declare);
+        }
+        this.mNissanRzcDeclare = new CustomTextView[7];
+        for (int i3 = 0; i3 < this.mNissanRzcDeclare.length; i3++) {
+            this.mNissanRzcDeclare[i3] = new CustomTextView(context);
+            this.mListBotView.add(this.mNissanRzcDeclare[i3]);
+            this.mNissanRzcDeclare[i3].ShowGone(false);
+        }
+        this.mNissanRzcDeclare[0].setTextSize(0, 42.0f);
+        this.mNissanRzcDeclare[0].setGravity(3);
+        this.mNissanRzcDeclare[0].setTextColor(-1);
+        this.mNissanRzcDeclare[0].setText(this.mNissanRzcDeclareArr[0]);
+        setViewPos(this.mNissanRzcDeclare[0], 0, 55, 1024, 60);
+        for (int i4 = 1; i4 < 4; i4++) {
+            this.mNissanRzcDeclare[i4].setTextSize(0, 38.0f);
+            this.mNissanRzcDeclare[i4].setGravity(3);
+            this.mNissanRzcDeclare[i4].setTextColor(-1);
+            this.mNissanRzcDeclare[i4].setText(this.mNissanRzcDeclareArr[i4]);
+            setViewPos(this.mNissanRzcDeclare[i4], 0, (i4 * 60) + 90, 1024, 50);
+        }
+        for (int i5 = 4; i5 < 7; i5++) {
+            this.mNissanRzcDeclare[i5].setTextSize(0, 30.0f);
+            this.mNissanRzcDeclare[i5].setGravity(3);
+            this.mNissanRzcDeclare[i5].setTextColor(-256);
+            this.mNissanRzcDeclare[i5].setText(this.mNissanRzcDeclareArr[i5]);
+            setViewPos(this.mNissanRzcDeclare[i5], 0, (i5 * 40) + 190, 1024, 50);
+        }
+        this.mNissanRzcDeclare2 = new CustomTextView[3];
+        for (int i6 = 0; i6 < this.mNissanRzcDeclare2.length; i6++) {
+            this.mNissanRzcDeclare2[i6] = new CustomTextView(context);
+            this.mListBotView.add(this.mNissanRzcDeclare2[i6]);
+            this.mNissanRzcDeclare2[i6].ShowGone(false);
+            this.mNissanRzcDeclare2[i6].setTextSize(0, 33.0f);
+            this.mNissanRzcDeclare2[i6].setGravity(17);
+            this.mNissanRzcDeclare2[i6].setTextColor(-1);
+        }
+        this.mNissanRzcDeclare2[0].setText(R.string.can_czstc);
+        setViewPos(this.mNissanRzcDeclare2[0], 54, 64, 436, 44);
+        this.mNissanRzcDeclare2[1].setText(R.string.can_pxstc);
+        setViewPos(this.mNissanRzcDeclare2[1], 54, Can.CAN_FORD_MONDEO_XFY, 436, 44);
+        this.mNissanRzcDeclare2[2].setText(R.string.can_xlstc);
+        setViewPos(this.mNissanRzcDeclare2[2], 54, 64, 436, 44);
     }
 
     private void InitLandWind(Context context) {
@@ -1817,6 +2067,39 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBlsuT5CamSta = new CanDataInfo.BlsuT5_CamSta();
     }
 
+    private void InitBlsuT5Rzc(Context context) {
+        this.mBtnBlsuRzcT5 = new ParamButton[4];
+        for (int i = 0; i < this.mBtnBlsuRzcT5.length; i++) {
+            this.mBtnBlsuRzcT5[i] = new ParamButton(context);
+            this.mBtnBlsuRzcT5[i].setOnClickListener(this);
+            this.mBtnBlsuRzcT5[i].setTag(Integer.valueOf(i + BTN_BLSU_RZC_T5_2D));
+            this.mListBotView.add(this.mBtnBlsuRzcT5[i]);
+            this.mBtnBlsuRzcT5[i].Show(false);
+        }
+        this.mBtnBlsuRzcT5[0].setDrawable(R.drawable.can_rh7_2d_up, R.drawable.can_rh7_2d_dn);
+        setViewPos(this.mBtnBlsuRzcT5[0], BTN_TRUMPCHI_GS4_MODE1, 500, 90, 90);
+        this.mBtnBlsuRzcT5[1].setDrawable(R.drawable.can_rh7_3d_up, R.drawable.can_rh7_3d_dn);
+        setViewPos(this.mBtnBlsuRzcT5[1], 500, 500, 90, 90);
+        this.mBtnBlsuRzcT5[2].setDrawable(R.drawable.can_rh7_return_up, R.drawable.can_rh7_return_dn);
+        setViewPos(this.mBtnBlsuRzcT5[2], 600, 500, 90, 90);
+        this.mBtnBlsuRzcT5[3].setDrawable(R.drawable.can_rh7_qp_up, R.drawable.can_rh7_qp_dn);
+        setViewPos(this.mBtnBlsuRzcT5[3], BTN_CC_WC_DIRECTION1, 500, 90, 90);
+        this.mBtnBlsuRzcT5Dir = new ParamButton[4];
+        for (int i2 = 0; i2 < this.mBtnBlsuRzcT5Dir.length; i2++) {
+            this.mBtnBlsuRzcT5Dir[i2] = new ParamButton(context);
+            this.mBtnBlsuRzcT5Dir[i2].setTag(Integer.valueOf(i2 + BTN_BLSU_RZC_T5_UP));
+            this.mBtnBlsuRzcT5Dir[i2].setBackgroundColor(0);
+            this.mBtnBlsuRzcT5Dir[i2].setOnClickListener(this);
+        }
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(outMetrics);
+        int radius = (int) Math.min((((float) outMetrics.widthPixels) * 1.0f) / 1024.0f, (((float) outMetrics.heightPixels) * 1.0f) / 600.0f);
+        setViewPos(this.mBtnBlsuRzcT5Dir[0], radius * 1, 0, radius * 374, radius * 120);
+        setViewPos(this.mBtnBlsuRzcT5Dir[1], radius * 1, radius * 480, radius * 374, radius * 120);
+        setViewPos(this.mBtnBlsuRzcT5Dir[2], radius * 1, radius * 120, radius * 120, radius * 360);
+        setViewPos(this.mBtnBlsuRzcT5Dir[3], radius * 255, radius * 120, radius * 120, radius * 360);
+    }
+
     public void InitTrumpchiGs7(Context context) {
         this.mBtnTrumpchiGs7Mode = new ParamButton[8];
         for (int i = 0; i < this.mBtnTrumpchiGs7Mode.length; i++) {
@@ -1825,11 +2108,22 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mBtnTrumpchiGs7Mode[i].setBackgroundColor(0);
             this.mBtnTrumpchiGs7Mode[i].setOnClickListener(this);
         }
-        setViewPos(this.mBtnTrumpchiGs7Mode[0], KeyDef.RKEY_RADIO_SCAN, 166, 131, 84);
-        setViewPos(this.mBtnTrumpchiGs7Mode[1], 142, Can.CAN_NISSAN_XFY, Can.CAN_JAC_REFINE_OD, 104);
+        if (MainSet.GetScreenType() == 10) {
+            setViewPos(this.mBtnTrumpchiGs7Mode[0], AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, 199, 164, 101);
+            setViewPos(this.mBtnTrumpchiGs7Mode[1], 178, 300, 188, 125);
+            setViewPos(this.mBtnTrumpchiGs7Mode[2], 533, 300, 194, 125);
+            setViewPos(this.mBtnTrumpchiGs7Mode[3], 369, 425, 163, Can.CAN_CC_WC);
+            setViewPos(this.mBtnTrumpchiGs7Mode[4], 364, 300, 168, 125);
+            setViewPos(this.mBtnTrumpchiGs7Mode[5], 108, BTN_CCH9_MODE5, 180, 106);
+            setViewPos(this.mBtnTrumpchiGs7Mode[6], 360, BTN_CCH9_MODE5, 175, 106);
+            setViewPos(this.mBtnTrumpchiGs7Mode[7], BTN_CCH9_MODE2, BTN_CCH9_MODE5, 165, 106);
+            return;
+        }
+        setViewPos(this.mBtnTrumpchiGs7Mode[0], 296, 166, 131, 84);
+        setViewPos(this.mBtnTrumpchiGs7Mode[1], 142, Can.CAN_NISSAN_XFY, 150, 104);
         setViewPos(this.mBtnTrumpchiGs7Mode[2], 426, Can.CAN_NISSAN_XFY, Can.CAN_DFFG_S560, 104);
-        setViewPos(this.mBtnTrumpchiGs7Mode[3], KeyDef.RKEY_AMS, 354, 130, 128);
-        setViewPos(this.mBtnTrumpchiGs7Mode[4], KeyDef.RKEY_NEXT, Can.CAN_NISSAN_XFY, 134, 104);
+        setViewPos(this.mBtnTrumpchiGs7Mode[3], 295, 354, 130, 128);
+        setViewPos(this.mBtnTrumpchiGs7Mode[4], 291, Can.CAN_NISSAN_XFY, 134, 104);
         setViewPos(this.mBtnTrumpchiGs7Mode[5], 86, 512, 144, 88);
         setViewPos(this.mBtnTrumpchiGs7Mode[6], 288, 512, Can.CAN_BENC_ZMYT, 88);
         setViewPos(this.mBtnTrumpchiGs7Mode[7], 489, 512, 132, 88);
@@ -2009,7 +2303,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnDFFGRzcMode[3].setDrawable(R.drawable.can_gs5_bot_08_up, R.drawable.can_gs5_bot_08_dn);
         setViewPos(this.mBtnDFFGRzcMode[3], 372, 508, 82, 72);
         this.mBtnDFFGRzcMode[4].setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
-        setViewPos(this.mBtnDFFGRzcMode[4], 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnDFFGRzcMode[4], 909, 540, 115, 60);
     }
 
     public void InitDFFGS560(Context context) {
@@ -2036,7 +2330,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnCs75WcMode.setTag(Integer.valueOf(BTN_CS75_WC_MODE));
         this.mBtnCs75WcMode.setStateUpDn(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
         this.mBtnCs75WcMode.setOnClickListener(this);
-        setViewPos(this.mBtnCs75WcMode, 100, 465, Can.CAN_JAC_REFINE_OD, 60);
+        setViewPos(this.mBtnCs75WcMode, 100, 465, 150, 60);
         this.mListBotView.add(this.mBtnCs75WcMode);
     }
 
@@ -2045,7 +2339,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnTrumpchiWcMode = new ParamButton[7];
         for (int i = 0; i < this.mBtnTrumpchiWcMode.length; i++) {
             this.mBtnTrumpchiWcMode[i] = new ParamButton(context);
-            this.mBtnTrumpchiWcMode[i].setTag(Integer.valueOf(i + BTN_TRUMPCHI_WC_MODE1));
+            this.mBtnTrumpchiWcMode[i].setTag(Integer.valueOf(i + 1001));
             this.mBtnTrumpchiWcMode[i].setOnClickListener(this);
             this.mListBotView.add(this.mBtnTrumpchiWcMode[i]);
         }
@@ -2063,6 +2357,42 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         setViewPos(this.mBtnTrumpchiWcMode[5], 732, 508, 82, 72);
         this.mBtnTrumpchiWcMode[6].setDrawable(R.drawable.can_gs5_bot_08_up, R.drawable.can_gs5_bot_08_dn);
         setViewPos(this.mBtnTrumpchiWcMode[6], 852, 508, 82, 72);
+    }
+
+    public void InitJacRefineWc(Context context) {
+        this.mJacWcAvmData = new CanDataInfo.JacWc_AvmInfo();
+        this.mBtnJacRefineWcMode = new ParamButton[4];
+        this.mBtnJacRefineWcStats = new ParamButton[2];
+        for (int i = 0; i < this.mBtnJacRefineWcMode.length; i++) {
+            this.mBtnJacRefineWcMode[i] = new ParamButton(context);
+            this.mBtnJacRefineWcMode[i].setTag(Integer.valueOf(i + BTN_JAC_REFINE_WC_MODE1));
+            this.mBtnJacRefineWcMode[i].setOnClickListener(this);
+            this.mListBotView.add(this.mBtnJacRefineWcMode[i]);
+        }
+        for (int i2 = 0; i2 < this.mBtnJacRefineWcStats.length; i2++) {
+            this.mBtnJacRefineWcStats[i2] = new ParamButton(context);
+            this.mBtnJacRefineWcStats[i2].setTag(Integer.valueOf(i2 + BTN_JAC_REFINE_WC_3D));
+            this.mBtnJacRefineWcStats[i2].setOnClickListener(this);
+            this.mListBotView.add(this.mBtnJacRefineWcStats[i2]);
+        }
+        this.mBtnJacRefineWcEsc = new ParamButton(context);
+        this.mBtnJacRefineWcEsc.setTag(Integer.valueOf(BTN_JAC_REFINE_WC_ESC));
+        this.mBtnJacRefineWcEsc.setOnClickListener(this);
+        this.mBtnJacRefineWcEsc.setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
+        this.mListBotView.add(this.mBtnJacRefineWcEsc);
+        setViewPos(this.mBtnJacRefineWcEsc, 909, 540, 115, 60);
+        this.mBtnJacRefineWcStats[0].setDrawable(R.drawable.can_rh7_3d_up, R.drawable.can_rh7_3d_dn);
+        setViewPos(this.mBtnJacRefineWcStats[0], 41, 496, 90, 90);
+        this.mBtnJacRefineWcStats[1].setDrawable(R.drawable.can_rh7_2d_up, R.drawable.can_rh7_2d_dn);
+        setViewPos(this.mBtnJacRefineWcStats[1], 162, 496, 90, 90);
+        this.mBtnJacRefineWcMode[0].setDrawable(R.drawable.can_gs5_bot_01_up, R.drawable.can_gs5_bot_01_dn);
+        setViewPos(this.mBtnJacRefineWcMode[0], 422, 508, 82, 72);
+        this.mBtnJacRefineWcMode[1].setDrawable(R.drawable.can_gs5_bot_02_up, R.drawable.can_gs5_bot_02_dn);
+        setViewPos(this.mBtnJacRefineWcMode[1], BTN_NISSAN_XTRAL_RVS_ASSIST3, 508, 82, 72);
+        this.mBtnJacRefineWcMode[2].setDrawable(R.drawable.can_gs5_bot_09_up, R.drawable.can_gs5_bot_09_dn);
+        setViewPos(this.mBtnJacRefineWcMode[2], 662, 508, 82, 72);
+        this.mBtnJacRefineWcMode[3].setDrawable(R.drawable.can_gs5_bot_08_up, R.drawable.can_gs5_bot_08_dn);
+        setViewPos(this.mBtnJacRefineWcMode[3], KeyDef.SKEY_VOLDN_4, 508, 82, 72);
     }
 
     public void InitJacRefine(Context context) {
@@ -2086,7 +2416,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnJacRefineEsc.setOnClickListener(this);
         this.mBtnJacRefineEsc.setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
         this.mListBotView.add(this.mBtnJacRefineEsc);
-        setViewPos(this.mBtnJacRefineEsc, 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnJacRefineEsc, 909, 540, 115, 60);
         this.mBtnJacRefineStats[0].setDrawable(R.drawable.can_rh7_3d_up, R.drawable.can_rh7_3d_dn);
         setViewPos(this.mBtnJacRefineStats[0], 41, 496, 90, 90);
         this.mBtnJacRefineStats[1].setDrawable(R.drawable.can_rh7_2d_up, R.drawable.can_rh7_2d_dn);
@@ -2119,7 +2449,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnChanaWcCamMode.setTag(Integer.valueOf(BTN_CHANA_WC_MODE));
         this.mBtnChanaWcCamMode.setStateUpDn(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
         this.mBtnChanaWcCamMode.setOnClickListener(this);
-        setViewPos(this.mBtnChanaWcCamMode, 100, 465, Can.CAN_JAC_REFINE_OD, 60);
+        setViewPos(this.mBtnChanaWcCamMode, 100, 465, 150, 60);
         this.mListBotView.add(this.mBtnChanaWcCamMode);
     }
 
@@ -2164,7 +2494,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnSenovaOdMode.setTag(Integer.valueOf(BTN_SENOVA_OD_MODE));
         this.mBtnSenovaOdMode.setStateUpDn(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
         this.mBtnSenovaOdMode.setOnClickListener(this);
-        setViewPos(this.mBtnSenovaOdMode, 100, 465, Can.CAN_JAC_REFINE_OD, 60);
+        setViewPos(this.mBtnSenovaOdMode, 100, 465, 150, 60);
         this.mListBotView.add(this.mBtnSenovaOdMode);
     }
 
@@ -2211,11 +2541,11 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mBtnCCHfDjDirection[0].setDrawable(R.drawable.can_eps_park_fx01_up, R.drawable.can_eps_park_fx01_dn);
             setViewPos(this.mBtnCCHfDjDirection[0], 694, 170, 59, 59);
             this.mBtnCCHfDjDirection[1].setDrawable(R.drawable.can_eps_park_fx02_up, R.drawable.can_eps_park_fx02_dn);
-            setViewPos(this.mBtnCCHfDjDirection[1], 694, KeyDef.RKEY_MEDIA_SEL, 59, 59);
+            setViewPos(this.mBtnCCHfDjDirection[1], 694, 311, 59, 59);
             this.mBtnCCHfDjDirection[2].setDrawable(R.drawable.can_eps_park_fx03_up, R.drawable.can_eps_park_fx03_dn);
-            setViewPos(this.mBtnCCHfDjDirection[2], 624, 240, 59, 59);
+            setViewPos(this.mBtnCCHfDjDirection[2], 624, Can.CAN_VOLKS_XP, 59, 59);
             this.mBtnCCHfDjDirection[3].setDrawable(R.drawable.can_eps_park_fx04_up, R.drawable.can_eps_park_fx04_dn);
-            setViewPos(this.mBtnCCHfDjDirection[3], 765, 240, 59, 59);
+            setViewPos(this.mBtnCCHfDjDirection[3], 765, Can.CAN_VOLKS_XP, 59, 59);
         }
     }
 
@@ -2227,7 +2557,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnPsaRzcEsc.setOnClickListener(this);
         this.mBtnPsaRzcEsc.setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
         this.mListBotView.add(this.mBtnPsaRzcEsc);
-        setViewPos(this.mBtnPsaRzcEsc, 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnPsaRzcEsc, 909, 540, 115, 60);
         for (int i = 0; i < this.mBtnPsaRzcMode.length; i++) {
             this.mBtnPsaRzcMode[i] = new ParamButton(context);
             this.mBtnPsaRzcMode[i].setTag(Integer.valueOf(i + BTN_PSA_RZC_MODE));
@@ -2252,7 +2582,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnMitSubshiRzcMode.setTag(Integer.valueOf(BTN_MITSUBISHI_RZC_CAMERA));
         this.mBtnMitSubshiRzcMode.setStateUpDn(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
         this.mBtnMitSubshiRzcMode.setOnClickListener(this);
-        setViewPos(this.mBtnMitSubshiRzcMode, 100, 465, Can.CAN_JAC_REFINE_OD, 60);
+        setViewPos(this.mBtnMitSubshiRzcMode, 100, 465, 150, 60);
         this.mListBotView.add(this.mBtnMitSubshiRzcMode);
     }
 
@@ -2285,7 +2615,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mListBotView.add(this.mBtnRenaultWcMode[i]);
         }
         this.mBtnRenaultWcMode[0].setDrawable(R.drawable.can_gs5_bot_08_up, R.drawable.can_gs5_bot_08_dn);
-        setViewPosBottom(this.mBtnRenaultWcMode[0], Can.CAN_JAC_REFINE_OD, 18, 82, 72);
+        setViewPosBottom(this.mBtnRenaultWcMode[0], 150, 18, 82, 72);
         this.mBtnRenaultWcMode[1].setDrawable(R.drawable.can_gs5_bot_09_up, R.drawable.can_gs5_bot_09_dn);
         setViewPosBottom(this.mBtnRenaultWcMode[1], Can.CAN_NISSAN_XFY, 18, 82, 72);
         this.mBtnRenaultWcMode[2].setDrawable(R.drawable.can_gs5_bot_01_up, R.drawable.can_gs5_bot_01_dn);
@@ -2317,6 +2647,14 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         setViewPos(this.mBtnSenovaRzcMode[5], 554, 130, 376, 171);
     }
 
+    public void InitMzdRzcAtez(Context context) {
+        this.mBtnMzdRzcMode = new ParamButton(context);
+        this.mBtnMzdRzcMode.setTag(Integer.valueOf(BTN_MZD_RZC_MODE));
+        this.mBtnMzdRzcMode.setStateUpDn(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
+        this.mBtnMzdRzcMode.setOnClickListener(this);
+        setViewPos(this.mBtnMzdRzcMode, 100, 465, 150, 60);
+    }
+
     private boolean isKoreaCameraUI() {
         MainSet.GetInstance();
         return MainSet.IsRxfKoren();
@@ -2333,488 +2671,521 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
 
     public void Init(Context context) {
         RadarUIView.Type type;
-        if (this.mLayout == null && context != null) {
-            mContext = context;
-            this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_camera, (ViewGroup) null);
-            this.mLayout.setTag(99);
-            this.mLayout.setOnClickListener(this);
-            this.mLayout.setOnTouchListener(this);
-            if (FtSet.GetTconAdj() != 0 || !MainSet.GetInstance().Is3561()) {
-                this.mBtnDisplaySet = (Button) findViewById(R.id.btn_display);
-                this.mBtnDisplaySet.setVisibility(0);
-                this.mBtnDisplaySet.setOnClickListener(this);
-                this.mBtnDisplaySet.setTag(103);
+        if ((this.mLayout != null || context == null) && this.nLayoutReLoad == 0 && context != null) {
+            if (this.mRotate == context.getResources().getConfiguration().orientation) {
+                Log.d(TAG, "Already have instance");
+                return;
             }
-            this.mEpsLineView = (CameraUIView) findViewById(R.id.can_eps_line);
-            if (CanJni.GetCanType() == 167) {
-                this.mEpsLineView.setLineType(0);
-                this.mEpsLineView.setHigherVer(true);
-            } else {
-                this.mEpsLineView.setLineType(FtSet.GetLineType());
-            }
-            if (isKoreaCameraUI()) {
-                ((ViewStub) findViewById(R.id.can_scale_eps)).inflate();
-                this.mScaleEpsLineView = (ScaleCameraUIView) findViewById(R.id.can_scale_eps_line);
-                this.mScaleEpsLineView.setVisibility(0);
-                this.mEpsLineView.setVisibility(8);
-            } else {
-                this.mEpsLineView.setVisibility(0);
-            }
-            this.mRightRadarLayout = (LinearLayout) findViewById(R.id.right_radar_layout);
-            this.mRightForeRadar = (RadarUIView) findViewById(R.id.right_fore_radar);
-            this.mRightRearRadar = (RadarUIView) findViewById(R.id.right_rear_radar);
-            this.mLeftSideRadar = (RadarUIView) findViewById(R.id.left_side_radar);
-            this.mRightSideRadar = (RadarUIView) findViewById(R.id.right_side_radar);
-            int cantype = CanJni.GetCanType();
-            switch (cantype) {
-                case 2:
-                case 122:
-                case 198:
-                    type = RadarUIView.Type.COMMON;
+            Log.d(TAG, "rotate so init again");
+        }
+        this.nLayoutReLoad = 0;
+        this.mRotate = context.getResources().getConfiguration().orientation;
+        Log.d(TAG, "mRotate = " + this.mRotate);
+        Log.d(TAG, "Init");
+        mContext = context;
+        this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_camera, (ViewGroup) null);
+        this.mLayout.setTag(99);
+        this.mLayout.setOnClickListener(this);
+        this.mLayout.setOnTouchListener(this);
+        if (FtSet.GetTconAdj() != 0 || !MainSet.GetInstance().Is3561()) {
+            this.mBtnDisplaySet = (Button) findViewById(R.id.btn_display);
+            this.mBtnDisplaySet.setVisibility(0);
+            this.mBtnDisplaySet.setOnClickListener(this);
+            this.mBtnDisplaySet.setTag(103);
+        }
+        this.mEpsLineView = (CameraUIView) findViewById(R.id.can_eps_line);
+        if (CanJni.GetCanType() == 167) {
+            this.mEpsLineView.setLineType(0);
+            this.mEpsLineView.setHigherVer(true);
+        } else {
+            this.mEpsLineView.setLineType(FtSet.GetLineType());
+        }
+        if (isKoreaCameraUI()) {
+            ((ViewStub) findViewById(R.id.can_scale_eps)).inflate();
+            this.mScaleEpsLineView = (ScaleCameraUIView) findViewById(R.id.can_scale_eps_line);
+            this.mScaleEpsLineView.setVisibility(0);
+            this.mEpsLineView.setVisibility(8);
+        } else {
+            this.mEpsLineView.setVisibility(0);
+        }
+        this.mRightRadarLayout = (LinearLayout) findViewById(R.id.right_radar_layout);
+        this.mRightForeRadar = (RadarUIView) findViewById(R.id.right_fore_radar);
+        this.mRightRearRadar = (RadarUIView) findViewById(R.id.right_rear_radar);
+        this.mLeftSideRadar = (RadarUIView) findViewById(R.id.left_side_radar);
+        this.mRightSideRadar = (RadarUIView) findViewById(R.id.right_side_radar);
+        int cantype = CanJni.GetCanType();
+        switch (cantype) {
+            case 2:
+            case 122:
+            case 198:
+                type = RadarUIView.Type.COMMON;
+                RadarUIView.Common.mBmpIds = new int[]{R.drawable.radar_shang_golf, R.drawable.radar_xia_golf, R.drawable.big_radar_shang_golf, R.drawable.big_radar_xia_golf};
+                break;
+            case 13:
+            case 146:
+                type = RadarUIView.Type.FORD;
+                RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) this.mRightSideRadar.getLayoutParams();
+                lp.rightMargin = 64;
+                this.mRightSideRadar.setLayoutParams(lp);
+                showLeftRightRadar(type);
+                break;
+            case 78:
+                type = RadarUIView.Type.COMMON;
+                if (CanJni.GetSubType() == 8) {
+                    RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+                    layoutParams.addRule(9);
+                    layoutParams.addRule(15);
+                    layoutParams.leftMargin = 50;
+                    this.mRightRadarLayout.setLayoutParams(layoutParams);
+                    ImageView iv = (ImageView) this.mRightRadarLayout.findViewById(R.id.small_car);
+                    iv.setLayoutParams(new LinearLayout.LayoutParams(103, KeyDef.RKEY_RADIO_2S));
+                    iv.setImageResource(R.drawable.can_bradar_car_bg);
+                    break;
+                }
+                break;
+            case 110:
+                type = RadarUIView.Type.COMMON;
+                if (CanJni.GetSubType() != 2) {
                     RadarUIView.Common.mBmpIds = new int[]{R.drawable.radar_shang_golf, R.drawable.radar_xia_golf, R.drawable.big_radar_shang_golf, R.drawable.big_radar_xia_golf};
                     break;
-                case 13:
-                case 146:
-                    type = RadarUIView.Type.FORD;
-                    RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) this.mRightSideRadar.getLayoutParams();
-                    lp.rightMargin = 64;
-                    this.mRightSideRadar.setLayoutParams(lp);
+                }
+                break;
+            default:
+                type = RadarUIView.Type.COMMON;
+                if (CanJni.IsHaveLrRadar()) {
                     showLeftRightRadar(type);
                     break;
-                case 78:
-                    type = RadarUIView.Type.COMMON;
-                    if (CanJni.GetSubType() == 8) {
-                        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                        layoutParams.addRule(9);
-                        layoutParams.addRule(15);
-                        layoutParams.leftMargin = 50;
-                        this.mRightRadarLayout.setLayoutParams(layoutParams);
-                        ImageView iv = (ImageView) this.mRightRadarLayout.findViewById(R.id.small_car);
-                        iv.setLayoutParams(new LinearLayout.LayoutParams(103, KeyDef.RKEY_RADIO_2S));
-                        iv.setImageResource(R.drawable.can_bradar_car_bg);
-                        break;
-                    }
-                    break;
-                case 110:
-                    type = RadarUIView.Type.COMMON;
-                    if (CanJni.GetSubType() != 2) {
-                        RadarUIView.Common.mBmpIds = new int[]{R.drawable.radar_shang_golf, R.drawable.radar_xia_golf, R.drawable.big_radar_shang_golf, R.drawable.big_radar_xia_golf};
-                        break;
-                    }
-                    break;
-                default:
-                    type = RadarUIView.Type.COMMON;
-                    if (CanJni.IsHaveLrRadar()) {
-                        showLeftRightRadar(type);
-                        break;
-                    }
-                    break;
-            }
-            this.mRightForeRadar.setRadarType(type);
-            this.mRightRearRadar.setRadarType(type);
-            this.mRightForeRadar.showRadar(false, false);
-            this.mRightRearRadar.showRadar(false, true);
-            this.mBtnRtShowRadar = (Button) findViewById(R.id.can_eps_show_rtradar);
-            this.mBtnShowLine = (Button) findViewById(R.id.can_eps_show_line);
-            this.mBtnShowTrack = (Button) findViewById(R.id.can_eps_show_track);
-            this.mBtnRtShowRadar.setOnClickListener(this.cameraClick);
-            this.mBtnShowLine.setOnClickListener(this.cameraClick);
-            this.mBtnShowTrack.setOnClickListener(this.cameraClick);
-            this.mBtnShowTrack.setVisibility(4);
-            this.mBtnShowLine.setVisibility(4);
-            this.mVedioStaText = (TextView) this.mLayout.findViewById(R.id.avinvideoState);
-            this.mVedioStaText.setText(R.string.video_state_none);
-            this.mVedioStaText.setVisibility(8);
-            this.mCameraText = (TextView) this.mLayout.findViewById(R.id.rear_camera_text);
-            this.mCameraText.setText(R.string.can_rear_camera);
-            if (MainSet.GetInstance().IsCustom("FYDZ")) {
-                this.mCameraText.setVisibility(0);
-                if (FtSet.IsIconExist(125) == 1) {
-                    this.mBtnFrCamera = new ParamButton(context);
-                    this.mBtnFrCamera.setTag(Integer.valueOf(BTN_FR_CAMERA));
-                    this.mBtnFrCamera.setOnTouchListener(this);
-                    this.mBtnFrCamera.setDrawable(R.drawable.can_gs5_bot_02_up, R.drawable.can_gs5_bot_02_dn);
-                    setViewPos(this.mBtnFrCamera, 10, Can.CAN_CHRYSLER_ONE_HC, 82, 72);
                 }
-            } else {
-                this.mCameraText.setVisibility(8);
+                break;
+        }
+        this.mRightForeRadar.setRadarType(type);
+        this.mRightRearRadar.setRadarType(type);
+        this.mRightForeRadar.showRadar(false, false);
+        this.mRightRearRadar.showRadar(false, true);
+        this.mBtnRtShowRadar = (Button) findViewById(R.id.can_eps_show_rtradar);
+        this.mBtnShowLine = (Button) findViewById(R.id.can_eps_show_line);
+        this.mBtnShowTrack = (Button) findViewById(R.id.can_eps_show_track);
+        this.mBtnRtShowRadar.setOnClickListener(this.cameraClick);
+        this.mBtnShowLine.setOnClickListener(this.cameraClick);
+        this.mBtnShowTrack.setOnClickListener(this.cameraClick);
+        this.mBtnShowTrack.setVisibility(4);
+        this.mBtnShowLine.setVisibility(4);
+        this.mVedioStaText = (TextView) this.mLayout.findViewById(R.id.avinvideoState);
+        this.mVedioStaText.setText(R.string.video_state_none);
+        this.mVedioStaText.setVisibility(8);
+        this.mCameraText = (TextView) this.mLayout.findViewById(R.id.rear_camera_text);
+        this.mCameraText.setText(R.string.can_rear_camera);
+        if (MainSet.GetInstance().IsCustom("FYDZ")) {
+            this.mCameraText.setVisibility(0);
+            if (FtSet.IsIconExist(125) == 1) {
+                this.mBtnFrCamera = new ParamButton(context);
+                this.mBtnFrCamera.setTag(Integer.valueOf(BTN_FR_CAMERA));
+                this.mBtnFrCamera.setOnTouchListener(this);
+                this.mBtnFrCamera.setDrawable(R.drawable.can_gs5_bot_02_up, R.drawable.can_gs5_bot_02_dn);
+                setViewPos(this.mBtnFrCamera, 10, Can.CAN_CHRYSLER_ONE_HC, 82, 72);
             }
-            int subType = CanJni.GetSubType();
-            switch (cantype) {
-                case 2:
-                    if (1 == subType || 2 == subType || 3 == subType || 4 == subType) {
-                        InitGolfMagoten(context);
-                        return;
-                    }
+        } else {
+            this.mCameraText.setVisibility(8);
+        }
+        int subType = CanJni.GetSubType();
+        switch (cantype) {
+            case 2:
+                if (1 == subType || 2 == subType || 3 == subType || 4 == subType) {
+                    InitGolfMagoten(context);
                     return;
-                case 3:
-                    if (CanJni.GetCanFsTp() == 7 || CanJni.GetCanFsTp() == 121) {
-                        InitPraDo(context);
-                        return;
-                    } else if (1 == subType) {
-                        InitRav4(context);
-                        return;
-                    } else if (2 == subType) {
-                        InitCamery(context);
-                        return;
-                    } else {
-                        return;
-                    }
-                case 5:
-                    if (CanJni.GetSubType() != 13) {
-                        InitHondaDA(context);
-                        return;
-                    }
+                }
+                return;
+            case 3:
+                if (CanJni.GetCanFsTp() == 7 || CanJni.GetCanFsTp() == 121) {
+                    InitPraDo(context);
                     return;
-                case 6:
-                    if (6 != subType && 5 != subType && 9 != subType) {
-                        return;
-                    }
-                    if (MainSet.GetScreenType() == 3) {
-                        InitXtralRvsAssist768x1024(context);
-                        return;
-                    } else {
-                        InitXtralRvsAssist(context);
-                        return;
-                    }
-                case 13:
-                    if (CanJni.GetCanFsTp() == 226) {
-                        InitFord(context);
-                    } else if (6 == subType || 8 == subType) {
-                        InitFord(context);
-                    }
-                    InitFordActivePark(context);
+                } else if (1 == subType) {
+                    InitRav4(context);
                     return;
-                case 14:
-                    InitHyundaiXp(context);
+                } else if (2 == subType) {
+                    InitCamery(context);
                     return;
-                case 17:
-                    switch (subType) {
-                        case 2:
-                            InitGS5Mode(context);
-                            return;
-                        case 3:
-                            InitGS5Super(context);
-                            return;
-                        case 5:
-                        case 9:
-                            Init16GS4Mode(context);
-                            return;
-                        case 8:
-                            InitTrumpchiGs7(context);
-                            return;
-                        default:
-                            Init16GS4Mode(context);
-                            return;
-                    }
-                case 20:
-                    InitCrosstour(context);
+                } else {
                     return;
-                case 26:
-                    if (CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9) {
-                        InitMgGs(context);
-                        return;
-                    }
+                }
+            case 5:
+                if (CanJni.GetSubType() != 13) {
+                    InitHondaDA(context);
                     return;
-                case 27:
-                    if (2 == CanJni.GetSubType() || 4 == CanJni.GetSubType()) {
-                        InitJacRefine(context);
-                        return;
-                    }
+                }
+                return;
+            case 6:
+                if (6 != subType && 5 != subType && 9 != subType) {
                     return;
-                case 47:
-                    if (1 == subType) {
-                        InitVenuciaT70(context);
-                        return;
-                    }
+                }
+                if (MainSet.GetScreenType() == 3) {
+                    InitXtralRvsAssist768x1024(context);
                     return;
-                case 49:
-                    if (subType == 4) {
-                        InitSenovaSubBJ40(context);
-                        return;
-                    } else if (subType == 5 || subType == 2) {
-                        InitSenovaRzc(context);
-                        return;
-                    } else {
-                        return;
-                    }
-                case 52:
-                    if (5 == CanJni.GetSubType()) {
-                        InitFengShenAx7(context);
-                        return;
-                    }
+                } else {
+                    InitXtralRvsAssist(context);
                     return;
-                case 57:
-                    if (1 == subType || 5 == subType || 6 == subType || 7 == subType || 9 == subType || 8 == subType) {
-                        InitTigger7(context);
-                        return;
-                    }
-                    return;
-                case 60:
-                    if (4 == subType) {
-                        InitZoyte(context);
-                        return;
-                    }
-                    return;
-                case 70:
-                    if (1 == CanJni.GetSubType()) {
-                        InitDFFGRzc(context);
-                        return;
-                    }
-                    return;
-                case 71:
-                    InitB50_X80(context);
-                    return;
-                case 72:
-                    if (1 == subType || 5 == subType) {
-                        InitGeelyYjX6(context);
-                        return;
-                    }
-                    return;
-                case 73:
-                    if (3 == subType) {
-                        InitCs75Avm(context);
-                        return;
-                    } else {
-                        InitCs75(context);
-                        return;
-                    }
-                case 74:
-                    InitLiFan(context);
-                    return;
-                case 78:
-                    if (8 == subType) {
-                        InitCCH9(context);
-                        return;
-                    } else {
-                        InitCCH2(context);
-                        return;
-                    }
-                case 82:
-                    if (1 == subType || 2 == subType) {
-                        InitHMS7(context);
-                        return;
-                    }
-                    return;
-                case 91:
-                    InitGeelyBoy(context);
-                    return;
-                case 93:
-                    if (1 == subType) {
-                        InitBlsuT5(context);
-                        return;
-                    }
-                    return;
-                case 96:
-                case 100:
-                    InitYg9(context);
-                    return;
-                case 99:
-                    InitChanAAlsvinV7(context);
-                    return;
-                case 102:
-                    if (9 == CanJni.GetSubType() || 11 == CanJni.GetSubType() || 12 == CanJni.GetSubType()) {
-                        InitHyundaiRzc(context);
-                        return;
-                    } else if (10 == CanJni.GetSubType()) {
-                        this.mBtnMode_HyRzc = new ParamButton(context);
-                        this.mBtnMode_HyRzc.setTag(Integer.valueOf(BTN_HYUNDAI_RZC_MODE_BTN));
-                        this.mBtnMode_HyRzc.setOnClickListener(this);
-                        this.mBtnMode_HyRzc.setDrawable(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
-                        setViewPos(this.mBtnMode_HyRzc, 100, 465, Can.CAN_LEXUS_ZMYT, 79);
-                        return;
-                    } else {
-                        return;
-                    }
-                case 117:
-                    if (1 == CanJni.GetSubType()) {
-                        InitRenaultXp(context);
-                        return;
-                    }
-                    return;
-                case 122:
-                    if (1 == subType || 2 == subType || 3 == subType) {
-                        InitGolfMagoten(context);
-                        return;
-                    }
-                    return;
-                case 127:
-                    if (2 == CanJni.GetSubType()) {
-                        InitPsaRzc(context);
-                        return;
-                    }
-                    return;
-                case 128:
-                    if (1 == subType) {
-                        InitRav4(context);
-                        return;
-                    }
-                    return;
-                case 142:
-                    InitGolfWcMode(context);
-                    return;
-                case 143:
-                    InitVwWc(context);
-                    return;
-                case 144:
-                    if (2 == subType) {
-                        InitToyotaWC(context);
-                        return;
-                    }
-                    return;
-                case 146:
+                }
+            case 13:
+                if (CanJni.GetCanFsTp() == 226) {
                     InitFord(context);
-                    InitFordActivePark(context);
-                    return;
-                case 147:
-                    InitLandWind(context);
-                    return;
-                case 149:
-                    if (4 != subType) {
+                } else if (6 == subType || 8 == subType) {
+                    InitFord(context);
+                }
+                InitFordActivePark(context);
+                return;
+            case 14:
+                InitHyundaiXp(context);
+                return;
+            case 17:
+                switch (subType) {
+                    case 2:
+                        InitGS5Mode(context);
                         return;
-                    }
-                    if (MainSet.GetScreenType() == 3) {
-                        InitXtralRvsAssist768x1024(context);
+                    case 3:
+                        InitGS5Super(context);
                         return;
-                    } else {
-                        InitXtralRvsAssist(context);
+                    case 5:
+                    case 9:
+                        Init16GS4Mode(context);
                         return;
-                    }
-                case Can.CAN_HYUNDAI_WC:
-                    if (17 == CanJni.GetSubType()) {
-                        InitHyundaiWc(context);
+                    case 8:
+                        InitTrumpchiGs7(context);
                         return;
-                    }
-                    return;
-                case Can.CAN_CC_WC:
-                    if (CanJni.GetSubType() == 6) {
-                        InitCCWc(context);
+                    default:
+                        Init16GS4Mode(context);
                         return;
-                    }
+                }
+            case 20:
+                InitCrosstour(context);
+                return;
+            case 26:
+                if (CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9) {
+                    InitMgGs(context);
                     return;
-                case Can.CAN_DFFG_S560:
-                    InitDFFGS560(context);
+                }
+                return;
+            case 27:
+                if (2 == CanJni.GetSubType() || 4 == CanJni.GetSubType()) {
+                    InitJacRefine(context);
                     return;
-                case Can.CAN_HONDA_WC:
-                    if (4 != CanJni.GetSubType() && 5 != CanJni.GetSubType() && 10 != CanJni.GetSubType() && 11 != CanJni.GetSubType()) {
-                        InitHondaWc(context);
-                        return;
-                    }
+                }
+                return;
+            case 47:
+                if (1 == subType) {
+                    InitVenuciaT70(context);
                     return;
-                case Can.CAN_FORD_WC:
-                    InitFordWc(context);
+                }
+                return;
+            case 49:
+                if (subType == 4) {
+                    InitSenovaSubBJ40(context);
                     return;
-                case Can.CAN_CHANA_CS75_WC:
-                    InitCs75Wc(context);
+                } else if (subType == 5 || subType == 2) {
+                    InitSenovaRzc(context);
                     return;
-                case 161:
-                    InitTrumpchiWc(context);
+                } else {
                     return;
-                case 172:
-                    if (CanJni.GetSubType() == 2 || CanJni.GetSubType() == 3) {
-                        InitCCH6Wc(context);
-                        return;
-                    }
+                }
+            case 52:
+                if (5 == CanJni.GetSubType()) {
+                    InitFengShenAx7(context);
                     return;
-                case 174:
-                    InitCCH2WC(context);
+                }
+                return;
+            case 57:
+                if (1 == subType || 5 == subType || 6 == subType || 7 == subType || 9 == subType || 8 == subType) {
+                    InitTigger7(context);
                     return;
-                case 180:
-                    if (6 == CanJni.GetSubType() || 7 == CanJni.GetSubType()) {
-                        IniCheryWc(context);
-                        return;
-                    }
+                }
+                return;
+            case 60:
+                if (4 == subType) {
+                    InitZoyte(context);
                     return;
-                case 190:
-                    InitX802017Wc(context);
+                }
+                return;
+            case 70:
+                if (1 == CanJni.GetSubType()) {
+                    InitDFFGRzc(context);
                     return;
-                case 191:
-                    InitZoyteDMX5Wc(context);
+                }
+                return;
+            case 71:
+                InitB50_X80(context);
+                return;
+            case 72:
+                if (1 == subType || 5 == subType || 18 == subType) {
+                    InitGeelyYjX6(context);
                     return;
-                case 196:
-                    InitHondaAccord9Wc(context);
+                }
+                return;
+            case 73:
+                if (3 == subType) {
+                    InitCs75Avm(context);
                     return;
-                case 197:
-                    InitBaicHSS6Wc(context);
+                } else {
+                    InitCs75(context);
                     return;
-                case 199:
-                    if (5 == subType) {
-                        InitXtralRvsAssist(context);
-                        return;
-                    }
+                }
+            case 74:
+                InitLiFan(context);
+                return;
+            case 78:
+                if (8 == subType) {
+                    InitCCH9(context);
                     return;
-                case 200:
-                    InitBydDJRadar(context);
+                } else {
+                    InitCCH2(context);
                     return;
-                case 210:
-                case 263:
-                    InitGMRzcActivePark(context);
+                }
+            case 82:
+                if (1 == subType || 2 == subType) {
+                    InitHMS7(context);
                     return;
-                case 214:
-                    InitChanA_Wc(context);
+                }
+                return;
+            case 91:
+                InitGeelyBoy(context);
+                return;
+            case 93:
+                if (1 == subType) {
+                    InitBlsuT5(context);
                     return;
-                case 216:
-                    InitRenaultWc(context);
+                }
+                return;
+            case 96:
+            case 100:
+                InitYg9(context);
+                return;
+            case 97:
+                if (3 == subType) {
+                    InitBlsuT5Rzc(context);
                     return;
-                case 218:
-                    InitVenuciaWcM50(context);
+                }
+                return;
+            case 99:
+                InitChanAAlsvinV7(context);
+                return;
+            case 102:
+                if (9 == CanJni.GetSubType() || 11 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 14 == CanJni.GetSubType()) {
+                    InitHyundaiRzc(context);
                     return;
-                case 221:
-                    InitPorcheLz(context);
+                } else if (10 == CanJni.GetSubType()) {
+                    this.mBtnMode_HyRzc = new ParamButton(context);
+                    this.mBtnMode_HyRzc.setTag(Integer.valueOf(BTN_HYUNDAI_RZC_MODE_BTN));
+                    this.mBtnMode_HyRzc.setOnClickListener(this);
+                    this.mBtnMode_HyRzc.setDrawable(R.drawable.can_camera_mode_up, R.drawable.can_camera_mode_dn);
+                    setViewPos(this.mBtnMode_HyRzc, 100, 465, Can.CAN_LEXUS_ZMYT, 79);
                     return;
-                case 222:
-                    InitSenovaOd(context);
+                } else {
                     return;
-                case Can.CAN_CC_HF_DJ:
-                    InitCCHfDj(context);
+                }
+            case 110:
+                if (CanJni.GetSubType() == 2 || CanJni.GetSubType() == 3) {
+                    InitJacRefineWc(context);
                     return;
-                case Can.CAN_MG_ZS_WC:
-                    InitMGZSRvs(context);
-                    if (subType == 1) {
-                        InitMgZsWc(context);
-                        return;
-                    }
+                }
+                return;
+            case 117:
+                if (1 == CanJni.GetSubType()) {
+                    InitRenaultXp(context);
                     return;
-                case Can.CAN_TOYOTA_SP_XP:
-                    if (subType == 7) {
-                        InitPraDo(context);
-                        return;
-                    } else if (subType == 2) {
-                        InitCamery(context);
-                        return;
-                    } else {
-                        return;
-                    }
-                case 255:
-                    InitChanaCos1Wc(context);
+                }
+                return;
+            case 122:
+                if (1 == subType || 2 == subType || 3 == subType) {
+                    InitGolfMagoten(context);
                     return;
-                case 259:
-                    if (1 == CanJni.GetSubType()) {
-                        InitBlsuOd(context);
-                        return;
-                    }
+                }
+                return;
+            case 127:
+                if (2 == CanJni.GetSubType()) {
+                    InitPsaRzc(context);
                     return;
-                case 265:
-                    InitMitSubishiRzc(context);
+                }
+                return;
+            case 128:
+                if (1 == subType) {
+                    InitRav4(context);
                     return;
-                case 269:
-                    InitChanaOD(context);
+                }
+                return;
+            case 142:
+                InitGolfWcMode(context);
+                return;
+            case 143:
+                InitVwWc(context);
+                return;
+            case 144:
+                if (2 == subType) {
+                    InitToyotaWC(context);
                     return;
-                case 275:
-                    InitLandWindOd(context);
+                }
+                return;
+            case 146:
+                InitFord(context);
+                InitFordActivePark(context);
+                return;
+            case 147:
+                InitLandWind(context);
+                return;
+            case 149:
+                if (4 != subType) {
                     return;
-                case 285:
-                    InitSubuarXp(context);
+                }
+                if (MainSet.GetScreenType() == 3) {
+                    InitXtralRvsAssist768x1024(context);
                     return;
-                case 288:
-                    if (CanJni.GetSubType() != 4) {
-                        InitHondaDA(context);
-                        return;
-                    }
+                } else {
+                    InitXtralRvsAssist(context);
                     return;
-                default:
+                }
+            case 153:
+                if (17 == CanJni.GetSubType()) {
+                    InitHyundaiWc(context);
                     return;
-            }
+                }
+                return;
+            case Can.CAN_CC_WC:
+                if (CanJni.GetSubType() == 6 || CanJni.GetSubType() == 6) {
+                    InitCCWc(context);
+                    return;
+                }
+                return;
+            case Can.CAN_DFFG_S560:
+                InitDFFGS560(context);
+                return;
+            case Can.CAN_HONDA_WC:
+                if (4 != CanJni.GetSubType() && 5 != CanJni.GetSubType() && 10 != CanJni.GetSubType() && 11 != CanJni.GetSubType()) {
+                    InitHondaWc(context);
+                    return;
+                }
+                return;
+            case Can.CAN_FORD_WC:
+                InitFordWc(context);
+                return;
+            case 160:
+                InitCs75Wc(context);
+                return;
+            case 161:
+                InitTrumpchiWc(context);
+                return;
+            case 172:
+                if (CanJni.GetSubType() == 5 || CanJni.GetSubType() == 6) {
+                    InitCCH6Wc(context);
+                    return;
+                }
+                return;
+            case 174:
+                InitCCH2WC(context);
+                return;
+            case 180:
+                if (6 == CanJni.GetSubType() || 7 == CanJni.GetSubType()) {
+                    IniCheryWc(context);
+                    return;
+                }
+                return;
+            case 190:
+                InitX802017Wc(context);
+                return;
+            case 191:
+                InitZoyteDMX5Wc(context);
+                return;
+            case 196:
+                InitHondaAccord9Wc(context);
+                return;
+            case 197:
+                InitBaicHSS6Wc(context);
+                return;
+            case 198:
+                if (CanJni.GetSubType() == 1) {
+                    InitPorcheOd(context);
+                    return;
+                }
+                return;
+            case 199:
+                if (5 == subType || 8 == subType) {
+                    InitNissanRzcRvsAssist(context);
+                    return;
+                }
+                return;
+            case 200:
+                InitBydDJRadar(context);
+                return;
+            case 210:
+            case 263:
+                InitGMRzcActivePark(context);
+                return;
+            case 214:
+                InitChanA_Wc(context);
+                return;
+            case 216:
+                InitRenaultWc(context);
+                return;
+            case 218:
+                InitVenuciaWcM50(context);
+                return;
+            case 221:
+                InitPorcheLz(context);
+                return;
+            case 222:
+                InitSenovaOd(context);
+                return;
+            case Can.CAN_CC_HF_DJ:
+                InitCCHfDj(context);
+                return;
+            case Can.CAN_MG_ZS_WC:
+                InitMGZSRvs(context);
+                if (subType == 1) {
+                    InitMgZsWc(context);
+                    return;
+                }
+                return;
+            case Can.CAN_TOYOTA_SP_XP:
+                if (subType == 7) {
+                    InitPraDo(context);
+                    return;
+                } else if (subType == 2) {
+                    InitCamery(context);
+                    return;
+                } else {
+                    return;
+                }
+            case 255:
+                InitChanaCos1Wc(context);
+                return;
+            case 259:
+                if (1 == CanJni.GetSubType()) {
+                    InitBlsuOd(context);
+                    return;
+                }
+                return;
+            case 260:
+                if (CanJni.GetSubType() == 5) {
+                    InitMzdRzcAtez(context);
+                    return;
+                }
+                return;
+            case 265:
+                InitMitSubishiRzc(context);
+                return;
+            case 269:
+                InitChanaOD(context);
+                return;
+            case 275:
+                InitLandWindOd(context);
+                return;
+            case 285:
+                InitSubuarXp(context);
+                return;
+            case 288:
+                if (CanJni.GetSubType() != 4) {
+                    InitHondaDA(context);
+                    return;
+                }
+                return;
+            default:
+                return;
         }
     }
 
@@ -2829,7 +3200,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mListBotView.add(this.mBtnMgGs[i]);
         }
         this.mBtnMgGs[0].setStateDrawable(R.drawable.can_rh7_2d_up, R.drawable.can_rh7_2d_dn, R.drawable.can_rh7_2d_dn);
-        setViewPos(this.mBtnMgGs[0], Can.CAN_JAC_REFINE_OD, 18, 90, 90);
+        setViewPos(this.mBtnMgGs[0], 150, 18, 90, 90);
         this.mBtnMgGs[1].setStateDrawable(R.drawable.can_rh7_3d_up, R.drawable.can_rh7_3d_dn, R.drawable.can_rh7_3d_dn);
         setViewPos(this.mBtnMgGs[1], Can.CAN_NISSAN_XFY, 18, 90, 90);
         this.mBtnMgGs[2].setStateDrawable(R.drawable.can_gs5_bot_01_up, R.drawable.can_gs5_bot_01_dn, R.drawable.can_gs5_bot_01_dn);
@@ -2843,7 +3214,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnMgGs[6].setStateDrawable(R.drawable.can_gs5_bot_02_up, R.drawable.can_gs5_bot_02_dn, R.drawable.can_gs5_bot_02_dn);
         setViewPosBottom(this.mBtnMgGs[6], 500, 18, 82, 72);
         this.mBtnMgGs[7].setStateDrawable(R.drawable.can_gs5_bot_15_up, R.drawable.can_gs5_bot_15_dn, R.drawable.can_gs5_bot_15_dn);
-        setViewPosBottom(this.mBtnMgGs[7], BTN_GOLF_WC_MODE1, 18, 82, 72);
+        setViewPosBottom(this.mBtnMgGs[7], 600, 18, 82, 72);
         this.mBtnMgGs[8].setStateDrawable(R.drawable.can_gs5_bot_08_up, R.drawable.can_gs5_bot_08_dn, R.drawable.can_gs5_bot_08_dn);
         setViewPosBottom(this.mBtnMgGs[8], BTN_CC_WC_DIRECTION1, 18, 82, 72);
         this.mBtnMgGs[9].setStateDrawable(R.drawable.can_gs5_bot_13_up, R.drawable.can_gs5_bot_13_dn, R.drawable.can_gs5_bot_13_dn);
@@ -2957,7 +3328,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         this.mBtnFengShenAx7Mode[4].setDrawable(R.drawable.can_gs5_bot_10_up, R.drawable.can_gs5_bot_10_dn);
         setViewPos(this.mBtnFengShenAx7Mode[4], 492, 508, 82, 72);
         this.mBtnFengShenAx7Mode[5].setDrawable(R.drawable.can_camera_track_esc_up, R.drawable.can_camera_track_esc_dn);
-        setViewPos(this.mBtnFengShenAx7Mode[5], 909, BTN_NISSAN_XTRAL_RVS_ASSIST1, 115, 60);
+        setViewPos(this.mBtnFengShenAx7Mode[5], 909, 540, 115, 60);
     }
 
     private void InitMgZsWc(Context context) {
@@ -3255,11 +3626,14 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         CheckSubuarXp(check);
         CheckMgZsWcMode(check);
         CheckMgGsMode(check);
+        CheckNissanRzcRvsAssist(check);
+        CheckPorcheOdAvm(check);
+        CheckJacRefineWcMode(check);
     }
 
     /* access modifiers changed from: protected */
     public Boolean IsTuobuAvm() {
-        if (CanJni.GetCanType() == 88 && FtSet.Getlgb1() == 2) {
+        if (CanJni.GetCanType() == 88 && FtSet.Getlgb1() == 2 && CanFunc.getInstance().IsCore() == 0) {
             return true;
         }
         return false;
@@ -3285,6 +3659,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         }
         this.nSignalSta = 255;
         this.mAvmIconTick = 10;
+        CanFunc.mbRadarUIUpdate = true;
         QueryData();
     }
 
@@ -3312,6 +3687,12 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             case Can.CAN_FORD_WC:
                 CanJni.FordWcQuery(5, 1, Can.CAN_FLAT_WC);
                 return;
+            case 198:
+                if (CanJni.GetSubType() == 1) {
+                    CanJni.PorscheOdQuery(65, 0);
+                    return;
+                }
+                return;
             default:
                 return;
         }
@@ -3321,6 +3702,9 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public void onPause() {
         this.mbResume = false;
         ScreenSet.GetInstance().Hide();
+        if (this.mVedioStaText != null) {
+            this.mVedioStaText.setVisibility(8);
+        }
         if (CanFunc.IsLincsMkc()) {
             CanJni.GmSbCarMoudleCtl(3, 0);
         }
@@ -3353,6 +3737,9 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     public void initCamera() {
         boolean isHaveEps = CanJni.IsHaveEps();
         boolean isHaveRadar = CanJni.IsHaveRadar();
+        if (FtSet.Getyw14() == 2) {
+            isHaveRadar = false;
+        }
         if (isHaveEps) {
             this.mBtnShowTrack.setVisibility(4);
         } else {
@@ -3378,6 +3765,9 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         if (IsTuobuAvm().booleanValue()) {
             this.mBtnRtShowRadar.setVisibility(4);
             this.mfgFullScr = true;
+        }
+        if (this.mRotate == 1) {
+            this.mfgFullScr = false;
         }
     }
 
@@ -3544,19 +3934,47 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                         this.mOldXt5UI = false;
                         CanVolvoXfyCarDeviceActivity.finishVolvoXfyWin();
                     }
-                } else if (276 != CanJni.GetCanType() || !CanIF.RvsEntExdMode()) {
-                    this.mOldCamPort = -1;
-                    onPause();
-                    Log.d(TAG, "BackcarService.getInstance().StopCamera() ");
-                    BackcarService.getInstance().StopCamera();
-                    MainVolume.GetInstance().Destroy();
-                } else {
+                } else if (276 == CanJni.GetCanType() && CanIF.RvsEntExdMode()) {
                     TsDisplay.GetInstance().SetDispParat(-1);
                     if (this.mOldXt5UI) {
                         Log.d(TAG, "CAN_LEXUSH_ZMYT Camera finish ");
                         this.mOldXt5UI = false;
                         CanLexushZmytCarDevView.finishWin();
                     }
+                } else if (289 == CanJni.GetCanType() && CanIF.RvsEntExdMode()) {
+                    TsDisplay.GetInstance().SetDispParat(-1);
+                    if (this.mOldXt5UI) {
+                        Log.d(TAG, "CAN_LANDROVER_ZMYT Camera finish ");
+                        this.mOldXt5UI = false;
+                        CanLandRoverZmytCarDevView.finishWin();
+                    }
+                } else if (298 == CanJni.GetCanType() && CanIF.RvsEntExdMode()) {
+                    TsDisplay.GetInstance().SetDispParat(-1);
+                    if (this.mOldXt5UI) {
+                        Log.d(TAG, "CAN_AUDI_WITHCD_LZ Camera finish ");
+                        this.mOldXt5UI = false;
+                        CanAudiLzWithCDCarDevView.finishWin();
+                    }
+                } else if (303 == CanJni.GetCanType() && CanIF.RvsEntExdMode()) {
+                    TsDisplay.GetInstance().SetDispParat(-1);
+                    if (this.mOldXt5UI) {
+                        Log.d(TAG, "CAN_AUDI_WITHCD_XBS Camera finish ");
+                        this.mOldXt5UI = false;
+                        CanAudiXbsWithCDCarDevView.finishWin();
+                    }
+                } else if (138 == CanJni.GetCanType() && 1 == CanJni.GetSubType() && CanIF.RvsEntExdMode()) {
+                    TsDisplay.GetInstance().SetDispParat(-1);
+                    if (this.mOldXt5UI) {
+                        Log.d(TAG, "CAN_BMW_WITHCD Camera finish ");
+                        this.mOldXt5UI = false;
+                        CanBmwWithCdCarCvbsDevView.finishWin();
+                    }
+                } else {
+                    this.mOldCamPort = -1;
+                    onPause();
+                    BackcarService.getInstance().StopCamera();
+                    Log.d(TAG, "BackcarService.getInstance().StopCamera() ");
+                    MainVolume.GetInstance().Destroy();
                 }
             } else if (CanFunc.IsCadillacXt51280x480() || (88 == CanJni.GetCanType() && CanJni.GetSubType() == 10 && CanIF.RvsEntExdMode())) {
                 TsDisplay.GetInstance().SetDispParat(0);
@@ -3636,7 +4054,36 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                     Log.d(TAG, "CAN_LEXUSH_ZMYT Camera ent ");
                     CanLexushZmytCarDevView.showWin();
                 }
+            } else if (289 == CanJni.GetCanType() && CanIF.RvsEntExdMode()) {
+                TsDisplay.GetInstance().SetDispParat(0);
+                if (!CanLandRoverZmytCarDevView.IsWin()) {
+                    this.mOldXt5UI = true;
+                    Log.d(TAG, "CAN_LANDROVER_ZMYT Camera ent ");
+                    CanLexushZmytCarDevView.showWin();
+                }
+            } else if (298 == CanJni.GetCanType() && CanIF.RvsEntExdMode()) {
+                TsDisplay.GetInstance().SetDispParat(0);
+                if (!CanAudiLzWithCDCarDevView.IsWin()) {
+                    this.mOldXt5UI = true;
+                    Log.d(TAG, "CAN_AUDI_WITHCD_LZ Camera ent ");
+                    CanAudiLzWithCDCarDevView.showWin();
+                }
+            } else if (303 == CanJni.GetCanType() && CanIF.RvsEntExdMode()) {
+                TsDisplay.GetInstance().SetDispParat(0);
+                if (!CanAudiXbsWithCDCarDevView.IsWin()) {
+                    this.mOldXt5UI = true;
+                    Log.d(TAG, "CAN_AUDI_WITHCD_XBS Camera ent ");
+                    CanAudiXbsWithCDCarDevView.showWin();
+                }
+            } else if (138 == CanJni.GetCanType() && 1 == CanJni.GetSubType() && CanIF.RvsEntExdMode()) {
+                TsDisplay.GetInstance().SetDispParat(0);
+                if (!CanBmwWithCdCarCvbsDevView.IsWin()) {
+                    this.mOldXt5UI = true;
+                    Log.d(TAG, "CAN_BMW_WITHCD Camera ent ");
+                    CanBmwWithCdCarCvbsDevView.showWin();
+                }
             } else if (65 != CanJni.GetCanType() || MainSet.GetInstance().IsCustom("MINI")) {
+                Init(CanFunc.mContext);
                 this.mCameraView = (AutoFitTextureView) findViewById(R.id.CameratextureView);
                 if ((Mcu.GetPowState() & 4) > 0) {
                     z = false;
@@ -3666,7 +4113,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                 this.mEpsLineView.setScaleX(1.0f);
                 radarParams.rightMargin = 30;
             } else {
-                lp.width = MediaDef.PROGRESS_MAX;
+                lp.width = 1000;
                 lp.height = 480;
                 this.mEpsLineView.setTranslationX(-140.0f);
                 this.mEpsLineView.setScaleX(0.8f);
@@ -3697,6 +4144,9 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             this.mBtnRtShowRadar.setLayoutParams(lp3);
             this.mEpsLineView.setScaleX(1.2f);
             this.mEpsLineView.setScaleY(1.2f);
+        }
+        if (CanFunc.getInstance().VsUI() == 1 && this.mRotate == 2) {
+            this.mEpsLineView.setTranslationY(150.0f);
         }
     }
 
@@ -4312,7 +4762,10 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                     } else {
                         this.mBtnXtralRvs[0].setDrawable(R.drawable.can_oj_left_big_up, R.drawable.can_oj_left_big_dn);
                     }
-                    this.mXtralTsy.setText(this.mXtralTsyArr[this.mXtralWcRvsAss.AutoParkTsy]);
+                    if (this.mXtralTsyArr.length > this.mXtralWcRvsAss.AutoParkTsy) {
+                        this.mXtralTsy.setText(this.mXtralTsyArr[this.mXtralWcRvsAss.AutoParkTsy]);
+                        return;
+                    }
                     return;
                 }
                 return;
@@ -4387,7 +4840,165 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                 } else {
                     this.mBtnXtralRvs[0].setDrawable(R.drawable.can_oj_left_big_up, R.drawable.can_oj_left_big_dn);
                 }
-                this.mXtralTsy.setText(this.mXtralTsyArr[this.mXtralRvsAss.AutoParkTsy]);
+                if (this.mXtralTsyArr.length > this.mXtralRvsAss.AutoParkTsy) {
+                    this.mXtralTsy.setText(this.mXtralTsyArr[this.mXtralRvsAss.AutoParkTsy]);
+                }
+            }
+        }
+    }
+
+    private void CheckNissanRzcRvsAssist(boolean check) {
+        if (this.mBtnNissanRzcRvs != null && this.mNissanRzcView != null && this.mNissanRzcRvsAss != null) {
+            CanJni.NissanGetRvsAssis(this.mNissanRzcRvsAss);
+            if (this.mNissanRzcRvsAss.UpdateOnce == 0) {
+                return;
+            }
+            if (!check || this.mNissanRzcRvsAss.Update != 0) {
+                this.mNissanRzcRvsAss.Update = 0;
+                for (ParamButton Show : this.mBtnNissanRzcRvs) {
+                    Show.Show(false);
+                }
+                this.mNissanRzcView[0].Show(false);
+                this.mNissanRzcView[1].Show(true);
+                for (CustomTextView ShowGone : this.mNissanRzcDeclare) {
+                    ShowGone.ShowGone(false);
+                }
+                for (CustomTextView ShowGone2 : this.mNissanRzcDeclare2) {
+                    ShowGone2.ShowGone(false);
+                }
+                if (CanJni.GetSubType() == 8) {
+                    int sta = this.mNissanRzcRvsAss.AutoParkSta & 7;
+                    int brk = this.mNissanRzcRvsAss.AutoParkSta & 128;
+                    if (sta == 1) {
+                        this.mBtnNissanRzcRvs[8].Show(true);
+                    } else if (sta == 2) {
+                        if (brk != 0) {
+                            this.mBtnNissanRzcRvs[7].Show(true);
+                        }
+                        this.mBtnNissanRzcRvs[10].Show(true);
+                        this.mBtnNissanRzcRvs[11].Show(true);
+                        this.mBtnNissanRzcRvs[13].Show(true);
+                        this.mBtnNissanRzcRvs[14].Show(true);
+                        this.mBtnNissanRzcRvs[15].Show(true);
+                        this.mBtnNissanRzcRvs[16].Show(true);
+                        this.mBtnNissanRzcRvs[17].Show(true);
+                        this.mBtnNissanRzcRvs[20].Show(true);
+                        this.mNissanRzcDeclare2[0].ShowGone(true);
+                        this.mNissanRzcDeclare2[1].ShowGone(true);
+                    } else if (sta == 3) {
+                        if (brk != 0) {
+                            this.mBtnNissanRzcRvs[7].Show(true);
+                        }
+                        this.mBtnNissanRzcRvs[10].Show(true);
+                        this.mBtnNissanRzcRvs[11].Show(true);
+                        this.mBtnNissanRzcRvs[13].Show(true);
+                        this.mBtnNissanRzcRvs[18].Show(true);
+                        this.mBtnNissanRzcRvs[19].Show(true);
+                        this.mBtnNissanRzcRvs[21].Show(true);
+                        this.mNissanRzcDeclare2[2].ShowGone(true);
+                    } else if (sta == 4) {
+                        this.mBtnNissanRzcRvs[12].Show(true);
+                        for (CustomTextView ShowGone3 : this.mNissanRzcDeclare) {
+                            ShowGone3.ShowGone(true);
+                        }
+                    } else if (sta == 5) {
+                        if (brk != 0) {
+                            this.mBtnNissanRzcRvs[7].Show(true);
+                        }
+                        this.mBtnNissanRzcRvs[10].Show(true);
+                        this.mBtnNissanRzcRvs[11].Show(true);
+                        this.mBtnNissanRzcRvs[12].Show(true);
+                    } else if (sta == 6) {
+                        for (int i = 0; i < 6; i++) {
+                            this.mBtnNissanRzcRvs[i].Show(true);
+                        }
+                        this.mBtnNissanRzcRvs[10].Show(true);
+                        this.mBtnNissanRzcRvs[11].Show(true);
+                        this.mBtnNissanRzcRvs[12].Show(true);
+                        this.mNissanRzcView[0].Show(true);
+                    } else if (sta == 7) {
+                        this.mBtnNissanRzcRvs[10].Show(true);
+                    }
+                    if (brk == 0) {
+                        this.mBtnNissanRzcRvs[0].setDrawable(R.drawable.can_oj_left_big_gray, R.drawable.can_oj_left_big_gray);
+                        this.mBtnNissanRzcRvs[1].setDrawable(R.drawable.can_oj_up_gray, R.drawable.can_oj_up_gray);
+                        this.mBtnNissanRzcRvs[2].setDrawable(R.drawable.can_oj_down_gray, R.drawable.can_oj_down_gray);
+                        this.mBtnNissanRzcRvs[3].setDrawable(R.drawable.can_oj_left_gray, R.drawable.can_oj_left_gray);
+                        this.mBtnNissanRzcRvs[4].setDrawable(R.drawable.can_oj_right_gray, R.drawable.can_oj_right_gray);
+                        this.mBtnNissanRzcRvs[5].setDrawable(R.drawable.can_oj_right_big_gray, R.drawable.can_oj_right_big_gray);
+                        this.mBtnNissanRzcRvs[11].setDrawable(R.drawable.can_oj_rect_gray, R.drawable.can_oj_rect_gray);
+                        this.mBtnNissanRzcRvs[13].setDrawable(R.drawable.can_oj_rect_gray, R.drawable.can_oj_rect_gray);
+                    } else {
+                        this.mBtnNissanRzcRvs[0].setDrawable(R.drawable.can_oj_left_big_up, R.drawable.can_oj_left_big_dn);
+                        this.mBtnNissanRzcRvs[1].setDrawable(R.drawable.can_oj_up_up, R.drawable.can_oj_up_dn);
+                        this.mBtnNissanRzcRvs[2].setDrawable(R.drawable.can_oj_down_up, R.drawable.can_oj_down_dn);
+                        this.mBtnNissanRzcRvs[3].setDrawable(R.drawable.can_oj_left_up, R.drawable.can_oj_left_dn);
+                        this.mBtnNissanRzcRvs[4].setDrawable(R.drawable.can_oj_right_up, R.drawable.can_oj_right_dn);
+                        this.mBtnNissanRzcRvs[5].setDrawable(R.drawable.can_oj_right_big_up, R.drawable.can_oj_right_big_dn);
+                        this.mBtnNissanRzcRvs[11].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
+                        this.mBtnNissanRzcRvs[13].setDrawable(R.drawable.can_oj_rect_up, R.drawable.can_oj_rect_dn);
+                    }
+                    this.mNissanRzcView[1].SetSel(this.mNissanRzcRvsAss.Camera);
+                    this.mNissanRzcTsy.setText(this.mNissanRzcTsyArr[this.mNissanRzcRvsAss.AutoParkTsy]);
+                    return;
+                }
+                if (this.mNissanRzcRvsAss.AutoParkSta == 1) {
+                    this.mBtnNissanRzcRvs[8].Show(true);
+                } else if (this.mNissanRzcRvsAss.AutoParkSta == 2) {
+                    this.mBtnNissanRzcRvs[9].Show(true);
+                    this.mBtnNissanRzcRvs[10].Show(true);
+                } else if (this.mNissanRzcRvsAss.AutoParkSta == 3) {
+                    this.mBtnNissanRzcRvs[7].Show(true);
+                    this.mBtnNissanRzcRvs[6].Show(true);
+                    this.mBtnNissanRzcRvs[10].Show(true);
+                    this.mBtnNissanRzcRvs[11].Show(true);
+                } else if (this.mNissanRzcRvsAss.AutoParkSta == 4) {
+                    for (int i2 = 0; i2 < 6; i2++) {
+                        this.mBtnNissanRzcRvs[i2].Show(true);
+                    }
+                    this.mBtnNissanRzcRvs[10].Show(true);
+                    this.mBtnNissanRzcRvs[11].Show(true);
+                    this.mBtnNissanRzcRvs[12].Show(true);
+                    this.mNissanRzcView[0].Show(true);
+                } else if (this.mNissanRzcRvsAss.AutoParkSta == 5) {
+                    this.mBtnNissanRzcRvs[10].Show(true);
+                } else if (this.mNissanRzcRvsAss.AutoParkSta == 255) {
+                    for (CustomTextView ShowGone4 : this.mNissanRzcDeclare) {
+                        ShowGone4.ShowGone(true);
+                    }
+                }
+                this.mNissanRzcView[1].SetSel(this.mNissanRzcRvsAss.Camera);
+                if (this.mNissanRzcRvsAss.DirValid[0] > 0) {
+                    this.mBtnNissanRzcRvs[1].setDrawable(R.drawable.can_oj_up_gray, R.drawable.can_oj_up_gray);
+                } else {
+                    this.mBtnNissanRzcRvs[1].setDrawable(R.drawable.can_oj_up_up, R.drawable.can_oj_up_dn);
+                }
+                if (this.mNissanRzcRvsAss.DirValid[1] > 0) {
+                    this.mBtnNissanRzcRvs[2].setDrawable(R.drawable.can_oj_down_gray, R.drawable.can_oj_down_gray);
+                } else {
+                    this.mBtnNissanRzcRvs[2].setDrawable(R.drawable.can_oj_down_up, R.drawable.can_oj_down_dn);
+                }
+                if (this.mNissanRzcRvsAss.DirValid[2] > 0) {
+                    this.mBtnNissanRzcRvs[3].setDrawable(R.drawable.can_oj_left_gray, R.drawable.can_oj_left_gray);
+                } else {
+                    this.mBtnNissanRzcRvs[3].setDrawable(R.drawable.can_oj_left_up, R.drawable.can_oj_left_dn);
+                }
+                if (this.mNissanRzcRvsAss.DirValid[3] > 0) {
+                    this.mBtnNissanRzcRvs[4].setDrawable(R.drawable.can_oj_right_gray, R.drawable.can_oj_right_gray);
+                } else {
+                    this.mBtnNissanRzcRvs[4].setDrawable(R.drawable.can_oj_right_up, R.drawable.can_oj_right_dn);
+                }
+                if (this.mNissanRzcRvsAss.DirValid[4] > 0) {
+                    this.mBtnNissanRzcRvs[5].setDrawable(R.drawable.can_oj_right_big_gray, R.drawable.can_oj_right_big_gray);
+                } else {
+                    this.mBtnNissanRzcRvs[5].setDrawable(R.drawable.can_oj_right_big_up, R.drawable.can_oj_right_big_dn);
+                }
+                if (this.mNissanRzcRvsAss.DirValid[5] > 0) {
+                    this.mBtnNissanRzcRvs[0].setDrawable(R.drawable.can_oj_left_big_gray, R.drawable.can_oj_left_big_gray);
+                } else {
+                    this.mBtnNissanRzcRvs[0].setDrawable(R.drawable.can_oj_left_big_up, R.drawable.can_oj_left_big_dn);
+                }
+                this.mNissanRzcTsy.setText(this.mNissanRzcTsyArr[this.mNissanRzcRvsAss.AutoParkTsy]);
             }
         }
     }
@@ -4623,6 +5234,57 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
         }
     }
 
+    private void CheckJacRefineWcMode(boolean check) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5 = true;
+        if (this.mJacWcAvmData != null && this.mBtnJacRefineWcMode != null) {
+            CanJni.JACRefineWcGetAvmData(this.mJacWcAvmData);
+            if (this.mJacWcAvmData.UpdateOnce == 0) {
+                return;
+            }
+            if (!check || this.mJacWcAvmData.Update != 0) {
+                this.mJacWcAvmData.Update = 0;
+                this.mBtnJacRefineWcStats[0].setSelected(this.mJacWcAvmData.Mode == 2);
+                ParamButton paramButton = this.mBtnJacRefineWcStats[1];
+                if (this.mJacWcAvmData.Mode == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                paramButton.setSelected(z);
+                ParamButton paramButton2 = this.mBtnJacRefineWcMode[0];
+                if (this.mJacWcAvmData.FrontCamera == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                paramButton2.setSelected(z2);
+                ParamButton paramButton3 = this.mBtnJacRefineWcMode[1];
+                if (this.mJacWcAvmData.RearCamera == 1) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                paramButton3.setSelected(z3);
+                ParamButton paramButton4 = this.mBtnJacRefineWcMode[2];
+                if (this.mJacWcAvmData.LeftCamera == 1) {
+                    z4 = true;
+                } else {
+                    z4 = false;
+                }
+                paramButton4.setSelected(z4);
+                ParamButton paramButton5 = this.mBtnJacRefineWcMode[3];
+                if (this.mJacWcAvmData.RightCamera != 1) {
+                    z5 = false;
+                }
+                paramButton5.setSelected(z5);
+            }
+        }
+    }
+
     private void CheckHondaWcMode(boolean check) {
         if (this.mBtnViewGj != null && this.mBtnViewBz != null && this.mBtnViewFj != null) {
             CanJni.HondaWcGetCameraSta(this.mHondawcCamera);
@@ -4783,6 +5445,57 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                 } else {
                     this.mBtnSenovaRzcMode[0].setDrawable(R.drawable.can_rh7_3d_up, R.drawable.can_rh7_3d_dn);
                 }
+            }
+        }
+    }
+
+    private void CheckPorcheOdAvm(boolean check) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5 = true;
+        if (this.mPorscheOdData != null) {
+            CanJni.PorscheOdGetCarAvmData(this.mPorscheOdData);
+            if (this.mPorscheOdData.UpdateOnce == 0) {
+                return;
+            }
+            if (!check || this.mPorscheOdData.Update != 0) {
+                this.mPorscheOdData.Update = 0;
+                this.mBtnProscheOdMode[0].setSelected(this.mPorscheOdData.Sta == 2);
+                ParamButton paramButton = this.mBtnProscheOdMode[1];
+                if (this.mPorscheOdData.Sta == 3) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                paramButton.setSelected(z);
+                ParamButton paramButton2 = this.mBtnProscheOdMode[2];
+                if (this.mPorscheOdData.Sta == 4) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                paramButton2.setSelected(z2);
+                ParamButton paramButton3 = this.mBtnProscheOdMode[3];
+                if (this.mPorscheOdData.Sta == 5) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                paramButton3.setSelected(z3);
+                ParamButton paramButton4 = this.mBtnProscheOdMode[4];
+                if (this.mPorscheOdData.Sta == 6) {
+                    z4 = true;
+                } else {
+                    z4 = false;
+                }
+                paramButton4.setSelected(z4);
+                ParamButton paramButton5 = this.mBtnProscheOdMode[5];
+                if (this.mPorscheOdData.Sta != 1) {
+                    z5 = false;
+                }
+                paramButton5.setSelected(z5);
             }
         }
     }
@@ -5176,6 +5889,9 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     }
 
     public void UserAll() {
+        if (MainSet.GetInstance().GetCamType() == 3 && CanJni.GetCanType() > 0) {
+            Can.updateEps();
+        }
         if (this.mbResume) {
             int i = this.nDelayCheck + 1;
             this.nDelayCheck = i;
@@ -5192,7 +5908,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             }
             ResetData(true);
             CheckPort();
-            if (this.mfgShowTrack && Can.updateEps()) {
+            if (this.mfgShowTrack && MainSet.GetInstance().GetCamType() != 3 && Can.updateEps()) {
                 updateEps();
             }
             if (!this.mfgFullScr && CanFunc.mbRadarUIUpdate) {
@@ -5581,6 +6297,29 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                 btn27.Show(show);
             }
         }
+        if (this.mBtnBlsuRzcT5 != null) {
+            for (ParamButton btn28 : this.mBtnBlsuRzcT5) {
+                btn28.Show(show);
+            }
+        }
+        if (this.mBtnMzdRzcMode != null) {
+            this.mBtnMzdRzcMode.Show(show);
+        }
+        if (this.mBtnProscheOdMode != null) {
+            for (ParamButton btn29 : this.mBtnProscheOdMode) {
+                btn29.Show(show);
+            }
+        }
+        if (this.mBtnJacRefineWcMode != null) {
+            for (ParamButton btn30 : this.mBtnJacRefineWcMode) {
+                btn30.Show(show);
+            }
+        }
+        if (this.mBtnJacRefineWcStats != null) {
+            for (ParamButton btn31 : this.mBtnJacRefineWcStats) {
+                btn31.Show(show);
+            }
+        }
     }
 
     private void showCCH9View(boolean show) {
@@ -5808,7 +6547,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             case BTN_CHANA_ALSVINV7_MODE3 /*532*/:
                 CanJni.AlsvinCarSet((id - 530) + 1, 0);
                 return;
-            case BTN_NISSAN_XTRAL_RVS_ASSIST1 /*540*/:
+            case 540:
                 CanJni.NissanCarSet(79, 1);
                 return;
             case BTN_NISSAN_XTRAL_RVS_ASSIST2 /*541*/:
@@ -5881,7 +6620,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             case BTN_CHANA_CS75_MODE6 /*575*/:
                 CanJni.ChanaCs75CameraSet(16);
                 return;
-            case BTN_CHANA_CS75_MODE7 /*576*/:
+            case 576:
                 CanJni.Cs75SetCameraMode(0);
                 return;
             case BTN_CAMERY_2018_MODE1 /*580*/:
@@ -5908,7 +6647,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                 }
                 CanJni.VwWcAssistSetCmd(11, z3 ? 1 : 0);
                 return;
-            case BTN_GOLF_WC_MODE1 /*600*/:
+            case 600:
                 CanJni.GolfWcCameraSet(1, 255);
                 return;
             case BTN_GOLF_WC_MODE2 /*601*/:
@@ -6037,8 +6776,8 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                 }
                 CanJni.ChanAWcCs75CameraSet(1, sta);
                 return;
-            case BTN_TRUMPCHI_WC_MODE1 /*1001*/:
-            case BTN_TRUMPCHI_WC_MODE2 /*1002*/:
+            case 1001:
+            case 1002:
             case BTN_TRUMPCHI_WC_MODE3 /*1003*/:
             case BTN_TRUMPCHI_WC_MODE4 /*1004*/:
             case BTN_TRUMPCHI_WC_MODE5 /*1005*/:
@@ -6109,7 +6848,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             case BTN_BAIC_HSS6_QJQH /*1161*/:
                 CanJni.BaicWcS6CameraSet(11, 2);
                 return;
-            case BTN_HYUNDAI_XP_FRONT_MODE1 /*1170*/:
+            case 1170:
             case BTN_HYUNDAI_XP_FRONT_MODE2 /*1171*/:
             case BTN_HYUNDAI_XP_FRONT_MODE3 /*1172*/:
             case BTN_HYUNDAI_XP_FRONT_MODE4 /*1173*/:
@@ -6363,7 +7102,7 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
                 CanJni.FordRzcCarSet(168, id - 1540, 0);
                 return;
             case BTN_LANDWINDOD_2D3D /*1560*/:
-                CanJni.LandWindOdCarSet(Can.CAN_HYUNDAI_WC, Neg(this.mLandWindOdCarSet.Avm));
+                CanJni.LandWindOdCarSet(153, Neg(this.mLandWindOdCarSet.Avm));
                 return;
             case BTN_LANDWINDOD_2D_ALL /*1561*/:
                 CanJni.LandWindOdCarSet(Can.CAN_CC_WC, 0);
@@ -6440,6 +7179,112 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             case BTN_MG_ESC /*1630*/:
                 CanJni.MGGSAvmSet(0);
                 return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST1 /*1640*/:
+                CanJni.NissanCarSet(79, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST2 /*1641*/:
+                CanJni.NissanCarSet(72, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST3 /*1642*/:
+                CanJni.NissanCarSet(73, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST4 /*1643*/:
+                CanJni.NissanCarSet(74, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST5 /*1644*/:
+                CanJni.NissanCarSet(75, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST6 /*1645*/:
+                CanJni.NissanCarSet(78, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST7 /*1646*/:
+                CanJni.NissanCarSet(67, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST8 /*1647*/:
+                CanJni.NissanCarSet(71, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST9 /*1648*/:
+                CanJni.NissanCarSet(65, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST10 /*1649*/:
+                CanJni.NissanCarSet(66, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST11 /*1650*/:
+                CanJni.NissanCarSet(68, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST12 /*1651*/:
+                CanJni.NissanCarSet(69, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST13 /*1652*/:
+                CanJni.NissanCarSet(70, 1);
+                return;
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST14 /*1653*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST15 /*1654*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST16 /*1655*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST17 /*1656*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST18 /*1657*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST19 /*1658*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST20 /*1659*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST21 /*1660*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST22 /*1661*/:
+            case BTN_NISSAN_XTRAL_RZC_RVS_ASSIST23 /*1662*/:
+                CanJni.NissanCarSet((id - 1653) + 97, 1);
+                return;
+            case BTN_BLSU_RZC_T5_2D /*1670*/:
+                CanJni.BlsuT5CarAvmCmd(1, 6, 0);
+                return;
+            case BTN_BLSU_RZC_T5_3D /*1671*/:
+                CanJni.BlsuT5CarAvmCmd(1, 5, 0);
+                return;
+            case BTN_BLSU_RZC_T5_RETURN /*1672*/:
+                CanJni.BlsuT5CarAvmCmd(1, 8, 0);
+                return;
+            case BTN_BLSU_RZC_T5_FULL /*1673*/:
+                CanJni.BlsuT5CarAvmCmd(1, 7, 0);
+                return;
+            case BTN_BLSU_RZC_T5_UP /*1674*/:
+                CanJni.BlsuT5CarAvmCmd(1, 1, 0);
+                return;
+            case BTN_BLSU_RZC_T5_DN /*1675*/:
+                CanJni.BlsuT5CarAvmCmd(1, 2, 0);
+                return;
+            case BTN_BLSU_RZC_T5_L /*1676*/:
+                CanJni.BlsuT5CarAvmCmd(1, 3, 0);
+                return;
+            case BTN_BLSU_RZC_T5_R /*1677*/:
+                CanJni.BlsuT5CarAvmCmd(1, 4, 0);
+                return;
+            case BTN_MZD_RZC_MODE /*1680*/:
+                CanJni.MzdRzcCarAvmCmd(1, 1);
+                return;
+            case BTN_PORSCHE_OD_MODE1 /*1690*/:
+            case BTN_PORSCHE_OD_MODE2 /*1691*/:
+            case BTN_PORSCHE_OD_MODE3 /*1692*/:
+            case BTN_PORSCHE_OD_MODE4 /*1693*/:
+            case BTN_PORSCHE_OD_MODE5 /*1694*/:
+                CanJni.PorscheOdAvmCmd((id - 1690) + 2);
+                return;
+            case BTN_PORSCHE_OD_MODE6 /*1695*/:
+                CanJni.PorscheOdAvmCmd(1);
+                return;
+            case BTN_PORSCHE_OD_MODE7 /*1696*/:
+                CanJni.PorscheOdAvmCmd(0);
+                return;
+            case BTN_JAC_REFINE_WC_MODE1 /*1700*/:
+            case BTN_JAC_REFINE_WC_MODE2 /*1701*/:
+            case BTN_JAC_REFINE_WC_MODE3 /*1702*/:
+            case BTN_JAC_REFINE_WC_MODE4 /*1703*/:
+                CanJni.JACRefineWcAvmCmd(3, (id - 1700) + 4);
+                return;
+            case BTN_JAC_REFINE_WC_3D /*1704*/:
+                CanJni.JACRefineWcAvmCmd(4, 2);
+                return;
+            case BTN_JAC_REFINE_WC_2D /*1705*/:
+                CanJni.JACRefineWcAvmCmd(4, 1);
+                return;
+            case BTN_JAC_REFINE_WC_ESC /*1707*/:
+                CanJni.JACRefineWcAvmCmd(1, 0);
+                return;
             default:
                 return;
         }
@@ -6460,22 +7305,24 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
     }
 
     /* JADX WARNING: Can't fix incorrect switch cases order */
-    /* JADX WARNING: Removed duplicated region for block: B:177:0x0557  */
+    /* JADX WARNING: Removed duplicated region for block: B:241:0x06f8  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public boolean onTouch(android.view.View r14, android.view.MotionEvent r15) {
         /*
             r13 = this;
-            r12 = 2
-            r11 = 4
-            r10 = 1142292480(0x44160000, float:600.0)
+            r12 = 1151336448(0x44a00000, float:1280.0)
+            r11 = 1144258560(0x44340000, float:720.0)
+            r10 = 1149239296(0x44800000, float:1024.0)
             r9 = 0
             r8 = 1
+            r1 = 0
+            r2 = 0
             java.lang.Boolean r3 = r13.IsTuobuAvm()
             boolean r3 = r3.booleanValue()
-            if (r3 == 0) goto L_0x0101
+            if (r3 == 0) goto L_0x010d
             int r3 = com.ts.main.common.MainSet.GetScreenType()
             r4 = 5
-            if (r3 != r4) goto L_0x008b
+            if (r3 != r4) goto L_0x0093
             float r3 = r15.getX()
             int r3 = (int) r3
             int r3 = r3 * 4096
@@ -6499,59 +7346,62 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             java.lang.String r4 = r4.toString()
             android.util.Log.d(r3, r4)
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0079
+            if (r3 != 0) goto L_0x0081
             int r3 = r1 >> 8
             r4 = r1 & 255(0xff, float:3.57E-43)
             int r5 = r2 >> 8
             r5 = r5 | 128(0x80, float:1.794E-43)
             r6 = r2 & 255(0xff, float:3.57E-43)
             com.yyw.ts70xhw.Mcu.SendxyTouch(r3, r4, r5, r6)
-        L_0x0064:
+        L_0x006c:
             java.lang.Object r3 = r14.getTag()
             java.lang.Integer r3 = (java.lang.Integer) r3
             int r0 = r3.intValue()
             int r3 = com.lgb.canmodule.CanJni.GetCanType()
             switch(r3) {
-                case 5: goto L_0x04d0;
-                case 17: goto L_0x0231;
-                case 49: goto L_0x02fa;
-                case 93: goto L_0x0203;
-                case 128: goto L_0x036f;
-                case 140: goto L_0x03b1;
-                case 144: goto L_0x028b;
-                case 149: goto L_0x03fe;
-                case 156: goto L_0x031a;
-                case 180: goto L_0x0388;
-                case 199: goto L_0x052a;
-                case 200: goto L_0x0351;
-                case 288: goto L_0x04fe;
-                default: goto L_0x0075;
+                case 5: goto L_0x0554;
+                case 17: goto L_0x024a;
+                case 49: goto L_0x0347;
+                case 93: goto L_0x021b;
+                case 110: goto L_0x06a2;
+                case 128: goto L_0x03da;
+                case 140: goto L_0x0438;
+                case 144: goto L_0x02b8;
+                case 149: goto L_0x0481;
+                case 156: goto L_0x0368;
+                case 180: goto L_0x040e;
+                case 198: goto L_0x0669;
+                case 199: goto L_0x05e1;
+                case 200: goto L_0x03bc;
+                case 210: goto L_0x0623;
+                case 288: goto L_0x059b;
+                default: goto L_0x007d;
             }
-        L_0x0075:
+        L_0x007d:
             switch(r0) {
-                case 1450: goto L_0x0557;
-                default: goto L_0x0078;
+                case 1450: goto L_0x06f8;
+                default: goto L_0x0080;
             }
-        L_0x0078:
+        L_0x0080:
             return r9
-        L_0x0079:
+        L_0x0081:
             int r3 = r15.getAction()
-            if (r3 != r8) goto L_0x0064
+            if (r3 != r8) goto L_0x006c
             int r3 = r1 >> 8
             r4 = r1 & 255(0xff, float:3.57E-43)
             int r5 = r2 >> 8
             r6 = r2 & 255(0xff, float:3.57E-43)
             com.yyw.ts70xhw.Mcu.SendxyTouch(r3, r4, r5, r6)
-            goto L_0x0064
-        L_0x008b:
+            goto L_0x006c
+        L_0x0093:
             float r3 = r15.getX()
             r4 = 1145044992(0x44400000, float:768.0)
             int r3 = (r3 > r4 ? 1 : (r3 == r4 ? 0 : -1))
-            if (r3 > 0) goto L_0x0064
+            if (r3 > 0) goto L_0x006c
             float r3 = r15.getY()
             r4 = 1141243904(0x44060000, float:536.0)
             int r3 = (r3 > r4 ? 1 : (r3 == r4 ? 0 : -1))
-            if (r3 > 0) goto L_0x0064
+            if (r3 > 0) goto L_0x006c
             float r3 = r15.getX()
             int r3 = (int) r3
             int r3 = r3 * 4096
@@ -6575,27 +7425,27 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             java.lang.String r4 = r4.toString()
             android.util.Log.d(r3, r4)
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x00ee
+            if (r3 != 0) goto L_0x00fa
             int r3 = r1 >> 8
             r4 = r1 & 255(0xff, float:3.57E-43)
             int r5 = r2 >> 8
             r5 = r5 | 128(0x80, float:1.794E-43)
             r6 = r2 & 255(0xff, float:3.57E-43)
             com.yyw.ts70xhw.Mcu.SendxyTouch(r3, r4, r5, r6)
-            goto L_0x0064
-        L_0x00ee:
+            goto L_0x006c
+        L_0x00fa:
             int r3 = r15.getAction()
-            if (r3 != r8) goto L_0x0064
+            if (r3 != r8) goto L_0x006c
             int r3 = r1 >> 8
             r4 = r1 & 255(0xff, float:3.57E-43)
             int r5 = r2 >> 8
             r6 = r2 & 255(0xff, float:3.57E-43)
             com.yyw.ts70xhw.Mcu.SendxyTouch(r3, r4, r5, r6)
-            goto L_0x0064
-        L_0x0101:
+            goto L_0x006c
+        L_0x010d:
             int r3 = com.lgb.canmodule.CanJni.GetCanFsTp()
             r4 = 79
-            if (r3 != r4) goto L_0x0158
+            if (r3 != r4) goto L_0x0168
             float r3 = r15.getX()
             int r3 = (int) r3
             int r3 = r3 * 4096
@@ -6619,20 +7469,20 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             java.lang.String r4 = r4.toString()
             android.util.Log.d(r3, r4)
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0064
+            if (r3 != 0) goto L_0x006c
             int r3 = r1 >> 8
             r4 = r1 & 255(0xff, float:3.57E-43)
             int r5 = r2 >> 8
             r5 = r5 | 128(0x80, float:1.794E-43)
             r6 = r2 & 255(0xff, float:3.57E-43)
             com.yyw.ts70xhw.Mcu.SendxyTouch(r3, r4, r5, r6)
-            goto L_0x0064
-        L_0x0158:
+            goto L_0x006c
+        L_0x0168:
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0064
+            if (r3 != 0) goto L_0x006c
             com.ts.main.common.MainSet r3 = com.ts.main.common.MainSet.GetInstance()
             boolean r3 = r3.IsDIAO()
-            if (r3 == 0) goto L_0x01b5
+            if (r3 == 0) goto L_0x01c9
             r3 = 252(0xfc, float:3.53E-43)
             r4 = 3
             float r5 = r15.getX()
@@ -6664,8 +7514,8 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             java.lang.StringBuilder r4 = r4.append(r5)
             java.lang.String r4 = r4.toString()
             android.util.Log.d(r3, r4)
-            goto L_0x0064
-        L_0x01b5:
+            goto L_0x006c
+        L_0x01c9:
             r3 = 170(0xaa, float:2.38E-43)
             r4 = 85
             float r5 = r15.getX()
@@ -6697,53 +7547,51 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             java.lang.StringBuilder r4 = r4.append(r5)
             java.lang.String r4 = r4.toString()
             android.util.Log.d(r3, r4)
-            goto L_0x0064
-        L_0x0203:
+            goto L_0x006c
+        L_0x021b:
             int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r8 != r3) goto L_0x0075
+            if (r8 != r3) goto L_0x007d
             int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x0075
+            if (r8 != r3) goto L_0x007d
             switch(r0) {
-                case 550: goto L_0x0214;
-                case 551: goto L_0x021b;
-                case 552: goto L_0x0222;
-                case 553: goto L_0x0229;
-                default: goto L_0x0212;
+                case 550: goto L_0x022c;
+                case 551: goto L_0x0233;
+                case 552: goto L_0x023a;
+                case 553: goto L_0x0242;
+                default: goto L_0x022a;
             }
-        L_0x0212:
-            goto L_0x0075
-        L_0x0214:
+        L_0x022a:
+            goto L_0x007d
+        L_0x022c:
             r3 = 64
             com.lgb.canmodule.CanJni.BlsuT5CamSet(r3, r9)
-            goto L_0x0075
-        L_0x021b:
+            goto L_0x007d
+        L_0x0233:
             r3 = 64
             com.lgb.canmodule.CanJni.BlsuT5CamSet(r3, r8)
-            goto L_0x0075
-        L_0x0222:
+            goto L_0x007d
+        L_0x023a:
             r3 = 64
-            com.lgb.canmodule.CanJni.BlsuT5CamSet(r3, r12)
-            goto L_0x0075
-        L_0x0229:
+            r4 = 2
+            com.lgb.canmodule.CanJni.BlsuT5CamSet(r3, r4)
+            goto L_0x007d
+        L_0x0242:
             r3 = 64
             r4 = 3
             com.lgb.canmodule.CanJni.BlsuT5CamSet(r3, r4)
-            goto L_0x0075
-        L_0x0231:
+            goto L_0x007d
+        L_0x024a:
             r3 = 8
             int r4 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r3 != r4) goto L_0x0075
+            if (r3 != r4) goto L_0x007d
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x02a7
             float r3 = r15.getX()
-            r4 = 1151336448(0x44a00000, float:1280.0)
-            float r3 = r3 * r4
-            r4 = 1149239296(0x44800000, float:1024.0)
-            float r3 = r3 / r4
             int r1 = (int) r3
             float r3 = r15.getY()
-            r4 = 1144258560(0x44340000, float:720.0)
-            float r3 = r3 * r4
-            float r3 = r3 / r10
             int r2 = (int) r3
+        L_0x0264:
             java.lang.String r3 = "CanCameraActivity"
             java.lang.StringBuilder r4 = new java.lang.StringBuilder
             java.lang.String r5 = "onTouch TRUMPCHI_SUB_GS7.getX() = "
@@ -6759,29 +7607,58 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             java.lang.String r4 = r4.toString()
             android.util.Log.d(r3, r4)
             r3 = 900(0x384, float:1.261E-42)
-            if (r1 <= r3) goto L_0x0075
-            int r3 = r2 >> 4
-            r3 = r3 & 255(0xff, float:3.57E-43)
-            int r4 = r2 << 4
-            int r5 = r1 >> 8
-            r5 = r5 & 255(0xff, float:3.57E-43)
-            r4 = r4 | r5
-            r5 = r1 & 255(0xff, float:3.57E-43)
-            com.lgb.canmodule.CanJni.GqcqCs7CameraSet(r12, r3, r4, r5)
-            goto L_0x0075
-        L_0x028b:
-            int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r12 == r3) goto L_0x02a4
+            if (r1 <= r3) goto L_0x007d
+            r3 = 2
+            int r4 = r2 >> 4
+            r4 = r4 & 255(0xff, float:3.57E-43)
+            int r5 = r2 << 4
+            int r6 = r1 >> 8
+            r6 = r6 & 255(0xff, float:3.57E-43)
+            r5 = r5 | r6
+            r6 = r1 & 255(0xff, float:3.57E-43)
+            com.lgb.canmodule.CanJni.GqcqCs7CameraSet(r3, r4, r5, r6)
+            goto L_0x007d
+        L_0x02a7:
+            float r3 = r15.getX()
+            float r3 = r3 * r12
+            float r3 = r3 / r10
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            float r3 = r3 * r11
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
+            int r2 = (int) r3
+            goto L_0x0264
+        L_0x02b8:
+            r3 = 2
+            int r4 = com.lgb.canmodule.CanJni.GetSubType()
+            if (r3 == r4) goto L_0x02ed
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x02dc
+            float r3 = r15.getX()
+            float r3 = r3 * r10
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1148846080(0x447a0000, float:1000.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x02d7:
+            com.lgb.canmodule.CanJni.ToyotaWcTouchCmd(r8, r1, r2)
+            goto L_0x007d
+        L_0x02dc:
             float r3 = r15.getX()
             int r1 = (int) r3
             float r3 = r15.getY()
             r4 = 1148846080(0x447a0000, float:1000.0)
             float r3 = r3 * r4
-            float r3 = r3 / r10
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
             int r2 = (int) r3
-            com.lgb.canmodule.CanJni.ToyotaWcTouchCmd(r8, r1, r2)
-            goto L_0x0075
-        L_0x02a4:
+            goto L_0x02d7
+        L_0x02ed:
             java.lang.String r3 = "CanCameraActivity"
             java.lang.StringBuilder r4 = new java.lang.StringBuilder
             java.lang.String r5 = "onTouch CAN_TOYOTA_WC id= "
@@ -6790,411 +7667,601 @@ public class CanCameraUI implements CustomImgView.onPaint, UserCallBack, View.On
             java.lang.String r4 = r4.toString()
             android.util.Log.d(r3, r4)
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x02d9
+            if (r3 != 0) goto L_0x0325
             switch(r0) {
-                case 620: goto L_0x02c3;
-                case 621: goto L_0x02ca;
-                case 622: goto L_0x02d2;
-                default: goto L_0x02c1;
+                case 620: goto L_0x030e;
+                case 621: goto L_0x0315;
+                case 622: goto L_0x031d;
+                default: goto L_0x030c;
             }
-        L_0x02c1:
-            goto L_0x0075
-        L_0x02c3:
+        L_0x030c:
+            goto L_0x007d
+        L_0x030e:
             r3 = 255(0xff, float:3.57E-43)
             com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r8, r8)
-            goto L_0x0075
-        L_0x02ca:
+            goto L_0x007d
+        L_0x0315:
             r3 = 255(0xff, float:3.57E-43)
             r4 = 3
             com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r4, r8)
-            goto L_0x0075
-        L_0x02d2:
+            goto L_0x007d
+        L_0x031d:
             r3 = 255(0xff, float:3.57E-43)
-            com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r11, r8)
-            goto L_0x0075
-        L_0x02d9:
+            r4 = 4
+            com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r4, r8)
+            goto L_0x007d
+        L_0x0325:
             int r3 = r15.getAction()
-            if (r3 != r8) goto L_0x0075
+            if (r3 != r8) goto L_0x007d
             switch(r0) {
-                case 620: goto L_0x02e4;
-                case 621: goto L_0x02eb;
-                case 622: goto L_0x02f3;
-                default: goto L_0x02e2;
+                case 620: goto L_0x0330;
+                case 621: goto L_0x0337;
+                case 622: goto L_0x033f;
+                default: goto L_0x032e;
             }
-        L_0x02e2:
-            goto L_0x0075
-        L_0x02e4:
+        L_0x032e:
+            goto L_0x007d
+        L_0x0330:
             r3 = 255(0xff, float:3.57E-43)
             com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r8, r9)
-            goto L_0x0075
-        L_0x02eb:
+            goto L_0x007d
+        L_0x0337:
             r3 = 255(0xff, float:3.57E-43)
             r4 = 3
             com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r4, r9)
-            goto L_0x0075
-        L_0x02f3:
+            goto L_0x007d
+        L_0x033f:
             r3 = 255(0xff, float:3.57E-43)
-            com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r11, r9)
-            goto L_0x0075
-        L_0x02fa:
-            int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r11 != r3) goto L_0x0075
+            r4 = 4
+            com.lgb.canmodule.CanJni.ToyotaWcCameraSet(r3, r4, r9)
+            goto L_0x007d
+        L_0x0347:
+            r3 = 4
+            int r4 = com.lgb.canmodule.CanJni.GetSubType()
+            if (r3 != r4) goto L_0x007d
             r3 = 631(0x277, float:8.84E-43)
-            if (r0 != r3) goto L_0x0075
+            if (r0 != r3) goto L_0x007d
             int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x030f
+            if (r8 != r3) goto L_0x035d
             com.lgb.canmodule.CanJni.SenovaCameraSet(r8, r9, r9)
-            goto L_0x0075
-        L_0x030f:
+            goto L_0x007d
+        L_0x035d:
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0075
+            if (r3 != 0) goto L_0x007d
             com.lgb.canmodule.CanJni.SenovaCameraSet(r8, r8, r9)
-            goto L_0x0075
-        L_0x031a:
-            int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r11 == r3) goto L_0x0337
+            goto L_0x007d
+        L_0x0368:
+            r3 = 4
+            int r4 = com.lgb.canmodule.CanJni.GetSubType()
+            if (r3 == r4) goto L_0x0386
             r3 = 5
             int r4 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r3 == r4) goto L_0x0337
+            if (r3 == r4) goto L_0x0386
             r3 = 10
             int r4 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r3 == r4) goto L_0x0337
+            if (r3 == r4) goto L_0x0386
             r3 = 11
             int r4 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r3 != r4) goto L_0x0075
-        L_0x0337:
+            if (r3 != r4) goto L_0x007d
+        L_0x0386:
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x03a6
             float r3 = r15.getX()
             r4 = 1153630208(0x44c30000, float:1560.0)
             float r3 = r3 * r4
-            r4 = 1149239296(0x44800000, float:1024.0)
-            float r3 = r3 / r4
+            float r3 = r3 / r12
             int r1 = (int) r3
             float r3 = r15.getY()
             r4 = 1156415488(0x44ed8000, float:1900.0)
             float r3 = r3 * r4
-            float r3 = r3 / r10
+            float r3 = r3 / r11
             int r2 = (int) r3
+        L_0x03a1:
             com.lgb.canmodule.CanJni.HondaWcCarTouchCmd(r8, r1, r2)
-            goto L_0x0075
-        L_0x0351:
+            goto L_0x007d
+        L_0x03a6:
+            float r3 = r15.getX()
+            r4 = 1153630208(0x44c30000, float:1560.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r10
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1156415488(0x44ed8000, float:1900.0)
+            float r3 = r3 * r4
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
+            int r2 = (int) r3
+            goto L_0x03a1
+        L_0x03bc:
             r3 = 1190(0x4a6, float:1.668E-42)
-            if (r0 != r3) goto L_0x0075
+            if (r0 != r3) goto L_0x007d
             int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x0362
+            if (r8 != r3) goto L_0x03cd
             r3 = 16
             com.lgb.canmodule.CanJni.BydDjAcSet(r3, r9)
-            goto L_0x0075
-        L_0x0362:
+            goto L_0x007d
+        L_0x03cd:
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0075
+            if (r3 != 0) goto L_0x007d
             r3 = 16
             com.lgb.canmodule.CanJni.BydDjAcSet(r3, r8)
-            goto L_0x0075
-        L_0x036f:
+            goto L_0x007d
+        L_0x03da:
             int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r8 == r3) goto L_0x0075
+            if (r8 == r3) goto L_0x007d
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x03fd
+            float r3 = r15.getX()
+            float r3 = r3 * r10
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1148846080(0x447a0000, float:1000.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x03f8:
+            com.lgb.canmodule.CanJni.ToyotaRzcTouchCmd(r8, r1, r2)
+            goto L_0x007d
+        L_0x03fd:
             float r3 = r15.getX()
             int r1 = (int) r3
             float r3 = r15.getY()
             r4 = 1148846080(0x447a0000, float:1000.0)
             float r3 = r3 * r4
-            float r3 = r3 / r10
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
             int r2 = (int) r3
-            com.lgb.canmodule.CanJni.ToyotaRzcTouchCmd(r8, r1, r2)
-            goto L_0x0075
-        L_0x0388:
-            int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r11 == r3) goto L_0x0396
+            goto L_0x03f8
+        L_0x040e:
+            r3 = 4
+            int r4 = com.lgb.canmodule.CanJni.GetSubType()
+            if (r3 == r4) goto L_0x041d
             int r3 = com.lgb.canmodule.CanJni.GetSubType()
             r4 = 8
-            if (r3 != r4) goto L_0x0075
-        L_0x0396:
+            if (r3 != r4) goto L_0x007d
+        L_0x041d:
             float r3 = r15.getX()
             int r1 = (int) r3
             float r3 = r15.getY()
             int r2 = (int) r3
             r3 = 1024(0x400, float:1.435E-42)
-            if (r1 > r3) goto L_0x0078
-            if (r1 < 0) goto L_0x0078
-            if (r2 < 0) goto L_0x0078
+            if (r1 > r3) goto L_0x0080
+            if (r1 < 0) goto L_0x0080
+            if (r2 < 0) goto L_0x0080
             r3 = 600(0x258, float:8.41E-43)
-            if (r2 > r3) goto L_0x0078
+            if (r2 > r3) goto L_0x0080
             com.lgb.canmodule.CanJni.CheryWcTouchSet(r8, r1, r2)
-            goto L_0x0075
-        L_0x03b1:
+            goto L_0x007d
+        L_0x0438:
             int r3 = com.ts.can.benc.withcd.CanBencWithCDCarFuncActivity.RvsMode()
-            if (r3 != r12) goto L_0x0075
-            r1 = 0
-            r2 = 0
+            r4 = 2
+            if (r3 != r4) goto L_0x007d
             int r3 = com.ts.main.common.MainSet.GetScreenType()
             r4 = 9
-            if (r3 != r4) goto L_0x03e2
+            if (r3 != r4) goto L_0x0464
             float r3 = r15.getX()
-            r4 = 1151336448(0x44a00000, float:1280.0)
-            float r3 = r3 * r4
+            float r3 = r3 * r12
             r4 = 1156579328(0x44f00000, float:1920.0)
             float r3 = r3 / r4
             int r1 = (int) r3
             float r3 = r15.getY()
             r4 = 1139802112(0x43f00000, float:480.0)
             float r3 = r3 * r4
-            r4 = 1144258560(0x44340000, float:720.0)
-            float r3 = r3 / r4
+            float r3 = r3 / r11
             int r2 = (int) r3
-        L_0x03d7:
+        L_0x0459:
             int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x03ed
+            if (r8 != r3) goto L_0x046f
             com.lgb.canmodule.CanJni.BencZmytCameraTouchCmd(r9, r1, r2)
-            goto L_0x0075
-        L_0x03e2:
+            goto L_0x007d
+        L_0x0464:
             float r3 = r15.getX()
             int r1 = (int) r3
             float r3 = r15.getY()
             int r2 = (int) r3
-            goto L_0x03d7
-        L_0x03ed:
+            goto L_0x0459
+        L_0x046f:
             int r3 = r15.getAction()
-            if (r3 == 0) goto L_0x03f9
-            int r3 = r15.getAction()
-            if (r12 != r3) goto L_0x0075
-        L_0x03f9:
-            com.lgb.canmodule.CanJni.BencZmytCameraTouchCmd(r8, r1, r2)
-            goto L_0x0075
-        L_0x03fe:
-            int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r3 != r11) goto L_0x0075
-            int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x046a
-            switch(r0) {
-                case 540: goto L_0x040f;
-                case 541: goto L_0x0416;
-                case 542: goto L_0x041d;
-                case 543: goto L_0x0424;
-                case 544: goto L_0x042b;
-                case 545: goto L_0x0432;
-                case 546: goto L_0x0439;
-                case 547: goto L_0x0440;
-                case 548: goto L_0x0447;
-                case 549: goto L_0x044e;
-                case 550: goto L_0x0455;
-                case 551: goto L_0x045c;
-                case 552: goto L_0x0463;
-                default: goto L_0x040d;
-            }
-        L_0x040d:
-            goto L_0x0075
-        L_0x040f:
-            r3 = 29
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0416:
-            r3 = 24
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x041d:
-            r3 = 25
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0424:
-            r3 = 26
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x042b:
-            r3 = 27
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0432:
-            r3 = 28
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0439:
-            r3 = 19
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0440:
-            r3 = 23
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0447:
-            r3 = 17
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x044e:
-            r3 = 18
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0455:
-            r3 = 21
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x045c:
-            r3 = 20
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x0463:
-            r3 = 22
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
-            goto L_0x0075
-        L_0x046a:
-            int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0075
-            switch(r0) {
-                case 540: goto L_0x0475;
-                case 541: goto L_0x047c;
-                case 542: goto L_0x0483;
-                case 543: goto L_0x048a;
-                case 544: goto L_0x0491;
-                case 545: goto L_0x0498;
-                case 546: goto L_0x049f;
-                case 547: goto L_0x04a6;
-                case 548: goto L_0x04ad;
-                case 549: goto L_0x04b4;
-                case 550: goto L_0x04bb;
-                case 551: goto L_0x04c2;
-                case 552: goto L_0x04c9;
-                default: goto L_0x0473;
-            }
-        L_0x0473:
-            goto L_0x0075
-        L_0x0475:
-            r3 = 29
-            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
+            if (r3 == 0) goto L_0x047c
+            r3 = 2
+            int r4 = r15.getAction()
+            if (r3 != r4) goto L_0x007d
         L_0x047c:
+            com.lgb.canmodule.CanJni.BencZmytCameraTouchCmd(r8, r1, r2)
+            goto L_0x007d
+        L_0x0481:
+            int r3 = com.lgb.canmodule.CanJni.GetSubType()
+            r4 = 4
+            if (r3 != r4) goto L_0x007d
+            int r3 = r15.getAction()
+            if (r8 != r3) goto L_0x04ee
+            switch(r0) {
+                case 540: goto L_0x0493;
+                case 541: goto L_0x049a;
+                case 542: goto L_0x04a1;
+                case 543: goto L_0x04a8;
+                case 544: goto L_0x04af;
+                case 545: goto L_0x04b6;
+                case 546: goto L_0x04bd;
+                case 547: goto L_0x04c4;
+                case 548: goto L_0x04cb;
+                case 549: goto L_0x04d2;
+                case 550: goto L_0x04d9;
+                case 551: goto L_0x04e0;
+                case 552: goto L_0x04e7;
+                default: goto L_0x0491;
+            }
+        L_0x0491:
+            goto L_0x007d
+        L_0x0493:
+            r3 = 29
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x049a:
+            r3 = 24
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04a1:
+            r3 = 25
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04a8:
+            r3 = 26
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04af:
+            r3 = 27
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04b6:
+            r3 = 28
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04bd:
+            r3 = 19
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04c4:
+            r3 = 23
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04cb:
+            r3 = 17
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04d2:
+            r3 = 18
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04d9:
+            r3 = 21
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04e0:
+            r3 = 20
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04e7:
+            r3 = 22
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r9)
+            goto L_0x007d
+        L_0x04ee:
+            int r3 = r15.getAction()
+            if (r3 != 0) goto L_0x007d
+            switch(r0) {
+                case 540: goto L_0x04f9;
+                case 541: goto L_0x0500;
+                case 542: goto L_0x0507;
+                case 543: goto L_0x050e;
+                case 544: goto L_0x0515;
+                case 545: goto L_0x051c;
+                case 546: goto L_0x0523;
+                case 547: goto L_0x052a;
+                case 548: goto L_0x0531;
+                case 549: goto L_0x0538;
+                case 550: goto L_0x053f;
+                case 551: goto L_0x0546;
+                case 552: goto L_0x054d;
+                default: goto L_0x04f7;
+            }
+        L_0x04f7:
+            goto L_0x007d
+        L_0x04f9:
+            r3 = 29
+            com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
+            goto L_0x007d
+        L_0x0500:
             r3 = 24
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x0483:
+            goto L_0x007d
+        L_0x0507:
             r3 = 25
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x048a:
+            goto L_0x007d
+        L_0x050e:
             r3 = 26
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x0491:
+            goto L_0x007d
+        L_0x0515:
             r3 = 27
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x0498:
+            goto L_0x007d
+        L_0x051c:
             r3 = 28
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x049f:
+            goto L_0x007d
+        L_0x0523:
             r3 = 19
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x04a6:
+            goto L_0x007d
+        L_0x052a:
             r3 = 23
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x04ad:
+            goto L_0x007d
+        L_0x0531:
             r3 = 17
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x04b4:
+            goto L_0x007d
+        L_0x0538:
             r3 = 18
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x04bb:
+            goto L_0x007d
+        L_0x053f:
             r3 = 21
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x04c2:
+            goto L_0x007d
+        L_0x0546:
             r3 = 20
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x04c9:
+            goto L_0x007d
+        L_0x054d:
             r3 = 22
             com.lgb.canmodule.CanJni.NissanWcCameryKey(r3, r8)
-            goto L_0x0075
-        L_0x04d0:
+            goto L_0x007d
+        L_0x0554:
             int r3 = com.lgb.canmodule.CanJni.GetSubType()
             r4 = 13
-            if (r3 != r4) goto L_0x0075
-            r1 = 0
-            r2 = 0
+            if (r3 != r4) goto L_0x007d
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x057f
+            float r3 = r15.getX()
+            float r3 = r3 * r10
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1148846080(0x447a0000, float:1000.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x0574:
+            int r3 = r15.getAction()
+            if (r8 != r3) goto L_0x0590
+            com.lgb.canmodule.CanJni.HondaDaRzcAvmTouchCmd(r9, r1, r2)
+            goto L_0x007d
+        L_0x057f:
             float r3 = r15.getX()
             int r1 = (int) r3
             float r3 = r15.getY()
             r4 = 1148846080(0x447a0000, float:1000.0)
             float r3 = r3 * r4
-            float r3 = r3 / r10
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
             int r2 = (int) r3
+            goto L_0x0574
+        L_0x0590:
             int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x04f3
-            com.lgb.canmodule.CanJni.HondaDaRzcAvmTouchCmd(r9, r1, r2)
-            goto L_0x0075
-        L_0x04f3:
-            int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0075
+            if (r3 != 0) goto L_0x007d
             com.lgb.canmodule.CanJni.HondaDaRzcAvmTouchCmd(r8, r1, r2)
-            goto L_0x0075
-        L_0x04fe:
+            goto L_0x007d
+        L_0x059b:
             int r3 = com.lgb.canmodule.CanJni.GetSubType()
-            if (r3 != r11) goto L_0x0075
-            r1 = 0
-            r2 = 0
+            r4 = 4
+            if (r3 != r4) goto L_0x007d
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x05c5
+            float r3 = r15.getX()
+            float r3 = r3 * r10
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1148846080(0x447a0000, float:1000.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x05ba:
+            int r3 = r15.getAction()
+            if (r8 != r3) goto L_0x05d6
+            com.lgb.canmodule.CanJni.HondaDaRzcAvmTouchCmd(r9, r1, r2)
+            goto L_0x007d
+        L_0x05c5:
             float r3 = r15.getX()
             int r1 = (int) r3
             float r3 = r15.getY()
             r4 = 1148846080(0x447a0000, float:1000.0)
             float r3 = r3 * r4
-            float r3 = r3 / r10
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
             int r2 = (int) r3
+            goto L_0x05ba
+        L_0x05d6:
             int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x051f
-            com.lgb.canmodule.CanJni.HondaDaRzcAvmTouchCmd(r9, r1, r2)
-            goto L_0x0075
-        L_0x051f:
-            int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0075
+            if (r3 != 0) goto L_0x007d
             com.lgb.canmodule.CanJni.HondaDaRzcAvmTouchCmd(r8, r1, r2)
-            goto L_0x0075
-        L_0x052a:
+            goto L_0x007d
+        L_0x05e1:
             int r3 = com.lgb.canmodule.CanJni.GetSubType()
             r4 = 7
-            if (r3 != r4) goto L_0x0075
-            r1 = 0
-            r2 = 0
+            if (r3 != r4) goto L_0x007d
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x0609
+            float r3 = r15.getX()
+            float r3 = r3 * r10
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            float r3 = r3 * r10
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x05fe:
+            int r3 = r15.getAction()
+            if (r8 != r3) goto L_0x0618
+            com.lgb.canmodule.CanJni.NissanRzcTouchCmd(r9, r1, r2)
+            goto L_0x007d
+        L_0x0609:
             float r3 = r15.getX()
             int r1 = (int) r3
             float r3 = r15.getY()
-            r4 = 1149239296(0x44800000, float:1024.0)
+            float r3 = r3 * r10
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
+            int r2 = (int) r3
+            goto L_0x05fe
+        L_0x0618:
+            int r3 = r15.getAction()
+            if (r3 != 0) goto L_0x007d
+            com.lgb.canmodule.CanJni.NissanRzcTouchCmd(r8, r1, r2)
+            goto L_0x007d
+        L_0x0623:
+            int r3 = com.lgb.canmodule.CanJni.GetSubType()
+            r4 = 7
+            if (r3 != r4) goto L_0x007d
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x064d
+            float r3 = r15.getX()
+            float r3 = r3 * r10
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1148846080(0x447a0000, float:1000.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x0642:
+            int r3 = r15.getAction()
+            if (r8 != r3) goto L_0x065e
+            com.lgb.canmodule.CanJni.GmRzcTouchCmd(r9, r1, r2)
+            goto L_0x007d
+        L_0x064d:
+            float r3 = r15.getX()
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1148846080(0x447a0000, float:1000.0)
+            float r3 = r3 * r4
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
+            int r2 = (int) r3
+            goto L_0x0642
+        L_0x065e:
+            int r3 = r15.getAction()
+            if (r3 != 0) goto L_0x007d
+            com.lgb.canmodule.CanJni.GmRzcTouchCmd(r8, r1, r2)
+            goto L_0x007d
+        L_0x0669:
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x068c
+            float r3 = r15.getX()
+            float r3 = r3 * r10
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x0681:
+            int r3 = r15.getAction()
+            if (r8 != r3) goto L_0x0697
+            com.lgb.canmodule.CanJni.PorscheOdAvmTouchCmd(r1, r2, r9)
+            goto L_0x007d
+        L_0x068c:
+            float r3 = r15.getX()
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            int r2 = (int) r3
+            goto L_0x0681
+        L_0x0697:
+            int r3 = r15.getAction()
+            if (r3 != 0) goto L_0x007d
+            com.lgb.canmodule.CanJni.PorscheOdAvmTouchCmd(r1, r2, r8)
+            goto L_0x007d
+        L_0x06a2:
+            int r3 = com.lgb.canmodule.CanJni.GetSubType()
+            r4 = 2
+            if (r3 == r4) goto L_0x06b0
+            int r3 = com.lgb.canmodule.CanJni.GetSubType()
+            r4 = 3
+            if (r3 != r4) goto L_0x007d
+        L_0x06b0:
+            int r3 = com.ts.main.common.MainSet.GetScreenType()
+            r4 = 10
+            if (r3 != r4) goto L_0x06d6
+            float r3 = r15.getX()
+            r4 = 1145569280(0x44480000, float:800.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r12
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1139802112(0x43f00000, float:480.0)
+            float r3 = r3 * r4
+            float r3 = r3 / r11
+            int r2 = (int) r3
+        L_0x06ca:
+            int r3 = r15.getAction()
+            if (r8 != r3) goto L_0x06eb
+            r3 = 2
+            com.lgb.canmodule.CanJni.JACRefineWcAvmTouchCmd(r8, r1, r2, r3)
+            goto L_0x007d
+        L_0x06d6:
+            float r3 = r15.getX()
+            r4 = 1145569280(0x44480000, float:800.0)
             float r3 = r3 * r4
             float r3 = r3 / r10
+            int r1 = (int) r3
+            float r3 = r15.getY()
+            r4 = 1139802112(0x43f00000, float:480.0)
+            float r3 = r3 * r4
+            r4 = 1142292480(0x44160000, float:600.0)
+            float r3 = r3 / r4
             int r2 = (int) r3
+            goto L_0x06ca
+        L_0x06eb:
             int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x054c
-            com.lgb.canmodule.CanJni.NissanRzcTouchCmd(r9, r1, r2)
-            goto L_0x0075
-        L_0x054c:
+            if (r3 != 0) goto L_0x007d
+            r3 = 2
+            r4 = 2
+            com.lgb.canmodule.CanJni.JACRefineWcAvmTouchCmd(r3, r1, r2, r4)
+            goto L_0x007d
+        L_0x06f8:
             int r3 = r15.getAction()
-            if (r3 != 0) goto L_0x0075
-            com.lgb.canmodule.CanJni.NissanRzcTouchCmd(r8, r1, r2)
-            goto L_0x0075
-        L_0x0557:
-            int r3 = r15.getAction()
-            if (r8 != r3) goto L_0x0078
+            if (r8 != r3) goto L_0x0080
             com.ts.backcar.BackcarService r3 = com.ts.backcar.BackcarService.getInstance()
             r3.StopCamera()
             int r3 = r13.mFrCamera
-            if (r3 <= 0) goto L_0x057f
+            if (r3 <= 0) goto L_0x0720
             r13.mFrCamera = r9
             com.yyw.ts70xhw.Mcu.SetFcamstate(r9)
             com.ts.main.common.MainSet r3 = com.ts.main.common.MainSet.GetInstance()
             r3.SetVideoChannel(r9)
-        L_0x0574:
+        L_0x0715:
             com.ts.backcar.BackcarService r3 = com.ts.backcar.BackcarService.getInstance()
             com.ts.backcar.AutoFitTextureView r4 = r13.mCameraView
             r3.StartCamera(r4, r8)
-            goto L_0x0078
-        L_0x057f:
+            goto L_0x0080
+        L_0x0720:
             r13.mFrCamera = r8
             com.yyw.ts70xhw.Mcu.SetFcamstate(r8)
             com.ts.main.common.MainSet r3 = com.ts.main.common.MainSet.GetInstance()
-            r3.SetVideoChannel(r12)
-            goto L_0x0574
+            r4 = 2
+            r3.SetVideoChannel(r4)
+            goto L_0x0715
         */
         throw new UnsupportedOperationException("Method not decompiled: com.ts.can.CanCameraUI.onTouch(android.view.View, android.view.MotionEvent):boolean");
     }

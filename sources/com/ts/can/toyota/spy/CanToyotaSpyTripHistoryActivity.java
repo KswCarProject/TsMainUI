@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -16,6 +15,7 @@ import com.ts.can.CanCameraUI;
 import com.ts.canview.CanVerticalBar;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanToyotaSpyTripHistoryActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener {
@@ -43,9 +43,9 @@ public class CanToyotaSpyTripHistoryActivity extends CanBaseActivity implements 
             this.mTrip[i] = new CanVerticalBar((Context) this, R.drawable.fuel_consumption_pillars03);
             this.mTrip[i].setMinMax(0.0f, 100.0f);
             if (i == 0) {
-                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - (i * Can.CAN_AUDI_ZMYT), 71);
+                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - (i * 152), 71);
             } else {
-                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - ((6 - i) * Can.CAN_AUDI_ZMYT), 71);
+                this.mManager.AddViewWrapContent(this.mTrip[i], 819 - ((6 - i) * 152), 71);
             }
         }
         TextView tv = this.mManager.AddText(760, 395, 100, 30);
@@ -111,7 +111,7 @@ public class CanToyotaSpyTripHistoryActivity extends CanBaseActivity implements 
             this.mDW.setText(GetDWStr(this.mTripData.DW));
             int base = 10;
             if (this.mTripData.DW == 0) {
-                max = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max = 600;
                 base = 20;
             } else {
                 max = 300;
@@ -135,7 +135,7 @@ public class CanToyotaSpyTripHistoryActivity extends CanBaseActivity implements 
             case 2:
                 return "L/100KM";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

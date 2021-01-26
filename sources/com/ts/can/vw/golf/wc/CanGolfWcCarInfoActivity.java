@@ -3,6 +3,7 @@ package com.ts.can.vw.golf.wc;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,34 +61,34 @@ public class CanGolfWcCarInfoActivity extends CanBaseActivity implements UserCal
 
     private void InitUI() {
         this.mManager = (RelativeLayout) findViewById(R.id.layout_vw_carinfo);
-        this.mOilIcon = addImage(181, KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_elctric_up, R.drawable.canvw_elctric_dn);
-        addImage(217, 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_dn);
-        this.mBatteryIcon = addImage(KeyDef.RKEY_ANGLEDN, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
-        this.mSeatBeltIcon = addImage(456, 33, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
-        this.mTrunkUpIcon = addImage(594, 71, R.drawable.canvw_trunk_up, R.drawable.canvw_trunk_dn);
-        addImage(696, 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_up);
-        this.mWashingIcon = addImage(734, KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_washing_up, R.drawable.canvw_washing_dn);
-        addImage(432, 145, R.drawable.canvw_car3_up);
-        this.mDoorIcons[0] = addImage(422, Can.CAN_FLAT_WC, R.drawable.canvw_left_door_dn);
-        this.mDoorIcons[1] = addImage(CanCameraUI.BTN_TRUMPCHI_GS7_MODE4, Can.CAN_FLAT_WC, R.drawable.canvw_right_door_dn);
-        this.mDoorIcons[2] = addImage(428, 290, R.drawable.canvw_left_door01_dn);
-        this.mDoorIcons[3] = addImage(555, 290, R.drawable.canvw_right_door01_dn);
-        this.mDoorIcons[4] = addImage(469, 373, R.drawable.canvw_car3trunk_dn);
-        this.mDoorIcons[5] = addImage(459, Can.CAN_HONDA_WC, R.drawable.canvw_head_door);
+        this.mOilIcon = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 181, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_elctric_up, R.drawable.canvw_elctric_dn);
+        addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 217, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_dn);
+        this.mBatteryIcon = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + KeyDef.RKEY_ANGLEDN, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
+        this.mSeatBeltIcon = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 456, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 33, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
+        this.mTrunkUpIcon = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 594, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 71, R.drawable.canvw_trunk_up, R.drawable.canvw_trunk_dn);
+        addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 696, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_up);
+        this.mWashingIcon = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 734, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_washing_up, R.drawable.canvw_washing_dn);
+        addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 432, getResources().getDimensionPixelSize(R.dimen.y1_vw_carinfo_flg) + 145, R.drawable.canvw_car3_up);
+        this.mDoorIcons[0] = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 422, getResources().getDimensionPixelSize(R.dimen.y1_vw_carinfo_flg) + Can.CAN_FLAT_WC, R.drawable.canvw_left_door_dn);
+        this.mDoorIcons[1] = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + CanCameraUI.BTN_TRUMPCHI_GS7_MODE4, getResources().getDimensionPixelSize(R.dimen.y1_vw_carinfo_flg) + Can.CAN_FLAT_WC, R.drawable.canvw_right_door_dn);
+        this.mDoorIcons[2] = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 428, getResources().getDimensionPixelSize(R.dimen.y1_vw_carinfo_flg) + 290, R.drawable.canvw_left_door01_dn);
+        this.mDoorIcons[3] = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 555, getResources().getDimensionPixelSize(R.dimen.y1_vw_carinfo_flg) + 290, R.drawable.canvw_right_door01_dn);
+        this.mDoorIcons[4] = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 469, getResources().getDimensionPixelSize(R.dimen.y1_vw_carinfo_flg) + 373, R.drawable.canvw_car3trunk_dn);
+        this.mDoorIcons[5] = addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 459, getResources().getDimensionPixelSize(R.dimen.y1_vw_carinfo_flg) + Can.CAN_HONDA_WC, R.drawable.canvw_head_door);
         showDoor(0, 0, 0, 0, 0, 0);
-        addImage(11, 429, R.drawable.canvw_speed_up);
-        addImage(347, 429, R.drawable.canvw_oil_up);
-        addImage(683, 429, R.drawable.canvw_oil_value_icon);
-        this.mOilItem = addText(80, KeyDef.RKEY_MEDIA_SLOW, R.string.can_oil_warn, -1, false);
-        this.mOilTempItem = addText(117, 180, R.string.can_oil_temp, -1, false);
-        this.mElctricItem = addText(218, 78, R.string.can_battery, -1, false);
-        this.mSeatBeltItem = addText(365, 5, R.string.can_belt);
-        this.mTrunkUpItem = addText(720, 78, R.string.can_trunk, -1, false);
-        this.mWaterTempItem = addText(KeyDef.SKEY_CALLDN_4, 180, R.string.can_car_water_temp, -1, false);
-        this.mWashingItem = addText(859, KeyDef.RKEY_MEDIA_SLOW, R.string.can_wash, -1, false);
-        this.mRPMItem = addText(Can.CAN_JAC_REFINE_OD, 445, R.string.can_rpm, -16777216, true);
-        this.mQuickOilItem = addText(500, 445, R.string.can_ssyh, -16777216, true);
-        this.mOilValueItem = addText(KeyDef.SKEY_NAVI_2, 445, R.string.can_rest_oil, -16777216, true);
+        addImage(getResources().getDimensionPixelSize(R.dimen.x1_vw_carinfo_flg) + 11, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 429, R.drawable.canvw_speed_up);
+        addImage(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 347, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 429, R.drawable.canvw_oil_up);
+        addImage(getResources().getDimensionPixelSize(R.dimen.x2_vw_carinfo_flg) + 683, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 429, R.drawable.canvw_oil_value_icon);
+        this.mOilItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 80, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + KeyDef.RKEY_MEDIA_SLOW, R.string.can_oil_warn, -1, false);
+        this.mOilTempItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 117, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 180, R.string.can_oil_temp, -1, false);
+        this.mElctricItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 218, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 78, R.string.can_battery, -1, false);
+        this.mSeatBeltItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 365, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 5, R.string.can_belt);
+        this.mTrunkUpItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 720, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 78, R.string.can_trunk, -1, false);
+        this.mWaterTempItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + KeyDef.SKEY_CALLDN_4, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 180, R.string.can_car_water_temp, -1, false);
+        this.mWashingItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 859, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + KeyDef.RKEY_MEDIA_SLOW, R.string.can_wash, -1, false);
+        this.mRPMItem = addText(getResources().getDimensionPixelSize(R.dimen.x1_vw_carinfo_flg) + 150, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mQuickOilItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 500, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_ssyh, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mOilValueItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + KeyDef.SKEY_NAVI_2, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_rest_oil, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private ImageView addImage(int x, int y, int iconId) {
@@ -140,7 +141,7 @@ public class CanGolfWcCarInfoActivity extends CanBaseActivity implements UserCal
     }
 
     private TextView addText(int x, int y, int textId, int color, boolean isCenterAlign) {
-        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(Can.CAN_CHANA_CS75_WC, -2);
+        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(160, -2);
         layoutLp.leftMargin = x;
         layoutLp.topMargin = y;
         LinearLayout layout = new LinearLayout(this);

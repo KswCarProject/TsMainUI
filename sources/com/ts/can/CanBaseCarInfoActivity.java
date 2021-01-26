@@ -8,10 +8,15 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarInfoView;
+import com.ts.can.audi.rzc.CanAudiRzcCarSetView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarInfoView;
 import com.ts.can.audi.xhd.CanAudiWithCDCarInfoView;
 import com.ts.can.baic.wc.hss6.CanBaicHSS6WcCarInfoView;
+import com.ts.can.benc.wc.Metris.CaBencMetrisWcCarInfoView;
 import com.ts.can.bmw.lz.CanBMWLzCarInfoView;
 import com.ts.can.bmw.lz.bmw2.CanBMW2LzCarInfoView;
+import com.ts.can.bmw.rzc.CanBmwRzcCarInfoView;
 import com.ts.can.bmw.x1.wc.CanBMWX1WcCarInfoView;
 import com.ts.can.bmw.zmyt.CanBmwZmytWithCDCarInfoView;
 import com.ts.can.byd.dj.m6.CanBydM6DjCarInfoView;
@@ -27,6 +32,7 @@ import com.ts.can.chana.wc.CanCs75WcCarInfoActivity;
 import com.ts.can.chana.wc.cos.CanChanACosCarInfoView;
 import com.ts.can.chana.wc.os.CanChanaWcCarInfoView;
 import com.ts.can.chery.wc.CanCheryWcCarInfoView;
+import com.ts.can.chery.xp.tiggo.CanCheryTiggoXpCarInfoView;
 import com.ts.can.chrysler.txb.CanChryslerTxbCarInfoView;
 import com.ts.can.chrysler.wc.CanChryslerWcCarInfoView;
 import com.ts.can.chrysler.wc.compass.CanCompassWcCarInfoView;
@@ -39,6 +45,7 @@ import com.ts.can.df.wc.jy.CanJYX5WcCarInfoView;
 import com.ts.can.faw.t3.b30.CanFawB30T3CarInfoView;
 import com.ts.can.fiat.rzc.CanFiatRzcCarInfoView;
 import com.ts.can.fiat.wc.CanFiatWcCarInfoView;
+import com.ts.can.ford.dj.CanFordDjCarInfoView;
 import com.ts.can.ford.rzc.CanFordRzcCarInfoView;
 import com.ts.can.ford.wc.CanFordWcCarInfoView;
 import com.ts.can.ford.wc.fiesta.CanFordFiestaWcCarInfoView;
@@ -47,6 +54,7 @@ import com.ts.can.gac.trumpchi_wc.CanTrumpchiWcCarInfoView;
 import com.ts.can.gm.od.captiva.CanGmCaptivaOdCarInfoView;
 import com.ts.can.gm.rzc.CanGMCarInfoView;
 import com.ts.can.gm.wc.CanGMWcCarInfoView;
+import com.ts.can.gm.wc.enclave.CanGmEnclaveWcCarInfoView;
 import com.ts.can.hant.rzc.CanHantElectCarInfoView;
 import com.ts.can.honda.rzc.CanHondaDaRzcCarInfoView;
 import com.ts.can.honda.wc.CanHondaWcCarInfoView;
@@ -58,6 +66,7 @@ import com.ts.can.jac.od.CanJACRefineOdCarInfoView;
 import com.ts.can.jac.wc.CanJACRefineWcCarInfoView;
 import com.ts.can.jiangling.myx.CanJiangLingMyxCarInfoView;
 import com.ts.can.kawei.wc.CanKaWeiWcCarInfoView;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarInfoView;
 import com.ts.can.landwind.od.CanLandWindOdCarInfoView;
 import com.ts.can.landwind.rzc.CanLandWindCarInfoView;
 import com.ts.can.lexus.lz.CanLexusLZIs250CarInfoView;
@@ -75,6 +84,7 @@ import com.ts.can.nissan.dj.teana.CanTeanaOldDjCarInfoView;
 import com.ts.can.nissan.rzc.CanNissanRzcCarInfoView;
 import com.ts.can.nissan.wc.CanNissanWcCarInfoView;
 import com.ts.can.nissan.wc.rich6.CanNissanRich6WcCarInfoView;
+import com.ts.can.nissan.xc.teana.CanTeanaOldXcCarInfoView;
 import com.ts.can.obd.bnr.CanObdBnrCarSetView;
 import com.ts.can.obd.dst.CanSciDstCarInfoView;
 import com.ts.can.porsche.lz.CanPorscheLzCarInfoView;
@@ -83,6 +93,7 @@ import com.ts.can.psa.rzc.scr.CanPSAScrRzcCarInfoView;
 import com.ts.can.psa.wc.CanPSAWCCarInfoView;
 import com.ts.can.renault.kadjar.koleos.CanKoleosTpmsView;
 import com.ts.can.renault.wc.CanRenaultWcCarInfoView;
+import com.ts.can.saic.baojun.CanBaojunRs3CarSetView;
 import com.ts.can.saic.baojun.wc.CanBaojunCarInfoView;
 import com.ts.can.saic.dt.v80.CanDtV80CarInfoView;
 import com.ts.can.saic.t60_rzc.CanDtT60RzcCarInfoView;
@@ -94,6 +105,7 @@ import com.ts.can.se.rzc.dx7.CanSeDx7RzcCarInfoView;
 import com.ts.can.sitechdev.cw.CanSitechDevCwCarInfoView;
 import com.ts.can.subuar.xp.CanSubuarCarInfoView;
 import com.ts.can.swm.rzc.CanSwmRzcCarInfoView;
+import com.ts.can.tata.lz.CanTataLzCarInfoView;
 import com.ts.can.tata.wc.CanTataWcCarInfoView;
 import com.ts.can.toyota.dj.CanToyotaDJCarInfoView;
 import com.ts.can.volvo.lz.CanVolvoLZCarInfoView;
@@ -138,6 +150,9 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
             case 14:
                 this.mBaseView = new CanHyundaiCarInfoView(this);
                 return;
+            case 16:
+                this.mBaseView = new CanBaojunRs3CarSetView(this);
+                return;
             case 52:
                 this.mBaseView = new CanDFCarInfoView(this);
                 return;
@@ -145,7 +160,7 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
                 this.mBaseView = new CanKoleosTpmsView(this);
                 return;
             case 70:
-                if (CanJni.GetSubType() == 2) {
+                if (CanJni.GetSubType() == 2 || CanJni.GetSubType() == 4) {
                     this.mBaseView = new CanDFFGRzcCarInfoView(this);
                     return;
                 } else {
@@ -170,16 +185,16 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
             case 149:
                 this.mBaseView = new CanNissanWcCarInfoView(this);
                 return;
-            case Can.CAN_JAC_REFINE_OD:
+            case 150:
                 this.mBaseView = new CanJACRefineOdCarInfoView(this);
                 return;
             case 151:
                 this.mBaseView = new CanGMWcCarInfoView(this);
                 return;
-            case Can.CAN_AUDI_ZMYT:
+            case 152:
                 this.mBaseView = new CanAudiWithCDCarInfoView(this);
                 return;
-            case Can.CAN_HYUNDAI_WC:
+            case 153:
                 this.mBaseView = new CanHyundaiWcCarInfoView(this);
                 return;
             case Can.CAN_CC_WC:
@@ -194,7 +209,7 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
             case Can.CAN_DF_WC:
                 this.mBaseView = new CanDfFsWcCarInfoView(this);
                 return;
-            case Can.CAN_CHANA_CS75_WC:
+            case 160:
                 this.mBaseView = new CanCs75WcCarInfoActivity(this);
                 return;
             case 161:
@@ -208,6 +223,9 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
                 return;
             case 164:
                 this.mBaseView = new CanMzdWcCarInfoView(this);
+                return;
+            case 165:
+                this.mBaseView = new CaBencMetrisWcCarInfoView(this);
                 return;
             case 167:
                 this.mBaseView = new CanDtV80CarInfoView(this);
@@ -324,7 +342,7 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
             case Can.CAN_GM_CAPTIVA_OD:
                 this.mBaseView = new CanGmCaptivaOdCarInfoView(this);
                 return;
-            case 241:
+            case Can.CAN_SITECHDEV_CW:
                 if (MainSet.GetInstance().bIsEnableCan()) {
                     this.mBaseView = new CanSitechDevCwCarInfoView(this);
                     return;
@@ -420,6 +438,36 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
             case 288:
                 this.mBaseView = new CanHondaDaRzcCarInfoView(this);
                 return;
+            case 289:
+                this.mBaseView = new CanLandRoverZmytCarInfoView(this);
+                return;
+            case 292:
+                this.mBaseView = new CanFordDjCarInfoView(this);
+                return;
+            case 294:
+                this.mBaseView = new CanTeanaOldXcCarInfoView(this);
+                return;
+            case 295:
+                this.mBaseView = new CanAudiRzcCarSetView(this);
+                return;
+            case 298:
+                this.mBaseView = new CanAudiLzWithCDCarInfoView(this);
+                return;
+            case 300:
+                this.mBaseView = new CanGmEnclaveWcCarInfoView(this);
+                return;
+            case 301:
+                this.mBaseView = new CanCheryTiggoXpCarInfoView(this);
+                return;
+            case 303:
+                this.mBaseView = new CanAudiXbsWithCDCarInfoView(this);
+                return;
+            case 307:
+                this.mBaseView = new CanTataLzCarInfoView(this);
+                return;
+            case 309:
+                this.mBaseView = new CanBmwRzcCarInfoView(this);
+                return;
             default:
                 showDefaultDialog();
                 return;
@@ -443,6 +491,14 @@ public class CanBaseCarInfoActivity extends CanBaseActivity implements UserCallB
                     CanBaseCarInfoActivity.this.finish();
                 }
             });
+        }
+    }
+
+    /* access modifiers changed from: protected */
+    public void onStart() {
+        super.onStart();
+        if (this.mBaseView != null) {
+            this.mBaseView.doOnStart();
         }
     }
 

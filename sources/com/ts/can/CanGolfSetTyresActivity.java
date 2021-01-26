@@ -67,11 +67,11 @@ public class CanGolfSetTyresActivity extends CanGolfBaseActivity implements View
             this.mTyresData.Update = 0;
             this.mItemSpeedWarn.SetCheck(this.mTyresData.fgSpeedWarning);
             if (this.mTyresData.SpeedDW == 0) {
-                this.mItemWarnAt.SetMinMax(30, 240);
+                this.mItemWarnAt.SetMinMax(30, Can.CAN_VOLKS_XP);
                 this.mItemWarnAt.SetStep(10);
                 this.mItemWarnAt.SetValText(this.mTyresData.Data + " km/h");
             } else {
-                this.mItemWarnAt.SetMinMax(20, Can.CAN_JAC_REFINE_OD);
+                this.mItemWarnAt.SetMinMax(20, 150);
                 this.mItemWarnAt.SetStep(5);
                 this.mItemWarnAt.SetValText(this.mTyresData.Data + " mph");
             }

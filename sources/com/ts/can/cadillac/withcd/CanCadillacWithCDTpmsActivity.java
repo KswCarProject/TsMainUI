@@ -18,6 +18,7 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanCadillacWithCDTpmsActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, CanItemProgressList.onPosChange {
@@ -130,7 +131,7 @@ public class CanCadillacWithCDTpmsActivity extends CanBaseActivity implements Us
         } else if (this.mData.Dw == 2) {
             return String.format("%.1f kpa", new Object[]{Double.valueOf(((double) press) * 2.5d)});
         } else if (this.mData.Dw != 3) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         } else {
             return String.format("%d kpa", new Object[]{Integer.valueOf(press)});
         }

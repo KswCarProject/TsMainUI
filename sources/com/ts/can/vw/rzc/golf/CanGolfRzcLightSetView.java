@@ -11,6 +11,7 @@ public class CanGolfRzcLightSetView extends CanScrollCarInfoView {
     public static final int ITEM_AUTO_HEADLIGHT = 2;
     public static final int ITEM_BACKGROUND_ALL_LIGHT = 15;
     public static final int ITEM_BACKGROUND_FORE_LIGHT = 14;
+    public static final int ITEM_BACKGROUND_LIGHT = 19;
     public static final int ITEM_BACKGROUND_LIGHT_COLOR = 16;
     public static final int ITEM_BACKGROUND_TOP_LIGHT = 13;
     public static final int ITEM_COMMING_FUNC = 8;
@@ -28,12 +29,21 @@ public class CanGolfRzcLightSetView extends CanScrollCarInfoView {
     public static final int ITEM_SWITCH_TIME = 0;
     public static final int ITEM_TRAVEL_MODE = 1;
     public static final String TAG = "CanGolfRzcLightSetView";
+    protected static final int[] mBacklightIndex;
     private CanDataInfo.GolfBackgroundLighting mBgLightData;
     private CanDataInfo.GolfLight mLight1Data;
     private CanDataInfo.GolfLight2 mLight2Data;
 
+    static {
+        int[] iArr = new int[4];
+        iArr[1] = 1;
+        iArr[2] = 4;
+        iArr[3] = 5;
+        mBacklightIndex = iArr;
+    }
+
     public CanGolfRzcLightSetView(Activity activity) {
-        super(activity, 19);
+        super(activity, 20);
     }
 
     public void onItem(int id, int item) {
@@ -52,6 +62,9 @@ public class CanGolfRzcLightSetView extends CanScrollCarInfoView {
                 return;
             case 18:
                 CanJni.GolfSendCmd(75, item + 1);
+                return;
+            case 19:
+                CanJni.GolfSendCmd(76, mBacklightIndex[item]);
                 return;
             default:
                 return;
@@ -116,8 +129,8 @@ public class CanGolfRzcLightSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_sw_on_time, R.string.can_trip_mode, R.string.can_headlight_in_rain, R.string.can_lane_flash, R.string.can_rjxcd, R.string.can_dynamic_light_assist, R.string.can_motoway_light, R.string.can_environment_light, R.string.can_coming_func, R.string.can_leaving_func, R.string.can_ins_sw_light, R.string.can_evt_light, R.string.can_foot_light, R.string.can_magoten_bg_top_light, R.string.can_magoten_bg_fore_light, R.string.can_magoten_bg_all_light, R.string.can_magoten_bg_light_color, R.string.can_light_distacne, R.string.can_environment_light_type};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP};
+        this.mItemTitleIds = new int[]{R.string.can_sw_on_time, R.string.can_trip_mode, R.string.can_headlight_in_rain, R.string.can_lane_flash, R.string.can_rjxcd, R.string.can_dynamic_light_assist, R.string.can_motoway_light, R.string.can_environment_light, R.string.can_coming_func, R.string.can_leaving_func, R.string.can_ins_sw_light, R.string.can_evt_light, R.string.can_foot_light, R.string.can_magoten_bg_top_light, R.string.can_magoten_bg_fore_light, R.string.can_magoten_bg_all_light, R.string.can_magoten_bg_light_color, R.string.can_light_distacne, R.string.can_environment_light_type, R.string.can_honda_bjstj};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
         this.mPopValueIds[0] = new int[]{R.string.can_early, R.string.can_medium_s_s, R.string.can_late};
         this.mPopValueIds[1] = new int[]{R.string.can_drive_right, R.string.can_drive_left};
         this.mPopValueIds[7] = new int[]{R.string.can_off, R.string.can_shoudong, R.string.can_mzd_cx4_drive_auto};
@@ -176,7 +189,8 @@ public class CanGolfRzcLightSetView extends CanScrollCarInfoView {
         iArr18[2] = 1;
         iArr18[3] = 1;
         iArr17[17] = iArr18;
-        this.mPopValueIds[18] = new int[]{R.string.can_headlightsens_1, R.string.can_headlightsens_2};
+        this.mPopValueIds[18] = new int[]{R.string.can_headlightsens_1, R.string.can_headlightsens_2, R.string.can_headlightsens_3};
+        this.mPopValueIds[19] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_magoten_light_color_1, R.string.can_magoten_light_color_2, R.string.can_magoten_light_color_3};
         this.mLight1Data = new CanDataInfo.GolfLight();
         this.mLight2Data = new CanDataInfo.GolfLight2();
         this.mBgLightData = new CanDataInfo.GolfBackgroundLighting();
@@ -216,6 +230,17 @@ public class CanGolfRzcLightSetView extends CanScrollCarInfoView {
             updateItem(5, this.mLight2Data.DynamicLightAss);
             updateItem(6, this.mLight2Data.fgMotorwayLight);
             updateItem(17, this.mLight2Data.LightDistance, String.valueOf(this.mLight2Data.LightDistance));
+            int i = 0;
+            while (true) {
+                if (i >= mBacklightIndex.length) {
+                    break;
+                } else if (this.mLight2Data.Backgroundlighting == mBacklightIndex[i]) {
+                    updateItem(19, i);
+                    break;
+                } else {
+                    i++;
+                }
+            }
         }
         if (!i2b(this.mBgLightData.UpdateOnce)) {
             return;

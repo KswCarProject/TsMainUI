@@ -7,20 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.txznet.comm.Tr.Tr.Tn;
 import com.txznet.comm.ui.Tk.T;
-import com.txznet.sdk.tongting.IConstantData;
 
 /* compiled from: Proguard */
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private static T f537T = T.Tr();
+    private static T f541T = T.Tr();
 
     public static void T() {
-        f537T.T();
+        f541T.T();
     }
 
     public static XmlResourceParser T(String layoutName) {
-        return f537T.Tn(layoutName);
+        return f541T.Tn(layoutName);
     }
 
     public static View Tr(String layoutName) {
@@ -34,11 +33,11 @@ public class Tr {
 
     public static Object T(String name, View view) {
         try {
-            View target = view.findViewById(f537T.T(name, IConstantData.KEY_ID));
+            View target = view.findViewById(f541T.T(name, "id"));
             if (target != null) {
                 return target;
             }
-            return view.findViewById(com.txznet.comm.Tr.T.Tr().getResources().getIdentifier(name, IConstantData.KEY_ID, com.txznet.comm.Tr.T.Tr().getPackageName()));
+            return view.findViewById(com.txznet.comm.Tr.T.Tr().getResources().getIdentifier(name, "id", com.txznet.comm.Tr.T.Tr().getPackageName()));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -47,7 +46,7 @@ public class Tr {
 
     public static Drawable Ty(String name) {
         try {
-            return f537T.T9(name);
+            return f541T.T9(name);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -56,7 +55,7 @@ public class Tr {
 
     public static float Tn(String name) {
         try {
-            return f537T.Tk(name);
+            return f541T.Tk(name);
         } catch (Exception e) {
             e.printStackTrace();
             return 0.0f;
@@ -64,6 +63,6 @@ public class Tr {
     }
 
     public static String T9(String name) {
-        return f537T.TZ(name);
+        return f541T.TZ(name);
     }
 }

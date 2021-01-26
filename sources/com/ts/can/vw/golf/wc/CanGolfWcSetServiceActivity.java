@@ -14,6 +14,7 @@ import com.ts.can.CanIF;
 import com.ts.canview.CanItemBlankTextList;
 import com.ts.canview.CanItemTextBtnList;
 import com.ts.canview.CanScrollList;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfWcSetServiceActivity extends CanBaseActivity implements UserCallBack {
     private CanDataInfo.GolfDaysComm mInspecDays = new CanDataInfo.GolfDaysComm();
@@ -109,8 +110,8 @@ public class CanGolfWcSetServiceActivity extends CanBaseActivity implements User
     /* access modifiers changed from: protected */
     @SuppressLint({"DefaultLocale"})
     public String FormatData(CanDataInfo.GolfDaysComm days, CanDataInfo.GolfDistanceCommon dis) {
-        String strDays = "";
-        String strDis = "";
+        String strDays = TXZResourceManager.STYLE_DEFAULT;
+        String strDis = TXZResourceManager.STYLE_DEFAULT;
         switch (days.ShowType) {
             case 0:
                 strDays = "--";

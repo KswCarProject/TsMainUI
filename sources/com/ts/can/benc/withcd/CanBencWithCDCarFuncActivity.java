@@ -3,11 +3,14 @@ package com.ts.can.benc.withcd;
 import android.content.Context;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
+import com.ts.can.CanCameraUI;
 import com.ts.can.CanCommonActivity;
+import com.ts.can.CanFunc;
 import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
@@ -19,6 +22,7 @@ import com.yyw.ts70xhw.Mcu;
 public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
     private static final int ITEM_BENC_BOX_CAMERA = 7;
     private static final int ITEM_CAMERA = 0;
+    private static final int ITEM_CLOCK_DISP = 12;
     private static final int ITEM_FRONT_DOOR = 9;
     private static final int ITEM_NAVI_PER = 8;
     private static final int ITEM_REAR_DOOR = 10;
@@ -28,9 +32,13 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
     private static final int ITEM_SPEED_DW = 3;
     private static final int ITEM_SSSB = 6;
     private static final int ITEM_TEMP_DW = 4;
+    private static final int ITEM_XTCGFK = 11;
+    private static final int ITEM_YCQPXS = 13;
+    private static final int[] mClockStr = {R.string.can_time, R.string.can_compass, R.string.can_logo};
     private static final int[] mDoorStr1 = {R.string.str_fs_normal, R.string.str_fs_swap, R.string.str_fs_hide};
     private static int m_BenxBoxCamera = 0;
     private static int m_Camerb = 0;
+    private static int m_Clockb = 0;
     private static int m_NaviPerb = 0;
     private static int m_RCamerb = 0;
     private static int m_RvsDelayb = 0;
@@ -38,10 +46,14 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
     private static int m_SpeedDwb = 0;
     private static int m_Sssbb = 0;
     private static int m_TempDwb = 0;
+    private static int m_Xtgfk = 0;
+    private static int m_Ycqpxsb = 0;
     private int[] mBencBoxCameraArr = {R.string.can_auto_check, R.string.can_car_camera, R.string.can_tft_cvbs, R.string.can_tft_ahd, R.string.can_host_camera};
+    private int[] mCamera8259Arr = {R.string.can_rvs_cvbs, R.string.can_rvs_carmode, R.string.can_rvs_avm, R.string.can_rvs_ahd};
     private int[] mCameraArr = {R.string.can_rvs_cvbs, R.string.can_rvs_carmode, R.string.can_rvs_vga};
     private CanItemPopupList mItemBencBoxCamera;
     private CanItemPopupList mItemCamera;
+    private CanItemPopupList mItemClock;
     private CanItemPopupList mItemFrontDoor;
     private CanItemProgressList mItemNaviPer;
     private CanItemSwitchList mItemRCamera;
@@ -51,6 +63,8 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
     private CanItemPopupList mItemSpeedDw;
     private CanItemSwitchList mItemSssb;
     private CanItemPopupList mItemTempDw;
+    private CanItemSwitchList mItemXtcgfk;
+    private CanItemSwitchList mItemYcpqpxs;
     private CanScrollList mManager;
     private int[] mRvsDealyArr = {R.string.can_0s, R.string.can_3s, R.string.can_5s, R.string.can_7s};
     private int[] mSpeedDwArr = {R.string.can_speed_kmh, R.string.can_speed_mph};
@@ -64,7 +78,11 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
     /* access modifiers changed from: protected */
     public void InitUI() {
         this.mManager = new CanScrollList(this);
-        this.mItemCamera = AddPopupItem(R.string.can_camera_360, this.mCameraArr, 0);
+        if (CanFunc.getInstance().IsCore() != 1) {
+            this.mItemCamera = AddPopupItem(R.string.can_camera_360, this.mCameraArr, 0);
+        } else {
+            this.mItemCamera = AddPopupItem(R.string.can_camera_360, this.mCamera8259Arr, 0);
+        }
         this.mItemRCamera = AddCheckItem(R.string.can_tigger7_start_avm, 1);
         this.mItemSpeechMode = AddCheckItem(R.string.can_sw_speech_mode, 2);
         this.mItemSpeedDw = AddPopupItem(R.string.can_speed_dw, this.mSpeedDwArr, 3);
@@ -80,6 +98,14 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
         this.mItemNaviPer.SetUserValText();
         this.mItemFrontDoor = AddPopupItem(R.string.can_front_door, mDoorStr1, 9);
         this.mItemRearDoor = AddPopupItem(R.string.can_rear_door, mDoorStr1, 10);
+        this.mItemXtcgfk = AddCheckItem(R.string.can_xtcgfk, 11);
+        this.mItemClock = AddPopupItem(R.string.can_clocl_set, mClockStr, 12);
+        this.mItemYcpqpxs = AddCheckItem(R.string.can_ycqpxs, 13);
+        if (CanFunc.getInstance().IsCore() != 1) {
+            this.mItemYcpqpxs.ShowGone(false);
+        } else if (RvsMode() == 2) {
+            this.mItemRCamera.ShowGone(false);
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -118,6 +144,7 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
 
     /* access modifiers changed from: protected */
     public void ResetData(boolean check) {
+        boolean z = true;
         if (m_Camerb != (FtSet.Getlgb1() & 15) || !check) {
             m_Camerb = FtSet.Getlgb1() & 15;
             this.mItemCamera.SetSel(m_Camerb);
@@ -130,7 +157,7 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
             m_SpeechModeb = FtSet.Getlgb5() & 1;
             this.mItemSpeechMode.SetCheck(m_SpeechModeb);
         }
-        if (m_SpeedDwb != (FtSet.Getlgb2() & 240) || !check) {
+        if (m_SpeedDwb != (FtSet.Getlgb2() & Can.CAN_VOLKS_XP) || !check) {
             m_SpeedDwb = (FtSet.Getlgb2() >> 4) & 15;
             this.mItemSpeedDw.SetSel(m_SpeedDwb);
         }
@@ -157,6 +184,26 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
         }
         this.mItemFrontDoor.SetSel(FtSet.GetFdoor());
         this.mItemRearDoor.SetSel(FtSet.GetBdoor());
+        if (m_Xtgfk != Xtcgfk() || !check) {
+            m_Xtgfk = Xtcgfk();
+            CanItemSwitchList canItemSwitchList = this.mItemXtcgfk;
+            if (m_Xtgfk != 0) {
+                z = false;
+            }
+            canItemSwitchList.SetCheck(z);
+        }
+        if (m_Clockb != ClockDisp() || !check) {
+            m_Clockb = ClockDisp();
+            this.mItemClock.SetSel(m_Clockb);
+        }
+        if (m_Ycqpxsb != IsYcqpxs() || !check) {
+            m_Ycqpxsb = IsYcqpxs();
+            this.mItemYcpqpxs.SetCheck(m_Ycqpxsb);
+        }
+    }
+
+    public static int RCamera() {
+        return FtSet.Getlgb2() & 15;
     }
 
     public static int RvsDelay() {
@@ -168,7 +215,7 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
     }
 
     public static int BencZmytSpeedDw() {
-        return (FtSet.Getlgb2() & 240) >> 4;
+        return (FtSet.Getlgb2() & Can.CAN_VOLKS_XP) >> 4;
     }
 
     public static int BencZmytTempDw() {
@@ -192,7 +239,7 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
     }
 
     public static int AmbientLightR() {
-        return (FtSet.Getyw12() & -16777216) >> 24;
+        return (FtSet.Getyw12() & ViewCompat.MEASURED_STATE_MASK) >> 24;
     }
 
     public static int AmbientLightG() {
@@ -201,6 +248,14 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
 
     public static int AmbientLightB() {
         return (FtSet.Getyw13() & 65280) >> 8;
+    }
+
+    public static int ClockDisp() {
+        return (FtSet.Getlgb3() & 192) >> 6;
+    }
+
+    public static int IsYcqpxs() {
+        return (FtSet.Getlgb3() & 3072) >> 10;
     }
 
     public static void AmbientLightSet(int Cmd, int Para, int Para2, int Para3) {
@@ -235,6 +290,10 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
                 break;
         }
         CanJni.BencZmytAmbientLightCmd(2, AmbientLightSta(), AmbientLightMode(), AmbientLightBri(), AmbientLightR(), AmbientLightG(), AmbientLightB(), 0, 0, 0);
+    }
+
+    public static int Xtcgfk() {
+        return FtSet.Getyw15() & 3;
     }
 
     /* access modifiers changed from: protected */
@@ -275,6 +334,24 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
                 FtSet.Setyw5(temp3 | 1);
                 CanJni.BencZmytCommonCmd(1, 85, 0);
                 return;
+            case 11:
+                int temp4 = FtSet.Getyw15() & -4;
+                if ((FtSet.Getyw15() & 3) > 0) {
+                    FtSet.Setyw15(temp4);
+                    return;
+                } else {
+                    FtSet.Setyw15(temp4 | 1);
+                    return;
+                }
+            case 13:
+                int temp5 = FtSet.Getlgb3() & 62463;
+                if ((FtSet.Getlgb3() & 3072) > 0) {
+                    FtSet.Setlgb3(temp5);
+                    return;
+                } else {
+                    FtSet.Setlgb3(temp5 | 1024);
+                    return;
+                }
             default:
                 return;
         }
@@ -293,9 +370,28 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
                 } else if (item == 2) {
                     FtSet.Setlgb1(temp | 2);
                     Mcu.SendXKey(35);
+                } else if (item == 3) {
+                    FtSet.Setlgb1(temp | 3);
+                    Mcu.SendXKey(36);
+                    CanCameraUI.GetInstance().nLayoutReLoad = 1;
                 }
                 CanBencWithCDCarInitActivity.SetCamType(0, 0, 0);
-                return;
+                if (CanFunc.getInstance().IsCore() != 1) {
+                    return;
+                }
+                if (RvsMode() == 2) {
+                    this.mItemRCamera.ShowGone(false);
+                    Mcu.SendXKey(40);
+                    return;
+                }
+                this.mItemRCamera.ShowGone(true);
+                if (RCamera() > 0) {
+                    Mcu.SendXKey(41);
+                    return;
+                } else {
+                    Mcu.SendXKey(40);
+                    return;
+                }
             case 3:
                 int temp2 = FtSet.Getlgb2();
                 if (item == 0) {
@@ -351,6 +447,20 @@ public class CanBencWithCDCarFuncActivity extends CanCommonActivity implements C
             case 10:
                 FtSet.SetBdoor(item);
                 return;
+            case 12:
+                int temp5 = FtSet.Getlgb3() & 65343;
+                if (item == 0) {
+                    FtSet.Setlgb3(temp5);
+                    return;
+                } else if (item == 1) {
+                    FtSet.Setlgb3(temp5 | 64);
+                    return;
+                } else if (item == 2) {
+                    FtSet.Setlgb3(temp5 | 128);
+                    return;
+                } else {
+                    return;
+                }
             default:
                 return;
         }

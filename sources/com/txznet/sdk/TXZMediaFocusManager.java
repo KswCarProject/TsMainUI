@@ -2,6 +2,7 @@ package com.txznet.sdk;
 
 import android.content.Intent;
 import android.util.Log;
+import com.android.SdkConstants;
 import com.txznet.T.T;
 
 /* compiled from: Proguard */
@@ -11,7 +12,7 @@ public class TXZMediaFocusManager {
     private static TXZMediaFocusManager Tr = new TXZMediaFocusManager();
 
     /* renamed from: T  reason: collision with root package name */
-    Runnable f746T = new Runnable() {
+    Runnable f750T = new Runnable() {
         public void run() {
             if (TXZMediaFocusManager.this.isFocusGained()) {
                 boolean unused = TXZMediaFocusManager.this.Ty = false;
@@ -36,15 +37,15 @@ public class TXZMediaFocusManager {
         if (needNotify) {
             T();
         }
-        T.Ty(this.f746T);
-        T.T(this.f746T, 8000);
+        T.Ty(this.f750T);
+        T.T(this.f750T, 8000);
     }
 
     public void releaseFocus() {
         if (isFocusGained()) {
             this.Ty = false;
             T();
-            T.Ty(this.f746T);
+            T.Ty(this.f750T);
         }
     }
 
@@ -55,7 +56,7 @@ public class TXZMediaFocusManager {
     /* access modifiers changed from: private */
     public void T() {
         Intent intent;
-        Log.d("asd", "media focus changed: " + (isFocusGained() ? "true" : "false"));
+        Log.d("asd", "media focus changed: " + (isFocusGained() ? SdkConstants.VALUE_TRUE : SdkConstants.VALUE_FALSE));
         if (isFocusGained()) {
             intent = new Intent(INTENT_FOCUS_GAINED);
         } else {

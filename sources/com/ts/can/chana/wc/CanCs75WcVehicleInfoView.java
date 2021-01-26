@@ -2,6 +2,7 @@ package com.ts.can.chana.wc;
 
 import android.app.Activity;
 import android.view.View;
+import com.android.SdkConstants;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -49,7 +50,7 @@ public class CanCs75WcVehicleInfoView extends CanScrollCarInfoView {
             }
             updateItem(2, 0, String.valueOf(((float) this.mMsgData.BatV) * 0.1f) + " V");
             if (this.mMsgData.Jqmwz == 255) {
-                updateItem(3, 0, "-");
+                updateItem(3, 0, SdkConstants.RES_QUALIFIER_SEP);
             } else if (this.mMsgData.Jqmwz >= 0 && this.mMsgData.Jqmwz <= 100) {
                 updateItem(3, 0, String.valueOf(this.mMsgData.Jqmwz) + "%");
             }

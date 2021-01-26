@@ -5,6 +5,8 @@ import android.view.View;
 import com.lgb.canmodule.Can;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
+import com.ts.can.CanCameraUI;
+import com.ts.can.CanFunc;
 import com.ts.can.CanScrollCarInfoView;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
@@ -14,7 +16,7 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
     private static final int ITEM_AIR = 3;
     private static final int ITEM_CAMERA = 0;
     private static final int ITEM_FRONT_DOOR = 7;
-    private static final int ITEM_MAX = 9;
+    private static final int ITEM_MAX = 11;
     private static final int ITEM_MIN = 0;
     private static final int ITEM_NAVI_PER = 9;
     private static final int ITEM_REAR_DOOR = 8;
@@ -23,6 +25,8 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
     private static final int ITEM_SPEECH_MODE = 2;
     private static final int ITEM_SPEED_DW = 6;
     private static final int ITEM_SW_X = 4;
+    private static final int ITEM_XTCGFK = 10;
+    private static final int ITEM_YCQPXS = 11;
     private static int m_Airb = 0;
     private static int m_Camerb = 0;
     private static int m_NaviPerb = 0;
@@ -31,16 +35,23 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
     private static int m_SpeechModeb = 0;
     private static int m_SpeedDwb = 0;
     private static int m_SwXb = 0;
+    private static int m_Xtgfk = 0;
+    private static int m_Ycqpxsb = 0;
 
     public CanAudiWithCDCarFuncView(Activity activity) {
-        super(activity, 10);
+        super(activity, 12);
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_camera_360, R.string.can_tigger7_start_avm, R.string.can_sw_speech_mode, R.string.can_ac_mode, R.string.can_swkey_j, R.string.can_rvs_keep, R.string.can_speed_dw, R.string.can_front_door, R.string.can_rear_door, R.string.can_navi_pre};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS};
-        this.mPopValueIds[0] = new int[]{R.string.can_rvs_cvbs, R.string.can_rvs_carmode};
+        this.mItemTitleIds = new int[]{R.string.can_camera_360, R.string.can_tigger7_start_avm, R.string.can_sw_speech_mode, R.string.can_ac_mode, R.string.can_swkey_j, R.string.can_rvs_keep, R.string.can_speed_dw, R.string.can_front_door, R.string.can_rear_door, R.string.can_navi_pre, R.string.can_xtcgfk, R.string.can_ycqpxs};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH};
+        if (CanFunc.getInstance().IsCore() != 1) {
+            this.mPopValueIds[0] = new int[]{R.string.can_rvs_cvbs, R.string.can_rvs_carmode};
+            this.mItemVisibles[11] = 0;
+        } else {
+            this.mPopValueIds[0] = new int[]{R.string.can_rvs_cvbs, R.string.can_rvs_carmode, R.string.can_rvs_avm, R.string.can_rvs_ahd};
+        }
         this.mPopValueIds[3] = new int[]{R.string.can_audi_air_mode1, R.string.can_audi_air_mode2};
         this.mPopValueIds[5] = new int[]{R.string.can_0s, R.string.can_3s, R.string.can_5s, R.string.can_7s};
         this.mPopValueIds[4] = new int[]{R.string.can_swkey_next, R.string.can_swkey_bt, R.string.can_swkey_navi, R.string.can_swkey_nofunc};
@@ -52,6 +63,9 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
         iArr2[1] = 100;
         iArr2[2] = 1;
         iArr[9] = iArr2;
+        if (CanFunc.getInstance().IsCore() == 1 && RvsMode() == 2) {
+            this.mItemVisibles[1] = 0;
+        }
     }
 
     public void onClick(View v) {
@@ -73,9 +87,31 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
                     FtSet.Setlgb5(1);
                     return;
                 }
+            case 10:
+                int temp = FtSet.Getyw15() & -4;
+                if ((FtSet.Getyw15() & 3) > 0) {
+                    FtSet.Setyw15(temp);
+                    return;
+                } else {
+                    FtSet.Setyw15(temp | 1);
+                    return;
+                }
+            case 11:
+                int temp2 = FtSet.Getlgb4();
+                if ((FtSet.Getlgb4() & 768) > 0) {
+                    FtSet.Setlgb4(64767 & temp2);
+                    return;
+                } else {
+                    FtSet.Setlgb4(temp2 | 256);
+                    return;
+                }
             default:
                 return;
         }
+    }
+
+    public static int RCamera() {
+        return FtSet.Getlgb2() & 1;
     }
 
     public int AudiZmytAirMode() {
@@ -94,19 +130,51 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
         return (FtSet.Getyw5() & 65280) >> 8;
     }
 
+    public static int RvsMode() {
+        return FtSet.Getlgb1() & 3;
+    }
+
+    public static int Xtcgfk() {
+        return FtSet.Getyw15() & 3;
+    }
+
+    public static int IsYcqpxs() {
+        return (FtSet.Getlgb4() & 768) >> 8;
+    }
+
     public void onItem(int id, int item) {
         switch (id) {
             case 0:
-                int temp = FtSet.Getlgb1();
+                int temp = FtSet.Getlgb1() & 65532;
                 if (item == 0) {
-                    FtSet.Setlgb1(temp & Can.CAN_FLAT_RZC);
+                    FtSet.Setlgb1(temp);
                     Mcu.SendXKey(34);
-                    return;
                 } else if (item == 1) {
                     FtSet.Setlgb1(temp | 1);
                     Mcu.SendXKey(33);
+                } else if (item == 2) {
+                    FtSet.Setlgb1(temp | 2);
+                    Mcu.SendXKey(35);
+                } else if (item == 3) {
+                    FtSet.Setlgb1(temp | 3);
+                    Mcu.SendXKey(36);
+                    CanCameraUI.GetInstance().nLayoutReLoad = 1;
+                }
+                CanAudiWithCDCarInitView.SetCamType(0, 0, 0);
+                if (CanFunc.getInstance().IsCore() != 1) {
+                    return;
+                }
+                if (RvsMode() == 2) {
+                    showItem(1, 0);
+                    Mcu.SendXKey(40);
+                    return;
+                }
+                showItem(1, 1);
+                if (RCamera() > 0) {
+                    Mcu.SendXKey(41);
                     return;
                 } else {
+                    Mcu.SendXKey(40);
                     return;
                 }
             case 3:
@@ -195,8 +263,9 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
     }
 
     public void ResetData(boolean check) {
-        if (m_Camerb != (FtSet.Getlgb1() & 1) || !check) {
-            m_Camerb = FtSet.Getlgb1() & 1;
+        int i = 1;
+        if (m_Camerb != RvsMode() || !check) {
+            m_Camerb = RvsMode();
             updateItem(0, m_Camerb);
         }
         if (m_RCamerb != FtSet.Getlgb2() || !check) {
@@ -228,6 +297,17 @@ public class CanAudiWithCDCarFuncView extends CanScrollCarInfoView {
         if (m_NaviPerb != NaviPre() || !check) {
             m_NaviPerb = NaviPre();
             updateItem(9, m_NaviPerb, String.format("%d %%", new Object[]{Integer.valueOf(m_NaviPerb)}));
+        }
+        if (m_Xtgfk != Xtcgfk() || !check) {
+            m_Xtgfk = Xtcgfk();
+            if (m_Xtgfk != 0) {
+                i = 0;
+            }
+            updateItem(10, i);
+        }
+        if (m_Ycqpxsb != IsYcqpxs() || !check) {
+            m_Ycqpxsb = IsYcqpxs();
+            updateItem(11, m_Ycqpxsb);
         }
     }
 

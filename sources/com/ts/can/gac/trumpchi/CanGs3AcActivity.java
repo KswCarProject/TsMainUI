@@ -65,11 +65,11 @@ public class CanGs3AcActivity extends CanBaseActivity implements UserCallBack, V
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, Can.CAN_TEANA_OLD_DJ, this.mIcons[i]);
         }
-        this.mACMode[0] = this.mManager.AddImage(KeyDef.RKEY_MEDIA_ANGLE, 108);
+        this.mACMode[0] = this.mManager.AddImage(305, 108);
         this.mACMode[0].setStateDrawable(R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn);
-        this.mACMode[1] = this.mManager.AddImage(KeyDef.RKEY_MEDIA_ANGLE, 188);
+        this.mACMode[1] = this.mManager.AddImage(305, 188);
         this.mACMode[1].setStateDrawable(R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn);
-        this.mACMode[2] = this.mManager.AddImage(KeyDef.RKEY_MEDIA_ANGLE, 268);
+        this.mACMode[2] = this.mManager.AddImage(305, 268);
         this.mACMode[2].setStateDrawable(R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn);
         this.mStatusWindow = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 202, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 10);
         this.mStatusOutLoop = addButton(KeyDef.SKEY_POWEWR_2, 90, R.drawable.can_rh7_nxh_up, R.drawable.can_rh7_wxh_up, 12);

@@ -1,6 +1,6 @@
 package com.hp.hpl.sparta.xpath;
 
-import com.txznet.sdk.tongting.IConstantData;
+import com.android.SdkConstants;
 import java.io.IOException;
 
 public class ExprFactory {
@@ -9,7 +9,7 @@ public class ExprFactory {
         int i2;
         switch (simpleStreamTokenizer.ttype) {
             case -3:
-                if (!simpleStreamTokenizer.sval.equals("text")) {
+                if (!simpleStreamTokenizer.sval.equals(SdkConstants.ATTR_TEXT)) {
                     throw new XPathException(xPath, "at beginning of expression", simpleStreamTokenizer, "text()");
                 } else if (simpleStreamTokenizer.nextToken() != 40) {
                     throw new XPathException(xPath, "after text", simpleStreamTokenizer, "(");
@@ -47,7 +47,7 @@ public class ExprFactory {
                 return new PositionEqualsExpr(i3);
             case 64:
                 if (simpleStreamTokenizer.nextToken() != -3) {
-                    throw new XPathException(xPath, "after @", simpleStreamTokenizer, IConstantData.KEY_NAME);
+                    throw new XPathException(xPath, "after @", simpleStreamTokenizer, "name");
                 }
                 String str3 = simpleStreamTokenizer.sval;
                 switch (simpleStreamTokenizer.nextToken()) {

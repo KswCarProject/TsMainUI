@@ -23,6 +23,7 @@ public class CanZotyetT500ACView extends CanBaseACView {
     public static final int ITEM_AC = 11;
     public static final int ITEM_AUTO = 12;
     public static final int ITEM_FORE_WIND = 8;
+    private static final int ITEM_HEAT = 18;
     public static final int ITEM_LOOP_IN = 7;
     public static final int ITEM_LOOP_OUT = 10;
     public static final int ITEM_LTEMP_DEC = 2;
@@ -43,6 +44,7 @@ public class CanZotyetT500ACView extends CanBaseACView {
     private ParamButton mBtnAC;
     private ParamButton mBtnAUTO;
     private ParamButton mBtnForeWind;
+    private ParamButton mBtnHeat;
     private ParamButton mBtnLHOT;
     private ParamButton mBtnLoopIn;
     private ParamButton mBtnLoopOut;
@@ -135,6 +137,9 @@ public class CanZotyetT500ACView extends CanBaseACView {
                 case 17:
                     CanJni.ZtDmX7CarAcSet(0, 0, 0, 0, 1, 0);
                     break;
+                case 18:
+                    CanJni.ZtDmX7CarAcSet(0, 0, 0, 0, 0, 4);
+                    break;
             }
         } else if (1 == action) {
             CanJni.ZtDmX7CarAcSet(0, 0, 0, 0, 0, 0);
@@ -151,7 +156,7 @@ public class CanZotyetT500ACView extends CanBaseACView {
 
     /* access modifiers changed from: protected */
     public void InitViews() {
-        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6) {
+        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7) {
             setBackgroundResource(R.drawable.can_psa_408_bg);
         } else {
             setBackgroundResource(R.drawable.can_mg_bg);
@@ -164,7 +169,7 @@ public class CanZotyetT500ACView extends CanBaseACView {
         this.mRHotIcons = new CustomImgView[3];
         this.mACInfo = Can.mACInfo;
         int y = 0;
-        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6) {
+        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7) {
             y = -91;
         }
         this.mTvLtTemp = addText(y + 109, 18, 131, 62);
@@ -186,12 +191,12 @@ public class CanZotyetT500ACView extends CanBaseACView {
         this.mWindProg = new MyProgressBar(getActivity(), R.drawable.can_yl_rect_up, R.drawable.can_yl_rect_dn);
         this.mWindProg.SetMinMax(0, 7);
         this.mWindProg.SetCurPos(1);
-        getRelativeManager().AddViewWrapContent(this.mWindProg, y + 352, KeyDef.RKEY_PRE);
+        getRelativeManager().AddViewWrapContent(this.mWindProg, y + 352, 292);
         this.mBtnWindDec = addButton(y + 287, 271);
         this.mBtnWindDec.setDrawable(R.drawable.can_yl_jian_up, R.drawable.can_yl_jian_dn);
         this.mBtnWindInc = addButton(y + KeyDef.SKEY_SPEECH_3, 271);
         this.mBtnWindInc.setDrawable(R.drawable.can_yl_jia_up, R.drawable.can_yl_jia_dn);
-        this.mIvWindAuto = addImage(y + CanCameraUI.BTN_TRUMPCHI_GS7_MODE6, KeyDef.RKEY_RADIO_SCAN, R.drawable.can_yl_wind_auto);
+        this.mIvWindAuto = addImage(y + CanCameraUI.BTN_TRUMPCHI_GS7_MODE6, 296, R.drawable.can_yl_wind_auto);
         addImage(y + CanCameraUI.BTN_TRUMPCHI_GS7_MODE4, 76, R.drawable.can_mg_people);
         this.mIvWindUp = addImage(y + CanCameraUI.BTN_VW_WC_MODE1, 62, R.drawable.can_mg_wind);
         this.mIvWindPx = addImage(y + 569, 89, R.drawable.can_mg_right);
@@ -219,22 +224,29 @@ public class CanZotyetT500ACView extends CanBaseACView {
         this.mBtnLHOT.setDrawable(R.drawable.can_rh7_ljr0_up, R.drawable.can_rh7_ljr0_dn);
         this.mBtnRHOT = addButton(y + 741, 172);
         this.mBtnRHOT.setDrawable(R.drawable.can_rh7_rjr0_up, R.drawable.can_rh7_rjr0_dn);
+        this.mBtnHeat = addButton(885, 192);
+        this.mBtnHeat.setDrawable(R.drawable.can_psa_heat_up, R.drawable.can_psa_heat_dn);
         for (int i = 0; i < this.mLHotIcons.length; i++) {
             this.mLHotIcons[i] = addImage((i * 8) + 388 + y, 222, R.drawable.can_rh7_jt);
         }
         for (int i2 = 0; i2 < this.mRHotIcons.length; i2++) {
             this.mRHotIcons[i2] = addImage((i2 * 8) + KeyDef.SKEY_VOLDN_3 + y, 222, R.drawable.can_rh7_jt);
         }
-        setIdTouchListener(this.mBtnLtTempInc, 1).setIdTouchListener(this.mBtnLtTempDec, 2).setIdTouchListener(this.mBtnWindDec, 5).setIdTouchListener(this.mBtnWindInc, 6).setIdTouchListener(this.mBtnOff, 3).setIdTouchListener(this.mBtnMode, 4).setIdTouchListener(this.mBtnLoopIn, 7).setIdTouchListener(this.mBtnLoopOut, 10).setIdTouchListener(this.mBtnForeWind, 8).setIdTouchListener(this.mBtnRearWind, 9).setIdTouchListener(this.mBtnAC, 11).setIdTouchListener(this.mBtnAUTO, 12).setIdTouchListener(this.mBtnMAXAC, 13).setIdTouchListener(this.mBtnLHOT, 14).setIdTouchListener(this.mBtnRHOT, 15).setIdTouchListener(this.mBtnRtTempInc, 16).setIdTouchListener(this.mBtnRtTempDec, 17);
-        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6) {
+        setIdTouchListener(this.mBtnLtTempInc, 1).setIdTouchListener(this.mBtnLtTempDec, 2).setIdTouchListener(this.mBtnWindDec, 5).setIdTouchListener(this.mBtnWindInc, 6).setIdTouchListener(this.mBtnOff, 3).setIdTouchListener(this.mBtnMode, 4).setIdTouchListener(this.mBtnLoopIn, 7).setIdTouchListener(this.mBtnLoopOut, 10).setIdTouchListener(this.mBtnForeWind, 8).setIdTouchListener(this.mBtnRearWind, 9).setIdTouchListener(this.mBtnAC, 11).setIdTouchListener(this.mBtnAUTO, 12).setIdTouchListener(this.mBtnMAXAC, 13).setIdTouchListener(this.mBtnLHOT, 14).setIdTouchListener(this.mBtnRHOT, 15).setIdTouchListener(this.mBtnRtTempInc, 16).setIdTouchListener(this.mBtnRtTempDec, 17).setIdTouchListener(this.mBtnHeat, 18);
+        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7) {
             this.mTvRtTemp.setVisibility(0);
             this.mBtnRtTempDec.setVisibility(0);
             this.mBtnRtTempInc.setVisibility(0);
-            return;
+        } else {
+            this.mTvRtTemp.setVisibility(8);
+            this.mBtnRtTempDec.setVisibility(8);
+            this.mBtnRtTempInc.setVisibility(8);
         }
-        this.mTvRtTemp.setVisibility(8);
-        this.mBtnRtTempDec.setVisibility(8);
-        this.mBtnRtTempInc.setVisibility(8);
+        if (CanJni.GetSubType() == 7) {
+            this.mBtnHeat.setVisibility(0);
+        } else {
+            this.mBtnHeat.setVisibility(8);
+        }
     }
 
     private void setLHotValue(int value) {
@@ -278,6 +290,7 @@ public class CanZotyetT500ACView extends CanBaseACView {
         this.mBtnAUTO.SetSel(this.mACInfo.nAutoLight);
         setLHotValue(this.mACInfo.nLtChairHot);
         setRHotValue(this.mACInfo.nRtChairHot);
+        this.mBtnHeat.SetSel(this.mACInfo.fgHeat);
     }
 
     public void doOnResume() {

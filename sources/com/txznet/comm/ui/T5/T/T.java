@@ -1,7 +1,7 @@
 package com.txznet.comm.ui.T5.T;
 
+import com.android.SdkConstants;
 import com.txznet.comm.Ty.Tr;
-import com.txznet.sdk.tongting.IConstantData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,14 +10,14 @@ import org.json.JSONException;
 public class T extends TB {
 
     /* renamed from: T  reason: collision with root package name */
-    private ArrayList<C0018T> f422T = new ArrayList<>();
+    private ArrayList<C0018T> f426T = new ArrayList<>();
 
     /* renamed from: com.txznet.comm.ui.T5.T.T$T  reason: collision with other inner class name */
     /* compiled from: Proguard */
     public static class C0018T {
 
         /* renamed from: T  reason: collision with root package name */
-        public int f423T;
+        public int f427T;
         public String T9;
         public String Tn;
         public int Tr;
@@ -29,19 +29,19 @@ public class T extends TB {
     }
 
     public void T(Tr data) {
-        this.f422T.clear();
+        this.f426T.clear();
         JSONArray obJsonArray = (JSONArray) data.T("audios", JSONArray.class);
         if (obJsonArray != null) {
             for (int i = 0; i < this.T9; i++) {
                 try {
                     Tr objJson = new Tr(obJsonArray.getJSONObject(i));
                     C0018T audioBean = new C0018T();
-                    audioBean.f423T = ((Integer) objJson.T(IConstantData.KEY_ID, Integer.class, 0)).intValue();
+                    audioBean.f427T = ((Integer) objJson.T("id", Integer.class, 0)).intValue();
                     audioBean.Tr = ((Integer) objJson.T("albumTrackCount", Integer.class, 0)).intValue();
-                    audioBean.Ty = (String) objJson.T("text", String.class);
-                    audioBean.Tn = (String) objJson.T(IConstantData.KEY_TITLE, String.class);
-                    audioBean.T9 = (String) objJson.T(IConstantData.KEY_NAME, String.class);
-                    this.f422T.add(audioBean);
+                    audioBean.Ty = (String) objJson.T(SdkConstants.ATTR_TEXT, String.class);
+                    audioBean.Tn = (String) objJson.T("title", String.class);
+                    audioBean.T9 = (String) objJson.T("name", String.class);
+                    this.f426T.add(audioBean);
                 } catch (JSONException e) {
                 }
             }

@@ -8,7 +8,7 @@ import java.math.BigInteger;
 public class T5 implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final T5 f190T = new T5();
+    public static final T5 f193T = new T5();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         Trs out = serializer.Tv();

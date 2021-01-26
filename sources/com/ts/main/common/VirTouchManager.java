@@ -15,7 +15,7 @@ public class VirTouchManager {
     public static Instrumentation mInst = new Instrumentation();
     private static int nMaxTouch = 0;
     static final int nPoint = 10;
-    private static int ncenterX = Can.CAN_JAC_REFINE_OD;
+    private static int ncenterX = 150;
     private static int ncenterY = Can.CAN_NISSAN_XFY;
     private static PointMap[] pm = new PointMap[10];
     /* access modifiers changed from: private */

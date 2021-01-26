@@ -19,7 +19,7 @@ public class CommonDialog extends WinDialog implements IKeepClass {
     /* access modifiers changed from: private */
 
     /* renamed from: T  reason: collision with root package name */
-    public String[] f562T = new String[0];
+    public String[] f566T = new String[0];
     private TextView T9;
     private FrameLayout TB;
     private ImageView TF;
@@ -63,7 +63,7 @@ public class CommonDialog extends WinDialog implements IKeepClass {
         int i = 0;
         com.txznet.comm.Tr.Tr.T.Ty();
         T.Tk mWakeupAsrCallback = null;
-        int length = this.f562T == null ? 0 : this.f562T.length;
+        int length = this.f566T == null ? 0 : this.f566T.length;
         if (this.Tr != null) {
             i = this.Tr.length;
         }
@@ -78,7 +78,7 @@ public class CommonDialog extends WinDialog implements IKeepClass {
                 }
 
                 public boolean onAsrResult(String text) {
-                    String[] T2 = CommonDialog.this.f562T;
+                    String[] T2 = CommonDialog.this.f566T;
                     int length = T2.length;
                     int i = 0;
                     while (i < length) {
@@ -112,7 +112,7 @@ public class CommonDialog extends WinDialog implements IKeepClass {
                 }
 
                 public String[] genKeywords() {
-                    return CommonDialog.this.T(CommonDialog.this.f562T, CommonDialog.this.Tr);
+                    return CommonDialog.this.T(CommonDialog.this.f566T, CommonDialog.this.Tr);
                 }
             };
         }
@@ -192,7 +192,7 @@ public class CommonDialog extends WinDialog implements IKeepClass {
         this.Te.setOnClickListener(listener);
         this.TK = listener;
         if (cmds != null) {
-            this.f562T = cmds;
+            this.f566T = cmds;
         }
     }
 

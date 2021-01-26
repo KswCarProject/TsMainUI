@@ -5,8 +5,8 @@
     <string name="str_bt_sub_pb">Book</string>
     <string name="str_bt_sub_log">Log</string>
     <string name="str_bt_sub_music">Music</string>
-    <string name="str_bt_call_in">LLamada entrante</string>
-    <string name="str_bt_call_out">LLamando</string>
+    <string name="str_bt_call_in">Llamar en</string>
+    <string name="str_bt_call_out">llamar fuera</string>
     <string name="str_bt_call_active">Activo</string>
     <string name="str_bt_call_end">llamar fin</string>
     <string name="bt_connect_first_msg">Bluetooth se desconecta</string>
@@ -15,10 +15,6 @@
     <string name="str_bt_ok">OK</string>
     <string name="str_bt_cancel">Cancelar</string>
     <string name="str_bt_dial">Marcar</string>
-    <string name="tpms_general_bar">Bar</string>
-    <string name="tpms_general_psi">Psi</string>
-    <string name="tpms_general_satrt">Start study</string>
-    <string name="tpms_general_end">Cancel study</string>
     <string name="str_setting_title">configurar</string>
     <string name="set_general_automatic">Auto</string>
     <string name="set_sound_jazz">Jazz</string>
@@ -28,7 +24,7 @@
     <string name="set_sound_pop">Pop</string>
     <string name="set_sound_rock">Rock</string>
     <string name="set_balance_center">Center</string>
-    <string name="set_balance_examp">Ex Amp</string>
+    <string name="set_balance_examp">EXT AMP</string>
     <string name="set_balance_loud">Loud</string>
     <string name="set_balance_subwoof">SubWoof</string>
     <string name="set_general_backcarvol_none">Ninguno</string>
@@ -65,7 +61,7 @@
     <string name="title_activity_usbmain">Vídeo</string>
     <string name="title_activity_dvd_main">DVD</string>
     <string name="title_activity_dvd_box_main">Dvd Caja</string>
-    <string name="title_activity_set_main">configurar</string>
+    <string name="title_activity_set_main">Configurar</string>
     <string name="title_activity_fsset_main">Factory</string>
     <string name="title_activity_camera_main">BackCamera</string>
     <string name="title_activity_cstudy_main">Ctudy</string>
@@ -84,7 +80,7 @@
     <string name="title_activity_tpmsmain">TPMS</string>
     <string name="title_activity_tpmsset_main">Setting</string>
     <string name="title_activity_weather">Weather</string>
-    <string name="title_activity_adasmain">ADAS</string>
+    <string name="title_activity_adasmain">DSP</string>
     <string name="video_state_none">No hay señal</string>
     <string name="video_state_forbiden">No se puede ver un video mientras se conduce</string>
     <string name="hello_world">Hello world!</string>
@@ -100,6 +96,10 @@
     <string name="vol_common_navivol">Navi Volumen</string>
     <string name="vol_common_mut">mudo</string>
     <string name="del_common_no_apk">No APP</string>
+    <string name="tpms_general_bar">Bar</string>
+    <string name="tpms_general_psi">Psi</string>
+    <string name="tpms_general_satrt">Start study</string>
+    <string name="tpms_general_end">Cancel study</string>
     <string name="can_lang_cn">Chino</string>
     <string name="can_lang_en">inglés</string>
     <string name="can_lang_tw">Chino tradicional</string>
@@ -237,11 +237,6 @@
     <string name="can_swkey_navi">NAVI</string>
     <string name="can_swkey_nofunc">Sin función</string>
     <string name="can_xcjszhjs">Desbloquear después de conducir</string>
-    <string name="extension_mile">Endur distance：</string>
-    <string name="record_mile">Distancia：</string>
-    <string name="outer_temp">Outer Temp：</string>
-    <string name="speed">Velocidad：</string>
-    <string name="date_time">%1$d-%2$02d-%3$02d%4$s</string>
     <string name="time_am">AM</string>
     <string name="time_pm">PM</string>
     <string name="km_unit">km/h</string>

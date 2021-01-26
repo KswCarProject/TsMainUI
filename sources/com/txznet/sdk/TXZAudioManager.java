@@ -15,7 +15,7 @@ public class TXZAudioManager {
     private static TXZAudioManager Ty = new TXZAudioManager();
 
     /* renamed from: T  reason: collision with root package name */
-    AbsTXZAudioTool f703T;
+    AbsTXZAudioTool f707T;
     private Boolean T5;
     private boolean T9;
     private String TE;
@@ -50,7 +50,7 @@ public class TXZAudioManager {
             setDefaultAudioTool(this.Tn);
         }
         if (this.Tr) {
-            setAudioTool(this.f703T);
+            setAudioTool(this.f707T);
         }
         if (!TextUtils.isEmpty(this.Tk)) {
             setXMLYAppkey(this.Tk, this.TZ, this.TE);
@@ -79,7 +79,7 @@ public class TXZAudioManager {
         }
 
         public String getCurrentFmName() {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
 
         public boolean isPlaying() {
@@ -110,7 +110,7 @@ public class TXZAudioManager {
 
     public void setAudioTool(final AbsTXZAudioTool tool) {
         this.Tr = true;
-        this.f703T = tool;
+        this.f707T = tool;
         if (tool == null) {
             Tn.Tr().T("com.txznet.txz", "txz.audio.cleartool", (byte[]) null, (Tn.Tr) null);
             return;
@@ -118,7 +118,7 @@ public class TXZAudioManager {
         TXZService.T(InvokeConstants.INVOKE_PREFIX_AUDIO, new TXZService.T() {
             public byte[] T(String packageName, String command, byte[] data) {
                 Tr params = new Tr(data);
-                if (InvokeConstants.INVOKE_OPEN.equals(command)) {
+                if ("open".equals(command)) {
                     tool.open(((Boolean) params.T(InvokeConstants.INVOKE_PLAY, Boolean.TYPE)).booleanValue());
                     return null;
                 } else if (InvokeConstants.INVOKE_PLAY.equals(command)) {
@@ -127,13 +127,13 @@ public class TXZAudioManager {
                 } else if (InvokeConstants.INVOKE_CONTINUE_PLAY.equals(command)) {
                     tool.continuePlay();
                     return null;
-                } else if ("pause".equals(command)) {
+                } else if (InvokeConstants.INVOKE_PAUSE.equals(command)) {
                     tool.pause();
                     return null;
                 } else if (InvokeConstants.INVOKE_EXIT.equals(command)) {
                     tool.exit();
                     return null;
-                } else if ("next".equals(command)) {
+                } else if (InvokeConstants.INVOKE_NEXT.equals(command)) {
                     tool.next();
                     return null;
                 } else if (InvokeConstants.INVOKE_PREV.equals(command)) {
@@ -164,34 +164,34 @@ public class TXZAudioManager {
                     return tool.getStatus().toStatusString().getBytes();
                 } else {
                     if (InvokeConstants.INVOKE_SUPPORT_LOOP_MODE.equals(command)) {
-                        return ("" + tool.supportLoopMode(PlayerLoopMode.fromModeStr((String) params.T("mode", String.class)))).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportLoopMode(PlayerLoopMode.fromModeStr((String) params.T("mode", String.class)))).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_SUBSCRIBE.equals(command)) {
-                        return ("" + tool.supportSubscribe()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportSubscribe()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_UNSUBSCRIBE.equals(command)) {
-                        return ("" + tool.supportUnSubscribe()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportUnSubscribe()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_COLLECT.equals(command)) {
-                        return ("" + tool.supportCollect()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportCollect()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_UNCOLLECT.equals(command)) {
-                        return ("" + tool.supportUnCollect()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportUnCollect()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_PLAY_SUBSCRIBE.equals(command)) {
-                        return ("" + tool.supportPlaySubscribe()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportPlaySubscribe()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_PLAY_COLLECTION.equals(command)) {
-                        return ("" + tool.supportPlayCollection()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportPlayCollection()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_SUPPORT_SEARCH.equals(command)) {
-                        return ("" + tool.supportSearch()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.supportSearch()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_HAS_NEXT.equals(command)) {
-                        return ("" + tool.hasNext()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.hasNext()).getBytes();
                     }
                     if (InvokeConstants.INVOKE_HAS_PREV.equals(command)) {
-                        return ("" + tool.hasPrev()).getBytes();
+                        return (TXZResourceManager.STYLE_DEFAULT + tool.hasPrev()).getBytes();
                     }
                     return null;
                 }

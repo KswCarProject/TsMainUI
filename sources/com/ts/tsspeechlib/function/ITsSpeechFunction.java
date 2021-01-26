@@ -5,11 +5,34 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
+import com.ts.tsspeechlib.function.ITsFunctionCallback;
 
 public interface ITsSpeechFunction extends IInterface {
+    void CloseMainUIApp(int i) throws RemoteException;
+
+    int GetCameraType() throws RemoteException;
+
+    int GetCanType() throws RemoteException;
+
+    String GetDeviceID() throws RemoteException;
+
+    int GetRadioIC() throws RemoteException;
+
+    void KillProcess(String str) throws RemoteException;
+
+    void OpenMainUIApp(int i, int i2) throws RemoteException;
+
+    void SendKey(int i) throws RemoteException;
+
+    String getBranch() throws RemoteException;
+
     int getCurrentBrightness() throws RemoteException;
 
     int getCurrentVolume() throws RemoteException;
+
+    String getDeviceType() throws RemoteException;
+
+    String getHMI() throws RemoteException;
 
     int getMaxBrightnes() throws RemoteException;
 
@@ -20,6 +43,10 @@ public interface ITsSpeechFunction extends IInterface {
     int getMinVolume() throws RemoteException;
 
     int getWorkMode() throws RemoteException;
+
+    int isBackCar() throws RemoteException;
+
+    int isIllOn() throws RemoteException;
 
     boolean isScreenOpen() throws RemoteException;
 
@@ -55,6 +82,8 @@ public interface ITsSpeechFunction extends IInterface {
 
     void openSetting() throws RemoteException;
 
+    void setFunctionCallback(ITsFunctionCallback iTsFunctionCallback) throws RemoteException;
+
     void setScreenBrightness(int i) throws RemoteException;
 
     void setVolume(int i) throws RemoteException;
@@ -69,15 +98,32 @@ public interface ITsSpeechFunction extends IInterface {
 
     void speechStopTTS() throws RemoteException;
 
+    void supportFastCharging(int i) throws RemoteException;
+
+    int withBrakes() throws RemoteException;
+
     public static abstract class Stub extends Binder implements ITsSpeechFunction {
         private static final String DESCRIPTOR = "com.ts.tsspeechlib.function.ITsSpeechFunction";
+        static final int TRANSACTION_CloseMainUIApp = 46;
+        static final int TRANSACTION_GetCameraType = 42;
+        static final int TRANSACTION_GetCanType = 41;
+        static final int TRANSACTION_GetDeviceID = 47;
+        static final int TRANSACTION_GetRadioIC = 40;
+        static final int TRANSACTION_KillProcess = 44;
+        static final int TRANSACTION_OpenMainUIApp = 45;
+        static final int TRANSACTION_SendKey = 43;
+        static final int TRANSACTION_getBranch = 39;
         static final int TRANSACTION_getCurrentBrightness = 4;
         static final int TRANSACTION_getCurrentVolume = 11;
+        static final int TRANSACTION_getDeviceType = 37;
+        static final int TRANSACTION_getHMI = 38;
         static final int TRANSACTION_getMaxBrightnes = 6;
         static final int TRANSACTION_getMaxVolume = 13;
         static final int TRANSACTION_getMinBrightnes = 5;
         static final int TRANSACTION_getMinVolume = 12;
         static final int TRANSACTION_getWorkMode = 22;
+        static final int TRANSACTION_isBackCar = 35;
+        static final int TRANSACTION_isIllOn = 34;
         static final int TRANSACTION_isScreenOpen = 1;
         static final int TRANSACTION_isVolumeMute = 18;
         static final int TRANSACTION_onBrightenScreen = 7;
@@ -95,6 +141,7 @@ public interface ITsSpeechFunction extends IInterface {
         static final int TRANSACTION_openAvin = 24;
         static final int TRANSACTION_openCarInfo = 25;
         static final int TRANSACTION_openSetting = 23;
+        static final int TRANSACTION_setFunctionCallback = 33;
         static final int TRANSACTION_setScreenBrightness = 31;
         static final int TRANSACTION_setVolume = 30;
         static final int TRANSACTION_showLauncher = 21;
@@ -102,6 +149,8 @@ public interface ITsSpeechFunction extends IInterface {
         static final int TRANSACTION_speechStartTTS = 26;
         static final int TRANSACTION_speechStopRecognition = 29;
         static final int TRANSACTION_speechStopTTS = 27;
+        static final int TRANSACTION_supportFastCharging = 32;
+        static final int TRANSACTION_withBrakes = 36;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -294,6 +343,96 @@ public interface ITsSpeechFunction extends IInterface {
                     data.enforceInterface(DESCRIPTOR);
                     setScreenBrightness(data.readInt());
                     reply.writeNoException();
+                    return true;
+                case 32:
+                    data.enforceInterface(DESCRIPTOR);
+                    supportFastCharging(data.readInt());
+                    reply.writeNoException();
+                    return true;
+                case 33:
+                    data.enforceInterface(DESCRIPTOR);
+                    setFunctionCallback(ITsFunctionCallback.Stub.asInterface(data.readStrongBinder()));
+                    reply.writeNoException();
+                    return true;
+                case 34:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result10 = isIllOn();
+                    reply.writeNoException();
+                    reply.writeInt(_result10);
+                    return true;
+                case 35:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result11 = isBackCar();
+                    reply.writeNoException();
+                    reply.writeInt(_result11);
+                    return true;
+                case 36:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result12 = withBrakes();
+                    reply.writeNoException();
+                    reply.writeInt(_result12);
+                    return true;
+                case 37:
+                    data.enforceInterface(DESCRIPTOR);
+                    String _result13 = getDeviceType();
+                    reply.writeNoException();
+                    reply.writeString(_result13);
+                    return true;
+                case 38:
+                    data.enforceInterface(DESCRIPTOR);
+                    String _result14 = getHMI();
+                    reply.writeNoException();
+                    reply.writeString(_result14);
+                    return true;
+                case 39:
+                    data.enforceInterface(DESCRIPTOR);
+                    String _result15 = getBranch();
+                    reply.writeNoException();
+                    reply.writeString(_result15);
+                    return true;
+                case 40:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result16 = GetRadioIC();
+                    reply.writeNoException();
+                    reply.writeInt(_result16);
+                    return true;
+                case 41:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result17 = GetCanType();
+                    reply.writeNoException();
+                    reply.writeInt(_result17);
+                    return true;
+                case 42:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result18 = GetCameraType();
+                    reply.writeNoException();
+                    reply.writeInt(_result18);
+                    return true;
+                case 43:
+                    data.enforceInterface(DESCRIPTOR);
+                    SendKey(data.readInt());
+                    reply.writeNoException();
+                    return true;
+                case 44:
+                    data.enforceInterface(DESCRIPTOR);
+                    KillProcess(data.readString());
+                    reply.writeNoException();
+                    return true;
+                case 45:
+                    data.enforceInterface(DESCRIPTOR);
+                    OpenMainUIApp(data.readInt(), data.readInt());
+                    reply.writeNoException();
+                    return true;
+                case 46:
+                    data.enforceInterface(DESCRIPTOR);
+                    CloseMainUIApp(data.readInt());
+                    reply.writeNoException();
+                    return true;
+                case 47:
+                    data.enforceInterface(DESCRIPTOR);
+                    String _result19 = GetDeviceID();
+                    reply.writeNoException();
+                    reply.writeString(_result19);
                     return true;
                 case 1598968902:
                     reply.writeString(DESCRIPTOR);
@@ -734,6 +873,231 @@ public interface ITsSpeechFunction extends IInterface {
                     _data.writeInt(number);
                     this.mRemote.transact(31, _data, _reply, 0);
                     _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void supportFastCharging(int state) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(state);
+                    this.mRemote.transact(32, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void setFunctionCallback(ITsFunctionCallback callback) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeStrongBinder(callback != null ? callback.asBinder() : null);
+                    this.mRemote.transact(33, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int isIllOn() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(34, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int isBackCar() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(35, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int withBrakes() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(36, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public String getDeviceType() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(37, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readString();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public String getHMI() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(38, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readString();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public String getBranch() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(39, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readString();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetRadioIC() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(40, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetCanType() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(41, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetCameraType() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(42, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void SendKey(int KeyCode) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(KeyCode);
+                    this.mRemote.transact(43, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void KillProcess(String pname) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeString(pname);
+                    this.mRemote.transact(44, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void OpenMainUIApp(int nWin, int parat) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(nWin);
+                    _data.writeInt(parat);
+                    this.mRemote.transact(45, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void CloseMainUIApp(int nWin) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(nWin);
+                    this.mRemote.transact(46, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public String GetDeviceID() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(47, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readString();
                 } finally {
                     _reply.recycle();
                     _data.recycle();

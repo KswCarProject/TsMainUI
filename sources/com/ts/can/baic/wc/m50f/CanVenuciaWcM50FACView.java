@@ -122,10 +122,10 @@ public class CanVenuciaWcM50FACView extends CanBaseACView {
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addVenuciaImage(191, Can.CAN_TEANA_OLD_DJ, mIcons[i]);
         }
-        this.mWindMode[0] = addVenuciaButton(KeyDef.RKEY_MEDIA_ANGLE, 108, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 4);
-        this.mWindMode[1] = addVenuciaButton(KeyDef.RKEY_MEDIA_ANGLE, 185, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 5);
-        this.mWindMode[2] = addVenuciaButton(KeyDef.RKEY_MEDIA_ANGLE, 264, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 6);
-        this.mWindMode[3] = addVenuciaButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_res5, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
+        this.mWindMode[0] = addVenuciaButton(305, 108, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 4);
+        this.mWindMode[1] = addVenuciaButton(305, 185, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 5);
+        this.mWindMode[2] = addVenuciaButton(305, 264, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 6);
+        this.mWindMode[3] = addVenuciaButton(305, KeyDef.RKEY_res5, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
         this.mBtnLooper = addVenuciaButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 212, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 11);
         this.mBtnFrontWin = addVenuciaButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 100, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 8);
         this.mBtnRearWin = addVenuciaButton(757, 100, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 9);

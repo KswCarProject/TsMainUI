@@ -12,7 +12,9 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import com.android.SdkConstants;
 import com.ts.MainUI.R;
+import com.txznet.sdk.TXZResourceManager;
 
 @SuppressLint({"NewApi"})
 public class BtBaseActivity extends Activity {
@@ -52,6 +54,7 @@ public class BtBaseActivity extends Activity {
     private Button mBtnSubPb;
     View[] mFocusView;
     protected int mIcoSel = 0;
+    public boolean mIsInMultiWindowMode = false;
     public View[] mLtView = new View[5];
     protected View mOldFocusView = null;
     public int mOrientation = 0;
@@ -63,7 +66,7 @@ public class BtBaseActivity extends Activity {
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityManager = (ActivityManager) getSystemService("activity");
+        activityManager = (ActivityManager) getSystemService(SdkConstants.TAG_ACTIVITY);
         this.res = getResources();
         Intent intent = getIntent();
         if (intent != null) {
@@ -73,7 +76,7 @@ public class BtBaseActivity extends Activity {
 
     public String getRunningActivityName() {
         if (activityManager != null) {
-            return ((ActivityManager) getSystemService("activity")).getRunningTasks(1).get(0).topActivity.getClassName();
+            return ((ActivityManager) getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningTasks(1).get(0).topActivity.getClassName();
         }
         return null;
     }
@@ -233,7 +236,7 @@ public class BtBaseActivity extends Activity {
     }
 
     public static String getRunningActivityName(Context context) {
-        return ((ActivityManager) context.getSystemService("activity")).getRunningTasks(1).get(0).topActivity.getClassName();
+        return ((ActivityManager) context.getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningTasks(1).get(0).topActivity.getClassName();
     }
 
     public static boolean isCurOtherBT(Context context) {
@@ -257,7 +260,7 @@ public class BtBaseActivity extends Activity {
             if (mIsHaveCall) {
                 Log.e(TAG, "mIsHaveCall, Goto BtCallingActivity");
             } else if (!curHaveCall) {
-                mBaseStrDialNo = "";
+                mBaseStrDialNo = TXZResourceManager.STYLE_DEFAULT;
             }
         }
     }
@@ -389,7 +392,7 @@ public class BtBaseActivity extends Activity {
     }
 
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (this.mOrientation == 1) {
+        if (isInMultiWindowMode()) {
             return true;
         }
         int action = event.getAction();
@@ -399,29 +402,6 @@ public class BtBaseActivity extends Activity {
             Log.d(TAG, "mbSubFocus = " + this.mbSubFocus);
             Log.d(TAG, "showId = " + this.showId);
             if (key == 22) {
-                if (this.showId == 8 || this.mIcoSel == 0 || this.mIcoSel == 1 || this.mIcoSel == 4) {
-                    if (this.mbSubFocus == 2) {
-                        this.mbSubFocus = 3;
-                        updateFocus(this.mLtView[this.mIcoSel]);
-                        DealMySubKey(key);
-                        return true;
-                    } else if (this.mbSubFocus == 3) {
-                        return true;
-                    }
-                } else if (this.mbSubFocus == 1) {
-                    this.mbSubFocus = 2;
-                    updateFocus(this.mLtView[this.mIcoSel]);
-                    DealMySubKey(key);
-                    return true;
-                } else if (this.mbSubFocus == 2) {
-                    this.mbSubFocus = 3;
-                    updateFocus(this.mLtView[this.mIcoSel]);
-                    DealMySubKey(key);
-                    return true;
-                } else if (this.mbSubFocus == 3) {
-                    return true;
-                }
-            } else if (key == 21) {
                 if (this.mIcoSel == 0 || this.mIcoSel == 1 || this.mIcoSel == 4 || this.showId == 8) {
                     if (this.mbSubFocus == 2) {
                         return true;
@@ -446,6 +426,29 @@ public class BtBaseActivity extends Activity {
                         DealMySubKey(key);
                         return true;
                     }
+                }
+            } else if (key == 21) {
+                if (this.showId == 8 || this.mIcoSel == 0 || this.mIcoSel == 1 || this.mIcoSel == 4) {
+                    if (this.mbSubFocus == 2) {
+                        this.mbSubFocus = 3;
+                        updateFocus(this.mLtView[this.mIcoSel]);
+                        DealMySubKey(key);
+                        return true;
+                    } else if (this.mbSubFocus == 3) {
+                        return true;
+                    }
+                } else if (this.mbSubFocus == 1) {
+                    this.mbSubFocus = 2;
+                    updateFocus(this.mLtView[this.mIcoSel]);
+                    DealMySubKey(key);
+                    return true;
+                } else if (this.mbSubFocus == 2) {
+                    this.mbSubFocus = 3;
+                    updateFocus(this.mLtView[this.mIcoSel]);
+                    DealMySubKey(key);
+                    return true;
+                } else if (this.mbSubFocus == 3) {
+                    return true;
                 }
             }
             if (this.mbSubFocus == 2 || this.mbSubFocus == 1) {

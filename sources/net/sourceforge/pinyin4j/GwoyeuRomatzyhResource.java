@@ -3,6 +3,7 @@ package net.sourceforge.pinyin4j;
 import com.hp.hpl.sparta.Document;
 import com.hp.hpl.sparta.ParseException;
 import com.hp.hpl.sparta.Parser;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,7 +36,7 @@ class GwoyeuRomatzyhResource {
 
     private void initializeResource() {
         try {
-            setPinyinToGwoyeuMappingDoc(Parser.parse("", (InputStream) ResourceHelper.getResourceInputStream("/pinyindb/pinyin_gwoyeu_mapping.xml")));
+            setPinyinToGwoyeuMappingDoc(Parser.parse(TXZResourceManager.STYLE_DEFAULT, (InputStream) ResourceHelper.getResourceInputStream("/pinyindb/pinyin_gwoyeu_mapping.xml")));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e2) {

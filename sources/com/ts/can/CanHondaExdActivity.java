@@ -6,7 +6,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -18,6 +21,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanHondaExdActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener {
     public static final int BTN_NEXT = 3;
@@ -25,6 +29,7 @@ public class CanHondaExdActivity extends CanBaseActivity implements UserCallBack
     public static final int BTN_PREV = 0;
     public static final int BTN_STOP = 2;
     public static final String TAG = "CanHondaExdActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     /* access modifiers changed from: private */
     public Bitmap mBmpProgDn;
     private ParamButton mBtnNext;
@@ -49,6 +54,13 @@ public class CanHondaExdActivity extends CanBaseActivity implements UserCallBack
         super.onCreate(arg0);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
         this.mImgUsb = this.mManager.AddImage(466, 79, R.drawable.original_car_usb);
         this.mImgIpod = this.mManager.AddImage(Can.CAN_VOLVO_XFY, 60, R.drawable.original_car_ipod);
         this.mManager.AddImage(76, 23, R.drawable.original_car_arrow);
@@ -111,6 +123,9 @@ public class CanHondaExdActivity extends CanBaseActivity implements UserCallBack
         this.mImgUsb.Show(false);
         this.mStrDevSta = getResources().getString(R.string.can_car_dev_sta);
         this.mStrArrStatus = getResources().getStringArray(R.array.can_car_play_sta);
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     private void ResetData(boolean check) {
@@ -139,9 +154,9 @@ public class CanHondaExdActivity extends CanBaseActivity implements UserCallBack
                 }
             } else {
                 this.mMediaData.Progress = 200;
-                this.mSongNum.setText("");
-                this.mCurTime.setText("");
-                this.mPercent.setText("");
+                this.mSongNum.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mCurTime.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mPercent.setText(TXZResourceManager.STYLE_DEFAULT);
             }
             this.mProgress.invalidate();
         }

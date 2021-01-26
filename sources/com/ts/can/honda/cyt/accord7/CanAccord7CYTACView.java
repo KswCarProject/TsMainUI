@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import com.android.SdkConstants;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -12,7 +13,6 @@ import com.ts.MainUI.R;
 import com.ts.can.CanBaseACView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanAccord7CYTACView extends CanBaseACView {
     private static final int AC = 5;
@@ -104,13 +104,13 @@ public class CanAccord7CYTACView extends CanBaseACView {
     }
 
     public void onClick(View v) {
-        Log.d("l", "onClick");
+        Log.d("l", SdkConstants.ATTR_ON_CLICK);
         SendKey(((Integer) v.getTag()).intValue());
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mAutoMode = getRelativeManager().AddCusText(KeyDef.RKEY_AMS, 426, 118, 30);
+        this.mAutoMode = getRelativeManager().AddCusText(295, 426, 118, 30);
         this.mAutoMode.setTextColor(-1);
         this.mAutoMode.setTextSize(0, 18.0f);
         this.mAutoMode.setText("AUTO");

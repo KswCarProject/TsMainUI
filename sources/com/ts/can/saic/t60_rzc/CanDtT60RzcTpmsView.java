@@ -14,6 +14,7 @@ import com.ts.can.CanRelativeCarInfoView;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanDtT60RzcTpmsView extends CanRelativeCarInfoView {
     private CanDataInfo.CAN_Msg mCanMsg;
@@ -105,6 +106,6 @@ public class CanDtT60RzcTpmsView extends CanRelativeCarInfoView {
 
     public void SetVal(int id, int press, int temp) {
         this.mTvPress[id].setText(GetPressStr(press));
-        this.mTvTemp[id].setText("");
+        this.mTvTemp[id].setText(TXZResourceManager.STYLE_DEFAULT);
     }
 }

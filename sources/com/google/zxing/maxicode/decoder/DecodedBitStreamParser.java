@@ -4,7 +4,6 @@ import com.google.zxing.common.DecoderResult;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 final class DecodedBitStreamParser {
     private static final char ECI = '￺';
@@ -93,11 +92,11 @@ final class DecodedBitStreamParser {
     }
 
     private static int getPostCode2(byte[] bytes) {
-        return getInt(bytes, new byte[]{WrcManager.WrcCallback.MINI_KEY_1, WrcManager.WrcCallback.MINI_KEY_2, 35, WrcManager.WrcCallback.MINI_KEY_3, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, 13, 14, 15, WrcManager.WrcCallback.KEY_CENTER, 17, 18, 7, 8, 9, 10, 11, 12, 1, 2});
+        return getInt(bytes, new byte[]{33, 34, 35, 36, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, 13, 14, 15, 16, 17, 18, 7, 8, 9, 10, 11, 12, 1, 2});
     }
 
     private static String getPostCode3(byte[] bytes) {
-        return String.valueOf(new char[]{SETS[0].charAt(getInt(bytes, new byte[]{39, 40, 41, 42, 31, 32})), SETS[0].charAt(getInt(bytes, new byte[]{WrcManager.WrcCallback.MINI_KEY_1, WrcManager.WrcCallback.MINI_KEY_2, 35, WrcManager.WrcCallback.MINI_KEY_3, 25, 26})), SETS[0].charAt(getInt(bytes, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bytes, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bytes, new byte[]{15, WrcManager.WrcCallback.KEY_CENTER, 17, 18, 7, 8})), SETS[0].charAt(getInt(bytes, new byte[]{9, 10, 11, 12, 1, 2}))});
+        return String.valueOf(new char[]{SETS[0].charAt(getInt(bytes, new byte[]{39, 40, 41, 42, 31, 32})), SETS[0].charAt(getInt(bytes, new byte[]{33, 34, 35, 36, 25, 26})), SETS[0].charAt(getInt(bytes, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bytes, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bytes, new byte[]{15, 16, 17, 18, 7, 8})), SETS[0].charAt(getInt(bytes, new byte[]{9, 10, 11, 12, 1, 2}))});
     }
 
     private static String getMessage(byte[] bytes, int start, int len) {

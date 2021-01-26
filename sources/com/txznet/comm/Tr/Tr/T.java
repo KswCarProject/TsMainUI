@@ -3,8 +3,10 @@ package com.txznet.comm.Tr.Tr;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.sdk.TXZCameraManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.tongting.IConstantData;
 import com.txznet.txz.T.Tn;
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class T {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final String[] f381T = {"第一个", "第二个", "第三个", "第四个", "第五个", "第六个", "第七个", "第八个", "第九个", "第十个"};
+    public static final String[] f385T = {"第一个", "第二个", "第三个", "第四个", "第五个", "第六个", "第七个", "第八个", "第九个", "第十个"};
     /* access modifiers changed from: private */
     public static Map<String, String> T5 = new HashMap();
     static Map<String, Tk> T9 = new ConcurrentHashMap();
@@ -32,7 +34,7 @@ public class T {
                 for (Map.Entry<String, String> entry : T.T5.entrySet()) {
                     com.txznet.comm.Ty.Tr json = new com.txznet.comm.Ty.Tr();
                     json.T("cmds", (Object) new String[]{entry.getKey()});
-                    json.T(IConstantData.KEY_DATA, (Object) entry.getValue());
+                    json.T("data", (Object) entry.getValue());
                     com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.regcmd", json.toString().getBytes(), (Tn.Tr) null);
                 }
             }
@@ -77,7 +79,7 @@ public class T {
 
     public static void T(String hint) {
         if (TextUtils.isEmpty(hint)) {
-            hint = "";
+            hint = TXZResourceManager.STYLE_DEFAULT;
         }
         com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.startWithRecordWin", hint.getBytes(), (Tn.Tr) null);
     }
@@ -103,7 +105,7 @@ public class T {
         TE = callBack;
         com.txznet.comm.Ty.Tr json = new com.txznet.comm.Ty.Tr();
         json.T("cmds", (Object) cmds);
-        json.T(IConstantData.KEY_DATA, (Object) data);
+        json.T("data", (Object) data);
         com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.asr.regcmd", json.toString().getBytes(), (Tn.Tr) null);
         if (Tv == null) {
             Tv = new Runnable() {
@@ -135,7 +137,7 @@ public class T {
         if (event.equals("regnotify")) {
             if (TE != null) {
                 com.txznet.comm.Ty.Tr json = new com.txznet.comm.Ty.Tr(data);
-                TE.T((String) json.T("cmd", String.class), ((String) json.T(IConstantData.KEY_DATA, String.class)).getBytes());
+                TE.T((String) json.T("cmd", String.class), ((String) json.T("data", String.class)).getBytes());
             }
         } else if (Tk == null) {
             Log.i("AsrUtil", "mAsrCallBack == null");
@@ -194,7 +196,7 @@ public class T {
         int x3 = 0;
         while (i < n) {
             int x4 = x3 + 1;
-            ret[x3] = f381T[i];
+            ret[x3] = f385T[i];
             int x5 = x4 + 1;
             ret[x4] = "UI_SELECT_" + (i + 1);
             int j = 0;
@@ -204,7 +206,7 @@ public class T {
                     break;
                 }
                 x5 = x2 + 1;
-                ret[x2] = f381T[i] + suffix[j];
+                ret[x2] = f385T[i] + suffix[j];
                 j++;
             }
             i++;
@@ -302,7 +304,7 @@ public class T {
     public static abstract class Tr extends Tk {
 
         /* renamed from: T  reason: collision with root package name */
-        String[] f383T = new String[0];
+        String[] f387T = new String[0];
         String[] Tr = new String[0];
 
         public abstract void T();
@@ -310,12 +312,12 @@ public class T {
         public abstract void Tr();
 
         public Tr(String[] mSureCmds, String[] mCancelCmds) {
-            this.f383T = mSureCmds;
+            this.f387T = mSureCmds;
             this.Tr = mCancelCmds;
         }
 
         public boolean onAsrResult(String text) {
-            for (String equals : this.f383T) {
+            for (String equals : this.f387T) {
                 if (text.equals(equals)) {
                     T();
                     return true;
@@ -331,7 +333,7 @@ public class T {
         }
 
         public String[] genKeywords() {
-            return T.T(0, (String[]) null, this.f383T, this.Tr, (String[]) null, (String[]) null);
+            return T.T(0, (String[]) null, this.f387T, this.Tr, (String[]) null, (String[]) null);
         }
     }
 
@@ -340,7 +342,7 @@ public class T {
     public static abstract class C0015T extends Tk {
 
         /* renamed from: T  reason: collision with root package name */
-        private SparseArray<Set<String>> f382T = new SparseArray<>();
+        private SparseArray<Set<String>> f386T = new SparseArray<>();
         private Map<String, Set<String>> Tr = new HashMap();
 
         private void T(Set<String> cmdSet, String cmd) {
@@ -370,9 +372,9 @@ public class T {
         }
 
         public C0015T addIndex(int index, String... cmds) {
-            Set<String> cmdSet = this.f382T.get(index);
+            Set<String> cmdSet = this.f386T.get(index);
             if (cmdSet == null) {
-                SparseArray<Set<String>> sparseArray = this.f382T;
+                SparseArray<Set<String>> sparseArray = this.f386T;
                 cmdSet = new HashSet<>();
                 sparseArray.append(index, cmdSet);
             }
@@ -393,12 +395,12 @@ public class T {
                 }
             }
             List<Integer> indexs = new ArrayList<>();
-            for (int i = 0; i < this.f382T.size(); i++) {
-                Iterator<String> it2 = this.f382T.valueAt(i).iterator();
+            for (int i = 0; i < this.f386T.size(); i++) {
+                Iterator<String> it2 = this.f386T.valueAt(i).iterator();
                 while (true) {
                     if (it2.hasNext()) {
                         if (it2.next().equals(text)) {
-                            indexs.add(Integer.valueOf(this.f382T.keyAt(i)));
+                            indexs.add(Integer.valueOf(this.f386T.keyAt(i)));
                             break;
                         }
                     } else {
@@ -418,8 +420,8 @@ public class T {
             for (Map.Entry<String, Set<String>> entry : this.Tr.entrySet()) {
                 setKeywords.addAll(entry.getValue());
             }
-            for (int i = 0; i < this.f382T.size(); i++) {
-                setKeywords.addAll(this.f382T.valueAt(i));
+            for (int i = 0; i < this.f386T.size(); i++) {
+                setKeywords.addAll(this.f386T.valueAt(i));
             }
             String[] ret = new String[setKeywords.size()];
             setKeywords.toArray(ret);
@@ -441,7 +443,7 @@ public class T {
         if (cb != null) {
             cb.setIsFromCore(false);
             cb.setIsWakeupResult(((Boolean) json.T("isWakeupResult", Boolean.class, true)).booleanValue());
-            cb.onAsrResult((String) json.T("text", String.class));
+            cb.onAsrResult((String) json.T(SdkConstants.ATTR_TEXT, String.class));
         }
     }
 

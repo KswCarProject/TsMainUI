@@ -4,18 +4,18 @@ package com.T.T.Ty;
 public class TrB {
 
     /* renamed from: T  reason: collision with root package name */
-    private final TrB f217T;
+    private final TrB f220T;
     private final Object Tr;
     private final Object Ty;
 
     public TrB(TrB parent, Object object, Object fieldName) {
-        this.f217T = parent;
+        this.f220T = parent;
         this.Tr = object;
         this.Ty = fieldName;
     }
 
     public TrB T() {
-        return this.f217T;
+        return this.f220T;
     }
 
     public Object Tr() {
@@ -23,13 +23,13 @@ public class TrB {
     }
 
     public String Ty() {
-        if (this.f217T == null) {
+        if (this.f220T == null) {
             return "$";
         }
         if (this.Ty instanceof Integer) {
-            return this.f217T.Ty() + "[" + this.Ty + "]";
+            return this.f220T.Ty() + "[" + this.Ty + "]";
         }
-        return this.f217T.Ty() + "." + this.Ty;
+        return this.f220T.Ty() + "." + this.Ty;
     }
 
     public String toString() {

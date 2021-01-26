@@ -2,6 +2,7 @@ package com.ts.can.psa.wc;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -132,7 +133,7 @@ public class CanPSAWCCruiseSpeedView extends CanRelativeCarInfoView implements C
         btn.setTag(Integer.valueOf(id));
         btn.setOnClickListener(this);
         btn.setStateUpDn(R.drawable.can_psa_yuan_up, R.drawable.can_psa_yuan_dn);
-        btn.setColorUpDn(-16777216, -1);
+        btn.setColorUpDn(ViewCompat.MEASURED_STATE_MASK, -1);
         btn.setTextSize(0, 45.0f);
         return btn;
     }

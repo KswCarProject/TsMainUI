@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/bt_dial_bg_s" android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/bt_bg01_s" android:layout_width="match_parent" android:layout_height="match_parent">
     <include layout="@layout/bt_sub_items_s"/>
-    <ListView android:scrollbarStyle="outsideInset" android:id="@+id/history_listview" android:layout_width="497px" android:layout_height="360px" android:layout_marginLeft="5px" android:layout_marginTop="78px" android:listSelector="@android:color/transparent" android:divider="@null" android:choiceMode="singleChoice"/>
-    <Button android:id="@+id/btn_received" android:background="@drawable/bt_connected_s" android:layout_width="128px" android:layout_height="70px" android:layout_marginLeft="128px" android:layout_marginTop="6px"/>
-    <Button android:id="@+id/btn_dialed" android:background="@drawable/bt_already_dial_s" android:layout_width="128px" android:layout_height="70px" android:layout_marginLeft="256px" android:layout_marginTop="6px"/>
-    <Button android:id="@+id/btn_missed" android:background="@drawable/bt_missed_call_s" android:layout_width="128px" android:layout_height="70px" android:layout_marginLeft="0px" android:layout_marginTop="6px"/>
-    <Button android:id="@+id/btn_delete_log" android:background="@drawable/bt_del_s" android:layout_width="128px" android:layout_height="70px" android:layout_marginLeft="384px" android:layout_marginTop="6px"/>
+    <ImageView android:background="@drawable/bt_phonebook_bg_s" android:layout_width="472px" android:layout_height="347px" android:layout_marginLeft="20px" android:layout_marginTop="33px"/>
+    <ListView android:scrollbarStyle="outsideInset" android:id="@+id/history_listview" android:background="@android:color/transparent" android:layout_width="334px" android:layout_height="295px" android:layout_marginLeft="142px" android:layout_marginTop="60px" android:listSelector="@android:color/transparent" android:divider="@null" android:choiceMode="singleChoice"/>
+    <Button android:id="@+id/btn_received" android:background="@drawable/bt_connected_s" android:layout_width="106px" android:layout_height="77px" android:layout_marginLeft="20px" android:layout_marginTop="129px"/>
+    <Button android:id="@+id/btn_dialed" android:background="@drawable/bt_already_dial_s" android:layout_width="106px" android:layout_height="77px" android:layout_marginLeft="20px" android:layout_marginTop="211px"/>
+    <Button android:id="@+id/btn_missed" android:background="@drawable/bt_missed_call_s" android:layout_width="106px" android:layout_height="77px" android:layout_marginLeft="20px" android:layout_marginTop="47px"/>
+    <Button android:id="@+id/btn_delete_log" android:background="@drawable/bt_del_s" android:layout_width="106px" android:layout_height="77px" android:layout_marginLeft="20px" android:layout_marginTop="293px"/>
 </RelativeLayout>

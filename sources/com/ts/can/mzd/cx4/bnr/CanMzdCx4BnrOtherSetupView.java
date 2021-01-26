@@ -9,10 +9,12 @@ import com.ts.can.CanScrollCarInfoView;
 import com.ts.canview.CanItemMsgBox;
 
 public class CanMzdCx4BnrOtherSetupView extends CanScrollCarInfoView {
+    private static final int ITEM_MDJKXT = 4;
     private CanDataInfo.Cx4_CarSet_Data mSetData;
+    private CanDataInfo.Mzd_Bnr_Set mSetData2;
 
     public CanMzdCx4BnrOtherSetupView(Activity activity) {
-        super(activity, 4);
+        super(activity, 5);
     }
 
     public void onItem(int id, int item) {
@@ -36,29 +38,39 @@ public class CanMzdCx4BnrOtherSetupView extends CanScrollCarInfoView {
                     CanJni.MzdCx4CarSet(23, 0);
                 }
             }, (CanItemMsgBox.onMsgBoxClick2) null);
+        } else if (id == 4) {
+            CanJni.MzdCx4CarSet(30, Neg(this.mSetData2.MdjcxtXtsd));
         }
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_mzd_cx4_other_sc_system, R.string.can_mzd_cx4_other_control_voice, R.string.can_mzd_cx4_other_sync_tripa, R.string.can_mzd_cx4_reset_avg};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.TITLE};
+        this.mItemTitleIds = new int[]{R.string.can_mzd_cx4_other_sc_system, R.string.can_mzd_cx4_other_control_voice, R.string.can_mzd_cx4_other_sync_tripa, R.string.can_mzd_cx4_reset_avg, R.string.can_mdfzxt};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.SWITCH};
         this.mPopValueIds[1] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_voice_low, R.string.can_mzd_cx4_voice_high};
         this.mSetData = new CanDataInfo.Cx4_CarSet_Data();
+        this.mSetData2 = new CanDataInfo.Mzd_Bnr_Set();
     }
 
     public void ResetData(boolean check) {
         CanJni.MzdCx4GetCarSetInfo(this.mSetData);
-        if (!i2b(this.mSetData.UpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mSetData.Update)) {
+        if (i2b(this.mSetData.UpdateOnce) && (!check || i2b(this.mSetData.Update))) {
             this.mSetData.Update = 0;
             updateItem(new int[]{this.mSetData.zncsscxt, this.mSetData.mdjkyl, this.mSetData.tbpjhlcA});
+        }
+        CanJni.MzdBnrGetCarSet2(this.mSetData2);
+        if (!i2b(this.mSetData2.UpdateOnce)) {
+            return;
+        }
+        if (!check || i2b(this.mSetData2.Update)) {
+            this.mSetData2.Update = 0;
+            updateItem(4, this.mSetData2.MdjcxtXtsd);
         }
     }
 
     public void QueryData() {
         CanJni.MzdCx4Query(9, 0);
+        Sleep(5);
+        CanJni.MzdCx4Query(13, 0);
     }
 }

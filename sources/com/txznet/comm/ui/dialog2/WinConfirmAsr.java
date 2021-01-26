@@ -10,7 +10,7 @@ public abstract class WinConfirmAsr extends WinConfirm {
     public static class T extends WinConfirm.T {
 
         /* renamed from: T  reason: collision with root package name */
-        String[] f582T;
+        String[] f586T;
         String[] Tr;
 
         /* renamed from: Ty */
@@ -66,14 +66,14 @@ public abstract class WinConfirmAsr extends WinConfirm {
 
         /* renamed from: Tk */
         public T Tr(String text) {
-            Tr(text, this.f582T == null ? new String[]{text} : this.f582T);
+            Tr(text, this.f586T == null ? new String[]{text} : this.f586T);
             return this;
         }
 
         public T Tr(String text, String[] cmds) {
             super.Tr(text);
-            this.f582T = cmds;
-            if (this.f582T != null) {
+            this.f586T = cmds;
+            if (this.f586T != null) {
                 T(new WinDialog.Tr() {
                     public void T(WinDialog win, String cmd) {
                         ((WinConfirmAsr) win).onSpeakOk();
@@ -83,7 +83,7 @@ public abstract class WinConfirmAsr extends WinConfirm {
                     public String T(WinDialog win) {
                         return "ok";
                     }
-                }, this.f582T);
+                }, this.f586T);
             }
             return this;
         }

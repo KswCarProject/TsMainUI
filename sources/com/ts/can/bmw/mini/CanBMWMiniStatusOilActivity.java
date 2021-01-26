@@ -47,7 +47,7 @@ public class CanBMWMiniStatusOilActivity extends CanBMWMiniBaseActivity {
         this.mMaxValue = addTextView(720, 190, R.string.can_oil_max_value);
         this.mOilIcon = addImageView(130, Can.CAN_DFFG_S560, R.drawable.can_mini_icon_oil);
         this.mOilProgressBar = addImageView(350, 170, KeyDef.RKEY_res3, 80);
-        this.mOilOver = addTextView(490, Can.CAN_JAC_REFINE_OD, R.string.can_oil_over);
+        this.mOilOver = addTextView(490, 150, R.string.can_oil_over);
         this.mMinValue.setVisibility(4);
         this.mMaxValue.setVisibility(4);
         this.mOilIcon.setVisibility(4);

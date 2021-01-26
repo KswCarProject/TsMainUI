@@ -4,13 +4,13 @@ package com.txznet.comm.ui.T5.T;
 public class Tv extends TM {
 
     /* renamed from: T  reason: collision with root package name */
-    public String f458T;
+    public String f462T;
 
     public Tv() {
         super(3);
     }
 
     public void T(String content) {
-        this.f458T = content;
+        this.f462T = content;
     }
 }

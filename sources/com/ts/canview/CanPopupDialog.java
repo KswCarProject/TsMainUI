@@ -11,6 +11,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import com.ts.MainUI.R;
 import com.ts.other.CustomDialog;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanPopupDialog extends CustomDialog implements View.OnClickListener {
     private static final int[] mBk = {R.drawable.can_comm_msgbox_line2, R.drawable.can_comm_msgbox_line3, R.drawable.can_comm_msgbox_line4, R.drawable.can_comm_msgbox_line5, R.drawable.can_comm_msgbox_line6};
@@ -80,7 +81,7 @@ public class CanPopupDialog extends CustomDialog implements View.OnClickListener
             Class<?> c = Class.forName("com.android.internal.R$dimen");
             return context.getResources().getDimensionPixelSize(Integer.parseInt(c.getField("status_bar_height").get(c.newInstance()).toString()));
         } catch (Exception e1) {
-            Log.d("", "get status bar height fail");
+            Log.d(TXZResourceManager.STYLE_DEFAULT, "get status bar height fail");
             e1.printStackTrace();
             return 0;
         }

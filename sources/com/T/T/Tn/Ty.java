@@ -13,7 +13,7 @@ import java.lang.reflect.TypeVariable;
 public class Ty implements Comparable<Ty> {
 
     /* renamed from: T  reason: collision with root package name */
-    private final String f136T;
+    private final String f139T;
     private final Type T9;
     private boolean TZ;
     private final Class<?> Tk;
@@ -23,7 +23,7 @@ public class Ty implements Comparable<Ty> {
 
     public Ty(String name, Class<?> declaringClass, Class<?> fieldClass, Type fieldType, Field field) {
         this.TZ = false;
-        this.f136T = name;
+        this.f139T = name;
         this.Tk = declaringClass;
         this.Tn = fieldClass;
         this.T9 = fieldType;
@@ -43,7 +43,7 @@ public class Ty implements Comparable<Ty> {
         Type fieldType;
         Type genericFieldType;
         this.TZ = false;
-        this.f136T = name;
+        this.f139T = name;
         this.Tr = method;
         this.Ty = field;
         if (method != null) {
@@ -153,7 +153,7 @@ public class Ty implements Comparable<Ty> {
     }
 
     public String toString() {
-        return this.f136T;
+        return this.f139T;
     }
 
     public Class<?> T() {
@@ -165,7 +165,7 @@ public class Ty implements Comparable<Ty> {
     }
 
     public String Ty() {
-        return this.f136T;
+        return this.f139T;
     }
 
     public Method Tn() {
@@ -178,7 +178,7 @@ public class Ty implements Comparable<Ty> {
 
     /* renamed from: T */
     public int compareTo(Ty o) {
-        return this.f136T.compareTo(o.f136T);
+        return this.f139T.compareTo(o.f139T);
     }
 
     public <T extends Annotation> T T(Class<T> annotationClass) {

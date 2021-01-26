@@ -3,6 +3,7 @@ package com.ts.can.renault.kadjar;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
@@ -31,7 +32,7 @@ public class CanKadjarSosActivity extends CanBaseActivity implements UserCallBac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
-        this.mTxtCenter = this.mManager.AddCusText(KeyDef.RKEY_MEDIA_OSD, 240, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 90);
+        this.mTxtCenter = this.mManager.AddCusText(KeyDef.RKEY_MEDIA_OSD, Can.CAN_VOLKS_XP, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 90);
         this.mTxtCenter.setGravity(17);
         this.mTxtCenter.setPadding(0, 0, 0, 0);
         this.mTxtCenter.SetPixelSize(75);

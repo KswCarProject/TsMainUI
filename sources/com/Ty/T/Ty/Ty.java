@@ -7,15 +7,15 @@ import com.Ty.T.Tr.Tn;
 public final class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    private static volatile boolean f348T = false;
+    private static volatile boolean f351T = false;
     private static volatile boolean Tr = true;
 
     public static void T(boolean writeDebugLogs) {
-        f348T = writeDebugLogs;
+        f351T = writeDebugLogs;
     }
 
     public static void T(String message, Object... args) {
-        if (f348T) {
+        if (f351T) {
             T(3, (Throwable) null, message, args);
         }
     }
@@ -53,7 +53,7 @@ public final class Ty {
                 }
                 log = String.format("%1$s\n%2$s", new Object[]{logMessage, Log.getStackTraceString(ex)});
             }
-            Log.println(priority, Tn.f335T, log);
+            Log.println(priority, Tn.f338T, log);
         }
     }
 }

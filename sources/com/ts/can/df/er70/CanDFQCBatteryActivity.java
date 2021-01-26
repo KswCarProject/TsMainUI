@@ -3,6 +3,7 @@ package com.ts.can.df.er70;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.ts.MainUI.R;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanDFQCBatteryActivity extends CanDFQCBaseActivity {
@@ -18,7 +19,7 @@ public class CanDFQCBatteryActivity extends CanDFQCBaseActivity {
     private TextView mTvV;
     private String r;
     private String v;
-    private String value = "";
+    private String value = TXZResourceManager.STYLE_DEFAULT;
 
     /* access modifiers changed from: protected */
     public void InitLayout() {
@@ -26,7 +27,7 @@ public class CanDFQCBatteryActivity extends CanDFQCBaseActivity {
         this.mTvV = AddText(121, 171, 203, 25);
         this.mTvA = AddText(121, 210, KeyDef.RKEY_RADIO_6S, 25);
         this.mTvC = AddText(121, Can.CAN_TOYOTA_SP_XP, 203, 25);
-        this.mTvR = AddText(121, KeyDef.RKEY_FF, 203, 25);
+        this.mTvR = AddText(121, 293, 203, 25);
         this.mTvE = AddText(121, KeyDef.RKEY_EJECT_L, 203, 25);
         this.mTvEnotice = AddText(681, 483, 121, 26);
         this.mTvEnotice.setText(R.string.can_dfqc_battery_e);

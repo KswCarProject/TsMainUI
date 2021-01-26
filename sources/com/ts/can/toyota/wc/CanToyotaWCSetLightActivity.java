@@ -25,6 +25,7 @@ public class CanToyotaWCSetLightActivity extends CanToyotaWCBaseActivity impleme
     private static int[] mStrOutCarLightOffTimer = {R.string.can_off, R.string.can_7dot5s, R.string.can_15s, R.string.can_30s};
     private CanItemPopupList mItemLightOffTimer;
     private CanItemPopupList mItemOutCarLightTime;
+    private CanItemCheckList mItemRjxcd;
     private CanItemProgressList mItemSens;
     private CanScrollList mManager;
     private boolean mbLayout;
@@ -49,6 +50,7 @@ public class CanToyotaWCSetLightActivity extends CanToyotaWCBaseActivity impleme
         }
         if (!check || i2b(this.mSetData.Update)) {
             this.mSetData.Update = 0;
+            this.mItemRjxcd.SetCheck(this.mSetData.Rjxcd);
             this.mItemSens.SetCurVal(this.mSetData.Sensitivity);
             this.mItemLightOffTimer.SetSel(this.mSetData.LightOffTime);
             this.mItemOutCarLightTime.SetSel(this.mSetData.OutLightOffTime);
@@ -109,6 +111,9 @@ public class CanToyotaWCSetLightActivity extends CanToyotaWCBaseActivity impleme
     /* access modifiers changed from: protected */
     public void InitItem(int item) {
         switch (item) {
+            case 1:
+                this.mItemRjxcd = AddCheckItem(R.string.can_light_rxd, item);
+                return;
             case 2:
                 this.mItemSens = new CanItemProgressList((Context) this, R.string.can_light_sens);
                 this.mItemSens.SetIdCallBack(item, this);
@@ -130,6 +135,9 @@ public class CanToyotaWCSetLightActivity extends CanToyotaWCBaseActivity impleme
     /* access modifiers changed from: protected */
     public void AddItem(int item) {
         switch (item) {
+            case 1:
+                this.mManager.AddView(this.mItemRjxcd.GetView());
+                return;
             case 2:
                 this.mManager.AddView(this.mItemSens.GetView());
                 return;
@@ -152,7 +160,13 @@ public class CanToyotaWCSetLightActivity extends CanToyotaWCBaseActivity impleme
     }
 
     public void onClick(View v) {
-        int intValue = ((Integer) v.getTag()).intValue();
+        switch (((Integer) v.getTag()).intValue()) {
+            case 1:
+                CarSet(1, 11, Neg(this.mSetData.Rjxcd));
+                return;
+            default:
+                return;
+        }
     }
 
     public void onItem(int Id, int item) {

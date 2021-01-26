@@ -8,9 +8,11 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ import com.ts.can.CanCarInfoSub1Activity;
 import com.ts.canview.RelativeLayoutContainer;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.music.MusicInvokeConstants;
 import com.yyw.ts70xhw.KeyDef;
 
@@ -49,6 +52,7 @@ public class CanGL8ACView extends CanBaseACView {
     private static final int ITEM_TEMP_SYNC = 14;
     private static final int ITEM_WIND_DECREASE = 9;
     private static final int ITEM_WIND_INCREASE = 8;
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private CanDataInfo.CAN_ACInfo mAcInfo;
     private ParamButton mBtnAC;
     private ParamButton mBtnFootFrontMode;
@@ -141,8 +145,8 @@ public class CanGL8ACView extends CanBaseACView {
     }
 
     private void updateTempValue(String ltTemp, String rtTemp) {
-        this.mTvLeftTemp.setText(TextUtils.isEmpty(ltTemp) ? "" : ltTemp.replace("℃", "°"));
-        this.mTvRightTemp.setText(TextUtils.isEmpty(rtTemp) ? "" : rtTemp.replace("℃", "°"));
+        this.mTvLeftTemp.setText(TextUtils.isEmpty(ltTemp) ? TXZResourceManager.STYLE_DEFAULT : ltTemp.replace("℃", "°"));
+        this.mTvRightTemp.setText(TextUtils.isEmpty(rtTemp) ? TXZResourceManager.STYLE_DEFAULT : rtTemp.replace("℃", "°"));
     }
 
     private void updateACState(int autoAc, int ac) {
@@ -163,50 +167,8 @@ public class CanGL8ACView extends CanBaseACView {
 
     public void onClick(View v) {
         switch (((Integer) v.getTag()).intValue()) {
-            case 0:
-                CanJni.GMACCtrl(7, 4);
-                return;
-            case 1:
-                CanJni.GMACCtrl(7, 5);
-                return;
-            case 2:
-                CanJni.GMACCtrl(7, 20);
-                return;
-            case 3:
-                CanJni.GMACCtrl(7, 21);
-                return;
-            case 4:
-                CanJni.GMACCtrl(7, 8);
-                return;
-            case 5:
-                CanJni.GMACCtrl(7, 9);
-                return;
-            case 6:
-                CanJni.GMACCtrl(7, 11);
-                return;
-            case 7:
-                CanJni.GMACCtrl(7, 10);
-                return;
-            case 8:
-                CanJni.GMACCtrl(7, 6);
-                return;
-            case 9:
-                CanJni.GMACCtrl(7, 7);
-                return;
-            case 10:
-                CanJni.GMACCtrl(7, 1);
-                return;
-            case 11:
-                CanJni.GMACCtrl(7, 3);
-                return;
-            case 12:
-                CanJni.GMACCtrl(7, 2);
-                return;
             case 13:
                 enterSubWin(CanCarInfoSub1Activity.class, -1);
-                return;
-            case 14:
-                CanJni.GMACCtrl(7, 13);
                 return;
             case 15:
                 if (this.mRelativeLayout.getVisibility() == 0) {
@@ -216,31 +178,84 @@ public class CanGL8ACView extends CanBaseACView {
                     this.mRelativeLayout.setVisibility(0);
                     return;
                 }
-            case 16:
-                CanJni.GMACCtrl(7, 28);
-                return;
-            case 17:
-                CanJni.GMACCtrl(7, 22);
-                setShowView(true);
-                return;
-            case 18:
-                CanJni.GMACCtrl(7, 12);
-                setShowView(true);
-                return;
-            case 19:
-                CanJni.GMACCtrl(7, 27);
-                setShowView(true);
-                return;
-            case 20:
-                CanJni.GMACCtrl(7, 24);
-                setShowView(true);
-                return;
             default:
                 return;
         }
     }
 
     public boolean onTouch(View arg0, MotionEvent arg1) {
+        int id = ((Integer) arg0.getTag()).intValue();
+        if (arg1.getAction() == 0) {
+            switch (id) {
+                case 0:
+                    CanJni.GMACCtrl(7, 4);
+                    break;
+                case 1:
+                    CanJni.GMACCtrl(7, 5);
+                    break;
+                case 2:
+                    CanJni.GMACCtrl(7, 20);
+                    break;
+                case 3:
+                    CanJni.GMACCtrl(7, 21);
+                    break;
+                case 4:
+                    CanJni.GMACCtrl(7, 8);
+                    break;
+                case 5:
+                    CanJni.GMACCtrl(7, 9);
+                    break;
+                case 6:
+                    CanJni.GMACCtrl(7, 11);
+                    break;
+                case 7:
+                    CanJni.GMACCtrl(7, 10);
+                    break;
+                case 8:
+                    CanJni.GMACCtrl(7, 6);
+                    break;
+                case 9:
+                    CanJni.GMACCtrl(7, 7);
+                    break;
+                case 10:
+                    CanJni.GMACCtrl(7, 1);
+                    break;
+                case 11:
+                    CanJni.GMACCtrl(7, 3);
+                    break;
+                case 12:
+                    CanJni.GMACCtrl(7, 2);
+                    Sleep(50);
+                    CanJni.GMACCtrl(7, 0);
+                    break;
+                case 14:
+                    CanJni.GMACCtrl(7, 13);
+                    Sleep(50);
+                    CanJni.GMACCtrl(7, 0);
+                    break;
+                case 16:
+                    CanJni.GMACCtrl(7, 28);
+                    break;
+                case 17:
+                    CanJni.GMACCtrl(7, 22);
+                    setShowView(true);
+                    break;
+                case 18:
+                    CanJni.GMACCtrl(7, 12);
+                    setShowView(true);
+                    break;
+                case 19:
+                    CanJni.GMACCtrl(7, 27);
+                    setShowView(true);
+                    break;
+                case 20:
+                    CanJni.GMACCtrl(7, 24);
+                    setShowView(true);
+                    break;
+            }
+        } else if (arg1.getAction() == 1) {
+            CanJni.GMACCtrl(7, 0);
+        }
         return false;
     }
 
@@ -265,6 +280,13 @@ public class CanGL8ACView extends CanBaseACView {
     /* access modifiers changed from: protected */
     public void InitData() {
         this.mContainer = new RelativeLayoutContainer(getActivity());
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mContainer.getContainer().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mContainer.getContainer().setLayoutParams(lp);
         this.mContainer.setBackgroundResource(R.drawable.can_gl18_ac_bg01);
         this.mTvLeftTemp = this.mContainer.addText(49, Can.CAN_BJ20_WC, 110, 75);
         this.mTvRightTemp = this.mContainer.addText(862, Can.CAN_BJ20_WC, 110, 75);
@@ -279,16 +301,16 @@ public class CanGL8ACView extends CanBaseACView {
         this.mTvAutoMode.setTextSize(22.0f);
         this.mTvAutoMode.setGravity(17);
         this.mTvAutoMode.setVisibility(8);
-        this.mContainer.setTextStyle(this.mTvLeftTemp, 0, 17, -1, 30).setTextStyle(this.mTvRightTemp, 0, 17, -1, 30).setTextStyle2(this.mTvACToggle, R.string.can_gl8_2017_close, 17, 14).setColorUpSelList(this.mTvACToggle, -1, Color.parseColor("#FFCC00")).setTextStyle2(this.mTvAuto, R.string.can_gl8_2017_auto, 17, 20).setColorUpDnSelList(this.mTvAuto, -1, Color.parseColor("#FFCC00")).setIdClickListener(this.mTvAuto, 12, this).setTextStyle2(this.mTvRearSeat, R.string.can_gl8_2017_rear_seat, 17, 20).setColorUpDnList(this.mTvRearSeat, -1, Color.parseColor("#FFCC00")).setIdClickListener(this.mTvRearSeat, 13, this).setTextStyle2(this.mTvSyncState, R.string.can_gl8_2017_sync_already, 17, 18).setColorUpDnSelList(this.mTvSyncState, -1, Color.parseColor("#06ebf9")).setIdClickListener(this.mTvSyncState, 14, this).setTextStyle(this.mTvWindState, 0, 17, -1, 18);
-        this.mIvWindIcon = this.mContainer.addImage(375, KeyDef.RKEY_FR, R.drawable.can_gl18_ac_fan_00);
+        this.mContainer.setTextStyle(this.mTvLeftTemp, 0, 17, -1, 30).setTextStyle(this.mTvRightTemp, 0, 17, -1, 30).setTextStyle2(this.mTvACToggle, R.string.can_gl8_2017_close, 17, 14).setColorUpSelList(this.mTvACToggle, -1, Color.parseColor("#FFCC00")).setTextStyle2(this.mTvAuto, R.string.can_gl8_2017_auto, 17, 20).setColorUpDnSelList(this.mTvAuto, -1, Color.parseColor("#FFCC00")).setIdTouchListener(this.mTvAuto, 12, this).setTextStyle2(this.mTvRearSeat, R.string.can_gl8_2017_rear_seat, 17, 20).setColorUpDnList(this.mTvRearSeat, -1, Color.parseColor("#FFCC00")).setIdClickListener(this.mTvRearSeat, 13, this).setTextStyle2(this.mTvSyncState, R.string.can_gl8_2017_sync_already, 17, 18).setColorUpDnSelList(this.mTvSyncState, -1, Color.parseColor("#06ebf9")).setIdTouchListener(this.mTvSyncState, 14, this).setTextStyle(this.mTvWindState, 0, 17, -1, 18);
+        this.mIvWindIcon = this.mContainer.addImage(375, 294, R.drawable.can_gl18_ac_fan_00);
         this.mBtnAC = this.mContainer.addButton(261, 70);
         this.mBtnLoop = this.mContainer.addButton(389, 67);
         ParamButton windDecrease = this.mContainer.addButton(Can.CAN_TOYOTA_SP_XP, 284);
         ParamButton windIncrease = this.mContainer.addButton(671, 284);
         ParamButton leftIncrease = this.mContainer.addButton(49, 68);
-        ParamButton leftDecrease = this.mContainer.addButton(49, KeyDef.RKEY_FR);
+        ParamButton leftDecrease = this.mContainer.addButton(49, 294);
         ParamButton rightIncrease = this.mContainer.addButton(858, 68);
-        ParamButton rightDecrease = this.mContainer.addButton(858, KeyDef.RKEY_FR);
+        ParamButton rightDecrease = this.mContainer.addButton(858, 294);
         if (CanJni.GetSubType() == 3) {
             this.mBtnSet = this.mContainer.addButton(35, 445, 113, 100);
             this.mBtnHeadMode = this.mContainer.addButton(KeyDef.RKEY_EJECT, 445);
@@ -304,7 +326,7 @@ public class CanGL8ACView extends CanBaseACView {
             this.mBtnHeadFootMode = this.mContainer.addButton(360, 445);
             this.mBtnFootFrontMode = this.mContainer.addButton(722, 445);
         }
-        this.mContainer.setDrawableUpDnSel(this.mBtnAC, R.drawable.can_gl18_ac_icon_ac_up, R.drawable.can_gl18_ac_icon_ac_dn).setIdClickListener(this.mBtnAC, 10, this).setDrawableUpDnSel(this.mBtnLoop, R.drawable.can_gl18_ac_icon_wxh_dn, R.drawable.can_gl18_ac_icon_nxh_dn).setIdClickListener(this.mBtnLoop, 11, this).setDrawableUpDn(windIncrease, R.drawable.can_gl18_ac_next_up, R.drawable.can_gl18_ac_next_dn).setIdClickListener(windIncrease, 8, this).setDrawableUpDn(windDecrease, R.drawable.can_gl18_ac_prv_up, R.drawable.can_gl18_ac_prv_dn).setIdClickListener(windDecrease, 9, this).setDrawableUpDn(leftIncrease, R.drawable.can_gl18_ac_icon_sh_up, R.drawable.can_gl18_ac_icon_sh_dn).setIdClickListener(leftIncrease, 0, this).setDrawableUpDn(leftDecrease, R.drawable.can_gl18_ac_icon_xia_up, R.drawable.can_gl18_ac_icon_xia_dn).setIdClickListener(leftDecrease, 1, this).setDrawableUpDn(rightIncrease, R.drawable.can_gl18_ac_icon_sh_up, R.drawable.can_gl18_ac_icon_sh_dn).setIdClickListener(rightIncrease, 2, this).setDrawableUpDn(rightDecrease, R.drawable.can_gl18_ac_icon_xia_up, R.drawable.can_gl18_ac_icon_xia_dn).setIdClickListener(rightDecrease, 3, this).setDrawableUpDnSel(this.mBtnHeadMode, R.drawable.can_gl18_ac_icon01_up, R.drawable.can_gl18_ac_icon01_dn).setIdClickListener(this.mBtnHeadMode, 4, this).setDrawableUpDnSel(this.mBtnHeadFootMode, R.drawable.can_gl18_ac_icon02_up, R.drawable.can_gl18_ac_icon02_dn).setIdClickListener(this.mBtnHeadFootMode, 5, this).setDrawableUpDnSel(this.mBtnFootMode, R.drawable.can_gl18_ac_icon03_up, R.drawable.can_gl18_ac_icon03_dn).setIdClickListener(this.mBtnFootMode, 6, this).setDrawableUpDnSel(this.mBtnFootFrontMode, R.drawable.can_gl18_ac_icon04_up, R.drawable.can_gl18_ac_icon04_dn).setIdClickListener(this.mBtnFootFrontMode, 7, this).setDrawableUpDnSel(this.mBtnFrontMode, R.drawable.can_gl18_ac_icon06_up, R.drawable.can_gl18_ac_icon06_dn).setIdClickListener(this.mBtnFrontMode, 16, this).setDrawableUpDnSel(this.mBtnSet, R.drawable.can_gl18_ac_set_up, R.drawable.can_gl18_ac_set_dn).setIdClickListener(this.mBtnSet, 15, this);
+        this.mContainer.setDrawableUpDnSel(this.mBtnAC, R.drawable.can_gl18_ac_icon_ac_up, R.drawable.can_gl18_ac_icon_ac_dn).setIdTouchListener(this.mBtnAC, 10, this).setDrawableUpDnSel(this.mBtnLoop, R.drawable.can_gl18_ac_icon_wxh_dn, R.drawable.can_gl18_ac_icon_nxh_dn).setIdTouchListener(this.mBtnLoop, 11, this).setDrawableUpDn(windIncrease, R.drawable.can_gl18_ac_next_up, R.drawable.can_gl18_ac_next_dn).setIdTouchListener(windIncrease, 8, this).setDrawableUpDn(windDecrease, R.drawable.can_gl18_ac_prv_up, R.drawable.can_gl18_ac_prv_dn).setIdTouchListener(windDecrease, 9, this).setDrawableUpDn(leftIncrease, R.drawable.can_gl18_ac_icon_sh_up, R.drawable.can_gl18_ac_icon_sh_dn).setIdTouchListener(leftIncrease, 0, this).setDrawableUpDn(leftDecrease, R.drawable.can_gl18_ac_icon_xia_up, R.drawable.can_gl18_ac_icon_xia_dn).setIdTouchListener(leftDecrease, 1, this).setDrawableUpDn(rightIncrease, R.drawable.can_gl18_ac_icon_sh_up, R.drawable.can_gl18_ac_icon_sh_dn).setIdTouchListener(rightIncrease, 2, this).setDrawableUpDn(rightDecrease, R.drawable.can_gl18_ac_icon_xia_up, R.drawable.can_gl18_ac_icon_xia_dn).setIdTouchListener(rightDecrease, 3, this).setDrawableUpDnSel(this.mBtnHeadMode, R.drawable.can_gl18_ac_icon01_up, R.drawable.can_gl18_ac_icon01_dn).setIdTouchListener(this.mBtnHeadMode, 4, this).setDrawableUpDnSel(this.mBtnHeadFootMode, R.drawable.can_gl18_ac_icon02_up, R.drawable.can_gl18_ac_icon02_dn).setIdTouchListener(this.mBtnHeadFootMode, 5, this).setDrawableUpDnSel(this.mBtnFootMode, R.drawable.can_gl18_ac_icon03_up, R.drawable.can_gl18_ac_icon03_dn).setIdTouchListener(this.mBtnFootMode, 6, this).setDrawableUpDnSel(this.mBtnFootFrontMode, R.drawable.can_gl18_ac_icon04_up, R.drawable.can_gl18_ac_icon04_dn).setIdTouchListener(this.mBtnFootFrontMode, 7, this).setDrawableUpDnSel(this.mBtnFrontMode, R.drawable.can_gl18_ac_icon06_up, R.drawable.can_gl18_ac_icon06_dn).setIdTouchListener(this.mBtnFrontMode, 16, this).setDrawableUpDnSel(this.mBtnSet, R.drawable.can_gl18_ac_set_up, R.drawable.can_gl18_ac_set_dn).setIdClickListener(this.mBtnSet, 15, this);
         this.mRelativeLayout = new RelativeLayout(getActivity());
         this.mContainer.addView(this.mRelativeLayout, 29, KeyDef.RKEY_POWER_ON, KeyDef.RKEY_CMMB_PBC, 86);
         this.mRelativeLayout.setBackgroundResource(R.drawable.can_gl18_ac_popup);
@@ -317,13 +339,13 @@ public class CanGL8ACView extends CanBaseACView {
         setDrawableUpSel(this.mBtnRearWin, R.drawable.can_gl18_ac_hcs_up, R.drawable.can_gl18_ac_hcs_dn);
         setDrawableUpSel(this.mBtnRtFire, R.drawable.can_gl18_ac_rchair_up, R.drawable.can_gl18_ac_rchair_dn);
         this.mBtnLtFire.setTag(17);
-        this.mBtnLtFire.setOnClickListener(this);
+        this.mBtnLtFire.setOnTouchListener(this);
         this.mBtnFrontWin.setTag(18);
-        this.mBtnFrontWin.setOnClickListener(this);
+        this.mBtnFrontWin.setOnTouchListener(this);
         this.mBtnRearWin.setTag(19);
-        this.mBtnRearWin.setOnClickListener(this);
+        this.mBtnRearWin.setOnTouchListener(this);
         this.mBtnRtFire.setTag(20);
-        this.mBtnRtFire.setOnClickListener(this);
+        this.mBtnRtFire.setOnTouchListener(this);
         this.mIvLtFire = new ImageView[3];
         this.mIvRtFire = new ImageView[3];
         this.mIvLtFireIds = new int[]{29, 37, 44};
@@ -335,6 +357,9 @@ public class CanGL8ACView extends CanBaseACView {
             this.mIvRtFire[i2] = addImage(this.mIvRtFireIds[i2], 36, R.drawable.can_gl18_ac_chair_jt);
         }
         this.mRelativeLayout.setVisibility(8);
+        this.mContainer.getContainer().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mContainer.getContainer().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     /* access modifiers changed from: package-private */

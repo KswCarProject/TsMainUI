@@ -10,10 +10,12 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.can.CanFunc;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanAccord8VolUI implements UserCallBack {
@@ -53,18 +55,20 @@ public class CanAccord8VolUI implements UserCallBack {
     }
 
     public void InitVol(Context context) {
-        if (this.mLayout == null && context != null) {
-            mContext = context;
-            this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_lexus_vol, (ViewGroup) null);
-            InintWinManage(91, 91, KeyDef.SKEY_MUTE_3, 17, mContext);
-            this.wManager.addView(this.mLayout, this.wmParams);
-            this.mManager = new RelativeLayoutManager(this.mLayout);
-            this.mMuteSta = this.mManager.AddImage(0, 0);
-            this.mMuteSta.setStateDrawable(R.drawable.can_sound_dn, R.drawable.can_mute_up);
-            this.mVolVal = AddText(0, 5, 91, 91);
-            this.mVolVal.setTextColor(-1);
-            onPause();
+        if (this.mLayout != null || context == null) {
+            Log.d("CanAccord8VolUI", "Already have instance");
+            return;
         }
+        Log.d("CanAccord8VolUI", "Init");
+        mContext = context;
+        this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_lexus_vol, (ViewGroup) null);
+        InintWinManage(91, 91, KeyDef.SKEY_MUTE_3, 17, mContext);
+        this.wManager.addView(this.mLayout, this.wmParams);
+        this.mManager = new RelativeLayoutManager(this.mLayout);
+        this.mMuteSta = this.mManager.AddImage(0, 0);
+        this.mMuteSta.setStateDrawable(R.drawable.can_sound_dn, R.drawable.can_mute_up);
+        this.mVolVal = AddText(0, 5, 91, 91);
+        this.mVolVal.setTextColor(-1);
     }
 
     public void Destroy() {
@@ -86,13 +90,14 @@ public class CanAccord8VolUI implements UserCallBack {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(40);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(49);
         return temp;
     }
 
     /* access modifiers changed from: protected */
     public void onResume() {
+        InitVol(CanFunc.mContext);
         ResetData(false);
         mIsVol = true;
         this.mLayout.setVisibility(0);
@@ -113,7 +118,7 @@ public class CanAccord8VolUI implements UserCallBack {
             onPause();
             Log.d("CanAccord8VolUI", "Lexus UserAll Exit vol");
         } else if (this.mVolInfo.Vol == 0) {
-            this.mVolVal.setText("");
+            this.mVolVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mMuteSta.setSelected(true);
         } else {
             this.mVolVal.setText(String.format("%02d", new Object[]{Integer.valueOf(this.mVolInfo.Vol)}));

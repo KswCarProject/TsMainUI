@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import com.android.SdkConstants;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -75,7 +76,7 @@ public class CanNissanRich6WcTpmsInfoView extends CanRelativeCarInfoView {
         if (temp < 255) {
             return String.valueOf(temp) + "℃";
         }
-        return "-";
+        return SdkConstants.RES_QUALIFIER_SEP;
     }
 
     public void SetVal(int id, int press, int temp) {

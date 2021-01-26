@@ -12,7 +12,7 @@
         <item>دنسخه نرم افزاری</item>
     </array>
     <array name="set_genera_options">
-        <item>آماده بکار</item>
+        <item>حالت خواب</item>
         <item>Speech Recognition</item>
         <item>دستیار لمسی</item>
         <item>رنج صدا در حالت دنده عقب</item>
@@ -43,6 +43,7 @@
         <item>تهویه هوا</item>
         <item>پس از خروجی صفحه</item>
         <item>دوربین جلو</item>
+        <item>نوع دوربین</item>
     </array>
     <array name="set_navi_options">
         <item>شروع خودکار رهیاب</item>

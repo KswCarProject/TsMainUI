@@ -4,19 +4,19 @@ package com.txznet.comm.ui;
 public class T {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Tr f420T;
+    private static Tr f424T;
     private static Ty Tr;
     private static Tk Ty;
 
     public static Tr T() {
-        if (com.txznet.comm.Tr.T.Tr() != null && f420T == null) {
+        if (com.txznet.comm.Tr.T.Tr() != null && f424T == null) {
             synchronized (T.class) {
-                if (f420T == null) {
-                    f420T = new Tr(com.txznet.comm.Tr.T.Tr());
+                if (f424T == null) {
+                    f424T = new Tr(com.txznet.comm.Tr.T.Tr());
                 }
             }
         }
-        return f420T;
+        return f424T;
     }
 
     public static Ty Tr() {

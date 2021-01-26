@@ -57,7 +57,7 @@ public class Tk extends TO {
         Tn.T adapter = new Tn.T();
         adapter.Tk = 0;
         adapter.Tn = T9();
-        adapter.f462T = 19;
+        adapter.f466T = 19;
         adapter.Tr = Ty(data);
         return adapter;
     }
@@ -73,7 +73,7 @@ public class Tk extends TO {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, T6.T().T5());
         layoutParams.gravity = 16;
         llLayout.addView(titleViewAdapter.Tr, layoutParams);
-        int contentHeight = com.txznet.comm.ui.TE.Tn.f535T;
+        int contentHeight = com.txznet.comm.ui.TE.Tn.f539T;
         RelativeLayout rlLayout = new RelativeLayout(com.txznet.comm.Tr.T.Tr());
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, contentHeight);
         llLayout.addView(rlLayout, layoutParams2);

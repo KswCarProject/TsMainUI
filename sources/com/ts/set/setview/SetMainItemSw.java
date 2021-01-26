@@ -66,4 +66,10 @@ public class SetMainItemSw {
         this.mVal = (TextView) this.mView.findViewById(R.id.switch_value);
         this.switch_ctrl = (Switch) this.mView.findViewById(R.id.switch_ctrl);
     }
+
+    public void SetValue(String value) {
+        if (this.mVal != null && value != null) {
+            this.mVal.setText(value);
+        }
+    }
 }

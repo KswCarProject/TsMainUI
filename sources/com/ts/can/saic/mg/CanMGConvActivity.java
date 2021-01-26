@@ -15,11 +15,14 @@ import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
 
 public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemFsSetList.onFsSetClick, CanItemProgressList.onPosChange {
+    public static final int ITEM_BDFZ = 36;
     public static final int ITEM_BJLMD = 20;
     public static final int ITEM_BJLMD2 = 24;
+    public static final int ITEM_BJLMD3 = 40;
     public static final int ITEM_BJY = 21;
     public static final int ITEM_BWHJ = 1;
     public static final int ITEM_BWHJBCLDSJ = 27;
+    public static final int ITEM_CDBCFZXT = 38;
     public static final int ITEM_CDPLBJ = 19;
     public static final int ITEM_CSFZ = 17;
     public static final int ITEM_CSWDKZ = 13;
@@ -27,14 +30,20 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
     public static final int ITEM_FQWDSZ = 6;
     public static final int ITEM_FZMS = 18;
     public static final int ITEM_FZMS2 = 23;
+    public static final int ITEM_FZMS3 = 39;
     public static final int ITEM_HCCWCSLD = 4;
     public static final int ITEM_HFCCSZ = 10;
+    public static final int ITEM_HXJSFZXT = 34;
+    public static final int ITEM_HXJTJS = 37;
     public static final int ITEM_JJJS = 16;
     public static final int ITEM_JSMS = 7;
     public static final int ITEM_JSXRTSY = 11;
     public static final int ITEM_JSXRTSYYL = 30;
-    private static final int ITEM_MAX = 32;
+    public static final int ITEM_JTYDFZXT = 41;
+    public static final int ITEM_LANG = 42;
+    private static final int ITEM_MAX = 42;
     private static final int ITEM_MIN = 1;
+    public static final int ITEM_MQJC = 35;
     public static final int ITEM_TCFZXT = 31;
     public static final int ITEM_TCZT = 28;
     public static final int ITEM_TURN_FELL = 3;
@@ -48,36 +57,49 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
     public static final int ITEM_YBDBCLDSJ = 26;
     public static final int ITEM_YBLD = 12;
     public static final int ITEM_ZDMSFL = 5;
+    public static final int ITEM_ZDTX = 33;
     public static final int ITEM_ZNJCJS = 8;
     public static final String TAG = "CanMGConvActivity";
+    private static final int[] mBjlmd3Arr = {R.string.can_sensitivity_low, R.string.can_cdpyyzxt_1, R.string.can_sensitivity_high};
     private static final int[] mBjlmdArr = {R.string.can_sensitivity_low, R.string.can_sensitivity_mid, R.string.can_sensitivity_high};
     private static final int[] mConvsArr = {R.string.can_only_light, R.string.can_dghlb};
     private static final int[] mFqwdszArr = {R.string.can_fqwdsz_1, R.string.can_fqwdsz_2, R.string.can_fqwdsz_3};
     private static final int[] mFzms2Arr = {R.string.can_baojing, R.string.can_bjhzd};
+    private static final int[] mFzms3Arr = {R.string.can_baojing, R.string.can_bjcdbc, R.string.can_bjcdplfz};
     private static final int[] mFzmsArr = {R.string.can_sdxs, R.string.can_tigger7_speed_warn, R.string.can_znxs};
     private static final int[] mJsmsArr = {R.string.can_door_unlock_key2, R.string.can_door_unlock_key1};
     private static final int[] mJsxrtsyylArr = {R.string.can_yybjxtyl_1, R.string.can_yybjxtyl_2};
+    private static final int[] mLangArr = {R.string.lang_cn, R.string.lang_en_uk};
     private static final int[] mTurnFellsArr = {R.string.can_yiban, R.string.can_mode_ss, R.string.can_sport};
     private static final int[] mZdmsflArr = {R.string.can_cdjd, R.string.can_cdzj, R.string.can_cdjg};
     private static final int[] mbcldsjArr = {R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s, R.string.can_mzd_cx4_time_90s};
+    private CanItemSwitchList mItemBdfz;
     private CanItemPopupList mItemBjlmd;
     private CanItemPopupList mItemBjlmd2;
+    private CanItemPopupList mItemBjlmd3;
     private CanItemSwitchList mItemBjy;
     private CanItemSwitchList mItemBwhj;
     private CanItemPopupList mItemBwhjbcldsj;
     private CanItemSwitchList mItemCSWDKZ;
     private CanItemFsSetList mItemCarRst;
+    private CanItemSwitchList mItemCdbcfzxt;
     private CanItemSwitchList mItemCdplbj;
     private CanItemSwitchList mItemCsfz;
     private CanItemSwitchList mItemDphjkzxt;
     private CanItemPopupList mItemFqwdsz;
     private CanItemPopupList mItemFzms;
     private CanItemPopupList mItemFzms2;
+    private CanItemPopupList mItemFzms3;
     private CanItemSwitchList mItemHccscwld;
+    private CanItemSwitchList mItemHxjsfzxt;
+    private CanItemSwitchList mItemHxjtjs;
     private CanItemSwitchList mItemJSXRTSY;
     private CanItemSwitchList mItemJjjs;
     private CanItemPopupList mItemJsms;
     private CanItemPopupList mItemJsxrtsyyl;
+    private CanItemSwitchList mItemJtydfzxt;
+    private CanItemPopupList mItemLang;
+    private CanItemSwitchList mItemMqjc;
     private CanItemSwitchList mItemTcfzxt;
     private CanItemProgressList mItemTczt;
     private CanItemFsSetList mItemTpmsRst;
@@ -91,6 +113,7 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
     private CanItemSwitchList mItemYbd;
     private CanItemPopupList mItemYbdbcldsj;
     private CanItemPopupList mItemZdmsfl;
+    private CanItemSwitchList mItemZdtx;
     private CanItemPopupList mItemZnjcjs;
     private CanScrollList mManager;
     private boolean mbLayout;
@@ -156,6 +179,16 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
             this.mItemJsxrtsyyl.SetSel(this.mSetData1.Jsxrtsyyl);
             this.mItemTcfzxt.SetCheck(this.mSetData1.Tcfzxt);
             this.mItemXczscxsj.SetSel(this.mSetData1.Xczscxsj);
+            this.mItemZdtx.SetCheck(this.mSetData1.Zdtx);
+            this.mItemHxjsfzxt.SetCheck(this.mSetData1.Hxjsfzxt);
+            this.mItemMqjc.SetCheck(this.mSetData1.Mqjc);
+            this.mItemBdfz.SetCheck(this.mSetData1.Bdfz);
+            this.mItemHxjtjs.SetCheck(this.mSetData1.Hxjtjs);
+            this.mItemCdbcfzxt.SetCheck(this.mSetData1.Cdbcfzxt);
+            this.mItemFzms3.SetSel(this.mSetData1.Fzms3);
+            this.mItemBjlmd3.SetSel(this.mSetData1.Bjlmd3);
+            this.mItemJtydfzxt.SetCheck(this.mSetData1.Jtydfzxt);
+            this.mItemLang.SetSel(this.mSetData1.Lang - 1);
         }
     }
 
@@ -214,6 +247,16 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
         this.mItemBwhjbcldsj = AddPopupItem(R.string.can_dgsjkz_bwhj, mbcldsjArr, 27);
         this.mItemXczscxsj = AddPopupItem(R.string.can_cxsj_xcd, mbcldsjArr, 32);
         this.mItemTczt = AddProgressItem(R.string.can_hant_tczt, 28, 1, 0, 10);
+        this.mItemZdtx = AddCheckItem(R.string.can_zdtx, 33);
+        this.mItemHxjsfzxt = AddCheckItem(R.string.can_xhjsfzxt, 34);
+        this.mItemMqjc = AddCheckItem(R.string.can_blind_spot_monitoring, 35);
+        this.mItemBdfz = AddCheckItem(R.string.can_psa_wc_bdfz, 36);
+        this.mItemHxjtjs = AddCheckItem(R.string.can_hxjtjs, 37);
+        this.mItemCdbcfzxt = AddCheckItem(R.string.can_lane_assist, 38);
+        this.mItemFzms3 = AddPopupItem(R.string.can_fzms3, mFzms3Arr, 39);
+        this.mItemBjlmd3 = AddPopupItem(R.string.can_bjlmd3, mBjlmd3Arr, 40);
+        this.mItemJtydfzxt = AddCheckItem(R.string.can_jtydfzxt, 41);
+        this.mItemLang = AddPopupItem(R.string.can_car_lang, mLangArr, 42);
         this.mItemTpmsRst = new CanItemFsSetList(this, R.string.can_rw_rx5_tyfw);
         this.mItemTpmsRst.SetIdClickListener(9, this);
         this.mManager.AddView(this.mItemTpmsRst.GetView());
@@ -224,7 +267,7 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 32; i++) {
+        for (int i = 1; i <= 42; i++) {
             ShowItem(i);
         }
     }
@@ -239,27 +282,27 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
                     break;
                 }
             case 4:
-                if (4 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType()) {
+                if (4 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 13 == CanJni.GetSubType()) {
                     ret = 0;
                     break;
                 }
             case 5:
-                if (4 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType()) {
+                if (4 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 13 == CanJni.GetSubType()) {
                     ret = 0;
                     break;
                 }
             case 6:
-                if (4 == CanJni.GetSubType() || 6 == CanJni.GetSubType() || 7 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 9 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType()) {
+                if (4 == CanJni.GetSubType() || 6 == CanJni.GetSubType() || 7 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 9 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 13 == CanJni.GetSubType()) {
                     ret = 0;
                     break;
                 }
             case 7:
-                if (4 == CanJni.GetSubType() || 6 == CanJni.GetSubType() || 7 == CanJni.GetSubType()) {
+                if (4 == CanJni.GetSubType() || 6 == CanJni.GetSubType() || 7 == CanJni.GetSubType() || 13 == CanJni.GetSubType()) {
                     ret = 0;
                     break;
                 }
             case 8:
-                if (4 == CanJni.GetSubType() || 6 == CanJni.GetSubType() || 7 == CanJni.GetSubType()) {
+                if (4 == CanJni.GetSubType() || 6 == CanJni.GetSubType() || 7 == CanJni.GetSubType() || 13 == CanJni.GetSubType()) {
                     ret = 0;
                     break;
                 }
@@ -269,7 +312,7 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
                     break;
                 }
             case 10:
-                if (4 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 9 == CanJni.GetSubType()) {
+                if (4 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 9 == CanJni.GetSubType() || 13 == CanJni.GetSubType()) {
                     ret = 0;
                     break;
                 }
@@ -305,17 +348,15 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
                     break;
                 }
             case 17:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 18:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 19:
                 if (9 != CanJni.GetSubType()) {
                     ret = 0;
@@ -329,43 +370,37 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
                 }
                 break;
             case 21:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 22:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 23:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 24:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 25:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 26:
-                if (9 != CanJni.GetSubType()) {
+                if (!(9 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
-                break;
             case 27:
-                if (!(9 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType())) {
+                if (!(9 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 13 == CanJni.GetSubType())) {
                     ret = 0;
                     break;
                 }
@@ -395,6 +430,20 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
                 break;
             case 32:
                 if (12 != CanJni.GetSubType()) {
+                    ret = 0;
+                    break;
+                }
+                break;
+            case 33:
+            case 34:
+            case 35:
+            case 36:
+            case 37:
+            case 38:
+            case 39:
+            case 40:
+            case 41:
+                if (13 != CanJni.GetSubType()) {
                     ret = 0;
                     break;
                 }
@@ -503,6 +552,36 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
             case 32:
                 this.mItemXczscxsj.ShowGone(show);
                 return;
+            case 33:
+                this.mItemZdtx.ShowGone(show);
+                return;
+            case 34:
+                this.mItemHxjsfzxt.ShowGone(show);
+                return;
+            case 35:
+                this.mItemMqjc.ShowGone(show);
+                return;
+            case 36:
+                this.mItemBdfz.ShowGone(show);
+                return;
+            case 37:
+                this.mItemHxjtjs.ShowGone(show);
+                return;
+            case 38:
+                this.mItemCdbcfzxt.ShowGone(show);
+                return;
+            case 39:
+                this.mItemFzms3.ShowGone(show);
+                return;
+            case 40:
+                this.mItemBjlmd3.ShowGone(show);
+                return;
+            case 41:
+                this.mItemJtydfzxt.ShowGone(show);
+                return;
+            case 42:
+                this.mItemLang.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -580,6 +659,27 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
             case 31:
                 CarSet(6, 11, Neg(this.mSetData1.Tcfzxt));
                 return;
+            case 33:
+                CarSet(6, 12, Neg(this.mSetData1.Zdtx));
+                return;
+            case 34:
+                CarSet(6, 13, Neg(this.mSetData1.Hxjsfzxt));
+                return;
+            case 35:
+                CarSet(6, 14, Neg(this.mSetData1.Mqjc));
+                return;
+            case 36:
+                CarSet(6, 15, Neg(this.mSetData1.Bdfz));
+                return;
+            case 37:
+                CarSet(6, 16, Neg(this.mSetData1.Hxjtjs));
+                return;
+            case 38:
+                CarSet(6, 17, Neg(this.mSetData1.Cdbcfzxt));
+                return;
+            case 41:
+                CarSet(6, 20, Neg(this.mSetData1.Jtydfzxt));
+                return;
             default:
                 return;
         }
@@ -632,6 +732,15 @@ public class CanMGConvActivity extends CanMGGSBaseActivity implements View.OnCli
                 return;
             case 32:
                 CarSet(2, 4, item);
+                return;
+            case 39:
+                CarSet(6, 18, item);
+                return;
+            case 40:
+                CarSet(6, 19, item);
+                return;
+            case 42:
+                CarSet(10, 1, item + 1);
                 return;
             default:
                 return;

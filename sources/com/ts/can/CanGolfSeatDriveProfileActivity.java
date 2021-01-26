@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -111,7 +110,7 @@ public class CanGolfSeatDriveProfileActivity extends CanGolfBaseActivity impleme
     }
 
     private void QueryData() {
-        CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+        CanJni.GolfQuery(64, 160);
     }
 
     /* access modifiers changed from: protected */

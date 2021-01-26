@@ -16,7 +16,6 @@ import com.ts.canview.CanNumInuptDlg;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanBZMemTabActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, CanItemProgressList.onPosChange, CanNumInuptDlg.onInputOK {
     public static final int ITEM_OK = 11;
@@ -42,8 +41,8 @@ public class CanBZMemTabActivity extends CanBaseActivity implements UserCallBack
         this.mBtnSubChk = new ParamButton[6];
         for (int i = 0; i < 5; i++) {
             this.mBtnSpeed[i] = AddValBtn(((i % 2) * 300) + 383, ((i / 2) * 67) + 127 + 50, i + 1);
-            this.mBtnSubChk[i] = AddChkBtn(((i % 2) * 300) + 241, ((i / 2) * 67) + 133 + 50, i + 16);
-            CustomTextView tv = this.mManager.AddCusText(((i % 2) * 300) + KeyDef.RKEY_NEXT, ((i / 2) * 67) + 127 + 50, 90, 56);
+            this.mBtnSubChk[i] = AddChkBtn(((i % 2) * 300) + Can.CAN_SITECHDEV_CW, ((i / 2) * 67) + 133 + 50, i + 16);
+            CustomTextView tv = this.mManager.AddCusText(((i % 2) * 300) + 291, ((i / 2) * 67) + 127 + 50, 90, 56);
             tv.SetPxSize(40);
             tv.setText(String.format("M%d:", new Object[]{Integer.valueOf(i + 1)}));
             tv.setGravity(19);

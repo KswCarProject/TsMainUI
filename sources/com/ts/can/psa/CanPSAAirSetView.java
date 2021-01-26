@@ -2,6 +2,7 @@ package com.ts.can.psa;
 
 import android.app.Activity;
 import android.view.View;
+import com.android.SdkConstants;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
 import com.yyw.ts70xhw.FtSet;
@@ -47,7 +48,7 @@ public class CanPSAAirSetView extends CanScrollCarInfoView {
         if (nTempOld != (FtSet.Getyw7() & 15)) {
             nTempOld = FtSet.Getyw7() & 15;
             if (nTempOld > 0) {
-                updateItem(0, nTempOld, "-" + nTempOld);
+                updateItem(0, nTempOld, SdkConstants.RES_QUALIFIER_SEP + nTempOld);
             } else {
                 updateItem(0, nTempOld, " " + nTempOld);
             }

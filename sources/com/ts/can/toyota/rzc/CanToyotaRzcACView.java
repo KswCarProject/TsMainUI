@@ -12,6 +12,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanToyotaRzcACView extends CanBaseACView {
@@ -225,7 +226,7 @@ public class CanToyotaRzcACView extends CanBaseACView {
         this.mBtnSync.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
             return;
         }

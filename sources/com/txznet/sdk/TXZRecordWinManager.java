@@ -3,6 +3,7 @@ package com.txznet.sdk;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.view.View;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.T;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
@@ -16,7 +17,7 @@ public class TXZRecordWinManager {
     private static TXZRecordWinManager Tn = new TXZRecordWinManager();
 
     /* renamed from: T  reason: collision with root package name */
-    Boolean f787T;
+    Boolean f791T;
     private Integer T9 = null;
     /* access modifiers changed from: private */
     public RecordWin2 TZ;
@@ -72,8 +73,8 @@ public class TXZRecordWinManager {
 
     /* access modifiers changed from: package-private */
     public void T() {
-        if (this.f787T != null) {
-            enableFullScreen(this.f787T.booleanValue());
+        if (this.f791T != null) {
+            enableFullScreen(this.f791T.booleanValue());
         }
         if (this.Ty != null) {
             setWinRecordCloseWhenProcCmd(this.Ty.booleanValue());
@@ -98,7 +99,7 @@ public class TXZRecordWinManager {
 
     public void setWinContentWidth(int width) {
         this.T9 = Integer.valueOf(width);
-        Tn.Tr().T("com.txznet.txz", "txz.record.win.contentWidth", ("" + this.T9).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.record.win.contentWidth", (TXZResourceManager.STYLE_DEFAULT + this.T9).getBytes(), (Tn.Tr) null);
     }
 
     public boolean isOpened() {
@@ -116,18 +117,18 @@ public class TXZRecordWinManager {
     }
 
     public void enableFullScreen(boolean isFullScreen) {
-        this.f787T = Boolean.valueOf(isFullScreen);
-        Tn.Tr().T("com.txznet.txz", "txz.config.winRecord.fullScreen", ("" + isFullScreen).getBytes(), (Tn.Tr) null);
+        this.f791T = Boolean.valueOf(isFullScreen);
+        Tn.Tr().T("com.txznet.txz", "txz.config.winRecord.fullScreen", (TXZResourceManager.STYLE_DEFAULT + isFullScreen).getBytes(), (Tn.Tr) null);
     }
 
     public void enableMsgEntryAnimation(boolean enable) {
         this.Tr = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "txz.record.win.enableMsgEntryAnim", ("" + this.Tr).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.record.win.enableMsgEntryAnim", (TXZResourceManager.STYLE_DEFAULT + this.Tr).getBytes(), (Tn.Tr) null);
     }
 
     public void setWinRecordCloseWhenProcCmd(boolean isClose) {
         this.Ty = Boolean.valueOf(isClose);
-        Tn.Tr().T("com.txznet.txz", "txz.config.winRecord.close", (this.Ty + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.config.winRecord.close", (this.Ty + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void setRecordWin2(final RecordWin2 recordWin) {
@@ -188,7 +189,7 @@ public class TXZRecordWinManager {
                     return null;
                 }
             });
-            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.recordwin2.set", "false".getBytes(), (Tn.Tr) null);
+            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.recordwin2.set", SdkConstants.VALUE_FALSE.getBytes(), (Tn.Tr) null);
         }
     }
 }

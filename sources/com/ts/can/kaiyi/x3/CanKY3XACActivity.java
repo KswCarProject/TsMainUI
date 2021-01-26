@@ -170,7 +170,7 @@ public class CanKY3XACActivity extends CanCommonActivity implements View.OnTouch
         this.mWindLayout.setOrientation(0);
         this.mWindLayout.addView(windPoint);
         this.mContainer.addView(this.mTempLayout, 110, 60, 38, KeyDef.RKEY_res1);
-        this.mContainer.addView(this.mWindLayout, 208, 473, KeyDef.RKEY_MEDIA_ZOOM, 38);
+        this.mContainer.addView(this.mWindLayout, 208, 473, 309, 38);
         this.mIvWindLs = this.mContainer.addImage(CanCameraUI.BTN_TRUMPCHI_GS4_MODE3, 32, R.drawable.can_ky3x_shine_ls);
         this.mIvWindRs = this.mContainer.addImage(675, 32, R.drawable.can_ky3x_shine_rs);
         this.mIvWindLc = this.mContainer.addImage(281, 203, R.drawable.can_ky3x_shine_lc);

@@ -12,14 +12,15 @@ import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
+import com.suding.mirror.util.LogUtils;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements View.OnLongClickListener {
@@ -96,7 +97,7 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
     public TextView mTextV2;
     private CustomImgView[] m_CdSta;
     private long mlongKeyTick = 0;
-    private String preCDSta = "";
+    private String preCDSta = TXZResourceManager.STYLE_DEFAULT;
 
     public CanLexusLZIs250CarDevView(Activity activity) {
         super(activity);
@@ -275,7 +276,7 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
                     }
                     CanLexusLZIs250CarDevView.this.mTextST.setVisibility(CanLexusLZIs250CarDevView.this.mMediaData.St == 0 ? 4 : 0);
                     CanLexusLZIs250CarDevView.this.mTextSCAN.setVisibility(CanLexusLZIs250CarDevView.this.mMediaData.Scan == 0 ? 4 : 0);
-                    int Qian = (CanLexusLZIs250CarDevView.this.mMediaData.CurFeq / MediaDef.PROGRESS_MAX) % 10;
+                    int Qian = (CanLexusLZIs250CarDevView.this.mMediaData.CurFeq / 1000) % 10;
                     int Bai = (CanLexusLZIs250CarDevView.this.mMediaData.CurFeq / 100) % 10;
                     int Shi = (CanLexusLZIs250CarDevView.this.mMediaData.CurFeq / 10) % 10;
                     int Ge = CanLexusLZIs250CarDevView.this.mMediaData.CurFeq % 10;
@@ -284,7 +285,7 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
                             view.drawImage(CanLexusLZIs250CarDevView.mFreqNumArr[1], 444, 0);
                         }
                         view.drawImage(CanLexusLZIs250CarDevView.mFreqNumArr[Bai], 492, 0);
-                        view.drawImage(CanLexusLZIs250CarDevView.mFreqNumArr[Shi], CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 0);
+                        view.drawImage(CanLexusLZIs250CarDevView.mFreqNumArr[Shi], 540, 0);
                         view.drawImage(CanLexusLZIs250CarDevView.mFreqNumArr[Ge], 588, 0);
                     } else {
                         if (CanLexusLZIs250CarDevView.this.mMediaData.CurFeq >= 10000) {
@@ -316,9 +317,9 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
                     CanLexusLZIs250CarDevView.this.mTextCDTime.setText(String.format("%02d:%02d:%02d", new Object[]{Integer.valueOf(CanLexusLZIs250CarDevView.this.mMediaData.TotalTime_h), Integer.valueOf(CanLexusLZIs250CarDevView.this.mMediaData.TotalTime_m), Integer.valueOf(CanLexusLZIs250CarDevView.this.mMediaData.TotalTime_s)}));
                     CanLexusLZIs250CarDevView.this.mTextPlayDisc.setText("CD: " + CanLexusLZIs250CarDevView.this.mMediaData.CurNum);
                     CanLexusLZIs250CarDevView.this.mTextRandom.setText(CanLexusLZIs250CarDevView.this.mMediaData.Random == 0 ? "Rpt" : "Rdm");
-                    String cycleText = "";
+                    String cycleText = TXZResourceManager.STYLE_DEFAULT;
                     if (CanLexusLZIs250CarDevView.this.mMediaData.Cycle == 0) {
-                        cycleText = "";
+                        cycleText = TXZResourceManager.STYLE_DEFAULT;
                     } else if (CanLexusLZIs250CarDevView.this.mMediaData.Cycle == 1) {
                         cycleText = "Cycle Disc";
                     } else if (CanLexusLZIs250CarDevView.this.mMediaData.Cycle == 2) {
@@ -367,10 +368,10 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
         this.mBtnCD[7].setOnTouchListener(this);
         for (int i3 = 0; i3 < 6; i3++) {
             if (i3 < 3) {
-                this.mRadioFreqs[i3] = getRelativeManager().AddButton((i3 * KeyDef.RKEY_POWER_OFF) + 89, Can.CAN_FLAT_RZC, Can.CAN_HYUNDAI_WC, 60);
+                this.mRadioFreqs[i3] = getRelativeManager().AddButton((i3 * KeyDef.RKEY_POWER_OFF) + 89, Can.CAN_FLAT_RZC, 153, 60);
                 this.mRadioFreqs[i3].setStateUpDn(R.drawable.can_yg_radio_rect03_dn, R.drawable.can_yg_radio_rect03_dn);
             } else {
-                this.mRadioFreqs[i3] = getRelativeManager().AddButton(((i3 - 3) * KeyDef.RKEY_POWER_OFF) + 89, KeyDef.RKEY_RDS_TA, Can.CAN_HYUNDAI_WC, 60);
+                this.mRadioFreqs[i3] = getRelativeManager().AddButton(((i3 - 3) * KeyDef.RKEY_POWER_OFF) + 89, KeyDef.RKEY_RDS_TA, 153, 60);
                 this.mRadioFreqs[i3].setStateUpDn(R.drawable.can_yg_radio_rect03_dn, R.drawable.can_yg_radio_rect03_dn);
             }
             this.mRadioFreqs[i3].setTextColor(-1);
@@ -378,7 +379,7 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
             this.mRadioFreqs[i3].setVisibility(4);
         }
         this.mTextV1 = AddText1(260, 142, 100, 40);
-        this.mTextV2 = AddText1(Can.CAN_CHANA_CS75_WC, 182, 200, 40);
+        this.mTextV2 = AddText1(160, 182, 200, 40);
         this.mTextV1.setGravity(21);
         this.mTextV2.setGravity(21);
         this.mTextST = AddText("ST", 40, 100, 20);
@@ -423,9 +424,9 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
         this.mRadioFreqs = new ParamButton[6];
         this.m_CdSta = new CustomImgView[6];
         this.RadioBand = new String[]{"FM1", "FM2", "AM"};
-        this.CdSta = new String[]{"FREE", "LOAD", "WAIT", "DISC READING", "PLAY", "EJECT", "ERROR"};
-        this.BtnCDName = new String[]{"<<", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, ">>", "|<<Disc", "|<<", "RPT", "SCAN", "RDM", ">>|", "Disc>>|"};
-        this.BtnRadioName = new String[]{MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, "|<<", "Search", ">>|"};
+        this.CdSta = new String[]{"FREE", "LOAD", "WAIT", "DISC READING", "PLAY", "EJECT", LogUtils.E};
+        this.BtnCDName = new String[]{"<<", "1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, ">>", "|<<Disc", "|<<", "RPT", "SCAN", "RDM", ">>|", "Disc>>|"};
+        this.BtnRadioName = new String[]{"1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, "|<<", "Search", ">>|"};
         this.mBtnCD = new ParamButton[this.BtnCDName.length];
         this.mBtnRadio = new ParamButton[this.BtnRadioName.length];
     }
@@ -455,7 +456,7 @@ public class CanLexusLZIs250CarDevView extends CanRelativeCarInfoView implements
                 if (!this.CdSta[this.mDiscData.Sta].equals(this.preCDSta)) {
                     this.preCDSta = this.CdSta[this.mDiscData.Sta];
                     if (this.mDiscData.Sta == 0) {
-                        this.mTextPlaySta.setText("");
+                        this.mTextPlaySta.setText(TXZResourceManager.STYLE_DEFAULT);
                     } else {
                         this.mTextPlaySta.setText(this.CdSta[this.mDiscData.Sta]);
                     }

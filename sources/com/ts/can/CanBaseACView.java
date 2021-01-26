@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 public abstract class CanBaseACView extends CanRelativeCarInfoView {
     protected boolean isJumped;
@@ -93,7 +94,7 @@ public abstract class CanBaseACView extends CanRelativeCarInfoView {
         int length = attr.length - 1;
         switch (length) {
             case 2:
-                this.mTextObjects[i] = addText(attr[0], attr[1], "");
+                this.mTextObjects[i] = addText(attr[0], attr[1], TXZResourceManager.STYLE_DEFAULT);
                 break;
             case 3:
                 this.mTextObjects[i] = addText(attr[0], attr[1], attr[2]);

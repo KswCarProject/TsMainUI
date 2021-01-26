@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.v4.internal.view.SupportMenu;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,7 +48,7 @@ public class FsCanActivity extends FsBaseActivity {
     public static final int[] mDoorStr1 = {R.string.str_fs_normal, R.string.str_fs_swap, R.string.str_fs_hide, R.string.str_fs_hide};
     public static final int[] mDoorStr2 = {R.string.str_fs_normal, R.string.str_fs_hide};
     public static final int[] mOutTempStr = {R.string.str_fstcon_on, R.string.str_fstcon_off};
-    public static final int[] mPRadarStr = {R.string.str_fstcon_on, R.string.str_fstcon_off};
+    public static final int[] mPRadarStr = {R.string.str_fstcon_on, R.string.str_fstcon_off, R.string.str_fs_hide};
     public static final int[] mTempUnits = {R.string.str_fs_temp_c, R.string.str_fs_temp_f};
     private View.OnClickListener doorClick = new View.OnClickListener() {
         public void onClick(View v) {
@@ -306,7 +307,7 @@ public class FsCanActivity extends FsBaseActivity {
                 FtSet.Setyw8(1 - (FtSet.Getyw8() & 1));
                 break;
             case 512:
-                FtSet.Setyw14(1 - (FtSet.Getyw14() & 1));
+                FtSet.Setyw14(ValCal.dataStepLoop(FtSet.Getyw14(), 0, 2, fgInc));
                 break;
         }
         updateDoor(id);
@@ -341,7 +342,7 @@ public class FsCanActivity extends FsBaseActivity {
             this.mTvDoorVal[8].setText(mOutTempStr[FtSet.Getyw8() & 1]);
         }
         if ((item & 512) != 0) {
-            this.mTvDoorVal[9].setText(mPRadarStr[FtSet.Getyw14() & 1]);
+            this.mTvDoorVal[9].setText(mPRadarStr[FtSet.Getyw14() & 3]);
         }
     }
 
@@ -565,7 +566,7 @@ public class FsCanActivity extends FsBaseActivity {
         }
 
         private ColorStateList getColorState() {
-            return new ColorStateList(new int[][]{new int[]{16842919}, new int[0]}, new int[]{-16777216, -3355444});
+            return new ColorStateList(new int[][]{new int[]{16842919}, new int[0]}, new int[]{ViewCompat.MEASURED_STATE_MASK, -3355444});
         }
 
         public int getCount() {

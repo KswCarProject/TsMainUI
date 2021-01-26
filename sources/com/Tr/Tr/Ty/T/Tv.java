@@ -22,11 +22,11 @@ public final class Tv {
         if (msg.startsWith("[)>\u001e05\u001d") && msg.endsWith("\u001e\u0004")) {
             context.T(236);
             context.T(2);
-            context.f292T += 7;
+            context.f295T += 7;
         } else if (msg.startsWith("[)>\u001e06\u001d") && msg.endsWith("\u001e\u0004")) {
             context.T(237);
             context.T(2);
-            context.f292T += 7;
+            context.f295T += 7;
         }
         int encodingMode = 0;
         while (context.TZ()) {

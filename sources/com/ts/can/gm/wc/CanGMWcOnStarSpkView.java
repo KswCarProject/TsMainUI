@@ -16,6 +16,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanGMWcOnStarSpkView extends CanRelativeCarInfoView {
@@ -29,7 +30,7 @@ public class CanGMWcOnStarSpkView extends CanRelativeCarInfoView {
     public static final int ITEM_PWROFF = 34;
     protected static final int[] mNumArrDn = {R.drawable.can_an_num01_dn, R.drawable.can_an_num02_dn, R.drawable.can_an_num03_dn, R.drawable.can_an_num04_dn, R.drawable.can_an_num05_dn, R.drawable.can_an_num06_dn, R.drawable.can_an_num07_dn, R.drawable.can_an_num08_dn, R.drawable.can_an_num09_dn};
     protected static final int[] mNumArrUp = {R.drawable.can_an_num01_up, R.drawable.can_an_num02_up, R.drawable.can_an_num03_up, R.drawable.can_an_num04_up, R.drawable.can_an_num05_up, R.drawable.can_an_num06_up, R.drawable.can_an_num07_up, R.drawable.can_an_num08_up, R.drawable.can_an_num09_up};
-    private static String mStrNo = "";
+    private static String mStrNo = TXZResourceManager.STYLE_DEFAULT;
     private static Activity mThis = null;
     protected ParamButton mBtnBackSp;
     protected ParamButton mBtnCall;
@@ -71,7 +72,7 @@ public class CanGMWcOnStarSpkView extends CanRelativeCarInfoView {
                         CanJni.GmWcCarOnStarSet(2, 0);
                         CanJni.GmWcCarOnStarSet(3, 0);
                     }
-                    mStrNo = "";
+                    mStrNo = TXZResourceManager.STYLE_DEFAULT;
                     UpdateInputText();
                     return;
                 case 34:
@@ -79,7 +80,7 @@ public class CanGMWcOnStarSpkView extends CanRelativeCarInfoView {
                     return;
                 case 35:
                     if (mStrNo.length() <= 1) {
-                        mStrNo = "";
+                        mStrNo = TXZResourceManager.STYLE_DEFAULT;
                     } else {
                         mStrNo = mStrNo.substring(0, mStrNo.length() - 1);
                     }
@@ -222,7 +223,7 @@ public class CanGMWcOnStarSpkView extends CanRelativeCarInfoView {
             Evc.GetInstance().evol_aux_hold();
             return;
         }
-        mStrNo = "";
+        mStrNo = TXZResourceManager.STYLE_DEFAULT;
         if (OldSta > 0 && mThis != null) {
             mThis.finish();
         }

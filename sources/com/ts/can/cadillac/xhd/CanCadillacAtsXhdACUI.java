@@ -18,6 +18,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanCadillacAtsXhdACUI implements UserCallBack {
@@ -76,18 +77,20 @@ public class CanCadillacAtsXhdACUI implements UserCallBack {
     }
 
     public void InitAc(Context context) {
-        if (this.mLayout == null && context != null) {
-            mContext = context;
-            this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_ac_cadillax_ats, (ViewGroup) null);
-            InintWinManage(1018, 114, 0, 0, mContext);
-            this.wManager.addView(this.mLayout, this.wmParams);
-            this.mManager = new RelativeLayoutManager(this.mLayout);
-            if (CanJni.GetSubType() == 1 || CanJni.GetSubType() == 2) {
-                initHighViews();
-            } else {
-                initLowViews();
-            }
-            onPause();
+        if (this.mLayout != null || context == null) {
+            Log.d(TAG, "Already have instance");
+            return;
+        }
+        Log.d(TAG, "Init");
+        mContext = context;
+        this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_ac_cadillax_ats, (ViewGroup) null);
+        InintWinManage(1018, 114, 0, 0, mContext);
+        this.wManager.addView(this.mLayout, this.wmParams);
+        this.mManager = new RelativeLayoutManager(this.mLayout);
+        if (CanJni.GetSubType() == 1 || CanJni.GetSubType() == 2) {
+            initHighViews();
+        } else {
+            initLowViews();
         }
     }
 
@@ -210,13 +213,14 @@ public class CanCadillacAtsXhdACUI implements UserCallBack {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(28);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(17);
         return temp;
     }
 
     /* access modifiers changed from: protected */
     public void onResume() {
+        InitAc(CanFunc.mContext);
         ResetData(false);
         this.mLayout.setVisibility(0);
         Log.d(TAG, "-----onResume-----");

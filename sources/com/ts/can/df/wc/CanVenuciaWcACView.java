@@ -178,10 +178,10 @@ public class CanVenuciaWcACView extends CanBaseACView {
         }
         this.mTvLeftTemp = AddTemp(53, Can.CAN_TEANA_OLD_DJ, 95, 61);
         this.mTvRightTemp = AddTemp(883, Can.CAN_TEANA_OLD_DJ, 95, 61);
-        this.mBtnModeHead = addButtonState(KeyDef.RKEY_MEDIA_ANGLE, 108, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn);
-        this.mBtnModeHeadFoot = addButtonState(KeyDef.RKEY_MEDIA_ANGLE, 185, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn);
-        this.mBtnModeFoot = addButtonState(KeyDef.RKEY_MEDIA_ANGLE, 264, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn);
-        this.mBtnModeFootFront = addButtonState(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_res5, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn);
+        this.mBtnModeHead = addButtonState(305, 108, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn);
+        this.mBtnModeHeadFoot = addButtonState(305, 185, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn);
+        this.mBtnModeFoot = addButtonState(305, 264, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn);
+        this.mBtnModeFootFront = addButtonState(305, KeyDef.RKEY_res5, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn);
         this.mBtnDual = addButtonState(200, 20, R.drawable.conditioning_dual_up, R.drawable.conditioning_dual_dn);
         this.mBtnAcMax = addButtonState(KeyDef.RKEY_MEDIA_SLOW, 20, R.drawable.conditioning_acmax_up, R.drawable.conditioning_acmax_dn);
         this.mBtnFront = addButtonState(450, 17, R.drawable.conditioning_wind_up, R.drawable.conditioning_wind_dn);

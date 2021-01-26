@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 final class TZ {
 
     /* renamed from: T  reason: collision with root package name */
-    final String f332T;
+    final String f335T;
     final Ty T9;
     final ReentrantLock TE;
     final Tr TZ;
@@ -19,7 +19,7 @@ final class TZ {
     final com.Ty.T.Tr.T9.T Ty;
 
     public TZ(String uri, com.Ty.T.Tr.T9.T imageAware, T9 targetSize, String memoryCacheKey, Ty options, T listener, Tr progressListener, ReentrantLock loadFromUriLock) {
-        this.f332T = uri;
+        this.f335T = uri;
         this.Ty = imageAware;
         this.Tn = targetSize;
         this.T9 = options;

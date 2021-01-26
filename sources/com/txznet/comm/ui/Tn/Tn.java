@@ -31,6 +31,7 @@ import com.txznet.comm.ui.T5.Tr.Tv;
 import com.txznet.comm.ui.T5.Tr.Tx;
 import com.txznet.comm.ui.T5.Tr.Ty;
 import com.txznet.comm.ui.T9.Tk;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -39,7 +40,7 @@ public class Tn {
     private static Tn Ty = new Tn();
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f554T = false;
+    public boolean f558T = false;
     private Ts T0;
     private Tu T5;
     private TI T6;
@@ -52,7 +53,7 @@ public class Tn {
     private T5 TG;
     private T0 TI;
     private Tq TK;
-    private String TL = "";
+    private String TL = TXZResourceManager.STYLE_DEFAULT;
     private TA TM;
     private Tv TN;
     private T6 TO;
@@ -245,7 +246,7 @@ public class Tn {
         if (this.T9 == null) {
             this.T9 = this.T5;
         }
-        this.f554T = true;
+        this.f558T = true;
     }
 
     public void T(View view) {

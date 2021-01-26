@@ -5,6 +5,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.comm.ui.T5.T.T0;
@@ -30,7 +31,8 @@ import com.txznet.comm.ui.T5.T.Tu;
 import com.txznet.comm.ui.T5.T.Tv;
 import com.txznet.comm.ui.T5.T.Tx;
 import com.txznet.comm.ui.T5.T.Ty;
-import com.txznet.sdk.tongting.IConstantData;
+import com.txznet.sdk.TXZResourceManager;
+import org.texustek.mirror.aidl.BinderName;
 
 /* compiled from: Proguard */
 public class Tn {
@@ -39,7 +41,7 @@ public class Tn {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public int f462T;
+        public int f466T;
         public Boolean T9;
         public Integer Tk = null;
         public Object Tn = null;
@@ -50,7 +52,7 @@ public class Tn {
     public static TM T(String data) {
         com.txznet.comm.Tr.Tr.Tn.T(data);
         Tr jsonBuilder = new Tr(data);
-        String type = (String) jsonBuilder.T(IConstantData.KEY_TYPE, String.class);
+        String type = (String) jsonBuilder.T("type", String.class);
         if (TextUtils.equals(type, "toSys")) {
             T5 viewData = new T5();
             viewData.T((String) jsonBuilder.T("msg", String.class));
@@ -73,9 +75,9 @@ public class Tn {
             return viewData5;
         } else {
             if (TextUtils.equals(type, "list")) {
-                String listData = (String) jsonBuilder.T(IConstantData.KEY_DATA, String.class);
+                String listData = (String) jsonBuilder.T("data", String.class);
                 Tr jsonBuilder2 = new Tr(listData);
-                int listType = ((Integer) jsonBuilder2.T(IConstantData.KEY_TYPE, Integer.class)).intValue();
+                int listType = ((Integer) jsonBuilder2.T("type", Integer.class)).intValue();
                 TB viewData6 = null;
                 switch (listType) {
                     case 0:
@@ -150,27 +152,27 @@ public class Tn {
                     }
                     return chatFromSysViewData;
                 }
-            } else if (TextUtils.equals(IConstantData.KEY_DATA, type)) {
+            } else if (TextUtils.equals("data", type)) {
                 switch (((Integer) jsonBuilder.T("dataType", Integer.class, null)).intValue()) {
                     case 2:
                         TG viewData7 = new TG();
-                        viewData7.T(((Integer) jsonBuilder.T("key", Integer.class)).intValue());
+                        viewData7.T(((Integer) jsonBuilder.T(BinderName.KEY, Integer.class)).intValue());
                         Tr tr = new Tr((String) jsonBuilder.T("value", String.class));
-                        viewData7.Tr((String) tr.T(IConstantData.KEY_TITLE, String.class));
+                        viewData7.Tr((String) tr.T("title", String.class));
                         viewData7.T((String) tr.T("qrCode", String.class));
                         return viewData7;
                     case 3:
                         Tt qrViewData = new Tt();
-                        qrViewData.T((String) jsonBuilder.T("qrCode", String.class, ""));
+                        qrViewData.T((String) jsonBuilder.T("qrCode", String.class, TXZResourceManager.STYLE_DEFAULT));
                         return qrViewData;
                     case 4:
                         Tk highlightViewData = new Tk();
-                        highlightViewData.T((String) jsonBuilder.T("rawText", String.class, ""));
+                        highlightViewData.T((String) jsonBuilder.T("rawText", String.class, TXZResourceManager.STYLE_DEFAULT));
                         return highlightViewData;
                     case 5:
                         TZ interruptViewData = new TZ();
-                        interruptViewData.T((String) jsonBuilder.T("text", String.class));
-                        interruptViewData.Tr((String) jsonBuilder.T("tips", String.class, ""));
+                        interruptViewData.T((String) jsonBuilder.T(SdkConstants.ATTR_TEXT, String.class));
+                        interruptViewData.Tr((String) jsonBuilder.T("tips", String.class, TXZResourceManager.STYLE_DEFAULT));
                         return interruptViewData;
                     case 6:
                         Tj helpTipsViewData = new Tj();
@@ -179,7 +181,7 @@ public class Tn {
                 }
             } else if (TextUtils.equals(type, "map")) {
                 com.txznet.comm.ui.T5.T.Tn viewData8 = new com.txznet.comm.ui.T5.T.Tn();
-                viewData8.T((String) jsonBuilder.T(IConstantData.KEY_DATA, String.class));
+                viewData8.T((String) jsonBuilder.T("data", String.class));
                 return viewData8;
             }
             return null;

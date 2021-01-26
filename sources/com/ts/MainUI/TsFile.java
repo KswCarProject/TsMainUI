@@ -1,5 +1,6 @@
 package com.ts.MainUI;
 
+import com.txznet.sdk.TXZResourceManager;
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -8,7 +9,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.apache.http.util.EncodingUtils;
 
 public class TsFile {
     public static void writer(String filename, int[] nData) {
@@ -75,15 +75,23 @@ public class TsFile {
     }
 
     public static String readFileSdcardFile(String fileName) throws IOException {
-        String res = "";
+        String res = TXZResourceManager.STYLE_DEFAULT;
         try {
             FileInputStream fin = new FileInputStream(fileName);
             byte[] buffer = new byte[fin.available()];
             fin.read(buffer);
-            res = EncodingUtils.getString(buffer, "UTF-8");
-            fin.close();
-            return res;
-        } catch (Exception e) {
+            String res2 = new String(buffer);
+            try {
+                fin.close();
+                return res2;
+            } catch (Exception e) {
+                e = e;
+                res = res2;
+                e.printStackTrace();
+                return res;
+            }
+        } catch (Exception e2) {
+            e = e2;
             e.printStackTrace();
             return res;
         }

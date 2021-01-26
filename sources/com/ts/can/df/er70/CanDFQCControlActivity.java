@@ -21,7 +21,7 @@ public class CanDFQCControlActivity extends CanDFQCBaseActivity {
         this.mTvV = AddText(121, 188, 203, 25);
         this.mTvA = AddText(121, Can.CAN_JIANGLING_MYX, KeyDef.RKEY_RADIO_6S, 25);
         this.mTvX = AddText(121, 269, 203, 25);
-        this.mTvP = AddText(121, KeyDef.RKEY_MEDIA_SUBT, 139, 25);
+        this.mTvP = AddText(121, 310, 139, 25);
         initValue(true);
     }
 

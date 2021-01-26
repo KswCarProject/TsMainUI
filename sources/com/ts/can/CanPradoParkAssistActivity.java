@@ -92,7 +92,7 @@ public class CanPradoParkAssistActivity extends CanToyotaBaseActivity implements
         this.mManager.AddView(this.mItemShow.GetView(), 0, 95, -2, 85);
         this.mItemDistance = new CanItemBlankTextList((Context) this, R.string.can_distance);
         this.mManager.AddView(this.mItemDistance.GetView(), 0, 180, -2, 85);
-        this.mImgCar = this.mManager.AddImage(577, 197, Can.CAN_CHANA_CS75_WC, 350);
+        this.mImgCar = this.mManager.AddImage(577, 197, 160, 350);
         this.mImgCar.setDrawDt(-577, -197);
         this.mImgCar.setUserPaint(new CustomImgView.onPaint() {
             public boolean userPaint(CustomImgView view, Canvas canvas, Paint paint) {

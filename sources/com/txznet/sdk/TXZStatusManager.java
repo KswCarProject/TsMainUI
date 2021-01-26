@@ -9,7 +9,7 @@ public class TXZStatusManager {
     private static TXZStatusManager TE = new TXZStatusManager();
 
     /* renamed from: T  reason: collision with root package name */
-    AudioLogicType f819T = null;
+    AudioLogicType f823T = null;
     Runnable T9 = null;
     boolean TZ = false;
     Runnable Tk = null;
@@ -56,8 +56,8 @@ public class TXZStatusManager {
 
     /* access modifiers changed from: package-private */
     public void T() {
-        if (this.f819T != null) {
-            setAudioLogicWhenAsr(this.f819T);
+        if (this.f823T != null) {
+            setAudioLogicWhenAsr(this.f823T);
         }
         if (this.Tr != null) {
             setAudioLogicWhenTts(this.Tr);
@@ -115,7 +115,7 @@ public class TXZStatusManager {
     }
 
     public void setAudioLogicWhenAsr(AudioLogicType logic) {
-        this.f819T = logic;
+        this.f823T = logic;
         Tn.Tr().T("com.txznet.txz", "txz.music.audioLogic.asr", logic.name().getBytes(), (Tn.Tr) null);
     }
 
@@ -131,7 +131,7 @@ public class TXZStatusManager {
 
     public void setAudioFocusStreamType(int stream) {
         this.Tn = Integer.valueOf(stream);
-        Tn.Tr().T("com.txznet.txz", "txz.music.setAudioFocusStreamType", ("" + stream).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.music.setAudioFocusStreamType", (TXZResourceManager.STYLE_DEFAULT + stream).getBytes(), (Tn.Tr) null);
     }
 
     public void setAudioFocusLogic(Runnable onRequestAudioFocus, Runnable onAbandonAudioFocus) {

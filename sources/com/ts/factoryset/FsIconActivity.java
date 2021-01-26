@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.ts.MainUI.R;
 import com.ts.other.ParamButton;
 import com.ts.other.ParamTextView;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 
 public class FsIconActivity extends FsBaseActivity {
@@ -205,7 +206,7 @@ public class FsIconActivity extends FsBaseActivity {
             }
             int iconVal = curIcon.getIntParam();
             if (iconVal == 0) {
-                curIcon.setText("");
+                curIcon.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 curIcon.setText(FsIconActivity.this.getIconName(iconVal));
             }
@@ -328,7 +329,7 @@ public class FsIconActivity extends FsBaseActivity {
                 curText.setSelected(false);
             }
             if (curText.getIntParam() == 0) {
-                curText.setText("");
+                curText.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 curText.setText(FsIconActivity.this.getIconName(position + 1));
             }

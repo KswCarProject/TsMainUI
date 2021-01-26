@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:versionCode="1" android:versionName="1.0" package="com.ts.MainUI">
-    <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="17"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:sharedUserId="android.uid.system" android:versionCode="1" android:versionName="1.1" package="com.ts.MainUI">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
@@ -20,90 +20,124 @@
     <uses-permission android:name="android.permission.READ_CALL_LOG"/>
     <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
     <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>
     <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW"/>
     <uses-permission android:name="android.permission.STATUS_BAR"/>
-    <application android:theme="@style/AppTheme" android:label="@string/app_name" android:name="com.ts.can.MyApplication" android:debuggable="true" android:allowBackup="true">
-        <meta-data android:name="appkey" android:value="H1TSDZ1611000000"/>
-        <meta-data android:name="appsecret" android:value="hf6a5d41f90101c5c84f6b01b6a227225a"/>
+    <uses-permission android:name="android.permission.SET_TIME"/>
+    <uses-feature android:name="android.hardware.usb.host" android:required="true"/>
+    <application android:theme="@style/ThemeA" android:label="@string/app_name" android:name="com.ts.can.MyApplication" android:persistent="true" android:debuggable="false" android:allowBackup="true" android:resizeableActivity="false">
         <activity android:label="@string/title_activity_authactivity_main" android:name="com.ts.main.auth.AuthActivity" android:taskAffinity="com.ts.main.auth.AuthActivity"/>
-        <activity android:label="@string/title_activity_delate_main" android:icon="@drawable/mainmenu_del_up" android:name="com.ts.main.auth.DelateMainActivity" android:taskAffinity="com.ts.main.auth.DelateMainActivity">
+        <activity android:label="@string/title_activity_navi_main" android:icon="@drawable/mainmenu_navi_up" android:name="com.ts.main.navi.NaviMainActivity" android:taskAffinity="com.ts.main.navi.NaviMainActivity" android:excludeFromRecents="true" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_navi_main" android:icon="@drawable/mainmenu_navi_up" android:name="com.ts.main.navi.NaviMainActivity" android:taskAffinity="com.ts.main.navi.NaviMainActivity">
+        <activity android:label="@string/title_activity_sdmain" android:icon="@drawable/mainmenu_music_up" android:name="com.ts.main.Media.SDMainActivity" android:taskAffinity="com.ts.main.Media.SDMainActivity" android:excludeFromRecents="true" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_sdmain" android:icon="@drawable/mainmenu_music_up" android:name="com.ts.main.Media.SDMainActivity" android:taskAffinity="com.ts.main.Media.SDMainActivity">
+        <activity android:label="@string/title_activity_usbmain" android:icon="@drawable/mainmenu_video_up" android:name="com.ts.main.Media.USBMainActivity" android:taskAffinity="com.ts.main.Media.USBMainActivity" android:excludeFromRecents="true" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_usbmain" android:icon="@drawable/mainmenu_video_up" android:name="com.ts.main.Media.USBMainActivity" android:taskAffinity="com.ts.main.Media.USBMainActivity">
+        <activity android:label="@string/title_activity_dvd_main" android:icon="@drawable/mainmenu_dvd_up" android:name="com.ts.main.Media.DvdMainActivity" android:taskAffinity="com.ts.main.Media.DvdMainActivity" android:excludeFromRecents="true" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_dvd_main" android:icon="@drawable/mainmenu_dvd_up" android:name="com.ts.main.Media.DvdMainActivity" android:taskAffinity="com.ts.main.Media.DvdMainActivity">
+        <activity android:label="@string/title_activity_dvd_box_main" android:icon="@drawable/mainmenu_dvdbox_up" android:name="com.ts.main.Media.DvdBoxMainActivity" android:taskAffinity="com.ts.main.Media.DvdBoxMainActivity" android:excludeFromRecents="true" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_dvd_box_main" android:icon="@drawable/mainmenu_dvdbox_up" android:name="com.ts.main.Media.DvdBoxMainActivity" android:taskAffinity="com.ts.main.Media.DvdBoxMainActivity">
+        <activity android:label="@string/title_activity_dsp" android:icon="@drawable/mainmenu_dsp_up" android:name="com.ts.main.Media.ADASMainActivity" android:taskAffinity="com.ts.main.Media.ADASMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_adasmain" android:icon="@drawable/mainmenu_adas_up" android:name="com.ts.main.Media.ADASMainActivity" android:taskAffinity="com.ts.main.Media.ADASMainActivity">
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_avin_main" android:icon="@drawable/mainmenu_avin_up" android:name="com.ts.main.avin.AvinMainActivity" android:taskAffinity="com.ts.MainUI.AvinMainActivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden" android:background="@drawable/avin_background">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_avin_main" android:icon="@drawable/mainmenu_avin_up" android:name="com.ts.main.avin.AvinMainActivity" android:taskAffinity="com.ts.MainUI.AvinMainActivity" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:background="@drawable/avin_background">
+        <activity android:theme="@style/ThemeFull" android:name="com.ts.backcar.BackcarMainActivity" android:taskAffinity="com.ts.backcar.BackcarMainActivity" android:excludeFromRecents="true" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.ts.backcar.BackcarMainActivity" android:taskAffinity="com.ts.backcar.BackcarMainActivity" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize">
+        <activity android:theme="@style/ThemeFull" android:name="com.ts.backcar.RightCameraActivity" android:taskAffinity="com.ts.backcar.RightCameraActivity" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:name="com.ts.backcar.RightCameraActivity" android:taskAffinity="com.ts.backcar.RightCameraActivity" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.MYLAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity android:label="@string/title_activity_cstudy_main" android:name="com.ts.main.CStudy.CStudyMainActivity" android:taskAffinity="com.ts.CStudy.CStudyMainActivity" android:background="@drawable/avin_background"/>
+        <activity android:label="@string/title_activity_cstudy_main" android:name="com.ts.main.CStudy.CStudyMainActivity" android:taskAffinity="com.ts.CStudy.CStudyMainActivity" android:launchMode="singleTask" android:background="@drawable/avin_background"/>
         <activity android:name="com.ts.bt.WrcActivity" android:taskAffinity="com.ts.bt.WrcActivity"/>
-        <activity android:label="@string/title_activity_aux_main" android:name="com.ts.main.avin2.AuxMainActivity" android:taskAffinity="com.ts.MainUI.AuxMainActivity" android:background="@drawable/avin_background">
+        <activity android:label="@string/title_activity_aux_main" android:name="com.ts.main.avin2.AuxMainActivity" android:taskAffinity="com.ts.MainUI.AuxMainActivity" android:launchMode="singleTask" android:background="@drawable/avin_background">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_radio_main" android:icon="@drawable/mainmenu_radio_up" android:name="com.ts.main.radio.RadioMainActivity" android:taskAffinity="com.ts.MainUI.RadioMainActivity" android:launchMode="singleTop" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize">
+        <activity android:label="@string/title_activity_radio_main" android:icon="@drawable/mainmenu_radio_up" android:name="com.ts.main.radio.RadioMainActivity" android:taskAffinity="com.ts.MainUI.RadioMainActivity" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
+        <service android:name="com.ts.tsspeechlib.TsSpeechService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ts.tsspeechlib.TsSpeechService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ts.tsspeechlib.bt.TsBtService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ts.tsspeechlib.bt.TsBtService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ts.tsspeechlib.car.TsCarService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ts.tsspeechlib.car.TsCarService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ts.tsspeechlib.function.TsFunctionService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ts.tsspeechlib.function.TsFunctionService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ts.tsspeechlib.music.TsMusicService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ts.tsspeechlib.music.TsMusicService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ts.tsspeechlib.radio.TsRadioService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ts.tsspeechlib.radio.TsRadioService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ts.can.CanDataLogService">
+            <intent-filter>
+                <action android:name="com.ts.can.CanDataLogService"/>
+            </intent-filter>
+        </service>
         <service android:name="com.txznet.sdk.TXZService" android:exported="true">
             <intent-filter>
                 <action android:name="com.ts.MainUI.service.TXZService"/>
@@ -116,7 +150,22 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
-        <activity android:label="@string/app_name" android:name="com.ts.backcar.BackCarActivity" android:excludeFromRecents="true" android:screenOrientation="landscape" android:configChanges="keyboardHidden|orientation" android:background="@color/background"/>
+        <service android:name="com.ts.main.navigationbar.NaviBarService" android:exported="true">
+            <intent-filter>
+                <action android:name="com.ts.main.navigationbar.NaviBarService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="com.ts.bt.BtReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.bluetooth.headsetclient.profile.action.CALL_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.ts.bt.BtIntentService" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BT_INTENT_SERVICE"/>
+            </intent-filter>
+        </service>
         <service android:name=".MainService" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN_SERVICE"/>
@@ -129,43 +178,44 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
-        <service android:name="com.ts.main.common.MainUI" android:exported="true">
+        <service android:name="com.ts.main.common.MainUI" android:exported="true" android:priority="1000">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN_UI"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
-        <receiver android:name=".AutoBootUp">
+        <receiver android:name=".AutoBootUp" android:priority="1000">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.media.GIS_AUDIO_STATUS_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_cmmb_main" android:icon="@drawable/mainmenu_cmmb_up" android:name="com.ts.main.cmmb.CmmbMainActivity" android:taskAffinity="com.ts.MainUI.CmmbMainActivity" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize">
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_cmmb_main" android:icon="@drawable/mainmenu_cmmb_up" android:name="com.ts.main.cmmb.CmmbMainActivity" android:taskAffinity="com.ts.MainUI.CmmbMainActivity" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_atv_main" android:icon="@drawable/mainmenu_atv_up" android:name="com.ts.main.cmmb.AtvMainActivity" android:taskAffinity="com.ts.MainUI.AtvMainActivity" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize">
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_atv_main" android:icon="@drawable/mainmenu_atv_up" android:name="com.ts.main.cmmb.AtvMainActivity" android:taskAffinity="com.ts.MainUI.AtvMainActivity" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_dvr_main" android:icon="@drawable/mainmenu_driving_up" android:name="com.ts.main.dvr.DvrMainActivity" android:taskAffinity="com.ts.MainUI.DvrMainActivity" android:launchMode="singleTop" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize">
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_dvr_main" android:icon="@drawable/mainmenu_driving_up" android:name="com.ts.main.dvr.DvrMainActivity" android:taskAffinity="com.ts.MainUI.DvrMainActivity" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_fcamera_main" android:icon="@drawable/mainmenu_driving_up" android:name="com.ts.main.fcamera.FcameraMainActivity" android:taskAffinity="com.ts.MainUI.FcameraMainActivity" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize">
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_fcamera_main" android:icon="@drawable/mainmenu_driving_up" android:name="com.ts.main.fcamera.FcameraMainActivity" android:taskAffinity="com.ts.MainUI.FcameraMainActivity" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_ipod_main" android:icon="@drawable/mainmenu_ipod_up" android:name="com.ts.main.ipod.IpodMainActivity" android:taskAffinity="com.ts.MainUI.IpodMainActivity">
+        <activity android:label="@string/title_activity_ipod_main" android:icon="@drawable/mainmenu_ipod_up" android:name="com.ts.main.ipod.IpodMainActivity" android:taskAffinity="com.ts.MainUI.IpodMainActivity" android:excludeFromRecents="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
@@ -183,7 +233,8 @@
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_touchh" android:name="com.ts.main.touch.TouchActivity"/>
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_touchh" android:name="com.ts.main.touch.TouchActivity"/>
+        <activity android:theme="@style/ThemeFull" android:name="com.ts.main.googleVoice.GoogleVoiceActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/title_activity_fsset_main" android:name="com.ts.factoryset.FsMainActivity" android:taskAffinity="com.ts.MainUI.FsMainActivity"/>
         <activity android:label="@string/str_fsmain_atv" android:name="com.ts.factoryset.FsTVActivity" android:taskAffinity="com.ts.MainUI.FsMainActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/str_fsmain_rad" android:name="com.ts.factoryset.FsRadioActivity" android:taskAffinity="com.ts.MainUI.FsMainActivity" android:launchMode="singleTask"/>
@@ -195,6 +246,7 @@
         <activity android:label="@string/str_fsmain_lang" android:name="com.ts.factoryset.FsLangActivity" android:taskAffinity="com.ts.MainUI.FsMainActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/str_fsmain_other" android:name="com.ts.factoryset.FsOtherActivity" android:taskAffinity="com.ts.MainUI.FsMainActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/str_fsmain_mpmode" android:name="com.ts.factoryset.FsMPModeActivity" android:taskAffinity="com.ts.MainUI.FsMainActivity" android:launchMode="singleTask"/>
+        <activity android:label="@string/str_fsmain_backcar" android:name="com.ts.factoryset.FsBackCarSetActivity" android:taskAffinity="com.ts.MainUI.FsMainActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/title_activity_set_main" android:icon="@drawable/mainmenu_set_up" android:name="com.ts.set.SetMainActivity" android:taskAffinity="com.ts.set" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -212,10 +264,19 @@
         <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingDisplayActivity" android:taskAffinity="com.ts.set" android:launchMode="singleTask"/>
         <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingEquipmentActivity" android:taskAffinity="com.ts.set" android:launchMode="singleTask"/>
         <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingSoundActivity" android:taskAffinity="com.ts.set.SettingSoundActivity" android:launchMode="singleTask"/>
+        <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingStorageActivity" android:taskAffinity="com.ts.set.SettingSoundActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingVideoActivity" android:taskAffinity="com.ts.set" android:launchMode="singleTask"/>
         <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingWheelActivity" android:taskAffinity="com.ts.set" android:launchMode="singleTask"/>
         <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingBackAssistantActivity" android:taskAffinity="com.ts.set" android:launchMode="singleTask"/>
         <activity android:label="@string/str_setting_title" android:name="com.ts.set.SettingBackLineActivity" android:taskAffinity="com.ts.set" android:launchMode="singleTask"/>
+        <activity android:label="DspUpdate" android:name="com.ts.main.dsp.DspUpdateActivity" android:taskAffinity="com.ts.main.dsp" android:launchMode="singleTask"/>
+        <activity android:label="dsp" android:name="com.ts.set.dsp.SetDspMainActivity" android:taskAffinity="com.ts.set.dsp" android:launchMode="singleTask"/>
+        <activity android:label="dsp" android:name="com.ts.set.dsp.SetDspEqActivity" android:taskAffinity="com.ts.set.dsp" android:launchMode="singleTask"/>
+        <activity android:label="dsp" android:name="com.ts.set.dsp.SetDspSubwooferActivity" android:taskAffinity="com.ts.set.dsp" android:launchMode="singleTask"/>
+        <activity android:label="dsp" android:name="com.ts.set.dsp.SetDspBalanceActivity" android:taskAffinity="com.ts.set.dsp" android:launchMode="singleTask"/>
+        <activity android:label="dsp" android:name="com.ts.set.dsp.SetDspSoundFieldActivity" android:taskAffinity="com.ts.set.dsp" android:launchMode="singleTask"/>
+        <activity android:label="dsp" android:name="com.ts.set.dsp.SetDspEmperorActivity" android:taskAffinity="com.ts.set.dsp" android:launchMode="singleTask"/>
+        <activity android:label="dsp" android:name="com.ts.set.dsp.SetDspAdvancedActivity" android:taskAffinity="com.ts.set.dsp" android:launchMode="singleTask"/>
         <activity android:label="@string/title_activity_car_info" android:icon="@drawable/mainmenu_vehicle_up" android:name="com.ts.can.CanMainActivity" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -225,51 +286,33 @@
         <activity android:label="@string/title_activity_can_ac" android:name="com.ts.can.CanACActivity" android:taskAffinity="com.ts.can.ac" android:launchMode="singleTask"/>
         <activity android:label="@string/title_activity_can_door" android:name="com.ts.can.CanDoorActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/title_activity_can_mcu_update" android:name="com.ts.can.CanMcuUpdateActivity" android:launchMode="singleTask"/>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_can_camera" android:name="com.ts.can.CanCameraActivity" android:launchMode="singleTask"/>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label="@string/title_activity_can_radar" android:name="com.ts.can.CanRadarActivity"/>
-        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtPhoneBookActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask"/>
-        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtDialActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask"/>
-        <activity android:label="@string/title_activity_bt" android:icon="@drawable/mainmenu_bluetooth_up" android:name="com.ts.bt.BtConnectActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask">
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_can_camera" android:name="com.ts.can.CanCameraActivity" android:launchMode="singleTask"/>
+        <activity android:theme="@style/ThemeFull" android:label="@string/title_activity_can_radar" android:name="com.ts.can.CanRadarActivity" android:taskAffinity="com.ts.can.CanRadarActivity"/>
+        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtPhoneBookActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true"/>
+        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtDialActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true"/>
+        <activity android:label="@string/title_activity_bt" android:icon="@drawable/mainmenu_bluetooth_up" android:name="com.ts.bt.BtConnectActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtReturnActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask"/>
-        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtLogActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask"/>
-        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtSearchActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask"/>
-        <activity android:label="@string/title_activity_btmusic" android:icon="@drawable/mainmenu_bt_music_up" android:name="com.ts.bt.BtMusicActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask">
+        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtReturnActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true"/>
+        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtLogActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true"/>
+        <activity android:label="@string/title_activity_bt" android:name="com.ts.bt.BtSearchActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true"/>
+        <activity android:label="@string/title_activity_btmusic" android:icon="@drawable/mainmenu_bt_music_up" android:name="com.ts.bt.BtMusicActivity" android:taskAffinity="com.ts.bt" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|keyboardHidden|orientation|screenLayout|screenSize" android:resizeableActivity="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <receiver android:name="com.ts.bt.BtReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BT_BOOT_BROADCAST"/>
-                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="com.autochips.bluetooth.receiver.action.SHOW_TOAST"/>
-                <action android:name="android.bluetooth.profilemanager.action.DISABLE_PROFILES"/>
-                <action android:name="android.bluetooth.profilemanager.action.PROFILE_CHANGED"/>
-                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST"/>
-                <action android:name="android.bluetooth.device.action.BOND_STATE_CHANGED"/>
-                <action android:name="android.bluetooth.adapter.action.DISCOVERY_STARTED"/>
-                <action android:name="android.bluetooth.adapter.action.DISCOVERY_FINISHED"/>
-                <action android:name="android.bluetooth.adapter.action.SCAN_MODE_CHANGED"/>
-                <action android:name="com.autochips.bluetooth.avrcpct.AvrcpCtPlayerUtility.action.ACTION_PLAYBACK_DATA_UPDATE"/>
-                <action android:name="android.bluetooth.adapter.action.LINK_MODE_CHANGED"/>
-                <action android:name="com.globalconstant.BROADCAST_REQUEST_HFPSTATUS"/>
-                <action android:name="android.bluetooth.device.action.NAME_CHANGED"/>
-                <action android:name="com.autochips.bluetooth.avrcpct.AvrcpCtPlayerUtility.action.ACTION_MEDIA_DATA_UPDATE"/>
-                <action android:name="com.autochips.bluetooth.avrcpct.AvrcpCtPlayerUtility.action.ACTION_PLAYBACK_DATA_UPDATE"/>
-                <action android:name="android.bluetooth.device.action.FOUND"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.bluetooth.headsetclient.profile.action.AG_CALL_CHANGED"/>
-                <action android:name="android.bluetooth.device.action.PAIRING_REQUEST"/>
-                <action android:name="android.bluetooth.device.action.ACL_DISCONNECTED"/>
-            </intent-filter>
-        </receiver>
         <activity android:label="@string/can_car_info" android:name="com.ts.can.CanVwCarInfoActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/can_car_info" android:name="com.ts.can.CanGolfMainActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/can_lang_set" android:name="com.ts.can.CanGolfLangSetActivity" android:launchMode="singleTask"/>
@@ -366,7 +409,7 @@
                 <category android:name="android.intent.category.MYLAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_can_cd" android:icon="@drawable/mainmenu_car_cd_up" android:name="com.ts.can.CanExCDActivity" android:launchMode="singleTask">
+        <activity android:theme="@style/TranslucentNoAnimationUserAvm" android:label="@string/title_activity_can_cd" android:icon="@drawable/mainmenu_car_cd_up" android:name="com.ts.can.CanExCDActivity" android:taskAffinity="com.ts.can.excd" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
@@ -760,7 +803,7 @@
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.ht.od.CanHtOdTpmsActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.cadillac.xhd.CanCadillacAtsXhdCarInfoActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.cadillac.xhd.CanCadillacAtsXhdCarStatusActivity" android:launchMode="singleTask"/>
-        <activity android:label=" @string/can_car_info" android:name="com.ts.can.cadillac.xhd.CanCadillacAtsXhdExdActivity" android:taskAffinity="com.ts.can.device"/>
+        <activity android:label=" @string/can_car_info" android:name="com.ts.can.cadillac.xhd.CanCadillacAtsXhdExdActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.cadillac.xhd.CanCadillacAtsXhdUpdateActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_tpms" android:name="com.ts.can.chana.cs75.CanChanATpmsActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.gm.sb.CanGMSBUpdateActivity" android:launchMode="singleTask"/>
@@ -794,6 +837,12 @@
             </intent-filter>
         </activity>
         <activity android:name="com.ts.main.auth.FactorytestarmActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.MYLAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.ts.main.auth.FactoryRadioTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MYLAUNCHER"/>
@@ -833,7 +882,7 @@
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.qoros.bnr.CanQorosBnrCarAmpInfoActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.benc.withcd.CanBencWithCDCarFuncActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.benc.withcd.CanBencWithCDCarInfoActivity" android:launchMode="singleTask"/>
-        <activity android:theme="@style/Theme.NoTitleBar.Fullscreen" android:label=" @string/can_car_info" android:name="com.ts.can.benc.withcd.CanBencWithCDExdActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
+        <activity android:theme="@style/ThemeFull" android:label=" @string/can_car_info" android:name="com.ts.can.benc.withcd.CanBencWithCDExdActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.benc.withcd.CanBencWithCDUpdateActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.benc.withcd.CanBencWithCDCarInitActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.hyundai.xbs.CanHyunDaiXbsCarInfoActivity" android:launchMode="singleTask"/>
@@ -881,7 +930,7 @@
         <activity android:label="@string/can_ac_set" android:name="com.ts.can.toyota.wc.CanToyotaWCSetAcActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/can_light_set" android:name="com.ts.can.toyota.wc.CanToyotaWCSetLightActivity" android:launchMode="singleTask"/>
         <activity android:label="@string/can_rc_track_set" android:name="com.ts.can.toyota.wc.CanToyotaWCSetOtherActivity" android:launchMode="singleTask"/>
-        <activity android:theme="@style/Theme.Black.NoTitleBar.Fullscreen" android:name="com.ts.main.benz.DrivingComputeActivity">
+        <activity android:name="com.ts.main.benz.DrivingComputeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.MyLAUNCHER"/>
@@ -902,17 +951,46 @@
         <activity android:label=" @string/title_activity_can_ac" android:name="com.ts.can.CanBaseACActivity" android:taskAffinity="com.ts.can.ac" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.bmw.withcd.CanBmwWithCDUpdateActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.audi.xhd.CanAudiWithCDUpdateActivity" android:launchMode="singleTask"/>
-        <activity android:theme="@style/Theme.Black.NoTitleBar.Fullscreen" android:label=" @string/can_car_info" android:name="com.ts.can.audi.xhd.CanAudiWithCDExdActivity" android:exported="true" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
+        <activity android:theme="@style/ThemeFull" android:label=" @string/can_car_info" android:name="com.ts.can.audi.xhd.CanAudiWithCDExdActivity" android:exported="true" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
         <activity android:label="@string/can_car_info" android:name="com.ts.can.ford.wc.CanFordWcSyncUIActivity" android:launchMode="singleTask"/>
         <activity android:label=" @string/title_activity_car_device" android:name="com.ts.can.CanBaseCarDeviceActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
         <activity android:label=" @string/can_car_info" android:name="com.ts.can.bmw.zmyt.CanBmwZmytWithCDUpdateActivity" android:launchMode="singleTask"/>
-        <activity android:theme="@style/Theme.Black.NoTitleBar.Fullscreen" android:label=" @string/can_car_info" android:name="com.ts.can.bmw.zmyt.CanBmwZmytWithCDExdActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
-        <activity android:theme="@style/Theme.Black.NoTitleBar.Fullscreen" android:label=" @string/can_car_info" android:name="com.ts.can.volvo.xfy.CanVolvoXfyCarDeviceActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
+        <activity android:theme="@style/ThemeFull" android:label=" @string/can_car_info" android:name="com.ts.can.bmw.zmyt.CanBmwZmytWithCDExdActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
+        <activity android:theme="@style/ThemeFull" android:label=" @string/can_car_info" android:name="com.ts.can.volvo.xfy.CanVolvoXfyCarDeviceActivity" android:taskAffinity="com.ts.can.device" android:launchMode="singleTask"/>
         <activity android:label="SYNC" android:icon="@drawable/mainmenu_ford_up" android:name="com.ts.can.ford.CanFordSync3UIActivity" android:launchMode="singleTask"/>
+        <activity android:label=" @string/can_car_info" android:name="com.ts.can.CanAllUpdateActivity" android:launchMode="singleTask"/>
         <service android:name="com.ts.can.CanDataLogService">
             <intent-filter>
                 <action android:name="com.ts.can.CanDataLogService"/>
             </intent-filter>
         </service>
+        <service android:name="com.ts.bt.BtInCallService" android:permission="android.permission.BIND_INCALL_SERVICE">
+            <meta-data android:name="android.telecom.IN_CALL_SERVICE_UI" android:value="true"/>
+            <meta-data android:name="android.telecom.IN_CALL_SERVICE_RINGING" android:value="true"/>
+            <intent-filter>
+                <action android:name="android.telecom.InCallService"/>
+            </intent-filter>
+        </service>
+        <activity android:name="com.ts.HideActivity" android:taskAffinity="com.ts.hideactivity" android:launchMode="singleInstance" android:resizeableActivity="false"/>
+        <activity android:label="@string/bright_label" android:name="com.ts.main.benz.BencZmytAmbientLightActivity" android:exported="true" android:taskAffinity="com.ts.main.benz.BencZmytAmbientLightActivity" android:launchMode="singleTask"/>
+        <activity android:name="com.ts.FsConfigActivity" android:exported="true" android:taskAffinity="com.ts.FsConfigActivity" android:launchMode="singleTask"/>
+        <receiver android:name="com.ts.ConfigUtils$DeviceMountedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/Theme.Black.NoTitleBar" android:label="@string/smart_seat" android:name="com.ts.can.CanSmartSeatActivity" android:exported="true" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.MyLAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@style/Theme.Black.NoTitleBar.Fullscreen" android:label="@string/air_purifier" android:name="com.ts.can.CanAirPurifyActivity" android:exported="true" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.MyLAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>

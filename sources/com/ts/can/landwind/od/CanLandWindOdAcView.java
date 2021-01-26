@@ -79,7 +79,7 @@ public class CanLandWindOdAcView extends CanBaseACView {
                     CanJni.LandWindOdAcSet(0, 0, 128, 0, 0, 0);
                     break;
                 case 11:
-                    CanJni.LandWindOdAcSet(0, 0, Can.CAN_CHANA_CS75_WC, 0, 0, 0);
+                    CanJni.LandWindOdAcSet(0, 0, 160, 0, 0, 0);
                     break;
                 case 13:
                     if (Can.mACInfo.fgInnerLoop == 0) {
@@ -149,10 +149,10 @@ public class CanLandWindOdAcView extends CanBaseACView {
         for (int i = 0; i < mWindIcons.length; i++) {
             mWindIcons[i] = addImage(191, 218, mIcons[i]);
         }
-        mACMode[0] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        mACMode[1] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
-        mACMode[2] = addButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        mACMode[3] = addButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
+        mACMode[0] = addButton(305, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        mACMode[1] = addButton(305, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
+        mACMode[2] = addButton(305, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        mACMode[3] = addButton(305, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
         this.mStatusWindow = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 98, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 11);
         this.mStatusWindowRear = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 18);
         this.mStatusOutLoop = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 210, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 13);

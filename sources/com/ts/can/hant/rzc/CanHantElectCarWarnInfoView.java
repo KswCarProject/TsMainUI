@@ -7,9 +7,10 @@ import android.widget.TextView;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.can.CanRelativeCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanHantElectCarWarnInfoView extends CanRelativeCarInfoView {
-    private static String[] mWarnInfo = {"高踏板故障", "预充电故障", "过流", "控制器过热", "", "电流采样电路故障", "", "BMD故障", "电池组欠压", "电池组过压", "电机过热", "", "加速器故障"};
+    private static String[] mWarnInfo = {"高踏板故障", "预充电故障", "过流", "控制器过热", TXZResourceManager.STYLE_DEFAULT, "电流采样电路故障", TXZResourceManager.STYLE_DEFAULT, "BMD故障", "电池组欠压", "电池组过压", "电机过热", TXZResourceManager.STYLE_DEFAULT, "加速器故障"};
     private CanDataInfo.HanTang_Warn mWarnData;
     private TextView mWarnTxt;
 

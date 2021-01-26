@@ -51,7 +51,7 @@ public class CanT70CarInfoActivity extends CanScrollBaseActivity implements View
 
     /* access modifiers changed from: protected */
     public void InitUI() {
-        mTypeArray = getResources().getStringArray(R.array.can_qc_t70_car_type_array);
+        mTypeArray = getResources().getStringArray(R.array.can_fs_declare_47);
         this.mItemCarType = this.mManager.addItemCarType(R.string.can_car_type_select, mTypeArray, 5, (CanItemPopupList.onPopItemClick) this);
         this.mItemSmartIn = AddSwitch((View.OnClickListener) this, "智能进入", 1);
         this.mItemFirstBoot = AddSwitch((View.OnClickListener) this, "首次前进档自动启动", 2);

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.FrameLayout;
+import com.android.SdkConstants;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -19,6 +20,7 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 import java.util.Arrays;
 
@@ -86,12 +88,12 @@ public class CanMzdCx4CDActivity extends CanBaseActivity implements UserCallBack
         this.mBtnRdm = AddBtn(6, 180, 25, R.drawable.can_jeep_ycsb_random_up, R.drawable.can_jeep_ycsb_random_dn);
         this.mManager.AddImage(44, 127, R.drawable.can_jeep_ycsb_sjx);
         this.mManager.AddImage(44, 184, R.drawable.can_jeep_ycsb_music);
-        this.mManager.AddImage(44, KeyDef.RKEY_MEDIA_PP, R.drawable.can_jeep_ycsb_artist);
+        this.mManager.AddImage(44, 299, R.drawable.can_jeep_ycsb_artist);
         this.mManager.AddImage(44, Can.CAN_MZD_LUOMU, R.drawable.can_jeep_ycsb_disc);
         this.mSta = AddLeftText(84, 119, 300, 42);
         this.mSong = AddLeftText(84, 176, 300, 42);
         this.mAlbum = AddLeftText(84, Can.CAN_LIEBAO_WC, 300, 42);
-        this.mArtist = AddLeftText(84, KeyDef.RKEY_NEXT, 300, 42);
+        this.mArtist = AddLeftText(84, 291, 300, 42);
         this.mTrack = AddLeftText(430, 23, Can.CAN_NISSAN_XFY, 55);
         this.mTrack.SetPixelSize(40);
         this.mTime = AddCenterText(362, KeyDef.RKEY_res4, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 35);
@@ -176,7 +178,7 @@ public class CanMzdCx4CDActivity extends CanBaseActivity implements UserCallBack
         }
         if (!check || i2b(this.mCdId.Update)) {
             this.mCdId.Update = 0;
-            String encode = "";
+            String encode = TXZResourceManager.STYLE_DEFAULT;
             switch (this.mCdId.EncoderMode) {
                 case 0:
                     encode = "GBK";
@@ -188,7 +190,7 @@ public class CanMzdCx4CDActivity extends CanBaseActivity implements UserCallBack
                     encode = "UTF-16";
                     break;
                 case 3:
-                    encode = "UTF-8";
+                    encode = SdkConstants.INI_CHARSET;
                     break;
             }
             if (this.mDevInfo.CdState == 0) {
@@ -200,11 +202,11 @@ public class CanMzdCx4CDActivity extends CanBaseActivity implements UserCallBack
     }
 
     private void resetText() {
-        this.mSong.setText("");
-        this.mAlbum.setText("");
-        this.mArtist.setText("");
-        this.mTrack.setText("");
-        this.mTime.setText("");
+        this.mSong.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mAlbum.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mArtist.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTrack.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTime.setText(TXZResourceManager.STYLE_DEFAULT);
     }
 
     private String formatTime(int time) {
@@ -226,7 +228,7 @@ public class CanMzdCx4CDActivity extends CanBaseActivity implements UserCallBack
             }
         }
         if (Datalen == 0) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         try {
             if (Datalen == b.length) {
@@ -235,7 +237,7 @@ public class CanMzdCx4CDActivity extends CanBaseActivity implements UserCallBack
             return new String(Arrays.copyOf(b, Datalen), encode);
         } catch (Exception e) {
             e.printStackTrace();
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

@@ -6,20 +6,20 @@ import java.io.IOException;
 public abstract class T9 {
 
     /* renamed from: T  reason: collision with root package name */
-    protected volatile int f238T = -1;
+    protected volatile int f241T = -1;
 
     public abstract T9 T(T t) throws IOException;
 
     public int T() {
-        if (this.f238T < 0) {
+        if (this.f241T < 0) {
             Tr();
         }
-        return this.f238T;
+        return this.f241T;
     }
 
     public int Tr() {
         int Ty = Ty();
-        this.f238T = Ty;
+        this.f241T = Ty;
         return Ty;
     }
 

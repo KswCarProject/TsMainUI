@@ -1,6 +1,7 @@
 package com.txznet.txz.util;
 
 import T.T.T.T;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.Locale;
 
 /* compiled from: Proguard */
@@ -21,7 +22,7 @@ public class Tr {
         try {
             return T.T().T(str);
         } catch (Exception e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 }

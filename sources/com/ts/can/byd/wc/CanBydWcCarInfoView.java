@@ -8,6 +8,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanBydWcCarInfoView extends CanScrollCarInfoView {
     private static Toast mToast;
@@ -111,7 +112,7 @@ public class CanBydWcCarInfoView extends CanScrollCarInfoView {
         CanDataInfo.BydWcTsData setData = new CanDataInfo.BydWcTsData();
         CanJni.BydWcGetCarTsData(setData, 1);
         if (setData.Wtcdystsy != 0 || setData.Fpdlcjgtsy != 0 || setData.Aqdtsy != 0 || setData.Xccmwgtsy != 0) {
-            String text = "";
+            String text = TXZResourceManager.STYLE_DEFAULT;
             if (setData.WtcdystsyUpdate == 1) {
                 setData.WtcdystsyUpdate = 0;
                 if (setData.Wtcdystsy == 1) {
@@ -136,7 +137,7 @@ public class CanBydWcCarInfoView extends CanScrollCarInfoView {
                 return;
             }
             if (mToast == null) {
-                mToast = Toast.makeText(context, "", 1);
+                mToast = Toast.makeText(context, TXZResourceManager.STYLE_DEFAULT, 1);
             }
             mToast.setText(text);
             mToast.show();

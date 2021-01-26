@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.ts.MainUI.R;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanItemPopupList implements View.OnClickListener {
     /* access modifiers changed from: private */
@@ -116,7 +117,7 @@ public class CanItemPopupList implements View.OnClickListener {
     public void SetSel(int sel) {
         this.mSel = sel;
         if (sel < 0 || sel >= this.mStrValArr.length) {
-            this.mVal.setText("");
+            this.mVal.setText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mVal.setText(this.mStrValArr[this.mSel]);
         }
@@ -124,7 +125,7 @@ public class CanItemPopupList implements View.OnClickListener {
 
     public String GetItemStr(int item) {
         if (item < 0 || item >= this.mStrValArr.length) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         return this.mStrValArr[item];
     }

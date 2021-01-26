@@ -9,7 +9,7 @@ public class WechatMessage {
     public static final int MSG_TYPE_VOICE = 4;
 
     /* renamed from: T  reason: collision with root package name */
-    private String f869T;
+    private String f873T;
     private String T9;
     private int Tn;
     private String Tr;
@@ -26,11 +26,11 @@ public class WechatMessage {
     }
 
     public String getId() {
-        return this.f869T;
+        return this.f873T;
     }
 
     public void setId(String id) {
-        this.f869T = id;
+        this.f873T = id;
     }
 
     public String getSenderId() {

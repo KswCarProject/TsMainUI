@@ -10,19 +10,19 @@ import org.json.JSONObject;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private JSONObject f411T;
+    private JSONObject f415T;
 
     public Tr() {
-        this.f411T = new JSONObject();
+        this.f415T = new JSONObject();
     }
 
     public Tr(byte[] data) {
         if (data == null) {
-            this.f411T = new JSONObject();
+            this.f415T = new JSONObject();
             return;
         }
         try {
-            this.f411T = new JSONObject(new String(data));
+            this.f415T = new JSONObject(new String(data));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -30,27 +30,27 @@ public class Tr {
 
     public Tr(String data) {
         if (data == null) {
-            this.f411T = new JSONObject();
+            this.f415T = new JSONObject();
             return;
         }
         try {
-            this.f411T = new JSONObject(data);
+            this.f415T = new JSONObject(data);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public Tr(JSONObject json) {
-        this.f411T = json;
+        this.f415T = json;
     }
 
     public JSONObject T() {
-        return this.f411T;
+        return this.f415T;
     }
 
     public Tr T(String key, Object val) {
-        if (this.f411T == null) {
-            this.f411T = new JSONObject();
+        if (this.f415T == null) {
+            this.f415T = new JSONObject();
         }
         if (val != null) {
             try {
@@ -59,11 +59,11 @@ public class Tr {
                     for (Object obj : (Object[]) val) {
                         jArr.put(obj);
                     }
-                    this.f411T.put(key, jArr);
+                    this.f415T.put(key, jArr);
                 } else if (val instanceof Collection) {
-                    this.f411T.put(key, new JSONArray((Collection) val));
+                    this.f415T.put(key, new JSONArray((Collection) val));
                 } else {
-                    this.f411T.put(key, val);
+                    this.f415T.put(key, val);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -73,7 +73,7 @@ public class Tr {
     }
 
     public Tr T(String key) {
-        this.f411T.remove(key);
+        this.f415T.remove(key);
         return this;
     }
 
@@ -82,30 +82,30 @@ public class Tr {
     }
 
     public <T> T T(String key, Class<T> clazz, T def) {
-        if (this.f411T == null || !this.f411T.has(key)) {
+        if (this.f415T == null || !this.f415T.has(key)) {
             return def;
         }
         try {
-            T obj = this.f411T.get(key);
+            T obj = this.f415T.get(key);
             if (JSONObject.NULL.equals(obj)) {
                 return def;
             }
             if (clazz == Double.class) {
-                return new Double(this.f411T.getDouble(key));
+                return new Double(this.f415T.getDouble(key));
             }
             if (clazz == Float.class) {
-                return new Float(this.f411T.getDouble(key));
+                return new Float(this.f415T.getDouble(key));
             }
             if (clazz == Integer.class) {
-                return new Integer(this.f411T.getInt(key));
+                return new Integer(this.f415T.getInt(key));
             }
             if (clazz == Long.class) {
-                return new Long(this.f411T.getLong(key));
+                return new Long(this.f415T.getLong(key));
             }
             if (!(obj instanceof JSONArray) || !clazz.isArray()) {
                 return obj;
             }
-            JSONArray jArr = this.f411T.getJSONArray(key);
+            JSONArray jArr = this.f415T.getJSONArray(key);
             Class componentType = clazz.getComponentType();
             Object[] arr = (Object[]) Array.newInstance(componentType, jArr.length());
             int len = jArr.length();
@@ -130,11 +130,11 @@ public class Tr {
     }
 
     public JSONObject Tr() {
-        return this.f411T;
+        return this.f415T;
     }
 
     public String toString() {
-        return this.f411T.toString();
+        return this.f415T.toString();
     }
 
     public byte[] Ty() {

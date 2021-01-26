@@ -9,7 +9,7 @@ import com.txznet.sdk.music.MusicInvokeConstants;
 public class T9 {
 
     /* renamed from: T  reason: collision with root package name */
-    private static T9 f500T = new T9();
+    private static T9 f504T = new T9();
     private String Tr = null;
     private int Ty = 0;
 
@@ -17,7 +17,7 @@ public class T9 {
     }
 
     public static T9 T() {
-        return f500T;
+        return f504T;
     }
 
     public void Tr() {

@@ -9,12 +9,15 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import android.widget.Toast;
+import com.ts.tsspeechlib.ManagerInitListener;
 import com.ts.tsspeechlib.bt.ITsSpeechBt;
 import java.util.List;
 
 public class TsBtManager {
     public static final String TAG = "TsBtManager";
     public static TsBtManager btManager;
+    /* access modifiers changed from: private */
+    public ManagerInitListener btListener;
     private Context mContext;
     /* access modifiers changed from: private */
     public ITsSpeechBt mSpeechBtService;
@@ -22,11 +25,17 @@ public class TsBtManager {
         public void onServiceDisconnected(ComponentName arg0) {
             Log.d(TsBtManager.TAG, "鍒濆鍖栧け璐ワ紒");
             TsBtManager.this.mSpeechBtService = null;
+            if (TsBtManager.this.btListener != null) {
+                TsBtManager.this.btListener.initResult(1, false);
+            }
         }
 
         public void onServiceConnected(ComponentName arg0, IBinder binder) {
             Log.d(TsBtManager.TAG, "鍒濆鍖栨垚鍔燂紒");
             TsBtManager.this.mSpeechBtService = ITsSpeechBt.Stub.asInterface(binder);
+            if (TsBtManager.this.btListener != null) {
+                TsBtManager.this.btListener.initResult(1, true);
+            }
         }
     };
 
@@ -37,8 +46,9 @@ public class TsBtManager {
         return btManager;
     }
 
-    public void initManager(Context context) {
+    public void initManager(Context context, ManagerInitListener listener) {
         this.mContext = context;
+        this.btListener = listener;
         bindBtService();
     }
 
@@ -213,6 +223,17 @@ public class TsBtManager {
         }
     }
 
+    public List<PhonebookData> getBtPbList() {
+        try {
+            if (this.mSpeechBtService != null) {
+                return this.mSpeechBtService.getBtPbList();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private void bindBtService() {
         Intent intent = new Intent();
         intent.setAction("com.ts.tsspeechlib.bt.TsBtService");
@@ -224,7 +245,7 @@ public class TsBtManager {
         }
     }
 
-    public Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
+    private Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
         List<ResolveInfo> resolveInfo = context.getPackageManager().queryIntentServices(implicitIntent, 0);
         if (resolveInfo == null || resolveInfo.size() != 1) {
             return null;

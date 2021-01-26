@@ -1,5 +1,6 @@
 package com.ts.factoryset;
 
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ class FsInputItem {
         this.mBtnVal.setStateDrawable(R.drawable.factory_radio_up, R.drawable.factory_radio_dn, R.drawable.factory_radio_dn);
         this.mBtnVal.setOnClickListener(l);
         this.mBtnVal.setIntParam(id);
-        this.mBtnVal.setColorUpDn(-16777216, -16777216);
+        this.mBtnVal.setColorUpDn(ViewCompat.MEASURED_STATE_MASK, ViewCompat.MEASURED_STATE_MASK);
     }
 
     public void SetVal(String val) {

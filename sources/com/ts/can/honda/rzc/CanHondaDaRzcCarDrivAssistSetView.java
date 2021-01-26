@@ -19,13 +19,14 @@ public class CanHondaDaRzcCarDrivAssistSetView extends CanScrollCarInfoView {
     public static final int ITEM_YYBJXTDYL = 0;
     public static final int ITEM_ZTLKASTSY = 3;
     public static final int ITEM_ZYWZYD = 9;
+    public static final int ITEM_ZZDDXBS = 10;
     private static int[] mCdplfxxtsdAccord10Arr;
     private static int[] mCdplfxxtsdArr;
     private static int[] mCdplfxxtsdHaoyingArr;
     protected CanDataInfo.HondaSetData mSetData;
 
     public CanHondaDaRzcCarDrivAssistSetView(Activity activity) {
-        super(activity, 10);
+        super(activity, 11);
     }
 
     public void onItem(int id, int item) {
@@ -70,6 +71,9 @@ public class CanHondaDaRzcCarDrivAssistSetView extends CanScrollCarInfoView {
             case 9:
                 CanJni.HondaDACarSet(40, Neg(this.mSetData.Zywzyd));
                 return;
+            case 10:
+                CanJni.HondaDACarSet(72, Neg(this.mSetData.Zzddxbs));
+                return;
             default:
                 return;
         }
@@ -77,8 +81,8 @@ public class CanHondaDaRzcCarDrivAssistSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_yybjxtyl, R.string.can_fdjjnzdqtxs, R.string.can_accqctztsy, R.string.can_ztlkastsy, R.string.can_sdqfwxjgjl, R.string.can_cdplfxxtsd, R.string.can_jsyzyljcq, R.string.can_dctsy, R.string.can_jszsgxhsd, R.string.can_zywzyd};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH};
+        this.mItemTitleIds = new int[]{R.string.can_yybjxtyl, R.string.can_fdjjnzdqtxs, R.string.can_accqctztsy, R.string.can_ztlkastsy, R.string.can_sdqfwxjgjl, R.string.can_cdplfxxtsd, R.string.can_jsyzyljcq, R.string.can_dctsy, R.string.can_jszsgxhsd, R.string.can_zywzyd, R.string.can_zzddxbs};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH};
         this.mPopValueIds[0] = new int[]{R.string.can_yybjxtyl_1, R.string.can_yybjxtyl_2};
         this.mPopValueIds[4] = new int[]{R.string.can_sdqfwxjgjl_1, R.string.can_sdqfwxjgjl_2, R.string.can_sdqfwxjgjl_3};
         this.mPopValueIds[5] = new int[0];
@@ -106,10 +110,7 @@ public class CanHondaDaRzcCarDrivAssistSetView extends CanScrollCarInfoView {
 
     public void ResetData(boolean check) {
         CanJni.HondaDAGetCarSet(this.mSetData);
-        if (!i2b(this.mSetData.JsfzUpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mSetData.JsfzUpdate)) {
+        if (i2b(this.mSetData.JsfzUpdateOnce) && (!check || i2b(this.mSetData.JsfzUpdate))) {
             this.mSetData.JsfzUpdate = 0;
             updateItem(0, this.mSetData.yybjxtdyl);
             updateItem(1, this.mSetData.fdjjnzdqtxs);
@@ -121,6 +122,13 @@ public class CanHondaDaRzcCarDrivAssistSetView extends CanScrollCarInfoView {
             updateItem(7, this.mSetData.Ddtsy);
             updateItem(8, this.mSetData.Jszsgxhdsjywzld);
             updateItem(9, this.mSetData.Zywzyd);
+        }
+        if (!i2b(this.mSetData.SysAssistUpdateOnce)) {
+            return;
+        }
+        if (!check || i2b(this.mSetData.SysAssistUpdate)) {
+            this.mSetData.SysAssistUpdate = 0;
+            updateItem(10, this.mSetData.Zzddxbs);
         }
     }
 

@@ -11,7 +11,7 @@ public class CstTv {
     private static final int FRE_JIAN = 100;
     private static final int FRE_MAX = 17265;
     private static final int FRE_MIN = 965;
-    private static final int FRE_STEP = 4;
+    private static final int FRE_STEP = 5;
     private static final int IF_address = 67;
     private static final int INVALID_CHANNEL_NUM = -1;
     private static final int LOCK_MIN = 4;
@@ -69,6 +69,7 @@ public class CstTv {
     int TvState;
     boolean bAutoSearch = false;
     int delaynum;
+    protected CstTvCallBack mCstTvCallBack = null;
     Evc mEvc = Evc.GetInstance();
     int m_B;
     int m_C;
@@ -102,10 +103,10 @@ public class CstTv {
         return mCstTv;
     }
 
-    /* JADX WARNING: Code restructure failed: missing block: B:46:0x0117, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:46:0x011f, code lost:
         if (r9 != 0) goto L_?;
      */
-    /* JADX WARNING: Code restructure failed: missing block: B:47:0x0119, code lost:
+    /* JADX WARNING: Code restructure failed: missing block: B:47:0x0121, code lost:
         Inint();
      */
     /* JADX WARNING: Code restructure failed: missing block: B:48:?, code lost:
@@ -128,7 +129,7 @@ public class CstTv {
             r0 = 255(0xff, float:3.57E-43)
             int r2 = noldMode
             int r3 = r8.TvState
-            if (r2 == r3) goto L_0x0026
+            if (r2 == r3) goto L_0x0028
             int r2 = r8.TvState
             noldMode = r2
             java.lang.String r2 = "CstTv"
@@ -139,52 +140,52 @@ public class CstTv {
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r3 = r3.toString()
             android.util.Log.i(r2, r3)
-        L_0x0026:
+        L_0x0028:
             r2 = 2
-            if (r9 != r2) goto L_0x0034
+            if (r9 != r2) goto L_0x0036
             r2 = 254(0xfe, float:3.56E-43)
             r8.TvState = r2
-        L_0x002d:
+        L_0x002f:
             int r2 = r8.TvState
             switch(r2) {
-                case 0: goto L_0x004e;
-                case 1: goto L_0x0076;
-                case 2: goto L_0x0085;
-                case 3: goto L_0x008c;
-                case 4: goto L_0x010a;
-                case 5: goto L_0x0095;
-                case 6: goto L_0x00b0;
-                case 254: goto L_0x0112;
-                case 255: goto L_0x0117;
-                default: goto L_0x0032;
+                case 0: goto L_0x0050;
+                case 1: goto L_0x007a;
+                case 2: goto L_0x0089;
+                case 3: goto L_0x0090;
+                case 4: goto L_0x0112;
+                case 5: goto L_0x0099;
+                case 6: goto L_0x00b4;
+                case 254: goto L_0x011a;
+                case 255: goto L_0x011f;
+                default: goto L_0x0034;
             }
-        L_0x0032:
-            r0 = r1
-        L_0x0033:
-            return r0
         L_0x0034:
+            r0 = r1
+        L_0x0035:
+            return r0
+        L_0x0036:
             r8.ClearTvMute()
             int r2 = com.yyw.ts70xhw.Iop.GetWorkMode()
             r3 = 7
-            if (r2 == r3) goto L_0x0047
+            if (r2 == r3) goto L_0x0049
             int r2 = r8.TvState
-            if (r2 == 0) goto L_0x0033
+            if (r2 == 0) goto L_0x0035
             r8.TvState = r5
             r8.bAutoSearch = r1
-            goto L_0x0033
-        L_0x0047:
-            if (r9 != r6) goto L_0x002d
+            goto L_0x0035
+        L_0x0049:
+            if (r9 != r6) goto L_0x002f
             r8.TvState = r5
             r8.bAutoSearch = r1
-            goto L_0x0033
-        L_0x004e:
+            goto L_0x0035
+        L_0x0050:
             boolean r0 = r8.ReadSaveData()
-            if (r0 == 0) goto L_0x0032
-            if (r9 != r5) goto L_0x005f
+            if (r0 == 0) goto L_0x0034
+            if (r9 != r5) goto L_0x0061
             r8.ResetData()
             r8.ResetMode()
             r8.SaveData()
-        L_0x005f:
+        L_0x0061:
             java.lang.String r0 = "CstTv"
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             java.lang.String r3 = "Tv_Main param =  "
@@ -193,51 +194,51 @@ public class CstTv {
             java.lang.String r2 = r2.toString()
             android.util.Log.i(r0, r2)
             r8.TvState = r5
-            goto L_0x0032
-        L_0x0076:
+            goto L_0x0034
+        L_0x007a:
             r8.SetTvMute()
             r8.InintMode()
             boolean r0 = r8.WriteBCE()
-            if (r0 == 0) goto L_0x0032
+            if (r0 == 0) goto L_0x0034
             r8.TvState = r6
-            goto L_0x0032
-        L_0x0085:
+            goto L_0x0034
+        L_0x0089:
             int r0 = num
             int r0 = r0 + 1
             num = r0
-            goto L_0x0032
-        L_0x008c:
+            goto L_0x0034
+        L_0x0090:
             r8.SetTvMute()
             r8.WriteChanel()
             r8.TvState = r7
-            goto L_0x0032
-        L_0x0095:
+            goto L_0x0034
+        L_0x0099:
             boolean r0 = r8.IsPlayOK()
-            if (r0 == 0) goto L_0x00a1
+            if (r0 == 0) goto L_0x00a5
             r0 = 6
             r8.TvState = r0
             r8.delaynum = r1
-            goto L_0x0032
-        L_0x00a1:
+            goto L_0x0034
+        L_0x00a5:
             boolean r0 = r8.DealNext()
-            if (r0 == 0) goto L_0x0032
+            if (r0 == 0) goto L_0x0034
             r8.SetTvMute()
             r8.WriteChanel()
             r8.TvState = r7
-            goto L_0x0032
-        L_0x00b0:
+            goto L_0x0034
+        L_0x00b4:
             int r0 = r8.delaynum
             r2 = 20
-            if (r0 >= r2) goto L_0x00be
+            if (r0 >= r2) goto L_0x00c2
             int r0 = r8.delaynum
             int r0 = r0 + 1
             r8.delaynum = r0
-            goto L_0x0032
-        L_0x00be:
+            goto L_0x0034
+        L_0x00c2:
             boolean r0 = r8.IsPlayOK()
-            if (r0 == 0) goto L_0x00f3
+            if (r0 == 0) goto L_0x00f9
             boolean r0 = r8.IsLockOK()
-            if (r0 == 0) goto L_0x00f3
+            if (r0 == 0) goto L_0x00f9
             java.lang.String r0 = "CstTv"
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             java.lang.String r3 = "IsLockOK true=="
@@ -247,14 +248,14 @@ public class CstTv {
             java.lang.String r2 = r2.toString()
             android.util.Log.i(r0, r2)
             r8.DelaCur()
-        L_0x00e3:
+        L_0x00e9:
             boolean r0 = r8.DealNext()
-            if (r0 == 0) goto L_0x0032
+            if (r0 == 0) goto L_0x0034
             r8.SetTvMute()
             r8.WriteChanel()
             r8.TvState = r7
-            goto L_0x0032
-        L_0x00f3:
+            goto L_0x0034
+        L_0x00f9:
             java.lang.String r0 = "CstTv"
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             java.lang.String r3 = "IsLockOK false=="
@@ -263,19 +264,19 @@ public class CstTv {
             java.lang.StringBuilder r2 = r2.append(r3)
             java.lang.String r2 = r2.toString()
             android.util.Log.i(r0, r2)
-            goto L_0x00e3
-        L_0x010a:
+            goto L_0x00e9
+        L_0x0112:
             r0 = 965(0x3c5, float:1.352E-42)
             r8.nCurNum = r0
             r8.TvState = r6
-            goto L_0x0032
-        L_0x0112:
+            goto L_0x0034
+        L_0x011a:
             r8.SaveData()
             r8.TvState = r0
-        L_0x0117:
-            if (r9 != 0) goto L_0x0033
+        L_0x011f:
+            if (r9 != 0) goto L_0x0035
             r8.Inint()
-            goto L_0x0033
+            goto L_0x0035
         */
         throw new UnsupportedOperationException("Method not decompiled: com.ts.MainUI.CstTv.Tv_Main(int, boolean):int");
     }
@@ -470,14 +471,13 @@ public class CstTv {
         }
     }
 
-    /* access modifiers changed from: package-private */
     public void TvStep(byte ubStep) {
         if (ubStep > 0) {
             if (this.nCurNum < FRE_MAX) {
-                this.nCurNum += 4;
+                this.nCurNum += 5;
             }
         } else if (this.nCurNum > FRE_MIN) {
-            this.nCurNum -= 4;
+            this.nCurNum -= 5;
         }
         this.TvState = 3;
     }
@@ -555,8 +555,15 @@ public class CstTv {
         TsFile.writer(TV_SAVE_FILE, this.nTempData);
     }
 
+    public void SetCstTvCallBack(CstTvCallBack cb) {
+        this.mCstTvCallBack = cb;
+    }
+
     /* access modifiers changed from: package-private */
     public boolean IsLockOK() {
+        if (this.mCstTvCallBack != null) {
+            return this.mCstTvCallBack.bSingnalOK();
+        }
         return true;
     }
 
@@ -611,7 +618,7 @@ public class CstTv {
             this.TvState = 2;
             return false;
         } else if (this.nCurNum < FRE_MAX) {
-            this.nCurNum += 4;
+            this.nCurNum += 5;
             this.TvState = 3;
             return true;
         } else {

@@ -1,13 +1,14 @@
 package com.txznet.comm.T;
 
 import com.txznet.comm.Tr.Tn;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.List;
 
 /* compiled from: Proguard */
 public class Tr extends T {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Tr f352T = new Tr();
+    private static Tr f356T = new Tr();
     private Object T9 = new Object();
     private List<T> Tn;
     private int Tr = 0;
@@ -22,12 +23,12 @@ public class Tr extends T {
     }
 
     public static Tr T() {
-        return f352T;
+        return f356T;
     }
 
     private void Tr() {
         if (com.txznet.comm.Tr.T.T()) {
-            T("comm.configer.navControl.navMode", ("" + this.Tr).getBytes());
+            T("comm.configer.navControl.navMode", (TXZResourceManager.STYLE_DEFAULT + this.Tr).getBytes());
         }
         synchronized (this.T9) {
             if (this.Tn != null) {
@@ -41,7 +42,7 @@ public class Tr extends T {
     }
 
     private void T(String packageName) {
-        Tn.Tr().T(packageName, "comm.configer.navControl.navMode", ("" + this.Tr).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T(packageName, "comm.configer.navControl.navMode", (TXZResourceManager.STYLE_DEFAULT + this.Tr).getBytes(), (Tn.Tr) null);
     }
 
     public byte[] T(String packageName, String command, byte[] data) {

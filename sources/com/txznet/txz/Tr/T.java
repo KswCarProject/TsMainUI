@@ -53,14 +53,14 @@ public interface T extends IInterface {
         private static class C0022T implements T {
 
             /* renamed from: T  reason: collision with root package name */
-            private IBinder f889T;
+            private IBinder f893T;
 
             C0022T(IBinder remote) {
-                this.f889T = remote;
+                this.f893T = remote;
             }
 
             public IBinder asBinder() {
-                return this.f889T;
+                return this.f893T;
             }
 
             public byte[] T(String packageName, String command, byte[] data) throws RemoteException {
@@ -71,7 +71,7 @@ public interface T extends IInterface {
                     _data.writeString(packageName);
                     _data.writeString(command);
                     _data.writeByteArray(data);
-                    this.f889T.transact(1, _data, _reply, 0);
+                    this.f893T.transact(1, _data, _reply, 0);
                     _reply.readException();
                     return _reply.createByteArray();
                 } finally {

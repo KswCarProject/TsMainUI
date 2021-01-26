@@ -7,11 +7,11 @@ import java.util.List;
 public final class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    private final T f285T;
+    private final T f288T;
     private final List<Tr> Tr = new ArrayList();
 
     public Ty(T field) {
-        this.f285T = field;
+        this.f288T = field;
         this.Tr.add(new Tr(field, new int[]{1}));
     }
 
@@ -19,7 +19,7 @@ public final class Ty {
         if (degree >= this.Tr.size()) {
             Tr lastGenerator = this.Tr.get(this.Tr.size() - 1);
             for (int d = this.Tr.size(); d <= degree; d++) {
-                Tr nextGenerator = lastGenerator.Tr(new Tr(this.f285T, new int[]{1, this.f285T.T((d - 1) + this.f285T.Tr())}));
+                Tr nextGenerator = lastGenerator.Tr(new Tr(this.f288T, new int[]{1, this.f288T.T((d - 1) + this.f288T.Tr())}));
                 this.Tr.add(nextGenerator);
                 lastGenerator = nextGenerator;
             }
@@ -38,7 +38,7 @@ public final class Ty {
         Tr generator = T(ecBytes);
         int[] infoCoefficients = new int[dataBytes];
         System.arraycopy(toEncode, 0, infoCoefficients, 0, dataBytes);
-        int[] coefficients = new Tr(this.f285T, infoCoefficients).T(ecBytes, 1).Ty(generator)[1].T();
+        int[] coefficients = new Tr(this.f288T, infoCoefficients).T(ecBytes, 1).Ty(generator)[1].T();
         int numZeroCoefficients = ecBytes - coefficients.length;
         for (int i = 0; i < numZeroCoefficients; i++) {
             toEncode[dataBytes + i] = 0;

@@ -174,10 +174,10 @@ public class CanSaicRWMGWcACView extends CanBaseACView {
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, 218, mIcons[i]);
         }
-        this.mACMode[0] = SaicWCaddButton(KeyDef.RKEY_MEDIA_ANGLE, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        this.mACMode[1] = SaicWCaddButton(KeyDef.RKEY_MEDIA_ANGLE, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
-        this.mACMode[2] = SaicWCaddButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        this.mACMode[3] = SaicWCaddButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
+        this.mACMode[0] = SaicWCaddButton(305, 98, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        this.mACMode[1] = SaicWCaddButton(305, 175, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 7);
+        this.mACMode[2] = SaicWCaddButton(305, Can.CAN_FLAT_RZC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        this.mACMode[3] = SaicWCaddButton(305, KeyDef.RKEY_POWER_ON, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 9);
         this.mStatusWindow = SaicWCaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 98, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 11);
         this.mRearWindow = SaicWCaddButton(757, 210, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 12);
         this.mStatusOutLoop = SaicWCaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 210, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 13);

@@ -26,6 +26,11 @@ public class CanDFFGRzcCarInfoView extends CanScrollCarInfoView {
     public void InitData() {
         this.mItemTitleIds = new int[]{R.string.can_machine_infos, R.string.can_battery_infos, R.string.can_csxx, R.string.can_car_set};
         this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE};
+        if (CanJni.GetSubType() == 4) {
+            this.mItemVisibles[0] = 0;
+            this.mItemVisibles[1] = 0;
+            this.mItemVisibles[2] = 0;
+        }
     }
 
     public void doOnResume() {

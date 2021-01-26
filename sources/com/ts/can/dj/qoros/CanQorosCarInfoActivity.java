@@ -9,6 +9,7 @@ import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanQorosCarInfoActivity extends CanCommonActivity implements CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
     private static final int ITEM_DDWM = 9;
@@ -66,7 +67,7 @@ public class CanQorosCarInfoActivity extends CanCommonActivity implements CanIte
         this.mItemDdwm.SetStep(1);
         this.mItemDdwm.SetMinMax(1, 12);
         this.mItemDdwm.SetUserValText();
-        this.mItemDdwm.SetValText("");
+        this.mItemDdwm.SetValText(TXZResourceManager.STYLE_DEFAULT);
         this.mItemYbpbg = manager.addItemProgressList(R.string.can_ybpbg, 10, (CanItemProgressList.onPosChange) this);
         this.mItemYbpbg.SetStep(1);
         this.mItemYbpbg.SetMinMax(1, 11);

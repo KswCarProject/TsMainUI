@@ -10,12 +10,14 @@ import com.ts.canview.CanScrollList;
 public class CanToyotaWCSetMainActivity extends CanToyotaWCBaseActivity implements View.OnClickListener {
     public static final int ITEM_AC = 2;
     public static final int ITEM_AMP = 4;
+    public static final int ITEM_LANG = 6;
     public static final int ITEM_LIGHT = 3;
     public static final int ITEM_LOCK = 1;
     public static final int ITEM_OTHER = 5;
     protected static final String TAG = "CanToyotaSetMainActivity";
     protected CanItemIcoList mItemAc;
     protected CanItemIcoList mItemAmp;
+    protected CanItemIcoList mItemLang;
     protected CanItemIcoList mItemLight;
     protected CanItemIcoList mItemLock;
     protected CanItemIcoList mItemOther;
@@ -29,17 +31,20 @@ public class CanToyotaWCSetMainActivity extends CanToyotaWCBaseActivity implemen
         this.mItemLight = new CanItemIcoList(this, R.drawable.can_icon_light, R.string.can_light_set);
         this.mItemAmp = new CanItemIcoList(this, R.drawable.can_icon_setup, R.string.can_eq);
         this.mItemOther = new CanItemIcoList(this, R.drawable.can_icon_setup, R.string.can_other_set);
+        this.mItemLang = new CanItemIcoList(this, R.drawable.can_icon_light2, R.string.can_car_lang);
         this.mItemLock.SetIdClickListener(this, 1);
         this.mItemAc.SetIdClickListener(this, 2);
         this.mItemLight.SetIdClickListener(this, 3);
         this.mItemAmp.SetIdClickListener(this, 4);
         this.mItemOther.SetIdClickListener(this, 5);
+        this.mItemLang.SetIdClickListener(this, 6);
         CanScrollList sl = new CanScrollList(this);
         sl.AddView(this.mItemLock.GetView());
         sl.AddView(this.mItemAc.GetView());
         sl.AddView(this.mItemLight.GetView());
         sl.AddView(this.mItemAmp.GetView());
         sl.AddView(this.mItemOther.GetView());
+        sl.AddView(this.mItemLang.GetView());
         if (CanJni.GetSubType() != 0) {
             this.mItemAmp.ShowGone(false);
         }
@@ -73,6 +78,9 @@ public class CanToyotaWCSetMainActivity extends CanToyotaWCBaseActivity implemen
                 return;
             case 5:
                 enterSubWin(CanToyotaWCSetOtherActivity.class);
+                return;
+            case 6:
+                enterSubWin(CanToyotaWCSetLangActivity.class);
                 return;
             default:
                 return;

@@ -3,7 +3,6 @@ package com.ts.can.benc.withcd;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
@@ -16,17 +15,19 @@ import com.ts.canview.CanScrollList;
 
 public class CanBencWithCDCarInfoActivity extends CanCommonActivity implements View.OnTouchListener {
     public static final int ITEM_AIR = 5;
+    public static final int ITEM_AUTO_BREAK = 8;
     public static final int ITEM_CAR_INIT = 6;
     public static final int ITEM_CAR_SET = 7;
     public static final int ITEM_CAR_TYPE = 0;
     public static final int ITEM_FUNC = 4;
     public static final int ITEM_IAP = 2;
-    private static final int ITEM_MAX = 7;
+    private static final int ITEM_MAX = 8;
     private static final int ITEM_MIN = 0;
     public static final int ITEM_STATUS = 1;
     public static final int ITEM_TPMS = 3;
     private static int nDisCar = 0;
     private CanItemIcoList mItemAir;
+    private CanItemIcoList mItemAutoBreak;
     private CanItemIcoList mItemCarInit;
     private CanItemIcoList mItemCarSet;
     private CanItemIcoList mItemCarType;
@@ -63,13 +64,16 @@ public class CanBencWithCDCarInfoActivity extends CanCommonActivity implements V
                     enterSubWin(CanBencWithCDUpdateActivity.class);
                     break;
                 case 4:
-                    this.nTouchTime = Can.CAN_JAC_REFINE_OD;
+                    this.nTouchTime = 150;
                     break;
                 case 6:
                     enterSubWin(CanBencWithCDCarInitActivity.class);
                     break;
                 case 7:
                     CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 0);
+                    break;
+                case 8:
+                    CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 1);
                     break;
             }
         }
@@ -92,6 +96,7 @@ public class CanBencWithCDCarInfoActivity extends CanCommonActivity implements V
         this.mItemIap = this.mManager.addTouchItemIconList(R.drawable.can_golf_icon03, R.string.can_can_iap, 2, this);
         this.mItemAir = this.mManager.addTouchItemIconList(R.drawable.can_icon_ac, R.string.can_ac_set, 5, this);
         this.mItemCarSet = this.mManager.addTouchItemIconList(R.drawable.can_icon_setup, R.string.can_car_set, 7, this);
+        this.mItemAutoBreak = this.mManager.addTouchItemIconList(R.drawable.can_icon_esc, R.string.can_auto_break, 8, this);
     }
 
     /* access modifiers changed from: protected */
@@ -107,7 +112,7 @@ public class CanBencWithCDCarInfoActivity extends CanCommonActivity implements V
     }
 
     private void LayoutUI() {
-        for (int i = 0; i <= 7; i++) {
+        for (int i = 0; i <= 8; i++) {
             ShowItem(i);
         }
     }
@@ -138,6 +143,9 @@ public class CanBencWithCDCarInfoActivity extends CanCommonActivity implements V
                 return;
             case 7:
                 this.mItemCarSet.ShowGone(show);
+                return;
+            case 8:
+                this.mItemAutoBreak.ShowGone(show);
                 return;
             default:
                 return;
@@ -180,6 +188,9 @@ public class CanBencWithCDCarInfoActivity extends CanCommonActivity implements V
                 break;
             case 7:
                 ret = 0;
+                break;
+            case 8:
+                ret = 1;
                 break;
         }
         return i2b(ret);

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ts.MainUI.R;
 import com.ts.canview.CanItemPopupList;
 import com.ts.other.CustomDialog;
+import com.txznet.sdk.TXZResourceManager;
 
 /* compiled from: CanItemPopupList */
 class CanPopupMenu extends CustomDialog implements View.OnClickListener {
@@ -71,7 +72,7 @@ class CanPopupMenu extends CustomDialog implements View.OnClickListener {
             Class<?> c = Class.forName("com.android.internal.R$dimen");
             sbar = context.getResources().getDimensionPixelSize(Integer.parseInt(c.getField("status_bar_height").get(c.newInstance()).toString()));
         } catch (Exception e1) {
-            Log.d("", "get status bar height fail");
+            Log.d(TXZResourceManager.STYLE_DEFAULT, "get status bar height fail");
             e1.printStackTrace();
         }
         Log.d("statusBarHeight = ", new StringBuilder().append(sbar).toString());

@@ -175,7 +175,7 @@ class NotificationCompatJellybean {
             }
             try {
                 if (sExtrasField == null) {
-                    Field extrasField = Notification.class.getDeclaredField(KEY_EXTRAS);
+                    Field extrasField = Notification.class.getDeclaredField("extras");
                     if (!Bundle.class.isAssignableFrom(extrasField.getType())) {
                         Log.e(TAG, "Notification.extras field is not of type Bundle");
                         sExtrasFieldAccessFailed = true;
@@ -234,44 +234,44 @@ class NotificationCompatJellybean {
         /*
             java.lang.Object r10 = sActionsLock
             monitor-enter(r10)
-            java.lang.Object[] r0 = getActionObjectsLocked(r11)     // Catch:{ IllegalAccessException -> 0x003c }
-            r7 = r0[r12]     // Catch:{ IllegalAccessException -> 0x003c }
+            java.lang.Object[] r0 = getActionObjectsLocked(r11)     // Catch:{ IllegalAccessException -> 0x003d }
+            r7 = r0[r12]     // Catch:{ IllegalAccessException -> 0x003d }
             r5 = 0
-            android.os.Bundle r9 = getExtras(r11)     // Catch:{ IllegalAccessException -> 0x003c }
-            if (r9 == 0) goto L_0x001e
+            android.os.Bundle r9 = getExtras(r11)     // Catch:{ IllegalAccessException -> 0x003d }
+            if (r9 == 0) goto L_0x001f
             java.lang.String r0 = "android.support.actionExtras"
-            android.util.SparseArray r6 = r9.getSparseParcelableArray(r0)     // Catch:{ IllegalAccessException -> 0x003c }
-            if (r6 == 0) goto L_0x001e
-            java.lang.Object r5 = r6.get(r12)     // Catch:{ IllegalAccessException -> 0x003c }
-            android.os.Bundle r5 = (android.os.Bundle) r5     // Catch:{ IllegalAccessException -> 0x003c }
-        L_0x001e:
-            java.lang.reflect.Field r0 = sActionIconField     // Catch:{ IllegalAccessException -> 0x003c }
-            int r2 = r0.getInt(r7)     // Catch:{ IllegalAccessException -> 0x003c }
-            java.lang.reflect.Field r0 = sActionTitleField     // Catch:{ IllegalAccessException -> 0x003c }
-            java.lang.Object r3 = r0.get(r7)     // Catch:{ IllegalAccessException -> 0x003c }
-            java.lang.CharSequence r3 = (java.lang.CharSequence) r3     // Catch:{ IllegalAccessException -> 0x003c }
-            java.lang.reflect.Field r0 = sActionIntentField     // Catch:{ IllegalAccessException -> 0x003c }
-            java.lang.Object r4 = r0.get(r7)     // Catch:{ IllegalAccessException -> 0x003c }
-            android.app.PendingIntent r4 = (android.app.PendingIntent) r4     // Catch:{ IllegalAccessException -> 0x003c }
+            android.util.SparseArray r6 = r9.getSparseParcelableArray(r0)     // Catch:{ IllegalAccessException -> 0x003d }
+            if (r6 == 0) goto L_0x001f
+            java.lang.Object r5 = r6.get(r12)     // Catch:{ IllegalAccessException -> 0x003d }
+            android.os.Bundle r5 = (android.os.Bundle) r5     // Catch:{ IllegalAccessException -> 0x003d }
+        L_0x001f:
+            java.lang.reflect.Field r0 = sActionIconField     // Catch:{ IllegalAccessException -> 0x003d }
+            int r2 = r0.getInt(r7)     // Catch:{ IllegalAccessException -> 0x003d }
+            java.lang.reflect.Field r0 = sActionTitleField     // Catch:{ IllegalAccessException -> 0x003d }
+            java.lang.Object r3 = r0.get(r7)     // Catch:{ IllegalAccessException -> 0x003d }
+            java.lang.CharSequence r3 = (java.lang.CharSequence) r3     // Catch:{ IllegalAccessException -> 0x003d }
+            java.lang.reflect.Field r0 = sActionIntentField     // Catch:{ IllegalAccessException -> 0x003d }
+            java.lang.Object r4 = r0.get(r7)     // Catch:{ IllegalAccessException -> 0x003d }
+            android.app.PendingIntent r4 = (android.app.PendingIntent) r4     // Catch:{ IllegalAccessException -> 0x003d }
             r0 = r13
             r1 = r14
-            android.support.v4.app.NotificationCompatBase$Action r0 = readAction(r0, r1, r2, r3, r4, r5)     // Catch:{ IllegalAccessException -> 0x003c }
-            monitor-exit(r10)     // Catch:{ all -> 0x004a }
-        L_0x003b:
-            return r0
+            android.support.v4.app.NotificationCompatBase$Action r0 = readAction(r0, r1, r2, r3, r4, r5)     // Catch:{ IllegalAccessException -> 0x003d }
+            monitor-exit(r10)     // Catch:{ all -> 0x004d }
         L_0x003c:
+            return r0
+        L_0x003d:
             r8 = move-exception
             java.lang.String r0 = "NotificationCompat"
             java.lang.String r1 = "Unable to access notification actions"
-            android.util.Log.e(r0, r1, r8)     // Catch:{ all -> 0x004a }
+            android.util.Log.e(r0, r1, r8)     // Catch:{ all -> 0x004d }
             r0 = 1
-            sActionsAccessFailed = r0     // Catch:{ all -> 0x004a }
-            monitor-exit(r10)     // Catch:{ all -> 0x004a }
+            sActionsAccessFailed = r0     // Catch:{ all -> 0x004d }
+            monitor-exit(r10)     // Catch:{ all -> 0x004d }
             r0 = 0
-            goto L_0x003b
-        L_0x004a:
+            goto L_0x003c
+        L_0x004d:
             r0 = move-exception
-            monitor-exit(r10)     // Catch:{ all -> 0x004a }
+            monitor-exit(r10)     // Catch:{ all -> 0x004d }
             throw r0
         */
         throw new UnsupportedOperationException("Method not decompiled: android.support.v4.app.NotificationCompatJellybean.getAction(android.app.Notification, int, android.support.v4.app.NotificationCompatBase$Action$Factory, android.support.v4.app.RemoteInputCompatBase$RemoteInput$Factory):android.support.v4.app.NotificationCompatBase$Action");
@@ -301,7 +301,7 @@ class NotificationCompatJellybean {
         try {
             if (sActionsField == null) {
                 sActionClass = Class.forName("android.app.Notification$Action");
-                sActionIconField = sActionClass.getDeclaredField(KEY_ICON);
+                sActionIconField = sActionClass.getDeclaredField("icon");
                 sActionTitleField = sActionClass.getDeclaredField("title");
                 sActionIntentField = sActionClass.getDeclaredField(KEY_ACTION_INTENT);
                 sActionsField = Notification.class.getDeclaredField("actions");
@@ -332,7 +332,7 @@ class NotificationCompatJellybean {
     }
 
     private static NotificationCompatBase.Action getActionFromBundle(Bundle bundle, NotificationCompatBase.Action.Factory actionFactory, RemoteInputCompatBase.RemoteInput.Factory remoteInputFactory) {
-        return actionFactory.build(bundle.getInt(KEY_ICON), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle(KEY_EXTRAS), RemoteInputCompatJellybean.fromBundleArray(BundleUtil.getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS), remoteInputFactory));
+        return actionFactory.build(bundle.getInt("icon"), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle("extras"), RemoteInputCompatJellybean.fromBundleArray(BundleUtil.getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS), remoteInputFactory));
     }
 
     public static ArrayList<Parcelable> getParcelableArrayListForActions(NotificationCompatBase.Action[] actions) {
@@ -348,10 +348,10 @@ class NotificationCompatJellybean {
 
     private static Bundle getBundleForAction(NotificationCompatBase.Action action) {
         Bundle bundle = new Bundle();
-        bundle.putInt(KEY_ICON, action.getIcon());
+        bundle.putInt("icon", action.getIcon());
         bundle.putCharSequence("title", action.getTitle());
         bundle.putParcelable(KEY_ACTION_INTENT, action.getActionIntent());
-        bundle.putBundle(KEY_EXTRAS, action.getExtras());
+        bundle.putBundle("extras", action.getExtras());
         bundle.putParcelableArray(KEY_REMOTE_INPUTS, RemoteInputCompatJellybean.toBundleArray(action.getRemoteInputs()));
         return bundle;
     }

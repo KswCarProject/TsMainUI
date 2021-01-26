@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="tpms_general_disp">
-        <item>TEMP Unit</item>
-        <item>Pressure Unit</item>
-        <item>MAX TEMP</item>
-        <item>MAX Pressure</item>
-        <item>MIN Pressure</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>Flat Tire</item>
-        <item>Low Voltage</item>
-        <item>No Signal</item>
-        <item>Low Pressure</item>
-        <item>High Pressure</item>
-        <item>Start study</item>
-        <item>studying</item>
-    </array>
     <array name="set_main_options">
         <item>Allgemein</item>
         <item>Bildschirm</item>
@@ -28,7 +12,7 @@
         <item>Geräte Informationen</item>
     </array>
     <array name="set_genera_options">
-        <item>Standby-Zeit</item>
+        <item>Schlafmodus</item>
         <item>Speech Recognition</item>
         <item>Assistive Touch</item>
         <item>Reverse Volume Suppression</item>
@@ -59,6 +43,7 @@
         <item>Air Conditioner</item>
         <item>Hinteres Video</item>
         <item>Frontkamea</item>
+        <item>Kameratyp</item>
     </array>
     <array name="set_navi_options">
         <item>Autostart Navigation</item>
@@ -89,6 +74,23 @@
         <item>Hochfrequenz</item>
         <item>Gewinnen</item>
     </array>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+        <item>High Temp</item>
+    </array>
     <array name="mcu_update_msg">
         <item>Kein Update</item>
         <item>Update fehlgeschlagen</item>
@@ -97,6 +99,97 @@
         <item>Chip erase failure!</item>
         <item>Chip erase success!</item>
         <item>Upgrade successfully, please restart the device!</item>
+    </array>
+    <array name="can_conv_tips">
+        <item />
+        <item>Klimaanlage</item>
+        <item>Zuheizer</item>
+        <item>Heckscheibenheizung</item>
+        <item>Linke Sitzheizung</item>
+        <item>Rechte Sitzheizung</item>
+        <item>Belüftung des linken Sitzes</item>
+        <item>Heizung des rechten Kopfbereichs</item>
+        <item>Heizung des linken Kopfbereichs</item>
+        <item>Heizung des rechten Kopfbereichs</item>
+        <item>Nebelscheinwerfer</item>
+        <item>Nebelschlussleuchte</item>
+        <item>Windschutzscheibenheizung</item>
+        <item>Lenkradheizung</item>
+        <item>Spiegelheizung</item>
+        <item>Rücksitzheizung</item>
+        <item>Belüftung des Rücksitzes</item>
+        <item>Steckdose</item>
+        <item>Getränkehalter</item>
+    </array>
+    <array name="can_start_stop_msg">
+        <item>Trailer-Modus</item>
+        <item>Die Windschutzscheibe könnte neblig werden</item>
+        <item>Betriebstemperatur nicht eingehalten</item>
+        <item>Kein Treiber erkannt</item>
+        <item>Für das Getriebe muss der Motor laufen</item>
+        <item>Der Stromverbrauch ist hoch</item>
+        <item>Start-Stopp-System starten</item>
+        <item>Motor muss laufen</item>
+        <item>Gefälle zu steil</item>
+        <item>Das Start-Stopp-System ist derzeit nicht verfügbar</item>
+        <item>Eingriff in die Notbremsfunktion</item>
+        <item>Für die Bremse muss der Motor laufen</item>
+        <item>Der Stromverbrauch ist hoch</item>
+        <item>Für die Klimaanlage muss der Motor laufen</item>
+        <item>Lenkwinkel zu groß</item>
+        <item>Manövriermodus</item>
+        <item>Abtaufunktion ist eingeschaltet</item>
+        <item>Fahrersicherheitsgurt nicht angelegt</item>
+        <item>Fahrertür offen</item>
+        <item>Gaspedal ist gedrückt</item>
+        <item>Windschutzscheibenheizung ist eingeschaltet</item>
+        <item>Für eine maximale Klimaanlage muss der Motor laufen</item>
+        <item>Motorhaube wurde geöffnet</item>
+        <item>Motorstopp derzeit nicht möglich</item>
+        <item>Der Offroad-Modus ist aktiviert</item>
+        <item>Systemschutzintervention Taste / Hebel zu oft aktiviert</item>
+        <item>Gang eingelegt</item>
+        <item>Start-Stopp-Taste gedrückt</item>
+        <item>Für die Klimaanlage muss der Motor laufen</item>
+        <item>ACC-Intervention</item>
+        <item>Park Assist ist aktiviert</item>
+        <item>ESC ist ausgeschaltet</item>
+        <item>Der Stromverbrauch ist hoch</item>
+        <item>Für das Start-Stopp-System muss der Motor laufen</item>
+    </array>
+    <array name="can_start_stop_other_msg">
+        <item>Start-Stopp-System ist aktiviert</item>
+        <item>Das Start-Stopp-System ist verfügbar</item>
+        <item>Motorstopp ist aktiv</item>
+        <item>Fahrertür offen. Fahrer nicht vorhanden</item>
+        <item>Bitte drücken Gaspedal</item>
+        <item>Lassen Sie die Kupplung los, um den Motor abzustellen</item>
+        <item>Start-Stopp-System ist deaktiviert</item>
+        <item>Fehler: Start-Stopp-System ist nicht verfügbar</item>
+        <item>Das Start-Stopp-System ist nicht verfügbar</item>
+    </array>
+    <array name="can_teramont_eco_array">
+        <item>ECO</item>
+        <item>Normal</item>
+        <item>Sport</item>
+        <item>Individuell</item>
+    </array>
+    <array name="can_teramont_drive_profile_array">
+        <item>Schnee</item>
+        <item>Economic</item>
+        <item>Off-Road</item>
+        <item>Offroad-Personalisierung</item>
+    </array>
+    <array name="can_golf_teramont_tyres_array">
+        <item>Komfortabel</item>
+        <item>Standard</item>
+        <item>Volle Ladung</item>
+    </array>
+    <array name="can_golf_teramont_tyres_warn_array">
+        <item>Reifendruck ist normal</item>
+        <item>Bitte prüfen Reifendruck</item>
+        <item>Der Reifendruck ist zu niedrig</item>
+        <item>Reifendruckverlust</item>
     </array>
     <array name="can_iap_updata_sta">
         <item />

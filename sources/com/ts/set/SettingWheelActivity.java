@@ -33,14 +33,14 @@ public class SettingWheelActivity extends Activity implements View.OnClickListen
     static {
         int[] iArr = new int[2];
         iArr[0] = R.id.btn_swc_poweroff;
-        mStudyId = new int[][]{iArr, new int[]{R.id.btn_swc_vol_inc, 1}, new int[]{R.id.btn_swc_vol_dec, 2}, new int[]{R.id.btn_swc_next, 3}, new int[]{R.id.btn_swc_prev, 4}, new int[]{R.id.btn_swc_ch_dec, 5}, new int[]{R.id.btn_swc_ch_inc, 6}, new int[]{R.id.btn_swc_mute, 7}, new int[]{R.id.btn_swc_mode, 8}, new int[]{R.id.btn_swc_dial, 9}, new int[]{R.id.btn_swc_hang, 10}, new int[]{R.id.btn_swc_pp, 11}, new int[]{R.id.btn_swc_gps, 12}};
+        mStudyId = new int[][]{iArr, new int[]{R.id.btn_swc_vol_inc, 1}, new int[]{R.id.btn_swc_vol_dec, 2}, new int[]{R.id.btn_swc_next, 3}, new int[]{R.id.btn_swc_prev, 4}, new int[]{R.id.btn_swc_ch_dec, 5}, new int[]{R.id.btn_swc_ch_inc, 6}, new int[]{R.id.btn_swc_mute, 7}, new int[]{R.id.btn_swc_mode, 8}, new int[]{R.id.btn_swc_dial, 9}, new int[]{R.id.btn_swc_hang, 10}, new int[]{R.id.btn_swc_pp, 11}, new int[]{R.id.btn_swc_gps, 12}, new int[]{R.id.btn_swc_home, 13}, new int[]{R.id.btn_swc_return, 14}, new int[]{R.id.btn_swc_yuyin, 15}};
     }
 
     /* access modifiers changed from: protected */
     public void setupViews() {
         this.mManager = new RelativeLayoutManager(this, R.id.wheel_layout);
         this.topname = new SetMainItemTopName(this, getResources().getStringArray(R.array.set_main_options)[7]);
-        this.mManager.AddView(this.topname.GetView(), 0, 0, 1280, 80);
+        this.mManager.AddView(this.topname.GetView(), 0, 0, 1024, -2);
         this.topname.iv.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 SettingWheelActivity.this.finish();
@@ -54,7 +54,7 @@ public class SettingWheelActivity extends Activity implements View.OnClickListen
         }
         this.mBtnClear = (Button) findViewById(R.id.btn_swc_clear);
         this.mBtnClear.setOnClickListener(this);
-        this.mBtnClear.setTextSize(22.0f);
+        this.mBtnClear.setTextSize(0, 30.0f);
         this.mBtnClear.setTextColor(-1);
     }
 
@@ -78,6 +78,12 @@ public class SettingWheelActivity extends Activity implements View.OnClickListen
     public void onPause() {
         super.onPause();
         MainTask.GetInstance().SetUserCallBack((UserCallBack) null);
+        if (this.mfgStudyNow) {
+            if (this.mCurKeyNow < this.mBtnStudy.length) {
+                this.mBtnStudy[this.mCurKeyNow].setSelected(false);
+            }
+            Mcu.SwKeyStudy(-1);
+        }
     }
 
     public void onClick(View v) {
@@ -110,11 +116,13 @@ public class SettingWheelActivity extends Activity implements View.OnClickListen
                 this.mfgStudyNow = false;
             }
         }
-        if (this.mfgStudyNow && this.mCurKeyNow < mStudyId.length) {
+        if (this.mfgStudyNow) {
             this.mCurTick = getTickCount();
             if (this.mCurTick > this.mOldTick + 300) {
                 this.mOldTick = this.mCurTick;
-                this.mBtnStudy[this.mCurKeyNow].setSelected(this.mfgFlashSel);
+                if (this.mCurKeyNow < this.mBtnStudy.length) {
+                    this.mBtnStudy[this.mCurKeyNow].setSelected(this.mfgFlashSel);
+                }
                 this.mfgFlashSel = !this.mfgFlashSel;
             }
         }
@@ -125,13 +133,15 @@ public class SettingWheelActivity extends Activity implements View.OnClickListen
         }
         if (fgUpdate) {
             int keyCnt = 0;
-            for (int i = 0; i < mStudyId.length; i++) {
+            int i = 0;
+            while (i < mStudyId.length && i < this.mBtnStudy.length) {
                 if (1 == ((this.mCurSta >> i) & 1)) {
                     this.mBtnStudy[i].setSelected(true);
                     keyCnt++;
                 } else if (i != this.mCurKeyNow) {
                     this.mBtnStudy[i].setSelected(false);
                 }
+                i++;
             }
             Log.e(TAG, "KeyCnd = " + keyCnt);
         }

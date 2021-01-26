@@ -3,13 +3,12 @@ package com.txznet.sdk;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZService;
-import com.txznet.sdk.tongting.IConstantData;
 
 /* compiled from: Proguard */
 public class TXZCarControlManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZCarControlManager f719T;
+    private static TXZCarControlManager f723T;
     private Integer T9;
     private Integer TZ;
     private Integer Tk;
@@ -22,14 +21,14 @@ public class TXZCarControlManager {
     }
 
     public static TXZCarControlManager getInstance() {
-        if (f719T == null) {
+        if (f723T == null) {
             synchronized (TXZCarControlManager.class) {
-                if (f719T == null) {
-                    f719T = new TXZCarControlManager();
+                if (f723T == null) {
+                    f723T = new TXZCarControlManager();
                 }
             }
         }
-        return f719T;
+        return f723T;
     }
 
     /* compiled from: Proguard */
@@ -153,7 +152,7 @@ public class TXZCarControlManager {
                         ret = TXZCarControlManager.this.Ty.incTemp();
                     } else {
                         try {
-                            ret = TXZCarControlManager.this.Ty.incTemp(((Integer) new Tr(data).T(IConstantData.KEY_DATA, Integer.class, 0)).intValue());
+                            ret = TXZCarControlManager.this.Ty.incTemp(((Integer) new Tr(data).T("data", Integer.class, 0)).intValue());
                         } catch (Exception e) {
                         }
                     }
@@ -162,7 +161,7 @@ public class TXZCarControlManager {
                         ret = TXZCarControlManager.this.Ty.decTemp();
                     } else {
                         try {
-                            ret = TXZCarControlManager.this.Ty.decTemp(((Integer) new Tr(data).T(IConstantData.KEY_DATA, Integer.class, 0)).intValue());
+                            ret = TXZCarControlManager.this.Ty.decTemp(((Integer) new Tr(data).T("data", Integer.class, 0)).intValue());
                         } catch (Exception e2) {
                         }
                     }
@@ -192,7 +191,7 @@ public class TXZCarControlManager {
                     ret = TXZCarControlManager.this.Ty.closeADef();
                 } else if (command.equals("selectMode")) {
                     try {
-                        ret = TXZCarControlManager.this.Ty.selectMode(ACMgrTool.ACMode.valueOf((String) new Tr(data).T(IConstantData.KEY_DATA, String.class, "")));
+                        ret = TXZCarControlManager.this.Ty.selectMode(ACMgrTool.ACMode.valueOf((String) new Tr(data).T("data", String.class, TXZResourceManager.STYLE_DEFAULT)));
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
@@ -202,12 +201,12 @@ public class TXZCarControlManager {
                     ret = TXZCarControlManager.this.Ty.closeCompressor();
                 } else if (command.equals("ctrlToTemp")) {
                     try {
-                        ret = TXZCarControlManager.this.Ty.ctrlToTemp(((Integer) new Tr(data).T(IConstantData.KEY_DATA, Integer.class, 0)).intValue());
+                        ret = TXZCarControlManager.this.Ty.ctrlToTemp(((Integer) new Tr(data).T("data", Integer.class, 0)).intValue());
                     } catch (Exception e4) {
                     }
                 } else if (command.equals("ctrlToWSpeed")) {
                     try {
-                        ret = TXZCarControlManager.this.Ty.ctrlToWSpeed(((Integer) new Tr(data).T(IConstantData.KEY_DATA, Integer.class, 0)).intValue());
+                        ret = TXZCarControlManager.this.Ty.ctrlToWSpeed(((Integer) new Tr(data).T("data", Integer.class, 0)).intValue());
                     } catch (Exception e5) {
                     }
                 } else if (command.equals("maxWSpeed")) {

@@ -8,6 +8,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanPorscheLzStatueView extends CanScrollCarInfoView {
     private CanDataInfo.CAN_Msg mData;
@@ -38,7 +39,7 @@ public class CanPorscheLzStatueView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: package-private */
     public String Byte2String(int item, int data) {
-        String str = "";
+        String str = TXZResourceManager.STYLE_DEFAULT;
         switch (data) {
             case SupportMenu.USER_MASK:
             case ViewCompat.MEASURED_SIZE_MASK:

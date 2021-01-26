@@ -2,6 +2,7 @@ package com.ts.can;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanDataLogSreviceUI implements UserCallBack {
@@ -60,7 +62,7 @@ public class CanDataLogSreviceUI implements UserCallBack {
             this.mCanIv = this.mManager.AddImage(48, 0, 95, 95);
             this.mCanIv.setStateDrawable(R.drawable.can_psa_yuan_gray, R.drawable.can_psa_yuan_gray);
             this.mCanTxt = AddText(48, 0, 95, 95);
-            this.mCanTxt.setTextColor(-16777216);
+            this.mCanTxt.setTextColor(ViewCompat.MEASURED_STATE_MASK);
             this.mCanTxt.setText("TS");
             this.mCanIv.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View arg0) {
@@ -92,7 +94,7 @@ public class CanDataLogSreviceUI implements UserCallBack {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(40);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(17);
         return temp;
     }

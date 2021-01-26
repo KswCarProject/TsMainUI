@@ -1,6 +1,5 @@
 package com.txznet.comm.ui.Ty;
 
-import com.ts.can.CanCameraUI;
 import com.txznet.comm.Tr.Tr.Tn;
 import com.txznet.comm.ui.T5.Ty;
 import com.txznet.sdk.TXZAsrManager;
@@ -11,7 +10,7 @@ import java.util.Set;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Tr f561T = new Tr();
+    private static Tr f565T = new Tr();
     private Set<T> Tn = new HashSet();
     private T Tr;
     private int Ty = 0;
@@ -25,7 +24,7 @@ public class Tr {
     }
 
     public static Tr T() {
-        return f561T;
+        return f565T;
     }
 
     public void Tr() {
@@ -58,7 +57,7 @@ public class Tr {
                 TXZAsrManager.getInstance().cancel();
                 return true;
             case 14:
-                return Ty(CanCameraUI.BTN_TRUMPCHI_WC_MODE1);
+                return Ty(1001);
             case 19:
             case 100:
                 return Ty(19);

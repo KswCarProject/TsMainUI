@@ -3,6 +3,7 @@ package com.T.T.Tr.T;
 import com.T.T.Tn;
 import com.T.T.Tr.T9;
 import com.T.T.Tr.Ty;
+import com.android.SdkConstants;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,14 +12,14 @@ import java.util.Map;
 public class TO implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    private final Class<?> f152T;
+    private final Class<?> f155T;
     private final Map<Integer, Enum> Tr = new HashMap();
     private final Map<String, Enum> Ty = new HashMap();
 
     public TO(Class<?> enumClass) {
-        this.f152T = enumClass;
+        this.f155T = enumClass;
         try {
-            for (Object value : (Object[]) enumClass.getMethod("values", new Class[0]).invoke((Object) null, new Object[0])) {
+            for (Object value : (Object[]) enumClass.getMethod(SdkConstants.FD_RES_VALUES, new Class[0]).invoke((Object) null, new Object[0])) {
                 Enum e = (Enum) value;
                 this.Tr.put(Integer.valueOf(e.ordinal()), e);
                 this.Ty.put(e.name(), e);
@@ -38,7 +39,7 @@ public class TO implements T7 {
                 if (e != null) {
                     return e;
                 }
-                throw new Tn("parse enum " + this.f152T.getName() + " error, value : " + value);
+                throw new Tn("parse enum " + this.f155T.getName() + " error, value : " + value);
             } else if (lexer.Tn() == 4) {
                 String strVal = lexer.Tf();
                 lexer.T(16);
@@ -46,12 +47,12 @@ public class TO implements T7 {
                     return (Object) null;
                 }
                 Enum enumR = this.Ty.get(strVal);
-                return Enum.valueOf(this.f152T, strVal);
+                return Enum.valueOf(this.f155T, strVal);
             } else if (lexer.Tn() == 8) {
                 lexer.T(16);
                 return null;
             } else {
-                throw new Tn("parse enum " + this.f152T.getName() + " error, value : " + parser.Tv());
+                throw new Tn("parse enum " + this.f155T.getName() + " error, value : " + parser.Tv());
             }
         } catch (Tn e2) {
             throw e2;

@@ -13,7 +13,7 @@ import com.txznet.comm.ui.TE.Tr;
 public class GradientProgressBar extends View implements IKeepClass {
 
     /* renamed from: T  reason: collision with root package name */
-    private int f651T = 0;
+    private int f655T = 0;
 
     public GradientProgressBar(Context context) {
         super(context);
@@ -30,7 +30,7 @@ public class GradientProgressBar extends View implements IKeepClass {
 
     public void setProgress(int val) {
         if (val >= 0 && val <= 100) {
-            this.f651T = val;
+            this.f655T = val;
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 invalidate();
             } else {
@@ -46,8 +46,8 @@ public class GradientProgressBar extends View implements IKeepClass {
             int height = getHeight();
             canvas.drawColor(0);
             Drawable mDrawable = Tr.Ty("gradient_bg");
-            mDrawable.setBounds(0, 0, (int) (((float) width) * ((((float) this.f651T) * 1.0f) / 100.0f)), height);
-            mDrawable.setLevel((int) (10000.0f * ((((float) this.f651T) * 1.0f) / 100.0f)));
+            mDrawable.setBounds(0, 0, (int) (((float) width) * ((((float) this.f655T) * 1.0f) / 100.0f)), height);
+            mDrawable.setLevel((int) (10000.0f * ((((float) this.f655T) * 1.0f) / 100.0f)));
             mDrawable.draw(canvas);
         }
     }

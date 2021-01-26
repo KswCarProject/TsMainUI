@@ -2,6 +2,7 @@ package com.ts.can.toyota.wc;
 
 import android.content.Context;
 import android.os.Bundle;
+import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
@@ -11,18 +12,9 @@ import com.ts.canview.CanScrollList;
 public class CanToyotaWCSetLangActivity extends CanToyotaWCBaseActivity implements CanItemPopupList.onPopItemClick, UserCallBack {
     protected static final int ITEM_LANG_SET = 1;
     public static final String TAG = "CanToyotaSetLangActivity";
-    protected static final int[] mLangIndex;
+    protected static final int[] mLangIndex = {1, 2, 3};
     protected CanItemPopupList mItemLang;
-    protected int[] mLangVal = {R.string.lang_cn, R.string.lang_en_uk, R.string.lang_en_us, R.string.lang_espanol, R.string.lang_francais};
-
-    static {
-        int[] iArr = new int[5];
-        iArr[1] = 1;
-        iArr[2] = 2;
-        iArr[3] = 3;
-        iArr[4] = 4;
-        mLangIndex = iArr;
-    }
+    protected int[] mLangVal = {R.string.lang_en_us, R.string.lang_cn, R.string.lang_cn_ft};
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +26,9 @@ public class CanToyotaWCSetLangActivity extends CanToyotaWCBaseActivity implemen
     }
 
     public void onItem(int Id, int item) {
+        if (Id == 1) {
+            CanJni.ToyotaWcLangCmd(1, mLangIndex[item]);
+        }
     }
 
     /* access modifiers changed from: protected */

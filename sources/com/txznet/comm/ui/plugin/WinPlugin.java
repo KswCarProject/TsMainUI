@@ -14,11 +14,11 @@ public class WinPlugin extends WinDialog {
     public static SparseArray<WinPlugin> Ty = new SparseArray<>();
 
     /* renamed from: T  reason: collision with root package name */
-    private int f645T = 0;
+    private int f649T = 0;
     private View Tr;
 
     protected WinPlugin(int type) {
-        this.f645T = type;
+        this.f649T = type;
     }
 
     /* access modifiers changed from: protected */

@@ -75,10 +75,10 @@ public class CanDFQCCarInfoActivity extends CanDFQCBaseActivity implements View.
             this.mBatteryArray[i].setDrawable(R.drawable.can_dfqc_main_dc01_up, R.drawable.can_dfqc_main_dc01_dn);
         }
         AddText(162, 115, R.string.can_dfqc_battery);
-        AddText(129, KeyDef.RKEY_MEDIA_SUBT, R.string.can_dfqc_motor);
+        AddText(129, 310, R.string.can_dfqc_motor);
         AddText(162, 490, R.string.can_dfqc_control);
         AddText(KeyDef.SKEY_HOME_3, 114, R.string.can_dfqc_ac);
-        AddText(KeyDef.SKEY_HOME_3, KeyDef.RKEY_MEDIA_TITLE, R.string.can_dfqc_error);
+        AddText(KeyDef.SKEY_HOME_3, 306, R.string.can_dfqc_error);
         AddText(752, 492, R.string.can_dfqc_version);
     }
 

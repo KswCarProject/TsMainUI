@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Process;
 import android.util.Log;
+import com.android.SdkConstants;
 import com.ts.bt.BtExe;
 import com.ts.bt.BtFunc;
 import com.ts.main.common.CrashHandler;
@@ -38,6 +39,7 @@ public class MyApplication extends Application {
                 CanIF.SetCanTypeCb(CanFunc.getInstance());
             }
         }
+        MainSet.GetInstance().onApplicationCreate(this);
         registerActivityLifecycleCallbacks(BtFunc.mLifecyleCallbacks);
         super.onCreate();
     }
@@ -54,7 +56,7 @@ public class MyApplication extends Application {
     }
 
     public static String getProcessName(Context cxt, int pid) {
-        List<ActivityManager.RunningAppProcessInfo> runningApps = ((ActivityManager) cxt.getSystemService("activity")).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningApps = ((ActivityManager) cxt.getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningAppProcesses();
         if (runningApps == null) {
             return null;
         }

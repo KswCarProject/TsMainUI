@@ -2,9 +2,11 @@ package com.ts.can.honda.rzc;
 
 import android.app.Activity;
 import android.os.SystemClock;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
@@ -32,6 +34,7 @@ public class CanHondaDaRzcAcView extends CanBaseACView {
     private static final int ITEM_MODE_WIND6 = 12;
     private static final int ITEM_MODE_WIND7 = 13;
     public static final String TAG = "CanHondaDaRzcAcView";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private ParamButton mAcOf;
     private ParamButton mAcOn;
     private TextView mLtTemp;
@@ -116,7 +119,17 @@ public class CanHondaDaRzcAcView extends CanBaseACView {
         } else if (MainSet.GetScreenType() == 3) {
             initScreen_768x432();
         } else {
+            getActivity().getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+            Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) getRelativeManager().GetLayout().getLayoutParams();
+            lp.width = 1024;
+            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+            lp.gravity = 17;
+            getRelativeManager().GetLayout().setLayoutParams(lp);
             initCommonScreen();
+            getRelativeManager().GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+            getRelativeManager().GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+            Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
         }
     }
 

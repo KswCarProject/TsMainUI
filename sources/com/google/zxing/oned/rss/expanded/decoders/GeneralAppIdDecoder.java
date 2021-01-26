@@ -253,10 +253,10 @@ final class GeneralAppIdDecoder {
             case Can.CAN_GM_CAPTIVA_OD /*239*/:
                 c = '*';
                 break;
-            case 240:
+            case Can.CAN_VOLKS_XP /*240*/:
                 c = '+';
                 break;
-            case 241:
+            case Can.CAN_SITECHDEV_CW /*241*/:
                 c = ',';
                 break;
             case Can.CAN_MZD_LUOMU /*242*/:

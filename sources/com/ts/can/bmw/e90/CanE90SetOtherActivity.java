@@ -1,9 +1,11 @@
 package com.ts.can.bmw.e90;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -18,6 +20,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanE90SetOtherActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, View.OnTouchListener {
@@ -26,6 +29,7 @@ public class CanE90SetOtherActivity extends CanBaseActivity implements UserCallB
     public static final int ITEM_RTHOT = 3;
     public static final int ITEM_WIND = 4;
     public static final String TAG = "CanE90SetOtherActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     protected ParamButton mBtnLtHot;
     protected ParamButton mBtnRadar;
     protected ParamButton mBtnRtHot;
@@ -41,11 +45,21 @@ public class CanE90SetOtherActivity extends CanBaseActivity implements UserCallB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
         if (MainSet.GetScreenType() == 5) {
             InitUI_1280x480();
-        } else {
-            InitUI();
+            return;
         }
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
+        InitUI();
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     private void InitUI() {
@@ -55,7 +69,7 @@ public class CanE90SetOtherActivity extends CanBaseActivity implements UserCallB
         this.mBtnRadar = AddBtn(1, CanCameraUI.BTN_GOLF_WC_MODE4, KeyDef.RKEY_MEDIA_SLOW, R.drawable.can_e90_leida_up, R.drawable.can_e90_leida_dn);
         this.mBtnRadar.setText(R.string.title_activity_can_radar);
         this.mBtnWind.setText(R.string.can_curtain);
-        this.mManager.AddImage(KeyDef.RKEY_FF, 148, R.drawable.can_e90_fire);
+        this.mManager.AddImage(293, 148, R.drawable.can_e90_fire);
         this.mManager.AddImage(713, 148, R.drawable.can_e90_fire);
         for (int i = 0; i < 3; i++) {
             this.mImgLtHot[i] = this.mManager.AddImage((i * 39) + Can.CAN_FORD_MONDEO_XFY, 185);
@@ -166,9 +180,17 @@ public class CanE90SetOtherActivity extends CanBaseActivity implements UserCallB
                     KeyDown(3);
                     return false;
                 case 2:
+                    if (FtSet.GetCanS(1) > 0) {
+                        KeyDown(2);
+                        return false;
+                    }
                     KeyDown(1);
                     return false;
                 case 3:
+                    if (FtSet.GetCanS(1) > 0) {
+                        KeyDown(1);
+                        return false;
+                    }
                     KeyDown(2);
                     return false;
                 case 4:
@@ -186,9 +208,17 @@ public class CanE90SetOtherActivity extends CanBaseActivity implements UserCallB
                     KeyRel(3);
                     return false;
                 case 2:
+                    if (FtSet.GetCanS(1) > 0) {
+                        KeyRel(2);
+                        return false;
+                    }
                     KeyRel(1);
                     return false;
                 case 3:
+                    if (FtSet.GetCanS(1) > 0) {
+                        KeyRel(1);
+                        return false;
+                    }
                     KeyRel(2);
                     return false;
                 case 4:

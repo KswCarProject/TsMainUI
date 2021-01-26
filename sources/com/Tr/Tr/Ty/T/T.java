@@ -10,13 +10,13 @@ final class T implements TZ {
     }
 
     public void T(TE context) {
-        if (Tv.T((CharSequence) context.T(), context.f292T) >= 2) {
-            context.T(T(context.T().charAt(context.f292T), context.T().charAt(context.f292T + 1)));
-            context.f292T += 2;
+        if (Tv.T((CharSequence) context.T(), context.f295T) >= 2) {
+            context.T(T(context.T().charAt(context.f295T), context.T().charAt(context.f295T + 1)));
+            context.f295T += 2;
             return;
         }
         char c = context.Tr();
-        int newMode = Tv.T(context.T(), context.f292T, T());
+        int newMode = Tv.T(context.T(), context.f295T, T());
         if (newMode != T()) {
             switch (newMode) {
                 case 1:
@@ -45,10 +45,10 @@ final class T implements TZ {
         } else if (Tv.Tr(c)) {
             context.T(235);
             context.T((char) ((c - 128) + 1));
-            context.f292T++;
+            context.f295T++;
         } else {
             context.T((char) (c + 1));
-            context.f292T++;
+            context.f295T++;
         }
     }
 

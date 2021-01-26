@@ -15,7 +15,7 @@ import java.util.Map;
 public class TXZService extends Service {
 
     /* renamed from: T  reason: collision with root package name */
-    static boolean f816T = false;
+    static boolean f820T = false;
 
     /* compiled from: Proguard */
     interface T extends T.C0013T {
@@ -33,17 +33,17 @@ public class TXZService extends Service {
             if ("com.txznet.txz".equals(packageName)) {
                 if ("comm.exitTXZ.exited".equals(command)) {
                     Tn.T(packageName + " comm.exitTXZ.exited");
-                    TXZService.f816T = true;
+                    TXZService.f820T = true;
                     synchronized (TXZPowerManager.class) {
-                        if (TXZPowerManager.f784T.booleanValue()) {
+                        if (TXZPowerManager.f788T.booleanValue()) {
                             com.txznet.comm.Tr.Tn.Tr().T9 = true;
                         }
                     }
                     return null;
                 } else if ("comm.exitTXZ.inited".equals(command)) {
                     Tn.T(packageName + " comm.exitTXZ.inited");
-                    if (TXZPowerManager.f784T == null || !TXZPowerManager.f784T.booleanValue()) {
-                        TXZService.f816T = false;
+                    if (TXZPowerManager.f788T == null || !TXZPowerManager.f788T.booleanValue()) {
+                        TXZService.f820T = false;
                         TXZConfigManager.getInstance().Tr();
                         return null;
                     }
@@ -53,7 +53,7 @@ public class TXZService extends Service {
                 }
             }
             byte[] T2 = Ty.T(packageName, command, data);
-            for (Map.Entry<String, T.C0013T> entry : com.txznet.Tr.T.f351T.entrySet()) {
+            for (Map.Entry<String, T.C0013T> entry : com.txznet.Tr.T.f355T.entrySet()) {
                 if (command.startsWith(entry.getKey())) {
                     if (entry.getValue() != null) {
                         return entry.getValue().T(packageName, command.substring(entry.getKey().length()), data);

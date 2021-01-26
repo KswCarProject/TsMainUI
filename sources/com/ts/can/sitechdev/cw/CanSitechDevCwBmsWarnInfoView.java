@@ -8,6 +8,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanSitechDevCwBmsWarnInfoView extends CanScrollCarInfoView {
     public static final String TAG = "CanSitechDevCwDtInfoView";
@@ -161,7 +162,7 @@ public class CanSitechDevCwBmsWarnInfoView extends CanScrollCarInfoView {
                     return this.mXdcgcbjStrs[value];
                 }
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public void QueryData() {

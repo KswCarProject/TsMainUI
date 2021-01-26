@@ -17,7 +17,7 @@ import com.txznet.txz.comm.R;
 public class Ty extends Dialog {
 
     /* renamed from: T  reason: collision with root package name */
-    Context f687T;
+    Context f691T;
     private TextView T9;
     private Button Tn;
     /* access modifiers changed from: private */
@@ -26,7 +26,7 @@ public class Ty extends Dialog {
 
     protected Ty(Context context) {
         super(context, R.style.TXZ_Dialog_Style);
-        this.f687T = context;
+        this.f691T = context;
         Ty();
     }
 
@@ -46,7 +46,7 @@ public class Ty extends Dialog {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 this.Tr = s;
                 if (this.Tr.length() == 8) {
-                    Toast.makeText(Ty.this.f687T, "亲，您已输入" + this.Tr.length() + "个字符", 0).show();
+                    Toast.makeText(Ty.this.f691T, "亲，您已输入" + this.Tr.length() + "个字符", 0).show();
                 }
             }
 

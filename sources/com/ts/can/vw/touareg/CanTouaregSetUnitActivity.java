@@ -13,17 +13,20 @@ import com.ts.canview.CanScrollList;
 
 public class CanTouaregSetUnitActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
     private static final int ITEM_DISTANCE = 1;
+    private static final int ITEM_LANG = 7;
     private static final int ITEM_OIL = 5;
     private static final int ITEM_SPEED = 2;
     private static final int ITEM_TEMP = 3;
     private static final int ITEM_TYRES = 6;
     private static final int ITEM_VOLUME = 4;
+    private static final String[] mLangArr = {"English", "chinese", " german", "Italian", "French", "Swedish", "Spanish", "dutch", "portug", "Japanese", "norweg", "finnish", "Danish", "greek", "Arabic", "turkish"};
     private static final String[] mOilDW = {"L/100km", "km/l", "mpg(US)", "mpg(UK)"};
     private static final String[] mRangeDW = {"mi", "km"};
     private static final String[] mSpeedDW = {"m/h", "km/h"};
     private static final String[] mTempDW = {"℉", "℃"};
     private static final String[] mTyresDW = {"kPa", "bar", "psi"};
     private static final String[] mVolumeDW = {"L", "gal(US)", "gal(UK)"};
+    private CanItemPopupList mItemLang;
     private CanItemPopupList mItemOil;
     private CanItemPopupList mItemRange;
     private CanItemPopupList mItemSpeed;
@@ -48,12 +51,16 @@ public class CanTouaregSetUnitActivity extends CanBaseActivity implements View.O
         this.mItemVolume = this.mManager.addItemPopupList(R.string.can_volume, mVolumeDW, 4, (CanItemPopupList.onPopItemClick) this);
         this.mItemOil = this.mManager.addItemPopupList(R.string.can_consumption, mOilDW, 5, (CanItemPopupList.onPopItemClick) this);
         this.mItemTyres = this.mManager.addItemPopupList(R.string.can_pressure, mTyresDW, 6, (CanItemPopupList.onPopItemClick) this);
+        this.mItemLang = this.mManager.addItemPopupList(R.string.can_car_lang, mLangArr, 7, (CanItemPopupList.onPopItemClick) this);
         this.mItemRange.ShowGone(false);
         this.mItemSpeed.ShowGone(false);
         this.mItemTemp.ShowGone(false);
         this.mItemVolume.ShowGone(false);
         this.mItemOil.ShowGone(false);
         this.mItemTyres.ShowGone(false);
+        if (CanJni.GetCanFsTp() != 310) {
+            this.mItemLang.ShowGone(false);
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -122,6 +129,9 @@ public class CanTouaregSetUnitActivity extends CanBaseActivity implements View.O
                 return;
             case 6:
                 CanJni.TouaregDwSet(6, item + 1);
+                return;
+            case 7:
+                CanJni.TouaregLangCmd(1, item + 1);
                 return;
             default:
                 return;

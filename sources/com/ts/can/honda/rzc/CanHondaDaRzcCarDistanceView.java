@@ -48,8 +48,13 @@ public class CanHondaDaRzcCarDistanceView extends CanScrollCarInfoView {
     public void InitData() {
         this.mItemTitleIds = new int[]{R.string.can_tripbresettiming, R.string.can_triparesettiming, R.string.can_adjustoutsidetemp, R.string.can_rybjtm};
         this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP};
-        this.mPopValueIds[0] = new int[]{R.string.can_tripbresettiming_1, R.string.can_tripbresettiming_2, R.string.can_tripbresettiming_3};
-        this.mPopValueIds[1] = new int[]{R.string.can_tripbresettiming_1, R.string.can_tripbresettiming_2, R.string.can_tripbresettiming_3};
+        if (CanJni.GetSubType() == 6) {
+            this.mPopValueIds[0] = new int[]{R.string.can_tripbresettiming_5, R.string.can_tripbresettiming_2, R.string.can_tripbresettiming_3};
+            this.mPopValueIds[1] = new int[]{R.string.can_tripbresettiming_5, R.string.can_tripbresettiming_2, R.string.can_tripbresettiming_3};
+        } else {
+            this.mPopValueIds[0] = new int[]{R.string.can_tripbresettiming_1, R.string.can_tripbresettiming_2, R.string.can_tripbresettiming_3};
+            this.mPopValueIds[1] = new int[]{R.string.can_tripbresettiming_1, R.string.can_tripbresettiming_2, R.string.can_tripbresettiming_3};
+        }
         int[][] iArr = this.mProgressAttrs;
         int[] iArr2 = new int[4];
         iArr2[1] = 6;

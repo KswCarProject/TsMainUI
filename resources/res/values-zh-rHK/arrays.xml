@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="str_fs_rev_volarr">
-        <item>無</item>
-        <item>弱</item>
-        <item>中</item>
-        <item>強</item>
+    <array name="menu_ico_arr">
+        <item>導航</item>
+        <item>收音機</item>
+        <item>DVD</item>
+        <item>外掛DVD</item>
+        <item>視頻</item>
+        <item>音頻</item>
+        <item>藍牙音樂</item>
+        <item>數字電視</item>
+        <item>模擬電視</item>
+        <item>AVIN</item>
+        <item>OBD</item>
+        <item>IPOD</item>
+        <item>POD</item>
+        <item>360全景</item>
+        <item>原車設備</item>
+        <item>原車收音</item>
+        <item>原車360</item>
+        <item>藍牙</item>
+        <item>設置</item>
+        <item>安吉星</item>
+        <item>SYNC</item>
+        <item>車輛信息</item>
+        <item>胎壓</item>
+        <item>行車記錄</item>
+        <item>前置攝像</item>
+        <item>空調</item>
+        <item>DSP</item>
+        <item>電話</item>
+        <item>藍牙方控</item>
+        <item>Carplay</item>
     </array>
     <array name="str_fsrad_zonearray">
         <item>亞洲</item>
@@ -15,7 +41,6 @@
         <item>日本</item>
         <item>巴西2</item>
         <item>日本2</item>
-        <item>巴西3</item>
     </array>
     <array name="str_fsdoor_title">
         <item>前門反</item>
@@ -29,69 +54,18 @@
         <item>車外溫度</item>
         <item>P檔雷達顯示</item>
     </array>
-    <array name="str_fsother_title">
-        <item>顯示屏類型</item>
-        <item>手剎設置</item>
-        <item>外部UART</item>
-        <item>DVR類型</item>
-        <item>DTV類型</item>
-        <item>電容屏類型</item>
-        <item>倒車音量抑制</item>
-        <item>倒車檢測</item>
-        <item>倒車鏡像</item>
-        <item>開機啟動導航</item>
-        <item>多彩燈選項</item>
-        <item>開機畫面選項</item>
-        <item>方控學習選項</item>
-        <item>開機警告畫面</item>
-        <item>插拔記憶</item>
-        <item>USB1速度</item>
-        <item>USB2速度</item>
-        <item>USB2調試</item>
-        <item>編碼器左右交換</item>
-        <item>調試信息輸出</item>
-        <item>電視輸出格式</item>
-        <item>藍牙名字</item>
-        <item>SD交換</item>
-        <item>衛星定位模式</item>
-    </array>
-    <array name="str_fsother_arrayoff">
-        <item>不檢測</item>
-        <item>不鏡像</item>
-        <item>不啟動</item>
-        <item>無</item>
-        <item>無</item>
-        <item>無</item>
-        <item>無</item>
-        <item>不記憶</item>
-        <item>high</item>
-        <item>high</item>
-        <item>關閉</item>
-        <item>不交換</item>
-        <item>關閉</item>
-        <item>NTSC</item>
-        <item>藍牙名字</item>
-        <item>不交換</item>
-        <item>GPS+BD</item>
-    </array>
-    <array name="str_fsother_arrayon">
-        <item>檢測</item>
-        <item>鏡像</item>
-        <item>啟動</item>
-        <item>有</item>
-        <item>有</item>
-        <item>有</item>
-        <item>有</item>
-        <item>記憶</item>
-        <item>low</item>
-        <item>low</item>
-        <item>開啟</item>
-        <item>交換</item>
-        <item>開啟</item>
-        <item>PAL</item>
-        <item>藍牙名字</item>
-        <item>交換</item>
-        <item>GPS+GNS</item>
+    <array name="str_fsother_camtype">
+        <item>CVBS</item>
+        <item>AHD-720P-25</item>
+        <item>AHD-1080P-25</item>
+        <item>360-720P</item>
+        <item>360-720P-僅後視</item>
+        <item>MIPI-用戶自定義</item>
+        <item>AHD-720P-30</item>
+        <item>AHD-1080P-30</item>
+        <item>TVI-720P-25</item>
+        <item>TVI-720P-30</item>
+        <item>360-720P-前+後視</item>
     </array>
     <array name="str_fsother_arraylcmstype">
         <item>10-IPS</item>
@@ -111,70 +85,11 @@
         <item>中</item>
         <item>強</item>
     </array>
-    <array name="menu_ico_arr">
-        <item>導航</item>
-        <item>收音機</item>
-        <item>DVD</item>
-        <item>外掛DVD</item>
-        <item>視頻</item>
-        <item>音頻</item>
-        <item>藍牙音樂</item>
-        <item>數字電視</item>
-        <item>模擬電視</item>
-        <item>AVIN</item>
-        <item>OBD</item>
-        <item>IPOD</item>
-        <item>POD</item>
-        <item>虛擬六碟</item>
-        <item>原車設備</item>
-        <item>原車收音</item>
-        <item>360全景</item>
-        <item>藍牙</item>
-        <item>設置</item>
-        <item>安吉星</item>
-        <item>SYNC</item>
-        <item>車輛信息</item>
-        <item>胎壓</item>
-        <item>行車記錄</item>
-        <item>前置攝像</item>
-        <item>空調</item>
-        <item>DSP</item>
-        <item>電話</item>
-        <item>藍牙方控</item>
-        <item>Carplay</item>
-    </array>
     <array name="can_type_array">
         <item>無協議</item>
         <item>大眾</item>
         <item>高爾夫</item>
         <item>豐田</item>
-        <item>12款思域、CRV</item>
-        <item>本田DA系統(杰德、凌派、繽智...)</item>
-        <item>日產天籟，奇駿，樓蘭</item>
-        <item>14款霸道</item>
-        <item>通用全系</item>
-        <item>雅閣9代</item>
-        <item>賽歐3（睿志誠）</item>
-        <item>標雪</item>
-        <item>TS全系</item>
-        <item>福特全系</item>
-        <item>現代全系</item>
-        <item>克萊斯勒車系</item>
-        <item>寶駿</item>
-        <item>廣汽傳祺系列</item>
-        <item>榮威550</item>
-        <item>榮威系列</item>
-        <item>14款歌詩圖</item>
-        <item>老馬自達，歐寶</item>
-        <item>11款B70</item>
-        <item>14款B70</item>
-        <item>奔騰X80</item>
-        <item>榮威950</item>
-        <item>15款名爵銳騰</item>
-        <item>江淮瑞風S2,S3</item>
-        <item>江鈴</item>
-        <item>16款吉普自由光</item>
-        <item>眾泰云100</item>
     </array>
     <array name="fs_vol_item_arr">
         <item>收音機</item>
@@ -194,113 +109,6 @@
         <item>開機最大增益</item>
         <item>藍牙MIC增益</item>
         <item>藍牙音量增益</item>
-    </array>
-    <array name="tpms_general_mode">
-        <item>關閉報警</item>
-        <item>單次報警</item>
-        <item>持續報警</item>
-    </array>
-    <array name="tpms_general_disp">
-        <item>溫度單位</item>
-        <item>壓力單位</item>
-        <item>溫度上限</item>
-        <item>壓力上限</item>
-        <item>壓力下限</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>漏氣</item>
-        <item>低電壓</item>
-        <item>無信號</item>
-        <item>氣壓低</item>
-        <item>氣壓高</item>
-        <item>開始學習</item>
-        <item>學習中</item>
-    </array>
-    <array name="ctouch_general">
-        <item>電源</item>
-        <item>主頁</item>
-        <item>返回</item>
-        <item>音量+</item>
-        <item>音量-</item>
-        <item>導航</item>
-        <item>接聽</item>
-        <item>掛斷</item>
-        <item>上曲</item>
-        <item>下曲</item>
-        <item>出碟</item>
-        <item>搜台</item>
-        <item>模式</item>
-        <item>靜音</item>
-        <item>停止</item>
-        <item>暫停</item>
-        <item>收音</item>
-        <item>DVD</item>
-        <item>音樂</item>
-        <item>應用</item>
-        <item>亮度</item>
-        <item>清除</item>
-    </array>
-    <array name="set_main_options">
-        <item>通用設定</item>
-        <item>顯示設定</item>
-        <item>音量設定</item>
-        <item>音效設定</item>
-        <item>影像輔助設定</item>
-        <item>導航設定</item>
-        <item>藍牙設定</item>
-        <item>快撥設定</item>
-        <item>關於設備</item>
-    </array>
-    <array name="set_genera_options">
-        <item>待機時間</item>
-        <item>聲控設定</item>
-        <item>輔助觸點</item>
-        <item>倒車時音量抑制</item>
-        <item>開機畫面</item>
-        <item>語音靈敏度</item>
-        <item>恢復預設值</item>
-        <item>系統還原</item>
-    </array>
-    <array name="set_display_options">
-        <item>日間亮度</item>
-        <item>夜間亮度</item>
-        <item>大燈自動檢測</item>
-        <item>七彩燈</item>
-    </array>
-    <array name="set_volume_options">
-        <item>媒體音量</item>
-        <item>導航音量</item>
-        <item>藍牙音量</item>
-        <item>鈴聲音量</item>
-        <item>鬧鐘音量</item>
-        <item>系统音量</item>
-    </array>
-    <array name="set_video_options">
-        <item>行車影像</item>
-        <item>倒車軌跡線</item>
-        <item>倒車警告線</item>
-        <item>倒車鏡像</item>
-        <item>空調顯示</item>
-        <item>后視輸出</item>
-        <item>前置攝像</item>
-    </array>
-    <array name="set_navi_options">
-        <item>開機自動進入導航</item>
-        <item>導航程序選擇</item>
-        <item>導航混音</item>
-    </array>
-    <array name="set_bt_options">
-        <item>配對密碼</item>
-        <item>自動配對</item>
-        <item>自動接聽</item>
-    </array>
-    <array name="set_eqpment_options">
-        <item>韌體版本</item>
-        <item>軟體版本</item>
-        <item>媒體版本</item>
-        <item>協議版本</item>
-        <item>藍牙版本</item>
-        <item>DVDROM</item>
     </array>
     <array name="mcu_update_msg">
         <item>未進入升級流程</item>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <layer-list>
+            <item android:id="@android:id/background" android:drawable="@drawable/dsp_eq_sound_pillar"/>
+            <item android:id="@android:id/secondaryProgress" android:drawable="@drawable/dsp_eq_sound_hui"/>
+            <item android:id="@android:id/progress" android:drawable="@drawable/dsp_eq_sound_hui"/>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:id="@android:id/background" android:drawable="@drawable/dsp_eq_sound_pillar"/>
+            <item android:id="@android:id/secondaryProgress" android:drawable="@drawable/dsp_eq_sound_green"/>
+            <item android:id="@android:id/progress" android:drawable="@drawable/dsp_eq_sound_green"/>
+        </layer-list>
+    </item>
+</selector>

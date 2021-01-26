@@ -50,7 +50,7 @@ public class TrZ extends TP {
                 }
             }
             lexer.Tr(4);
-            if (T.f128T.equals(key)) {
+            if (T.f131T.equals(key)) {
                 if (lexer.Tn() == 4) {
                     exClass = TZ.T(lexer.Tf());
                     lexer.T(16);

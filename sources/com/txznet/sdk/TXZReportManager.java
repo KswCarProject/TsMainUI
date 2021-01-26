@@ -8,13 +8,13 @@ import com.txznet.comm.Tr.Tr.Tn;
 public class TXZReportManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZReportManager f792T = new TXZReportManager();
+    private static TXZReportManager f796T = new TXZReportManager();
 
     private TXZReportManager() {
     }
 
     public static TXZReportManager getInstance() {
-        return f792T;
+        return f796T;
     }
 
     public void doReport(String data) {

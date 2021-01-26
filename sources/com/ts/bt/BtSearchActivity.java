@@ -5,13 +5,18 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
@@ -20,9 +25,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.ts.MainUI.R;
 import com.ts.bt.BtExe;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.ArrayList;
 
-@SuppressLint({"NewApi"})
+@SuppressLint({"NewApi", "Override"})
 public class BtSearchActivity extends BtBaseActivity implements View.OnClickListener {
     public static final int BT_ACTIVITY_ID = 8;
     private static final String TAG = "BtSearchActivity";
@@ -44,7 +50,30 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.mIsInMultiWindowMode = isInMultiWindowMode();
+        updateLayout(this.mIsInMultiWindowMode);
+    }
+
+    public void onMultiWindowModeChanged(boolean isInMultiWindowMode, Configuration newConfig) {
+        super.onMultiWindowModeChanged(isInMultiWindowMode, newConfig);
+        this.mIsInMultiWindowMode = isInMultiWindowMode;
+        updateMultiChange(isInMultiWindowMode);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateMultiChange(boolean isInMultiWindowMode) {
+        updateLayout(isInMultiWindowMode);
+        SubItemsInit(this, 8);
+    }
+
+    /* access modifiers changed from: package-private */
+    public void updateLayout(boolean isInMultiWindowMode) {
         getWindow().setSoftInputMode(48);
+        if (isInMultiWindowMode) {
+            setContentView(R.layout.activity_bt_phonebook_s);
+            initView1();
+            return;
+        }
         setContentView(R.layout.activity_bt_search);
         initView();
     }
@@ -109,6 +138,10 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
         this.mEdit = (EditText) findViewById(R.id.search);
         this.mEdit.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (TextUtils.isEmpty(s)) {
+                    BtSearchActivity.this.updateSearchList();
+                    return;
+                }
                 Log.d(BtSearchActivity.TAG, "onTextChanged " + s);
                 BtExe.PbSearch(s.toString());
                 BtSearchActivity.this.mSearchAdapter.updateData(BtExe.mListSearch);
@@ -146,7 +179,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
             } else {
                 String first_name = item.pb.first_name;
                 String middle_name = item.pb.middle_name;
-                String name3 = String.valueOf("") + item.pb.given_name;
+                String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + item.pb.given_name;
                 if (!name3.isEmpty()) {
                     name = String.valueOf(name3) + " " + middle_name;
                 } else {
@@ -159,13 +192,21 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
                 }
             }
             this.mDialNum = item.pb.num;
-            new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+            AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     if (BtSearchActivity.this.mDialNum != null) {
                         BtSearchActivity.this.bt.dial(BtSearchActivity.this.mDialNum);
                     }
                 }
-            }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).show();
+            }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).create();
+            dialog.show();
+            Window dialogWindow = dialog.getWindow();
+            Display d = getWindowManager().getDefaultDisplay();
+            WindowManager.LayoutParams p = dialogWindow.getAttributes();
+            p.width = (int) (((double) d.getWidth()) * 0.8d);
+            p.height = (int) (((double) d.getHeight()) * 0.5d);
+            p.gravity = 17;
+            dialogWindow.setAttributes(p);
         }
     }
 
@@ -182,7 +223,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
             } else {
                 String first_name = item.pb.first_name;
                 String middle_name = item.pb.middle_name;
-                String name3 = String.valueOf("") + item.pb.given_name;
+                String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + item.pb.given_name;
                 if (!name3.isEmpty()) {
                     name = String.valueOf(name3) + " " + middle_name;
                 } else {
@@ -195,13 +236,19 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
                 }
             }
             this.mDialNum = item.pb.num;
-            new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+            AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     if (BtSearchActivity.this.mDialNum != null) {
                         BtSearchActivity.this.bt.dial(BtSearchActivity.this.mDialNum);
                     }
                 }
-            }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).show();
+            }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).create();
+            dialog.show();
+            Window dialogWindow = dialog.getWindow();
+            Display defaultDisplay = getWindowManager().getDefaultDisplay();
+            WindowManager.LayoutParams p = dialogWindow.getAttributes();
+            p.gravity = 17;
+            dialogWindow.setAttributes(p);
         }
     }
 
@@ -278,7 +325,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
             }
             if (this.mSearchList == null || this.mSearchList.size() <= position) {
                 holder.nameTextView.setText("10086");
-                holder.phoneTextView.setText("");
+                holder.phoneTextView.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 String number = this.mSearchList.get(position).pb.num;
                 if (BtSearchActivity.this.isBtCountry) {
@@ -286,7 +333,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
                 } else {
                     String first_name = this.mSearchList.get(position).pb.first_name;
                     String middle_name = this.mSearchList.get(position).pb.middle_name;
-                    String name3 = String.valueOf("") + this.mSearchList.get(position).pb.given_name;
+                    String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + this.mSearchList.get(position).pb.given_name;
                     if (!name3.isEmpty()) {
                         name = String.valueOf(name3) + " " + middle_name;
                     } else {
@@ -364,7 +411,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
             }
             if (this.mSearchList == null || this.mSearchList.size() <= position) {
                 holder.nameTextView.setText("10086");
-                holder.phoneTextView.setText("");
+                holder.phoneTextView.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 String number = this.mSearchList.get(position).pb.num;
                 if (BtSearchActivity.this.isBtCountry) {
@@ -372,7 +419,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
                 } else {
                     String first_name = this.mSearchList.get(position).pb.first_name;
                     String middle_name = this.mSearchList.get(position).pb.middle_name;
-                    String name3 = String.valueOf("") + this.mSearchList.get(position).pb.given_name;
+                    String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + this.mSearchList.get(position).pb.given_name;
                     if (!name3.isEmpty()) {
                         name = String.valueOf(name3) + " " + middle_name;
                     } else {
@@ -427,7 +474,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
             } else {
                 String first_name = item.pb.first_name;
                 String middle_name = item.pb.middle_name;
-                String name3 = String.valueOf("") + item.pb.given_name;
+                String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + item.pb.given_name;
                 if (!name3.isEmpty()) {
                     name = String.valueOf(name3) + " " + middle_name;
                 } else {
@@ -445,7 +492,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
                 return;
             }
             this.mfgDialDlg = true;
-            new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+            AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     if (BtSearchActivity.this.mDialNum != null) {
                         BtSearchActivity.this.bt.dial(BtSearchActivity.this.mDialNum);
@@ -455,7 +502,15 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
                 public void onDismiss(DialogInterface arg0) {
                     BtSearchActivity.this.mfgDialDlg = false;
                 }
-            }).show();
+            }).create();
+            dialog.show();
+            Window dialogWindow = dialog.getWindow();
+            Display d = getWindowManager().getDefaultDisplay();
+            WindowManager.LayoutParams p = dialogWindow.getAttributes();
+            p.width = (int) (((double) d.getWidth()) * 0.5d);
+            p.height = (int) (((double) d.getHeight()) * 0.5d);
+            p.gravity = 17;
+            dialogWindow.setAttributes(p);
         }
     }
 
@@ -472,7 +527,7 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
             } else {
                 String first_name = item.pb.first_name;
                 String middle_name = item.pb.middle_name;
-                String name3 = String.valueOf("") + item.pb.given_name;
+                String name3 = String.valueOf(TXZResourceManager.STYLE_DEFAULT) + item.pb.given_name;
                 if (!name3.isEmpty()) {
                     name = String.valueOf(name3) + " " + middle_name;
                 } else {
@@ -487,15 +542,23 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
             this.mDialNum = item.pb.num;
             if (force) {
                 this.bt.dial(this.mDialNum);
-            } else {
-                new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (BtSearchActivity.this.mDialNum != null) {
-                            BtSearchActivity.this.bt.dial(BtSearchActivity.this.mDialNum);
-                        }
-                    }
-                }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).show();
+                return;
             }
+            AlertDialog dialog = new AlertDialog.Builder(this).setTitle(R.string.str_bt_dial).setMessage(name2).setPositiveButton(R.string.str_bt_ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    if (BtSearchActivity.this.mDialNum != null) {
+                        BtSearchActivity.this.bt.dial(BtSearchActivity.this.mDialNum);
+                    }
+                }
+            }).setNegativeButton(R.string.str_bt_cancel, (DialogInterface.OnClickListener) null).create();
+            dialog.show();
+            Window dialogWindow = dialog.getWindow();
+            Display d = getWindowManager().getDefaultDisplay();
+            WindowManager.LayoutParams p = dialogWindow.getAttributes();
+            p.width = (int) (((double) d.getWidth()) * 0.8d);
+            p.height = (int) (((double) d.getHeight()) * 0.5d);
+            p.gravity = 17;
+            dialogWindow.setAttributes(p);
         }
     }
 
@@ -592,16 +655,16 @@ public class BtSearchActivity extends BtBaseActivity implements View.OnClickList
                 SearchNext();
                 return true;
             case 21:
-                if (this.mbSubFocus != 2) {
-                    return true;
-                }
-                SearchFocus();
-                return true;
-            case 22:
                 if (this.mbSubFocus != 3 || (position = this.mList.getCheckedItemPosition()) == -1) {
                     return true;
                 }
                 this.mList.setItemChecked(position, false);
+                return true;
+            case 22:
+                if (this.mbSubFocus != 2) {
+                    return true;
+                }
+                SearchFocus();
                 return true;
             case 23:
                 SearchCenter();

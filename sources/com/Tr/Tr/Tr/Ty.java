@@ -1,5 +1,6 @@
 package com.Tr.Tr.Tr;
 
+import com.android.SdkConstants;
 import com.google.zxing.common.StringUtils;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,7 @@ public enum Ty {
     Cp1252((String) 23, (int) new String[]{"windows-1252"}),
     Cp1256((String) 24, (int) new String[]{"windows-1256"}),
     UnicodeBigUnmarked((String) 25, (int) new String[]{"UTF-16BE", "UnicodeBig"}),
-    UTF8((String) 26, (int) new String[]{"UTF-8"}),
+    UTF8((String) 26, (int) new String[]{SdkConstants.INI_CHARSET}),
     ASCII((String) new int[]{27, 170}, (int) new String[]{"US-ASCII"}),
     Big5(28),
     GB18030((String) 29, (int) new String[]{StringUtils.GB2312, "EUC_CN", "GBK"}),

@@ -8,7 +8,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.os.SystemClock;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tr.Tn;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.txz.T.Ty;
 import com.txznet.txz.util.T5;
 import java.util.HashSet;
@@ -18,7 +20,7 @@ import java.util.Set;
 public class T {
 
     /* renamed from: T  reason: collision with root package name */
-    protected static T f349T;
+    protected static T f353T;
     private static HashSet<BroadcastReceiver> T5 = new HashSet<>();
     protected static T5 T9;
     public static long TE = SystemClock.elapsedRealtime();
@@ -33,7 +35,7 @@ public class T {
     }
 
     public static T Tr() {
-        return f349T;
+        return f353T;
     }
 
     public Object T(String path, String className, byte[] data) {
@@ -41,10 +43,10 @@ public class T {
     }
 
     public static String Ty() {
-        if (f349T == null) {
+        if (f353T == null) {
             return Tn();
         }
-        return f349T.T9();
+        return f353T.T9();
     }
 
     public static String Tn() {
@@ -97,12 +99,12 @@ public class T {
 
     public static String Tk() {
         int pid = Process.myPid();
-        for (ActivityManager.RunningAppProcessInfo processInfo : ((ActivityManager) com.txznet.comm.Tr.T.Tr().getSystemService("activity")).getRunningAppProcesses()) {
+        for (ActivityManager.RunningAppProcessInfo processInfo : ((ActivityManager) com.txznet.comm.Tr.T.Tr().getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningAppProcesses()) {
             if (processInfo.pid == pid) {
                 return processInfo.processName;
             }
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public static boolean TZ() {
@@ -173,49 +175,49 @@ public class T {
         return remove;
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:9:0x001b  */
+    /* JADX WARNING: Removed duplicated region for block: B:9:0x001d  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private static void T6() {
         /*
             java.lang.String r3 = "Receiver:clear receivers"
             com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r3)
             android.app.Application r3 = Tr
-            if (r3 != 0) goto L_0x000f
+            if (r3 != 0) goto L_0x0011
             java.lang.String r3 = "Receiver:Application == null"
             com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r3)
-        L_0x000e:
+        L_0x0010:
             return
-        L_0x000f:
+        L_0x0011:
             java.util.HashSet<android.content.BroadcastReceiver> r4 = T5
             monitor-enter(r4)
             r2 = 0
-        L_0x0013:
-            java.util.HashSet<android.content.BroadcastReceiver> r3 = T5     // Catch:{ all -> 0x003d }
-            int r3 = r3.size()     // Catch:{ all -> 0x003d }
-            if (r3 <= 0) goto L_0x003b
-            java.util.HashSet<android.content.BroadcastReceiver> r3 = T5     // Catch:{ all -> 0x003d }
-            java.util.HashSet<android.content.BroadcastReceiver> r5 = T5     // Catch:{ all -> 0x003d }
-            int r5 = r5.size()     // Catch:{ all -> 0x003d }
-            android.content.BroadcastReceiver[] r5 = new android.content.BroadcastReceiver[r5]     // Catch:{ all -> 0x003d }
-            java.lang.Object[] r3 = r3.toArray(r5)     // Catch:{ all -> 0x003d }
+        L_0x0015:
+            java.util.HashSet<android.content.BroadcastReceiver> r3 = T5     // Catch:{ all -> 0x003f }
+            int r3 = r3.size()     // Catch:{ all -> 0x003f }
+            if (r3 <= 0) goto L_0x003d
+            java.util.HashSet<android.content.BroadcastReceiver> r3 = T5     // Catch:{ all -> 0x003f }
+            java.util.HashSet<android.content.BroadcastReceiver> r5 = T5     // Catch:{ all -> 0x003f }
+            int r5 = r5.size()     // Catch:{ all -> 0x003f }
+            android.content.BroadcastReceiver[] r5 = new android.content.BroadcastReceiver[r5]     // Catch:{ all -> 0x003f }
+            java.lang.Object[] r3 = r3.toArray(r5)     // Catch:{ all -> 0x003f }
             r0 = r3
-            android.content.BroadcastReceiver[] r0 = (android.content.BroadcastReceiver[]) r0     // Catch:{ all -> 0x003d }
+            android.content.BroadcastReceiver[] r0 = (android.content.BroadcastReceiver[]) r0     // Catch:{ all -> 0x003f }
             r2 = r0
-            int r5 = r2.length     // Catch:{ all -> 0x003d }
+            int r5 = r2.length     // Catch:{ all -> 0x003f }
             r3 = 0
-        L_0x002f:
-            if (r3 >= r5) goto L_0x0013
-            r1 = r2[r3]     // Catch:{ all -> 0x003d }
-            android.app.Application r6 = Tr     // Catch:{ all -> 0x003d }
-            r6.unregisterReceiver(r1)     // Catch:{ all -> 0x003d }
+        L_0x0031:
+            if (r3 >= r5) goto L_0x0015
+            r1 = r2[r3]     // Catch:{ all -> 0x003f }
+            android.app.Application r6 = Tr     // Catch:{ all -> 0x003f }
+            r6.unregisterReceiver(r1)     // Catch:{ all -> 0x003f }
             int r3 = r3 + 1
-            goto L_0x002f
-        L_0x003b:
-            monitor-exit(r4)     // Catch:{ all -> 0x003d }
-            goto L_0x000e
+            goto L_0x0031
         L_0x003d:
+            monitor-exit(r4)     // Catch:{ all -> 0x003f }
+            goto L_0x0010
+        L_0x003f:
             r3 = move-exception
-            monitor-exit(r4)     // Catch:{ all -> 0x003d }
+            monitor-exit(r4)     // Catch:{ all -> 0x003f }
             throw r3
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.T.T.T6():void");

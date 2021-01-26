@@ -20,7 +20,7 @@ public class CanGolfEModeView extends CanScrollCarInfoView {
     public void onItem(int id, int item) {
         switch (id) {
             case 0:
-                CarSet(240, item);
+                CarSet(Can.CAN_VOLKS_XP, item);
                 CanFunc.mLastDriveProfileTick = CanFunc.getTickCount();
                 return;
             default:
@@ -71,7 +71,7 @@ public class CanGolfEModeView extends CanScrollCarInfoView {
 
     public void QueryData() {
         if (!i2b(this.mSetData.UpdateOnce)) {
-            CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+            CanJni.GolfQuery(64, 160);
         }
     }
 

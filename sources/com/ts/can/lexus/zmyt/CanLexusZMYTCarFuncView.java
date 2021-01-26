@@ -2,6 +2,7 @@ package com.ts.can.lexus.zmyt;
 
 import android.app.Activity;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
@@ -12,7 +13,7 @@ import com.yyw.ts70xhw.Mcu;
 public class CanLexusZMYTCarFuncView extends CanScrollCarInfoView {
     private static final int ITEM_CAMERA = 0;
     private static final int ITEM_FRONT_DOOR = 6;
-    private static final int ITEM_MAX = 7;
+    private static final int ITEM_MAX = 8;
     private static final int ITEM_MIN = 0;
     private static final int ITEM_NAVI_PER = 5;
     private static final int ITEM_REAR_DOOR = 7;
@@ -20,21 +21,23 @@ public class CanLexusZMYTCarFuncView extends CanScrollCarInfoView {
     private static final int ITEM_R_CAMERA = 1;
     private static final int ITEM_SPEECH_MODE = 2;
     private static final int ITEM_SPEED_DW = 3;
+    private static final int ITEM_XTCGFK = 8;
     private static int m_Camerb = 0;
     private static int m_NaviPerb = 0;
     private static int m_RCamerb = 0;
     private static int m_RvsDelayb = 0;
     private static int m_SpeechModeb = 0;
     private static int m_SpeedDwb = 0;
+    private static int m_Xtgfk = 0;
 
     public CanLexusZMYTCarFuncView(Activity activity) {
-        super(activity, 8);
+        super(activity, 9);
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_camera_360, R.string.can_tigger7_start_avm, R.string.can_sw_speech_mode, R.string.can_speed_dw, R.string.can_rvs_keep, R.string.can_navi_pre, R.string.can_front_door, R.string.can_rear_door};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
+        this.mItemTitleIds = new int[]{R.string.can_camera_360, R.string.can_tigger7_start_avm, R.string.can_sw_speech_mode, R.string.can_speed_dw, R.string.can_rvs_keep, R.string.can_navi_pre, R.string.can_front_door, R.string.can_rear_door, R.string.can_xtcgfk};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH};
         this.mPopValueIds[0] = new int[]{R.string.can_rvs_cvbs, R.string.can_rvs_carmode};
         this.mPopValueIds[3] = new int[]{R.string.can_speed_kmh, R.string.can_speed_mph};
         this.mPopValueIds[4] = new int[]{R.string.can_0s, R.string.can_3s, R.string.can_5s, R.string.can_7s};
@@ -72,6 +75,15 @@ public class CanLexusZMYTCarFuncView extends CanScrollCarInfoView {
                     FtSet.Setlgb5(1);
                     return;
                 }
+            case 8:
+                int temp = FtSet.Getyw15() & -4;
+                if ((FtSet.Getyw15() & 3) > 0) {
+                    FtSet.Setyw15(temp);
+                    return;
+                } else {
+                    FtSet.Setyw15(temp | 1);
+                    return;
+                }
             default:
                 return;
         }
@@ -79,6 +91,10 @@ public class CanLexusZMYTCarFuncView extends CanScrollCarInfoView {
 
     public static int LexusZmytSpeedDw() {
         return FtSet.Getlgb4() & 15;
+    }
+
+    public static int Xtcgfk() {
+        return FtSet.Getyw15() & 3;
     }
 
     public void onItem(int id, int item) {
@@ -153,7 +169,7 @@ public class CanLexusZMYTCarFuncView extends CanScrollCarInfoView {
     }
 
     public static int RvsDelay() {
-        return (FtSet.Getlgb4() & 240) >> 4;
+        return (FtSet.Getlgb4() & Can.CAN_VOLKS_XP) >> 4;
     }
 
     public static int NaviPre() {
@@ -161,6 +177,7 @@ public class CanLexusZMYTCarFuncView extends CanScrollCarInfoView {
     }
 
     public void ResetData(boolean check) {
+        int i = 1;
         if (m_Camerb != FtSet.Getlgb1() || !check) {
             m_Camerb = FtSet.Getlgb1();
             updateItem(0, FtSet.Getlgb1());
@@ -187,6 +204,13 @@ public class CanLexusZMYTCarFuncView extends CanScrollCarInfoView {
         }
         updateItem(6, FtSet.GetFdoor());
         updateItem(7, FtSet.GetBdoor());
+        if (m_Xtgfk != Xtcgfk() || !check) {
+            m_Xtgfk = Xtcgfk();
+            if (m_Xtgfk != 0) {
+                i = 0;
+            }
+            updateItem(8, i);
+        }
     }
 
     public void QueryData() {

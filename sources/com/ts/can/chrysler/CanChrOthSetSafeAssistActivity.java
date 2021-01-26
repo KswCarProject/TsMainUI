@@ -114,7 +114,7 @@ public class CanChrOthSetSafeAssistActivity extends CanChrOthBaseActivity implem
 
     /* access modifiers changed from: protected */
     public void QueryData() {
-        Query(64, Can.CAN_CHANA_CS75_WC);
+        Query(64, 160);
         Sleep(10);
         Query(64, 161);
         Sleep(10);
@@ -366,10 +366,10 @@ public class CanChrOthSetSafeAssistActivity extends CanChrOthBaseActivity implem
                 CarSWSet(175, this.mSetData.Ylgysyg);
                 return;
             case 15:
-                CarSWSet(240, this.mSetData.RearRadarAutoPark);
+                CarSWSet(Can.CAN_VOLKS_XP, this.mSetData.RearRadarAutoPark);
                 return;
             case 16:
-                CarSWSet(241, this.mSetData.AutoPark);
+                CarSWSet(Can.CAN_SITECHDEV_CW, this.mSetData.AutoPark);
                 return;
             case 18:
                 CarSet(167, Neg(this.mSetData.PaddleShifting));
@@ -389,7 +389,7 @@ public class CanChrOthSetSafeAssistActivity extends CanChrOthBaseActivity implem
     public void onItem(int id, int item) {
         switch (id) {
             case 1:
-                CarSet(Can.CAN_CHANA_CS75_WC, item);
+                CarSet(160, item);
                 return;
             case 6:
                 CarSet(161, item);

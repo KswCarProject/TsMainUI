@@ -16,7 +16,7 @@ import org.json.JSONException;
 public class TXZTongTingListenerManager implements IConstantCmd, IConstantData {
 
     /* renamed from: T  reason: collision with root package name */
-    private static volatile TXZTongTingListenerManager f832T;
+    private static volatile TXZTongTingListenerManager f836T;
     private List<INotifyInfoListener> Tr = new ArrayList();
 
     /* compiled from: Proguard */
@@ -35,14 +35,14 @@ public class TXZTongTingListenerManager implements IConstantCmd, IConstantData {
     }
 
     public static TXZTongTingListenerManager getInstance() {
-        if (f832T == null) {
+        if (f836T == null) {
             synchronized (TXZTongTingListenerManager.class) {
-                if (f832T == null) {
-                    f832T = new TXZTongTingListenerManager();
+                if (f836T == null) {
+                    f836T = new TXZTongTingListenerManager();
                 }
             }
         }
-        return f832T;
+        return f836T;
     }
 
     public void addStatusListener(INotifyInfoListener listener) {
@@ -84,8 +84,8 @@ public class TXZTongTingListenerManager implements IConstantCmd, IConstantData {
                 JSONArray val;
                 Tr tr = new Tr(data);
                 if (IConstantData.CALLBACK_ONPLAYINFOUPDATED.equals(command)) {
-                    long id = ((Long) tr.T(IConstantData.KEY_ID, Long.class, null)).longValue();
-                    TXZTongTingListenerManager.this.T(new TongTingPlayItem(((Integer) tr.T(IConstantData.KEY_SID, Integer.class, null)).intValue(), id, (String) tr.T(IConstantData.KEY_TITLE, String.class, ""), (String) tr.T(IConstantData.KEY_LOGO, String.class, ""), (String) tr.T(IConstantData.KEY_SOURCE_FROM, String.class, ""), (String) tr.T(IConstantData.KEY_ARTISTS, String.class, ""), (String) tr.T(IConstantData.KEY_ALBUMNAME, String.class, ""), ((Integer) tr.T(IConstantData.KEY_FLAG, Integer.class, null)).intValue(), ((Integer) tr.T(IConstantData.KEY_STATE, Integer.class, null)).intValue()));
+                    long id = ((Long) tr.T("id", Long.class, null)).longValue();
+                    TXZTongTingListenerManager.this.T(new TongTingPlayItem(((Integer) tr.T(IConstantData.KEY_SID, Integer.class, null)).intValue(), id, (String) tr.T("title", String.class, TXZResourceManager.STYLE_DEFAULT), (String) tr.T(IConstantData.KEY_LOGO, String.class, TXZResourceManager.STYLE_DEFAULT), (String) tr.T(IConstantData.KEY_SOURCE_FROM, String.class, TXZResourceManager.STYLE_DEFAULT), (String) tr.T(IConstantData.KEY_ARTISTS, String.class, TXZResourceManager.STYLE_DEFAULT), (String) tr.T(IConstantData.KEY_ALBUMNAME, String.class, TXZResourceManager.STYLE_DEFAULT), ((Integer) tr.T(IConstantData.KEY_FLAG, Integer.class, null)).intValue(), ((Integer) tr.T(IConstantData.KEY_STATE, Integer.class, null)).intValue()));
                 } else if (IConstantData.CALLBACK_ONPROGRESSUPDATED.equals(command)) {
                     tr.T("progress", Integer.class, null);
                     tr.T(IConstantData.KEY_DURATION, Integer.class, null);
@@ -96,7 +96,7 @@ public class TXZTongTingListenerManager implements IConstantCmd, IConstantData {
                 } else if (!IConstantData.CALLBACK_ONBUFFERPROGRESSUPDATED.equals(command)) {
                     if (IConstantData.CALLBACK_ONFAVOURSTATUSUPDATED.equals(command)) {
                         TXZTongTingListenerManager.this.Tr(((Integer) tr.T(IConstantData.KEY_FAVOUR, Integer.class, null)).intValue());
-                    } else if (IConstantData.CALLBACK_ONPLAYLISTCHANGED.equals(command) && (val = (JSONArray) tr.T((String) IConstantData.KEY_DATA, JSONArray.class)) != null) {
+                    } else if (IConstantData.CALLBACK_ONPLAYLISTCHANGED.equals(command) && (val = (JSONArray) tr.T("data", JSONArray.class)) != null) {
                         try {
                             TXZTongTingListenerManager.this.T(TongTingAudio.createAudios(val), false);
                         } catch (JSONException e) {

@@ -70,4 +70,8 @@ public class BtServiceBinder extends ITsBtService.Stub {
     public void updateLastPhoneNum() throws RemoteException {
         this.bt.updateLastPhoneNum();
     }
+
+    public String getBtDevPin() throws RemoteException {
+        return this.bt.getDevPin();
+    }
 }

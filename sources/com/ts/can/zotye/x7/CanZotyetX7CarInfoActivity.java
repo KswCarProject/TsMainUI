@@ -3,7 +3,6 @@ package com.ts.can.zotye.x7;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -15,6 +14,7 @@ import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanZotyetX7CarInfoActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
     public static final int ITEM_BWHJ = 4;
@@ -100,7 +100,7 @@ public class CanZotyetX7CarInfoActivity extends CanBaseActivity implements View.
             case 3:
                 return getResources().getString(R.string.can_cdzg);
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -238,7 +238,7 @@ public class CanZotyetX7CarInfoActivity extends CanBaseActivity implements View.
                 CanJni.ZtDmX7CarSet(147, NegSwSet(this.mSetData.ZylrSw));
                 return;
             case 4:
-                CanJni.ZtDmX7CarSet(Can.CAN_JAC_REFINE_OD, NegBWHJSet(this.mSetData.Bwhjd) + this.mSetData.Bwhjdsj);
+                CanJni.ZtDmX7CarSet(150, NegBWHJSet(this.mSetData.Bwhjd) + this.mSetData.Bwhjdsj);
                 return;
             case 6:
                 CanJni.ZtDmX7CarSet(151, NegSwSet(this.mSetData.Cdpl));
@@ -252,9 +252,9 @@ public class CanZotyetX7CarInfoActivity extends CanBaseActivity implements View.
         if (id == 1) {
             CanJni.ZtDmX7CarSet(149, pos);
         } else if (id == 5) {
-            CanJni.ZtDmX7CarSet(Can.CAN_JAC_REFINE_OD, NegBWHJSet(NegBWHJSet(this.mSetData.Bwhjd)) + pos);
+            CanJni.ZtDmX7CarSet(150, NegBWHJSet(NegBWHJSet(this.mSetData.Bwhjd)) + pos);
         } else if (id == 7) {
-            CanJni.ZtDmX7CarSet(Can.CAN_AUDI_ZMYT, pos);
+            CanJni.ZtDmX7CarSet(152, pos);
         }
     }
 

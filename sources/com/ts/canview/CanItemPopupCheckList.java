@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.ts.MainUI.R;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanItemPopupCheckList implements View.OnClickListener {
     /* access modifiers changed from: private */
@@ -115,7 +116,7 @@ public class CanItemPopupCheckList implements View.OnClickListener {
 
     public void SetSel(int[] sel) {
         this.mSel = sel;
-        StringBuilder selStr = new StringBuilder("");
+        StringBuilder selStr = new StringBuilder(TXZResourceManager.STYLE_DEFAULT);
         for (int i = 0; i < this.mSel.length; i++) {
             if (sel[i] >= 0 && sel[i] < this.mStrValArr.length) {
                 selStr.append(String.valueOf(this.mStrValArr[this.mSel[i]]) + " ");
@@ -126,7 +127,7 @@ public class CanItemPopupCheckList implements View.OnClickListener {
 
     public String GetItemStr(int item) {
         if (item < 0 || item >= this.mStrValArr.length) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         return this.mStrValArr[item];
     }

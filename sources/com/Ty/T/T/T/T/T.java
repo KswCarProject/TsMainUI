@@ -14,10 +14,10 @@ import java.io.OutputStream;
 public abstract class T implements com.Ty.T.T.T.T {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Bitmap.CompressFormat f294T = Bitmap.CompressFormat.PNG;
+    public static final Bitmap.CompressFormat f297T = Bitmap.CompressFormat.PNG;
     protected int T9 = 32768;
     protected int TZ = 100;
-    protected Bitmap.CompressFormat Tk = f294T;
+    protected Bitmap.CompressFormat Tk = f297T;
     protected final com.Ty.T.T.T.Tr.T Tn;
     protected final File Tr;
     protected final File Ty;

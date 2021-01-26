@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import com.lgb.canmodule.Can;
+import android.widget.RelativeLayout;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
@@ -29,6 +29,7 @@ import com.yyw.ts70xhw.Mcu;
 
 public class CanBmwZmytWithCDExdActivity extends CanBaseActivity implements UserCallBack, View.OnTouchListener, View.OnClickListener {
     public static final String TAG = "CanBmwZmytWithCDExdActivity";
+    public static int mBtCnt = 0;
     public static int mOldBtSta = 0;
     public static int mOldCanKeyCnt = 1;
     public static int mOldMode = 0;
@@ -94,22 +95,34 @@ public class CanBmwZmytWithCDExdActivity extends CanBaseActivity implements User
     /* access modifiers changed from: protected */
     public void onResume() {
         super.onResume();
-        onCreate((Bundle) null);
-        MainTask.GetInstance().SetUserCallBack(this);
-        ResetData(false);
-        if (!mfgAutoEnt) {
-            Evc.GetInstance().evol_workmode_set(12);
-            mfgRadraEnt = false;
-            Log.d(TAG, "WORKMODE_EXD");
+        if (CanJni.GetSubType() != 1) {
+            onCreate((Bundle) null);
+            MainTask.GetInstance().SetUserCallBack(this);
+            ResetData(false);
+            if (!mfgAutoEnt) {
+                Evc.GetInstance().evol_workmode_set(12);
+                mfgRadraEnt = false;
+                Log.d(TAG, "WORKMODE_EXD");
+            }
+            mfgShow = true;
+            mfgFinish = false;
+            Log.d(TAG, "onResume");
+            TsDisplay.GetInstance().SetDispParat(-1);
+            MainSet.GetInstance().SetVideoChannel(2);
+            if (CanFunc.getInstance().IsCore() == 1) {
+                BackcarService.getInstance().SetSource(1);
+            }
+            this.mCameraView = (AutoFitTextureView) findViewById(R.id.DevtextureView);
+            BackcarService.getInstance().StartCamera(this.mCameraView, false);
+            if (CanFunc.getInstance().IsCore() == 1 && CanFunc.IsRviewDis() > 0) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mCameraView.getLayoutParams();
+                layoutParams.width = -1;
+                layoutParams.height = -1;
+                layoutParams.leftMargin = 0;
+                this.mCameraView.setLayoutParams(layoutParams);
+            }
+            CanJni.BmwZmytHostSet(153, 0, 0, 0);
         }
-        mfgShow = true;
-        mfgFinish = false;
-        Log.d(TAG, "onResume");
-        TsDisplay.GetInstance().SetDispParat(-1);
-        MainSet.GetInstance().SetVideoChannel(2);
-        this.mCameraView = (AutoFitTextureView) findViewById(R.id.DevtextureView);
-        BackcarService.getInstance().StartCamera(this.mCameraView, false);
-        CanJni.BmwZmytHostSet(Can.CAN_HYUNDAI_WC, 0, 0, 0);
     }
 
     /* access modifiers changed from: protected */
@@ -120,7 +133,7 @@ public class CanBmwZmytWithCDExdActivity extends CanBaseActivity implements User
         mfgAutoEnt = false;
         Log.d(TAG, "onPause");
         BackcarService.getInstance().StopCamera();
-        CanJni.BmwZmytHostSet(Can.CAN_HYUNDAI_WC, 1, 0, 0);
+        CanJni.BmwZmytHostSet(153, 1, 0, 0);
     }
 
     public static void BmwZmytWithCDDModeChange(int sta) {
@@ -209,42 +222,74 @@ public class CanBmwZmytWithCDExdActivity extends CanBaseActivity implements User
     }
 
     public static void Init() {
-        if (FtSet.Getlgb1() != 0) {
+        if (CanBmwZmytWithCDCarFuncView.RvsMode() == 1) {
             Mcu.SendXKey(33);
+        } else if (CanBmwZmytWithCDCarFuncView.RvsMode() == 2) {
+            Mcu.SendXKey(35);
+        } else if (CanBmwZmytWithCDCarFuncView.RvsMode() == 3) {
+            Mcu.SendXKey(36);
         } else {
             Mcu.SendXKey(34);
         }
-        if (CanBmwZmytWithCDCarFuncView.IsHaveRCamera() != 0) {
+        if (CanFunc.getInstance().IsCore() == 1) {
+            if (CanBmwZmytWithCDCarFuncView.RCamera() <= 0 || CanBmwZmytWithCDCarFuncView.RvsMode() == 2) {
+                Mcu.SendXKey(40);
+            } else {
+                Mcu.SendXKey(41);
+            }
+        } else if (CanBmwZmytWithCDCarFuncView.RCamera() != 0) {
             Mcu.SendXKey(41);
         } else {
             Mcu.SendXKey(40);
         }
         Mcu.SendXKey(((FtSet.Getlgb4() & 3840) >> 8) + 50);
+        CanBmwZmytWithCDCarInitView.SetCamType(0, 0, 0);
+        if (CanBmwZmytWithCDCarInitView.IsLvdsType() == 0 && CanFunc.getInstance().IsCore() == 1) {
+            Mcu.ReqOrgTiming(32);
+        } else if (CanBmwZmytWithCDCarInitView.IsLvdsType() == 1 && CanFunc.getInstance().IsCore() == 1) {
+            Mcu.ReqOrgTiming(33);
+        }
         Mcu.SendXKey(CanBmwZmytWithCDCarFuncView.RvsDelay() + 42);
         if (FtSet.IsIconExist(1) == 0) {
             Iop.RstPort(0);
         }
+        byte[] fileMsg = new byte[8];
+        fileMsg[0] = (byte) FtSet.GetCanTp();
+        fileMsg[1] = (byte) FtSet.GetCanSubT();
+        fileMsg[2] = (byte) CanFunc.GetSpeedDwSet();
+        CanFunc.sendFileCarInfo(fileMsg, CanFunc.Can_Factory_Set_fileName);
     }
 
     public static void DealDevEvent() {
         int temp;
         BtExe bt = BtExe.getBtInstance();
-        if (mOldBtSta != bt.getSta() && FtSet.IsIconExist(1) == 0) {
-            mOldBtSta = bt.getSta();
-            if (CanJni.GetSubType() == 1) {
-                if (mOldBtSta == 3 || mOldBtSta == 2 || mOldBtSta == 4) {
-                    Log.d(TAG, "Bt call on ");
-                    Iop.RstPort(1);
-                } else {
-                    Log.d(TAG, "Bt call of ");
-                    Iop.RstPort(0);
-                }
-            } else if ((mOldBtSta == 3 || mOldBtSta == 2 || mOldBtSta == 4) && CanIF.IsExdMode()) {
-                Log.d(TAG, "Bt call on ");
-                Iop.RstPort(1);
-            } else {
-                Log.d(TAG, "Bt call of ");
-                Iop.RstPort(0);
+        if (FtSet.IsIconExist(1) == 0) {
+            switch (mOldBtSta) {
+                case 0:
+                    if (Iop.GetMediaOrBlue() > 0) {
+                        mOldBtSta = 1;
+                        mBtCnt = 10;
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (mBtCnt <= 0) {
+                        mOldBtSta = 2;
+                        Log.d(TAG, "Bt call on ");
+                        Iop.RstPort(1);
+                        break;
+                    } else {
+                        mBtCnt--;
+                        break;
+                    }
+                case 2:
+                    if (Iop.GetMediaOrBlue() == 0) {
+                        Log.d(TAG, "Bt call of ");
+                        Iop.RstPort(0);
+                        mOldBtSta = 0;
+                        break;
+                    }
+                    break;
             }
         }
         if (CanIF.mGpsVoiceDelay > 0) {

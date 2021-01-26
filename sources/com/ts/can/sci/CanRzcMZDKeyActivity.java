@@ -28,12 +28,12 @@ public class CanRzcMZDKeyActivity extends CanBaseActivity implements UserCallBac
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
         if (CanJni.GetSubType() == 1) {
-            AddTextBtn(4, 220, 240, "SETTING");
+            AddTextBtn(4, 220, Can.CAN_VOLKS_XP, "SETTING");
             AddBtn(2, 421, 185, R.drawable.can_mzd_clock_up, R.drawable.can_mzd_clock_dn);
         } else if (CanJni.GetSubType() == 2) {
-            AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, 240, "Hour");
+            AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, Can.CAN_VOLKS_XP, "Hour");
             AddBtn(2, 421, 185, R.drawable.can_mzd_clock_up, R.drawable.can_mzd_clock_dn);
-            AddTextBtn(3, CanCameraUI.BTN_LANDWIND_2D_FRONT, 240, "Min");
+            AddTextBtn(3, CanCameraUI.BTN_LANDWIND_2D_FRONT, Can.CAN_VOLKS_XP, "Min");
         }
     }
 

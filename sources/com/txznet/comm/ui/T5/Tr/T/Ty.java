@@ -35,11 +35,11 @@ public class Ty extends TZ {
         params.bottomMargin = (int) Tr.Tn("y20");
         content.setLayoutParams(params);
         content.setMinHeight((int) Tr.Tn("y70"));
-        content.setText(com.txznet.txz.util.Tr.T(((T5) data).f426T));
+        content.setText(com.txznet.txz.util.Tr.T(((T5) data).f430T));
         Tk.T(content, this.Tk);
         Tk.T(content, this.TZ);
         Tn.T adapter = new Tn.T();
-        adapter.f462T = data.Ty();
+        adapter.f466T = data.Ty();
         adapter.Tr = mLayout;
         adapter.Tn = T9();
         return adapter;

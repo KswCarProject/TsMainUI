@@ -29,7 +29,7 @@ import java.net.URL;
 public class T implements Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    protected final Context f336T;
+    protected final Context f339T;
     protected final int Tr;
     protected final int Ty;
 
@@ -38,7 +38,7 @@ public class T implements Tr {
     }
 
     public T(Context context, int connectTimeout, int readTimeout) {
-        this.f336T = context.getApplicationContext();
+        this.f339T = context.getApplicationContext();
         this.Tr = connectTimeout;
         this.Ty = readTimeout;
     }
@@ -117,7 +117,7 @@ public class T implements Tr {
 
     /* access modifiers changed from: protected */
     public InputStream T9(String imageUri, Object extra) throws FileNotFoundException {
-        ContentResolver res = this.f336T.getContentResolver();
+        ContentResolver res = this.f339T.getContentResolver();
         Uri uri = Uri.parse(imageUri);
         if (Tr(uri)) {
             Bitmap bitmap = MediaStore.Video.Thumbnails.getThumbnail(res, Long.valueOf(uri.getLastPathSegment()).longValue(), 1, (BitmapFactory.Options) null);
@@ -135,7 +135,7 @@ public class T implements Tr {
     /* access modifiers changed from: protected */
     @TargetApi(14)
     public InputStream T(Uri uri) {
-        ContentResolver res = this.f336T.getContentResolver();
+        ContentResolver res = this.f339T.getContentResolver();
         if (Build.VERSION.SDK_INT >= 14) {
             return ContactsContract.Contacts.openContactPhotoInputStream(res, uri, true);
         }
@@ -144,12 +144,12 @@ public class T implements Tr {
 
     /* access modifiers changed from: protected */
     public InputStream Tk(String imageUri, Object extra) throws IOException {
-        return this.f336T.getAssets().open(Tr.T.ASSETS.Ty(imageUri));
+        return this.f339T.getAssets().open(Tr.T.ASSETS.Ty(imageUri));
     }
 
     /* access modifiers changed from: protected */
     public InputStream TZ(String imageUri, Object extra) {
-        return this.f336T.getResources().openRawResource(Integer.parseInt(Tr.T.DRAWABLE.Ty(imageUri)));
+        return this.f339T.getResources().openRawResource(Integer.parseInt(Tr.T.DRAWABLE.Ty(imageUri)));
     }
 
     /* access modifiers changed from: protected */
@@ -158,7 +158,7 @@ public class T implements Tr {
     }
 
     private boolean Tr(Uri uri) {
-        String mimeType = this.f336T.getContentResolver().getType(uri);
+        String mimeType = this.f339T.getContentResolver().getType(uri);
         return mimeType != null && mimeType.startsWith("video/");
     }
 

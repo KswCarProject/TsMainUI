@@ -35,7 +35,7 @@ public class CanHyundaiCarSetView extends CanScrollCarInfoView {
     public void InitData() {
         this.mItemTitleIds = new int[]{R.string.can_lang_set, R.string.can_car_type_set};
         this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
-        this.mPopValueIds[0] = new int[]{R.string.can_language_chinese, R.string.can_language_english, R.string.lang_Korean, R.string.lang_pyccknn, R.string.lang_turkce, R.string.lang_francais, R.string.lang_deutsch, R.string.lang_espanol};
+        this.mPopValueIds[0] = new int[]{R.string.can_language_chinese, R.string.can_language_english, R.string.lang_Korean, R.string.lang_pyccknn, R.string.lang_turkce, R.string.lang_francais, R.string.lang_deutsch, R.string.lang_espanol, R.string.lang_Cesky, R.string.lang_dansk, R.string.lang_itanliano, R.string.lang_Magyar, R.string.lang_nederlands, R.string.lang_norsk, R.string.lang_polski, R.string.lang_Slovencina, R.string.lang_svenska, R.string.lang_portugues};
         this.mPopValueIds[1] = new int[]{R.string.can_car_type1, R.string.can_car_type2, R.string.can_car_type3};
     }
 

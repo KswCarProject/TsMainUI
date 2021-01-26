@@ -7,7 +7,7 @@ import java.lang.reflect.Type;
 public class T4 implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static T4 f189T = new T4();
+    public static T4 f192T = new T4();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         Trs out = serializer.Tv();

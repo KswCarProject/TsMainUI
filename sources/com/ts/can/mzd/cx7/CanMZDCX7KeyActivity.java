@@ -27,9 +27,9 @@ public class CanMZDCX7KeyActivity extends CanBaseActivity implements UserCallBac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
-        AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, 240, "Hour");
-        AddTextBtn(2, 439, 240, ": 00");
-        AddTextBtn(3, CanCameraUI.BTN_LANDWIND_2D_FRONT, 240, "Min");
+        AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, Can.CAN_VOLKS_XP, "Hour");
+        AddTextBtn(2, 439, Can.CAN_VOLKS_XP, ": 00");
+        AddTextBtn(3, CanCameraUI.BTN_LANDWIND_2D_FRONT, Can.CAN_VOLKS_XP, "Min");
     }
 
     /* access modifiers changed from: protected */

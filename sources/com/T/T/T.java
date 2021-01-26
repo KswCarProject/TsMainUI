@@ -18,7 +18,7 @@ import java.util.List;
 public abstract class T implements Tk, Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    public static String f128T = "@type";
+    public static String f131T = "@type";
     public static int Tn = ((((0 | TrG.QuoteFieldNames.T()) | TrG.SkipTransientField.T()) | TrG.WriteEnumUsingToString.T()) | TrG.SortField.T());
     public static int Tr = ((((((((0 | Tn.AutoCloseSource.T()) | Tn.InternFieldNames.T()) | Tn.UseBigDecimal.T()) | Tn.AllowUnQuotedFieldNames.T()) | Tn.AllowSingleQuotes.T()) | Tn.AllowArbitraryCommas.T()) | Tn.SortFeidFastMatch.T()) | Tn.IgnoreNotMatch.T());
     public static String Ty = "yyyy-MM-dd HH:mm:ss";

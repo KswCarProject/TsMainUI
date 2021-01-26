@@ -94,7 +94,7 @@ public abstract class CanCommonACActivity extends CanCommonActivity implements V
             this.mContainer.getContainer().setLayoutParams(lp);
         }
         this.mContainer.setBackgroundResource(R.drawable.can_rh7_bg_01);
-        this.mIvIon = this.mContainer.addImage(KeyDef.RKEY_MEDIA_SUBT, 440, R.drawable.can_rh7_ion);
+        this.mIvIon = this.mContainer.addImage(310, 440, R.drawable.can_rh7_ion);
         showGoneView((View) this.mIvIon, false);
         InitACButtons();
         if (MainSet.GetScreenType() == 3) {
@@ -142,7 +142,7 @@ public abstract class CanCommonACActivity extends CanCommonActivity implements V
     public void InitModeButtons(boolean isTouchable, boolean isClickable) {
         this.mBtnModeArrays = new ParamButton[4];
         for (int i = 0; i < this.mBtnModeArrays.length; i++) {
-            this.mBtnModeArrays[i] = this.mContainer.addButton(KeyDef.RKEY_MEDIA_ANGLE, (i * 80) + 108);
+            this.mBtnModeArrays[i] = this.mContainer.addButton(305, (i * 80) + 108);
             ParamButton btnMode = this.mBtnModeArrays[i];
             this.mContainer.setDrawableUpDnSel(btnMode, mModeArrays[i * 2], mModeArrays[(i * 2) + 1]);
             if (isTouchable) {

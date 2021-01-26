@@ -14,6 +14,7 @@ import android.graphics.Xfermode;
 import android.support.v4.internal.view.SupportMenu;
 import android.util.AttributeSet;
 import android.view.View;
+import com.android.SdkConstants;
 import com.ts.MainUI.R;
 import com.ts.main.common.MainSet;
 import com.yyw.ts70xhw.FtSet;
@@ -203,7 +204,7 @@ public class CameraUIView extends View {
         if (MainSet.GetScreenType() == 8) {
             translateY = 150.0f;
         }
-        int id = getResources().getIdentifier("camera_ui_translate_y", "string", getContext().getPackageName());
+        int id = getResources().getIdentifier("camera_ui_translate_y", SdkConstants.TAG_STRING, getContext().getPackageName());
         if (id != 0) {
             translateY = Float.parseFloat(getContext().getString(id));
         }

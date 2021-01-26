@@ -13,8 +13,6 @@ import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
-import com.ts.can.CanCameraUI;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
@@ -95,7 +93,7 @@ public class CanCrstourRadioActivity extends CanBaseActivity implements UserCall
                         }
                         view.drawImage(CanCrstourRadioActivity.mFreqNumArr[Bai], 444, 0);
                         view.drawImage(CanCrstourRadioActivity.mFreqNumArr[Shi], 492, 0);
-                        view.drawImage(CanCrstourRadioActivity.mFreqNumArr[Ge], CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 0);
+                        view.drawImage(CanCrstourRadioActivity.mFreqNumArr[Ge], 540, 0);
                     } else {
                         if (CanCrstourRadioActivity.this.mCurFreqData.CurFreq >= 1000) {
                             view.drawImage(CanCrstourRadioActivity.mFreqNumArr[1], 386, 0);
@@ -113,7 +111,7 @@ public class CanCrstourRadioActivity extends CanBaseActivity implements UserCall
         this.mBtnStepDec.setStateUpDn(R.drawable.can_yg_radio_prev_up, R.drawable.can_yg_radio_prev_dn);
         this.mBtnStepDec.setTag(1);
         this.mBtnStepDec.setOnClickListener(this);
-        this.mBtnStepInc = this.mManager.AddButton(CanToyotaDJCarDeviceView.ITEM_PLAY, 135);
+        this.mBtnStepInc = this.mManager.AddButton(768, 135);
         this.mBtnStepInc.setStateUpDn(R.drawable.can_yg_radio_down_up, R.drawable.can_yg_radio_down_dn);
         this.mBtnStepInc.setTag(2);
         this.mBtnStepInc.setOnClickListener(this);

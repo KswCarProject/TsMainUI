@@ -3,6 +3,7 @@ package com.ts.can.bmw.lz;
 import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
@@ -123,7 +124,7 @@ public class CanBMWLzHighCDView extends CanRelativeCarInfoView {
         this.mNUM6 = AddBtn(14, 858, 364, R.drawable.can_yg_radio_rect01_up, R.drawable.can_yg_radio_rect01_dn);
         this.mLine1 = AddTxtCenter(262, 141, 500, 40);
         this.mLine2 = AddTxtCenter(262, 191, 500, 40);
-        this.mLine3 = AddTxtCenter(262, 241, 500, 40);
+        this.mLine3 = AddTxtCenter(262, Can.CAN_SITECHDEV_CW, 500, 40);
         this.mBtnPrev.setText("<");
         this.mBtnMode.setText("MODE");
         this.mBtnFm.setText("FM");

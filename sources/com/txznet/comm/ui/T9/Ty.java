@@ -9,7 +9,7 @@ public class Ty implements T {
     private static Ty Ty = new Ty();
 
     /* renamed from: T  reason: collision with root package name */
-    Runnable f530T = new Runnable() {
+    Runnable f534T = new Runnable() {
         public void run() {
             if (Ty.this.Tr != null && !Ty.this.Tr.isShowing()) {
                 Ty.this.T9();
@@ -71,7 +71,7 @@ public class Ty implements T {
     /* access modifiers changed from: private */
     public void T9() {
         T("releaseWinRecord");
-        com.txznet.comm.ui.Tn.T(this.f530T);
+        com.txznet.comm.ui.Tn.T(this.f534T);
         if (this.Tr != null) {
             if (this.Tr.isShowing()) {
                 this.Tr.dismiss();
@@ -90,8 +90,8 @@ public class Ty implements T {
             }
         }
         this.Tr.Tr();
-        com.txznet.comm.ui.Tn.T(this.f530T);
-        com.txznet.comm.ui.Tn.T(this.f530T, (int) BtExe.AUTO_ANSWER_CHK_TIME);
+        com.txznet.comm.ui.Tn.T(this.f534T);
+        com.txznet.comm.ui.Tn.T(this.f534T, (int) BtExe.AUTO_ANSWER_CHK_TIME);
     }
 
     public boolean isShowing() {
@@ -121,7 +121,7 @@ public class Ty implements T {
     }
 
     public void show() {
-        com.txznet.comm.ui.Tn.T(this.f530T);
+        com.txznet.comm.ui.Tn.T(this.f534T);
         synchronized (this.Tn) {
             if (this.Tr == null) {
                 Tn();
@@ -135,8 +135,8 @@ public class Ty implements T {
         synchronized (this.Tn) {
             if (this.Tr != null) {
                 this.Tr.dismiss();
-                com.txznet.comm.ui.Tn.T(this.f530T);
-                com.txznet.comm.ui.Tn.T(this.f530T, (int) BtExe.AUTO_ANSWER_CHK_TIME);
+                com.txznet.comm.ui.Tn.T(this.f534T);
+                com.txznet.comm.ui.Tn.T(this.f534T, (int) BtExe.AUTO_ANSWER_CHK_TIME);
             }
         }
     }

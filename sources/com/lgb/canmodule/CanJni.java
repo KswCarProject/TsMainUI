@@ -55,6 +55,52 @@ public class CanJni {
 
     public static native void AlsvinCarSet(int i, int i2);
 
+    public static native void AudiLzAudioSet(int i, int i2);
+
+    public static native void AudiLzGetAirInfo(CanDataInfo.AudiWithCdLz_AirInfo audiWithCdLz_AirInfo);
+
+    public static native void AudiLzGetCarSta(CanDataInfo.AudiWithCdLz_CarSta audiWithCdLz_CarSta);
+
+    public static native void AudiLzGetOperationMsg(CanDataInfo.AudiWithCdLz_OperationMsg audiWithCdLz_OperationMsg);
+
+    public static native void AudiLzGetUpdateIndex(CanDataInfo.AudiWithCdLz_UpdateIndex audiWithCdLz_UpdateIndex);
+
+    public static native void AudiLzGetUpdateInfo(CanDataInfo.AudiWithCdLz_UpdateInfo audiWithCdLz_UpdateInfo);
+
+    public static native void AudiLzQuery(int i);
+
+    public static native void AudiLzSrcSwitch(int i);
+
+    public static native void AudiRzcGetCarInfo(CanDataInfo.AudiRzcCarInfo audiRzcCarInfo);
+
+    public static native void AudiRzcGetCarInfo2(CanDataInfo.AudiRzcCarInfo2 audiRzcCarInfo2);
+
+    public static native void AudiRzcGetCarInfo3(CanDataInfo.AudiRzcCarInfo3 audiRzcCarInfo3);
+
+    public static native void AudiRzcQueryData(int i, int i2);
+
+    public static native void AudiWithCdXbsAudioSet(int i, int i2);
+
+    public static native void AudiWithCdXbsGetAirInfo(CanDataInfo.AudiWithCdXbs_AirInfo audiWithCdXbs_AirInfo);
+
+    public static native void AudiWithCdXbsGetAudioInfo(CanDataInfo.AudiWithCdXbs_AudioInfo audiWithCdXbs_AudioInfo);
+
+    public static native void AudiWithCdXbsGetBaseInfo(CanDataInfo.AudiWithCdXbs_BaseInfo audiWithCdXbs_BaseInfo);
+
+    public static native void AudiWithCdXbsGetCarSta(CanDataInfo.AudiWithCdXbs_CarSta audiWithCdXbs_CarSta);
+
+    public static native void AudiWithCdXbsGetOperationMsg(CanDataInfo.AudiWithCdXbs_OperationMsg audiWithCdXbs_OperationMsg);
+
+    public static native void AudiWithCdXbsGetReportMsg(CanDataInfo.AudiWithCdXbs_ReportMsg audiWithCdXbs_ReportMsg);
+
+    public static native void AudiWithCdXbsGetUpdateIndex(CanDataInfo.AudiWithCdXbs_UpdateIndex audiWithCdXbs_UpdateIndex);
+
+    public static native void AudiWithCdXbsGetUpdateInfo(CanDataInfo.AudiWithCdXbs_UpdateInfo audiWithCdXbs_UpdateInfo);
+
+    public static native void AudiWithCdXbsQuery(int i);
+
+    public static native void AudiWithCdXbsSrcSwitch(int i);
+
     public static native void AudiZmytAudioSet(int i, int i2);
 
     public static native void AudiZmytGetAirInfo(CanDataInfo.AudiZmyt_AirInfo audiZmyt_AirInfo);
@@ -86,6 +132,18 @@ public class CanJni {
     public static native void B50RzcAcKey(int i, int i2);
 
     public static native void B70CarSet(int i, int i2);
+
+    public static native void B70DjGetCdInfo(CanDataInfo.B70_Dj_CdInfo b70_Dj_CdInfo);
+
+    public static native void B70DjGetOtherInfo(CanDataInfo.B70_Dj_OtherInfo b70_Dj_OtherInfo);
+
+    public static native void B70DjGetRadioInfo(CanDataInfo.B70_Dj_RadioInfo b70_Dj_RadioInfo);
+
+    public static native void B70DjGetSetInfo(CanDataInfo.B70_Dj_SetInfo b70_Dj_SetInfo);
+
+    public static native void B70DjGetVolInfo(CanDataInfo.B70_Dj_VolInfo b70_Dj_VolInfo);
+
+    public static native void B70DjQueryInfo(int i, int i2);
 
     public static native int B70IsPhoneActive();
 
@@ -175,11 +233,25 @@ public class CanJni {
 
     public static native void BaojunGetCarSet(CanDataInfo.Baojun_Info baojun_Info);
 
+    public static native void BaojunRzcAirSet(int i, int i2);
+
+    public static native void BencWcCarSet(int i, int i2, int i3, int i4);
+
+    public static native void BencWcGetSetData(CanDataInfo.CanBencWcSet canBencWcSet);
+
+    public static native void BencWcLangSet(int i, int i2);
+
+    public static native void BencWcQuery(int i, int i2, int i3);
+
     public static native void BencZmytAmbientLightCmd(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10);
 
     public static native void BencZmytCameraTouchCmd(int i, int i2, int i3);
 
+    public static native void BencZmytClockSet(int i, int i2, int i3, int i4);
+
     public static native void BencZmytCommonCmd(int i, int i2, int i3);
+
+    public static native void BencZmytDevCmd(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15, int i16);
 
     public static native void BencZmytWithCDAudioSet(int i, int i2);
 
@@ -190,6 +262,20 @@ public class CanJni {
     public static native void BencZmytWithCDExAudioSet(int i, int i2, int i3, int i4);
 
     public static native void BencZmytWithCDGetAudioReq(CanDataInfo.AuidoReq auidoReq);
+
+    public static native void BencZmytWithCDGetDevAdt(CanDataInfo.CanBcZmytDevAdt canBcZmytDevAdt);
+
+    public static native void BencZmytWithCDGetDevClock(CanDataInfo.CanBcZmytDevClock canBcZmytDevClock);
+
+    public static native void BencZmytWithCDGetDevFwd(CanDataInfo.CanBcZmytDevFwd canBcZmytDevFwd);
+
+    public static native void BencZmytWithCDGetDevKqjh(CanDataInfo.CanBcZmytDevKqjh canBcZmytDevKqjh);
+
+    public static native void BencZmytWithCDGetDevZdsc(CanDataInfo.CanBcZmytDevZdsc canBcZmytDevZdsc);
+
+    public static native void BencZmytWithCDGetDevZyam(CanDataInfo.CanBcZmytDevZyam canBcZmytDevZyam);
+
+    public static native void BencZmytWithCDGetDevZyyb(CanDataInfo.CanBcZmytDevZyyb canBcZmytDevZyyb);
 
     public static native void BencZmytWithCDGetMeterInfo(CanDataInfo.CanBcZmytMeter canBcZmytMeter);
 
@@ -227,6 +313,8 @@ public class CanJni {
 
     public static native void BlsuT5CamSet(int i, int i2);
 
+    public static native void BlsuT5CarAvmCmd(int i, int i2, int i3);
+
     public static native void BlsuT5GetCamSta(CanDataInfo.BlsuT5_CamSta blsuT5_CamSta);
 
     public static native void Bmw2LzQuery(int i);
@@ -262,6 +350,10 @@ public class CanJni {
     public static native void BmwMiniGetTime(CanDataInfo.BMW_Time_MINI bMW_Time_MINI);
 
     public static native void BmwMiniGetTrip(CanDataInfo.BMW_Trip_MINI bMW_Trip_MINI);
+
+    public static native void BmwRzcGetInfo(CanDataInfo.BMW_Rzc_Info bMW_Rzc_Info);
+
+    public static native void BmwRzcQueryData(int i, int i2);
 
     public static native void BmwWithCDCarSet(int i, int i2, int i3, int i4);
 
@@ -387,6 +479,8 @@ public class CanJni {
 
     public static native void CanGetIapData(CanDataInfo.IapUpdateData iapUpdateData);
 
+    public static native void CanGetTouchData(CanDataInfo.CanTouchData canTouchData);
+
     public static native int CanMain(int i);
 
     public static native void CanObdGetAdt(CanDataInfo.Obd_Adt obd_Adt);
@@ -425,6 +519,8 @@ public class CanJni {
 
     public static native void CcH2WcQuery(int i, int i2, int i3);
 
+    public static native void CcH6WcAmpSet(int i, int i2);
+
     public static native void CcH6WcCarAirKey(int i, int i2);
 
     public static native void CcH6WcCarCameraSet(int i, int i2);
@@ -433,11 +529,15 @@ public class CanJni {
 
     public static native void CcH6WcCarSet(int i, int i2, int i3, int i4);
 
+    public static native void CcH6WcGetAmpSet(CanDataInfo.CcH6WcAmpData ccH6WcAmpData);
+
     public static native void CcH6WcGetCarCameraSet(CanDataInfo.CcH6WcCamerSta ccH6WcCamerSta);
 
     public static native void CcH6WcGetCarLightSet(CanDataInfo.CcH6WcLightSet ccH6WcLightSet);
 
     public static native void CcH6WcGetCarSet(CanDataInfo.CcH6WcSet ccH6WcSet);
+
+    public static native void CcH6WcLangSet(int i, int i2);
 
     public static native void CcHfDjAcSet(int i, int i2);
 
@@ -465,11 +565,19 @@ public class CanJni {
 
     public static native void CcHfDjQuery(int i);
 
+    public static native void CcHfH7CdCmd(int i, int i2, int i3);
+
     public static native void CcHfH9AmpSet(int i, int i2);
 
     public static native void CcHfH9GetAmpInfo(CanDataInfo.H9AmpSet h9AmpSet);
 
+    public static native void CcHfH9GetAvmInfo(CanDataInfo.CcRzcAvmSet ccRzcAvmSet);
+
     public static native void CcHfH9GetCarSet2(CanDataInfo.H9CarSet2 h9CarSet2);
+
+    public static native void CcHfH9GetCdId3Info(int i, CanDataInfo.CcRzcCdText ccRzcCdText);
+
+    public static native void CcHfH9GetCdInfo(CanDataInfo.CcRzcCdInfo ccRzcCdInfo);
 
     public static native void CcHfH9GetChairHotInfo(CanDataInfo.ChairHotInfo chairHotInfo);
 
@@ -533,9 +641,15 @@ public class CanJni {
 
     public static native void ChanAWcCos1GetCarSet(CanDataInfo.Cos1WcCarSet cos1WcCarSet, int i);
 
+    public static native void ChanAWcCos1GetCarSet2(CanDataInfo.Cos1WcCarSet2 cos1WcCarSet2, int i);
+
+    public static native void ChanAWcCos1GetRecordSet(CanDataInfo.Cos1WcRecordSet cos1WcRecordSet);
+
     public static native void ChanAWcCos1GetTpmsData(CanDataInfo.Cos1WcTpms cos1WcTpms);
 
     public static native void ChanAWcCos1Query(int i, int i2, int i3);
+
+    public static native void ChanAWcCos1RecordSet(int i, int i2);
 
     public static native void ChanAWcCs75CameraSet(int i, int i2);
 
@@ -570,6 +684,10 @@ public class CanJni {
     public static native void CheryRzcJtX70DvrCmd(int i, int i2, int i3, int i4, int i5);
 
     public static native void CheryRzcQuery(int i, int i2);
+
+    public static native void CheryTiggoXpCarSet(int i, int i2);
+
+    public static native void CheryTiggoXpQuery(int i, int i2);
 
     public static native void CheryWcAirKey(int i, int i2);
 
@@ -667,6 +785,8 @@ public class CanJni {
 
     public static native void ChryslerWcQuery(int i, int i2);
 
+    public static native void ChryslerWcTouchCmd(int i, int i2, int i3, int i4);
+
     public static native void ChryslerWcUnitSet(int i, int i2);
 
     public static native void CompassGetAmpInfo(CanDataInfo.ChrOthAMPInfo chrOthAMPInfo);
@@ -692,6 +812,8 @@ public class CanJni {
     public static native void CrownWcSourceSet(int i, int i2);
 
     public static native void CrownWcTunerSet(int i, int i2);
+
+    public static native void CrownhWcQuery(int i, int i2, int i3);
 
     public static native void CrstourCamModeSet(int i);
 
@@ -736,6 +858,8 @@ public class CanJni {
     public static native void DfFgS560CameraSet(int i);
 
     public static native void DfFgS560Query(int i);
+
+    public static native void DfJyRzcRecordCmd(int i, int i2, int i3, int i4);
 
     public static native void DfJyWcGetCarLightInfo(CanDataInfo.DfJyX5_Wc_LightSet dfJyX5_Wc_LightSet);
 
@@ -873,6 +997,12 @@ public class CanJni {
 
     public static native void FordCarSet(int i, int i2);
 
+    public static native void FordDjCarSet(int i);
+
+    public static native void FordDjGetCarSet(CanDataInfo.FordDjSetData fordDjSetData);
+
+    public static native void FordDjQuery(int i);
+
     public static native void FordEdgeXfyAcKey(int i);
 
     public static native void FordEdgeXfyQueryData(int i, int i2);
@@ -925,13 +1055,37 @@ public class CanJni {
 
     public static native void FordRzcCarSet(int i, int i2, int i3);
 
+    public static native void FordRzcCarSet2(int i, int i2);
+
+    public static native void FordRzcCarSrcCmd(int i);
+
     public static native void FordRzcGetAmpSet(CanDataInfo.FordRzcAmpData fordRzcAmpData);
 
     public static native void FordRzcGetCarDriveData(CanDataInfo.FordRzcDriveData fordRzcDriveData);
 
+    public static native void FordRzcGetCdId3Info(CanDataInfo.FordRzcHostListText fordRzcHostListText, int i);
+
+    public static native void FordRzcGetCdInfo(CanDataInfo.FordRzcHostCdInfo fordRzcHostCdInfo);
+
+    public static native void FordRzcGetCdListInfo(CanDataInfo.FordRzcHostListText fordRzcHostListText, int i);
+
+    public static native void FordRzcGetCdTime(CanDataInfo.FordRzcHostCdTime fordRzcHostCdTime);
+
     public static native void FordRzcGetChairMsjData(CanDataInfo.FordRzcChairMsj fordRzcChairMsj);
 
+    public static native void FordRzcGetChargeInfo(CanDataInfo.FordRzcChargeInfo fordRzcChargeInfo);
+
+    public static native void FordRzcGetHostInfo(CanDataInfo.FordRzcHostInfo fordRzcHostInfo);
+
     public static native void FordRzcGetLightSet(CanDataInfo.FordRzcFwd fordRzcFwd);
+
+    public static native void FordRzcGetMixInfo(CanDataInfo.FordRzcMixInfo fordRzcMixInfo);
+
+    public static native void FordRzcGetRadioListInfo(CanDataInfo.FordRzcHostListText fordRzcHostListText, int i);
+
+    public static native void FordRzcGetSetInfo(CanDataInfo.FordRzcSetInfo fordRzcSetInfo);
+
+    public static native void FordRzcGetZnxfInfo(CanDataInfo.FordRzcZnxfInfo fordRzcZnxfInfo);
 
     public static native void FordRzcLightSet(int i, int i2);
 
@@ -1079,6 +1233,14 @@ public class CanJni {
 
     public static native void GeelyGetCarSet(CanDataInfo.Geely_CarSet geely_CarSet);
 
+    public static native void GeelyGetCarSet2(CanDataInfo.Geely_Set2 geely_Set2);
+
+    public static native void GeelyGetChargeData(CanDataInfo.Geely_ChargeInfo geely_ChargeInfo);
+
+    public static native void GeelyGetMainTain(CanDataInfo.Geely_MainTain geely_MainTain);
+
+    public static native void GeelyGetXsmsData(CanDataInfo.Geely_XsmsInfo geely_XsmsInfo);
+
     public static native void GeelyRzcGetLangSet(CanDataInfo.Geely_LangSet geely_LangSet);
 
     public static native void GeelyRzcGetPmData(CanDataInfo.Geely_PmInfo geely_PmInfo);
@@ -1131,9 +1293,19 @@ public class CanJni {
 
     public static native void GmDealAutoPark(CanDataInfo.GM_AutoPark gM_AutoPark);
 
+    public static native void GmEnclaveWcCarFactorySet(int i);
+
+    public static native void GmRzcCameraCmd(int i, int i2, int i3, int i4, int i5, int i6);
+
+    public static native void GmRzcCmdKey(int i);
+
+    public static native void GmRzcGetCarInfo3(CanDataInfo.GM_CarInfo3 gM_CarInfo3, int i);
+
     public static native void GmRzcGetOnStarWifiPassWord(CanDataInfo.GM_OnStar_Wifi_PassWord gM_OnStar_Wifi_PassWord);
 
     public static native void GmRzcGetOnStarWifiPoint(CanDataInfo.GM_OnStar_Wifi_Point gM_OnStar_Wifi_Point);
+
+    public static native void GmRzcTouchCmd(int i, int i2, int i3);
 
     public static native void GmSbAcSet(int i, int i2);
 
@@ -1329,6 +1501,8 @@ public class CanJni {
 
     public static native void GolfGetMixView(CanDataInfo.GolfWcMixView golfWcMixView);
 
+    public static native void GolfGetNlhs(CanDataInfo.GolfNlhsData golfNlhsData);
+
     public static native void GolfGetOilInfo(CanDataInfo.GolfDrivingOil golfDrivingOil);
 
     public static native void GolfGetOpenClose(CanDataInfo.GolfOpeningAndClosing golfOpeningAndClosing);
@@ -1471,6 +1645,8 @@ public class CanJni {
 
     public static native void HanTRzcAcKey(int i, int i2, int i3, int i4);
 
+    public static native void HanTRzcCarSet(int i, int i2);
+
     public static native void HanTRzcGetTpmsData(CanDataInfo.HanTRzc_TpmsData hanTRzc_TpmsData);
 
     public static native void HanTRzcQuery(int i);
@@ -1521,9 +1697,15 @@ public class CanJni {
 
     public static native void HmWcV70Query(int i, int i2, int i3);
 
+    public static native void HondDARzcAmpSet(int i, int i2);
+
+    public static native void HondDARzcGetAmpInfo(CanDataInfo.HondaRzcAmpInfo hondaRzcAmpInfo);
+
     public static native void HondDARzcGetPwInfo(CanDataInfo.HondaDARzc_Pw hondaDARzc_Pw);
 
     public static native void HondaAccord7CytAirKey(int i);
+
+    public static native void HondaAccord7DjAirCmd(int i, int i2);
 
     public static native void HondaAccord8XbsAudioCtl(int i);
 
@@ -1536,6 +1718,8 @@ public class CanJni {
     public static native void HondaAccord8XbsQuery(int i);
 
     public static native void HondaDACarSet(int i, int i2);
+
+    public static native void HondaDAGetBatInfo(CanDataInfo.HondaYLLCData_3 hondaYLLCData_3);
 
     public static native void HondaDAGetCameraSta(CanDataInfo.HondaCameraSta hondaCameraSta);
 
@@ -1677,9 +1861,21 @@ public class CanJni {
 
     public static native void HyundaiRzcGetRearCameraData(CanDataInfo.HyCarRearCamera hyCarRearCamera);
 
+    public static native void HyundaiRzcGetXnySet(CanDataInfo.HyRzcXnySet hyRzcXnySet);
+
+    public static native void HyundaiRzcGetXnySet2(CanDataInfo.HyRzcXnySet2 hyRzcXnySet2);
+
+    public static native void HyundaiRzcGetXnySet3(CanDataInfo.HyRzcXnySet3 hyRzcXnySet3);
+
+    public static native void HyundaiRzcGetXnySet4(CanDataInfo.HyRzcXnySet4 hyRzcXnySet4);
+
+    public static native void HyundaiRzcGetXnySet5(CanDataInfo.HyRzcXnySet5 hyRzcXnySet5);
+
     public static native void HyundaiRzcParkSet(int i, int i2);
 
     public static native void HyundaiRzcQuery(int i, int i2);
+
+    public static native void HyundaiRzcXnySet(int i, int i2, int i3, int i4);
 
     public static native void HyundaiWcAmpSet(int i, int i2);
 
@@ -1711,6 +1907,8 @@ public class CanJni {
 
     public static native void HyundaiXpGetCameraInfo(CanDataInfo.HyundaiCamera360 hyundaiCamera360);
 
+    public static native void HyundaiXpVolSet(int i);
+
     public static native int IsGotoSync();
 
     public static native int IsHaveAc();
@@ -1723,13 +1921,21 @@ public class CanJni {
 
     public static native boolean IsHaveRadar();
 
+    public static native void IsuzuXpQuery(int i, int i2);
+
     public static native void JACRefineGetTpms(CanDataInfo.JAC_PMS_DATA jac_pms_data);
 
     public static native void JACRefineOdCarSet(int i, int i2);
 
     public static native void JACRefineOdGetCarSet(CanDataInfo.JAC_CARDATA jac_cardata);
 
+    public static native void JACRefineWcAvmCmd(int i, int i2);
+
+    public static native void JACRefineWcAvmTouchCmd(int i, int i2, int i3, int i4);
+
     public static native void JACRefineWcCarSet(int i, int i2);
+
+    public static native void JACRefineWcGetAvmData(CanDataInfo.JacWc_AvmInfo jacWc_AvmInfo);
 
     public static native void JACRefineWcGetCarSet(CanDataInfo.JACWC_SETDATA jacwc_setdata);
 
@@ -1826,6 +2032,24 @@ public class CanJni {
     public static native void KaiYi3xGetInfo(CanDataInfo.KaiYi3X_CarSet kaiYi3X_CarSet);
 
     public static native void KoleosAcSet(int i, int i2);
+
+    public static native void LandRoverZmytGetConfigData(CanDataInfo.CanLandRoverConfig canLandRoverConfig);
+
+    public static native void LandRoverZmytGetIapInfo(CanDataInfo.CanLandRoverIapUpdateInfo canLandRoverIapUpdateInfo);
+
+    public static native void LandRoverZmytGetRadarInfo(CanDataInfo.CanLandRoverRadar canLandRoverRadar);
+
+    public static native void LandRoverZmytGetStatus(CanDataInfo.CanLandRoverStatus canLandRoverStatus);
+
+    public static native void LandRoverZmytGetWorkInfo(CanDataInfo.CanLandRoverWork canLandRoverWork);
+
+    public static native void LandRoverZmytKeyCmd(int i, int i2);
+
+    public static native void LandRoverZmytQueryInfo(int i);
+
+    public static native void LandRoverZmytReqControl(int i, int i2);
+
+    public static native void LandRoverZmytTouchCmd(int i, int i2, int i3);
 
     public static native void LandWindOdAcSet(int i, int i2, int i3, int i4, int i5, int i6);
 
@@ -1957,7 +2181,13 @@ public class CanJni {
 
     public static native void MGGSGetAvmData(CanDataInfo.MG_GS_AVMDATA mg_gs_avmdata);
 
+    public static native void MGGSGetJsmsData(CanDataInfo.MG_GS_JSMS mg_gs_jsms);
+
     public static native void MGGSGetSetData(CanDataInfo.MG_GS_DATA mg_gs_data);
+
+    public static native void MGGSGetSetData4(CanDataInfo.MG_GS_SET mg_gs_set);
+
+    public static native void MGGSGetTpmsData(CanDataInfo.MG_GS_TPMS mg_gs_tpms);
 
     public static native void MGGSQuery(int i);
 
@@ -2033,6 +2263,10 @@ public class CanJni {
 
     public static native void MitSubishiRzcQuery(int i, int i2);
 
+    public static native void MjbFlGetLightSensorInfo(CanDataInfo.MjbFl_LightInfo mjbFl_LightInfo);
+
+    public static native void MzdBnrGetCarSet2(CanDataInfo.Mzd_Bnr_Set mzd_Bnr_Set);
+
     public static native void MzdCx4BnrRpmInit(int i);
 
     public static native void MzdCx4BnrSpeedInit(int i);
@@ -2071,9 +2305,15 @@ public class CanJni {
 
     public static native void MzdRzcCarAudioSet(int i, int i2);
 
+    public static native void MzdRzcCarAvmCmd(int i, int i2);
+
     public static native void MzdRzcCarRadioCmd(int i, int i2);
 
     public static native void MzdRzcCarSafeSet(int i, int i2, int i3);
+
+    public static native void MzdRzcCarServiceSet(int i, int i2, int i3, int i4, int i5, int i6, int i7);
+
+    public static native void MzdRzcCarServiceSet2(int i, int i2, int i3, int i4, int i5, int i6);
 
     public static native void MzdRzcGetCarAmpData(CanDataInfo.Mzd_Rzc_Amp mzd_Rzc_Amp);
 
@@ -2091,7 +2331,15 @@ public class CanJni {
 
     public static native void MzdRzcGetCarSafeSet(CanDataInfo.Mzd_Rzc_SafeSet mzd_Rzc_SafeSet);
 
+    public static native void MzdRzcGetCarServiceSet(CanDataInfo.Mzd_Rzc_ServiceInfo mzd_Rzc_ServiceInfo);
+
+    public static native void MzdRzcGetCarServiceSet2(CanDataInfo.Mzd_Rzc_SericeInfo2 mzd_Rzc_SericeInfo2);
+
     public static native void MzdRzcGetCarSetData(CanDataInfo.Mzd_Rzc_SetData mzd_Rzc_SetData);
+
+    public static native void MzdRzcGetCarTpmsTimeSet(CanDataInfo.Mzd_Rzc_TpmsTime mzd_Rzc_TpmsTime);
+
+    public static native void MzdRzcGetTouchCmd(CanDataInfo.Mzd_Rzc_TouchCmd mzd_Rzc_TouchCmd);
 
     public static native void MzdWcAmpSet(int i, int i2);
 
@@ -2193,7 +2441,13 @@ public class CanJni {
 
     public static native void OutLanderAMPSet(int i, int i2);
 
+    public static native void OutLanderCarSet(int i, int i2);
+
+    public static native void OutLanderCarTypeSet(int i);
+
     public static native void OutLanderGetAMPSet(CanDataInfo.SLOutLanderAMP sLOutLanderAMP);
+
+    public static native void OutLanderGetCaret(CanDataInfo.SLOutLanderSetData sLOutLanderSetData);
 
     public static native void OutLanderOldAMPSet(int i, int i2);
 
@@ -2287,7 +2541,13 @@ public class CanJni {
 
     public static native void PorscheLzQuery(int i);
 
+    public static native void PorscheOdAvmCmd(int i);
+
+    public static native void PorscheOdAvmTouchCmd(int i, int i2, int i3);
+
     public static native void PorscheOdCarSet(int i, int i2);
+
+    public static native void PorscheOdGetCarAvmData(CanDataInfo.PorscheOdAvmData porscheOdAvmData);
 
     public static native void PorscheOdGetCarSet(CanDataInfo.PorscheCarSet porscheCarSet);
 
@@ -2301,9 +2561,15 @@ public class CanJni {
 
     public static native void PsaMeterSet(int i, int i2);
 
+    public static native void PsaRzcAmpCmd(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8);
+
     public static native void PsaRzcAvmCmd(int i);
 
     public static native void PsaRzcGetAvmData(CanDataInfo.PsaRzcAvm psaRzcAvm);
+
+    public static native void PsaRzcGetCarSet2(CanDataInfo.PsaRzcSet2 psaRzcSet2);
+
+    public static native void PsaRzcGetLangData(CanDataInfo.PsaRzcLang psaRzcLang);
 
     public static native void PsaSrcRzcArmCtrl(int i, int i2, int i3, int i4, int i5, int i6);
 
@@ -2409,6 +2675,10 @@ public class CanJni {
 
     public static native void RenauKoleosQuery(int i, int i2);
 
+    public static native void RenaulKoleosAirCmd(int i, int i2);
+
+    public static native void RenaulKoleosQuery(int i, int i2);
+
     public static native void RenaultCarSet(int i, int i2);
 
     public static native void RenaultGetAvmData(CanDataInfo.RenaulXpAvm renaulXpAvm);
@@ -2416,6 +2686,8 @@ public class CanJni {
     public static native void RenaultGetCarSet(CanDataInfo.RenaulCarSet renaulCarSet);
 
     public static native void RenaultGetDriveData(CanDataInfo.RenaulXpDriveInfo renaulXpDriveInfo);
+
+    public static native void RenaultGetLangData(CanDataInfo.RenaulXpLang renaulXpLang);
 
     public static native void RenaultKoleosXfyAcKey(int i);
 
@@ -2427,11 +2699,17 @@ public class CanJni {
 
     public static native void RenaultWcAvmCmd(int i, int i2);
 
+    public static native void RenaultWcCarSet(int i, int i2, int i3, int i4);
+
     public static native void RenaultWcGetAvmData(CanDataInfo.RenaulWcAvm renaulWcAvm);
+
+    public static native void RenaultWcGetCarSetData(CanDataInfo.RenaulWcCarSetData renaulWcCarSetData);
 
     public static native void RenaultWcGetDrivePage0Data(CanDataInfo.RenaulWcDrivePage0 renaulWcDrivePage0);
 
     public static native void RenaultWcGetDrivePage1Data(CanDataInfo.RenaulWcDrivePage1 renaulWcDrivePage1);
+
+    public static native void RenaultWcLangCmd(int i, int i2);
 
     public static native void RenaultWcPcSet(int i, int i2, int i3, int i4);
 
@@ -2579,7 +2857,43 @@ public class CanJni {
 
     public static native void SwmRzcSpeechSet(int i, int i2);
 
+    public static native void T3FlAirCmd(int i, int i2);
+
+    public static native void T3FlCarCmd(int i, int i2, int i3, int i4, int i5);
+
+    public static native void T3FlGetCarCanData(int i, CanDataInfo.T3Fl_CanData t3Fl_CanData);
+
+    public static native void T3FlGetCarSpeed(CanDataInfo.T3Fl_CanSpeed t3Fl_CanSpeed);
+
+    public static native void T3FlGetCarSta(CanDataInfo.T3Fl_Sta t3Fl_Sta);
+
+    public static native void T3FlGetDevInfo(CanDataInfo.T3Fl_DevInfo t3Fl_DevInfo);
+
+    public static native void T3FlGetStartType(CanDataInfo.T3Fl_StartType t3Fl_StartType);
+
+    public static native void T3FlGetTexlDisCur(CanDataInfo.T3Fl_TexlDisCur t3Fl_TexlDisCur);
+
+    public static native void T3FlGetTexlDisOver(CanDataInfo.T3Fl_TexlDisOver t3Fl_TexlDisOver);
+
+    public static native void T3FlGetTexlInfo(CanDataInfo.T3Fl_TexlInfo t3Fl_TexlInfo);
+
+    public static native void T3FlGetTexlPjxx(CanDataInfo.T3Fl_TexlPjxx t3Fl_TexlPjxx);
+
+    public static native void T3FlLedSet(int i, int i2);
+
+    public static native void T3FlPowerSet(int i, int i2);
+
+    public static native void T3FlQueryData(int i);
+
+    public static native void T3FlSensorSet(int i, int i2, int i3);
+
     public static native void T90CarAcSet(int i, int i2);
+
+    public static native void TaTaLzCarSet(int i, int i2);
+
+    public static native void TaTaLzGetCarSet(CanDataInfo.TaTa_Lz_SetData taTa_Lz_SetData);
+
+    public static native void TaTaLzQueryData(int i, int i2);
 
     public static native void TataWcAirKey(int i, int i2);
 
@@ -2608,6 +2922,22 @@ public class CanJni {
     public static native void TeanOldGetRadText(CanDataInfo.TeanaRadText teanaRadText);
 
     public static native void TeanOldGetVol(CanDataInfo.TeanaVol teanaVol);
+
+    public static native void TeanOldXcAirCmd(int i, int i2);
+
+    public static native void TeanOldXcAmpCmd(int i, int i2);
+
+    public static native void TeanOldXcCarSet(int i, int i2);
+
+    public static native void TeanOldXcDvdCmd(int i, int i2);
+
+    public static native void TeanOldXcGetAmpInfo(CanDataInfo.TeanaOldXc_Amp teanaOldXc_Amp);
+
+    public static native void TeanOldXcGetDvdInfo(CanDataInfo.TeanaOldXc_Dvd teanaOldXc_Dvd);
+
+    public static native void TeanOldXcGetSetInfo(CanDataInfo.TeanaOldXc_Set teanaOldXc_Set);
+
+    public static native void TeanOldXcQuery(int i);
 
     public static native void TeanaOldDjAirSet(int i, int i2);
 
@@ -2659,7 +2989,11 @@ public class CanJni {
 
     public static native void TouaregGetAssistData(CanDataInfo.TouaregWcAssist touaregWcAssist);
 
+    public static native void TouaregGetCarId(CanDataInfo.TouaregWcCarId touaregWcCarId);
+
     public static native void TouaregGetDwData(CanDataInfo.TouaregWcDw touaregWcDw);
+
+    public static native void TouaregGetKeyInfo(CanDataInfo.TouaregWcKeyInfo touaregWcKeyInfo);
 
     public static native void TouaregGetLightData(CanDataInfo.TouaregWcLight touaregWcLight);
 
@@ -2667,9 +3001,13 @@ public class CanJni {
 
     public static native void TouaregGetServiceData(CanDataInfo.TouaregWcService touaregWcService);
 
+    public static native void TouaregGetTpmsInfo(CanDataInfo.TouaregWcTpmsInfo touaregWcTpmsInfo);
+
     public static native void TouaregGetTyresData(CanDataInfo.TouaregWcTyres touaregWcTyres);
 
     public static native void TouaregGetWindowData(CanDataInfo.TouaregWcWindow touaregWcWindow);
+
+    public static native void TouaregLangCmd(int i, int i2);
 
     public static native void TouaregLightSet(int i, int i2);
 
@@ -2680,6 +3018,8 @@ public class CanJni {
     public static native void TouaregRstSet(int i);
 
     public static native void TouaregServiceSet(int i, int i2);
+
+    public static native void TouaregTpmsCmd(int i, int i2);
 
     public static native void TouaregTyresSet(int i, int i2);
 
@@ -2775,7 +3115,11 @@ public class CanJni {
 
     public static native void ToyotaWcGetCarSet(CanDataInfo.ToyotaWcSet toyotaWcSet);
 
+    public static native void ToyotaWcGetCdcInfo(CanDataInfo.ToyotaWcCdcInfo toyotaWcCdcInfo);
+
     public static native void ToyotaWcGetHybrid(CanDataInfo.ToyotaWcHybrid toyotaWcHybrid);
+
+    public static native void ToyotaWcGetId3Info(CanDataInfo.ToyotaWcId3Info toyotaWcId3Info);
 
     public static native void ToyotaWcGetTpmsInfo(CanDataInfo.ToyotaWcTpmsInfo toyotaWcTpmsInfo);
 
@@ -2784,6 +3128,10 @@ public class CanJni {
     public static native void ToyotaWcGetYhPage1(CanDataInfo.ToyotaWcYhPage1 toyotaWcYhPage1);
 
     public static native void ToyotaWcGetYhPage2(CanDataInfo.ToyotaWcYhPage2 toyotaWcYhPage2);
+
+    public static native void ToyotaWcLangCmd(int i, int i2);
+
+    public static native void ToyotaWcSrcCmd(int i, int i2);
 
     public static native void ToyotaWcTouchCmd(int i, int i2, int i3);
 
@@ -2818,6 +3166,8 @@ public class CanJni {
     public static native void TrumpchiWcGetLinkSos(CanDataInfo.GCWcLinkSos gCWcLinkSos);
 
     public static native int TsGetPhone();
+
+    public static native int TsGetVoice();
 
     public static native void VenucaiWcM50fAirKey(int i, int i2);
 
@@ -2901,6 +3251,12 @@ public class CanJni {
 
     public static native void VwWcGetRadarEx(CanDataInfo.VwWcRadarEx vwWcRadarEx);
 
+    public static native void WeiChaiWcAirKey(int i, int i2);
+
+    public static native void WeiChaiWcCarSet(int i, int i2, int i3, int i4);
+
+    public static native void WeiChaiWcQuery(int i, int i2, int i3);
+
     public static native void X80CameraSet(int i);
 
     public static native void X80GetCameraMode(CanDataInfo.X80_Camera x80_Camera);
@@ -2931,6 +3287,8 @@ public class CanJni {
 
     public static native void ZhH3Query(int i);
 
+    public static native void ZhRzcAirCmd(int i, int i2, int i3, int i4, int i5, int i6);
+
     public static native void ZhWcCarLangSet(int i, int i2);
 
     public static native void ZhWcCarSet(int i, int i2);
@@ -2944,6 +3302,8 @@ public class CanJni {
     public static native void ZotyeGetTpmsWarn(CanDataInfo.ZtTPMSWarn ztTPMSWarn);
 
     public static native void ZotyeQuery(int i, int i2);
+
+    public static native void ZotyeRzcGetDrivenfo(CanDataInfo.ZtRzcDriveInfo ztRzcDriveInfo);
 
     public static native void ZotyeSr9CameraSet(int i);
 
@@ -2976,7 +3336,7 @@ public class CanJni {
     public static native void ZtY100GetWarn(CanDataInfo.ZT_WARN_ENTER zt_warn_enter);
 
     static {
-        System.loadLibrary("can70");
+        System.loadLibrary("can59");
     }
 
     public static void ChrOthCDCtrl(int cmd, int para) {

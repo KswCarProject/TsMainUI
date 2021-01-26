@@ -1,5 +1,6 @@
 package com.hp.hpl.sparta;
 
+import com.android.SdkConstants;
 import com.hp.hpl.sparta.xpath.AttrEqualsExpr;
 import com.hp.hpl.sparta.xpath.AttrExistsExpr;
 import com.hp.hpl.sparta.xpath.AttrGreaterExpr;
@@ -40,19 +41,19 @@ public abstract class Node {
             if (charAt < 128) {
                 switch (charAt) {
                     case '\"':
-                        str2 = "&quot;";
+                        str2 = SdkConstants.QUOT_ENTITY;
                         break;
                     case '&':
-                        str2 = "&amp;";
+                        str2 = SdkConstants.AMP_ENTITY;
                         break;
                     case '\'':
                         str2 = "&#39;";
                         break;
                     case '<':
-                        str2 = "&lt;";
+                        str2 = SdkConstants.LT_ENTITY;
                         break;
                     case '>':
-                        str2 = "&gt;";
+                        str2 = SdkConstants.GT_ENTITY;
                         break;
                     default:
                         str2 = null;

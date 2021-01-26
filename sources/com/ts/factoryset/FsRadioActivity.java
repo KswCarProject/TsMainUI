@@ -15,6 +15,7 @@ import com.ts.factoryset.FsInputDlg;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.ts.other.ValCal;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 
 public class FsRadioActivity extends FsBaseActivity {
@@ -87,7 +88,7 @@ public class FsRadioActivity extends FsBaseActivity {
         private ParamButton[] mBtnRds = new ParamButton[5];
         public LayoutInflater mLayoutInflater;
         private int[] mSWId = {R.id.fssw_sw0, R.id.fssw_sw1, R.id.fssw_sw2};
-        private String[] mStrIc = {"ST7786", "NX6686", "Si4702", "QN8035", "474X", "7708", "7703"};
+        private String[] mStrIc = {"ST7786", "NX6686", "Si4702", "QN8035", "474X", "7708"};
         private String[] mStrZone;
         private int[] mTitle = {R.string.str_fsrad_ictype, R.string.str_fsrad_zone, R.string.str_fsrad_fmsense, R.string.str_fsrad_amsense, R.string.str_fsrad_osc_6686, R.string.str_fsrad_fmsort, R.string.str_fsrad_otband, R.string.str_fsrad_fmband, R.string.str_fsrad_mwband, R.string.str_fsrad_rdssw};
         private TextView mTvAmSense;
@@ -234,7 +235,7 @@ public class FsRadioActivity extends FsBaseActivity {
         /* access modifiers changed from: private */
         public void changeData(int id, boolean inc) {
             if (id == FsRadioSetType.FsRadioSet_ictype.ordinal()) {
-                FtSet.SetRadioIc(ValCal.dataStepNoLoop(FtSet.GetRadioIc(), 0, 6, inc));
+                FtSet.SetRadioIc(ValCal.dataStepNoLoop(FtSet.GetRadioIc(), 0, 5, inc));
             } else if (id == FsRadioSetType.FsRadioSet_zone.ordinal()) {
                 FtSet.SetRadioArea(ValCal.dataStepNoLoop(FtSet.GetRadioArea(), 0, 8, inc));
             } else if (id == FsRadioSetType.FsRadioSet_fmsense.ordinal()) {
@@ -307,7 +308,7 @@ public class FsRadioActivity extends FsBaseActivity {
             ParamButton[] btnSW = new ParamButton[3];
             TextView tvTitle = (TextView) view.findViewById(R.id.fssw_title);
             if (this.RDS_VALUE == 5 && position == FsRadioSetType.FsRadioSet_rdssw.ordinal() + 1) {
-                tvTitle.setText("");
+                tvTitle.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 tvTitle.setText(this.mTitle[position]);
             }

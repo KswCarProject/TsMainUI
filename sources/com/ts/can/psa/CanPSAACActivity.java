@@ -1,8 +1,10 @@
 package com.ts.can.psa;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -40,6 +42,7 @@ public class CanPSAACActivity extends CanBaseActivity implements UserCallBack, V
     public static final int ITEM_WLEVEL_LO = 5;
     public static final int ITEM_WLEVEL_MID = 6;
     public static final String TAG = "CanPSAACActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private CanDataInfo.CAN_ACInfo mACInfo;
     protected boolean mAutoFinish = false;
     private ParamButton mBtnAC;
@@ -73,6 +76,13 @@ public class CanPSAACActivity extends CanBaseActivity implements UserCallBack, V
         setContentView(R.layout.activity_can_comm_relative);
         this.mfgJump = CanFunc.IsCanActivityJumped(this);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
         this.mManager.AddImage(0, 0, R.drawable.can_psa_408_bg);
         this.mACInfo = Can.mACInfo;
         this.mTvLtTemp = AddTemp(18, 18, 131, 62);
@@ -81,7 +91,7 @@ public class CanPSAACActivity extends CanBaseActivity implements UserCallBack, V
         this.mTvRtTemp = AddTemp(878, 18, 131, 62);
         this.mBtnRtTempInc = AddBtn(3, 907, 107, R.drawable.can_yl_upward_up, R.drawable.can_yl_upward_dn);
         this.mBtnRtTempDec = AddBtn(4, 907, 287, R.drawable.can_yl_down_up, R.drawable.can_yl_down_dn);
-        this.mIvForeWind = this.mManager.AddImage(KeyDef.RKEY_ST, 29);
+        this.mIvForeWind = this.mManager.AddImage(297, 29);
         this.mIvForeWind.setStateDrawable(R.drawable.can_psa_408_wind_up, R.drawable.can_psa_408_wind_dn);
         this.mIvRearWind = this.mManager.AddImage(483, 29);
         this.mIvRearWind.setStateDrawable(R.drawable.can_psa_408_heat_up, R.drawable.can_psa_408_heat_dn);
@@ -100,10 +110,10 @@ public class CanPSAACActivity extends CanBaseActivity implements UserCallBack, V
         this.mWindProg = new MyProgressBar(this, R.drawable.can_yl_rect_up, R.drawable.can_yl_rect_dn);
         this.mWindProg.SetMinMax(0, 8);
         this.mWindProg.SetCurPos(1);
-        this.mManager.AddViewWrapContent(this.mWindProg, 261, KeyDef.RKEY_PRE);
+        this.mManager.AddViewWrapContent(this.mWindProg, 261, 292);
         this.mBtnWindDec = AddBtn(8, 196, 271, R.drawable.can_yl_jian_up, R.drawable.can_yl_jian_dn);
         this.mBtnWindInc = AddBtn(9, 755, 271, R.drawable.can_yl_jia_up, R.drawable.can_yl_jia_dn);
-        this.mIvWindAuto = this.mManager.AddImage(474, KeyDef.RKEY_RADIO_SCAN, R.drawable.can_yl_wind_auto);
+        this.mIvWindAuto = this.mManager.AddImage(474, 296, R.drawable.can_yl_wind_auto);
         this.mBtnAC = AddBtn(10, 38, 418, R.drawable.can_psa_408_ac_up, R.drawable.can_psa_408_ac_dn);
         this.mBtnAcMax = AddBtn(11, 181, 418, R.drawable.can_psa_408_acmax_up, R.drawable.can_psa_408_acmax_dn);
         this.mBtnModeUp = AddBtn(12, KeyDef.RKEY_RADIO_1S, 418, R.drawable.can_psa_408_show03_up, R.drawable.can_psa_408_show03_dn);
@@ -112,6 +122,9 @@ public class CanPSAACActivity extends CanBaseActivity implements UserCallBack, V
         this.mBtnAuto = AddBtn(15, 751, 418, R.drawable.can_psa_408_auto_up, R.drawable.can_psa_408_auto_dn);
         this.mBtnDual = AddBtn(16, 894, 418, R.drawable.can_psa_408_dual_up, R.drawable.can_psa_408_dual_dn);
         this.mBtnLoop = AddBtn(17, 665, 29, 62, 29, R.drawable.can_psa_408_nxh_up, R.drawable.can_psa_408_nxh_dn);
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
         Log.d("CanPSAACActivity", "jump = " + this.mfgJump);
         if (!this.mfgJump) {
             CanJni.PSAQuery(33, 0);

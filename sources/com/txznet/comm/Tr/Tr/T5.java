@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class T5 {
 
     /* renamed from: T  reason: collision with root package name */
-    static Set<Tr> f384T = new HashSet();
+    static Set<Tr> f388T = new HashSet();
     /* access modifiers changed from: private */
     public static boolean Tn = false;
     /* access modifiers changed from: private */
@@ -22,7 +22,7 @@ public class T5 {
     public static abstract class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public Boolean f386T = false;
+        public Boolean f390T = false;
         public Boolean Tr = false;
         public Boolean Ty = false;
 
@@ -58,7 +58,7 @@ public class T5 {
         });
         T((T) new T() {
             public void T() {
-                boolean unused = T5.Tr = this.f386T.booleanValue();
+                boolean unused = T5.Tr = this.f390T.booleanValue();
                 boolean unused2 = T5.Ty = this.Tr.booleanValue();
                 boolean unused3 = T5.Tn = this.Ty.booleanValue();
             }
@@ -83,7 +83,7 @@ public class T5 {
             Tr = b;
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onBeginAsr();
                     }
                 }
@@ -92,7 +92,7 @@ public class T5 {
             Tr = b;
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onEndAsr();
                     }
                 }
@@ -107,7 +107,7 @@ public class T5 {
             Ty = b;
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onBeginTts();
                     }
                 }
@@ -116,7 +116,7 @@ public class T5 {
             Ty = b;
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onEndTts();
                     }
                 }
@@ -131,7 +131,7 @@ public class T5 {
             Tn = b;
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onBeginCall();
                     }
                 }
@@ -140,7 +140,7 @@ public class T5 {
             Tn = b;
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onEndCall();
                     }
                 }
@@ -152,7 +152,7 @@ public class T5 {
     public static void T(Tr listener) {
         Tn.Tr().T((Runnable) new com.txznet.txz.util.T.T<Tr>(listener) {
             public void run() {
-                T5.f384T.add(this.Ty);
+                T5.f388T.add(this.Ty);
             }
         }, 0);
     }
@@ -160,7 +160,7 @@ public class T5 {
     public static void Tr(Tr listener) {
         Tn.Tr().T((Runnable) new com.txznet.txz.util.T.T<Tr>(listener) {
             public void run() {
-                T5.f384T.remove(this.Ty);
+                T5.f388T.remove(this.Ty);
             }
         }, 0);
     }
@@ -169,7 +169,7 @@ public class T5 {
         if (status.equals("onBeginMusic")) {
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onMusicPlay();
                     }
                 }
@@ -177,7 +177,7 @@ public class T5 {
         } else if (status.equals("onEndMusic")) {
             Tn.Tr().T((Runnable) new Runnable() {
                 public void run() {
-                    for (Tr l : T5.f384T) {
+                    for (Tr l : T5.f388T) {
                         l.onMusicPause();
                     }
                 }
@@ -188,7 +188,7 @@ public class T5 {
             if (Tr) {
                 Tn.Tr().T((Runnable) new Runnable() {
                     public void run() {
-                        for (Tr l : T5.f384T) {
+                        for (Tr l : T5.f388T) {
                             l.onBeepEnd();
                         }
                     }
@@ -215,8 +215,8 @@ public class T5 {
                     if (data != null) {
                         JSONObject json = data.Tk();
                         try {
-                            if (cb.f386T != null) {
-                                cb.f386T = Boolean.valueOf(T5.TZ(json.getBoolean("asr")));
+                            if (cb.f390T != null) {
+                                cb.f390T = Boolean.valueOf(T5.TZ(json.getBoolean("asr")));
                             }
                         } catch (Exception e) {
                         }
@@ -238,7 +238,7 @@ public class T5 {
             };
             JSONObject json = new JSONObject();
             try {
-                if (cb.f386T != null) {
+                if (cb.f390T != null) {
                     json.put("asr", true);
                 }
                 if (cb.Tr != null) {

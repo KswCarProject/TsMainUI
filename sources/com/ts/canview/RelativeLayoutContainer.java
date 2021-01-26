@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.ts.MainUI.R;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 public class RelativeLayoutContainer {
     private RelativeLayout mContainer;
@@ -62,7 +63,7 @@ public class RelativeLayoutContainer {
     }
 
     public RelativeLayoutContainer setTextStyle(TextView view, int textId, int gravity, int color, int size) {
-        return setTextStyle(view, textId > 0 ? this.mContext.getResources().getString(textId) : "", gravity, color, size);
+        return setTextStyle(view, textId > 0 ? this.mContext.getResources().getString(textId) : TXZResourceManager.STYLE_DEFAULT, gravity, color, size);
     }
 
     public RelativeLayoutContainer setTextStyle(TextView view, String text, int gravity, int color, int size) {

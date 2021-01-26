@@ -13,6 +13,7 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
 import com.ts.canview.CanItemPopupList;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfRzcTimeSetView extends CanScrollCarInfoView {
     private static final int ITEM_DATE = 0;
@@ -24,7 +25,7 @@ public class CanGolfRzcTimeSetView extends CanScrollCarInfoView {
     public CanDataInfo.GolfTime mCurTime = new CanDataInfo.GolfTime();
     private DatePickerDialog.OnDateSetListener mDatelistener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int myyear, int monthOfYear, int dayOfMonth) {
-            Log.d(CanGolfRzcTimeSetView.TAG, "您设置了时间：年" + myyear + "月 " + monthOfYear + "日 " + dayOfMonth);
+            Log.d("CanGolfRzcTimeSetView", "您设置了时间：年" + myyear + "月 " + monthOfYear + "日 " + dayOfMonth);
             CanJni.GolfGetTime(CanGolfRzcTimeSetView.this.mCurTime);
             CanGolfRzcTimeSetView.this.mCurTime.Year = myyear;
             CanGolfRzcTimeSetView.this.mCurTime.Month = monthOfYear + 1;
@@ -35,7 +36,7 @@ public class CanGolfRzcTimeSetView extends CanScrollCarInfoView {
     private CanDataInfo.GolfTime mTimeData = new CanDataInfo.GolfTime();
     private TimePickerDialog.OnTimeSetListener mTimeListener = new TimePickerDialog.OnTimeSetListener() {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            Log.d(CanGolfRzcTimeSetView.TAG, "您设置了时间：" + hourOfDay + "时" + minute + "分");
+            Log.d("CanGolfRzcTimeSetView", "您设置了时间：" + hourOfDay + "时" + minute + "分");
             CanJni.GolfGetTime(CanGolfRzcTimeSetView.this.mCurTime);
             CanGolfRzcTimeSetView.this.mCurTime.Hour = hourOfDay;
             CanGolfRzcTimeSetView.this.mCurTime.Min = minute;
@@ -129,7 +130,7 @@ public class CanGolfRzcTimeSetView extends CanScrollCarInfoView {
         }
         if (!check || i2b(this.mTimeData.Update)) {
             this.mTimeData.Update = 0;
-            String strDate = "";
+            String strDate = TXZResourceManager.STYLE_DEFAULT;
             switch (this.mTimeData.DateFormat) {
                 case 0:
                     strDate = String.format("%d.%d.%d", new Object[]{Integer.valueOf(this.mTimeData.Day), Integer.valueOf(this.mTimeData.Month), Integer.valueOf(this.mTimeData.Year)});

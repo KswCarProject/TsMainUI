@@ -17,7 +17,7 @@ public final class Code39Reader extends OneDReader {
     private static final char[] ALPHABET = ALPHABET_STRING.toCharArray();
     static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
     private static final int ASTERISK_ENCODING = CHARACTER_ENCODINGS[39];
-    static final int[] CHARACTER_ENCODINGS = {52, KeyDef.RKEY_UP, 97, 352, 49, 304, 112, 37, KeyDef.RKEY_PRE, 100, 265, 73, KeyDef.RKEY_RADIO_6S, 25, 280, 88, 13, 268, 76, 28, 259, 67, KeyDef.RKEY_MEDIA_10, 19, 274, 82, 7, 262, 70, 22, 385, 193, 448, 145, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 208, 133, 388, 196, 148, 168, 162, 138, 42};
+    static final int[] CHARACTER_ENCODINGS = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, KeyDef.RKEY_RADIO_6S, 25, 280, 88, 13, 268, 76, 28, 259, 67, KeyDef.RKEY_MEDIA_10, 19, 274, 82, 7, 262, 70, 22, 385, 193, 448, 145, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 208, 133, 388, 196, 148, 168, 162, 138, 42};
     private final int[] counters;
     private final StringBuilder decodeRowResult;
     private final boolean extendedMode;

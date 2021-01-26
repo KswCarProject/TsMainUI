@@ -12,13 +12,16 @@ import com.txznet.comm.ui.T5.Tr.TB;
 import com.txznet.comm.ui.T5.Ty;
 import com.txznet.comm.ui.Tn.Tn;
 import com.txznet.sdk.TXZAsrManager;
+import com.txznet.sdk.TXZResourceManager;
+import com.txznet.sdk.media.InvokeConstants;
 import com.txznet.sdk.tongting.IConstantData;
+import org.texustek.mirror.aidl.BinderName;
 
 /* compiled from: Proguard */
 public class Tk {
 
     /* renamed from: T  reason: collision with root package name */
-    private static Tk f508T = new Tk();
+    private static Tk f512T = new Tk();
     /* access modifiers changed from: private */
     public int T9 = 0;
     /* access modifiers changed from: private */
@@ -36,11 +39,11 @@ public class Tk {
     }
 
     public static Tk Tr() {
-        return f508T;
+        return f512T;
     }
 
     public void T(String data) {
-        if (Tn.T().f554T) {
+        if (Tn.T().f558T) {
             try {
                 final Tr jsonBuilder = new Tr(data);
                 String action = (String) jsonBuilder.T("action", String.class);
@@ -70,7 +73,7 @@ public class Tk {
                                         if (viewAdapter.T9 != null) {
                                             targetView = viewAdapter.T9.booleanValue() ? 20 : 10;
                                         } else {
-                                            targetView = Tk.this.Ty(viewAdapter.f462T);
+                                            targetView = Tk.this.Ty(viewAdapter.f466T);
                                         }
                                         if (viewAdapter.Ty && (viewAdapter.Tn instanceof TB)) {
                                             com.txznet.comm.ui.Tn.Tn.T().T((TB) viewAdapter.Tn);
@@ -78,7 +81,7 @@ public class Tk {
                                         if (viewAdapter.Tn instanceof com.txznet.comm.ui.T5.Tr) {
                                             com.txznet.comm.ui.Tn.Tn.T().T((com.txznet.comm.ui.T5.Tr) viewAdapter.Tn);
                                         }
-                                        int unused = Tk.this.Tr = viewAdapter.f462T;
+                                        int unused = Tk.this.Tr = viewAdapter.f466T;
                                         Tk.this.Tr(targetView, viewAdapter.Tr);
                                     }
                                     int unused2 = Tk.this.T9 = ((TM) this.Ty).Ty();
@@ -98,7 +101,7 @@ public class Tk {
                     com.txznet.comm.ui.Tn.T((Runnable) new Runnable() {
                         public void run() {
                             if (Tr.T().Ty()) {
-                                Tk.this.Tr(((Boolean) jsonBuilder.T("next", Boolean.class)).booleanValue());
+                                Tk.this.Tr(((Boolean) jsonBuilder.T(InvokeConstants.INVOKE_NEXT, Boolean.class)).booleanValue());
                             }
                         }
                     }, 0);
@@ -116,7 +119,7 @@ public class Tk {
                     }
                 } else if ("updateState".equals(action)) {
                     final Integer state = (Integer) jsonBuilder.T(IConstantData.KEY_STATE, Integer.class);
-                    if ("wheelControl".equals((String) jsonBuilder.T(IConstantData.KEY_TYPE, String.class))) {
+                    if ("wheelControl".equals((String) jsonBuilder.T("type", String.class))) {
                         com.txznet.comm.ui.Tn.T((Runnable) new Runnable() {
                             public void run() {
                                 Tk.this.Tk(state.intValue());
@@ -145,7 +148,7 @@ public class Tk {
                             }
                         }, 0);
                     }
-                } else if ("sendInformation".equals(action) && ((Integer) jsonBuilder.T(IConstantData.KEY_TYPE, Integer.class, -1)).intValue() == 0) {
+                } else if ("sendInformation".equals(action) && ((Integer) jsonBuilder.T("type", Integer.class, -1)).intValue() == 0) {
                     com.txznet.comm.Tr.Tr.Tr.Tn(((Boolean) jsonBuilder.T("showHelpNewTag", Boolean.class, false)).booleanValue());
                 }
             } catch (Exception e) {
@@ -157,7 +160,7 @@ public class Tk {
 
     public void Tr(String keyword) {
         Tr jb = new Tr();
-        jb.T("key", (Object) keyword);
+        jb.T(BinderName.KEY, (Object) keyword);
         com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.search.edit.result", jb.Ty(), (Tn.Tr) null);
     }
 
@@ -219,11 +222,11 @@ public class Tk {
                 jsonBuilder.T("operateSource", (Object) Integer.valueOf(operateSource));
                 jsonBuilder.T(CanBMWMiniServiceDetailActivity.KEY_INDEX, (Object) Integer.valueOf(listIndex));
                 if (view == 1) {
-                    jsonBuilder.T(IConstantData.KEY_TYPE, (Object) 1);
+                    jsonBuilder.T("type", (Object) 1);
                     jsonBuilder.T("clicktype", (Object) 2);
                 }
                 if (view == 2) {
-                    jsonBuilder.T(IConstantData.KEY_TYPE, (Object) 1);
+                    jsonBuilder.T("type", (Object) 1);
                     jsonBuilder.T("clicktype", (Object) 1);
                 }
                 data = jsonBuilder.Ty();
@@ -300,7 +303,7 @@ public class Tk {
     public void T(boolean disable) {
         if (this.Tn != disable) {
             this.Tn = disable;
-            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.recordwin2.disableThirdWin", ("" + disable).getBytes(), (Tn.Tr) null);
+            com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "txz.recordwin2.disableThirdWin", (TXZResourceManager.STYLE_DEFAULT + disable).getBytes(), (Tn.Tr) null);
         }
     }
 
@@ -313,7 +316,7 @@ public class Tk {
         if (mCurChatView == null || !(mCurChatView instanceof TB)) {
             Tr().T(0, 12, 0, 0);
         } else {
-            TXZAsrManager.getInstance().restart("");
+            TXZAsrManager.getInstance().restart(TXZResourceManager.STYLE_DEFAULT);
         }
     }
 
@@ -431,7 +434,7 @@ public class Tk {
     }
 
     public void TE() {
-        if (com.txznet.comm.ui.Tn.Tn.T().f554T) {
+        if (com.txznet.comm.ui.Tn.Tn.T().f558T) {
             com.txznet.comm.ui.Tn.T((Runnable) new Runnable() {
                 public void run() {
                     Tr.T().Tn();
@@ -441,7 +444,7 @@ public class Tk {
     }
 
     public void T5() {
-        if (com.txznet.comm.ui.Tn.Tn.T().f554T) {
+        if (com.txznet.comm.ui.Tn.Tn.T().f558T) {
             com.txznet.comm.ui.Tn.T((Runnable) new Runnable() {
                 public void run() {
                     Tr.T().T9();

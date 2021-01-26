@@ -15,7 +15,7 @@ import com.Ty.T.Tr.Tk.Ty;
 public class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final String f335T = Tn.class.getSimpleName();
+    public static final String f338T = Tn.class.getSimpleName();
     private static volatile Tn T9;
     private T Tn = new Ty();
     private T9 Tr;
@@ -74,7 +74,7 @@ public class Tn {
             this.Ty.Tr(imageAware);
             listener.T(uri, imageAware.Tn());
             if (options.Tr()) {
-                imageAware.T(options.Tr(this.Tr.f321T));
+                imageAware.T(options.Tr(this.Tr.f324T));
             } else {
                 imageAware.T((Drawable) null);
             }
@@ -90,7 +90,7 @@ public class Tn {
         Bitmap bmp = this.Tr.Tq.T(memoryCacheKey);
         if (bmp == null || bmp.isRecycled()) {
             if (options.T()) {
-                imageAware.T(options.T(this.Tr.f321T));
+                imageAware.T(options.T(this.Tr.f324T));
             } else if (options.TZ()) {
                 imageAware.T((Drawable) null);
             }

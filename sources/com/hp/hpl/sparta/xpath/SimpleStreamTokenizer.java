@@ -1,6 +1,7 @@
 package com.hp.hpl.sparta.xpath;
 
 import android.support.v4.widget.ExploreByTouchHelper;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.IOException;
 import java.io.Reader;
 
@@ -17,7 +18,7 @@ public class SimpleStreamTokenizer {
     public int nval = ExploreByTouchHelper.INVALID_ID;
     private boolean pushedBack_ = false;
     private final Reader reader_;
-    public String sval = "";
+    public String sval = TXZResourceManager.STYLE_DEFAULT;
     public int ttype = ExploreByTouchHelper.INVALID_ID;
 
     public SimpleStreamTokenizer(Reader reader) throws IOException {

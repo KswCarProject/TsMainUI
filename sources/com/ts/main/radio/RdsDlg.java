@@ -3,6 +3,7 @@ package com.ts.main.radio;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.internal.view.SupportMenu;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -61,7 +62,7 @@ class RdsDlg extends CustomDialog implements View.OnClickListener {
             this.mBtnList[i].setIntParam(i);
             this.mBtnList[i].setBackground((Drawable) null);
             this.mBtnList[i].setPadding(0, 0, 0, 0);
-            this.mBtnList[i].setStateColor(-16777216, SupportMenu.CATEGORY_MASK, SupportMenu.CATEGORY_MASK, 0);
+            this.mBtnList[i].setStateColor(ViewCompat.MEASURED_STATE_MASK, SupportMenu.CATEGORY_MASK, SupportMenu.CATEGORY_MASK, 0);
             this.mBtnList[i].setTextSize(0, 30.0f);
             this.mBtnList[i].setOnClickListener(this.mPtyClick);
             if (i > 0) {

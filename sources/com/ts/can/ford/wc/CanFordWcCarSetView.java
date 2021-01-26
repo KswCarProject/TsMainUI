@@ -16,7 +16,7 @@ public class CanFordWcCarSetView extends CanScrollCarInfoView {
     private CanDataInfo.FordWcTsMsg mTsMsg;
 
     public CanFordWcCarSetView(Activity activity) {
-        super(activity, 9);
+        super(activity, 10);
     }
 
     public void onItem(int id, int item) {
@@ -58,6 +58,9 @@ public class CanFordWcCarSetView extends CanScrollCarInfoView {
             case 7:
                 CanJni.FordWcCarCameraSet(6, Neg(this.mCameraSet.Sxtys));
                 return;
+            case 9:
+                CanJni.FordWcTsSet(6, Neg(this.mTsMsg.Ldfmq));
+                return;
             default:
                 return;
         }
@@ -65,8 +68,8 @@ public class CanFordWcCarSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_turning_lamp, R.string.can_environment_light, R.string.can_lcdw, R.string.can_msg_tip, R.string.can_warn_tip, R.string.can_temperature, R.string.can_traction_control_sys, R.string.can_camera_delay, R.string.can_fwd_color};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP};
+        this.mItemTitleIds = new int[]{R.string.can_turning_lamp, R.string.can_environment_light, R.string.can_lcdw, R.string.can_msg_tip, R.string.can_warn_tip, R.string.can_temperature, R.string.can_traction_control_sys, R.string.can_camera_delay, R.string.can_fwd_color, R.string.can_fmqkg};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH};
         this.mPopValueIds[0] = new int[]{R.array.can_fist_zxd};
         this.mPopValueIds[2] = new int[]{R.array.can_fist_l_c};
         this.mPopValueIds[5] = new int[]{R.array.can_psa_wc_temperature_array};
@@ -92,6 +95,7 @@ public class CanFordWcCarSetView extends CanScrollCarInfoView {
         if (i2b(this.mTsMsg.UpdateOnce) && (!check || i2b(this.mTsMsg.Update))) {
             this.mTsMsg.Update = 0;
             updateItem(5, this.mTsMsg.Wddw);
+            updateItem(9, this.mTsMsg.Ldfmq);
         }
         CanJni.FordWcGetSportSet(this.mSportSet);
         if (i2b(this.mSportSet.UpdateOnce) && (!check || i2b(this.mSportSet.Update))) {

@@ -17,7 +17,8 @@ import android.os.RemoteException;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import com.ts.dvdplayer.definition.MediaDef;
+import com.android.SdkConstants;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.txz.Tr.T;
 import com.txznet.txz.util.T5;
 import java.io.File;
@@ -38,7 +39,7 @@ public class Tn {
     static Tn TZ = new Tn();
 
     /* renamed from: T  reason: collision with root package name */
-    HandlerThread f363T = new HandlerThread("ServiceManagerThread");
+    HandlerThread f367T = new HandlerThread("ServiceManagerThread");
     private int T5 = 1;
     public boolean T9 = false;
     /* access modifiers changed from: private */
@@ -59,7 +60,7 @@ public class Tn {
 
     static {
         int r;
-        TE = MediaDef.PROGRESS_MAX;
+        TE = 1000;
         try {
             File f = new File("/etc/txz/txz_service.json");
             FileInputStream in = new FileInputStream(f);
@@ -69,7 +70,7 @@ public class Tn {
                 t += r;
             }
             in.close();
-            TE = ((Integer) new com.txznet.comm.Ty.Tr(bs).T("DEFAULT_RECONNECT_DELAY", Integer.class, Integer.valueOf(MediaDef.PROGRESS_MAX))).intValue();
+            TE = ((Integer) new com.txznet.comm.Ty.Tr(bs).T("DEFAULT_RECONNECT_DELAY", Integer.class, 1000)).intValue();
         } catch (Exception e) {
         }
         Log.d("txz_service", "DEFAULT_RECONNECT_DELAY=" + TE);
@@ -87,27 +88,27 @@ public class Tn {
     public static class Ty {
 
         /* renamed from: T  reason: collision with root package name */
-        byte[] f379T;
+        byte[] f383T;
 
         Ty(byte[] data) {
-            this.f379T = data;
+            this.f383T = data;
         }
 
         public String T() {
             try {
-                return new String(this.f379T);
+                return new String(this.f383T);
             } catch (Exception e) {
                 return null;
             }
         }
 
         public byte[] Tr() {
-            return this.f379T;
+            return this.f383T;
         }
 
         public Integer Ty() {
             try {
-                return Integer.valueOf(Integer.parseInt(new String(this.f379T)));
+                return Integer.valueOf(Integer.parseInt(new String(this.f383T)));
             } catch (Exception e) {
                 return null;
             }
@@ -115,7 +116,7 @@ public class Tn {
 
         public Double Tn() {
             try {
-                return Double.valueOf(Double.parseDouble(new String(this.f379T)));
+                return Double.valueOf(Double.parseDouble(new String(this.f383T)));
             } catch (Exception e) {
                 return null;
             }
@@ -123,7 +124,7 @@ public class Tn {
 
         public Boolean T9() {
             try {
-                return Boolean.valueOf(Boolean.parseBoolean(new String(this.f379T)));
+                return Boolean.valueOf(Boolean.parseBoolean(new String(this.f383T)));
             } catch (Exception e) {
                 return null;
             }
@@ -131,7 +132,7 @@ public class Tn {
 
         public JSONObject Tk() {
             try {
-                return new JSONObject(new String(this.f379T));
+                return new JSONObject(new String(this.f383T));
             } catch (Exception e) {
                 return null;
             }
@@ -158,7 +159,7 @@ public class Tn {
     class T9 {
 
         /* renamed from: T  reason: collision with root package name */
-        int f372T;
+        int f376T;
         long T9;
         long Tk;
         Tr Tn;
@@ -174,12 +175,12 @@ public class Tn {
     class C0014Tn {
 
         /* renamed from: T  reason: collision with root package name */
-        Tk f375T;
+        Tk f379T;
         List<T9> T9 = new ArrayList();
         Runnable TZ = new Runnable() {
             public void run() {
                 if (C0014Tn.this.Tk < 10000) {
-                    C0014Tn.this.Tk += MediaDef.PROGRESS_MAX;
+                    C0014Tn.this.Tk += 1000;
                 }
                 C0014Tn.this.Ty();
             }
@@ -191,7 +192,7 @@ public class Tn {
 
         public C0014Tn(String serviceName) {
             this.Tr = serviceName;
-            this.f375T = new Tk(serviceName);
+            this.f379T = new Tk(serviceName);
         }
 
         public void T() {
@@ -227,7 +228,7 @@ public class Tn {
                         long unused = Tn.this.Tv = SystemClock.elapsedRealtime();
                     }
                     T.Tr().startService(intent);
-                    T.Tr().bindService(intent, this.f375T, 65);
+                    T.Tr().bindService(intent, this.f379T, 65);
                 } catch (Exception e) {
                 }
                 if (this.Ty != null || T(this.Tr)) {
@@ -360,10 +361,10 @@ public class Tn {
         synchronized (this.Tk) {
             for (String str : this.Tk.keySet()) {
                 C0014Tn record = this.Tk.get(str);
-                if (!"com.txznet.txz".equals(record.Tr) && record.f375T != null) {
+                if (!"com.txznet.txz".equals(record.Tr) && record.f379T != null) {
                     try {
                         record.T();
-                        T.Tr().unbindService(record.f375T);
+                        T.Tr().unbindService(record.f379T);
                     } catch (Exception e) {
                     }
                 }
@@ -372,12 +373,12 @@ public class Tn {
     }
 
     private Tn() {
-        this.f363T.start();
-        this.Tr = new T5(this.f363T.getLooper()) {
+        this.f367T.start();
+        this.Tr = new T5(this.f367T.getLooper()) {
         };
         IntentFilter filter = new IntentFilter();
         filter.addAction("android.intent.action.PACKAGE_ADDED");
-        filter.addDataScheme("package");
+        filter.addDataScheme(SdkConstants.ATTR_PACKAGE);
         T.Tr().registerReceiver(new BroadcastReceiver() {
             public void onReceive(Context context, Intent intent) {
                 String packageName = intent.getDataString().substring(8);
@@ -452,10 +453,10 @@ public class Tn {
     class Tk implements ServiceConnection {
 
         /* renamed from: T  reason: collision with root package name */
-        String f373T;
+        String f377T;
 
         public Tk(String serviceName) {
-            this.f373T = serviceName;
+            this.f377T = serviceName;
         }
 
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -464,16 +465,16 @@ public class Tn {
                 public void run() {
                     C0014Tn rec;
                     for (T listener : Tn.this.Th) {
-                        listener.Tr(Tk.this.f373T);
+                        listener.Tr(Tk.this.f377T);
                     }
                     IBinder service = (IBinder) this.Ty;
                     synchronized (Tn.this.Tk) {
-                        rec = Tn.this.Tk.get(Tk.this.f373T);
+                        rec = Tn.this.Tk.get(Tk.this.f377T);
                     }
                     rec.Tk = Tn.TE;
                     Tn.Tr().T(rec.TZ);
                     rec.Ty = T.C0021T.T(service);
-                    rec.Tr = Tk.this.f373T;
+                    rec.Tr = Tk.this.f377T;
                     rec.Tr();
                 }
             });
@@ -482,8 +483,8 @@ public class Tn {
         public void T() {
             C0014Tn rec = null;
             synchronized (Tn.this.Tk) {
-                if (Tn.this.Tk.containsKey(this.f373T)) {
-                    rec = Tn.this.Tk.get(this.f373T);
+                if (Tn.this.Tk.containsKey(this.f377T)) {
+                    rec = Tn.this.Tk.get(this.f377T);
                 }
             }
             if (rec != null) {
@@ -525,14 +526,14 @@ public class Tn {
         T9 req = new T9();
         int i = this.T5;
         this.T5 = i + 1;
-        req.f372T = i;
+        req.f376T = i;
         req.Tr = command;
         req.Ty = data;
         req.Tn = callback;
         req.Tk = timeout;
         req.T9 = SystemClock.elapsedRealtime() + timeout;
         if (req.Tn != null) {
-            req.Tn.Ty = req.f372T;
+            req.Tn.Ty = req.f376T;
         }
         this.Tr.T((Runnable) new com.txznet.txz.util.T.Tr<String, T9>(req, serviceName) {
             public void run() {
@@ -554,14 +555,14 @@ public class Tn {
                 }, ((T9) this.Tn).Tk);
             }
         });
-        return req.f372T;
+        return req.f376T;
     }
 
     public com.txznet.txz.Tr.T T(String serviceName) {
         synchronized (this.Tk) {
             for (String str : this.Tk.keySet()) {
                 C0014Tn record = this.Tk.get(str);
-                if (record.f375T != null && record.Tr != null && record.Tr.equals(serviceName)) {
+                if (record.f379T != null && record.Tr != null && record.Tr.equals(serviceName)) {
                     com.txznet.txz.Tr.T t = record.Ty;
                     return t;
                 }
@@ -591,7 +592,7 @@ public class Tn {
         T((T) new T() {
             public void T(String serviceName) {
                 if (serviceName.equals(remoteServiceName)) {
-                    Tn.Tr().T(remoteServiceName, "", (byte[]) null, callback);
+                    Tn.Tr().T(remoteServiceName, TXZResourceManager.STYLE_DEFAULT, (byte[]) null, callback);
                 }
             }
 
@@ -604,9 +605,9 @@ public class Tn {
         });
         T.Tr().registerReceiver(new BroadcastReceiver() {
             public void onReceive(Context context, Intent intent) {
-                Tn.Tr().T(remoteServiceName, "", (byte[]) null, callback);
+                Tn.Tr().T(remoteServiceName, TXZResourceManager.STYLE_DEFAULT, (byte[]) null, callback);
             }
         }, new IntentFilter(remoteServiceName + ".onCreateApp"));
-        Tr().T(remoteServiceName, "", (byte[]) null, callback);
+        Tr().T(remoteServiceName, TXZResourceManager.STYLE_DEFAULT, (byte[]) null, callback);
     }
 }

@@ -11,15 +11,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import com.android.SdkConstants;
 import com.txznet.T.T;
 import com.txznet.comm.Tr.Tr.Tn;
+import com.txznet.sdk.TXZResourceManager;
 import java.lang.reflect.Field;
 
 /* compiled from: Proguard */
 public class BaseFragmentActivity extends FragmentActivity {
 
     /* renamed from: T  reason: collision with root package name */
-    private boolean f414T = false;
+    private boolean f418T = false;
     private TextView Tr;
 
     /* access modifiers changed from: protected */
@@ -53,10 +55,10 @@ public class BaseFragmentActivity extends FragmentActivity {
     }
 
     public void onWindowFocusChanged(boolean newFocus) {
-        Tn.T(toString() + " onWindowFocusChanged: from " + this.f414T + " to " + newFocus);
-        if (this.f414T != newFocus) {
-            this.f414T = newFocus;
-            if (this.f414T) {
+        Tn.T(toString() + " onWindowFocusChanged: from " + this.f418T + " to " + newFocus);
+        if (this.f418T != newFocus) {
+            this.f418T = newFocus;
+            if (this.f418T) {
                 T();
             } else {
                 Tr();
@@ -83,7 +85,7 @@ public class BaseFragmentActivity extends FragmentActivity {
     }
 
     public static boolean Ty() {
-        if ("REL".equals("REL")) {
+        if (SdkConstants.CODENAME_RELEASE.equals(SdkConstants.CODENAME_RELEASE)) {
             return false;
         }
         return true;
@@ -112,12 +114,12 @@ public class BaseFragmentActivity extends FragmentActivity {
                 this.Tr = new TextView(this);
                 PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), 0);
                 String verInfo = "未知版本";
-                if ("DEV".equals("REL")) {
+                if ("DEV".equals(SdkConstants.CODENAME_RELEASE)) {
                     verInfo = "开发版本";
-                } else if ("NEW".equals("REL")) {
+                } else if ("NEW".equals(SdkConstants.CODENAME_RELEASE)) {
                     verInfo = "演示版本";
                 }
-                this.Tr.setText("此版本为" + verInfo + (info == null ? "" : info.versionName));
+                this.Tr.setText("此版本为" + verInfo + (info == null ? TXZResourceManager.STYLE_DEFAULT : info.versionName));
                 this.Tr.setTextSize(16.0f);
                 this.Tr.setTextColor(Color.parseColor("#ccffffff"));
                 WindowManager.LayoutParams mLp = new WindowManager.LayoutParams();

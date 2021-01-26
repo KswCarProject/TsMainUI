@@ -13,15 +13,16 @@ import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
-import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanRZygSetAmpActivity extends CanRZygBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
     private static final int ITEM_BAL_FRONT_REAR = 4;
     private static final int ITEM_BAL_LEFT_RIGHT = 3;
     private static final int ITEM_GF_TOGGLE = 8;
     public static final int ITEM_HRYX = 2;
-    private static final int ITEM_MAX = 8;
+    private static final int ITEM_MAX = 9;
     private static final int ITEM_MIN = 1;
+    private static final int ITEM_VOL = 9;
     private static final int ITEM_VOL_HIGH = 7;
     private static final int ITEM_VOL_LOW = 5;
     private static final int ITEM_VOL_MIDDLE = 6;
@@ -32,12 +33,13 @@ public class CanRZygSetAmpActivity extends CanRZygBaseActivity implements View.O
     private CanItemProgressList mItemBalLtRt;
     private CanItemSwitchList mItemGFToggle;
     protected CanItemSwitchList mItemHryx;
+    private CanItemProgressList mItemVol;
     private CanItemProgressList mItemVolHigh;
     private CanItemProgressList mItemVolLow;
     private CanItemProgressList mItemVolMiddle;
     protected CanItemPopupList mItemZsycstj;
     private CanScrollList mManager;
-    private String[] mZsycstjArr = {"", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX};
+    private String[] mZsycstjArr = {TXZResourceManager.STYLE_DEFAULT, "1", "2", "3"};
     private boolean mbLayout;
 
     /* access modifiers changed from: protected */
@@ -70,6 +72,8 @@ public class CanRZygSetAmpActivity extends CanRZygBaseActivity implements View.O
             this.mItemVolHigh.SetCurVal(this.mAmpInfo.Tre);
             this.mItemVolHigh.SetValText(String.valueOf(this.mAmpInfo.Tre - 10));
             this.mItemGFToggle.SetCheck(this.mAmpInfo.PWROn);
+            this.mItemVol.SetCurVal(this.mAmpInfo.Vol);
+            this.mItemVol.SetValText(String.valueOf(this.mAmpInfo.Vol));
         }
     }
 
@@ -121,13 +125,17 @@ public class CanRZygSetAmpActivity extends CanRZygBaseActivity implements View.O
         this.mItemVolHigh.SetMinMax(1, 19);
         this.mItemVolHigh.SetStep(1);
         this.mItemVolHigh.SetUserValText();
+        this.mItemVol = this.mManager.addItemProgressList(R.string.can_vol, 9, (CanItemProgressList.onPosChange) this);
+        this.mItemVol.SetMinMax(0, 38);
+        this.mItemVol.SetStep(1);
+        this.mItemVol.SetUserValText();
         this.mItemGFToggle = this.mManager.addItemCheckBox(R.string.can_gf_toggle, 8, this);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
         GetAdtData();
-        for (int i = 1; i <= 8; i++) {
+        for (int i = 1; i <= 9; i++) {
             ShowItem(i);
         }
     }
@@ -148,6 +156,7 @@ public class CanRZygSetAmpActivity extends CanRZygBaseActivity implements View.O
             case 6:
             case 7:
             case 8:
+            case 9:
                 ret = 1;
                 break;
         }
@@ -181,6 +190,9 @@ public class CanRZygSetAmpActivity extends CanRZygBaseActivity implements View.O
                 return;
             case 8:
                 this.mItemGFToggle.ShowGone(show);
+                return;
+            case 9:
+                this.mItemVol.ShowGone(show);
                 return;
             default:
                 return;
@@ -234,6 +246,9 @@ public class CanRZygSetAmpActivity extends CanRZygBaseActivity implements View.O
                 return;
             case 7:
                 CanJni.ChrOthAmpCtrl(6, pos);
+                return;
+            case 9:
+                CanJni.ChrOthAmpCtrl(1, pos);
                 return;
             default:
                 return;

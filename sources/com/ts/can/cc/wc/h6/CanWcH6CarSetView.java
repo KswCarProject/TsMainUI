@@ -6,9 +6,11 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.ts.canview.CanItemMsgBox;
 import com.yyw.ts70xhw.FtSet;
 
 public class CanWcH6CarSetView extends CanScrollCarInfoView {
+    private static final int ITEM_AVMDLBD = 15;
     private static final int ITEM_BXFZ = 9;
     private static final int ITEM_CDPLYJ = 3;
     private static final int ITEM_DCCXFZ = 10;
@@ -18,15 +20,17 @@ public class CanWcH6CarSetView extends CanScrollCarInfoView {
     private static final int ITEM_KMYJ = 11;
     private static final int ITEM_PLJSTX = 5;
     private static final int ITEM_PZAQFZKG = 6;
+    private static final int ITEM_TCSZ = 14;
     private static final int ITEM_XRAQFZKG = 7;
     private static final int ITEM_YBYSSZ = 12;
     private static final int ITEM_YJLMD = 8;
+    private static final int ITEM_YLGXCGQSZ = 13;
     private static final int ITEM_ZNQT = 2;
     private int mCameraStab = 255;
     private CanDataInfo.CcH6WcSet mSet;
 
     public CanWcH6CarSetView(Activity activity) {
-        super(activity, 13);
+        super(activity, 16);
     }
 
     public void onItem(int id, int item) {
@@ -39,6 +43,9 @@ public class CanWcH6CarSetView extends CanScrollCarInfoView {
                 return;
             case 12:
                 CarSet(17, item);
+                return;
+            case 13:
+                CarSet(18, item);
                 return;
             default:
                 return;
@@ -85,22 +92,34 @@ public class CanWcH6CarSetView extends CanScrollCarInfoView {
             case 11:
                 CarSet(16, Neg(this.mSet.Kmyj));
                 return;
+            case 14:
+                CarSet(19, Neg(this.mSet.Tcsz));
+                return;
+            case 15:
+                new CanItemMsgBox(15, getActivity(), R.string.can_sure_tybd, new CanItemMsgBox.onMsgBoxClick() {
+                    public void onOK(int param) {
+                        CanWcH6CarSetView.this.CarSet(20, 1);
+                    }
+                }, (CanItemMsgBox.onMsgBoxClick2) null);
+                return;
             default:
                 return;
         }
     }
 
-    private void CarSet(int cmd, int para) {
+    /* access modifiers changed from: private */
+    public void CarSet(int cmd, int para) {
         CanJni.CcH6WcCarSet(cmd, para, 255, 255);
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_has_right_camera, R.string.can_fzhsj, R.string.can_smart_qt, R.string.can_jp_cdpljg, R.string.can_jtbzxx, R.string.can_fatigue_driving_tips, R.string.can_pzaqfzkg, R.string.can_xraqfzkg, R.string.can_yjlmd, R.string.can_bxfz, R.string.can_dccxfz, R.string.can_kmyj, R.string.can_yb_color};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP};
+        this.mItemTitleIds = new int[]{R.string.can_has_right_camera, R.string.can_fzhsj, R.string.can_smart_qt, R.string.can_jp_cdpljg, R.string.can_jtbzxx, R.string.can_fatigue_driving_tips, R.string.can_pzaqfzkg, R.string.can_xraqfzkg, R.string.can_yjlmd, R.string.can_bxfz, R.string.can_dccxfz, R.string.can_kmyj, R.string.can_yb_color, R.string.can_h6_coupe_ylgxcgq, R.string.can_cch9_trailer, R.string.can_avm_dlbd};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.TITLE};
         this.mPopValueIds[1] = new int[]{R.string.can_soudong, R.string.can_mzd_cx4_drive_auto};
         this.mPopValueIds[8] = new int[]{R.string.can_sensitivity_low, R.string.can_mode_normal, R.string.can_sensitivity_high};
         this.mPopValueIds[12] = new int[]{R.string.can_magoten_light_color_3, R.string.can_color_red, R.string.can_color_gold};
+        this.mPopValueIds[13] = new int[]{R.string.can_h6_coupe_oz_mode, R.string.can_h6_coupe_yz_mode};
         this.mSet = new CanDataInfo.CcH6WcSet();
     }
 
@@ -120,6 +139,8 @@ public class CanWcH6CarSetView extends CanScrollCarInfoView {
             updateItem(10, this.mSet.Dccxfz);
             updateItem(11, this.mSet.Kmyj);
             updateItem(12, this.mSet.Ybyssz);
+            updateItem(13, this.mSet.Ylgxcgqsz);
+            updateItem(14, this.mSet.Tcsz);
         }
         if (this.mCameraStab != FtSet.Getlgb4() || !check) {
             this.mCameraStab = FtSet.Getlgb4();

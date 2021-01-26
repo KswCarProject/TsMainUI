@@ -62,7 +62,6 @@ public class TsBuf {
         return 1;
     }
 
-    /* access modifiers changed from: package-private */
     public int GetData(int nIndex, byte[] ubData, int nWei) {
         if (nIndex >= GetLen()) {
             return 0;
@@ -75,7 +74,6 @@ public class TsBuf {
         return 0;
     }
 
-    /* access modifiers changed from: package-private */
     public int GetLen() {
         return this.nWrite - this.nRead;
     }

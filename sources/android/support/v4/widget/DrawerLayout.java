@@ -565,7 +565,7 @@ public class DrawerLayout extends ViewGroup {
         boolean result = super.drawChild(canvas, child, drawingTime);
         canvas.restoreToCount(restoreCount);
         if (this.mScrimOpacity > 0.0f && drawingContent) {
-            this.mScrimPaint.setColor((((int) (((float) ((this.mScrimColor & -16777216) >>> 24)) * this.mScrimOpacity)) << 24) | (this.mScrimColor & ViewCompat.MEASURED_SIZE_MASK));
+            this.mScrimPaint.setColor((((int) (((float) ((this.mScrimColor & ViewCompat.MEASURED_STATE_MASK) >>> 24)) * this.mScrimOpacity)) << 24) | (this.mScrimColor & ViewCompat.MEASURED_SIZE_MASK));
             canvas.drawRect((float) clipLeft, 0.0f, (float) clipRight, (float) getHeight(), this.mScrimPaint);
         } else if (this.mShadowLeft != null && checkDrawerViewAbsoluteGravity(child, 3)) {
             int shadowWidth = this.mShadowLeft.getIntrinsicWidth();

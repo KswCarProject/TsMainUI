@@ -18,6 +18,7 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanRZygCDActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, CanItemProgressList.onPosChange {
@@ -50,7 +51,7 @@ public class CanRZygCDActivity extends CanBaseActivity implements UserCallBack, 
     protected CustomTextView mSong;
     protected CustomTextView mSta;
     protected CanDataInfo.ChrOthCdSta mStaData = new CanDataInfo.ChrOthCdSta();
-    protected String[] mStrSta = {"无碟", "播放", "加载中", "读取中", "正在出碟", "暂停", "停止", "", "换曲", "错误"};
+    protected String[] mStrSta = {"无碟", "播放", "加载中", "读取中", "正在出碟", "暂停", "停止", TXZResourceManager.STYLE_DEFAULT, "换曲", "错误"};
     protected CustomTextView mTime;
     protected CustomTextView mTrack;
 
@@ -103,10 +104,10 @@ public class CanRZygCDActivity extends CanBaseActivity implements UserCallBack, 
         this.mSta = AddTxtLt(84, 124, 300, 36);
         this.mManager.AddImage(44, 184, R.drawable.can_jeep_ycsb_music);
         this.mManager.AddImage(44, Can.CAN_MZD_LUOMU, R.drawable.can_jeep_ycsb_disc);
-        this.mManager.AddImage(44, KeyDef.RKEY_MEDIA_PP, R.drawable.can_jeep_ycsb_artist);
-        this.mSong = AddTxtLt(84, 181, CanCameraUI.BTN_GOLF_WC_MODE1, 36);
-        this.mAlbum = AddTxtLt(84, Can.CAN_GM_CAPTIVA_OD, CanCameraUI.BTN_GOLF_WC_MODE1, 36);
-        this.mArtist = AddTxtLt(84, KeyDef.RKEY_RADIO_SCAN, CanCameraUI.BTN_GOLF_WC_MODE1, 36);
+        this.mManager.AddImage(44, 299, R.drawable.can_jeep_ycsb_artist);
+        this.mSong = AddTxtLt(84, 181, 600, 36);
+        this.mAlbum = AddTxtLt(84, Can.CAN_GM_CAPTIVA_OD, 600, 36);
+        this.mArtist = AddTxtLt(84, 296, 600, 36);
         this.mTrack = AddTxtCenter(412, 33, 200, 35);
         this.mTime = AddTxtCenter(362, 351, 300, 35);
     }
@@ -184,8 +185,8 @@ public class CanRZygCDActivity extends CanBaseActivity implements UserCallBack, 
             this.mTime.setText(String.format("%02d:%02d:%02d / %02d:%02d:%02d", new Object[]{Integer.valueOf(this.mInfoData.CurHour), Integer.valueOf(this.mInfoData.CurMin), Integer.valueOf(this.mInfoData.CurSec), Integer.valueOf(this.mInfoData.TotalHour), Integer.valueOf(this.mInfoData.TotalMin), Integer.valueOf(this.mInfoData.TotalSec)}));
             return;
         }
-        this.mTrack.setText("");
-        this.mTime.setText("");
+        this.mTrack.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTime.setText(TXZResourceManager.STYLE_DEFAULT);
     }
 
     /* access modifiers changed from: protected */
@@ -228,7 +229,7 @@ public class CanRZygCDActivity extends CanBaseActivity implements UserCallBack, 
                 CdCtrl(Can.CAN_MZD_LUOMU);
                 return;
             case 8:
-                CdCtrl(241);
+                CdCtrl(Can.CAN_SITECHDEV_CW);
                 return;
             case 9:
                 enterSubWin(CanRZygFileListActivity.class);

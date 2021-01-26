@@ -4,7 +4,6 @@ import android.util.Log;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Mcu;
 import java.util.Calendar;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 public class Dvr {
     static final int CUSTOM_CODE_TWZ = 0;
@@ -58,22 +57,22 @@ public class Dvr {
         public int BtnFun(int nBtn) {
             switch (nBtn) {
                 case 0:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 89, (byte) -90);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 89, (byte) -90);
                     return 1;
                 case 1:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 22, (byte) -23);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 22, (byte) -23);
                     return 1;
                 case 2:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 8, (byte) -9);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 8, (byte) -9);
                     return 1;
                 case 3:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 84, (byte) -85);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 84, (byte) -85);
                     return 1;
                 case 4:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 28, (byte) -29);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 28, (byte) -29);
                     return 1;
                 case 5:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 83, (byte) -84);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 83, (byte) -84);
                     return 1;
                 default:
                     return 1;
@@ -123,22 +122,22 @@ public class Dvr {
         public int BtnFun(int nBtn) {
             switch (nBtn) {
                 case 0:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 89, (byte) -90);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 89, (byte) -90);
                     return 1;
                 case 1:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 22, (byte) -23);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 22, (byte) -23);
                     return 1;
                 case 2:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 8, (byte) -9);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 8, (byte) -9);
                     return 1;
                 case 3:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 84, (byte) -85);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 84, (byte) -85);
                     return 1;
                 case 4:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 28, (byte) -29);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 28, (byte) -29);
                     return 1;
                 case 5:
-                    SendIrCode(WrcManager.WrcCallback.KEY_CENTER, (byte) -17, (byte) 83, (byte) -84);
+                    SendIrCode((byte) 16, (byte) -17, (byte) 83, (byte) -84);
                     return 1;
                 default:
                     return 1;
@@ -165,11 +164,11 @@ public class Dvr {
             byte ubSendData = (byte) (c.get(1) - 2000);
             SendIrCode((byte) -96, (byte) 95, ubSendData, (byte) (255 - ubSendData));
             byte ubSendData2 = (byte) c.get(2);
-            SendIrCode(WrcManager.WrcCallback.ACTION_SINGLE_CLICK, (byte) 94, ubSendData2, (byte) (255 - ubSendData2));
+            SendIrCode((byte) -95, (byte) 94, ubSendData2, (byte) (255 - ubSendData2));
             byte ubSendData3 = (byte) c.get(5);
             SendIrCode((byte) -94, (byte) 93, ubSendData3, (byte) (255 - ubSendData3));
             byte ubSendData4 = (byte) c.get(11);
-            SendIrCode(WrcManager.WrcCallback.ACTION_LONG_PRESSED, (byte) 92, ubSendData4, (byte) (255 - ubSendData4));
+            SendIrCode((byte) -93, (byte) 92, ubSendData4, (byte) (255 - ubSendData4));
             byte ubSendData5 = (byte) c.get(12);
             SendIrCode((byte) -92, (byte) 91, ubSendData5, (byte) (255 - ubSendData5));
             return 1;

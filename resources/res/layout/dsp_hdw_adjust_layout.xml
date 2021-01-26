@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="60px">
+    <Button android:layout_gravity="center_vertical" android:id="@+id/btn_dsp_hdw_dec" android:background="@drawable/btn_dsp_hdw_dec" android:layout_width="52px" android:layout_height="60px"/>
+    <TextView android:textSize="26px" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/tv_dsp_hdw_value" android:background="@drawable/dsp_hdw_bar" android:paddingBottom="8px" android:layout_width="117px" android:layout_height="53px" android:layout_marginTop="8px" android:text="1.6k"/>
+    <Button android:layout_gravity="center_vertical" android:id="@+id/btn_dsp_hdw_inc" android:background="@drawable/btn_dsp_hdw_inc" android:layout_width="52px" android:layout_height="60px"/>
+</LinearLayout>

@@ -18,7 +18,7 @@ public class Tr extends Ty {
     public int T() {
         ImageView imageView;
         int width = super.T();
-        if (width > 0 || (imageView = (ImageView) this.f326T.get()) == null) {
+        if (width > 0 || (imageView = (ImageView) this.f329T.get()) == null) {
             return width;
         }
         return T((Object) imageView, "mMaxWidth");
@@ -27,14 +27,14 @@ public class Tr extends Ty {
     public int Tr() {
         ImageView imageView;
         int height = super.Tr();
-        if (height > 0 || (imageView = (ImageView) this.f326T.get()) == null) {
+        if (height > 0 || (imageView = (ImageView) this.f329T.get()) == null) {
             return height;
         }
         return T((Object) imageView, "mMaxHeight");
     }
 
     public TE Ty() {
-        ImageView imageView = (ImageView) this.f326T.get();
+        ImageView imageView = (ImageView) this.f329T.get();
         if (imageView != null) {
             return TE.T(imageView);
         }

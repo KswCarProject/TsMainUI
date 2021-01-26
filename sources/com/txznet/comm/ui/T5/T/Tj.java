@@ -1,7 +1,7 @@
 package com.txznet.comm.ui.T5.T;
 
+import com.android.SdkConstants;
 import com.txznet.comm.Ty.Tr;
-import com.txznet.sdk.tongting.IConstantData;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -10,7 +10,7 @@ import org.json.JSONException;
 public class Tj extends TM {
 
     /* renamed from: T  reason: collision with root package name */
-    public String f445T;
+    public String f449T;
     public int Tr;
     private ArrayList<T> Ty = new ArrayList<>();
 
@@ -18,7 +18,7 @@ public class Tj extends TM {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public String f446T;
+        public String f450T;
         public String Tr;
     }
 
@@ -32,8 +32,8 @@ public class Tj extends TM {
 
     public void T(Tr jsonBuilder) {
         this.Ty.clear();
-        this.f445T = (String) jsonBuilder.T(IConstantData.KEY_TITLE, String.class);
-        JSONArray jsonArray = (JSONArray) jsonBuilder.T(IConstantData.KEY_DATA, JSONArray.class);
+        this.f449T = (String) jsonBuilder.T("title", String.class);
+        JSONArray jsonArray = (JSONArray) jsonBuilder.T("data", JSONArray.class);
         if (jsonArray != null) {
             this.Tr = jsonArray.length();
             this.Ty = new ArrayList<>(this.Tr);
@@ -41,8 +41,8 @@ public class Tj extends TM {
                 try {
                     Tr jsonBean = new Tr(jsonArray.getJSONObject(i));
                     T mHelpTipBean = new T();
-                    mHelpTipBean.f446T = (String) jsonBean.T("resId", String.class);
-                    mHelpTipBean.Tr = (String) jsonBean.T("label", String.class);
+                    mHelpTipBean.f450T = (String) jsonBean.T("resId", String.class);
+                    mHelpTipBean.Tr = (String) jsonBean.T(SdkConstants.ATTR_LABEL, String.class);
                     this.Ty.add(mHelpTipBean);
                 } catch (JSONException e) {
                     e.printStackTrace();

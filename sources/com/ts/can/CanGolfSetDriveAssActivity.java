@@ -92,6 +92,7 @@ public class CanGolfSetDriveAssActivity extends CanGolfBaseActivity implements C
             }
             this.mItemAdaptiveLane.SetCheck(this.mAss1Data.fgLaneAssist);
             this.mItemDriverAlertSys.SetCheck(this.mAss1Data.fgDriverAlertSystem);
+            this.mItemMqjk.SetCheck(this.mAss1Data.BlindSpotMonitor);
         }
         if (!check || i2b(this.mAss2Data.Update)) {
             this.mAss2Data.Update = 0;
@@ -114,7 +115,6 @@ public class CanGolfSetDriveAssActivity extends CanGolfBaseActivity implements C
             this.mItemFADisplayWarn.SetCheck(this.mAss2Data.fgDisplayWarn);
             this.mItemDphjSystem.SetCheck(this.mAss2Data.DphjSyatem);
             this.mItemYjts.SetSel(this.mAss2Data.Yjts);
-            this.mItemMqjk.SetCheck(this.mAss2Data.Mqjk);
         }
     }
 
@@ -212,12 +212,14 @@ public class CanGolfSetDriveAssActivity extends CanGolfBaseActivity implements C
             case 14:
             case 15:
             case 16:
-            case 17:
-            case 18:
                 if (CanJni.GetCanFsTp() == 2) {
                     ret = 1;
                     break;
                 }
+                break;
+            case 17:
+            case 18:
+                ret = 1;
                 break;
         }
         return i2b(ret);
@@ -400,7 +402,7 @@ public class CanGolfSetDriveAssActivity extends CanGolfBaseActivity implements C
                 CanJni.GolfSendCmd(57, Neg(this.mAss2Data.DphjSyatem));
                 return;
             case 18:
-                CanJni.GolfSendCmd(61, Neg(this.mAss2Data.Mqjk));
+                CanJni.GolfSendCmd(57, Neg(this.mAss1Data.BlindSpotMonitor));
                 return;
             default:
                 return;

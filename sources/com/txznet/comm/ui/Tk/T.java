@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.drawable.Drawable;
+import com.android.SdkConstants;
 import com.ts.bt.ContactInfo;
 import com.txznet.comm.Tr.Tr.T9;
 import com.txznet.comm.Ty.Tn;
@@ -18,7 +19,7 @@ public class T {
     private static T Tr = new T();
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f543T = false;
+    public boolean f547T = false;
     private Tn.T T9 = new Tn.T() {
         public void T(int width, int height) {
             int width2 = Tn.T(width);
@@ -47,7 +48,7 @@ public class T {
         com.txznet.comm.Ty.T.Ty = com.txznet.comm.Tr.T.Tr().getApplicationInfo().dataDir + "/data/ResHolder.apk";
         this.Tn = listener;
         String strResourceFile = forceDefault ? com.txznet.comm.Ty.T.Ty : com.txznet.comm.Ty.T.T();
-        this.f543T = com.txznet.comm.Ty.T.Tr.equals(strResourceFile);
+        this.f547T = com.txznet.comm.Ty.T.Tr.equals(strResourceFile);
         T((Application) com.txznet.comm.Tr.T.Tr().getApplicationContext(), com.txznet.comm.Tr.T.Tr().getResources(), strResourceFile);
         if (this.TZ != null) {
             Tn.T(this.T9);
@@ -176,14 +177,14 @@ public class T {
 
     public float Tk(String name) {
         int id;
-        if (!Pattern.compile("^[x,y,m]\\d+$").matcher(name).matches() && (id = Tr(name, "dimen")) != 0) {
+        if (!Pattern.compile("^[x,y,m]\\d+$").matcher(name).matches() && (id = Tr(name, SdkConstants.TAG_DIMEN)) != 0) {
             try {
                 return this.TZ.getDimension(id);
             } catch (Resources.NotFoundException e) {
             }
         }
         try {
-            int id2 = com.txznet.comm.Tr.T.Tr().getResources().getIdentifier(name, "dimen", com.txznet.comm.Tr.T.Tr().getPackageName());
+            int id2 = com.txznet.comm.Tr.T.Tr().getResources().getIdentifier(name, SdkConstants.TAG_DIMEN, com.txznet.comm.Tr.T.Tr().getPackageName());
             if (id2 != 0) {
                 return com.txznet.comm.Tr.T.Tr().getResources().getDimension(id2);
             }
@@ -195,7 +196,7 @@ public class T {
     }
 
     public String TZ(String name) {
-        int id = Tr(name, "string");
+        int id = Tr(name, SdkConstants.TAG_STRING);
         if (id != 0) {
             try {
                 return this.TZ.getString(id);
@@ -203,7 +204,7 @@ public class T {
             }
         }
         try {
-            int id2 = com.txznet.comm.Tr.T.Tr().getResources().getIdentifier(name, "string", com.txznet.comm.Tr.T.Tr().getPackageName());
+            int id2 = com.txznet.comm.Tr.T.Tr().getResources().getIdentifier(name, SdkConstants.TAG_STRING, com.txznet.comm.Tr.T.Tr().getPackageName());
             if (id2 != 0) {
                 return com.txznet.comm.Tr.T.Tr().getResources().getString(id2);
             }

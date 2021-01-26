@@ -13,7 +13,7 @@ public final class Ty {
     /* access modifiers changed from: private */
 
     /* renamed from: T  reason: collision with root package name */
-    public final int f344T;
+    public final int f347T;
     /* access modifiers changed from: private */
     public final boolean T5;
     /* access modifiers changed from: private */
@@ -52,7 +52,7 @@ public final class Ty {
     public final int Ty;
 
     private Ty(T builder) {
-        this.f344T = builder.f345T;
+        this.f347T = builder.f348T;
         this.Tr = builder.Tr;
         this.Ty = builder.Ty;
         this.Tn = builder.Tn;
@@ -74,7 +74,7 @@ public final class Ty {
     }
 
     public boolean T() {
-        return (this.Tn == null && this.f344T == 0) ? false : true;
+        return (this.Tn == null && this.f347T == 0) ? false : true;
     }
 
     public boolean Tr() {
@@ -98,7 +98,7 @@ public final class Ty {
     }
 
     public Drawable T(Resources res) {
-        return this.f344T != 0 ? res.getDrawable(this.f344T) : this.Tn;
+        return this.f347T != 0 ? res.getDrawable(this.f347T) : this.Tn;
     }
 
     public Drawable Tr(Resources res) {
@@ -167,7 +167,7 @@ public final class Ty {
         /* access modifiers changed from: private */
 
         /* renamed from: T  reason: collision with root package name */
-        public int f345T = 0;
+        public int f348T = 0;
         /* access modifiers changed from: private */
         public boolean T5 = false;
         /* access modifiers changed from: private */
@@ -234,7 +234,7 @@ public final class Ty {
         }
 
         public T T(Ty options) {
-            this.f345T = options.f344T;
+            this.f348T = options.f347T;
             this.Tr = options.Tr;
             this.Ty = options.Ty;
             this.Tn = options.Tn;

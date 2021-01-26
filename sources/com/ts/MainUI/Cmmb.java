@@ -9,6 +9,7 @@ import com.yyw.ts70xhw.Mcu;
 public class Cmmb {
     static final int IR_CONTROL_MODE = 1;
     static final int IR_CONTROL_MODE1 = 2;
+    static final int IR_CONTROL_MODE3 = 8;
     static final int IR_CONTROL_MODE_KLD = 5;
     static final int IR_CONTROL_MODE_KLD2 = 7;
     static final int IR_CONTROL_XH = 3;
@@ -77,7 +78,7 @@ public class Cmmb {
         }
 
         public void PlayPrev() {
-            SendIrCode(0, 255, 14, 241);
+            SendIrCode(0, 255, 14, Can.CAN_SITECHDEV_CW);
         }
     }
 
@@ -200,7 +201,7 @@ public class Cmmb {
         }
 
         public void PlayNext() {
-            SendIrCode(0, 255, 14, 241);
+            SendIrCode(0, 255, 14, Can.CAN_SITECHDEV_CW);
         }
 
         public void PlayPrev() {
@@ -228,7 +229,7 @@ public class Cmmb {
         }
 
         public void CmmbDn() {
-            SendIrCode(128, 127, 15, 240);
+            SendIrCode(128, 127, 15, Can.CAN_VOLKS_XP);
         }
 
         public void CmmbLeft() {
@@ -276,7 +277,7 @@ public class Cmmb {
         }
 
         public void CmmbDn() {
-            SendIrCode(128, 127, 15, 240);
+            SendIrCode(128, 127, 15, Can.CAN_VOLKS_XP);
         }
 
         public void CmmbLeft() {
@@ -300,7 +301,24 @@ public class Cmmb {
         }
 
         public void PlayPrev() {
-            SendIrCode(128, 127, 15, 240);
+            SendIrCode(128, 127, 15, Can.CAN_VOLKS_XP);
+        }
+    }
+
+    class TsTouchYK3 extends Cmmb {
+        TsTouchYK3() {
+        }
+
+        public void SendTouch(int x, int y) {
+            SendIrCode(170, 85, x, y);
+        }
+
+        public void PlayNext() {
+            SendIrCode(0, 255, 64, 191);
+        }
+
+        public void PlayPrev() {
+            SendIrCode(0, 255, 25, Can.CAN_CC_HF_DJ);
         }
     }
 
@@ -336,6 +354,9 @@ public class Cmmb {
             case 7:
                 mCmmb = new TsControlkld2();
                 return;
+            case 8:
+                mCmmb = new TsTouchYK3();
+                return;
             case 99:
                 mCmmb = new TsTouchYK();
                 return;
@@ -352,21 +373,21 @@ public class Cmmb {
                 CmmbEnter();
                 return 1;
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
             case 516:
             case KeyDef.SKEY_SEEKUP_1 /*784*/:
             case KeyDef.SKEY_CHUP_1 /*794*/:
                 PlayNext();
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
             case 515:
             case KeyDef.SKEY_SEEKDN_1 /*789*/:
             case KeyDef.SKEY_CHDN_1 /*799*/:
                 PlayPrev();
                 return 1;
             case 66:
-            case KeyDef.RKEY_UP /*289*/:
+            case 289:
                 CmmbUp();
                 return 1;
             case 67:

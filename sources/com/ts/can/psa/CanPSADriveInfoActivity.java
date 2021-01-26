@@ -14,11 +14,13 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanNumInuptDlg;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
 import com.txznet.sdk.TXZPoiSearchManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanPSADriveInfoActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, CanItemProgressList.onPosChange, CanNumInuptDlg.onInputOK {
@@ -66,7 +68,7 @@ public class CanPSADriveInfoActivity extends CanBaseActivity implements UserCall
         this.mManager.AddImage(35, 17, R.drawable.can_psa_bg);
         this.mBtnLt[0] = AddBtn(0, 66, 41, R.drawable.can_psa_car_up, R.drawable.can_psa_car_dn);
         this.mBtnLt[1] = AddBtn(1, 66, Can.CAN_LEXUS_ZMYT, R.drawable.can_psa_01_up, R.drawable.can_psa_01_dn);
-        this.mBtnLt[2] = AddBtn(2, 66, 370, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
+        this.mBtnLt[2] = AddBtn(2, 66, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
         this.mBtnDelLog = this.mManager.AddButton(CanCameraUI.BTN_GEELY_YJX6_FXP, 408, Can.CAN_LEXUS_IZ, 77);
         SetCommBtn(this.mBtnDelLog, R.string.can_clear, 3, this);
         this.mIvIco0[0] = this.mManager.AddImage(354, 70, R.drawable.can_psa_icon_station);
@@ -148,7 +150,7 @@ public class CanPSADriveInfoActivity extends CanBaseActivity implements UserCall
             case 2:
                 return "MPG";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -309,7 +311,7 @@ public class CanPSADriveInfoActivity extends CanBaseActivity implements UserCall
         boolean z15 = true;
         if (this.mCurPage != page) {
             this.mCurPage = page;
-            Log.d(TAG, "ShowPage " + page);
+            Log.d("CanPSADriveInfoActivity", "ShowPage " + page);
             for (int i = 0; i < 3; i++) {
                 ParamButton paramButton = this.mBtnLt[i];
                 if (i == this.mCurPage) {
@@ -426,11 +428,11 @@ public class CanPSADriveInfoActivity extends CanBaseActivity implements UserCall
     public static void DealPage() {
         if (mThis == null) {
             CanFunc.showCanActivity(CanPSADriveInfoActivity.class);
-            Log.d(TAG, "Show CanPSADriveInfoActivity");
+            Log.d("CanPSADriveInfoActivity", "Show CanPSADriveInfoActivity");
             return;
         }
         mThis.PageInc();
-        Log.d(TAG, "PageInc");
+        Log.d("CanPSADriveInfoActivity", "PageInc");
     }
 
     public void onOK(String val, int num, int id) {

@@ -144,7 +144,7 @@ public class CanMainActivity extends CanBaseActivity {
             case 1:
             case 103:
             case 111:
-            case 240:
+            case Can.CAN_VOLKS_XP:
                 enterSubWin(CanVwCarInfoActivity.class);
                 break;
             case 3:
@@ -402,6 +402,7 @@ public class CanMainActivity extends CanBaseActivity {
                 enterSubWin(CanPSARzcCarInfoActivity.class);
                 break;
             case 129:
+            case 310:
                 enterSubWin(CanTouaregCarInfoActivity.class);
                 break;
             case 130:

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="set_main_options">
+        <item>Geral</item>
+        <item>Tela</item>
+        <item>Volumes</item>
+        <item>Som</item>
+        <item>Vídeo</item>
+        <item>GPS</item>
+        <item>Bluetooth</item>
+        <item>Comando de Volante</item>
+        <item>Sobre</item>
+    </array>
+    <array name="set_genera_options">
+        <item>Modo de suspensão</item>
+        <item>Speech setting</item>
+        <item>Touch Assistivo</item>
+        <item>Volume durante a Ré</item>
+        <item>Logo</item>
+        <item>Virtual CD Storage Device</item>
+        <item>Resetar Todas Configs</item>
+        <item>Apagar Todo Conteúdo</item>
+    </array>
+    <array name="set_display_options">
+        <item>Iluminação Diurna</item>
+        <item>Iluminação Noturna</item>
+        <item>Modo Automático</item>
+        <item>Cor da Ilumin. Dos Botões</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Volume de Mídia</item>
+        <item>Volume do GPS</item>
+        <item>Volume do BT</item>
+        <item>Volume do Toque</item>
+        <item>Volume do Alarme</item>
+        <item>Volume do Sistema</item>
+    </array>
+    <array name="set_video_options">
+        <item>Desabilitar Vídeo em Movimento</item>
+        <item>Linha Guia da Câmera</item>
+        <item>Aviso</item>
+        <item>Mirror Rear Camera</item>
+        <item>Ar Condicionado</item>
+        <item>Após a saída da tela</item>
+        <item>Câmera frontal</item>
+        <item>Tipo de câmera</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Iniciar Automaticamente</item>
+        <item>APP padrão de GPS</item>
+        <item>Volume do GPS</item>
+    </array>
+    <array name="set_bt_options">
+        <item>Acompanha o código</item>
+        <item>Conexão Automática</item>
+        <item>Atendimento Automático</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Ganho</item>
+        <item>Baixa frequência</item>
+        <item>Harmônico</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Baixa frequência</item>
+        <item>Ganho</item>
+        <item>Alta frequência</item>
+        <item>Ganho</item>
+    </array>
+</resources>

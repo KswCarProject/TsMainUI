@@ -15,13 +15,13 @@ import java.util.Map;
 public class T extends BaseAdapter {
 
     /* renamed from: T  reason: collision with root package name */
-    List<View> f421T = new ArrayList();
+    List<View> f425T = new ArrayList();
     private View Tn;
     private Animation Tr = Ty.Tr();
     private Map<Integer, Boolean> Ty = new HashMap();
 
     public int getCount() {
-        return this.f421T.size();
+        return this.f425T.size();
     }
 
     public Object getItem(int position) {
@@ -33,7 +33,7 @@ public class T extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = this.f421T.get(position);
+        View view = this.f425T.get(position);
         boolean animation = com.txznet.comm.ui.TE.T.Tr(true);
         boolean animationFirst = com.txznet.comm.ui.TE.T.Ty(true);
         if (position == 0) {
@@ -51,12 +51,12 @@ public class T extends BaseAdapter {
     }
 
     public void T(View view) {
-        this.f421T.add(view);
+        this.f425T.add(view);
         notifyDataSetChanged();
     }
 
     public void T() {
-        this.f421T = new ArrayList();
+        this.f425T = new ArrayList();
         notifyDataSetChanged();
         this.Ty.clear();
     }
@@ -65,15 +65,15 @@ public class T extends BaseAdapter {
         if (this.Tn != null) {
             this.Tn.getAnimation().cancel();
         }
-        if ((this.Ty.get(Integer.valueOf(position)) == null || this.Ty.get(Integer.valueOf(position)).booleanValue()) && position == this.f421T.size() - 1) {
+        if ((this.Ty.get(Integer.valueOf(position)) == null || this.Ty.get(Integer.valueOf(position)).booleanValue()) && position == this.f425T.size() - 1) {
             convertView.startAnimation(this.Tr);
             this.Ty.put(Integer.valueOf(position), false);
         }
     }
 
     public void Tr() {
-        if (this.f421T.size() > 0) {
-            this.f421T.remove(this.f421T.size() - 1);
+        if (this.f425T.size() > 0) {
+            this.f425T.remove(this.f425T.size() - 1);
             notifyDataSetChanged();
         }
     }

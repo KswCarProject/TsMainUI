@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class SimpleCursorAdapter extends ResourceCursorAdapter {
     private CursorToStringConverter mCursorToStringConverter;
@@ -55,7 +56,7 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
                 } else {
                     String text = cursor.getString(from[i]);
                     if (text == null) {
-                        text = "";
+                        text = TXZResourceManager.STYLE_DEFAULT;
                     }
                     if (v instanceof TextView) {
                         setViewText((TextView) v, text);

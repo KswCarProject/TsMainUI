@@ -63,15 +63,15 @@ public class CanMzdWcClockSetView extends CanRelativeCarInfoView {
         int subType = CanJni.GetSubType();
         if (subType == 4 || subType == 5 || subType == 10) {
             AddBtn(3, 221, 185, R.drawable.can_mzd_clock_up, R.drawable.can_mzd_clock_dn);
-            AddTextBtn(4, CanCameraUI.BTN_LANDWIND_2D_FRONT, 240, "Set");
+            AddTextBtn(4, CanCameraUI.BTN_LANDWIND_2D_FRONT, Can.CAN_VOLKS_XP, "Set");
         } else if (subType == 3) {
-            AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, 240, "Hour");
-            AddTextBtn(4, 441, 240, "Set");
-            AddTextBtn(2, CanCameraUI.BTN_LANDWIND_2D_FRONT, 240, "Min");
+            AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, Can.CAN_VOLKS_XP, "Hour");
+            AddTextBtn(4, 441, Can.CAN_VOLKS_XP, "Set");
+            AddTextBtn(2, CanCameraUI.BTN_LANDWIND_2D_FRONT, Can.CAN_VOLKS_XP, "Min");
         } else if (subType == 7 || subType == 13) {
-            AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, 240, "Hour");
-            AddTextBtn(5, 441, 240, ": 00");
-            AddTextBtn(2, CanCameraUI.BTN_LANDWIND_2D_FRONT, 240, "Min");
+            AddTextBtn(1, Can.CAN_NISSAN_RICH6_WC, Can.CAN_VOLKS_XP, "Hour");
+            AddTextBtn(5, 441, Can.CAN_VOLKS_XP, ": 00");
+            AddTextBtn(2, CanCameraUI.BTN_LANDWIND_2D_FRONT, Can.CAN_VOLKS_XP, "Min");
         }
     }
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/rv_dsp_subwoofer_layout" android:background="@drawable/dsp_eq_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="30px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:layout_width="284px" android:layout_height="46px" android:layout_marginLeft="663px" android:layout_marginTop="168px" android:text="@string/str_dsp_subwoofer" android:singleLine="true"/>
+    <com.ts.set.dsp.Switch android:id="@+id/switch_dsp_subwoofer_virtual_bass" android:layout_width="98px" android:layout_height="46px" android:layout_marginLeft="756px" android:layout_marginTop="258px"/>
+    <Button android:id="@+id/btn_dsp_virtual_bass_reset" android:background="@drawable/btn_dsp_bal_reset" android:layout_width="129px" android:layout_height="56px" android:layout_marginLeft="741px" android:layout_marginTop="379px"/>
+    <include layout="@layout/dsp_main_layout"/>
+</RelativeLayout>

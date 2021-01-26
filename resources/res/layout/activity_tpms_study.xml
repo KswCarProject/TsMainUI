@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/tpms_study_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tpms_study_line" android:layout_centerInParent="true"/>
+    <ImageView android:id="@+id/iv_car" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tpms_study_car" android:layout_centerInParent="true"/>
+    <Button android:id="@+id/btn_lf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30px" android:layout_marginRight="50px" android:layout_toLeftOf="@+id/iv_car" android:layout_alignTop="@+id/iv_car"/>
+    <Button android:id="@+id/btn_rf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="50px" android:layout_marginTop="30px" android:layout_toRightOf="@+id/iv_car" android:layout_alignTop="@+id/iv_car"/>
+    <Button android:id="@+id/btn_lr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="50px" android:layout_marginBottom="30px" android:layout_toLeftOf="@+id/iv_car" android:layout_alignBottom="@+id/iv_car"/>
+    <Button android:id="@+id/btn_rr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="50px" android:layout_marginBottom="30px" android:layout_toRightOf="@+id/iv_car" android:layout_alignBottom="@+id/iv_car"/>
+    <Button android:id="@+id/btn_study" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20px" android:layout_below="@+id/iv_car" android:layout_centerHorizontal="true"/>
+</RelativeLayout>

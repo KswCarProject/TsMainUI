@@ -4,7 +4,7 @@ package com.T.T.Tr;
 public class Th {
 
     /* renamed from: T  reason: collision with root package name */
-    private final T[] f178T;
+    private final T[] f181T;
     private int T9;
     private final int Tn;
     private final String[] Tr;
@@ -19,7 +19,7 @@ public class Th {
     public Th(int tableSize) {
         this.T9 = 0;
         this.Tn = tableSize - 1;
-        this.f178T = new T[tableSize];
+        this.f181T = new T[tableSize];
         this.Tr = new String[tableSize];
         this.Ty = new char[tableSize][];
     }
@@ -50,7 +50,7 @@ public class Th {
             }
         }
         int entryIndex = 0;
-        for (T entry = this.f178T[bucket]; entry != null; entry = entry.T9) {
+        for (T entry = this.f181T[bucket]; entry != null; entry = entry.T9) {
             char[] characters2 = entry.Ty;
             if (len == characters2.length && hash == entry.Tr) {
                 boolean eq = true;
@@ -66,7 +66,7 @@ public class Th {
                     }
                 }
                 if (eq) {
-                    return entry.f179T;
+                    return entry.f182T;
                 }
                 entryIndex++;
             }
@@ -77,14 +77,14 @@ public class Th {
         if (this.T9 >= 1024) {
             return new String(buffer, offset, len);
         }
-        T entry2 = new T(buffer, offset, len, hash, this.f178T[bucket]);
-        this.f178T[bucket] = entry2;
+        T entry2 = new T(buffer, offset, len, hash, this.f181T[bucket]);
+        this.f181T[bucket] = entry2;
         if (match) {
-            this.Tr[bucket] = entry2.f179T;
+            this.Tr[bucket] = entry2.f182T;
             this.Ty[bucket] = entry2.Ty;
         }
         this.T9++;
-        return entry2.f179T;
+        return entry2.f182T;
     }
 
     public String T(String buffer, int offset, int len, int hash) {
@@ -113,7 +113,7 @@ public class Th {
             }
         }
         int entryIndex = 0;
-        for (T entry = this.f178T[bucket]; entry != null; entry = entry.T9) {
+        for (T entry = this.f181T[bucket]; entry != null; entry = entry.T9) {
             char[] characters2 = entry.Ty;
             if (len == characters2.length && hash == entry.Tr) {
                 boolean eq = true;
@@ -129,7 +129,7 @@ public class Th {
                     }
                 }
                 if (eq) {
-                    return entry.f179T;
+                    return entry.f182T;
                 }
                 entryIndex++;
             }
@@ -139,14 +139,14 @@ public class Th {
         } else if (this.T9 >= 1024) {
             return buffer.substring(offset, offset + len);
         } else {
-            T entry2 = new T(buffer, offset, len, hash, this.f178T[bucket]);
-            this.f178T[bucket] = entry2;
+            T entry2 = new T(buffer, offset, len, hash, this.f181T[bucket]);
+            this.f181T[bucket] = entry2;
             if (match) {
-                this.Tr[bucket] = entry2.f179T;
+                this.Tr[bucket] = entry2.f182T;
                 this.Ty[bucket] = entry2.Ty;
             }
             this.T9++;
-            return entry2.f179T;
+            return entry2.f182T;
         }
     }
 
@@ -154,7 +154,7 @@ public class Th {
     protected static final class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public final String f179T;
+        public final String f182T;
         public T T9;
         public final byte[] Tn;
         public final int Tr;
@@ -163,15 +163,15 @@ public class Th {
         public T(char[] ch, int offset, int length, int hash, T next) {
             this.Ty = new char[length];
             System.arraycopy(ch, offset, this.Ty, 0, length);
-            this.f179T = new String(this.Ty).intern();
+            this.f182T = new String(this.Ty).intern();
             this.T9 = next;
             this.Tr = hash;
             this.Tn = null;
         }
 
         public T(String text, int offset, int length, int hash, T next) {
-            this.f179T = text.substring(offset, offset + length).intern();
-            this.Ty = this.f179T.toCharArray();
+            this.f182T = text.substring(offset, offset + length).intern();
+            this.Ty = this.f182T.toCharArray();
             this.T9 = next;
             this.Tr = hash;
             this.Tn = null;

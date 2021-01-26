@@ -13,7 +13,7 @@ import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
-import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanXbsygSetAmpActivity extends CanXbsygBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
     private static final int ITEM_BAL_FRONT_REAR = 4;
@@ -39,7 +39,7 @@ public class CanXbsygSetAmpActivity extends CanXbsygBaseActivity implements View
     private CanItemProgressList mItemVolMiddle;
     protected CanItemPopupList mItemZsycstj;
     private CanScrollList mManager;
-    private String[] mZsycstjArr = {"", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX};
+    private String[] mZsycstjArr = {TXZResourceManager.STYLE_DEFAULT, "1", "2", "3"};
     private boolean mbLayout;
 
     /* access modifiers changed from: protected */

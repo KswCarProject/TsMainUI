@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/dsp_eq_bg" android:layout_width="match_parent" android:layout_height="match_parent">
+    <Button android:id="@+id/btn_dsp_bal_upward" android:background="@drawable/btn_dsp_bal_upward" android:layout_width="66px" android:layout_height="66px" android:layout_marginLeft="357px" android:layout_marginTop="122px"/>
+    <Button android:id="@+id/btn_dsp_bal_down" android:background="@drawable/btn_dsp_bal_down" android:layout_width="66px" android:layout_height="66px" android:layout_marginLeft="357px" android:layout_marginTop="441px"/>
+    <Button android:id="@+id/btn_dsp_bal_left" android:background="@drawable/btn_dsp_bal_left" android:layout_width="66px" android:layout_height="66px" android:layout_marginLeft="180px" android:layout_marginTop="282px"/>
+    <Button android:id="@+id/btn_dsp_bal_right" android:background="@drawable/btn_dsp_bal_right" android:layout_width="66px" android:layout_height="66px" android:layout_marginLeft="534px" android:layout_marginTop="282px"/>
+    <Button android:id="@+id/btn_dsp_bal_reset" android:background="@drawable/btn_dsp_bal_reset" android:layout_width="129px" android:layout_height="56px" android:layout_marginLeft="741px" android:layout_marginTop="398px"/>
+    <ImageView android:background="@drawable/dsp_bal_horn" android:layout_width="403px" android:layout_height="332px" android:layout_marginLeft="188px" android:layout_marginTop="148px"/>
+    <com.ts.set.dsp.SetDspBalanceView android:id="@+id/iv_dsp_bal_seat" android:background="@drawable/dsp_bal_seat" android:layout_width="219px" android:layout_height="253px" android:layout_marginLeft="280px" android:layout_marginTop="188px"/>
+    <ImageView android:background="@drawable/iv_dsp_balance_dot" android:visibility="gone" android:layout_width="29px" android:layout_height="29px" android:layout_marginLeft="624px" android:layout_marginTop="370px"/>
+    <com.ts.set.dsp.Switch android:id="@+id/sw_dsp_bal_examp" android:layout_width="98px" android:layout_height="46px" android:layout_marginLeft="756px" android:layout_marginTop="277px"/>
+    <TextView android:textSize="28px" android:textColor="@android:color/white" android:gravity="center" android:id="@+id/tv_dsp_bal_examp" android:layout_width="226px" android:layout_height="46px" android:layout_marginLeft="692px" android:layout_marginTop="188px" android:text="@string/set_balance_examp"/>
+    <include layout="@layout/dsp_main_layout"/>
+</RelativeLayout>

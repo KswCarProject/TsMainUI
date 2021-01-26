@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import com.ts.MainUI.R;
+import com.ts.main.common.MainSet;
 import com.ts.main.common.WinShow;
 import com.ts.set.setview.SetItemProgressList;
 import com.ts.set.setview.SetMainItemNoIcon;
@@ -48,25 +49,25 @@ public class SettingGpsActivity extends Activity implements CompoundButton.OnChe
                 SettingGpsActivity.this.finish();
             }
         });
-        UISetSroView.AddView(this.topname.GetView(), 1280, 80);
+        UISetSroView.AddView(this.topname.GetView(), 1024, -2);
         this.setNaviOptions = getResources().getStringArray(R.array.set_navi_options);
         for (int setOpt = 0; setOpt < 3; setOpt++) {
             switch (setOpt) {
                 case 0:
                     this.AudoNavi = new SetMainItemSw(this, this.setNaviOptions[setOpt]);
                     this.AudoNavi.SetUserCallback(setOpt, this);
-                    UISetSroView.AddView(this.AudoNavi.GetView(), 1280, 87);
+                    MainSet.GetInstance().IsTwcjw();
                     break;
                 case 1:
                     this.NaviPathChoose = new SetMainItemNoIcon(this, this.setNaviOptions[setOpt]);
                     this.NaviPathChoose.SetUserCallback(setOpt, this);
-                    UISetSroView.AddView(this.NaviPathChoose.GetView(), 1280, 87);
+                    UISetSroView.AddView(this.NaviPathChoose.GetView());
                     break;
                 case 2:
                     this.NaviMix = new SetItemProgressList((Context) this, this.setNaviOptions[2]);
                     this.NaviMix.SetMinMax(0, 100);
                     this.NaviMix.SetIdCallBack(setOpt, this);
-                    UISetSroView.AddView(this.NaviMix.GetView(), 1280, 87);
+                    UISetSroView.AddView(this.NaviMix.GetView());
                     break;
             }
         }

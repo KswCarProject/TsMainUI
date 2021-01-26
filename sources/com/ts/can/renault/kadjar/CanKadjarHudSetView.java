@@ -2,7 +2,6 @@ package com.ts.can.renault.kadjar;
 
 import android.app.Activity;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -43,7 +42,7 @@ public class CanKadjarHudSetView extends CanScrollCarInfoView {
     public void onClick(View v) {
         switch (((Integer) v.getTag()).intValue()) {
             case 0:
-                CanJni.KadjarCarSet(Can.CAN_CHANA_CS75_WC, Neg(this.mCarSet.HudSw));
+                CanJni.KadjarCarSet(160, Neg(this.mCarSet.HudSw));
                 return;
             case 1:
                 CanJni.KadjarCarSet(161, Neg(this.mCarSet.HudZdldtj));
@@ -91,7 +90,7 @@ public class CanKadjarHudSetView extends CanScrollCarInfoView {
     }
 
     public void QueryData() {
-        CanJni.KadjarCarSet(114, Can.CAN_CHANA_CS75_WC);
+        CanJni.KadjarCarSet(114, 160);
         Sleep(5);
         CanJni.KadjarCarSet(114, 161);
         Sleep(5);

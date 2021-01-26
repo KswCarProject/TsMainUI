@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.internal.view.SupportMenu;
 import android.util.Log;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
@@ -16,6 +17,7 @@ import com.ts.can.CanFunc;
 import com.ts.canview.CanItemProgressList;
 import com.ts.other.CustomTextView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanGqcqLinkSosActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener, CanItemProgressList.onPosChange {
@@ -31,7 +33,7 @@ public class CanGqcqLinkSosActivity extends CanBaseActivity implements UserCallB
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
-        this.mTxtCenter = this.mManager.AddCusText(KeyDef.RKEY_MEDIA_OSD, 240, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 80);
+        this.mTxtCenter = this.mManager.AddCusText(KeyDef.RKEY_MEDIA_OSD, Can.CAN_VOLKS_XP, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 80);
         this.mTxtCenter.setGravity(17);
         this.mTxtCenter.setPadding(0, 0, 0, 0);
         this.mTxtCenter.SetPixelSize(75);
@@ -66,7 +68,7 @@ public class CanGqcqLinkSosActivity extends CanBaseActivity implements UserCallB
                     this.mTxtCenter.setTextColor(SupportMenu.CATEGORY_MASK);
                     break;
                 default:
-                    this.mTxtCenter.setText("");
+                    this.mTxtCenter.setText(TXZResourceManager.STYLE_DEFAULT);
                     break;
             }
             if (mLinkSos.Sta <= 0) {

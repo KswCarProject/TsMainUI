@@ -3,7 +3,9 @@ package com.ts.can.ford;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ public class CanFordACActivity extends CanBaseActivity implements UserCallBack {
     private static final int AC_SHOW_TIME = 3000;
     public static final boolean DEBUG = false;
     public static final String TAG = "CanFordACActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private CanDataInfo.CAN_ACInfo mACInfo;
     private ImageView mAc;
     private ImageView mAcMax;
@@ -61,11 +64,22 @@ public class CanFordACActivity extends CanBaseActivity implements UserCallBack {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_ford_ac);
+        this.mManger = new RelativeLayoutManager(this, R.id.can_layout_ford_ac);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
         if (MainSet.GetScreenType() == 3) {
             initScreen_768x1024();
-        } else {
-            initCommonScreen();
+            return;
         }
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManger.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManger.GetLayout().setLayoutParams(lp);
+        initCommonScreen();
+        this.mManger.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManger.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     private void initScreen_768x1024() {
@@ -107,7 +121,6 @@ public class CanFordACActivity extends CanBaseActivity implements UserCallBack {
             setIvStateDrawable(this.mLtHot[i], R.drawable.conditioning_rect_up, R.drawable.conditioning_rect_dn);
             setIvStateDrawable(this.mRtHot[i], R.drawable.conditioning_rect_up, R.drawable.conditioning_rect_dn);
         }
-        this.mManger = new RelativeLayoutManager(this, R.id.can_layout_ford_ac);
         this.mForePWR = this.mManger.AddImage(534, 3, 70, 53);
         this.mForePWR.setStateDrawable(R.drawable.can_rj_gj_up, R.drawable.can_rj_gj_dn);
         this.mRearPWR = this.mManger.AddImage(272, 367, 70, 53);
@@ -161,7 +174,6 @@ public class CanFordACActivity extends CanBaseActivity implements UserCallBack {
             setIvStateDrawable(this.mLtHot[i], R.drawable.conditioning_rect_up, R.drawable.conditioning_rect_dn);
             setIvStateDrawable(this.mRtHot[i], R.drawable.conditioning_rect_up, R.drawable.conditioning_rect_dn);
         }
-        this.mManger = new RelativeLayoutManager(this, R.id.can_layout_ford_ac);
         this.mForePWR = this.mManger.AddImage(715, (int) getResources().getDimension(R.dimen.y_ford_ac_flg));
         this.mForePWR.setStateDrawable(R.drawable.can_rj_gj_up, R.drawable.can_rj_gj_dn);
         this.mRearPWR = this.mManger.AddImage(362, 458);

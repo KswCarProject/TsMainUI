@@ -8,7 +8,7 @@ import com.Tr.Tr.Tk.T.Ty;
 public final class Tk {
 
     /* renamed from: T  reason: collision with root package name */
-    private Tr f266T;
+    private Tr f269T;
     private Tr T9;
     private int Tn = -1;
     private T Tr;
@@ -22,7 +22,7 @@ public final class Tk {
         StringBuilder result = new StringBuilder(200);
         result.append("<<\n");
         result.append(" mode: ");
-        result.append(this.f266T);
+        result.append(this.f269T);
         result.append("\n ecLevel: ");
         result.append(this.Tr);
         result.append("\n version: ");
@@ -40,7 +40,7 @@ public final class Tk {
     }
 
     public void T(Tr value) {
-        this.f266T = value;
+        this.f269T = value;
     }
 
     public void T(T value) {

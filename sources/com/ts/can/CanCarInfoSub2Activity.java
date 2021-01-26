@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.lgb.canmodule.CanJni;
 import com.ts.can.bmw.lz.bmw2.CanBMW2LzCarcomputerView;
+import com.ts.can.ford.rzc.CanFordRzcCDListView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcAirSetView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcDoorView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcKeylessOperSystemView;
@@ -12,6 +13,7 @@ import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcOtherSetView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcTouchControllerView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcTumSignalView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcWipersView;
+import com.ts.can.mzd.cx4.bnr.CanMzdCx4BnrCarAmpView;
 import com.ts.can.mzd.cx4.bnr.CanMzdCx4BnrCarDoorView;
 import com.ts.can.mzd.cx4.bnr.CanMzdCx4BnrCarLightView;
 import com.ts.can.mzd.cx4.bnr.CanMzdCx4BnrCarTurnView;
@@ -31,6 +33,7 @@ import com.ts.can.vw.rzc.golf.CanGolfRzcChairSetView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcDriveAssSetView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcESCSetView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcEleSetView;
+import com.ts.can.vw.rzc.golf.CanGolfRzcElecEcoProfileSetView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcLightSetView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcMFDSetView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcMWSetView;
@@ -121,9 +124,18 @@ public class CanCarInfoSub2Activity extends CanBaseCarInfoActivity {
                 } else if (id == -4) {
                     this.mBaseView = new CanGolfRzcStartStopView(this);
                     return;
+                } else if (id == -5) {
+                    this.mBaseView = new CanGolfRzcElecEcoProfileSetView(this);
+                    return;
                 } else {
                     return;
                 }
+            case 146:
+                if (id == -1) {
+                    this.mBaseView = new CanFordRzcCDListView(this);
+                    return;
+                }
+                return;
             case 256:
                 if (id == 0) {
                     this.mBaseView = new CanMzdCx4BnrCarDoorView(this);
@@ -142,6 +154,9 @@ public class CanCarInfoSub2Activity extends CanBaseCarInfoActivity {
                     return;
                 } else if (id == 5) {
                     this.mBaseView = new CanMzdCx4BnrOtherSetupView(this);
+                    return;
+                } else if (id == 6) {
+                    this.mBaseView = new CanMzdCx4BnrCarAmpView(this);
                     return;
                 } else {
                     return;

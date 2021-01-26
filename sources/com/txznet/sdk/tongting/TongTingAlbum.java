@@ -2,6 +2,7 @@ package com.txznet.sdk.tongting;
 
 import android.support.annotation.NonNull;
 import com.txznet.comm.Ty.Tr;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -11,7 +12,7 @@ import org.json.JSONException;
 public class TongTingAlbum {
 
     /* renamed from: T  reason: collision with root package name */
-    private long f883T;
+    private long f887T;
     private String T9;
     private int TZ;
     private long Tk;
@@ -20,11 +21,11 @@ public class TongTingAlbum {
     private String Ty;
 
     public long getId() {
-        return this.f883T;
+        return this.f887T;
     }
 
     public void setId(long id) {
-        this.f883T = id;
+        this.f887T = id;
     }
 
     public int getSid() {
@@ -76,7 +77,7 @@ public class TongTingAlbum {
     }
 
     public TongTingAlbum(long id, int sid, String name, String logo, String desc, long categoryId, int flag) {
-        this.f883T = id;
+        this.f887T = id;
         this.Tr = sid;
         this.Ty = name;
         this.Tn = logo;
@@ -90,7 +91,7 @@ public class TongTingAlbum {
         List<TongTingAlbum> list = new ArrayList<>();
         for (int i = 0; i < jsonArray.length(); i++) {
             Tr jsonBuilder1 = new Tr(jsonArray.getString(i));
-            list.add(new TongTingAlbum(((Long) jsonBuilder1.T(IConstantData.KEY_ID, Long.class, 0L)).longValue(), ((Integer) jsonBuilder1.T(IConstantData.KEY_SID, Integer.class, 0)).intValue(), (String) jsonBuilder1.T(IConstantData.KEY_NAME, String.class, ""), (String) jsonBuilder1.T(IConstantData.KEY_LOGO, String.class, ""), (String) jsonBuilder1.T(IConstantData.KEY_DESC, String.class, ""), ((Long) jsonBuilder1.T(IConstantData.KEY_CATEGORYID, Long.class, 0L)).longValue(), ((Integer) jsonBuilder1.T(IConstantData.KEY_ISSUBSCRIBE, Integer.class, 0)).intValue()));
+            list.add(new TongTingAlbum(((Long) jsonBuilder1.T("id", Long.class, 0L)).longValue(), ((Integer) jsonBuilder1.T(IConstantData.KEY_SID, Integer.class, 0)).intValue(), (String) jsonBuilder1.T("name", String.class, TXZResourceManager.STYLE_DEFAULT), (String) jsonBuilder1.T(IConstantData.KEY_LOGO, String.class, TXZResourceManager.STYLE_DEFAULT), (String) jsonBuilder1.T(IConstantData.KEY_DESC, String.class, TXZResourceManager.STYLE_DEFAULT), ((Long) jsonBuilder1.T(IConstantData.KEY_CATEGORYID, Long.class, 0L)).longValue(), ((Integer) jsonBuilder1.T(IConstantData.KEY_ISSUBSCRIBE, Integer.class, 0)).intValue()));
         }
         return list;
     }

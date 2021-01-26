@@ -4,13 +4,13 @@ package com.Tr.Tr.T9.T;
 public final class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    private final int f255T;
+    private final int f258T;
     private final int Tn;
     private final int Tr;
     private final int Ty;
 
     public int T() {
-        return this.f255T;
+        return this.f258T;
     }
 
     public int Tr() {

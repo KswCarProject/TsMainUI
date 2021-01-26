@@ -21,7 +21,7 @@ import com.txznet.comm.ui.IKeepClass;
 public class RoundImageView extends ImageView implements IKeepClass {
 
     /* renamed from: T  reason: collision with root package name */
-    private int f658T;
+    private int f662T;
     private Matrix T9;
     private RectF TE;
     private int TZ;
@@ -36,18 +36,18 @@ public class RoundImageView extends ImageView implements IKeepClass {
 
     public RoundImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.f658T = 1;
+        this.f662T = 1;
         this.T9 = new Matrix();
         this.Ty = new Paint();
         this.Ty.setAntiAlias(true);
         this.Tr = (int) TypedValue.applyDimension(1, 10.0f, getResources().getDisplayMetrics());
-        this.f658T = 1;
+        this.f662T = 1;
     }
 
     /* access modifiers changed from: protected */
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (this.f658T == 0) {
+        if (this.f662T == 0) {
             this.TZ = Math.min(getMeasuredWidth(), getMeasuredHeight());
             this.Tn = this.TZ / 2;
             setMeasuredDimension(this.TZ, this.TZ);
@@ -63,9 +63,9 @@ public class RoundImageView extends ImageView implements IKeepClass {
             Bitmap bmp = T(drawable);
             this.Tk = new BitmapShader(bmp, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
             float scale = 1.0f;
-            if (this.f658T == 0) {
+            if (this.f662T == 0) {
                 scale = (((float) this.TZ) * 1.0f) / ((float) Math.min(bmp.getWidth(), bmp.getHeight()));
-            } else if (this.f658T == 1) {
+            } else if (this.f662T == 1) {
                 scale = Math.max((((float) getWidth()) * 1.0f) / ((float) bmp.getWidth()), (((float) getHeight()) * 1.0f) / ((float) bmp.getHeight()));
             }
             this.T9.setScale(scale, scale);
@@ -91,7 +91,7 @@ public class RoundImageView extends ImageView implements IKeepClass {
     public void onDraw(Canvas canvas) {
         if (getDrawable() != null) {
             T();
-            if (this.f658T == 1) {
+            if (this.f662T == 1) {
                 canvas.drawRoundRect(this.TE, (float) this.Tr, (float) this.Tr, this.Ty);
             } else {
                 canvas.drawCircle((float) this.Tn, (float) this.Tn, (float) this.Tn, this.Ty);
@@ -102,7 +102,7 @@ public class RoundImageView extends ImageView implements IKeepClass {
     /* access modifiers changed from: protected */
     public void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        if (this.f658T == 1) {
+        if (this.f662T == 1) {
             this.TE = new RectF(0.0f, 0.0f, (float) getWidth(), (float) getHeight());
         }
     }
@@ -111,7 +111,7 @@ public class RoundImageView extends ImageView implements IKeepClass {
     public Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putParcelable("state_instance", super.onSaveInstanceState());
-        bundle.putInt("state_type", this.f658T);
+        bundle.putInt("state_type", this.f662T);
         bundle.putInt("state_border_radius", this.Tr);
         return bundle;
     }
@@ -121,7 +121,7 @@ public class RoundImageView extends ImageView implements IKeepClass {
         if (state instanceof Bundle) {
             Bundle bundle = (Bundle) state;
             super.onRestoreInstanceState(((Bundle) state).getParcelable("state_instance"));
-            this.f658T = bundle.getInt("state_type");
+            this.f662T = bundle.getInt("state_type");
             this.Tr = bundle.getInt("state_border_radius");
             return;
         }
@@ -137,10 +137,10 @@ public class RoundImageView extends ImageView implements IKeepClass {
     }
 
     public void setType(int type) {
-        if (this.f658T != type) {
-            this.f658T = type;
-            if (!(this.f658T == 1 || this.f658T == 0)) {
-                this.f658T = 0;
+        if (this.f662T != type) {
+            this.f662T = type;
+            if (!(this.f662T == 1 || this.f662T == 0)) {
+                this.f662T = 0;
             }
             requestLayout();
         }

@@ -11,9 +11,11 @@ public class IpodMainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MainSet.GetInstance().FtSetInint();
-        WinShow.show("com.ts.ipodplayer", "com.ts.ipodplayer.activity.IpodMainActivity");
+        WinShow.show("com.ts.ipodplayer", "com.autochips.ipodplayer.ipodclient.ipodview.IPodActivity");
         Evc.GetInstance().evol_workmode_set(10);
+        overridePendingTransition(0, 0);
         finish();
+        overridePendingTransition(0, 0);
     }
 
     /* access modifiers changed from: protected */

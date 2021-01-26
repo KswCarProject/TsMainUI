@@ -1,5 +1,6 @@
 package com.google.zxing.aztec.decoder;
 
+import com.android.SdkConstants;
 import com.google.zxing.FormatException;
 import com.google.zxing.aztec.AztecDetectorResult;
 import com.google.zxing.common.BitMatrix;
@@ -10,14 +11,15 @@ import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.ts.bt.ContactInfo;
 import com.ts.main.common.MainSet;
 import com.ts.main.common.ShellUtils;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.Arrays;
 import java.util.List;
 
 public final class Decoder {
-    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, MainSet.SP_TW_CJW, MainSet.SP_FLKJ, MainSet.SP_FXCARPLAY, ContactInfo.COMBINATION_SEPERATOR, ".", "CTRL_UL", "CTRL_US"};
-    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-    private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", ShellUtils.COMMAND_LINE_END, "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", "\\", "^", "_", "`", "|", "~", "", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
-    private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ContactInfo.COMBINATION_SEPERATOR, "-", ".", "/", ":", ";", "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};
+    private static final String[] DIGIT_TABLE = {"CTRL_PS", " ", "0", "1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, MainSet.SP_PCBA_VOL, "8", "9", ContactInfo.COMBINATION_SEPERATOR, ".", "CTRL_UL", "CTRL_US"};
+    private static final String[] LOWER_TABLE = {"CTRL_PS", " ", "a", "b", "c", SdkConstants.EXT_DEP, "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", ShellUtils.COMMAND_LINE_END, "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", SdkConstants.PREFIX_RESOURCE_REF, "\\", "^", "_", "`", "|", "~", "", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
+    private static final String[] PUNCT_TABLE = {TXZResourceManager.STYLE_DEFAULT, "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ContactInfo.COMBINATION_SEPERATOR, SdkConstants.RES_QUALIFIER_SEP, ".", "/", ":", ";", "<", "=", ">", SdkConstants.PREFIX_THEME_REF, "[", "]", "{", "}", "CTRL_UL"};
     private static final String[] UPPER_TABLE = {"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
     private AztecDetectorResult ddata;
 

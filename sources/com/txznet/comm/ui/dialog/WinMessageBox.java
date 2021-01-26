@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.txznet.comm.Tr.Tr.Tn;
 import com.txznet.comm.Ty.Tk;
 import com.txznet.comm.ui.Tr;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.TXZWheelControlManager;
 import com.txznet.txz.comm.R;
 
@@ -23,7 +24,7 @@ import com.txznet.txz.comm.R;
 public class WinMessageBox extends WinDialog implements View.OnClickListener {
 
     /* renamed from: T  reason: collision with root package name */
-    private static int f568T = 0;
+    private static int f572T = 0;
     public static int TB = 32;
     public static int TF = 36;
     public static int TK = 28;
@@ -70,7 +71,7 @@ public class WinMessageBox extends WinDialog implements View.OnClickListener {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public View f577T;
+        public View f581T;
         public Button T5;
         public ListView T9;
         public Button TE;
@@ -90,8 +91,8 @@ public class WinMessageBox extends WinDialog implements View.OnClickListener {
     }
 
     public static void setMessageDialogType(int type) {
-        f568T = type;
-        if (f568T == 1) {
+        f572T = type;
+        if (f572T == 1) {
             TF = 27;
             Tj = 22;
             TB = 24;
@@ -110,7 +111,7 @@ public class WinMessageBox extends WinDialog implements View.OnClickListener {
 
     public void setTextScroll(boolean scroll) {
         if (this.Tq != scroll) {
-            String curMsg = this.Tq ? this.Te.TZ.getText() + "" : this.Te.Tn.getText() + "";
+            String curMsg = this.Tq ? this.Te.TZ.getText() + TXZResourceManager.STYLE_DEFAULT : this.Te.Tn.getText() + TXZResourceManager.STYLE_DEFAULT;
             this.Tq = scroll;
             if (!TextUtils.isEmpty(curMsg)) {
                 setMessage(curMsg);
@@ -128,13 +129,13 @@ public class WinMessageBox extends WinDialog implements View.OnClickListener {
     /* access modifiers changed from: protected */
     public WinMessageBox setMessage(String s) {
         if (this.Tq) {
-            this.Te.Tn.setText("");
+            this.Te.Tn.setText(TXZResourceManager.STYLE_DEFAULT);
             this.Te.Tn.setVisibility(8);
             this.Te.Tk.setVisibility(0);
             this.Te.TZ.setVisibility(0);
             this.Te.TZ.setText(com.txznet.txz.util.Tr.T(s));
         } else {
-            this.Te.TZ.setText("");
+            this.Te.TZ.setText(TXZResourceManager.STYLE_DEFAULT);
             this.Te.TZ.setVisibility(8);
             this.Te.Tk.setVisibility(8);
             this.Te.Tn.setVisibility(0);
@@ -164,7 +165,7 @@ public class WinMessageBox extends WinDialog implements View.OnClickListener {
     /* access modifiers changed from: protected */
     public void T(Button bt, String s) {
         if (s == null || s.length() <= 0) {
-            bt.setText("");
+            bt.setText(TXZResourceManager.STYLE_DEFAULT);
             bt.setVisibility(8);
         } else {
             bt.setVisibility(0);
@@ -219,12 +220,12 @@ public class WinMessageBox extends WinDialog implements View.OnClickListener {
     /* access modifiers changed from: protected */
     public View T() {
         int layoutId = R.layout.comm_win_messagebox;
-        if (f568T == 1) {
+        if (f572T == 1) {
             layoutId = R.layout.comm_win_messagebox_small;
         }
         View context = LayoutInflater.from(getContext()).inflate(layoutId, (ViewGroup) null);
         this.Te = new T();
-        this.Te.f577T = context.findViewById(R.id.frmMessageBox_Blank);
+        this.Te.f581T = context.findViewById(R.id.frmMessageBox_Blank);
         this.Te.Tr = context.findViewById(R.id.llMessageBox_shadow);
         this.Te.Ty = (TextView) context.findViewById(R.id.txtMessageBox_Title);
         this.Te.Tn = (TextView) context.findViewById(R.id.txtMessageBox_Message);
@@ -278,7 +279,7 @@ public class WinMessageBox extends WinDialog implements View.OnClickListener {
                 boolean unused2 = WinMessageBox.this.Tr = false;
             }
         });
-        this.Te.f577T.setOnClickListener(this);
+        this.Te.f581T.setOnClickListener(this);
         this.Te.TE.setOnClickListener(this);
         this.Te.T5.setOnClickListener(this);
         this.Te.Tv.setOnClickListener(this);

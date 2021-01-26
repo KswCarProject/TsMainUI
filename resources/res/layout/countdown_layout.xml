@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/countdown_box" android:layout_width="524px" android:layout_height="260px">
+    <ImageView android:background="@drawable/countdown_contour_up" android:layout_width="95px" android:layout_height="95px" android:layout_marginLeft="215px" android:layout_marginTop="58px"/>
+    <com.ts.main.update.CompleteView android:id="@+id/completeview" android:layout_width="95px" android:layout_height="95px" android:layout_marginLeft="215px" android:layout_marginTop="58px"/>
+    <TextView android:textSize="30px" android:textColor="@android:color/black" android:gravity="center" android:id="@+id/tv_count" android:layout_width="73px" android:layout_height="39px" android:layout_marginLeft="226px" android:layout_marginTop="86px" android:text=""/>
+    <Button android:textSize="25px" android:textColor="@android:color/black" android:id="@+id/btn_cancel" android:background="@drawable/btn_countdown" android:layout_width="239px" android:layout_height="54px" android:layout_marginLeft="23px" android:layout_marginTop="186px" android:text="@string/countdown_cancel"/>
+    <Button android:textSize="25px" android:textColor="@android:color/black" android:id="@+id/btn_update" android:background="@drawable/btn_countdown" android:layout_width="239px" android:layout_height="54px" android:layout_marginLeft="263px" android:layout_marginTop="186px" android:text="@string/countdown_update"/>
+</RelativeLayout>

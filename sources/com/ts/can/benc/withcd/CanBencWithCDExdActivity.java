@@ -16,7 +16,6 @@ import com.ts.MainUI.TsDisplay;
 import com.ts.MainUI.UserCallBack;
 import com.ts.backcar.AutoFitTextureView;
 import com.ts.backcar.BackcarService;
-import com.ts.bt.BtExe;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanIF;
@@ -26,12 +25,15 @@ import com.ts.other.RelativeLayoutManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
+import com.yyw.ts70xhw.StSet;
 
 public class CanBencWithCDExdActivity extends CanBaseActivity implements UserCallBack, View.OnTouchListener, View.OnClickListener {
     public static final String TAG = "CanBencWithCDExdActivity";
     private static int mBencStartTick = 0;
+    public static int mBtCnt = 0;
     private static Context mContext;
     public static int mOldBtSta = 0;
+    public static int mOldClockTick = 0;
     public static int mOldMode = 0;
     public static boolean mfgAutoEnt = false;
     public static boolean mfgFinish = false;
@@ -205,18 +207,31 @@ public class CanBencWithCDExdActivity extends CanBaseActivity implements UserCal
     }
 
     public boolean onTouch(View arg0, MotionEvent event) {
-        if (event.getAction() == 0 || event.getAction() == 2) {
-            Log.d(TAG, "onTouch ACTION_DOWN event.getX() = " + 0);
-            Log.d(TAG, "onTouch ACTION_DOWN event.getY() = " + 0);
-            return false;
-        } else if (event.getAction() != 1) {
-            return false;
+        int x;
+        int y;
+        if (MainSet.GetScreenType() == 9) {
+            x = (int) ((event.getX() * 1280.0f) / 1920.0f);
+            y = (int) ((event.getY() * 480.0f) / 720.0f);
         } else {
-            Log.d(TAG, "onTouch ACTION_UP event.getX() = " + 0);
-            Log.d(TAG, "onTouch ACTION_UP event.getY() = " + 0);
-            Mcu.SetCkey(8);
-            return false;
+            x = (int) event.getX();
+            y = (int) event.getY();
         }
+        if (event.getAction() == 0 || event.getAction() == 2) {
+            Log.d(TAG, "onTouch ACTION_DOWN event.getX() = " + x);
+            Log.d(TAG, "onTouch ACTION_DOWN event.getY() = " + y);
+            if (CanJni.GetSubType() == 2) {
+                CanJni.BencZmytCameraTouchCmd(1, x, y);
+            }
+        } else if (event.getAction() == 1) {
+            Log.d(TAG, "onTouch ACTION_UP event.getX() = " + x);
+            Log.d(TAG, "onTouch ACTION_UP event.getY() = " + y);
+            if (CanJni.GetSubType() == 2) {
+                CanJni.BencZmytCameraTouchCmd(0, x, y);
+            } else {
+                Mcu.SetCkey(8);
+            }
+        }
+        return false;
     }
 
     public void onClick(View v) {
@@ -228,10 +243,18 @@ public class CanBencWithCDExdActivity extends CanBaseActivity implements UserCal
             Mcu.SendXKey(33);
         } else if (CanBencWithCDCarFuncActivity.RvsMode() == 2) {
             Mcu.SendXKey(35);
+        } else if (CanBencWithCDCarFuncActivity.RvsMode() == 3) {
+            Mcu.SendXKey(36);
         } else {
             Mcu.SendXKey(34);
         }
-        if ((FtSet.Getlgb2() & 15) == 1) {
+        if (CanFunc.getInstance().IsCore() == 1) {
+            if ((FtSet.Getlgb2() & 15) != 1 || CanBencWithCDCarFuncActivity.RvsMode() == 2) {
+                Mcu.SendXKey(40);
+            } else {
+                Mcu.SendXKey(41);
+            }
+        } else if ((FtSet.Getlgb2() & 15) == 1) {
             Mcu.SendXKey(41);
         } else {
             Mcu.SendXKey(40);
@@ -256,27 +279,65 @@ public class CanBencWithCDExdActivity extends CanBaseActivity implements UserCal
         CanBencWithCDCarFuncActivity.AmbientLightSet(255, 255, 255, 255);
     }
 
+    public static int nLightVal(int val) {
+        if (val == 0) {
+            return 0;
+        }
+        if (val == 1) {
+            return 55;
+        }
+        if (val == 2) {
+            return 95;
+        }
+        if (val == 3) {
+            return 135;
+        }
+        if (val == 4) {
+            return 175;
+        }
+        if (val == 5) {
+            return 215;
+        }
+        return 255;
+    }
+
     public static void DealDevEvent() {
-        BtExe bt = BtExe.getBtInstance();
-        if (mOldBtSta != bt.getSta() && FtSet.IsIconExist(1) == 0) {
-            mOldBtSta = bt.getSta();
-            if (CanBencWithCDCarInitActivity.RadioUi() == 0 || CanBencWithCDCarInitActivity.AudioMethod() != 1) {
-                if (mOldBtSta == 3 || mOldBtSta == 2 || mOldBtSta == 4) {
-                    Log.d(TAG, "Bt call on ");
-                    Iop.RstPort(1);
-                } else {
-                    Log.d(TAG, "Bt call of ");
-                    Iop.RstPort(0);
-                }
-            } else if (!CanIF.IsExdMode()) {
-                Log.d(TAG, "Bt call of ");
-                Iop.RstPort(0);
-            } else if (mOldBtSta == 3 || mOldBtSta == 2 || mOldBtSta == 4) {
-                Log.d(TAG, "Bt call on ");
-                Iop.RstPort(0);
-            } else {
-                Log.d(TAG, "Bt call out ");
-                Iop.RstPort(1);
+        if (FtSet.IsIconExist(1) == 0) {
+            switch (mOldBtSta) {
+                case 0:
+                    if (Iop.GetMediaOrBlue() > 0) {
+                        mOldBtSta = 1;
+                        mBtCnt = 10;
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (mBtCnt <= 0) {
+                        mOldBtSta = 2;
+                        Log.d(TAG, "Bt call on ");
+                        if (CanBencWithCDCarInitActivity.RadioUi() != 0 && CanBencWithCDCarInitActivity.AudioMethod() == 1) {
+                            Iop.RstPort(0);
+                            break;
+                        } else {
+                            Iop.RstPort(1);
+                            break;
+                        }
+                    } else {
+                        mBtCnt--;
+                        break;
+                    }
+                case 2:
+                    if (Iop.GetMediaOrBlue() == 0) {
+                        Log.d(TAG, "Bt call of ");
+                        if (CanBencWithCDCarInitActivity.RadioUi() == 0 || CanBencWithCDCarInitActivity.AudioMethod() != 1) {
+                            Iop.RstPort(0);
+                        } else {
+                            Iop.RstPort(1);
+                        }
+                        mOldBtSta = 0;
+                        break;
+                    }
+                    break;
             }
         }
         if (CanIF.mGpsVoiceDelay > 0) {
@@ -303,6 +364,32 @@ public class CanBencWithCDExdActivity extends CanBaseActivity implements UserCal
                 mBencStartTick = 0;
                 CanBencWithCDTouchDeal.StartCmd(1);
             }
+        }
+        if (mOldClockTick > 0) {
+            mOldClockTick--;
+        }
+        if (mOldClockTick == 0) {
+            mOldClockTick = 90;
+            byte[] nClock = new byte[5];
+            nClock[0] = 1;
+            if (StSet.GetBLIll() <= 0) {
+                nClock[1] = 0;
+                nClock[2] = (byte) nLightVal(StSet.GetBLDay());
+            } else if (Mcu.GetIll() > 0) {
+                nClock[1] = 1;
+                nClock[2] = (byte) nLightVal(StSet.GetBLNight());
+            } else {
+                nClock[1] = 0;
+                nClock[2] = (byte) nLightVal(StSet.GetBLDay());
+            }
+            if (CanBencWithCDCarFuncActivity.ClockDisp() == 1) {
+                nClock[3] = 1;
+            } else if (CanBencWithCDCarFuncActivity.ClockDisp() == 2) {
+                nClock[3] = -1;
+            } else {
+                nClock[3] = 0;
+            }
+            CanJni.BencZmytClockSet(nClock[0], nClock[1], nClock[2], nClock[3]);
         }
     }
 }

@@ -4,7 +4,7 @@ package com.txznet.comm.ui.T5;
 public abstract class Tr extends Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    public T f463T;
+    public T f467T;
     protected int Tr = 0;
 
     public int T() {

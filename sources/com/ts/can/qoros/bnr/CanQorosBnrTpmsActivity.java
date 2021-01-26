@@ -87,10 +87,10 @@ public class CanQorosBnrTpmsActivity extends CanBaseActivity implements UserCall
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
         this.mManager.GetLayout().setBackgroundResource(R.drawable.canvw_bg);
         this.mIvCircles[0] = AddImage(47, 80, 184, 90, R.drawable.tpms_left_up, R.drawable.tpms_left_dn);
-        this.mIvCircles[1] = AddImage(KeyDef.RKEY_MEDIA_SEL, 80, 184, 90, R.drawable.tpms_right_up, R.drawable.tpms_right_dn);
+        this.mIvCircles[1] = AddImage(311, 80, 184, 90, R.drawable.tpms_right_up, R.drawable.tpms_right_dn);
         this.mIvCircles[2] = AddImage(47, 191, 184, 90, R.drawable.tpms_left_up, R.drawable.tpms_left_dn);
-        this.mIvCircles[3] = AddImage(KeyDef.RKEY_MEDIA_SEL, 191, 184, 90, R.drawable.tpms_right_up, R.drawable.tpms_right_dn);
-        this.mManager.AddImageEx(137, 30, 268, KeyDef.RKEY_LOC, R.drawable.can_tpms_car_gz);
+        this.mIvCircles[3] = AddImage(311, 191, 184, 90, R.drawable.tpms_right_up, R.drawable.tpms_right_dn);
+        this.mManager.AddImageEx(137, 30, 268, 298, R.drawable.can_tpms_car_gz);
         this.mTvTpms[0] = AddImpactText(45, 100, 50, 50);
         this.mTvTpms[1] = AddImpactText(CanCameraUI.BTN_TRUMPCHI_GS4_MODE3, 100, 50, 50);
         this.mTvTpms[2] = AddImpactText(45, 211, 50, 50);

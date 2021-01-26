@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/can_camera_layout" android:background="#000" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.ts.backcar.AutoFitTextureView android:id="@+id/CameratextureView" android:layout_width="1080px" android:layout_height="1170px" android:layout_alignParentTop="true"/>
+    <Button android:id="@+id/btn_display" android:background="@drawable/camera_btn_display" android:visibility="invisible" android:layout_width="85px" android:layout_height="84px" android:layout_marginLeft="31px" android:layout_marginTop="26px"/>
+    <ViewStub android:id="@+id/can_scale_eps" android:layout="@layout/scale_camera_layout" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <com.ts.can.CameraUIView android:id="@+id/can_eps_line" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginTop="300px"/>
+    <include layout="@layout/can_right_radar"/>
+    <com.ts.can.RadarUIView android:gravity="center" android:orientation="vertical" android:id="@+id/left_side_radar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="510px" android:layout_marginTop="1575px" android:scaleX="2.1" android:scaleY="2.1" android:rotation="-90"/>
+    <com.ts.can.RadarUIView android:gravity="center" android:orientation="vertical" android:id="@+id/right_side_radar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="510px" android:layout_marginTop="1305px" android:scaleX="2.1" android:scaleY="2.1" android:rotation="-90"/>
+    <Button android:id="@+id/can_eps_show_rtradar" android:background="@drawable/btn_can_show_rtradar" android:layout_width="81px" android:layout_height="81px" android:layout_alignParentTop="true" android:layout_alignParentRight="true"/>
+    <Button android:id="@+id/can_eps_show_line" android:background="@drawable/btn_can_show_eps_line" android:layout_width="106px" android:layout_height="56px" android:layout_marginLeft="20px" android:layout_marginTop="50px"/>
+    <Button android:id="@+id/can_eps_show_track" android:background="@drawable/btn_can_show_eps_track" android:layout_width="106px" android:layout_height="56px" android:layout_marginLeft="20px" android:layout_marginTop="136px"/>
+    <TextView android:textSize="60px" android:textColor="#ffffffff" android:id="@+id/avinvideoState" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="123px" android:text="" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="30px" android:textColor="#ffffffff" android:id="@+id/rear_camera_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15px" android:layout_marginRight="100px" android:text="" android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -11,11 +11,11 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.KeyDef;
 import com.yyw.ts70xhw.Mcu;
@@ -87,7 +87,7 @@ public class CanLincsMkcACBottomView implements View.OnTouchListener {
     }
 
     private void addChildViews() {
-        this.mManager.AddImage(0, 0, CanToyotaDJCarDeviceView.ITEM_PLAY, 146).setBackgroundResource(R.drawable.lin_ac_bel_bg);
+        this.mManager.AddImage(0, 0, 768, 146).setBackgroundResource(R.drawable.lin_ac_bel_bg);
         this.mTvLtTemp = AddTemp(209, 12, 60, 43);
         this.mTvRtTemp = AddTemp(507, 12, 60, 43);
         this.mBtnLight = AddBtn(8, 692, 30, 60, 93, R.drawable.lin_ac_bel_closed_up, R.drawable.lin_ac_bel_closed_dn);
@@ -300,7 +300,7 @@ public class CanLincsMkcACBottomView implements View.OnTouchListener {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(28);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(17);
         return temp;
     }

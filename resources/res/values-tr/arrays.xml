@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="tpms_general_disp">
-        <item>TEMP Unit</item>
-        <item>Pressure Unit</item>
-        <item>MAX TEMP</item>
-        <item>MAX Pressure</item>
-        <item>MIN Pressure</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>Flat Tire</item>
-        <item>Low Voltage</item>
-        <item>No Signal</item>
-        <item>Low Pressure</item>
-        <item>High Pressure</item>
-        <item>Start study</item>
-        <item>Studying</item>
-    </array>
     <array name="set_main_options">
         <item>Ortak</item>
         <item>Ekran</item>
@@ -28,7 +12,7 @@
         <item>Cihaz Hakkında</item>
     </array>
     <array name="set_genera_options">
-        <item>bekleme süresi</item>
+        <item>Uyku modu</item>
         <item>Speech Recognition</item>
         <item>Yardımcı Panel</item>
         <item>Ters Ses geri bildirimi</item>
@@ -59,6 +43,7 @@
         <item>Klima</item>
         <item>Arka Video</item>
         <item>Ön kamera</item>
+        <item>Kamera típusa</item>
     </array>
     <array name="set_navi_options">
         <item>Autostart Navigation</item>
@@ -88,6 +73,23 @@
         <item>Kazanç</item>
         <item>Yüksek frekans</item>
         <item>Kazanç</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>Studying</item>
+        <item>High Temp</item>
     </array>
     <array name="mcu_update_msg">
         <item>Yükseltme işlemi yok</item>
@@ -1004,6 +1006,57 @@
         <item>Dikkatli ilerleyin</item>
         <item>Geriye doğru dikkatli sürün</item>
         <item>Engeli kontrol edin</item>
+    </array>
+    <array name="can_nissan_wc_xtral_rvs_tsy">
+        <item />
+        <item>Manevra yapmadan önce güvenli olduğundan emin olun</item>
+        <item>Park Asistanı başlatmak için park yerinin yanında durun</item>
+        <item>Dur ve geri vites seç</item>
+        <item>Dur ve ileri vites seç</item>
+        <item>Boş park yerinin yanında durun</item>
+        <item>Çevreyi denetle</item>
+        <item>İleri sür</item>
+        <item>Geriye doğru sür</item>
+        <item>Dikkatlice ileriye doğru sürün</item>
+        <item>Dikkatlice geriye doğru sürün</item>
+        <item>Hızı azalt</item>
+        <item>Park konumunu ayarlamak için ekranda △▽(yukarı / aşağı) tuşlarına basın</item>
+        <item>Park pozisyonunu ayarlayın</item>
+        <item>Direksiyon dönecek dikkat</item>
+        <item>Engelleri kontrol et</item>
+        <item />
+        <item>İleri vites seç</item>
+        <item>Tanıtımı kaldır</item>
+        <item>Sistem Hatası</item>
+        <item>Park Yardımı hatası</item>
+        <item>Direksiyon &apos;a Müdahale Edildi</item>
+        <item>Orta direksiyon</item>
+        <item>VDC ESP AÇIK olmalıdır</item>
+        <item>Aşırı hız</item>
+        <item>Zaman Aşımı</item>
+        <item />
+        <item>Başlamak için kapıyı kapatın</item>
+        <item>Tanıtım AÇIK</item>
+        <item>VDC ESP Aktif</item>
+        <item>Kapı Açık / Kemer KAPALI</item>
+        <item />
+        <item>Park yardımı tamamlandı</item>
+        <item>Park Yardımı kullanılamıyor</item>
+        <item>ESP etkin değil</item>
+        <item>Boşluk bulundu, ileri sür</item>
+        <item>Dur</item>
+        <item />
+        <item>Motor aktif değil</item>
+        <item>Park boşluğu dışında Fwd dişli</item>
+        <item>Geri vites seçme</item>
+        <item />
+        <item />
+        <item>Özgeçmiş mümkün değil</item>
+        <item />
+        <item />
+        <item>Park Yardımı İptal Edildi</item>
+        <item />
+        <item>Yön değiştirmek için dönüş sinyali kullan</item>
     </array>
     <array name="can_nissan_xtral_rvs_declare">
         <item>Bay Park nasıl kullanılır</item>

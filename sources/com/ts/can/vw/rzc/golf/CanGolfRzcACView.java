@@ -165,7 +165,7 @@ public class CanGolfRzcACView extends CanBaseACView {
         this.mWindVal = this.mManager.AddText(736, 22, 60, 40);
         this.mWindVal.setTextSize(0, 30.0f);
         this.mWindVal.setTextColor(-1);
-        this.mWindVal.setText(MainSet.SP_TW_CJW);
+        this.mWindVal.setText(MainSet.SP_PCBA_VOL);
         this.mWindVal.setGravity(19);
         this.mManager.AddImageEx(Can.CAN_LIEBAO_WC, 30, 25, 26, R.drawable.conditioning_fan02_up);
         this.mManager.AddImageEx(686, 22, 39, 40, R.drawable.conditioning_fan01_up);
@@ -179,11 +179,11 @@ public class CanGolfRzcACView extends CanBaseACView {
             this.mRearTemp.setTextColor(-1);
             this.mRearTemp.setGravity(21);
             this.mRearTemp.setText("13℃");
-            this.mBtnLtHot = this.mManager.AddButton(30, Can.CAN_JAC_REFINE_OD);
+            this.mBtnLtHot = this.mManager.AddButton(30, 150);
             this.mBtnLtHot.setStateDrawable(R.drawable.conditioning_leftseat_up, R.drawable.conditioning_leftseat_dn, R.drawable.conditioning_leftseat_dn);
             this.mBtnLtHot.setTag(4);
             this.mBtnLtHot.setOnClickListener(this);
-            this.mBtnRtHot = this.mManager.AddButton(217, Can.CAN_JAC_REFINE_OD);
+            this.mBtnRtHot = this.mManager.AddButton(217, 150);
             this.mBtnRtHot.setStateDrawable(R.drawable.conditioning_rightseat_up, R.drawable.conditioning_rightseat_dn, R.drawable.conditioning_rightseat_dn);
             this.mBtnRtHot.setTag(5);
             this.mBtnRtHot.setOnClickListener(this);
@@ -191,13 +191,13 @@ public class CanGolfRzcACView extends CanBaseACView {
             this.mBtnSwHot.setStateDrawable(R.drawable.can_golf_wheel_hot_up, R.drawable.can_golf_wheel_hot_dn, R.drawable.can_golf_wheel_hot_dn);
             this.mBtnSwHot.setTag(6);
             this.mBtnSwHot.setOnClickListener(this);
-            this.mBtnClearAir = this.mManager.AddButton(KeyDef.RKEY_AMS, 348, 84, 47);
+            this.mBtnClearAir = this.mManager.AddButton(295, 348, 84, 47);
             this.mBtnClearAir.setStateDrawable(R.drawable.can_golf_green_up, R.drawable.can_golf_green_dn, R.drawable.can_golf_green_dn);
             this.mBtnClearAir.setTag(7);
             this.mBtnClearAir.setOnClickListener(this);
         } else {
-            this.mManager.AddImageEx(30, Can.CAN_JAC_REFINE_OD, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_leftseat_up);
-            this.mManager.AddImageEx(217, Can.CAN_JAC_REFINE_OD, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_rightseat_up);
+            this.mManager.AddImageEx(30, 150, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_leftseat_up);
+            this.mManager.AddImageEx(217, 150, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_rightseat_up);
         }
         this.mLtFire = this.mManager.AddImageEx(102, 279, 41, 44, R.drawable.conditioning_direction);
         this.mRtFire = this.mManager.AddImageEx(Can.CAN_RENAUL_KOLEOS_XFY, 279, 41, 44, R.drawable.conditioning_direction);
@@ -239,7 +239,7 @@ public class CanGolfRzcACView extends CanBaseACView {
         this.mRearLight = this.mManager.AddImage(436, KeyDef.RKEY_res1);
         this.mRearLight.setStateDrawable(R.drawable.conditioning_heat_up, R.drawable.conditioning_heat_dn);
         this.mRearLight.Show(false);
-        this.mDual = this.mManager.AddImage(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, KeyDef.RKEY_res1);
+        this.mDual = this.mManager.AddImage(540, KeyDef.RKEY_res1);
         this.mDual.setStateDrawable(R.drawable.conditioning_dual_up, R.drawable.conditioning_dual_dn);
         this.mAc = this.mManager.AddImage(CanCameraUI.BTN_LANDWIND_2D_RIGHT, KeyDef.RKEY_res1);
         this.mAc.setStateDrawable(R.drawable.conditioning_ac_up, R.drawable.conditioning_ac_dn);

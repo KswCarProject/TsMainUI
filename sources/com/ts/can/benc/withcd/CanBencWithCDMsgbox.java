@@ -42,9 +42,9 @@ public class CanBencWithCDMsgbox implements DialogInterface.OnDismissListener, D
     public void Init(Context context) {
         if (this.mDlg != null) {
             Log.d(TAG, "Already have instance");
-            Hide();
             return;
         }
+        Log.d(TAG, "Init");
         this.mDlg = new AlertDialog.Builder(context).create();
         this.mDlg.getWindow().setType(2003);
         this.mDlg.setOnDismissListener(this);
@@ -97,6 +97,7 @@ public class CanBencWithCDMsgbox implements DialogInterface.OnDismissListener, D
     }
 
     public void Show(int val) {
+        Init(CanFunc.mContext);
         if (this.mDlg == null) {
             return;
         }

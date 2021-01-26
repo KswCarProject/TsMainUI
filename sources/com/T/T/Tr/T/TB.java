@@ -17,19 +17,19 @@ public class TB extends Ts {
 
     public void T(com.T.T.Tr.Ty parser, Object object, Type objectType, Map<String, Object> fieldValues) {
         if (this.Ty == null) {
-            this.Ty = parser.Ty().T(this.f170T);
+            this.Ty = parser.Ty().T(this.f173T);
         }
         if (objectType instanceof ParameterizedType) {
             parser.Tk().T(objectType);
         }
-        Object value = this.Ty.T(parser, T9(), this.f170T.Ty());
+        Object value = this.Ty.T(parser, T9(), this.f173T.Ty());
         if (parser.Tn() == 1) {
             Ty.T task = parser.TE();
             task.T((Ts) this);
             task.T(parser.Tk());
             parser.T(0);
         } else if (object == null) {
-            fieldValues.put(this.f170T.Ty(), value);
+            fieldValues.put(this.f173T.Ty(), value);
         } else {
             T(object, value);
         }

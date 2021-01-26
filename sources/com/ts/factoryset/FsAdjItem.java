@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.ts.MainUI.R;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 /* compiled from: FsOtherActivity */
 class FsAdjItem {
@@ -53,9 +54,15 @@ class FsAdjItem {
             return;
         }
         if (val < 0 || val >= this.mStrText.length) {
-            this.mText.setText("");
+            this.mText.setText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mText.setText(this.mStrText[val]);
+        }
+    }
+
+    public void SetText(String Str) {
+        if (this.mStrText != null) {
+            this.mText.setText(Str);
         }
     }
 }

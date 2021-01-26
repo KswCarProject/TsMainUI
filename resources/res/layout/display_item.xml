@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="182px" android:layout_height="182px">
+    <FrameLayout android:id="@+id/iv_border" android:background="@drawable/btn_photo_border_background" android:layout_width="182px" android:layout_height="140px">
+        <ImageView android:layout_gravity="center" android:id="@+id/iv_photo" android:layout_width="137px" android:layout_height="80px" android:src="@drawable/ic_list_pic_default" android:scaleType="centerCrop"/>
+    </FrameLayout>
+    <TextView android:textSize="24px" android:textColor="#fcfcfc" android:ellipsize="end" android:gravity="center" android:id="@+id/tv_name" android:paddingRight="8px" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10px" android:maxLines="2" android:layout_below="@+id/iv_border"/>
+</RelativeLayout>

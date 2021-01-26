@@ -16,11 +16,11 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
 import com.txznet.sdk.TXZPoiSearchManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 import java.io.UnsupportedEncodingException;
 
@@ -89,7 +89,7 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
         this.mImgST = this.mManager.AddImage(718, Can.CAN_NISSAN_XFY, R.drawable.can_yg_radio_st);
         this.mTextV1 = AddText(260, 301, 120, 40);
         this.mTextV1.setTextSize(0, 28.0f);
-        this.mTextV3 = AddText(718, 301, Can.CAN_JAC_REFINE_OD, 40);
+        this.mTextV3 = AddText(718, 301, 150, 40);
         this.mTextV3.setTextSize(0, 28.0f);
         this.mMen = AddText(676, 301, 32, 32);
         this.mMen.setTextSize(0, 28.0f);
@@ -99,15 +99,15 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
             this.m_CdSta[i].Show(false);
         }
         for (int i2 = 0; i2 < this.mId3Text.length; i2++) {
-            this.mId3Text[i2] = AddText(280, (i2 * 40) + 10, CanCameraUI.BTN_GOLF_WC_MODE1, 30);
+            this.mId3Text[i2] = AddText(280, (i2 * 40) + 10, 600, 30);
             this.mId3Text[i2].setTextSize(0, 22.0f);
         }
         for (int i3 = 0; i3 < this.mMediaListText.length; i3++) {
-            this.mMediaListText[i3] = AddText(280, (i3 * 70) + 10, CanCameraUI.BTN_GOLF_WC_MODE1, 70);
+            this.mMediaListText[i3] = AddText(280, (i3 * 70) + 10, 600, 70);
         }
         this.mMediaListText[1].setTextSize(0, 50.0f);
         for (int i4 = 0; i4 < this.mMenuText.length; i4++) {
-            this.mMenuText[i4] = AddText(280, (i4 * 70) + 10, CanCameraUI.BTN_GOLF_WC_MODE1, 70);
+            this.mMenuText[i4] = AddText(280, (i4 * 70) + 10, 600, 70);
         }
         this.mMenuText[1].setTextSize(0, 50.0f);
         this.mTextTitle = AddText(426, Can.CAN_NISSAN_RICH6_WC, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 105);
@@ -132,11 +132,11 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
                             view.drawImage(CanAccord8ExdActivity.mFreqNumArr[1], 444, 0);
                         }
                         view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Bai], 492, 0);
-                        view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Shi], CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 0);
+                        view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Shi], 540, 0);
                         view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Ge], 588, 0);
                     } else {
                         int Qian = (CanAccord8ExdActivity.this.mRadioData.CurFrq / TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) % 10;
-                        int Bai2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / MediaDef.PROGRESS_MAX) % 10;
+                        int Bai2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / 1000) % 10;
                         int Shi2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / 100) % 10;
                         int Ge2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / 10) % 10;
                         if (CanAccord8ExdActivity.this.mRadioData.CurFrq >= 100000) {
@@ -153,7 +153,7 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
                     if (CanAccord8ExdActivity.this.mRadioData.Men > 0) {
                         CanAccord8ExdActivity.this.mMen.setText(String.format("%d", new Object[]{Integer.valueOf(CanAccord8ExdActivity.this.mRadioData.Men)}));
                     } else {
-                        CanAccord8ExdActivity.this.mMen.setText("");
+                        CanAccord8ExdActivity.this.mMen.setText(TXZResourceManager.STYLE_DEFAULT);
                     }
                     CanAccord8ExdActivity.this.mTextV1.setText(CanAccord8ExdActivity.mBandNameArr[CanAccord8ExdActivity.this.mRadioData.Band]);
                     CanAccord8ExdActivity.this.mTextV2.setText(CanAccord8ExdActivity.mRadioStaArr[CanAccord8ExdActivity.this.mRadioData.Sta]);
@@ -188,7 +188,7 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
         this.mImgST = this.mManager.AddImage(KeyDef.SKEY_SPEECH_1, Can.CAN_NISSAN_XFY, R.drawable.can_yg_radio_st);
         this.mTextV1 = AddText(386, 301, 120, 40);
         this.mTextV1.setTextSize(0, 28.0f);
-        this.mTextV3 = AddText(KeyDef.SKEY_SPEECH_1, 301, Can.CAN_JAC_REFINE_OD, 40);
+        this.mTextV3 = AddText(KeyDef.SKEY_SPEECH_1, 301, 150, 40);
         this.mTextV3.setTextSize(0, 28.0f);
         this.mMen = AddText(802, 301, 32, 32);
         this.mMen.setTextSize(0, 28.0f);
@@ -198,15 +198,15 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
             this.m_CdSta[i].Show(false);
         }
         for (int i2 = 0; i2 < this.mId3Text.length; i2++) {
-            this.mId3Text[i2] = AddText(406, (i2 * 40) + 10, CanCameraUI.BTN_GOLF_WC_MODE1, 30);
+            this.mId3Text[i2] = AddText(406, (i2 * 40) + 10, 600, 30);
             this.mId3Text[i2].setTextSize(0, 22.0f);
         }
         for (int i3 = 0; i3 < this.mMediaListText.length; i3++) {
-            this.mMediaListText[i3] = AddText(406, (i3 * 70) + 10, CanCameraUI.BTN_GOLF_WC_MODE1, 70);
+            this.mMediaListText[i3] = AddText(406, (i3 * 70) + 10, 600, 70);
         }
         this.mMediaListText[1].setTextSize(0, 50.0f);
         for (int i4 = 0; i4 < this.mMenuText.length; i4++) {
-            this.mMenuText[i4] = AddText(406, (i4 * 70) + 10, CanCameraUI.BTN_GOLF_WC_MODE1, 70);
+            this.mMenuText[i4] = AddText(406, (i4 * 70) + 10, 600, 70);
         }
         this.mMenuText[1].setTextSize(0, 50.0f);
         this.mTextTitle = AddText(552, Can.CAN_NISSAN_RICH6_WC, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 105);
@@ -231,11 +231,11 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
                             view.drawImage(CanAccord8ExdActivity.mFreqNumArr[1], 444, 0);
                         }
                         view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Bai], 492, 0);
-                        view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Shi], CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 0);
+                        view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Shi], 540, 0);
                         view.drawImage(CanAccord8ExdActivity.mFreqNumArr[Ge], 588, 0);
                     } else {
                         int Qian = (CanAccord8ExdActivity.this.mRadioData.CurFrq / TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) % 10;
-                        int Bai2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / MediaDef.PROGRESS_MAX) % 10;
+                        int Bai2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / 1000) % 10;
                         int Shi2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / 100) % 10;
                         int Ge2 = (CanAccord8ExdActivity.this.mRadioData.CurFrq / 10) % 10;
                         if (CanAccord8ExdActivity.this.mRadioData.CurFrq >= 100000) {
@@ -252,7 +252,7 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
                     if (CanAccord8ExdActivity.this.mRadioData.Men > 0) {
                         CanAccord8ExdActivity.this.mMen.setText(String.format("%d", new Object[]{Integer.valueOf(CanAccord8ExdActivity.this.mRadioData.Men)}));
                     } else {
-                        CanAccord8ExdActivity.this.mMen.setText("");
+                        CanAccord8ExdActivity.this.mMen.setText(TXZResourceManager.STYLE_DEFAULT);
                     }
                     CanAccord8ExdActivity.this.mTextV1.setText(CanAccord8ExdActivity.mBandNameArr[CanAccord8ExdActivity.this.mRadioData.Band]);
                     CanAccord8ExdActivity.this.mTextV2.setText(CanAccord8ExdActivity.mRadioStaArr[CanAccord8ExdActivity.this.mRadioData.Sta]);
@@ -512,7 +512,7 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
         try {
             return new String(data, 0, len, "UNICODE");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -520,7 +520,7 @@ public class CanAccord8ExdActivity extends CanBaseActivity implements UserCallBa
         try {
             return new String(data, 0, len, "GBK");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

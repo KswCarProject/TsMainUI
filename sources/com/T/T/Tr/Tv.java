@@ -97,7 +97,7 @@ public class Tv {
     private static Tv Ty = new Tv();
 
     /* renamed from: T  reason: collision with root package name */
-    protected final Th f182T = new Th();
+    protected final Th f185T = new Th();
     private final T9<Type, T7> Tn = new T9<>();
     private final Set<Class<?>> Tr = new HashSet();
 
@@ -129,75 +129,75 @@ public class Tv {
         this.Tr.add(java.sql.Date.class);
         this.Tr.add(Time.class);
         this.Tr.add(Timestamp.class);
-        this.Tn.T(SimpleDateFormat.class, Tj.f155T);
-        this.Tn.T(Timestamp.class, Trv.f168T);
-        this.Tn.T(java.sql.Date.class, Try.f169T);
-        this.Tn.T(Time.class, TrE.f163T);
-        this.Tn.T(Date.class, TF.f148T);
-        this.Tn.T(Calendar.class, TE.f147T);
-        this.Tn.T(com.T.T.T9.class, TM.f151T);
-        this.Tn.T(Tr.class, T0.f137T);
-        this.Tn.T(Map.class, T2.f139T);
-        this.Tn.T(HashMap.class, T2.f139T);
-        this.Tn.T(LinkedHashMap.class, T2.f139T);
-        this.Tn.T(TreeMap.class, T2.f139T);
-        this.Tn.T(ConcurrentMap.class, T2.f139T);
-        this.Tn.T(ConcurrentHashMap.class, T2.f139T);
-        this.Tn.T(Collection.class, Tq.f158T);
-        this.Tn.T(List.class, Tq.f158T);
-        this.Tn.T(ArrayList.class, Tq.f158T);
-        this.Tn.T(Object.class, TI.f150T);
-        this.Tn.T(String.class, Tr9.f162T);
-        this.Tn.T(Character.TYPE, com.T.T.Tr.T.Tv.f173T);
-        this.Tn.T(Character.class, com.T.T.Tr.T.Tv.f173T);
-        this.Tn.T(Byte.TYPE, T3.f140T);
-        this.Tn.T(Byte.class, T3.f140T);
-        this.Tn.T(Short.TYPE, T3.f140T);
-        this.Tn.T(Short.class, T3.f140T);
-        this.Tn.T(Integer.TYPE, TA.f144T);
-        this.Tn.T(Integer.class, TA.f144T);
-        this.Tn.T(Long.TYPE, TC.f145T);
-        this.Tn.T(Long.class, TC.f145T);
-        this.Tn.T(BigInteger.class, com.T.T.Tr.T.T9.f143T);
-        this.Tn.T(BigDecimal.class, Tn.f157T);
-        this.Tn.T(Float.TYPE, Tu.f172T);
-        this.Tn.T(Float.class, Tu.f172T);
-        this.Tn.T(Double.TYPE, T3.f140T);
-        this.Tn.T(Double.class, T3.f140T);
-        this.Tn.T(Boolean.TYPE, Tk.f156T);
-        this.Tn.T(Boolean.class, Tk.f156T);
-        this.Tn.T(Class.class, T6.f142T);
-        this.Tn.T(char[].class, T5.f141T);
-        this.Tn.T(AtomicBoolean.class, Tk.f156T);
-        this.Tn.T(AtomicInteger.class, TA.f144T);
-        this.Tn.T(AtomicLong.class, TC.f145T);
-        this.Tn.T(AtomicReference.class, Trr.f167T);
-        this.Tn.T(WeakReference.class, Trr.f167T);
-        this.Tn.T(SoftReference.class, Trr.f167T);
-        this.Tn.T(UUID.class, Trq.f166T);
-        this.Tn.T(TimeZone.class, Tr5.f160T);
-        this.Tn.T(Locale.class, Tw.f174T);
-        this.Tn.T(InetAddress.class, Tt.f171T);
-        this.Tn.T(Inet4Address.class, Tt.f171T);
-        this.Tn.T(Inet6Address.class, Tt.f171T);
-        this.Tn.T(InetSocketAddress.class, TD.f146T);
-        this.Tn.T(File.class, TG.f149T);
-        this.Tn.T(URI.class, Trh.f164T);
-        this.Tn.T(URL.class, Tr6.f161T);
-        this.Tn.T(Pattern.class, T1.f138T);
-        this.Tn.T(Charset.class, Th.f154T);
-        this.Tn.T(Number.class, T3.f140T);
-        this.Tn.T(AtomicIntegerArray.class, com.T.T.Tr.T.Tr.f159T);
-        this.Tn.T(AtomicLongArray.class, com.T.T.Tr.T.Tr.f159T);
-        this.Tn.T(StackTraceElement.class, Trn.f165T);
-        this.Tn.T(Serializable.class, TI.f150T);
-        this.Tn.T(Cloneable.class, TI.f150T);
-        this.Tn.T(Comparable.class, TI.f150T);
-        this.Tn.T(Closeable.class, TI.f150T);
+        this.Tn.T(SimpleDateFormat.class, Tj.f158T);
+        this.Tn.T(Timestamp.class, Trv.f171T);
+        this.Tn.T(java.sql.Date.class, Try.f172T);
+        this.Tn.T(Time.class, TrE.f166T);
+        this.Tn.T(Date.class, TF.f151T);
+        this.Tn.T(Calendar.class, TE.f150T);
+        this.Tn.T(com.T.T.T9.class, TM.f154T);
+        this.Tn.T(Tr.class, T0.f140T);
+        this.Tn.T(Map.class, T2.f142T);
+        this.Tn.T(HashMap.class, T2.f142T);
+        this.Tn.T(LinkedHashMap.class, T2.f142T);
+        this.Tn.T(TreeMap.class, T2.f142T);
+        this.Tn.T(ConcurrentMap.class, T2.f142T);
+        this.Tn.T(ConcurrentHashMap.class, T2.f142T);
+        this.Tn.T(Collection.class, Tq.f161T);
+        this.Tn.T(List.class, Tq.f161T);
+        this.Tn.T(ArrayList.class, Tq.f161T);
+        this.Tn.T(Object.class, TI.f153T);
+        this.Tn.T(String.class, Tr9.f165T);
+        this.Tn.T(Character.TYPE, com.T.T.Tr.T.Tv.f176T);
+        this.Tn.T(Character.class, com.T.T.Tr.T.Tv.f176T);
+        this.Tn.T(Byte.TYPE, T3.f143T);
+        this.Tn.T(Byte.class, T3.f143T);
+        this.Tn.T(Short.TYPE, T3.f143T);
+        this.Tn.T(Short.class, T3.f143T);
+        this.Tn.T(Integer.TYPE, TA.f147T);
+        this.Tn.T(Integer.class, TA.f147T);
+        this.Tn.T(Long.TYPE, TC.f148T);
+        this.Tn.T(Long.class, TC.f148T);
+        this.Tn.T(BigInteger.class, com.T.T.Tr.T.T9.f146T);
+        this.Tn.T(BigDecimal.class, Tn.f160T);
+        this.Tn.T(Float.TYPE, Tu.f175T);
+        this.Tn.T(Float.class, Tu.f175T);
+        this.Tn.T(Double.TYPE, T3.f143T);
+        this.Tn.T(Double.class, T3.f143T);
+        this.Tn.T(Boolean.TYPE, Tk.f159T);
+        this.Tn.T(Boolean.class, Tk.f159T);
+        this.Tn.T(Class.class, T6.f145T);
+        this.Tn.T(char[].class, T5.f144T);
+        this.Tn.T(AtomicBoolean.class, Tk.f159T);
+        this.Tn.T(AtomicInteger.class, TA.f147T);
+        this.Tn.T(AtomicLong.class, TC.f148T);
+        this.Tn.T(AtomicReference.class, Trr.f170T);
+        this.Tn.T(WeakReference.class, Trr.f170T);
+        this.Tn.T(SoftReference.class, Trr.f170T);
+        this.Tn.T(UUID.class, Trq.f169T);
+        this.Tn.T(TimeZone.class, Tr5.f163T);
+        this.Tn.T(Locale.class, Tw.f177T);
+        this.Tn.T(InetAddress.class, Tt.f174T);
+        this.Tn.T(Inet4Address.class, Tt.f174T);
+        this.Tn.T(Inet6Address.class, Tt.f174T);
+        this.Tn.T(InetSocketAddress.class, TD.f149T);
+        this.Tn.T(File.class, TG.f152T);
+        this.Tn.T(URI.class, Trh.f167T);
+        this.Tn.T(URL.class, Tr6.f164T);
+        this.Tn.T(Pattern.class, T1.f141T);
+        this.Tn.T(Charset.class, Th.f157T);
+        this.Tn.T(Number.class, T3.f143T);
+        this.Tn.T(AtomicIntegerArray.class, com.T.T.Tr.T.Tr.f162T);
+        this.Tn.T(AtomicLongArray.class, com.T.T.Tr.T.Tr.f162T);
+        this.Tn.T(StackTraceElement.class, Trn.f168T);
+        this.Tn.T(Serializable.class, TI.f153T);
+        this.Tn.T(Cloneable.class, TI.f153T);
+        this.Tn.T(Comparable.class, TI.f153T);
+        this.Tn.T(Closeable.class, TI.f153T);
     }
 
     public Th Tr() {
-        return this.f182T;
+        return this.f185T;
     }
 
     public T7 T(Type type) {
@@ -209,7 +209,7 @@ public class Tv {
             return T((Class<?>) (Class) type, type);
         }
         if (!(type instanceof ParameterizedType)) {
-            return TI.f150T;
+            return TI.f153T;
         }
         Type rawType = ((ParameterizedType) type).getRawType();
         if (rawType instanceof Class) {
@@ -249,14 +249,14 @@ public class Tv {
         if (clazz.isEnum()) {
             derializer = new TO(clazz);
         } else if (clazz.isArray()) {
-            return com.T.T.Tr.T.Tr.f159T;
+            return com.T.T.Tr.T.Tr.f162T;
         } else {
             if (clazz == Set.class || clazz == HashSet.class || clazz == Collection.class || clazz == List.class || clazz == ArrayList.class) {
-                derializer = Tq.f158T;
+                derializer = Tq.f161T;
             } else if (Collection.class.isAssignableFrom(clazz)) {
-                derializer = Tq.f158T;
+                derializer = Tq.f161T;
             } else if (Map.class.isAssignableFrom(clazz)) {
-                derializer = T2.f139T;
+                derializer = T2.f142T;
             } else if (Throwable.class.isAssignableFrom(clazz)) {
                 derializer = new TrZ(this, clazz);
             } else {

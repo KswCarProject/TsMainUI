@@ -266,8 +266,17 @@ public class CanDataInfo {
         public int EpsDzzlzxUpdate;
         public int EpsDzzlzxUpdateOnce;
         public int Fwd;
+        public int FwdGljsms;
+        public int FwdGljsmsUpdate;
+        public int FwdGljsmsUpdateOnce;
         public int FwdUpdate;
         public int FwdUpdateOnce;
+        public int Fwdld;
+        public int FwdldUpdate;
+        public int FwdldUpdateOnce;
+        public int Fwdys;
+        public int FwdysUpdate;
+        public int FwdysUpdateOnce;
         public int Gfjtqkq;
         public int GfjtqkqUpdate;
         public int GfjtqkqUpdateOnce;
@@ -283,18 +292,27 @@ public class CanDataInfo {
         public int Jjzdbj;
         public int JjzdbjUpdate;
         public int JjzdbjUpdateOnce;
+        public int Jlbjxt;
+        public int JlbjxtUpdate;
+        public int JlbjxtUpdateOnce;
         public int Jykkhbx;
         public int JykkhbxUpdate;
         public int JykkhbxUpdateOnce;
         public int Kjxsdnl;
         public int KjxsdnlUpdate;
         public int KjxsdnlUpdateOnce;
+        public int Kqjh;
+        public int KqjhUpdate;
+        public int KqjhUpdateOnce;
         public int Lang;
         public int LangUpdate;
         public int LangUpdateOnce;
         public int Mqjc;
         public int MqjcUpdate;
         public int MqjcUpdateOnce;
+        public int Qpyjxt;
+        public int QpyjxtUpdate;
+        public int QpyjxtUpdateOnce;
         public int Qzdys;
         public int QzdysUpdate;
         public int QzdysUpdateOnce;
@@ -313,21 +331,171 @@ public class CanDataInfo {
         public int Ybbg;
         public int YbbgUpdate;
         public int YbbgUpdateOnce;
+        public int Ybd;
+        public int YbdUpdate;
+        public int YbdUpdateOnce;
         public int Ybgn;
         public int YbgnUpdate;
         public int YbgnUpdateOnce;
+        public int Ylld;
+        public int YlldUpdate;
+        public int YlldUpdateOnce;
+        public int Zdjjzdxt;
+        public int ZdjjzdxtUpdate;
+        public int ZdjjzdxtUpdateOnce;
         public int Zdjs;
         public int ZdjsUpdate;
         public int ZdjsUpdateOnce;
         public int Zdls;
         public int ZdlsUpdate;
         public int ZdlsUpdateOnce;
+        public int Znysgyjsls;
+        public int ZnysgyjslsUpdate;
+        public int ZnysgyjslsUpdateOnce;
+        public int Znysgywmkq;
+        public int ZnysgywmkqUpdate;
+        public int ZnysgywmkqUpdateOnce;
+        public int Zsyxhxt;
+        public int ZsyxhxtScxzcj;
+        public int ZsyxhxtScxzcjUpdate;
+        public int ZsyxhxtScxzcjUpdateOnce;
+        public int ZsyxhxtUpdate;
+        public int ZsyxhxtUpdateOnce;
         public int Zxbfzm;
         public int ZxbfzmUpdate;
         public int ZxbfzmUpdateOnce;
+        public int ZxlmsGljsms;
+        public int ZxlmsGljsmsUpdate;
+        public int ZxlmsGljsmsUpdateOnce;
+        public int ZxlmsGljsmsyx;
+        public int ZxlmsGljsmsyxUpdate;
+        public int ZxlmsGljsmsyxUpdateOnce;
         public int ZxqdAvm;
         public int ZxqdAvmUpdate;
         public int ZxqdAvmUpdateOnce;
+    }
+
+    public static class AudiRzcCarInfo {
+        public int Update;
+        public int UpdateOnce;
+        public int fgAQD;
+        public int fgQSY;
+        public int fgSS;
+    }
+
+    public static class AudiRzcCarInfo2 {
+        public int BatV;
+        public int Distance;
+        public int OutTemp;
+        public int Rpm;
+        public int Speed;
+        public int Syyl;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiRzcCarInfo3 {
+        public int Update;
+        public int UpdateOnce;
+        public int fgWarnBat;
+        public int fgWarnOil;
+    }
+
+    public static class AudiWithCdLz_AirInfo {
+        public int Setup;
+        public int SetupSta;
+        public int Update;
+        public int UpdateOnce;
+        public int fgLChair;
+        public int fgLtemp;
+        public int fgMode;
+        public int fgRChair;
+        public int fgRtemp;
+        public int fgWind;
+    }
+
+    public static class AudiWithCdLz_CarSta {
+        public int AuxSta;
+        public int PwrSta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdLz_OperationMsg {
+        public byte[] Data = new byte[16];
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdLz_UpdateIndex {
+        public int Index;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdLz_UpdateInfo {
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdXbs_AirInfo {
+        public int DriveInfo;
+        public int PassengerInfo;
+        public int Update;
+        public int UpdateOnce;
+        public int fgLChair;
+        public int fgLtemp;
+        public int fgMode;
+        public int fgRChair;
+        public int fgRtemp;
+        public int fgWind;
+    }
+
+    public static class AudiWithCdXbs_AudioInfo {
+        public int Source;
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdXbs_BaseInfo {
+        public int Dim;
+        public int Power;
+        public int Tel;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdXbs_CarSta {
+        public int AuxSta;
+        public int PwrSta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdXbs_OperationMsg {
+        public byte[] Data = new byte[16];
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdXbs_ReportMsg {
+        public int Msg;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdXbs_UpdateIndex {
+        public int Index;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class AudiWithCdXbs_UpdateInfo {
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class AudiZmyt_AirInfo {
@@ -419,6 +587,44 @@ public class CanDataInfo {
         public int fgSlaveAux;
     }
 
+    public static class B70_Dj_CdInfo {
+        public int Min;
+        public int Mode;
+        public int Pp;
+        public int Sec;
+        public int Track;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class B70_Dj_OtherInfo {
+        public int UI;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class B70_Dj_RadioInfo {
+        public int Band;
+        public int Frq;
+        public int Men;
+        public int[] MenFrq = new int[6];
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class B70_Dj_SetInfo {
+        public int Update;
+        public int UpdateOnce;
+        public int[] Val = new int[8];
+    }
+
+    public static class B70_Dj_VolInfo {
+        public int Mute;
+        public int Update;
+        public int UpdateOnce;
+        public int Val;
+    }
+
     public static class BDCU_STA {
         public int Dccmkzqwd;
         public int LDoor;
@@ -460,6 +666,13 @@ public class CanDataInfo {
         public int Update;
         public int UpdateOnce;
         public int fgRadarOn;
+    }
+
+    public static class BMW_Rzc_Info {
+        public int Update;
+        public int UpdateOnce;
+        public int fgWarnBat;
+        public int fgWarnOil;
     }
 
     public static class BMW_Settings {
@@ -647,9 +860,28 @@ public class CanDataInfo {
     }
 
     public static class Baojun_Info {
+        public int Bdsd;
+        public int Bwhj;
+        public int Bwhjys;
+        public int Fpzyj;
+        public int Fpzyjlmd;
         public int Hsjzdzd;
+        public int QjmsCyms;
+        public int QjmsQlms;
+        public int QjmsWnms;
+        public int QjmsYxms;
+        public int Scts;
+        public int Sndys;
         public int Update;
         public int UpdateOnce;
+        public int Xc;
+        public int Xczdls;
+        public int Xhzdjscm;
+        public int Ygwxgn;
+        public int YkZdjrsjscm;
+        public int Ykjc;
+        public int Zdjjzdxt;
+        public int Zsyxhmrsdsz;
     }
 
     public static class BlsuM3_RadarSta {
@@ -1102,9 +1334,15 @@ public class CanDataInfo {
         public int Bjtsy;
         public int BjtsyUpdate;
         public int BjtsyUpdateOnce;
+        public int Bszdgc;
+        public int BszdgcUpdate;
+        public int BszdgcUpdateOnce;
         public int Bxfz;
         public int BxfzUpdate;
         public int BxfzUpdateOnce;
+        public int Cc;
+        public int CcUpdate;
+        public int CcUpdateOnce;
         public int Ccdgnsz;
         public int CcdgnszUpdate;
         public int CcdgnszUpdateOnce;
@@ -1144,9 +1382,15 @@ public class CanDataInfo {
         public int Dlbsy;
         public int DlbsyUpdate;
         public int DlbsyUpdateOnce;
+        public int Dlms;
+        public int DlmsUpdate;
+        public int DlmsUpdateOnce;
         public int Ecls;
         public int EclsUpdate;
         public int EclsUpdateOnce;
+        public int Fwdgn;
+        public int FwdgnUpdate;
+        public int FwdgnUpdateOnce;
         public int Fwdld;
         public int FwdldUpdate;
         public int FwdldUpdateOnce;
@@ -1156,6 +1400,9 @@ public class CanDataInfo {
         public int Fwdys;
         public int FwdysUpdate;
         public int FwdysUpdateOnce;
+        public int Fwdyysdgn;
+        public int FwdyysdgnUpdate;
+        public int FwdyysdgnUpdateOnce;
         public int Fwdzdtj;
         public int FwdzdtjUpdate;
         public int FwdzdtjUpdateOnce;
@@ -1180,6 +1427,9 @@ public class CanDataInfo {
         public int Jsjctf;
         public int JsjctfUpdate;
         public int JsjctfUpdateOnce;
+        public int Jsms;
+        public int JsmsUpdate;
+        public int JsmsUpdateOnce;
         public int Jsmsjy;
         public int JsmsjyUpdate;
         public int JsmsjyUpdateOnce;
@@ -1189,6 +1439,18 @@ public class CanDataInfo {
         public int Kqjhxtzdkq;
         public int KqjhxtzdkqUpdate;
         public int KqjhxtzdkqUpdateOnce;
+        public int Kqytj;
+        public int KqytjSw;
+        public int KqytjSwUpdate;
+        public int KqytjSwUpdateOnce;
+        public int KqytjUpdate;
+        public int KqytjUpdateOnce;
+        public int KqytjWs;
+        public int KqytjWsUpdate;
+        public int KqytjWsUpdateOnce;
+        public int KqytjXw;
+        public int KqytjXwUpdate;
+        public int KqytjXwUpdateOnce;
         public int Ktzgz;
         public int KtzgzUpdate;
         public int KtzgzUpdateOnce;
@@ -1225,6 +1487,9 @@ public class CanDataInfo {
         public int Tsysy;
         public int TsysyUpdate;
         public int TsysyUpdateOnce;
+        public int Wxcdkggn;
+        public int WxcdkggnUpdate;
+        public int WxcdkggnUpdateOnce;
         public int Xczdls;
         public int XczdlsUpdate;
         public int XczdlsUpdateOnce;
@@ -1267,9 +1532,18 @@ public class CanDataInfo {
         public int Zdygd;
         public int ZdygdUpdate;
         public int ZdygdUpdateOnce;
+        public int Zjcmddjs;
+        public int ZjcmddjsUpdate;
+        public int ZjcmddjsUpdateOnce;
+        public int Znyb;
+        public int ZnybUpdate;
+        public int ZnybUpdateOnce;
         public int ZxdZdjh;
         public int ZxdZdjhUpdate;
         public int ZxdZdjhUpdateOnce;
+        public int Zxms;
+        public int ZxmsUpdate;
+        public int ZxmsUpdateOnce;
     }
 
     public static class CS75Data {
@@ -1359,6 +1633,91 @@ public class CanDataInfo {
         public int UpdateOnce;
     }
 
+    public static class CanBcZmytDevAdt {
+        public int FwdAdt;
+        public int FwdSta;
+        public int FwdVer;
+        public int KqjhAdt;
+        public int KqjhSta;
+        public int KqjhVer;
+        public int SzxpAdt;
+        public int SzxpSta;
+        public int SzxpVer;
+        public int Update;
+        public int UpdateOnce;
+        public int ZdscAdt;
+        public int ZdscSta;
+        public int ZdscVer;
+        public int ZyamAdt;
+        public int ZyamSta;
+        public int ZyamVer;
+        public int ZyybAdt;
+        public int ZyybSta;
+        public int ZyybVer;
+    }
+
+    public static class CanBcZmytDevClock {
+        public int Angel;
+        public int Bri;
+        public int Hour;
+        public int Min;
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+        public int Xsnr;
+    }
+
+    public static class CanBcZmytDevFwd {
+        public int Blue1;
+        public int Blue2;
+        public int Bri;
+        public int Green1;
+        public int Green2;
+        public int Gysbs;
+        public int Mode;
+        public int Red1;
+        public int Red2;
+        public int Sta;
+        public int Type;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class CanBcZmytDevKqjh {
+        public int Kqzldj;
+        public int Sjyxxzs;
+        public int Sta;
+        public int TVOC;
+        public int Update;
+        public int UpdateOnce;
+        public int Zzsj;
+    }
+
+    public static class CanBcZmytDevZdsc {
+        public int Aqdxs;
+        public int Csxs;
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class CanBcZmytDevZyam {
+        public int Bcgzsysj;
+        public int Dqgzfx_d;
+        public int Dqgzfx_f;
+        public int Dqgzfx_u;
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class CanBcZmytDevZyyb {
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+        public int Ybdj;
+    }
+
     public static class CanBcZmytLed {
         public int CarUp;
         public int Ckaqsnzsd;
@@ -1373,6 +1732,25 @@ public class CanDataInfo {
         public int GestureRec;
         public int Update;
         public int UpdateOnce;
+    }
+
+    public static class CanBencWcSet {
+        public int Cdbcfzxt;
+        public int Djms;
+        public int ESP;
+        public int Fzcsb;
+        public int Hjzm;
+        public int Lcdw;
+        public int Mdfzxt;
+        public int Nbzmycgb;
+        public int Sdxz;
+        public int Update;
+        public int UpdateOnce;
+        public int Wbzmycgb;
+        public int Zdcmsz;
+        public int Zdzdfzxt;
+        public int Zylfzxt;
+        public int Zymssyfk;
     }
 
     public static class CanDataDebug {
@@ -1390,6 +1768,45 @@ public class CanDataInfo {
         public static int CanModuleUpdateKey = 1;
         public static int CanModuleUpdateNull = 0;
         public static int CanModuleUpdateRearRadar = 4;
+    }
+
+    public static class CanLandRoverConfig {
+        public int Jmqxmsj;
+        public int Mode;
+        public int Sfzdsbdtsj;
+        public int Update;
+        public int UpdateOnce;
+        public int Xshldjm;
+        public int Xsqldjm;
+        public int Yczdbczsd;
+    }
+
+    public static class CanLandRoverIapUpdateInfo {
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class CanLandRoverRadar {
+        public int P;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class CanLandRoverStatus {
+        public int Cldhzs;
+        public int Clydzs;
+        public int Ndssjsskgj;
+        public int Pdssjsskgj;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class CanLandRoverWork {
+        public int Mode;
+        public int Para;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class CanMiniCircleLight {
@@ -1463,10 +1880,24 @@ public class CanDataInfo {
 
     public static class CanTeanaJukeData {
         public int BlindSpotDetect;
+        public int Csldjxsygq;
         public int LaneDepartDetect;
         public int MovObjDetect;
+        public int MsjsCndzddk;
         public int Update;
         public int UpdateOnce;
+        public int Xcsjszzdht;
+        public int Zddgdsssz;
+        public int Zddlmdtj;
+        public int Znysksgn;
+    }
+
+    public static class CanTouchData {
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+        public int X;
+        public int Y;
     }
 
     public static class CcH2WcCamera {
@@ -1494,10 +1925,27 @@ public class CanDataInfo {
         public int Zy;
     }
 
+    public static class CcH6WcAmpData {
+        public int Asl;
+        public int Bal;
+        public int Bas;
+        public int Fad;
+        public int Mid;
+        public int Sc;
+        public int Tre;
+        public int Update;
+        public int UpdateOnce;
+        public int Vol;
+    }
+
     public static class CcH6WcCamerSta {
         public int Avm;
+        public int AvmMode;
+        public int Avmzdjh;
+        public int Cmyssz;
         public int FrontCam;
         public int LeftCam;
+        public int RadarDis;
         public int RearCam;
         public int RightCam;
         public int Update;
@@ -1521,11 +1969,13 @@ public class CanDataInfo {
         public int Kmyj;
         public int Pljstx;
         public int Pzaqfzkg;
+        public int Tcsz;
         public int Update;
         public int UpdateOnce;
         public int Xraqfzkg;
         public int Ybyssz;
         public int Yjlmd;
+        public int Ylgxcgqsz;
         public int Znqt;
     }
 
@@ -1610,6 +2060,35 @@ public class CanDataInfo {
         public int fgPp;
         public int fgRand;
         public int fgRpt;
+    }
+
+    public static class CcRzcAvmSet {
+        public int AvmZdjh;
+        public int Cfzxsz;
+        public int Cmtmd;
+        public int Cmyssz;
+        public int Ldxsmssz;
+        public int Update;
+        public int UpdateOnce;
+        public int Znsjqh;
+    }
+
+    public static class CcRzcCdInfo {
+        public int CurNum;
+        public int CurTime;
+        public int PlayMode;
+        public int Src;
+        public int TotalNum;
+        public int TotalTime;
+        public int Update;
+        public int UpdateOnce;
+        public int WorkMode;
+    }
+
+    public static class CcRzcCdText {
+        public int Update;
+        public int UpdateOnce;
+        public byte[] szText = new byte[32];
     }
 
     public static class CcWcAMPInfo {
@@ -2218,10 +2697,12 @@ public class CanDataInfo {
     }
 
     public static class ChrWcLightMoto {
+        public int Clqdszdkqjsyzyjrgn;
         public int Cnfwd;
         public int Ddgbyc;
         public int Fdjgbdyyc;
         public int Jskqcd;
+        public int Jskqcdsj;
         public int Kjsddlq;
         public int Qdysszdqddd;
         public int Qzdlmd;
@@ -2311,6 +2792,26 @@ public class CanDataInfo {
         public int Yktc;
         public int Ylgytc;
         public int Yscatf;
+    }
+
+    public static class Cos1WcCarSet2 {
+        public int Bszdgc;
+        public int Cdplyj;
+        public int Dlms;
+        public int Update;
+        public int UpdateOnce;
+        public int Yjfs;
+        public int Zdqd;
+        public int Znyb;
+        public int Zxzlms;
+    }
+
+    public static class Cos1WcRecordSet {
+        public int Lxxhsj;
+        public int Sply;
+        public int Splz;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class Cos1WcTpms {
@@ -2694,10 +3195,16 @@ public class CanDataInfo {
     }
 
     public static class Dffg_RzcSet {
+        public int Cdgldjkz;
+        public int Cdgldjsdml;
+        public int Fwd;
         public int Nlhsdj;
         public int Ttxsxtkg;
         public int Update;
         public int UpdateOnce;
+        public int VSP;
+        public int Ybd;
+        public int Ysdd;
     }
 
     public static class Ehs3T3_Radar {
@@ -2820,6 +3327,7 @@ public class CanDataInfo {
     public static class FiatAllWcSet {
         public int Cmzdsd;
         public int CorningLights;
+        public int CourtesyLightDelay;
         public int CourtesyLigts;
         public int FlashLightsWithLock;
         public int HeadlightOffDelay;
@@ -2884,7 +3392,10 @@ public class CanDataInfo {
     }
 
     public static class FlatRzcSetData {
+        public int ActiveRearViewCameraGuidelines;
         public int AutoClose;
+        public int BrakeControl;
+        public int BrakeControlSensitivity;
         public int ClrTripA;
         public int ClrTripB;
         public int CorneringLight;
@@ -2894,11 +3405,14 @@ public class CanDataInfo {
         public int DisplayTripB;
         public int FlashLightswLock;
         public int Fmq;
+        public int HeadlightSensitivity;
         public int Jl;
         public int Lang;
         public int Metric;
         public int ParkSense;
         public int RearParkSenseVol;
+        public int RearViewCamera;
+        public int SensingWipers;
         public int Update;
         public int UpdateOnce;
         public int Wd;
@@ -3048,6 +3562,7 @@ public class CanDataInfo {
 
     public static class FordAdt {
         public int Bwhjsj;
+        public int Cdzsd;
         public int Cnzm;
         public int Csss;
         public int EHotShow;
@@ -3063,6 +3578,7 @@ public class CanDataInfo {
         public int MyKeyMute;
         public int MyKeyVoice;
         public int ParkLock;
+        public int Pdqdfz;
         public int Plane;
         public int Qylxt;
         public int RangeDW;
@@ -3077,6 +3593,7 @@ public class CanDataInfo {
         public int Wxcd;
         public int Xytsy;
         public int Ybdsc;
+        public int Ybfxj;
         public int Ykcc;
         public int Ysgyq;
         public int Zdddlmd;
@@ -3116,6 +3633,15 @@ public class CanDataInfo {
         public int UpdateOnce;
     }
 
+    public static class FordDjSetData {
+        public int Jgts;
+        public int Lcdw;
+        public int Update;
+        public int UpdateOnce;
+        public int Xxts;
+        public int Zxdsszs;
+    }
+
     public static class FordForeRadarEx {
         public int LtAssist;
         public int LtMidAssist;
@@ -3151,6 +3677,7 @@ public class CanDataInfo {
     }
 
     public static class FordRzcAmpData {
+        public int All;
         public int Atten;
         public int Bal;
         public int Bass;
@@ -3175,7 +3702,19 @@ public class CanDataInfo {
         public int UpdateOnce;
     }
 
+    public static class FordRzcChargeInfo {
+        public int BatV;
+        public int Sta;
+        public int Start1;
+        public int Start2;
+        public int TimeH;
+        public int TimeL;
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class FordRzcDriveData {
+        public int Jysm;
         public int Pjyh;
         public int[] PreSta = new int[4];
         public int[] PreVal = new int[4];
@@ -3195,8 +3734,107 @@ public class CanDataInfo {
         public int Val;
     }
 
+    public static class FordRzcHostCdInfo {
+        public int Pause;
+        public int Rdm;
+        public int Rpm;
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class FordRzcHostCdTime {
+        public int Hour;
+        public int Min;
+        public int Sec;
+        public int TotalHour;
+        public int TotalMin;
+        public int TotalSec;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class FordRzcHostInfo {
+        public int Band;
+        public int CdUpdate;
+        public int CdUpdateOnce;
+        public int Freq;
+        public int Men;
+        public int RadioUpdate;
+        public int RadioUpdateOnce;
+        public int Src;
+        public int TotalTrack;
+        public int Track;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class FordRzcHostListText {
+        public byte[] Text = new byte[30];
+        public int Type;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class FordRzcMixInfo {
+        public int Dclcd;
+        public int Dcldj;
+        public int Dclkt;
+        public int Dclqt;
+        public int Djlyq;
+        public int DjlyqW;
+        public int Qdldj;
+        public int QdlyqW;
+        public int RylyqW;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class FordRzcSetInfo {
+        public int Cdbcms;
+        public int Cfygyc;
+        public int Ddhbx;
+        public int Ddlcyj;
+        public int Dldw;
+        public int Hygq;
+        public int Jgqd;
+        public int Jhykqd;
+        public int Kgjz;
+        public int Ktkz;
+        public int Lmd;
+        public int Mqjc;
+        public int Pljsyj;
+        public int Qzdyc;
+        public int Syfk;
+        public int TcsQylkz;
+        public int Tydw;
+        public int Update;
+        public int UpdateOnce;
+        public int Wddw;
+        public int Wsjg;
+        public int Ykgb;
+        public int Ykjs;
+        public int Ykkq;
+        public int Ylgysyg;
+        public int Zcxf;
+        public int Zdjs;
+        public int Zdygd;
+        public int Zdyqgb;
+        public int Zdzd;
+        public int Zhudzd;
+        public int Zq;
+    }
+
+    public static class FordRzcZnxfInfo {
+        public int Pm25;
+        public int Update;
+        public int UpdateOnce;
+        public int Zcxf;
+    }
+
     public static class FordSet {
         public int Bwhjsj;
+        public int Cdzsd;
         public int Cnzm;
         public int Csss;
         public int EHotShow;
@@ -3211,6 +3849,7 @@ public class CanDataInfo {
         public int MyKeyMute;
         public int MyKeyVoice;
         public int ParkLock;
+        public int Pdqdfz;
         public int Plane;
         public int QnOpened;
         public int Qylxt;
@@ -3226,6 +3865,7 @@ public class CanDataInfo {
         public int Wxcd;
         public int Xytsy;
         public int Ybdsc;
+        public int Ybfxj;
         public int Ykcc;
         public int Ysgyq;
         public int Zdddlmd;
@@ -3366,6 +4006,7 @@ public class CanDataInfo {
     }
 
     public static class FordWcTsMsg {
+        public int Ldfmq;
         public int Update;
         public int UpdateOnce;
         public int Wddw;
@@ -3487,6 +4128,8 @@ public class CanDataInfo {
         public int HQFS;
         public int HQKTQD;
         public int HQWD;
+        public int Hqktsd;
+        public int Hqktyqqkttb;
         public int KQZLLMD;
         public int KTYCQD;
         public int QCZDCW;
@@ -3498,6 +4141,7 @@ public class CanDataInfo {
         public int YCQDZYCF;
         public int YCQDZYJR;
         public int YKZYJR;
+        public int YcqdzyjrJsyc;
         public int Zdzyjr;
         public int ZyjrType;
     }
@@ -3619,6 +4263,17 @@ public class CanDataInfo {
         public int UpdateOnce;
     }
 
+    public static class GM_CarInfo3 {
+        public int Pjyh;
+        public int TpmsDw;
+        public int TpmsUpdate;
+        public int TpmsUpdateOnce;
+        public int[] TpmsVal = new int[4];
+        public int Xhlc;
+        public int YhUpdate;
+        public int YhUpdateOnce;
+    }
+
     public static class GM_CarSet {
         public int AdtForwardLight;
         public int AutoMemRecall;
@@ -3631,6 +4286,7 @@ public class CanDataInfo {
         public int Dchsjzdfz;
         public int EasyExitSeat;
         public int FZKMZDLS;
+        public int Fwdys;
         public int Hfcltgjs;
         public int JCJS;
         public int Jsyzyzdhw;
@@ -3793,10 +4449,14 @@ public class CanDataInfo {
         public int AutoLightSens;
         public int AutoUnlock;
         public int Bwhj;
+        public int Cdfz;
+        public int Cdfzkg;
         public int Fjswd;
         public int Fjszyzdjr;
         public int Flzms;
         public int Fwdkz;
+        public int Fwdld;
+        public int Fwdys;
         public int Hsjzd;
         public int Hygdd;
         public int Jsgstsy;
@@ -3805,6 +4465,8 @@ public class CanDataInfo {
         public int Kqzlcgq;
         public int Lang;
         public int LoopStyle;
+        public int Qpzjgjl;
+        public int Qpzyj;
         public int Qygwh;
         public int Rxd;
         public int SpeedLock;
@@ -3815,6 +4477,8 @@ public class CanDataInfo {
         public int Wdzxfz;
         public int Whsjjdsdtj;
         public int Whsjjdzdtj;
+        public int Wxcd;
+        public int Xhms;
         public int Xlxgykq;
         public int Ycbxfz;
         public int Ycqdsj;
@@ -3824,8 +4488,11 @@ public class CanDataInfo {
         public int YsjSta;
         public int Zcbxfz;
         public int Zdmsflsz;
+        public int Zdyggn;
+        public int Zdzdfz;
         public int Zhybyl;
         public int Znybd;
+        public int Znygd;
         public int Znys;
         public int Znzdbs;
         public int Znzdjs;
@@ -3883,13 +4550,19 @@ public class CanDataInfo {
         public int Csszgn;
         public int Dzzlmsxz;
         public int Esc;
+        public int Hbxwysjs;
+        public int Hbxzdjsjl;
+        public int Hbxzdkq;
         public int Hsjzdzd;
         public int Hsjzdzd2;
+        public int Kjjspz;
         public int Kmzxdssts;
+        public int Lksspz;
         public int Mkzxdss;
         public int Mkzxdss2;
         public int Qpzyj;
         public int Rjxcd;
+        public int Rymkqscbjpz;
         public int Sfts;
         public int Sszdgbwzd;
         public int Sszdgbzd;
@@ -3904,10 +4577,17 @@ public class CanDataInfo {
         public int Yklsfk2;
         public int Yksssy;
         public int Yksssy2;
+        public int Zdgc;
         public int Zdjjzd;
         public int Zdphjsxt;
         public int Znwdd;
         public int Znygdgchctjxt;
+    }
+
+    public static class Geely_ChargeInfo {
+        public int ChargeSta;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class Geely_LangSet {
@@ -3916,9 +4596,16 @@ public class CanDataInfo {
         public int Val;
     }
 
+    public static class Geely_MainTain {
+        public int Dis;
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class Geely_PmInfo {
         public int InPm25;
         public int OutPm25;
+        public int Sta;
         public int Update;
         public int UpdateOnce;
     }
@@ -3935,11 +4622,34 @@ public class CanDataInfo {
         public int Rymkqscbjpz;
         public int Sftslx;
         public int Soc;
+        public int SocSta;
         public int Update;
         public int UpdateOnce;
         public int Zchsjzd;
         public int Zjxcd;
         public int Ztys;
+    }
+
+    public static class Geely_Set2 {
+        public int Bscmzdgc;
+        public int Bwhjzdkqsj;
+        public int Ccfjbj;
+        public int Csszgn;
+        public int Dchygld;
+        public int Dstsy;
+        public int ESC;
+        public int Fmq;
+        public int Hsjzdzd;
+        public int Kjjspz;
+        public int Ktzddj;
+        public int Lksspz;
+        public int Sftslx;
+        public int Tcjs;
+        public int Tyjkxtjz;
+        public int Update;
+        public int UpdateOnce;
+        public int Yklsfk;
+        public int Zcbgld;
     }
 
     public static class Geely_TpmsInfo {
@@ -3948,6 +4658,13 @@ public class CanDataInfo {
         public int UpdateOnce;
         public int[] Val = new int[4];
         public int[] Warn = new int[4];
+    }
+
+    public static class Geely_XsmsInfo {
+        public int CurSelSta;
+        public int CurSta;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class GmCaptivaOd_PcInfo {
@@ -4459,6 +5176,7 @@ public class CanDataInfo {
 
     public static class GolfDriverAss {
         public int Active;
+        public int BlindSpotMonitor;
         public int Update;
         public int UpdateOnce;
         public int Yfscybhxt;
@@ -4548,6 +5266,7 @@ public class CanDataInfo {
     }
 
     public static class GolfLight2 {
+        public int Backgroundlighting;
         public int DoorAmbientLight;
         public int DynamicLightAss;
         public int FootwellLight;
@@ -4592,9 +5311,18 @@ public class CanDataInfo {
         public int fgSyncAdj;
     }
 
+    public static class GolfNlhsData {
+        public int Nlhsz;
+        public int[] Nlhsz15min = new int[15];
+        public int[] Nlhsz30min = new int[15];
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class GolfOpeningAndClosing {
         public int ConvOpening;
         public int DoorUnlocking;
+        public int InteriorMonitoring;
         public int Update;
         public int UpdateOnce;
         public int fgAcousticConfirm;
@@ -5016,6 +5744,7 @@ public class CanDataInfo {
 
     public static class H2CarData {
         public int Bsqyw;
+        public int Dcdlzt;
         public int Dqyyl;
         public int Lqywd;
         public int Update;
@@ -5026,29 +5755,60 @@ public class CanDataInfo {
     public static class H6CarSet {
         public int AllMap;
         public int Als;
+        public int Bxfz;
         public int CarUpMode;
+        public int Cdbcfz;
+        public int Cdjzbc;
+        public int Cdplyj;
         public int ChairRemb;
+        public int Csbj;
+        public int Csbjlmd;
+        public int Csbs;
+        public int Cybh;
+        public int Dccxfz;
+        public int Ddct_Tsmssjy;
         public int Ddtjxt;
         public int Ddys;
         public int DoorContrl;
+        public int Dsjjzd;
+        public int Dtfxwdfz;
         public int Fdyf;
         public int FrontLed;
         public int Gshjyssj;
         public int Hsjzdzd;
         public int Jdsz;
+        public int Jjzdsss;
+        public int Jtbzxx;
+        public int Kmyj;
         public int Lang;
         public int ParkSet;
+        public int Pljstx;
+        public int Pzanfz;
+        public int Qjbjkg;
+        public int Qldzdkqgn;
         public int Qpzyjxt;
+        public int Qxtgsjg;
         public int Tcsz;
         public int Update;
         public int UpdateOnce;
+        public int Xcms;
+        public int Xhjs;
+        public int Xhms;
+        public int Xraqfz;
+        public int Ybpyssz;
+        public int Yjlmd;
         public int Ylgxcgq;
         public int Zdjjzdxt;
         public int Znqt;
+        public int Zxms;
+        public int Zyyb;
     }
 
     public static class H9AmpSet {
+        public int AmpBat;
+        public int AmpTemp;
         public int Bass;
+        public int EqSet;
         public int Fr;
         public int Lr;
         public int Middle;
@@ -5058,6 +5818,7 @@ public class CanDataInfo {
         public int UpdateOnce;
         public int Vol;
         public int VolWithSpeed;
+        public int Ysyyxf;
     }
 
     public static class H9CarSet2 {
@@ -5319,6 +6080,20 @@ public class CanDataInfo {
         public int UpdateOnce;
     }
 
+    public static class HondaRzcAmpInfo {
+        public int Bal;
+        public int Bas;
+        public int Csld;
+        public int Dts;
+        public int Fad;
+        public int Mid;
+        public int Subwof;
+        public int Tre;
+        public int Update;
+        public int UpdateOnce;
+        public int Vol;
+    }
+
     public static class HondaSetData {
         public int AdjustTemp;
         public int AutoLightSens;
@@ -5372,6 +6147,7 @@ public class CanDataInfo {
         public int Zdfzcmhsj;
         public int Zdkqxlxg;
         public int Zywzyd;
+        public int Zzddxbs;
         public int autodoorlock;
         public int autodoorunlock;
         public int cdplfxxtsd;
@@ -5634,6 +6410,12 @@ public class CanDataInfo {
         public int Yhlc;
     }
 
+    public static class HondaYLLCData_3 {
+        public int Sydl;
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class HyCarAvm {
         public int AvmView;
         public int FrView;
@@ -5676,24 +6458,126 @@ public class CanDataInfo {
         public int Bckqhzsxt;
         public int BckqhzsxtUpdate;
         public int BckqhzsxtUpdateOnce;
+        public int Dsd;
+        public int DsdUpdate;
+        public int DsdUpdateOnce;
         public int Dspyczykbzd;
         public int DspyczykbzdUpdate;
         public int DspyczykbzdUpdateOnce;
         public int Dspzczykbzd;
         public int DspzczykbzdUpdate;
         public int DspzczykbzdUpdateOnce;
+        public int Fwd;
+        public int FwdUpdate;
+        public int FwdUpdateOnce;
         public int Fxpjrq;
         public int FxpjrqUpdate;
         public int FxpjrqUpdateOnce;
+        public int Kqnxh;
+        public int KqnxhUpdate;
+        public int KqnxhUpdateOnce;
+        public int Ld;
+        public int LdUpdate;
+        public int LdUpdateOnce;
         public int Mdjcq;
         public int Update;
         public int UpdateOnce;
+        public int Yyj;
+        public int YyjUpdate;
+        public int YyjUpdateOnce;
         public int Zdtjwd;
         public int ZdtjwdUpdate;
         public int ZdtjwdUpdateOnce;
+        public int Zts;
+        public int ZtsUpdate;
+        public int ZtsUpdateOnce;
         public int Zyjrtf;
         public int ZyjrtfUpdate;
         public int ZyjrtfUpdateOnce;
+    }
+
+    public static class HyRzcXnySet {
+        public int Cddl_Szzccddl_Bxs;
+        public int Cddl_Yhsjcd;
+        public int Cddl_szzccddl_Cdz;
+        public int Cddl_yycdsj;
+        public int Update;
+        public int UpdateOnce;
+        public int Xcclcfsjsz_cf;
+        public int Xcclcfsjsz_cf2;
+        public int Xcclcfsjsz_sjszH;
+        public int Xcclcfsjsz_sjszH2;
+        public int Xcclcfsjsz_sjszM;
+        public int Xcclcfsjsz_sjszM2;
+        public int YyKtQcs;
+        public int YyKtwd;
+        public int Yycdsj_jssjH;
+        public int Yycdsj_jssjM;
+        public int Yycdsj_kssjH;
+        public int Yycdsj_kssjM;
+        public int Yyktwd;
+        public int Yyss_cf;
+        public int Yyss_jssjH;
+        public int Yyss_jssjM;
+        public int Yyss_kssjH;
+        public int Yyss_kssjM;
+        public int Yyszfs;
+    }
+
+    public static class HyRzcXnySet2 {
+        public int Ddjnh;
+        public int Eco;
+        public int Hhdlyh;
+        public int Pjnh;
+        public int Sscs;
+        public int Update;
+        public int UpdateOnce;
+        public int Zxslc;
+    }
+
+    public static class HyRzcXnySet3 {
+        public int Dcdl;
+        public int Dl;
+        public int Dlbfb;
+        public int Kxszlc;
+        public int Nllct;
+        public int Qy;
+        public int Update;
+        public int UpdateOnce;
+        public int Yjcdsxsj_Bxcd;
+        public int Yjcdsxsj_Zccd;
+    }
+
+    public static class HyRzcXnySet4 {
+        public int CtxtSjxhl;
+        public int DcbySjxhl;
+        public int DzsbSjxhl;
+        public int KtxtSjxhl;
+        public int Szcdl_Dlbfb;
+        public int Szcdl_Kc_Dlbfb;
+        public int Szcdl_Kc_Xhlc;
+        public int Szcdl_Xhlc;
+        public int Update;
+        public int UpdateOnce;
+        public int Yjcdsxsj;
+    }
+
+    public static class HyRzcXnySet5 {
+        public int Co2Dis;
+        public int Co2Val;
+        public int ComfortAir;
+        public int ComfortHxnyzs;
+        public int ComfortQn;
+        public int Eco;
+        public int EcoAir;
+        public int EcoHxnyzs;
+        public int EcoQn;
+        public int Jsms;
+        public int SoprtHxnyzs;
+        public int SportAir;
+        public int SportQn;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class HyXbsBlind {
@@ -5838,6 +6722,7 @@ public class CanDataInfo {
 
     public static class JACWC_SETDATA {
         public int LDW;
+        public int ParkType;
         public int R_radarYltj;
         public int R_radarYptj;
         public int Update;
@@ -6057,6 +6942,18 @@ public class CanDataInfo {
         public int QuickWarn;
         public int SlowEnter;
         public int SlowWarn;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class JacWc_AvmInfo {
+        public int FrontCamera;
+        public int LeftCamera;
+        public int Mode;
+        public int RearCamera;
+        public int RightCamera;
+        public int Sta;
+        public int Tkxsjglx;
         public int Update;
         public int UpdateOnce;
     }
@@ -6551,10 +7448,13 @@ public class CanDataInfo {
     }
 
     public static class MG_GS_DATA1 {
+        public int Bdfz;
         public int Bjlmd;
         public int Bjlmd2;
+        public int Bjlmd3;
         public int Bjy;
         public int Bwhjbcldsj;
+        public int Cdbcfzxt;
         public int Cdplbj;
         public int Csfz;
         public int Cswdkz;
@@ -6563,12 +7463,18 @@ public class CanDataInfo {
         public int Fqwdsz;
         public int Fzms;
         public int Fzms2;
+        public int Fzms3;
         public int Hccscwld;
         public int Hfccsz;
+        public int Hxjsfzxt;
+        public int Hxjtjs;
         public int Jjjs;
         public int Jsms;
         public int Jsxrtsy;
         public int Jsxrtsyyl;
+        public int Jtydfzxt;
+        public int Lang;
+        public int Mqjc;
         public int Tcfzxt;
         public int Tczt;
         public int TurnFeel;
@@ -6583,8 +7489,86 @@ public class CanDataInfo {
         public int Ybdbcldsj;
         public int Ybld;
         public int Zdmsfl;
+        public int Zdtx;
         public int Znjcjs;
         public int fgHomeRevLight;
+    }
+
+    public static class MG_GS_JSMS {
+        public int Dlxy;
+        public int Mode;
+        public int Sskt;
+        public int Update;
+        public int UpdateOnce;
+        public int Zxsg;
+    }
+
+    public static class MG_GS_SET {
+        public int Bdfzxt;
+        public int Bjlmd;
+        public int Bjlmd2;
+        public int Bjlmd3;
+        public int Bjy;
+        public int Bwhj;
+        public int Bwhj2;
+        public int Bwhjcxsj;
+        public int Bz;
+        public int Cdbcfzxt;
+        public int Cdplbj;
+        public int Cms;
+        public int Csfz;
+        public int Cswdkz;
+        public int Dphjkzxt;
+        public int Fqwdsz;
+        public int Fzms;
+        public int Fzms2;
+        public int Fzms3;
+        public int Hccscwld;
+        public int Hxjsfzxt;
+        public int Hxjtjs;
+        public int Jj;
+        public int Jjms;
+        public int Js;
+        public int Jsms;
+        public int Jsxrtsy;
+        public int Jsxrtsyyl;
+        public int Jtydfzxt;
+        public int Lang;
+        public int Mqjc;
+        public int Tc;
+        public int Tcfzxt;
+        public int Tyfw;
+        public int Update;
+        public int UpdateOnce;
+        public int Whsjzdzdzk;
+        public int Xcdzs;
+        public int Xcls;
+        public int Xczs;
+        public int Xczscxsj;
+        public int Xqpzfzxt;
+        public int Xsbj;
+        public int Xsbjz;
+        public int Ybd;
+        public int Ybld;
+        public int Yd;
+        public int Yhcc;
+        public int Yqcc;
+        public int Zdmsfl;
+        public int Zdtx;
+        public int Zdy;
+        public int Zhcc;
+        public int Znjcjs;
+        public int Zqcc;
+        public int Zxsg;
+    }
+
+    public static class MG_GS_TPMS {
+        public int Dw;
+        public int[] Sta = new int[4];
+        public int[] Temp = new int[4];
+        public int Update;
+        public int UpdateOnce;
+        public int[] Val = new int[4];
     }
 
     public static class MG_RX3_PM {
@@ -6844,6 +7828,12 @@ public class CanDataInfo {
         public int y2;
     }
 
+    public static class MjbFl_LightInfo {
+        public int Update;
+        public int UpdateOnce;
+        public int Val;
+    }
+
     public static class MzdWCConsumpPerMin {
         public int[] Min = new int[15];
         public int Update;
@@ -6942,6 +7932,26 @@ public class CanDataInfo {
         public int UpdateOnce;
     }
 
+    public static class Mzd_Bnr_Set {
+        public int BoseAudioPilot;
+        public int BoseCen;
+        public int ComingHomeLight;
+        public int HighBeamControl;
+        public int Jgfz;
+        public int LaneKeepAssSysGrds;
+        public int LaneKeepAssSysGy;
+        public int LaneKeepAssSysLaneDepartureJg;
+        public int LaneKeepAssSysLmd;
+        public int LaneKeepAssistSysJglx;
+        public int LaneKeepAssistSysJgqd;
+        public int LeavingHomeLight;
+        public int MdjcxtXtsd;
+        public int Update;
+        public int UpdateOnce;
+        public int Xsjs;
+        public int Xsxs;
+    }
+
     public static class Mzd_Rzc_Amp {
         public int Alc;
         public int Bal;
@@ -6983,8 +7993,11 @@ public class CanDataInfo {
     }
 
     public static class Mzd_Rzc_Jsxs {
+        public int Qx;
         public int Update;
         public int UpdateOnce;
+        public int Xz;
+        public int Zdjsnrxs;
         public int jsxsgd;
         public int jsxsjz;
         public int jsxsld;
@@ -7009,10 +8022,15 @@ public class CanDataInfo {
     }
 
     public static class Mzd_Rzc_SafeSet {
+        public int BindSpotMonitor;
         public int BlindSpMon_Jgyl;
         public int BlindSpMon_Xtsd;
         public int DisRecSupportSys_Jgjl;
         public int DisRecSupportSys_Xsms;
+        public int Dtlx;
+        public int Hfjhjtjb;
+        public int Hzccgqbjyl;
+        public int Jbds;
         public int LaneDepWarnSys_EQ;
         public int LaneDepWarnSys_Gy;
         public int LaneDepWarnSys_Jg;
@@ -7020,6 +8038,7 @@ public class CanDataInfo {
         public int LaneDepWarnSys_Lls;
         public int LaneDepWarnSys_Xt;
         public int LaneDepWarnSys_Yxsd;
+        public int Qsxtst;
         public int RearVehMon;
         public int SBS_SCBS2_Jgjl;
         public int SBS_SCBS2_Jgyl;
@@ -7030,21 +8049,53 @@ public class CanDataInfo {
         public int SpeedWarm_Jsqz;
         public int SpeedWarm_Sxjs;
         public int SpeedWarm_Sxxs;
+        public int Tbwybj;
         public int Update;
         public int UpdateOnce;
+        public int Xhcztsy;
+        public int Zccgqxsyd;
+        public int Zdxs360ViewMonitor;
+    }
+
+    public static class Mzd_Rzc_SericeInfo2 {
+        public int Hjy;
+        public int HjySw;
+        public int Lthw;
+        public int LthwSw;
+        public int Time;
+        public int Update;
+        public int UpdateOnce;
+        public int Yyyby;
+        public int YyybySw;
+    }
+
+    public static class Mzd_Rzc_ServiceInfo {
+        public int Day;
+        public int Dis;
+        public int Mode;
+        public int Month;
+        public int Update;
+        public int UpdateOnce;
+        public int Year;
     }
 
     public static class Mzd_Rzc_SetData {
+        public int Chsjzdzd;
+        public int Cltzhjgyl;
         public int ComingHomeLight;
         public int DwDistance;
         public int DwTemp;
+        public int Hccwq;
         public int HighBeamControl;
+        public int Hjzm;
         public int Lang;
         public int LeavingHomeLight;
         public int Rxd;
         public int TbpjhlcA;
         public int Update;
         public int UpdateOnce;
+        public int Ybzdyxs;
+        public int Yxgzdsssj;
         public int cdwgtsq;
         public int cmdkscndzdxm;
         public int cmgbscndzdxm;
@@ -7060,6 +8111,23 @@ public class CanDataInfo {
         public int zdssms;
         public int zsyzxqzdxt;
         public int zxxhyl;
+    }
+
+    public static class Mzd_Rzc_TouchCmd {
+        public int Update;
+        public int UpdateOnce;
+        public int x;
+        public int y;
+    }
+
+    public static class Mzd_Rzc_TpmsTime {
+        public int Day;
+        public int Hour;
+        public int Min;
+        public int Month;
+        public int Update;
+        public int UpdateOnce;
+        public int Year;
     }
 
     public static class NissanRich6Wc_CarData {
@@ -7369,13 +8437,17 @@ public class CanDataInfo {
         public int AutoLock;
         public int Bwhj;
         public int DWFuel;
+        public int Ddhbxg;
         public int Ddysgb;
         public int DoorLockSta;
         public int DoorOpt;
         public int EQ;
         public int Fwzm;
+        public int Hbxzdkq;
+        public int Hsjzsy;
         public int Jjshbx;
         public int Jjzd;
+        public int Jtbzsb;
         public int Jyzdzdhsj;
         public int Lang;
         public int Mqtc;
@@ -7388,6 +8460,7 @@ public class CanDataInfo {
         public int UpdateOnce;
         public int Wddw;
         public int Xlxg;
+        public int Xsts;
         public int YbFunc;
         public int Ybbjs;
         public int Ybzm;
@@ -7489,21 +8562,42 @@ public class CanDataInfo {
         public int Cwdxmsj;
         public int CwdxmsjUpdate;
         public int CwdxmsjUpdateOnce;
+        public int Dchczyl;
+        public int DchczylUpdate;
+        public int DchczylUpdateOnce;
+        public int Dchsjjd;
+        public int DchsjjdUpdate;
+        public int DchsjjdUpdateOnce;
         public int Distance;
         public int DistanceUpdate;
         public int DistanceUpdateOnce;
+        public int Hyg;
+        public int HygUpdate;
+        public int HygUpdateOnce;
         public int Jcfz;
         public int JcfzUpdate;
         public int JcfzUpdateOnce;
         public int Lxpjsd;
         public int LxpjsdUpdate;
         public int LxpjsdUpdateOnce;
+        public int Rpm;
+        public int RpmUpdate;
+        public int RpmUpdateOnce;
+        public int Rxd;
+        public int RxdUpdate;
+        public int RxdUpdateOnce;
+        public int Speed;
+        public int SpeedUpdate;
+        public int SpeedUpdateOnce;
         public int Tfq;
         public int TfqUpdate;
         public int TfqUpdateOnce;
         public int Wkms;
         public int WkmsUpdate;
         public int WkmsUpdateOnce;
+        public int Xhlc;
+        public int XhlcUpdate;
+        public int XhlcUpdateOnce;
         public int XssjUpdate;
         public int XssjUpdateOnce;
         public int Xsss;
@@ -7516,6 +8610,18 @@ public class CanDataInfo {
         public int Zyh;
         public int ZyhUpdate;
         public int ZyhUpdateOnce;
+        public int Zyktlqq;
+        public int ZyktlqqUpdate;
+        public int ZyktlqqUpdateOnce;
+        public int Zyxcd;
+        public int ZyxcdUpdate;
+        public int ZyxcdUpdateOnce;
+    }
+
+    public static class PorscheOdAvmData {
+        public int Sta;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class PorscheTpmsData {
@@ -7541,6 +8647,25 @@ public class CanDataInfo {
         public int Sta;
         public int Update;
         public int UpdateOnce;
+    }
+
+    public static class PsaRzcLang {
+        public int Update;
+        public int UpdateOnce;
+        public int Val;
+    }
+
+    public static class PsaRzcSet2 {
+        public int Bxfz;
+        public int Fpz;
+        public int Fpz_Qflbx;
+        public int Jmdbxfpzfs;
+        public int Update;
+        public int UpdateOnce;
+        public int Wysjrxt;
+        public int Ycx_Rqlbx;
+        public int Yjgznfzxt;
+        public int Zcx_Zqlbx;
     }
 
     public static class PsaWcLang {
@@ -7780,6 +8905,7 @@ public class CanDataInfo {
 
     public static class RearAirInfo {
         public int Auto;
+        public int Dual;
         public int Mode;
         public int Power;
         public int Temp;
@@ -7799,6 +8925,55 @@ public class CanDataInfo {
         public int Sta;
         public int Update;
         public int UpdateOnce;
+    }
+
+    public static class RenaulWcCarSetData {
+        public int Bcsykg;
+        public int Bcsylx;
+        public int Bcyl;
+        public int CdbcfzJg;
+        public int CdbcfzZdqd;
+        public int Climate;
+        public int Ddsdkhys;
+        public int Display_Style;
+        public int Fwdhb;
+        public int Fwdkg;
+        public int Fwdqb;
+        public int Fwdqd;
+        public int Fwdyb;
+        public int Fwdys;
+        public int Hbccgq;
+        public int Hsyxkg;
+        public int JsfzQfjl;
+        public int JsfzZdzd;
+        public int Jsfzpljc;
+        public int Jsysts;
+        public int Jyms;
+        public int KjjsLksc;
+        public int Lkhzdsc;
+        public int Mtajgn;
+        public int Multi_Sense;
+        public int Nbhysy;
+        public int Powertrain;
+        public int Qfyszd;
+        public int Qhysyctz;
+        public int Qxxh;
+        public int Steering;
+        public int Tsyl;
+        public int Update;
+        public int UpdateOnce;
+        public int Wbhy;
+        public int Wysscjs;
+        public int Xszdcmsd;
+        public int Ybpld;
+        public int Zdkqxh;
+        public int Zdnbd;
+        public int Zdzdwhsj;
+        public int Zxdyl;
+        public int Zyamkg;
+        public int Zyamms;
+        public int Zyamqd;
+        public int Zyamsd;
     }
 
     public static class RenaulWcDrivePage0 {
@@ -7836,6 +9011,12 @@ public class CanDataInfo {
         public int Xslc;
         public int Xsyh;
         public int Yhdw;
+    }
+
+    public static class RenaulXpLang {
+        public int Type;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class ReportMsg {
@@ -7935,6 +9116,37 @@ public class CanDataInfo {
         public int UpdateOnce;
         public int Vol;
         public int fgPWROn;
+    }
+
+    public static class SLOutLanderSetData {
+        public int AccessoryPowerTimeout;
+        public int AirConditonerAutoControl;
+        public int AutoDoorUnlock;
+        public int AutoFoldWingMirrors;
+        public int AutoLightOnTiming;
+        public int AutoRearDefrostAtStart;
+        public int AutomaticWashFunctionByOneTouchOfTheWasherLever;
+        public int DoorsToBeUnlocked;
+        public int ExteriorLightsOnWithRemoteUnlock;
+        public int FaceFootAirflowRatio;
+        public int FootWindAirflowRatio;
+        public int HeadlightAutoOff;
+        public int HeadlightTimeoutWhenExitVehicle;
+        public int InteriorLightTimeout;
+        public int InteriorLightTimeoutAfterDoorClosed;
+        public int OneTouchLeverGivingFlashes;
+        public int OperatingTimeForLeverToTriggerFlashes;
+        public int RearWiperActivatedWhenInReverse;
+        public int RearWiperIntermittentInterval;
+        public int RecirculationAutoControl;
+        public int ReunlockTimeingAfterLocking;
+        public int SignalOperationConditions;
+        public int TimingOfAutoRelock;
+        public int TurnSignalLightsAnswerBack;
+        public int Update;
+        public int UpdateOnce;
+        public int WindshieldWipersIntermittentOperation;
+        public int WipersLinkedtoWasher;
     }
 
     public static class SailRwMg_SetData {
@@ -8303,6 +9515,77 @@ public class CanDataInfo {
         public int Ver;
     }
 
+    public static class T3Fl_CanData {
+        public int[] Data = new int[17];
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class T3Fl_CanSpeed {
+        public int Update;
+        public int UpdateOnce;
+        public int[] Val = new int[2];
+    }
+
+    public static class T3Fl_DevInfo {
+        public int ACC;
+        public int ANT_4G1;
+        public int ANT_4G2;
+        public int BAT;
+        public int CAN1;
+        public int CAN2;
+        public int GPS;
+        public int KEY1_STA;
+        public int KEY2_STA;
+        public int KEY3_STA;
+        public int KEY4_STA;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class T3Fl_Sta {
+        public int Trailer;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class T3Fl_StartType {
+        public int ACC;
+        public int HOST;
+        public int ICM_INT;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class T3Fl_TexlDisCur {
+        public int[] DisMsg = new int[25];
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class T3Fl_TexlDisOver {
+        public int[] DisDetail = new int[36];
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class T3Fl_TexlInfo {
+        public int CalcSta;
+        public int Connect;
+        public int DdxjxsRet;
+        public int[] Fbyyxx = new int[44];
+        public int Update;
+        public int UpdateOnce;
+        public int WorkMode;
+        public int WycDyzlRet;
+    }
+
+    public static class T3Fl_TexlPjxx {
+        public int PjxxRet;
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class TaTaWc_SetData {
         public int AppLamps;
         public int DoorUnlock;
@@ -8317,6 +9600,23 @@ public class CanDataInfo {
         public int Update;
         public int UpdateOnce;
         public int VehAutoRelock;
+    }
+
+    public static class TaTa_Lz_SetData {
+        public int DoorUnlocking;
+        public int DriveAwayLocking;
+        public int ExteriorLightsApproachLamps;
+        public int MoodLightingColor;
+        public int MoodLightingFront;
+        public int MoodLightingLumin;
+        public int MoodLightingMode;
+        public int MoodLightingRear;
+        public int ParkAssist;
+        public int ParkAssistDelayTimer;
+        public int ParkAssistTone;
+        public int Update;
+        public int UpdateOnce;
+        public int VehicleAutoRelock;
     }
 
     public static class TeanaCarMode {
@@ -8460,6 +9760,39 @@ public class CanDataInfo {
         public int Vol;
     }
 
+    public static class TeanaOldXc_Amp {
+        public int BOSE_Centerpoint;
+        public int Bal;
+        public int Bass;
+        public int Fad;
+        public int SourroundVol;
+        public int SpeedSensitiveVol;
+        public int Tre;
+        public int Update;
+        public int UpdateOnce;
+        public int Vol;
+    }
+
+    public static class TeanaOldXc_Dvd {
+        public int Bfzt;
+        public int Min;
+        public int Sec;
+        public int Track;
+        public int Update;
+        public int UpdateOnce;
+        public int Xszt;
+    }
+
+    public static class TeanaOldXc_Set {
+        public int AutoHeadOffDelay;
+        public int AutoHeadSens;
+        public int AutoIntIllum;
+        public int IntKeyLockUnlock;
+        public int SpeedSenWiperInt;
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class TeanaRadInfo {
         public int AM530;
         public int Band;
@@ -8506,6 +9839,12 @@ public class CanDataInfo {
         public int YlcgqAvalid;
     }
 
+    public static class TouaregWcCarId {
+        public int[] Id = new int[20];
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class TouaregWcDw {
         public int DisAvalid;
         public int Distance;
@@ -8519,6 +9858,13 @@ public class CanDataInfo {
         public int TempAvalid;
         public int TpmsAvalid;
         public int TpmsDw;
+        public int Update;
+        public int UpdateOnce;
+    }
+
+    public static class TouaregWcKeyInfo {
+        public int Adt;
+        public int Num;
         public int Update;
         public int UpdateOnce;
     }
@@ -8562,6 +9908,15 @@ public class CanDataInfo {
         public int Update;
         public int UpdateOnce;
         public int Ysqzwhwz;
+    }
+
+    public static class TouaregWcTpmsInfo {
+        public int AdtFzzt;
+        public int AdtLtlx;
+        public int Fzzt;
+        public int Ltlx;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class TouaregWcTyres {
@@ -8653,6 +10008,7 @@ public class CanDataInfo {
         public int FAVol;
         public int Update;
         public int UpdateOnce;
+        public int VolSw;
         public int fgBeep;
         public int fgFA;
         public int fgForeRadarFar;
@@ -8799,7 +10155,9 @@ public class CanDataInfo {
         public int AutoDoorUnlock;
         public int AutoOffTimer;
         public int AutoRelockTimer;
+        public int ConsumptionUnit;
         public int ConvenServices;
+        public int DriveSeatEasyExit;
         public int ERearDoorGear;
         public int FeedBackTone;
         public int Lang;
@@ -8810,6 +10168,7 @@ public class CanDataInfo {
         public int Update;
         public int UpdateOnce;
         public int WirelessLock;
+        public int Xpyssz;
         public int fgAutoLockByShiftFromP;
         public int fgAutoLockByShitToP;
         public int fgAutoLockBySpeed;
@@ -8885,6 +10244,23 @@ public class CanDataInfo {
         public int VolLinkSpeed;
     }
 
+    public static class ToyotaWcCdcInfo {
+        public int ChangerStatus;
+        public int DiscNum;
+        public int DiscRandom;
+        public int DiscRepeat;
+        public int DiscScan;
+        public int PlayMin;
+        public int PlaySec;
+        public int Random;
+        public int Repeat;
+        public int Scan;
+        public int Track;
+        public int Update;
+        public int UpdateOnce;
+        public int[] Vaild = new int[6];
+    }
+
     public static class ToyotaWcHybrid {
         public int Battery;
         public int ClQdMd;
@@ -8898,6 +10274,12 @@ public class CanDataInfo {
         public int fgHybrid;
     }
 
+    public static class ToyotaWcId3Info {
+        public byte[] NameText = new byte[32];
+        public int Update;
+        public int UpdateOnce;
+    }
+
     public static class ToyotaWcSet {
         public int LightOffTime;
         public int OutLightOffTime;
@@ -8905,9 +10287,14 @@ public class CanDataInfo {
         public int RadarRearDis;
         public int RadarSw;
         public int RadarVol;
+        public int Rjxcd;
         public int Sensitivity;
         public int Update;
         public int UpdateOnce;
+        public int Xcszxzydltj;
+        public int Yqfzwwdzdkzms;
+        public int Ywcgqlmd;
+        public int Zqfzwwdzdkzms;
         public int fgAutoLockByShiftFromP;
         public int fgAutoLockByShitToP;
         public int fgAutoLockBySpeed;
@@ -9386,16 +10773,24 @@ public class CanDataInfo {
     }
 
     public static class ZhCarInfo {
+        public int Cmjsms;
+        public int Csss;
+        public int Dcjyyz;
+        public int Dcsxt;
         public int Dmjs;
         public int Hsjzdzd;
         public int Jsss;
         public int Lang;
         public int Lsss;
+        public int Rjxcd;
+        public int Ssjsfk;
         public int Update;
         public int UpdateOnce;
+        public int Zcbjd;
         public int Zdcs;
         public int Zdjs;
         public int Zdls;
+        public int Zhybld;
     }
 
     public static class ZhWcSetData {
@@ -9412,6 +10807,8 @@ public class CanDataInfo {
 
     public static class ZtBaseInfo {
         public int Climate;
+        public int Dpms;
+        public int Jsms;
         public int Update;
         public int UpdateOnce;
         public int Xcld;
@@ -9447,6 +10844,26 @@ public class CanDataInfo {
         public int Update;
         public int UpdateOnce;
         public int Warn;
+    }
+
+    public static class ZtRzcDriveInfo {
+        public int Dcdl;
+        public int Dcdy;
+        public int Dcdymax;
+        public int Dcdymaxn;
+        public int Dcdymin;
+        public int Dcdyminn;
+        public int Dcwdh;
+        public int Dcwdl;
+        public int Dcwdmax;
+        public int Dcwdmin;
+        public int Djgl;
+        public int Djkzqwd;
+        public int Djwd;
+        public int Djzs;
+        public int Sydl;
+        public int Update;
+        public int UpdateOnce;
     }
 
     public static class ZtTPMSData {

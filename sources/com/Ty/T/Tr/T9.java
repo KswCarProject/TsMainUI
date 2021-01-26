@@ -14,7 +14,7 @@ import java.util.concurrent.Executor;
 public final class T9 {
 
     /* renamed from: T  reason: collision with root package name */
-    final Resources f321T;
+    final Resources f324T;
     final boolean T5;
     final int T6;
     final int T9;
@@ -36,7 +36,7 @@ public final class T9 {
     final int Ty;
 
     private T9(T builder) {
-        this.f321T = builder.Tr.getResources();
+        this.f324T = builder.Tr.getResources();
         this.Tr = builder.Ty;
         this.Ty = builder.Tn;
         this.Tn = builder.T9;
@@ -61,7 +61,7 @@ public final class T9 {
 
     /* access modifiers changed from: package-private */
     public com.Ty.T.Tr.T.T9 T() {
-        DisplayMetrics displayMetrics = this.f321T.getDisplayMetrics();
+        DisplayMetrics displayMetrics = this.f324T.getDisplayMetrics();
         int width = this.Tr;
         if (width <= 0) {
             width = displayMetrics.widthPixels;
@@ -77,7 +77,7 @@ public final class T9 {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public static final TZ f323T = TZ.FIFO;
+        public static final TZ f326T = TZ.FIFO;
         /* access modifiers changed from: private */
         public Executor T5 = null;
         /* access modifiers changed from: private */
@@ -90,7 +90,7 @@ public final class T9 {
         /* access modifiers changed from: private */
         public Executor TE = null;
         /* access modifiers changed from: private */
-        public TZ TF = f323T;
+        public TZ TF = f326T;
         /* access modifiers changed from: private */
         public com.Ty.T.Tr.Tn.Tr TG = null;
         private int TK = 0;
@@ -218,10 +218,10 @@ public final class T9 {
     private static class Tr implements com.Ty.T.Tr.Tn.Tr {
 
         /* renamed from: T  reason: collision with root package name */
-        private final com.Ty.T.Tr.Tn.Tr f324T;
+        private final com.Ty.T.Tr.Tn.Tr f327T;
 
         public Tr(com.Ty.T.Tr.Tn.Tr wrappedDownloader) {
-            this.f324T = wrappedDownloader;
+            this.f327T = wrappedDownloader;
         }
 
         public InputStream T(String imageUri, Object extra) throws IOException {
@@ -230,7 +230,7 @@ public final class T9 {
                 case HTTPS:
                     throw new IllegalStateException();
                 default:
-                    return this.f324T.T(imageUri, extra);
+                    return this.f327T.T(imageUri, extra);
             }
         }
     }
@@ -239,14 +239,14 @@ public final class T9 {
     private static class Ty implements com.Ty.T.Tr.Tn.Tr {
 
         /* renamed from: T  reason: collision with root package name */
-        private final com.Ty.T.Tr.Tn.Tr f325T;
+        private final com.Ty.T.Tr.Tn.Tr f328T;
 
         public Ty(com.Ty.T.Tr.Tn.Tr wrappedDownloader) {
-            this.f325T = wrappedDownloader;
+            this.f328T = wrappedDownloader;
         }
 
         public InputStream T(String imageUri, Object extra) throws IOException {
-            InputStream imageStream = this.f325T.T(imageUri, extra);
+            InputStream imageStream = this.f328T.T(imageUri, extra);
             switch (Tr.T.T(imageUri)) {
                 case HTTP:
                 case HTTPS:

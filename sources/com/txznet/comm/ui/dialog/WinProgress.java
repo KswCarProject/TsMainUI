@@ -14,7 +14,7 @@ import com.txznet.txz.comm.R;
 public class WinProgress extends WinDialog {
 
     /* renamed from: T  reason: collision with root package name */
-    Object f581T;
+    Object f585T;
     private ImageView T9;
     private int Tn;
     private TextView Tr;
@@ -43,16 +43,16 @@ public class WinProgress extends WinDialog {
 
     /* access modifiers changed from: protected */
     public WinProgress setMessageData(Object data) {
-        this.f581T = data;
+        this.f585T = data;
         return this;
     }
 
     public Object getMessageData() {
-        return this.f581T;
+        return this.f585T;
     }
 
     public <T> T getMessageData(Class<T> cls) {
-        return this.f581T;
+        return this.f585T;
     }
 
     /* access modifiers changed from: protected */

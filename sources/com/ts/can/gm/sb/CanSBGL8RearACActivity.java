@@ -14,7 +14,7 @@ import com.ts.can.CanCommonActivity;
 import com.ts.can.CanFunc;
 import com.ts.canview.RelativeLayoutContainer;
 import com.ts.other.ParamButton;
-import com.yyw.ts70xhw.KeyDef;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanSBGL8RearACActivity extends CanCommonActivity implements UserCallBack, View.OnClickListener {
     private static final long AC_SHOW_TIME = 3000;
@@ -60,7 +60,7 @@ public class CanSBGL8RearACActivity extends CanCommonActivity implements UserCal
         ParamButton windDecrease = this.mContainer.addButton(Can.CAN_TOYOTA_SP_XP, 168);
         ParamButton windIncrease = this.mContainer.addButton(671, 168);
         ParamButton tempIncrease = this.mContainer.addButton(858, 68);
-        ParamButton tempDecrease = this.mContainer.addButton(858, KeyDef.RKEY_FR);
+        ParamButton tempDecrease = this.mContainer.addButton(858, 294);
         this.mBtnHeadMode = this.mContainer.addButton(266, 445);
         this.mBtnHeadFootMode = this.mContainer.addButton(450, 445);
         this.mBtnFootMode = this.mContainer.addButton(CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE2, 445);
@@ -104,7 +104,7 @@ public class CanSBGL8RearACActivity extends CanCommonActivity implements UserCal
         } else if (temp == 63) {
             this.mTvTemp.setText("HI");
         } else if (temp <= 10 || temp >= 45) {
-            this.mTvTemp.setText("");
+            this.mTvTemp.setText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mTvTemp.setText(String.format("%.1f°", new Object[]{Float.valueOf((((float) (temp - 11)) * 0.5f) + 15.0f)}));
         }

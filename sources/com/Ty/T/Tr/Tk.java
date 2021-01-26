@@ -15,7 +15,7 @@ import java.util.concurrent.locks.ReentrantLock;
 class Tk {
 
     /* renamed from: T  reason: collision with root package name */
-    final T9 f333T;
+    final T9 f336T;
     private final AtomicBoolean T5 = new AtomicBoolean(false);
     private final Map<Integer, String> T9 = Collections.synchronizedMap(new HashMap());
     private final AtomicBoolean TE = new AtomicBoolean(false);
@@ -29,7 +29,7 @@ class Tk {
     public Executor Ty;
 
     Tk(T9 configuration) {
-        this.f333T = configuration;
+        this.f336T = configuration;
         this.Tr = configuration.TZ;
         this.Ty = configuration.TE;
         this.Tn = T.T();
@@ -39,7 +39,7 @@ class Tk {
     public void T(final TE task) {
         this.Tn.execute(new Runnable() {
             public void run() {
-                File image = Tk.this.f333T.TF.T(task.T());
+                File image = Tk.this.f336T.TF.T(task.T());
                 boolean isImageCachedOnDisk = image != null && image.exists();
                 Tk.this.T9();
                 if (isImageCachedOnDisk) {
@@ -59,16 +59,16 @@ class Tk {
 
     /* access modifiers changed from: private */
     public void T9() {
-        if (!this.f333T.T5 && ((ExecutorService) this.Tr).isShutdown()) {
+        if (!this.f336T.T5 && ((ExecutorService) this.Tr).isShutdown()) {
             this.Tr = Tk();
         }
-        if (!this.f333T.Tv && ((ExecutorService) this.Ty).isShutdown()) {
+        if (!this.f336T.Tv && ((ExecutorService) this.Ty).isShutdown()) {
             this.Ty = Tk();
         }
     }
 
     private Executor Tk() {
-        return T.T(this.f333T.Th, this.f333T.T6, this.f333T.Te);
+        return T.T(this.f336T.Th, this.f336T.T6, this.f336T.Te);
     }
 
     /* access modifiers changed from: package-private */

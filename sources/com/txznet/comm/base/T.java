@@ -10,7 +10,7 @@ public class T {
     private static int Ty = 0;
 
     /* renamed from: T  reason: collision with root package name */
-    private Stack<Activity> f415T = new Stack<>();
+    private Stack<Activity> f419T = new Stack<>();
 
     private T() {
     }
@@ -28,21 +28,21 @@ public class T {
 
     public void T(Activity activity) {
         if (activity != null) {
-            this.f415T.remove(activity);
+            this.f419T.remove(activity);
         }
     }
 
     public void Tr(Activity activity) {
-        this.f415T.add(activity);
+        this.f419T.add(activity);
     }
 
     public boolean Tr() {
-        return this.f415T.size() > 0;
+        return this.f419T.size() > 0;
     }
 
     public Activity Ty() {
         try {
-            return (Activity) this.f415T.lastElement();
+            return (Activity) this.f419T.lastElement();
         } catch (NoSuchElementException e) {
             return null;
         }

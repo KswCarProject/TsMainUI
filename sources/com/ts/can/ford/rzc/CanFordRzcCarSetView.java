@@ -2,6 +2,7 @@ package com.ts.can.ford.rzc;
 
 import android.app.Activity;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -10,17 +11,22 @@ import com.ts.canview.CanItemMsgBox;
 import com.yyw.ts70xhw.FtSet;
 
 public class CanFordRzcCarSetView extends CanScrollCarInfoView {
+    private static final int ITEM_AUTO_PARK_SW = 26;
     private static final int ITEM_BWHJSC = 21;
+    private static final int ITEM_CDZSD = 25;
     private static final int ITEM_COMPASS = 22;
     private static final int ITEM_CSSS = 17;
     private static final int ITEM_HCSSC = 20;
     private static final int ITEM_HSJZDMS = 19;
+    private static final int ITEM_PDQDFZ = 23;
     private static final int ITEM_SNDSC = 18;
     private static final int ITEM_WXCD = 16;
     private static final int ITEM_YBDSC = 14;
+    private static final int ITEM_YBFXJ = 24;
     private static final int ITEM_YKCC = 15;
     private static final int ITEM_ZDDDLMD = 12;
     private static final int ITEM_ZNJBS = 13;
+    private static int m_AutoParkb = 255;
     private static int m_Compassb = 0;
     private CanDataInfo.FordAdt mAdtData;
     private CanDataInfo.FordSet mSetData;
@@ -28,17 +34,17 @@ public class CanFordRzcCarSetView extends CanScrollCarInfoView {
     public boolean mTpmsReset;
 
     public CanFordRzcCarSetView(Activity activity) {
-        super(activity, 23);
+        super(activity, 27);
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_traction_control_sys, R.string.can_message_tone, R.string.can_alert_tone, R.string.can_zqxbcfz, R.string.can_rvs_keep, R.string.can_fmqbj, R.string.can_rain_sensor, R.string.can_environment_light, R.string.can_zxdsszs, R.string.can_lcdw, R.string.can_tpms_set, R.string.can_hsfp, R.string.can_zdddlmd, R.string.can_znjbs, R.string.can_ybdsc, R.string.can_ykcckz, R.string.can_wxcd, R.string.can_df_jyx5_csss, R.string.can_sndsc, R.string.can_hsjzdms, R.string.can_hcssc, R.string.can_dgsjkz_bwhj, R.string.can_compass};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH};
+        this.mItemTitleIds = new int[]{R.string.can_traction_control_sys, R.string.can_message_tone, R.string.can_alert_tone, R.string.can_zqxbcfz, R.string.can_rvs_keep, R.string.can_fmqbj, R.string.can_rain_sensor, R.string.can_environment_light, R.string.can_zxdsszs, R.string.can_lcdw, R.string.can_tpms_set, R.string.can_hsfp, R.string.can_zdddlmd, R.string.can_znjbs, R.string.can_ybdsc, R.string.can_ykcckz, R.string.can_wxcd, R.string.can_df_jyx5_csss, R.string.can_sndsc, R.string.can_hsjzdms, R.string.can_hcssc, R.string.can_dgsjkz_bwhj, R.string.can_compass, R.string.can_teramont_pdqbfz, R.string.can_instrument_arrow_key, R.string.can_charge_light, R.string.can_active_park};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH};
         this.mAdtData = new CanDataInfo.FordAdt();
         this.mSetData = new CanDataInfo.FordSet();
         CanJni.FordGetAdt(this.mAdtData);
-        this.mItemVisibles = new int[]{this.mAdtData.Qylxt, this.mAdtData.Xytsy, this.mAdtData.Jgtsy, this.mAdtData.Zqxbcfz, this.mAdtData.RvsKeep, this.mAdtData.Fmqbj, this.mAdtData.Ysgyq, this.mAdtData.Hjdsd, this.mAdtData.Zxd, this.mAdtData.RangeDW, this.mAdtData.TpmsSet, this.mAdtData.Hsfp, this.mAdtData.Zdddlmd, this.mAdtData.Znjbs, this.mAdtData.Ybdsc, this.mAdtData.Ykcc, this.mAdtData.Wxcd, this.mAdtData.Csss, this.mAdtData.Sndsc, this.mAdtData.Hsjzdms, this.mAdtData.Hcssc, this.mAdtData.Bwhjsj, 1};
+        this.mItemVisibles = new int[]{this.mAdtData.Qylxt, this.mAdtData.Xytsy, this.mAdtData.Jgtsy, this.mAdtData.Zqxbcfz, this.mAdtData.RvsKeep, this.mAdtData.Fmqbj, this.mAdtData.Ysgyq, this.mAdtData.Hjdsd, this.mAdtData.Zxd, this.mAdtData.RangeDW, this.mAdtData.TpmsSet, this.mAdtData.Hsfp, this.mAdtData.Zdddlmd, this.mAdtData.Znjbs, this.mAdtData.Ybdsc, this.mAdtData.Ykcc, this.mAdtData.Wxcd, this.mAdtData.Csss, this.mAdtData.Sndsc, this.mAdtData.Hsjzdms, this.mAdtData.Hcssc, this.mAdtData.Bwhjsj, 1, this.mAdtData.Pdqdfz, this.mAdtData.Ybfxj, this.mAdtData.Cdzsd, 1};
         this.mPopValueIds[8] = new int[]{R.array.can_fist_zxd};
         this.mPopValueIds[9] = new int[]{R.string.can_service_distance_km, R.string.can_service_distance_mi};
         this.mPopValueIds[12] = new int[]{R.string.can_ac_low, R.string.can_ac_mid, R.string.can_ac_high};
@@ -47,6 +53,7 @@ public class CanFordRzcCarSetView extends CanScrollCarInfoView {
         this.mPopValueIds[19] = new int[]{R.string.can_auto_ylgyq, R.string.can_soudong};
         this.mPopValueIds[20] = new int[]{R.string.can_headlightautoofftime_5m, R.string.can_headlightautoofftime_10m};
         this.mPopValueIds[21] = new int[]{R.string.can_headlightautoofftime_30s, R.string.can_headlightautoofftime_1m, R.string.can_headlightautoofftime_2m, R.string.can_headlightautoofftime_3m};
+        this.mPopValueIds[25] = new int[]{R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_mode_on, R.string.can_restricted};
     }
 
     public void onItem(int id, int item) {
@@ -66,6 +73,8 @@ public class CanFordRzcCarSetView extends CanScrollCarInfoView {
             CanJni.FordRzcCarSet(176, 7, item);
         } else if (id == 21) {
             CanJni.FordRzcCarSet(176, 9, item);
+        } else if (id == 25) {
+            CanJni.FordRzcCarSet(163, item + 25, 0);
         }
     }
 
@@ -124,11 +133,35 @@ public class CanFordRzcCarSetView extends CanScrollCarInfoView {
                 return;
             case 22:
                 int temp = FtSet.Getyw2();
-                if ((temp & 240) > 0) {
+                if ((temp & Can.CAN_VOLKS_XP) > 0) {
                     FtSet.Setyw2(65295 & temp);
                     return;
                 } else {
                     FtSet.Setyw2(temp | 16);
+                    return;
+                }
+            case 23:
+                if (this.mSetData.Pdqdfz > 0) {
+                    CanJni.FordRzcCarSet(163, 22, 0);
+                    return;
+                } else {
+                    CanJni.FordRzcCarSet(163, 21, 0);
+                    return;
+                }
+            case 24:
+                if (this.mSetData.Ybfxj > 0) {
+                    CanJni.FordRzcCarSet(163, 24, 0);
+                    return;
+                } else {
+                    CanJni.FordRzcCarSet(163, 23, 0);
+                    return;
+                }
+            case 26:
+                if (FtSet.GetCanS(2) > 0) {
+                    FtSet.SetCanS((byte) 0, 2);
+                    return;
+                } else {
+                    FtSet.SetCanS((byte) 1, 2);
                     return;
                 }
             default:
@@ -165,10 +198,17 @@ public class CanFordRzcCarSetView extends CanScrollCarInfoView {
                 this.mTpmsReset = false;
                 showToast(R.string.can_tpms_reset);
             }
+            updateItem(23, this.mSetData.Pdqdfz);
+            updateItem(24, this.mSetData.Ybfxj);
+            updateItem(25, this.mSetData.Cdzsd);
         }
-        if (m_Compassb != (FtSet.Getyw2() & 240) || !check) {
-            m_Compassb = (FtSet.Getyw2() & 240) >> 4;
+        if (m_Compassb != (FtSet.Getyw2() & Can.CAN_VOLKS_XP) || !check) {
+            m_Compassb = (FtSet.Getyw2() & Can.CAN_VOLKS_XP) >> 4;
             updateItem(22, m_Compassb);
+        }
+        if (m_AutoParkb != FtSet.GetCanS(2) || !check) {
+            m_AutoParkb = FtSet.GetCanS(2);
+            updateItem(26, m_AutoParkb);
         }
     }
 

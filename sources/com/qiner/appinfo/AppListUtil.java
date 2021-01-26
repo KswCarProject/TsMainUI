@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import com.ts.main.common.tool;
+import com.ts.main.common.MainSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -37,8 +37,10 @@ public class AppListUtil {
     }
 
     public void init(Context context) {
-        this.mContext = context;
-        this.appListDbHelper = new AppListDatabaseHelper(context, "AppList.db", (SQLiteDatabase.CursorFactory) null, 1);
+        if (this.mContext == null) {
+            this.mContext = context;
+            this.appListDbHelper = new AppListDatabaseHelper(context, "AppList.db", (SQLiteDatabase.CursorFactory) null, 1);
+        }
     }
 
     public void insertAppList(String packagename, int ischecked) {
@@ -156,8 +158,7 @@ public class AppListUtil {
                 return false;
             }
         }
-        tool.GetInstance();
-        if (tool.IsSysapk(app.packageName) == 0 && this.mContext.getPackageManager().getLaunchIntentForPackage(app.packageName) != null) {
+        if (MainSet.IsSysapk(app.packageName) == 0 && this.mContext.getPackageManager().getLaunchIntentForPackage(app.packageName) != null) {
             return true;
         }
         return false;

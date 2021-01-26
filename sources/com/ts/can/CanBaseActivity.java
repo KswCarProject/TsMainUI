@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import com.android.SdkConstants;
 import com.ts.MainUI.R;
 import com.ts.other.ParamButton;
 
@@ -149,6 +150,6 @@ public class CanBaseActivity extends Activity {
     }
 
     public String getCurrentActivityName() {
-        return ((ActivityManager) getSystemService("activity")).getRunningTasks(1).get(0).topActivity.getClassName();
+        return ((ActivityManager) getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningTasks(1).get(0).topActivity.getClassName();
     }
 }

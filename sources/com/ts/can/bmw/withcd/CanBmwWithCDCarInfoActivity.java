@@ -36,7 +36,9 @@ public class CanBmwWithCDCarInfoActivity extends CanBaseActivity implements User
     private static int m_SystemVolb = 0;
     private static int m_TurnRvs360b = 0;
     private String[] mAudioArr = {"NUM8", "AUX3"};
+    private String[] mAudioCvbsArr = {"NUM8", "AUTO", "AUTO2", "NUM6", "OFF"};
     private String[] mCameraArr = {"原车模式", "(CVBS)模式", "360(VGA)模式", "360(CVBS)模式"};
+    private String[] mCameraCvbsArr = {"原车模式", "(CVBS)模式"};
     private CanItemPopupList mCarAudio;
     private CanItemPopupList mCarTypeItem;
     private CanItemTextBtnList mItemCanIap;
@@ -48,6 +50,7 @@ public class CanBmwWithCDCarInfoActivity extends CanBaseActivity implements User
     private CanItemProgressList mSystemVolBar;
     private CanItemSwitchList mTurnRvs360Switch;
     private String[] mTypeArr = {"Harman1 1280*480", "Harman2 1280*480", "Harman  1280*480 Cic", "Harman1 800*480", "Harman2 800*480", "Alpine  800*480", "Temp5   800*480", "Harman  800*480 Cic", "Alpine  800*480 Cic", "Harman  1280*480 Ccc", "Harman2  800*480 Cic", "Eur     800*480 Ccc", "Jap     1280*480 Ccc"};
+    private String[] mTypeCvbsArr = {"1280*480 1(EVO/NBT 8.8/10.25)", "1280*480 2(EVO/NBT 8.8/10.25)", "1280*480 (CIC 8.8/10.25)", "800*480 1(EVO/NBT 6.5)", "800*480 2(EVO/NBT 6.5)", "1280*480 1(ID5 8.8/10.25)", "1280*480 2(ID5 8.8/10.25)", "800*480 1(CIC 6.5)", "800*480 2(CIC 6.5)", "800*480 3(CIC 6.5)", "800*480 3(CIC 7.0)", "800*480 1(CCC 6.5)", "1280*480 1(CCC 8.8)", "1280*480 2(CCC 8.8)", "OFF"};
     protected CanDataInfo.BmwWithCD_WorkMode mWorkMode = new CanDataInfo.BmwWithCD_WorkMode();
 
     /* access modifiers changed from: protected */
@@ -60,8 +63,15 @@ public class CanBmwWithCDCarInfoActivity extends CanBaseActivity implements User
 
     private void InitUI() {
         this.mManager = new CanScrollList(this);
-        this.mCarTypeItem = this.mManager.addItemPopupList(R.string.can_host_configuration, this.mTypeArr, 5, (CanItemPopupList.onPopItemClick) this);
-        this.mRvsModeItem = this.mManager.addItemPopupList(R.string.can_camera_360, this.mCameraArr, 2, (CanItemPopupList.onPopItemClick) this);
+        if (CanJni.GetSubType() == 1) {
+            this.mCarTypeItem = this.mManager.addItemPopupList(R.string.can_host_configuration, this.mTypeCvbsArr, 5, (CanItemPopupList.onPopItemClick) this);
+            this.mCarAudio = this.mManager.addItemPopupList(R.string.can_bmw_entauxmode, this.mAudioCvbsArr, 7, (CanItemPopupList.onPopItemClick) this);
+            this.mRvsModeItem = this.mManager.addItemPopupList(R.string.can_camera_360, this.mCameraCvbsArr, 2, (CanItemPopupList.onPopItemClick) this);
+        } else {
+            this.mCarTypeItem = this.mManager.addItemPopupList(R.string.can_host_configuration, this.mTypeArr, 5, (CanItemPopupList.onPopItemClick) this);
+            this.mCarAudio = this.mManager.addItemPopupList(R.string.can_bmw_entauxmode, this.mAudioArr, 7, (CanItemPopupList.onPopItemClick) this);
+            this.mRvsModeItem = this.mManager.addItemPopupList(R.string.can_camera_360, this.mCameraArr, 2, (CanItemPopupList.onPopItemClick) this);
+        }
         this.mRvsMirrorSwitch = this.mManager.addItemCheckBox(R.string.can_rvs_mirror, 3, this);
         this.mTurnRvs360Switch = this.mManager.addItemCheckBox(R.string.can_tigger7_start_avm, 4, this);
         this.mSystemVolBar = this.mManager.addItemProgressList(R.string.can_system_vol, 0, (CanItemProgressList.onPosChange) this);
@@ -72,7 +82,6 @@ public class CanBmwWithCDCarInfoActivity extends CanBaseActivity implements User
         this.mNaviVolBar.SetMinMax(0, 40);
         this.mNaviVolBar.SetStep(1);
         this.mNaviVolBar.SetUserValText();
-        this.mCarAudio = this.mManager.addItemPopupList(R.string.can_bmw_entauxmode, this.mAudioArr, 7, (CanItemPopupList.onPopItemClick) this);
         this.mItemCanIap = AddIcoItem(R.string.can_can_iap, 6);
     }
 
@@ -120,7 +129,10 @@ public class CanBmwWithCDCarInfoActivity extends CanBaseActivity implements User
                 ret = 1;
                 break;
             case 3:
-                ret = 1;
+                if (CanJni.GetSubType() != 1) {
+                    ret = 1;
+                    break;
+                }
                 break;
             case 4:
                 if ((FtSet.Getlgb1() & 8) > 0) {
@@ -170,17 +182,21 @@ public class CanBmwWithCDCarInfoActivity extends CanBaseActivity implements User
         }
     }
 
-    private void ResetData(boolean check) {
-        int RvsMode;
+    public int RvsMode() {
         if ((FtSet.Getlgb1() & 16) > 0) {
-            RvsMode = 3;
-        } else if ((FtSet.Getlgb1() & 8) > 0) {
-            RvsMode = 2;
-        } else if ((FtSet.Getlgb1() & 1) > 0) {
-            RvsMode = 0;
-        } else {
-            RvsMode = 1;
+            return 3;
         }
+        if ((FtSet.Getlgb1() & 8) > 0) {
+            return 2;
+        }
+        if ((FtSet.Getlgb1() & 1) > 0) {
+            return 0;
+        }
+        return 1;
+    }
+
+    private void ResetData(boolean check) {
+        int RvsMode = RvsMode();
         int RvsMirror = FtSet.Getlgb1() & 2;
         int TurnRvs = FtSet.Getlgb1() & 32;
         if (!(RvsMode == m_RvsModeb && RvsMirror == m_RvsMirrorb && TurnRvs == m_TurnRvs360b)) {
@@ -208,26 +224,37 @@ public class CanBmwWithCDCarInfoActivity extends CanBaseActivity implements User
     }
 
     public static int IsBmwType() {
-        if (FtSet.Getlgb4() == 9) {
+        if (CanJni.GetSubType() == 1) {
+            if (FtSet.Getlgb4() == 11) {
+                return 126;
+            }
+            if (FtSet.Getlgb4() == 12) {
+                return 128;
+            }
+            if (FtSet.Getlgb4() == 13) {
+                return 129;
+            }
+            if (FtSet.Getlgb4() == 14) {
+                return 255;
+            }
+        } else if (FtSet.Getlgb4() == 9) {
             return 128;
-        }
-        if (FtSet.Getlgb4() == 10) {
-            return 9;
-        }
-        if (FtSet.Getlgb4() == 11) {
-            return 126;
-        }
-        if (FtSet.Getlgb4() == 12) {
-            return 129;
+        } else {
+            if (FtSet.Getlgb4() == 10) {
+                return 9;
+            }
+            if (FtSet.Getlgb4() == 11) {
+                return 126;
+            }
+            if (FtSet.Getlgb4() == 12) {
+                return 129;
+            }
         }
         return FtSet.Getlgb4();
     }
 
     public static int IsBmwAuxType() {
-        if (FtSet.Getlgb2() == 1) {
-            return 1;
-        }
-        return 0;
+        return FtSet.Getlgb2();
     }
 
     public void onItem(int id, int item) {

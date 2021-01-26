@@ -4,9 +4,11 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.internal.view.SupportMenu;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -24,6 +26,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanGolfWcACActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener {
@@ -56,6 +59,7 @@ public class CanGolfWcACActivity extends CanBaseActivity implements UserCallBack
     private static final int ITEM_REAR_LOCK = 8;
     private static final int ITEM_SETTINGS = 12;
     private static final int ITEM_SYNC = 7;
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private static int[] mLtChairWindIds = {R.drawable.cadg_ac_lfan_00, R.drawable.cadg_ac_lfan_01, R.drawable.cadg_ac_lfan_02, R.drawable.cadg_ac_lfan_03};
     private static int[] mRearLtHotIds = {R.drawable.cadg_ac_lchair_up, R.drawable.cadg_ac_lchair01_dn, R.drawable.cadg_ac_lchair02_dn, R.drawable.cadg_ac_lchair_dn};
     private static int[] mRearRtHotIds = {R.drawable.cadg_ac_rchair_up, R.drawable.cadg_ac_rchair01_dn, R.drawable.cadg_ac_rchair02_dn, R.drawable.cadg_ac_rchair_dn};
@@ -120,12 +124,26 @@ public class CanGolfWcACActivity extends CanBaseActivity implements UserCallBack
     public void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.activity_can_comm_relative);
+        this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
+        InitUI();
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
+    }
+
+    private void InitUI() {
         this.mSetArrays = new String[]{"AUTO", "ACmax", "max FRONT", getString(R.string.can_soudong)};
         String str = String.valueOf(getString(R.string.can_ac_zdfl)) + " : ";
         this.mAutoWindArrays[0] = String.valueOf(str) + getString(R.string.can_ac_low);
         this.mAutoWindArrays[1] = String.valueOf(str) + getString(R.string.can_ac_mid);
         this.mAutoWindArrays[2] = String.valueOf(str) + getString(R.string.can_ac_high);
-        this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
         mfgJump = CanFunc.IsCanActivityJumped(this);
         AddButton(this.mManager, 30, 20, 90, 50, R.drawable.can_ac_blue, R.drawable.can_ac_blue, 22);
         AddButton(this.mManager, 100, 20, 90, 50, R.drawable.can_ac_red, R.drawable.can_ac_red, 21);
@@ -147,8 +165,8 @@ public class CanGolfWcACActivity extends CanBaseActivity implements UserCallBack
         this.mManager.AddImage(0, 428, 1024, 127).setBackgroundResource(R.drawable.can_golf_bel_bg);
         this.mManager.AddImageEx(50, 90, 84, 47, R.drawable.can_golf_green_dn);
         this.mTvClearAirProgress = AddText(this.mManager, 110, 82, 80, 50);
-        AddButton(this.mManager, 30, Can.CAN_JAC_REFINE_OD, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_leftseat_up, R.drawable.conditioning_leftseat_dn, 1);
-        AddButton(this.mManager, 217, Can.CAN_JAC_REFINE_OD, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_rightseat_up, R.drawable.conditioning_rightseat_dn, 2);
+        AddButton(this.mManager, 30, 150, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_leftseat_up, R.drawable.conditioning_leftseat_dn, 1);
+        AddButton(this.mManager, 217, 150, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_rightseat_up, R.drawable.conditioning_rightseat_dn, 2);
         this.mBtnSwHot = AddButton(this.mManager, 220, 354, 84, 47, R.drawable.can_golf_wheel_hot_up, R.drawable.can_golf_wheel_hot_dn, 3);
         this.mBtnSwSync = AddButton(this.mManager, KeyDef.RKEY_OPEN, 354, 58, 55, R.drawable.can_golf_wheel_sync_up, R.drawable.can_golf_wheel_sync_dn, 4);
         this.mIvLtFire = this.mManager.AddImageEx(102, 279, 41, 44, R.drawable.conditioning_direction);
@@ -221,7 +239,7 @@ public class CanGolfWcACActivity extends CanBaseActivity implements UserCallBack
 
     /* access modifiers changed from: protected */
     public void onDestroy() {
-        CanJni.GolfWcAcSet(240, 0);
+        CanJni.GolfWcAcSet(Can.CAN_VOLKS_XP, 0);
         super.onDestroy();
     }
 
@@ -312,7 +330,7 @@ public class CanGolfWcACActivity extends CanBaseActivity implements UserCallBack
         this.mBtnSwSync.SetSel(this.mAcData.ChairSwSync);
         this.mBtnCleanAir.SetSel(this.mAcData.ClearAir);
         if (this.mAcData.ClearAirPro < 0 || this.mAcData.ClearAirPro > 10) {
-            this.mTvClearAirProgress.setText("");
+            this.mTvClearAirProgress.setText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mTvClearAirProgress.setText(String.valueOf(this.mAcData.ClearAirPro));
         }
@@ -572,8 +590,8 @@ public class CanGolfWcACActivity extends CanBaseActivity implements UserCallBack
         anchor.getLocationOnScreen(location);
         int x = location[0] - ((this.window.getWidth() - anchor.getWidth()) / 2);
         int y = (location[1] - this.window.getHeight()) - 20;
-        if (this.window.getWidth() + x >= 1024) {
-            x = (1024 - this.window.getWidth()) - 10;
+        if (this.window.getWidth() + x >= mDisplayMetrics.widthPixels) {
+            x = (mDisplayMetrics.widthPixels - this.window.getWidth()) - 10;
         }
         this.window.showAtLocation(anchor, 0, x, y);
         updateACUI();

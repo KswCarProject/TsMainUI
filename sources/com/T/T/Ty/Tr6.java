@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class Tr6 implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Tr6 f214T = new Tr6();
+    public static final Tr6 f217T = new Tr6();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         if (object == null) {

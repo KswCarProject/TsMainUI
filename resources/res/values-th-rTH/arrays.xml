@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="tpms_general_disp">
-        <item>TEMP Unit</item>
-        <item>Pressure Unit</item>
-        <item>MAX TEMP</item>
-        <item>MAX Pressure</item>
-        <item>MIN Pressure</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>Flat Tire</item>
-        <item>Low Voltage</item>
-        <item>No Signal</item>
-        <item>Low Pressure</item>
-        <item>High Pressure</item>
-        <item>Start study</item>
-        <item>studying</item>
-    </array>
     <array name="set_main_options">
         <item>ทั่วไป</item>
         <item>จอภาพ</item>
@@ -28,7 +12,7 @@
         <item>เกี่ยวกับอุปกรณ์</item>
     </array>
     <array name="set_genera_options">
-        <item>ระยะเวลาสแตนด์บาย</item>
+        <item>โหมดสลีป</item>
         <item>Speech Recognition</item>
         <item>AssistiveTouch</item>
         <item>กลับค่าเสียง</item>
@@ -59,6 +43,7 @@
         <item>เครื่องปรับอากาศ</item>
         <item>วิดีโอด้านหลัง</item>
         <item>กล้องด้านหน้า</item>
+        <item>ประเภทกล้อง</item>
     </array>
     <array name="set_navi_options">
         <item>เริ่มนำทางอัตโนมัติ</item>
@@ -88,5 +73,22 @@
         <item>ได้รับ</item>
         <item>ความถี่สูง</item>
         <item>ได้รับ</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+        <item>High Temp</item>
     </array>
 </resources>

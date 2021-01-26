@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
-import com.ts.dvdplayer.definition.MediaDef;
 import java.util.Arrays;
 
 public class ViewDragHelper {
@@ -1040,7 +1039,7 @@ public class ViewDragHelper {
     }
 
     private void releaseViewForPointerUp() {
-        this.mVelocityTracker.computeCurrentVelocity(MediaDef.PROGRESS_MAX, this.mMaxVelocity);
+        this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaxVelocity);
         dispatchViewReleased(clampMag(VelocityTrackerCompat.getXVelocity(this.mVelocityTracker, this.mActivePointerId), this.mMinVelocity, this.mMaxVelocity), clampMag(VelocityTrackerCompat.getYVelocity(this.mVelocityTracker, this.mActivePointerId), this.mMinVelocity, this.mMaxVelocity));
     }
 

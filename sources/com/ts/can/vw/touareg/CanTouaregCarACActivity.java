@@ -85,7 +85,7 @@ public class CanTouaregCarACActivity extends CanBaseActivity implements UserCall
         this.mWindVal = this.mManager.AddText(736, 22, 60, 40);
         this.mWindVal.setTextSize(0, 30.0f);
         this.mWindVal.setTextColor(-1);
-        this.mWindVal.setText(MainSet.SP_TW_CJW);
+        this.mWindVal.setText(MainSet.SP_PCBA_VOL);
         this.mWindVal.setGravity(19);
         this.mManager.AddImageEx(Can.CAN_LIEBAO_WC, 30, 25, 26, R.drawable.conditioning_fan02_up);
         this.mManager.AddImageEx(686, 22, 39, 40, R.drawable.conditioning_fan01_up);
@@ -93,8 +93,8 @@ public class CanTouaregCarACActivity extends CanBaseActivity implements UserCall
         this.mManager.AddImageEx(12, 405, 999, 1, R.drawable.conditioning_line_up);
         this.mManager.AddImageEx(481, 94, CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST4, Can.CAN_CHRYSLER_ONE_HC, R.drawable.can_golf_bg_new);
         this.mManager.AddImageEx(411, 104, 2, 267, R.drawable.can_golf_sline);
-        this.mManager.AddImageEx(30, Can.CAN_JAC_REFINE_OD, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_leftseat_up);
-        this.mManager.AddImageEx(217, Can.CAN_JAC_REFINE_OD, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_rightseat_up);
+        this.mManager.AddImageEx(30, 150, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_leftseat_up);
+        this.mManager.AddImageEx(217, 150, Can.CAN_DFFG_S560, 138, R.drawable.conditioning_rightseat_up);
         this.mWindLtUp = this.mManager.AddImage(CanCameraUI.BTN_GEELY_YJX6_ESC, Can.CAN_BENC_ZMYT);
         this.mWindLtUp.setStateDrawable(R.drawable.can_golf_cold02, R.drawable.can_golf_hot02);
         this.mWindLtPxLt = this.mManager.AddImage(CanCameraUI.BTN_YG9_XBS_MODE2, Can.CAN_SGMW_WC);
@@ -127,7 +127,7 @@ public class CanTouaregCarACActivity extends CanBaseActivity implements UserCall
         this.mRearLight = this.mManager.AddImage(436, KeyDef.RKEY_res1);
         this.mRearLight.setStateDrawable(R.drawable.conditioning_heat_up, R.drawable.conditioning_heat_dn);
         this.mRearLight.Show(false);
-        this.mDual = this.mManager.AddImage(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, KeyDef.RKEY_res1);
+        this.mDual = this.mManager.AddImage(540, KeyDef.RKEY_res1);
         this.mDual.setStateDrawable(R.drawable.conditioning_dual_up, R.drawable.conditioning_dual_dn);
         this.mAc = this.mManager.AddImage(CanCameraUI.BTN_LANDWIND_2D_RIGHT, KeyDef.RKEY_res1);
         this.mAc.setStateDrawable(R.drawable.conditioning_ac_up, R.drawable.conditioning_ac_dn);

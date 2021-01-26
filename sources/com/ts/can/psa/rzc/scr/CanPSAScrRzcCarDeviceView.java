@@ -59,7 +59,7 @@ public class CanPSAScrRzcCarDeviceView extends CanRelativeCarInfoView {
         this.mBtnSeekDn = AddBtn(4, KeyDef.SKEY_VOLUP_2, 427, R.drawable.original_car_seekdn_up, R.drawable.original_car_seekdn_dn);
         this.mBtnFolderUp = AddBtn(7, 31, 427, R.drawable.original_car_foldup_up, R.drawable.original_car_foldup_dn);
         this.mBtnFolderDn = AddBtn(6, 899, 427, R.drawable.original_car_folddn_up, R.drawable.original_car_folddn_dn);
-        AddBtn(8, 460, Can.CAN_JAC_REFINE_OD, R.drawable.original_car_usb, R.drawable.original_car_usb);
+        AddBtn(8, 460, 150, R.drawable.original_car_usb, R.drawable.original_car_usb);
     }
 
     public void ResetData(boolean check) {

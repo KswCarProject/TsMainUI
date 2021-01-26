@@ -10,6 +10,7 @@ import com.ts.can.CanIF;
 import com.ts.can.CanScrollCarInfoView;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemTextBtnList;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfRzcServiceSetView extends CanScrollCarInfoView {
     private static final int ITEM_INSPECT_TEXT = 2;
@@ -67,6 +68,15 @@ public class CanGolfRzcServiceSetView extends CanScrollCarInfoView {
         this.mInspecDis = new CanDataInfo.GolfDistanceCommon();
         this.mOilDis = new CanDataInfo.GolfDistanceCommon();
         this.mDrivingOil = new CanDataInfo.GolfDrivingOil();
+        if (CanJni.GetSubType() == 5) {
+            this.mItemVisibles[6] = 0;
+            this.mItemVisibles[4] = 0;
+            this.mItemVisibles[5] = 0;
+            return;
+        }
+        this.mItemVisibles[6] = 1;
+        this.mItemVisibles[4] = 1;
+        this.mItemVisibles[5] = 1;
     }
 
     /* access modifiers changed from: protected */
@@ -129,8 +139,8 @@ public class CanGolfRzcServiceSetView extends CanScrollCarInfoView {
     /* access modifiers changed from: protected */
     @SuppressLint({"DefaultLocale"})
     public String FormatData(CanDataInfo.GolfDaysComm days, CanDataInfo.GolfDistanceCommon dis) {
-        String strDays = "";
-        String strDis = "";
+        String strDays = TXZResourceManager.STYLE_DEFAULT;
+        String strDis = TXZResourceManager.STYLE_DEFAULT;
         switch (days.ShowType) {
             case 0:
                 strDays = "--";

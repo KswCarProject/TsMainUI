@@ -6,7 +6,7 @@ import com.txznet.comm.Ty.Tr;
 public class BusinessPoiDetail extends PoiDetail {
 
     /* renamed from: T  reason: collision with root package name */
-    String f859T;
+    String f863T;
     boolean T5;
     int T6;
     double T9;
@@ -27,7 +27,7 @@ public class BusinessPoiDetail extends PoiDetail {
     }
 
     public String getBranchName() {
-        return this.f859T;
+        return this.f863T;
     }
 
     public String getPhotoUrl() {
@@ -87,7 +87,7 @@ public class BusinessPoiDetail extends PoiDetail {
     }
 
     public BusinessPoiDetail setBranchName(String branchName) {
-        this.f859T = branchName;
+        this.f863T = branchName;
         return this;
     }
 
@@ -225,7 +225,7 @@ public class BusinessPoiDetail extends PoiDetail {
     public Tr T() {
         Tr json = super.T();
         json.T("avgPrice", (Object) Double.valueOf(this.Te));
-        json.T("branchName", (Object) this.f859T);
+        json.T("branchName", (Object) this.f863T);
         json.T("categories", (Object) this.Tn);
         json.T("dealCount", (Object) Integer.valueOf(this.Tv));
         json.T("hasCoupon", (Object) Boolean.valueOf(this.Th));
@@ -250,7 +250,7 @@ public class BusinessPoiDetail extends PoiDetail {
     public void T(Tr json) {
         super.T(json);
         this.Te = ((Double) json.T("avgPrice", Double.class, Double.valueOf(0.0d))).doubleValue();
-        this.f859T = (String) json.T("branchName", String.class);
+        this.f863T = (String) json.T("branchName", String.class);
         this.Tn = (String[]) json.T("categories", String[].class);
         this.Tv = ((Integer) json.T("dealCount", Integer.class, 0)).intValue();
         this.Th = ((Boolean) json.T("hasCoupon", Boolean.class, false)).booleanValue();

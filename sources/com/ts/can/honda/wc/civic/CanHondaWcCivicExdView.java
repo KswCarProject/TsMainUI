@@ -17,6 +17,7 @@ import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanHondaWcCivicExdView extends CanRelativeCarInfoView {
     public static final int BTN_NEXT = 1;
@@ -156,7 +157,7 @@ public class CanHondaWcCivicExdView extends CanRelativeCarInfoView {
             this.mImgUsb.Show(false);
             int mediaSta = getMediaSta(this.mMediaData.PlaySta);
             if (mediaSta == 7) {
-                this.mStatus.setText("");
+                this.mStatus.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 this.mStatus.setText(String.valueOf(this.mStrDevSta) + ": " + this.mStrArrStatus[mediaSta]);
             }

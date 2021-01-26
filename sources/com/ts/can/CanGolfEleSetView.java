@@ -7,6 +7,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfEleSetView extends CanScrollCarInfoView {
     private CanDataInfo.GolfEleSet mSetData;
@@ -18,7 +19,7 @@ public class CanGolfEleSetView extends CanScrollCarInfoView {
     public void onItem(int id, int item) {
         switch (id) {
             case 0:
-                CarSet(241, item);
+                CarSet(Can.CAN_SITECHDEV_CW, item);
                 return;
             default:
                 return;
@@ -80,7 +81,7 @@ public class CanGolfEleSetView extends CanScrollCarInfoView {
             } else if (this.mSetData.Cnwd == 127) {
                 updateItem(1, 195, "HI");
             } else if (this.mSetData.Cnwd > 195) {
-                updateItem(1, 195, "");
+                updateItem(1, 195, TXZResourceManager.STYLE_DEFAULT);
             } else {
                 updateItem(1, this.mSetData.Cnwd, String.format("%.1f ℃", new Object[]{Float.valueOf((((float) this.mSetData.Cnwd) * 0.1f) + 10.0f)}));
             }

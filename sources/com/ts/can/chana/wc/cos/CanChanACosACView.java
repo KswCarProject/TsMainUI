@@ -132,11 +132,11 @@ public class CanChanACosACView extends CanBaseACView {
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, 218, mIcons[i]);
         }
-        this.mACMode[0] = ACaddButton(KeyDef.RKEY_MEDIA_ANGLE, 88, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 100);
-        this.mACMode[1] = ACaddButton(KeyDef.RKEY_MEDIA_ANGLE, 165, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 100);
-        this.mACMode[2] = ACaddButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_BYD_M6_DJ, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 100);
-        this.mACMode[3] = ACaddButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 100);
-        this.mACMode[4] = ACaddButton(KeyDef.RKEY_MEDIA_ANGLE, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 100);
+        this.mACMode[0] = ACaddButton(305, 88, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 100);
+        this.mACMode[1] = ACaddButton(305, 165, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 100);
+        this.mACMode[2] = ACaddButton(305, Can.CAN_BYD_M6_DJ, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 100);
+        this.mACMode[3] = ACaddButton(305, KeyDef.RKEY_MEDIA_10, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 100);
+        this.mACMode[4] = ACaddButton(305, CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 100);
         this.mStatusWindow = ACaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 98, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 7);
         this.mStatusRearWindow = ACaddButton(757, 98, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 8);
         this.mStatusCycle = ACaddButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 210, R.drawable.can_rh7_wxh_up, R.drawable.can_rh7_wxh_dn, 9);

@@ -19,6 +19,7 @@ import com.txznet.comm.base.BaseActivity;
 import com.txznet.comm.ui.dialog2.WinConfirm;
 import com.txznet.comm.ui.view.CheckedImageView;
 import com.txznet.sdk.TXZConfigManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.TXZTtsManager;
 import com.txznet.txz.comm.R;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ import org.json.JSONObject;
 public class MainActivity extends BaseActivity {
 
     /* renamed from: T  reason: collision with root package name */
-    public static String f668T = (Environment.getExternalStorageDirectory() + "/txz/commandConfig.properties");
+    public static String f672T = (Environment.getExternalStorageDirectory() + "/txz/commandConfig.properties");
     private static int Tf = 0;
     private View.OnClickListener T0 = new View.OnClickListener() {
         public void onClick(View v) {
@@ -64,13 +65,13 @@ public class MainActivity extends BaseActivity {
                             MainActivity.this.Tu.setText(MainActivity.this.T9[MainActivity.this.TD]);
                         }
                         String[] wakeupKeywords = Tr.Tk(config);
-                        if (!(wakeupKeywords == null || ChangeCommandActivity.f663T == null)) {
+                        if (!(wakeupKeywords == null || ChangeCommandActivity.f667T == null)) {
                             ArrayList<String> wakeupKeywordList = new ArrayList<>();
                             for (String keyword : wakeupKeywords) {
                                 wakeupKeywordList.add(keyword);
                             }
                             ChangeCommandActivity.Tr = wakeupKeywordList;
-                            ChangeCommandActivity.f663T.notifyDataSetChanged();
+                            ChangeCommandActivity.f667T.notifyDataSetChanged();
                         }
                         MainActivity.this.T5.setChecked(Tr.T9(config).booleanValue());
                         if (Tr.TZ() == null) {
@@ -110,7 +111,7 @@ public class MainActivity extends BaseActivity {
             TXZConfigManager.getInstance().showFloatTool(MainActivity.this.Tv.isChecked() ? TXZConfigManager.FloatToolType.FLOAT_NONE : TXZConfigManager.FloatToolType.FLOAT_TOP);
         }
     };
-    String TZ = "";
+    String TZ = TXZResourceManager.STYLE_DEFAULT;
     private View.OnClickListener Tb = new View.OnClickListener() {
         public void onClick(View v) {
             WinConfirm.T buildData = new WinConfirm.T();
@@ -129,7 +130,7 @@ public class MainActivity extends BaseActivity {
     private RelativeLayout Te;
     private RelativeLayout Th;
     private RelativeLayout Tj;
-    String Tk = "";
+    String Tk = TXZResourceManager.STYLE_DEFAULT;
     final String[] Tn = {"极快（适合急性子，极容易漏听内容）", "快（适合急性子，容易漏听内容）", "正常（推荐）", "慢（适合慢性子，容易不耐烦）", "极慢（适合慢性子，极容易不耐烦）"};
     private RelativeLayout Tq;
     final String[] Tr = {"极高（适合嘈杂环境，极易被唤醒）", "高（适合噪音环境，容易被唤醒）", "正常（适合普通环境，推荐）", "低（适合安静环境，较难被唤醒）", "极低（适合安静环境，极难被唤醒）"};

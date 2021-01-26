@@ -22,7 +22,7 @@ import java.util.Iterator;
 public class TXZAudioRecorder {
 
     /* renamed from: T  reason: collision with root package name */
-    Tr f907T;
+    Tr f911T;
     private boolean T9;
     private byte[] Tk;
     private Selector Tn;
@@ -51,7 +51,7 @@ public class TXZAudioRecorder {
         this.Tn = null;
         this.T9 = false;
         this.Tk = new byte[9];
-        this.f907T = null;
+        this.f911T = null;
         this.Tr = needAEC ? 3 : i;
         T();
     }
@@ -62,7 +62,7 @@ public class TXZAudioRecorder {
         this.Tn = null;
         this.T9 = false;
         this.Tk = new byte[9];
-        this.f907T = null;
+        this.f911T = null;
         this.Tr = type;
         T();
     }
@@ -161,7 +161,7 @@ public class TXZAudioRecorder {
     }
 
     public void beginSaveCache(int cacheSize) {
-        this.f907T = new Tr(cacheSize);
+        this.f911T = new Tr(cacheSize);
     }
 
     public boolean endSaveCache(String voiceId, T.C0004T recordData, boolean bEncrypt) {
@@ -179,7 +179,7 @@ public class TXZAudioRecorder {
                     if (!voiceDir.exists()) {
                         voiceDir.mkdirs();
                     }
-                    rawFile = new File(Environment.getExternalStorageDirectory() + "/txz/voice1/" + Ty.f911T + ((String) this.Tr) + ".pcm");
+                    rawFile = new File(Environment.getExternalStorageDirectory() + "/txz/voice1/" + Ty.f915T + ((String) this.Tr) + ".pcm");
                 }
                 try {
                     OutputStream out = new FileOutputStream(rawFile);
@@ -236,15 +236,15 @@ public class TXZAudioRecorder {
 
     public boolean endSaveCache(OutputStream out) {
         try {
-            if (this.f907T != null) {
-                this.f907T.T(new T.C0023T(out), (Runnable) null);
+            if (this.f911T != null) {
+                this.f911T.T(new T.C0023T(out), (Runnable) null);
                 return true;
             }
-            this.f907T = null;
+            this.f911T = null;
             return false;
         } catch (IOException e) {
         } finally {
-            this.f907T = null;
+            this.f911T = null;
         }
     }
 
@@ -263,8 +263,8 @@ public class TXZAudioRecorder {
                         keyIter.remove();
                         if (key.isValid() && key.isReadable()) {
                             int r = this.Ty.read(ByteBuffer.wrap(data, offset, len));
-                            if (this.f907T != null && r > 0) {
-                                this.f907T.T(data, offset, r);
+                            if (this.f911T != null && r > 0) {
+                                this.f911T.T(data, offset, r);
                             }
                             return r;
                         }

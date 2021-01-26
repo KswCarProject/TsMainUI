@@ -11,6 +11,7 @@ import com.ts.can.CanCarInfoSub1Activity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanScrollCarInfoView;
 import com.ts.canview.CanItemMsgBox;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanBydRswPm25SetView extends CanScrollCarInfoView implements CanItemMsgBox.onMsgBoxClick {
     protected static final int ITEM_CNJC = 1;
@@ -126,7 +127,7 @@ public class CanBydRswPm25SetView extends CanScrollCarInfoView implements CanIte
         if (setData.Jszt != 0) {
             String text = context.getString(R.string.can_pm25_jhts);
             if (mToast == null) {
-                mToast = Toast.makeText(context, "", 1);
+                mToast = Toast.makeText(context, TXZResourceManager.STYLE_DEFAULT, 1);
             }
             mToast.setText(text);
             mToast.show();

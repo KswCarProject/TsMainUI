@@ -15,6 +15,7 @@ import com.ts.can.CanIF;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanChryslerWcCDView extends CanRelativeCarInfoView {
@@ -120,10 +121,10 @@ public class CanChryslerWcCDView extends CanRelativeCarInfoView {
         this.mSta = AddTxtLt(84, 124, 300, 36);
         addImage(44, 184, R.drawable.can_jeep_ycsb_music);
         addImage(44, Can.CAN_MZD_LUOMU, R.drawable.can_jeep_ycsb_disc);
-        addImage(44, KeyDef.RKEY_MEDIA_PP, R.drawable.can_jeep_ycsb_artist);
+        addImage(44, 299, R.drawable.can_jeep_ycsb_artist);
         this.mSong = AddTxtLt(84, 181, 300, 40);
         this.mAlbum = AddTxtLt(84, Can.CAN_GM_CAPTIVA_OD, 300, 40);
-        this.mArtist = AddTxtLt(84, KeyDef.RKEY_RADIO_SCAN, 300, 40);
+        this.mArtist = AddTxtLt(84, 296, 300, 40);
         this.mTrack = AddTxtLt(800, 33, 200, 35);
         this.mTime = AddTxtCenter(362, KeyDef.RKEY_res4, 300, 35);
     }
@@ -136,11 +137,11 @@ public class CanChryslerWcCDView extends CanRelativeCarInfoView {
             if (this.mInfoData.TrackVaild == 1) {
                 UpdateInfo();
             } else {
-                this.mTrack.setText("");
-                this.mTime.setText("");
+                this.mTrack.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mTime.setText(TXZResourceManager.STYLE_DEFAULT);
             }
             if (this.mInfoData.DiscVaild != 1) {
-                this.mSta.setText("");
+                this.mSta.setText(TXZResourceManager.STYLE_DEFAULT);
             } else if (this.mInfoData.DiscSta >= this.mStrSta.length) {
                 this.mSta.setText("其他状态");
             } else {
@@ -189,8 +190,8 @@ public class CanChryslerWcCDView extends CanRelativeCarInfoView {
             this.mTime.setText(String.format("%02d:%02d/%02d:%02d", new Object[]{Integer.valueOf(this.mInfoData.PlayTime / 60), Integer.valueOf(this.mInfoData.PlayTime % 60), Integer.valueOf(this.mInfoData.CurTrackTime / 60), Integer.valueOf(this.mInfoData.CurTrackTime % 60)}));
             return;
         }
-        this.mTrack.setText("");
-        this.mTime.setText("");
+        this.mTrack.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTime.setText(TXZResourceManager.STYLE_DEFAULT);
     }
 
     /* access modifiers changed from: protected */

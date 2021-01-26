@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 public class Tu implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Tu f172T = new Tu();
+    public static final Tu f175T = new Tu();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         return T(parser);

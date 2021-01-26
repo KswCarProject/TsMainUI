@@ -54,7 +54,6 @@ public class CanHondaDaRzcCarInfoView extends CanScrollCarInfoView {
         this.mItemTitleIds = new int[]{R.string.can_car_type_select, R.string.can_compass, R.string.can_consumption, R.string.can_distance_sz, R.string.can_distanceill_sz, R.string.can_cssz, R.string.can_remote_lock, R.string.can_csshez, R.string.can_jsfzxysz, R.string.can_system_set, R.string.can_moto_rear_door, R.string.can_amp_set, R.string.can_camera_status, R.string.can_psa_2017_4008_gxhybsz, R.string.can_honda_qjyxxtsz, R.string.can_360qjsz, R.string.can_gllxx};
         this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CAR_TYPE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE};
         this.mPopValueIds[0] = new int[]{R.array.can_fs_declare_288};
-        this.mItemVisibles[11] = 0;
     }
 
     public void ResetData(boolean check) {

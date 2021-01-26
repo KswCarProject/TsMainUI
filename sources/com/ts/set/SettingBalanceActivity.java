@@ -8,14 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.main.common.MainSet;
 import com.ts.other.RelativeLayoutManager;
 import com.ts.set.setview.SetItemVerticalSeekBar;
 import com.ts.set.setview.SettingBalanceView;
@@ -27,9 +26,6 @@ public class SettingBalanceActivity extends Activity implements View.OnClickList
     private static final int SB_ID_BASE = 1000;
     private static final String TAG = "SettingBalanceActivity";
     private int mBal;
-    private int mBalOld;
-    private int mBkBot;
-    private int mBkRt;
     private int mBkX;
     private int mBkY;
     private Button mBtnCenter;
@@ -40,20 +36,13 @@ public class SettingBalanceActivity extends Activity implements View.OnClickList
     private Button mBtnUp;
     private Evc mEvc = Evc.GetInstance();
     private int mFad;
-    private int mFadOld;
     private SetItemVerticalSeekBar[] mFbSb = new SetItemVerticalSeekBar[2];
     private SettingBalanceView mFbView;
-    private int mLastX;
-    private int mLastY;
     public LayoutInflater mLayoutInflater;
     private int mLud;
     private RelativeLayoutManager mManager;
-    private RelativeLayout mRlLayout;
-    private boolean mSbDrag = false;
     private int mSub;
     private Switch mSwExamp;
-    private TextView mTvLud;
-    private TextView mTvSub;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -68,8 +57,11 @@ public class SettingBalanceActivity extends Activity implements View.OnClickList
         this.mBtnRt = (Button) findViewById(R.id.setting_balance_btn_right);
         this.mSwExamp = (Switch) findViewById(R.id.switch_ctrl2);
         this.mSwExamp.setOnCheckedChangeListener(this);
-        ((TextView) findViewById(R.id.switch_value)).setText(R.string.set_balance_center);
-        ((TextView) findViewById(R.id.switch_value2)).setText(R.string.set_balance_examp);
+        TextView tv2 = (TextView) findViewById(R.id.switch_value2);
+        tv2.setText(R.string.set_balance_examp);
+        if (MainSet.GetInstance().IsXuhuiDmax()) {
+            tv2.setVisibility(4);
+        }
         this.mFbView = (SettingBalanceView) findViewById(R.id.setting_balance_img_seat);
         this.mFbView.setBalanceChangedListener(this);
         this.mBtnUp.setOnClickListener(this);
@@ -80,11 +72,9 @@ public class SettingBalanceActivity extends Activity implements View.OnClickList
         this.mBtnCenter.setOnClickListener(this);
         this.mBkX = ((int) getResources().getDimension(R.dimen.x_setting_balance_seat)) + 3;
         this.mBkY = ((int) getResources().getDimension(R.dimen.y_setting_balance_seat)) + 2;
-        this.mBkRt = this.mBkX + Can.CAN_TOYOTA_SP_XP;
-        this.mBkBot = this.mBkY + Can.CAN_TOYOTA_SP_XP;
         for (int i = 0; i < this.mFbSb.length; i++) {
             this.mFbSb[i] = new SetItemVerticalSeekBar(this, 0);
-            this.mManager.AddView(this.mFbSb[i].GetView(), (i * 110) + 81, 110, 80, 350);
+            this.mManager.AddView(this.mFbSb[i].GetView(), (i * 110) + 81, 110, 0, 0);
             this.mFbSb[i].GetSeekBar().setId(i + 1000);
             this.mFbSb[i].GetSeekBar().setMaxPos(20);
             this.mFbSb[i].GetSeekBar().setOnTouchChangedListener(this);
@@ -98,6 +88,11 @@ public class SettingBalanceActivity extends Activity implements View.OnClickList
         super.onResume();
         MainTask.GetInstance().SetUserCallBack(this);
         resetData();
+        if (MainSet.GetInstance().IsXuhuiDmax()) {
+            this.mSwExamp.setVisibility(4);
+        } else {
+            SetCheck(this.mSwExamp, FtSet.GetExAmp());
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -136,12 +131,14 @@ public class SettingBalanceActivity extends Activity implements View.OnClickList
         if (val != 0) {
             sw.setSelected(true);
             sw.setChecked(true);
-            sw.setThumbResource(R.drawable.setup_switch_dn);
+            sw.setThumbResource(R.drawable.set_eq_dn);
+            sw.setTrackResource(R.drawable.set_eq_track_dn);
             return;
         }
         sw.setSelected(false);
         sw.setChecked(false);
-        sw.setThumbResource(R.drawable.setup_switch_up);
+        sw.setThumbResource(R.drawable.set_eq_up);
+        sw.setTrackResource(R.drawable.set_eq_track_up);
     }
 
     /* access modifiers changed from: package-private */

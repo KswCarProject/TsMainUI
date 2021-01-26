@@ -2,6 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.regex.Pattern;
 
 public final class VINResultParser extends ResultParser {
@@ -12,7 +13,7 @@ public final class VINResultParser extends ResultParser {
         if (result.getBarcodeFormat() != BarcodeFormat.CODE_39) {
             return null;
         }
-        String rawText = IOQ.matcher(result.getText()).replaceAll("").trim();
+        String rawText = IOQ.matcher(result.getText()).replaceAll(TXZResourceManager.STYLE_DEFAULT).trim();
         if (!AZ09.matcher(rawText).matches()) {
             return null;
         }
@@ -117,20 +118,20 @@ public final class VINResultParser extends ResultParser {
             char r1 = r8.charAt(r2)
             switch(r0) {
                 case 49: goto L_0x0019;
-                case 50: goto L_0x001c;
-                case 51: goto L_0x001f;
+                case 50: goto L_0x001d;
+                case 51: goto L_0x0021;
                 case 52: goto L_0x0019;
                 case 53: goto L_0x0019;
-                case 57: goto L_0x0028;
-                case 74: goto L_0x0033;
-                case 75: goto L_0x003c;
-                case 76: goto L_0x0045;
-                case 77: goto L_0x0048;
-                case 83: goto L_0x004f;
-                case 86: goto L_0x0063;
-                case 87: goto L_0x0077;
-                case 88: goto L_0x007a;
-                case 90: goto L_0x0085;
+                case 57: goto L_0x002b;
+                case 74: goto L_0x0037;
+                case 75: goto L_0x0041;
+                case 76: goto L_0x004b;
+                case 77: goto L_0x004f;
+                case 83: goto L_0x0057;
+                case 86: goto L_0x006d;
+                case 87: goto L_0x0083;
+                case 88: goto L_0x0087;
+                case 90: goto L_0x0093;
                 default: goto L_0x0017;
             }
         L_0x0017:
@@ -140,82 +141,82 @@ public final class VINResultParser extends ResultParser {
         L_0x0019:
             java.lang.String r2 = "US"
             goto L_0x0018
-        L_0x001c:
+        L_0x001d:
             java.lang.String r2 = "CA"
             goto L_0x0018
-        L_0x001f:
+        L_0x0021:
             if (r1 < r3) goto L_0x0017
             r2 = 87
             if (r1 > r2) goto L_0x0017
             java.lang.String r2 = "MX"
             goto L_0x0018
-        L_0x0028:
-            if (r1 < r3) goto L_0x002c
-            if (r1 <= r7) goto L_0x0030
-        L_0x002c:
+        L_0x002b:
+            if (r1 < r3) goto L_0x002f
+            if (r1 <= r7) goto L_0x0033
+        L_0x002f:
             if (r1 < r5) goto L_0x0017
             if (r1 > r6) goto L_0x0017
-        L_0x0030:
+        L_0x0033:
             java.lang.String r2 = "BR"
             goto L_0x0018
-        L_0x0033:
+        L_0x0037:
             if (r1 < r3) goto L_0x0017
             r2 = 84
             if (r1 > r2) goto L_0x0017
             java.lang.String r2 = "JP"
             goto L_0x0018
-        L_0x003c:
+        L_0x0041:
             r2 = 76
             if (r1 < r2) goto L_0x0017
             if (r1 > r4) goto L_0x0017
             java.lang.String r2 = "KO"
             goto L_0x0018
-        L_0x0045:
+        L_0x004b:
             java.lang.String r2 = "CN"
             goto L_0x0018
-        L_0x0048:
+        L_0x004f:
             if (r1 < r3) goto L_0x0017
             if (r1 > r7) goto L_0x0017
             java.lang.String r2 = "IN"
             goto L_0x0018
-        L_0x004f:
-            if (r1 < r3) goto L_0x0058
+        L_0x0057:
+            if (r1 < r3) goto L_0x0061
             r2 = 77
-            if (r1 > r2) goto L_0x0058
+            if (r1 > r2) goto L_0x0061
             java.lang.String r2 = "UK"
             goto L_0x0018
-        L_0x0058:
+        L_0x0061:
             r2 = 78
             if (r1 < r2) goto L_0x0017
             r2 = 84
             if (r1 > r2) goto L_0x0017
             java.lang.String r2 = "DE"
             goto L_0x0018
-        L_0x0063:
+        L_0x006d:
             r2 = 70
-            if (r1 < r2) goto L_0x006c
-            if (r1 > r4) goto L_0x006c
+            if (r1 < r2) goto L_0x0077
+            if (r1 > r4) goto L_0x0077
             java.lang.String r2 = "FR"
             goto L_0x0018
-        L_0x006c:
+        L_0x0077:
             r2 = 83
             if (r1 < r2) goto L_0x0017
             r2 = 87
             if (r1 > r2) goto L_0x0017
             java.lang.String r2 = "ES"
             goto L_0x0018
-        L_0x0077:
+        L_0x0083:
             java.lang.String r2 = "DE"
             goto L_0x0018
-        L_0x007a:
+        L_0x0087:
             r2 = 48
-            if (r1 == r2) goto L_0x0082
+            if (r1 == r2) goto L_0x008f
             if (r1 < r5) goto L_0x0017
             if (r1 > r6) goto L_0x0017
-        L_0x0082:
+        L_0x008f:
             java.lang.String r2 = "RU"
             goto L_0x0018
-        L_0x0085:
+        L_0x0093:
             if (r1 < r3) goto L_0x0017
             if (r1 > r4) goto L_0x0017
             java.lang.String r2 = "IT"

@@ -4,7 +4,7 @@ package com.T.T.Tn;
 public class T9<K, V> {
 
     /* renamed from: T  reason: collision with root package name */
-    private final T<K, V>[] f130T;
+    private final T<K, V>[] f133T;
     private final int Tr;
 
     public T9() {
@@ -13,11 +13,11 @@ public class T9<K, V> {
 
     public T9(int tableSize) {
         this.Tr = tableSize - 1;
-        this.f130T = new T[tableSize];
+        this.f133T = new T[tableSize];
     }
 
     public final V T(K key) {
-        for (T<K, V> entry = this.f130T[System.identityHashCode(key) & this.Tr]; entry != null; entry = entry.Tn) {
+        for (T<K, V> entry = this.f133T[System.identityHashCode(key) & this.Tr]; entry != null; entry = entry.Tn) {
             if (key == entry.Tr) {
                 return entry.Ty;
             }
@@ -28,13 +28,13 @@ public class T9<K, V> {
     public boolean T(K key, V value) {
         int hash = System.identityHashCode(key);
         int bucket = hash & this.Tr;
-        for (T<K, V> entry = this.f130T[bucket]; entry != null; entry = entry.Tn) {
+        for (T<K, V> entry = this.f133T[bucket]; entry != null; entry = entry.Tn) {
             if (key == entry.Tr) {
                 entry.Ty = value;
                 return true;
             }
         }
-        this.f130T[bucket] = new T<>(key, value, hash, this.f130T[bucket]);
+        this.f133T[bucket] = new T<>(key, value, hash, this.f133T[bucket]);
         return false;
     }
 
@@ -42,7 +42,7 @@ public class T9<K, V> {
     protected static final class T<K, V> {
 
         /* renamed from: T  reason: collision with root package name */
-        public final int f131T;
+        public final int f134T;
         public final T<K, V> Tn;
         public final K Tr;
         public V Ty;
@@ -51,7 +51,7 @@ public class T9<K, V> {
             this.Tr = key;
             this.Ty = value;
             this.Tn = next;
-            this.f131T = hash;
+            this.f134T = hash;
         }
     }
 }

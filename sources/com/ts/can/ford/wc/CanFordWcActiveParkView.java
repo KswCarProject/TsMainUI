@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -207,14 +208,14 @@ public class CanFordWcActiveParkView extends CanRelativeCarInfoView {
             case 19:
                 addLayout(true, 13);
                 updateCarXieParams(true, 40, 80);
-                updateParkIcon(true, R.drawable.can_focus_park_stop, 240);
+                updateParkIcon(true, R.drawable.can_focus_park_stop, Can.CAN_VOLKS_XP);
                 updateWarnLineParams(true, 2, KeyDef.RKEY_AVIN);
                 this.mIvLeftArea.setImageResource(R.drawable.can_focus_park_lparking);
                 return;
             case 20:
                 addLayout(false, 13);
                 updateCarXieParams(false, 40, 80);
-                updateParkIcon(false, R.drawable.can_focus_park_stop, 240);
+                updateParkIcon(false, R.drawable.can_focus_park_stop, Can.CAN_VOLKS_XP);
                 updateWarnLineParams(false, 2, KeyDef.RKEY_AVIN);
                 this.mIvRightArea.setImageResource(R.drawable.can_focus_park_rparking);
                 return;
@@ -223,7 +224,7 @@ public class CanFordWcActiveParkView extends CanRelativeCarInfoView {
                 addLayout(true, 14);
                 updateCarXieParams(true, 20, 100);
                 updateLineParams(true, 60, 50);
-                updateParkIcon(true, R.drawable.can_focus_park_sarrow, 240);
+                updateParkIcon(true, R.drawable.can_focus_park_sarrow, Can.CAN_VOLKS_XP);
                 updateWarnLineParams(true, 2, KeyDef.RKEY_AVIN);
                 this.mIvLeftArea.setImageResource(R.drawable.can_focus_park_lparking);
                 return;
@@ -232,21 +233,21 @@ public class CanFordWcActiveParkView extends CanRelativeCarInfoView {
                 addLayout(false, 14);
                 updateCarXieParams(false, 20, 100);
                 updateLineParams(false, 60, 50);
-                updateParkIcon(false, R.drawable.can_focus_park_sarrow, 240);
+                updateParkIcon(false, R.drawable.can_focus_park_sarrow, Can.CAN_VOLKS_XP);
                 updateWarnLineParams(false, 2, KeyDef.RKEY_AVIN);
                 this.mIvRightArea.setImageResource(R.drawable.can_focus_park_rparking);
                 return;
             case 23:
                 addLayout(true, 15);
                 updateCarXieParams(true, 40, 80);
-                updateParkIcon(true, R.drawable.can_focus_park_stop, 240);
+                updateParkIcon(true, R.drawable.can_focus_park_stop, Can.CAN_VOLKS_XP);
                 updateWarnLineParams(true, 2, 50);
                 this.mIvLeftArea.setImageResource(R.drawable.can_focus_park_lparking);
                 return;
             case 24:
                 addLayout(false, 15);
                 updateCarXieParams(false, 40, 80);
-                updateParkIcon(false, R.drawable.can_focus_park_stop, 240);
+                updateParkIcon(false, R.drawable.can_focus_park_stop, Can.CAN_VOLKS_XP);
                 updateWarnLineParams(false, 2, 50);
                 this.mIvRightArea.setImageResource(R.drawable.can_focus_park_rparking);
                 return;
@@ -255,7 +256,7 @@ public class CanFordWcActiveParkView extends CanRelativeCarInfoView {
                 addLayout(true, 16);
                 updateCarXieParams(true, 20, 80);
                 updateLineParams(true, 60, 290);
-                updateParkIcon(true, R.drawable.can_focus_park_xarrow, 240);
+                updateParkIcon(true, R.drawable.can_focus_park_xarrow, Can.CAN_VOLKS_XP);
                 this.mIvLeftArea.setImageResource(R.drawable.can_focus_park_lparking);
                 return;
             case 26:
@@ -263,7 +264,7 @@ public class CanFordWcActiveParkView extends CanRelativeCarInfoView {
                 addLayout(false, 16);
                 updateCarXieParams(false, 20, 80);
                 updateLineParams(false, 60, 290);
-                updateParkIcon(false, R.drawable.can_focus_park_xarrow, 240);
+                updateParkIcon(false, R.drawable.can_focus_park_xarrow, Can.CAN_VOLKS_XP);
                 this.mIvRightArea.setImageResource(R.drawable.can_focus_park_rparking);
                 return;
             case 27:

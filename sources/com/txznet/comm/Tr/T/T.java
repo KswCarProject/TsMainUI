@@ -19,7 +19,7 @@ import java.util.List;
 public class T {
 
     /* renamed from: T  reason: collision with root package name */
-    private static T f355T = new T();
+    private static T f359T = new T();
     private static final String TE = (Environment.getExternalStorageDirectory() + "/txz/udp_port.txz");
     private Ty.T T5;
     /* access modifiers changed from: private */
@@ -47,7 +47,7 @@ public class T {
     }
 
     public static T T() {
-        return f355T;
+        return f359T;
     }
 
     public void Tr() {

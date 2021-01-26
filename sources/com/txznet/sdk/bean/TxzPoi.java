@@ -2,6 +2,7 @@ package com.txznet.sdk.bean;
 
 import android.text.TextUtils;
 import com.txznet.comm.Ty.Tr;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.tongting.IConstantData;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -11,7 +12,7 @@ import org.json.JSONObject;
 public class TxzPoi extends Poi {
 
     /* renamed from: T  reason: collision with root package name */
-    String f867T;
+    String f871T;
     int T9;
     String[] Tn;
     int Tr;
@@ -123,11 +124,11 @@ public class TxzPoi extends Poi {
     }
 
     public String getLogo() {
-        return this.f867T;
+        return this.f871T;
     }
 
     public void setLogo(String logo) {
-        this.f867T = logo;
+        this.f871T = logo;
     }
 
     public static ArrayList<Poi> getCompanyPoiForJson(String jsonResult) {
@@ -166,8 +167,8 @@ public class TxzPoi extends Poi {
         p.T(json);
         p.setTop(((Boolean) json.T("top", Boolean.class, false)).booleanValue());
         p.setHot(((Integer) json.T("hot", Integer.class, 0)).intValue());
-        p.setLogo((String) json.T(IConstantData.KEY_LOGO, String.class, ""));
-        p.setGeoDetail(GeoDetail.creatGeoDetail((String) json.T("detail", String.class, "")));
+        p.setLogo((String) json.T(IConstantData.KEY_LOGO, String.class, TXZResourceManager.STYLE_DEFAULT));
+        p.setGeoDetail(GeoDetail.creatGeoDetail((String) json.T("detail", String.class, TXZResourceManager.STYLE_DEFAULT)));
         return p;
     }
 
@@ -182,10 +183,10 @@ public class TxzPoi extends Poi {
                 return null;
             }
             po.setLat(jo.getDouble("lat"));
-            if (!jo.has(IConstantData.KEY_NAME) || jo.isNull(IConstantData.KEY_NAME)) {
+            if (!jo.has("name") || jo.isNull("name")) {
                 return null;
             }
-            po.setName(jo.getString(IConstantData.KEY_NAME));
+            po.setName(jo.getString("name"));
             if (!jo.has("geo") || jo.isNull("geo")) {
                 return null;
             }

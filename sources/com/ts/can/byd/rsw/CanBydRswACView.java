@@ -12,6 +12,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanBydRswACView extends CanBaseACView {
@@ -226,8 +227,8 @@ public class CanBydRswACView extends CanBaseACView {
     private void initCommonScreen() {
         addImage(44, Can.CAN_FORD_SYNC3, R.drawable.can_jeep_ac_tmp);
         addImage(889, Can.CAN_FORD_SYNC3, R.drawable.can_jeep_ac_tmp);
-        this.mBtnAcMax = AddBtn(1, 352, 302, Can.CAN_JAC_REFINE_OD, 64, R.drawable.can_jeep_ac_kong_up, R.drawable.can_jeep_ac_kong_dn, R.string.can_air_acmax);
-        this.mBtnTf = AddBtn(25, 512, 302, Can.CAN_JAC_REFINE_OD, 64, R.drawable.can_jeep_ac_kong_up, R.drawable.can_jeep_ac_kong_dn, R.string.can_air_tf);
+        this.mBtnAcMax = AddBtn(1, 352, 302, 150, 64, R.drawable.can_jeep_ac_kong_up, R.drawable.can_jeep_ac_kong_dn, R.string.can_air_acmax);
+        this.mBtnTf = AddBtn(25, 512, 302, 150, 64, R.drawable.can_jeep_ac_kong_up, R.drawable.can_jeep_ac_kong_dn, R.string.can_air_tf);
         this.mBtnAc = AddBtn(2, 174, 25, R.drawable.can_jeep_ac_ac_up, R.drawable.can_jeep_ac_ac_dn);
         this.mBtnLoop = AddBtn(3, 344, 25, R.drawable.can_jeep_ac_nxh_up, R.drawable.can_jeep_ac_nxh_dn);
         this.mBtnAuto = AddBtn(4, 513, 25, R.drawable.can_jeep_ac_auto_up, R.drawable.can_jeep_ac_auto_dn);
@@ -239,7 +240,7 @@ public class CanBydRswACView extends CanBaseACView {
         this.mBtnRtTempDec = AddBtn(14, 890, KeyDef.RKEY_res1, R.drawable.can_jeep_ac_leng_up, R.drawable.can_jeep_ac_leng_dn);
         this.mBtnRtTempInc = AddBtn(13, 890, 124, R.drawable.can_jeep_ac_re_up, R.drawable.can_jeep_ac_re_dn);
         this.mTvRtTemp = AddTemp(889, Can.CAN_FORD_SYNC3, 95, 51);
-        this.mBtnWdPx = AddBtn(9, 241, 164, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
+        this.mBtnWdPx = AddBtn(9, Can.CAN_SITECHDEV_CW, 164, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
         this.mBtnWdPxDn = AddBtn(10, 388, 164, R.drawable.can_jeep_ac_02_up, R.drawable.can_jeep_ac_02_dn);
         this.mBtnWdDn = AddBtn(11, 536, 164, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
         this.mBtnWdUpDn = AddBtn(12, 683, 164, R.drawable.can_jeep_ac_04_up, R.drawable.can_jeep_ac_04_dn);
@@ -322,7 +323,7 @@ public class CanBydRswACView extends CanBaseACView {
         this.mBtnSync.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
             return;
         }

@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 public class TD implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TD f198T = new TD();
+    public static final TD f201T = new TD();
     private DecimalFormat Tr = null;
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {

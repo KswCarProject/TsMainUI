@@ -4,5 +4,5 @@ package com.Tr.T.T;
 public final class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Object f241T = new Object();
+    public static final Object f244T = new Object();
 }

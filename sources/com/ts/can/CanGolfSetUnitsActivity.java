@@ -2,7 +2,6 @@ package com.ts.can;
 
 import android.content.Context;
 import android.os.Bundle;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -205,7 +204,7 @@ public class CanGolfSetUnitsActivity extends CanGolfBaseActivity implements CanI
                 CanJni.GolfSendCmd(149, item);
                 return;
             case 7:
-                CanJni.GolfSendCmd(Can.CAN_JAC_REFINE_OD, item);
+                CanJni.GolfSendCmd(150, item);
                 return;
             default:
                 return;

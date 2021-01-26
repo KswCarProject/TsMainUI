@@ -1,6 +1,7 @@
 package com.ts.can.obd.bnr;
 
 import android.app.Activity;
+import android.support.v4.view.ViewCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,6 +14,7 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanObdBnrCarSetView extends CanRelativeCarInfoView {
@@ -70,16 +72,16 @@ public class CanObdBnrCarSetView extends CanRelativeCarInfoView {
         } else {
             InitUI_1024x600();
         }
-        this.mOilItem.setText("");
-        this.mTempItem.setText("");
-        this.mElctricItem.setText("");
-        this.mTrunkUpItem.setText("");
-        this.mParkingItem.setText("");
-        this.mXhlcItem.setText("");
-        this.mRPMItem.setText("");
-        this.mSpeedItem.setText("");
-        this.mDistanceItem.setText("");
-        this.mLqywdItemTxt.setText("");
+        this.mOilItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTempItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mElctricItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTrunkUpItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mParkingItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mXhlcItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mRPMItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mSpeedItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mDistanceItem.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mLqywdItemTxt.setText(TXZResourceManager.STYLE_DEFAULT);
     }
 
     private void InitUI_1024x600() {
@@ -121,14 +123,14 @@ public class CanObdBnrCarSetView extends CanRelativeCarInfoView {
         this.mRPMItemTxt = addText(161, 445, R.string.can_rpm);
         this.mSpeedItemTxt = addText(515, 445, R.string.can_curspeed);
         this.mDistanceItemTxt = addText(855, 445, R.string.can_curspeed);
-        setTextStyle(this.mOilItemTxt, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItemTxt, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mElctricItemTxt, R.string.can_battery, -1, 16, 0).setTextStyle(this.mTrunkUpItemTxt, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItemTxt, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItemTxt, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mOilItem, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItem, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mElctricItem, R.string.can_battery, -1, 16, 0).setTextStyle(this.mSeatBeltItem, R.string.can_belt, -1, 16, 17).setTextStyle(this.mTrunkUpItem, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItem, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItem, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mRPMItem, R.string.can_rpm, -16777216, 16, 1).setTextStyle(this.mSpeedItem, R.string.can_curspeed, -16777216, 16, 1).setTextStyle(this.mDistanceItem, R.string.can_driving_mileage, -16777216, 16, 1).setTextStyle(this.mRPMItemTxt, R.string.can_rpm, -16777216, 16, 1).setTextStyle(this.mSpeedItemTxt, R.string.can_curspeed, -16777216, 16, 1).setTextStyle(this.mDistanceItemTxt, R.string.can_driving_mileage, -16777216, 16, 1).setTextStyle(this.mLqywdItemTxt, R.string.can_lqywd, -1, 16, 0);
+        setTextStyle(this.mOilItemTxt, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItemTxt, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mElctricItemTxt, R.string.can_battery, -1, 16, 0).setTextStyle(this.mTrunkUpItemTxt, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItemTxt, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItemTxt, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mOilItem, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItem, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mElctricItem, R.string.can_battery, -1, 16, 0).setTextStyle(this.mSeatBeltItem, R.string.can_belt, -1, 16, 17).setTextStyle(this.mTrunkUpItem, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItem, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItem, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mRPMItem, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mSpeedItem, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mDistanceItem, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mRPMItemTxt, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mSpeedItemTxt, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mDistanceItemTxt, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mLqywdItemTxt, R.string.can_lqywd, -1, 16, 0);
     }
 
     private void InitUI_1280x480() {
         setBackgroundResource(R.drawable.can_vw_carinfo_bg_1280x480);
         this.mOilIcon = addImageState(161, KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_elctric_up, R.drawable.canvw_elctric_dn);
         this.mLqywdIcon = addImageState(197, 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_dn);
-        this.mBatteryIcon = addImageState(KeyDef.RKEY_LOC, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
+        this.mBatteryIcon = addImageState(298, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
         this.mSeatBeltIcon = addImageState(436, 33, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
         this.mTrunkUpIcon = addImageState(CanCameraUI.BTN_CHANA_CS75_MODE5, 71, R.drawable.canvw_trunk_up, R.drawable.canvw_trunk_dn);
         this.mParkingIcon = addImageState(676, 173, R.drawable.canvw_parking_up, R.drawable.canvw_parking_dn);
@@ -143,7 +145,7 @@ public class CanObdBnrCarSetView extends CanRelativeCarInfoView {
         showDoor(0, 0, 0, 0, 0, 0);
         addImage(922, 38, R.drawable.canvw_speed_up);
         addImage(922, 165, R.drawable.canvw_instant_up);
-        addImage(922, KeyDef.RKEY_PRE, R.drawable.canvw_road_haul_up);
+        addImage(922, 292, R.drawable.canvw_road_haul_up);
         this.mOilItem = addText(60, 350, R.string.can_rest_oil);
         this.mTempItem = addText(117, 210, R.string.can_lqywd);
         this.mLqywdItemTxt = addText(70, 210, R.string.can_lqywd);
@@ -163,8 +165,8 @@ public class CanObdBnrCarSetView extends CanRelativeCarInfoView {
         this.mDistanceItem = addText(1080, (int) KeyDef.RKEY_res4, R.string.can_driving_mileage);
         this.mRPMItemTxt = addText(1080, 57, R.string.can_rpm);
         this.mSpeedItemTxt = addText(1080, 184, R.string.can_curspeed);
-        this.mDistanceItemTxt = addText(1080, (int) KeyDef.RKEY_MEDIA_SEL, R.string.can_curspeed);
-        setTextStyle(this.mOilItemTxt, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItemTxt, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mElctricItemTxt, R.string.can_battery, -1, 16, 0).setTextStyle(this.mTrunkUpItemTxt, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItemTxt, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItemTxt, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mOilItem, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItem, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mElctricItem, R.string.can_battery, -1, 16, 0).setTextStyle(this.mSeatBeltItem, R.string.can_belt, -1, 16, 17).setTextStyle(this.mTrunkUpItem, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItem, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItem, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mRPMItem, R.string.can_rpm, -16777216, 16, 1).setTextStyle(this.mDistanceItem, R.string.can_driving_mileage, -16777216, 16, 1).setTextStyle(this.mSpeedItem, R.string.can_curspeed, -16777216, 16, 1).setTextStyle(this.mRPMItemTxt, R.string.can_rpm, -16777216, 16, 1).setTextStyle(this.mSpeedItemTxt, R.string.can_curspeed, -16777216, 16, 1).setTextStyle(this.mDistanceItemTxt, R.string.can_driving_mileage, -16777216, 16, 1).setTextStyle(this.mLqywdItemTxt, R.string.can_lqywd, -1, 16, 0);
+        this.mDistanceItemTxt = addText(1080, 311, R.string.can_curspeed);
+        setTextStyle(this.mOilItemTxt, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItemTxt, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mElctricItemTxt, R.string.can_battery, -1, 16, 0).setTextStyle(this.mTrunkUpItemTxt, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItemTxt, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItemTxt, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mOilItem, R.string.can_rest_oil, -1, 16, 0).setTextStyle(this.mTempItem, R.string.can_range_xhlc, -1, 16, 0).setTextStyle(this.mElctricItem, R.string.can_battery, -1, 16, 0).setTextStyle(this.mSeatBeltItem, R.string.can_belt, -1, 16, 17).setTextStyle(this.mTrunkUpItem, R.string.can_trunk, -1, 16, 0).setTextStyle(this.mParkingItem, R.string.can_brake, -1, 16, 0).setTextStyle(this.mXhlcItem, R.string.can_lqywd, -1, 16, 0).setTextStyle(this.mRPMItem, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mDistanceItem, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mSpeedItem, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mRPMItemTxt, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mSpeedItemTxt, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mDistanceItemTxt, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, 16, 1).setTextStyle(this.mLqywdItemTxt, R.string.can_lqywd, -1, 16, 0);
     }
 
     public void ResetData(boolean check) {
@@ -189,7 +191,7 @@ public class CanObdBnrCarSetView extends CanRelativeCarInfoView {
             }
             if (!fgSS) {
                 this.mParkingIcon.setSelected(true);
-                this.mParkingItem.setText("");
+                this.mParkingItem.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 this.mParkingIcon.setSelected(false);
                 this.mParkingItem.setText(R.string.can_normal);

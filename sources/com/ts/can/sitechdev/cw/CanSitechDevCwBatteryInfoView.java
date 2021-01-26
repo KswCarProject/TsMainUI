@@ -7,6 +7,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanSitechDevCwBatteryInfoView extends CanScrollCarInfoView {
     public static final String TAG = "CanSitechDevCwBatteryInfoView";
@@ -65,7 +66,7 @@ public class CanSitechDevCwBatteryInfoView extends CanScrollCarInfoView {
 
     public String GetWarnValue(int value) {
         if (value < 0 || value >= this.mCdztStrs.length) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         return this.mCdztStrs[value];
     }

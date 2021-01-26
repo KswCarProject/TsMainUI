@@ -18,6 +18,7 @@ import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanItemTextBtnList;
 import com.ts.canview.CanScrollList;
+import com.ts.main.common.MainSet;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Mcu;
 
@@ -34,15 +35,22 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
     public static final int ITEM_DAY_LIGHT = 6;
     public static final int ITEM_EPS = 32;
     public static final int ITEM_FWD = 33;
+    public static final int ITEM_FWD_FWDLD = 42;
+    public static final int ITEM_FWD_FWDYS = 43;
+    public static final int ITEM_FWD_GLJSMS = 40;
+    public static final int ITEM_FWD_YYLD = 41;
     public static final int ITEM_GFJTQKQ = 34;
     public static final int ITEM_GFJYSGB = 35;
     public static final int ITEM_HBXKQCD = 36;
     public static final int ITEM_HFMRSZ = 26;
+    public static final int ITEM_JLBJXT = 46;
     public static final int ITEM_JYKKHBX = 21;
     public static final int ITEM_KJXSDNL = 22;
+    public static final int ITEM_KQJH = 52;
     public static final int ITEM_LANG = 1;
     public static final int ITEM_LIGHT_DELAY = 5;
     public static final int ITEM_MQJC = 23;
+    public static final int ITEM_QPYJXT = 48;
     public static final int ITEM_SPEED_VALUE = 17;
     public static final int ITEM_SPEED_WARN = 16;
     public static final int ITEM_SSSB = 27;
@@ -51,16 +59,28 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
     public static final int ITEM_TIP = 2;
     public static final int ITEM_TYPE = 0;
     public static final int ITEM_WHSJZDZD = 25;
+    public static final int ITEM_YBD = 38;
     public static final int ITEM_YBGN = 31;
+    public static final int ITEM_ZDJJZDXT = 47;
     public static final int ITEM_ZDJS = 20;
+    public static final int ITEM_ZNYSGYJSLS = 39;
+    public static final int ITEM_ZNYSGYWMKQ = 51;
+    public static final int ITEM_ZSYXHXT = 49;
+    public static final int ITEM_ZSYXHXT_CJ = 50;
     public static final int ITEM_ZXFZZM = 19;
+    public static final int ITEM_ZXLMS = 45;
+    public static final int ITEM_ZXLMS_GLJSMS = 44;
     private static final String TAG = "CanCheryAiRuizeCarInfoActivity";
     private static final int[] mAirArray = {R.string.can_mzd_cx4_drive_owner, R.string.can_mzd_cx4_drive_auto};
+    private static final int[] mQpzyjArray = {R.string.can_mzd_cx4_mode_off, R.string.can_cdpyyzxt_1, R.string.can_sdqfwxjgjl_3, R.string.can_sdqfwxjgjl_1};
+    private static final int[] mZsyxhxtArray = {R.string.can_acc_dis_1, R.string.can_acc_dis_2, R.string.can_acc_dis_3};
     protected String[] mBDSDArray;
     protected String[] mBWHJArray;
     protected String[] mCarLineArray;
     protected String[] mCarType;
     protected String[] mEPSArray;
+    protected String[] mFWDLDArray;
+    protected String[] mFWDYSArray;
     protected CanItemPopupList mItemAirMode;
     protected CanItemSwitchList mItemAlarm;
     protected CanItemSwitchList mItemAutoLock;
@@ -73,15 +93,22 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
     protected CanItemSwitchList mItemDayLight;
     protected CanItemPopupList mItemEPS;
     protected CanItemSwitchList mItemFWD;
+    protected CanItemSwitchList mItemFwdGljsms;
+    protected CanItemSwitchList mItemFwdYlld;
+    protected CanItemPopupList mItemFwdld;
+    protected CanItemPopupList mItemFwdys;
     protected CanItemSwitchList mItemGfjtqkq;
     protected CanItemSwitchList mItemGfjysgb;
     protected CanItemProgressList mItemHbxkqcd;
     protected CanItemTextBtnList mItemHfmrsz;
+    protected CanItemSwitchList mItemJlbjxt;
     protected CanItemSwitchList mItemJykkhbx;
     protected CanItemSwitchList mItemKjxsdnl;
+    protected CanItemSwitchList mItemKqjh;
     protected CanItemPopupList mItemLang;
     protected CanItemSwitchList mItemLightDelay;
     protected CanItemSwitchList mItemMqjc;
+    protected CanItemPopupList mItemQpyjxt;
     protected CanItemSwitchList mItemSpeedWarn;
     protected CanItemProgressList mItemSpeedvalue;
     protected CanItemSwitchList mItemSssb;
@@ -90,13 +117,22 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
     protected CanItemPopupList mItemTip;
     protected CanItemCarType mItemType;
     protected CanItemSwitchList mItemWhsjzdzd;
+    protected CanItemSwitchList mItemYBD;
     protected CanItemSwitchList mItemYBGN;
+    protected CanItemSwitchList mItemZdjjzdxt;
     protected CanItemSwitchList mItemZdjs;
+    protected CanItemSwitchList mItemZnysgjjsls;
+    protected CanItemSwitchList mItemZnysgywmkq;
+    protected CanItemPopupList mItemZsyxhxt;
+    protected CanItemSwitchList mItemZsyxhxtScxzcj;
     protected CanItemSwitchList mItemZxfzzm;
+    protected CanItemPopupList mItemZxlms;
+    protected CanItemSwitchList mItemZxlmsGljsms;
     protected String[] mLangArr;
     private CanScrollList mManager;
     protected CanDataInfo.AiRuizeCarInfo mSetData = new CanDataInfo.AiRuizeCarInfo();
     protected String[] mTipArr;
+    protected String[] mZXLMSArray;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -116,6 +152,9 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
         this.mBWHJArray = new String[]{getResources().getString(R.string.can_off), getResources().getString(R.string.can_mzd_cx4_time_30s), getResources().getString(R.string.can_mzd_cx4_time_60s)};
         this.mBDSDArray = new String[]{getResources().getString(R.string.can_off), getResources().getString(R.string.can_3c), getResources().getString(R.string.can_5c), getResources().getString(R.string.can_7c)};
         this.mEPSArray = new String[]{getResources().getString(R.string.can_sport), getResources().getString(R.string.can_comfort)};
+        this.mFWDLDArray = new String[]{String.valueOf(getResources().getString(R.string.can_level)) + "1", String.valueOf(getResources().getString(R.string.can_level)) + "2", String.valueOf(getResources().getString(R.string.can_level)) + "3", String.valueOf(getResources().getString(R.string.can_level)) + MainSet.SP_KS_QOROS, String.valueOf(getResources().getString(R.string.can_level)) + MainSet.SP_TW_CJW};
+        this.mFWDYSArray = new String[]{getResources().getString(R.string.can_color_red), getResources().getString(R.string.can_orange_color), getResources().getString(R.string.can_color_yellow), getResources().getString(R.string.can_magoten_light_color_2), getResources().getString(R.string.can_qingse), getResources().getString(R.string.can_color_blue), getResources().getString(R.string.can_purple)};
+        this.mZXLMSArray = new String[]{getResources().getString(R.string.can_sport), getResources().getString(R.string.can_comfort)};
         this.mItemType = AddCarTypeItem(R.string.can_car_type_select, this.mCarType, 0);
         this.mItemLang = AddPopupItem(R.string.can_language, this.mLangArr, 1);
         this.mItemTip = AddPopupItem(R.string.can_tslx, this.mTipArr, 2);
@@ -149,6 +188,21 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
         this.mItemHbxkqcd = AddProgressItem(R.string.can_hbx_kd, 36, 1, 50, 100);
         this.mItemHbxkqcd.SetUserValText();
         this.mItemAirMode = AddPopupItem(R.string.can_dfqc_ac, mAirArray, 37);
+        this.mItemYBD = AddCheckItem(R.string.can_yb_light, 38);
+        this.mItemZnysgjjsls = AddCheckItem(R.string.can_znysgyjsls, 39);
+        this.mItemFwdGljsms = AddCheckItem(R.string.can_fwdgljsms, 40);
+        this.mItemFwdYlld = AddCheckItem(R.string.can_fwdyyld, 41);
+        this.mItemFwdld = AddPopupItem(R.string.can_fwdlddj, this.mFWDLDArray, 42);
+        this.mItemFwdys = AddPopupItem(R.string.can_fwd_color, this.mFWDYSArray, 43);
+        this.mItemZxlmsGljsms = AddCheckItem(R.string.can_zxlmsgljsms, 44);
+        this.mItemZxlms = AddPopupItem(R.string.can_zxlms, this.mZXLMSArray, 45);
+        this.mItemJlbjxt = AddCheckItem(R.string.can_jsfz_jlbjxt, 46);
+        this.mItemZdjjzdxt = AddCheckItem(R.string.can_zdjjzdxt, 47);
+        this.mItemQpyjxt = AddPopupItem(R.string.can_qpzyj, mQpzyjArray, 48);
+        this.mItemZsyxhxt = AddPopupItem(R.string.can_acc_drive, mZsyxhxtArray, 49);
+        this.mItemZsyxhxtScxzcj = AddCheckItem(R.string.can_last_dis_selected, 50);
+        this.mItemZnysgywmkq = AddCheckItem(R.string.can_znysgywmkq, 51);
+        this.mItemKqjh = AddCheckItem(R.string.air_purifier, 52);
         this.mItemHfmrsz = AddTextBtn(R.string.can_factory_set, 26);
     }
 
@@ -226,107 +280,157 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
             this.mItemSpeedvalue.ShowGone(true);
             this.mItemAirMode.ShowGone(true);
         } else if (subType == 3) {
+            this.mItemAirMode.ShowGone(true);
+        } else if (subType == 4) {
+            this.mItemZxfzzm.ShowGone(true);
+            this.mItemZdjs.ShowGone(true);
+            this.mItemJykkhbx.ShowGone(true);
+            this.mItemKjxsdnl.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+        } else if (subType == 5) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemLightDelay.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemStartAvm.ShowGone(true);
+            this.mItemAvmAnim.ShowGone(true);
+            this.mItemCarLine.ShowGone(true);
+            this.mItemSpeedWarn.ShowGone(true);
+            this.mItemSpeedvalue.ShowGone(true);
+            this.mItemBehindLight.ShowGone(true);
+            this.mItemMqjc.ShowGone(true);
+            this.mItemCdpl.ShowGone(true);
+            this.mItemWhsjzdzd.ShowGone(true);
+            this.mItemHfmrsz.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+        } else if (subType == 1) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemLightDelay.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemStartAvm.ShowGone(true);
+            this.mItemAvmAnim.ShowGone(true);
+            this.mItemCarLine.ShowGone(true);
+            this.mItemSpeedWarn.ShowGone(true);
+            this.mItemSpeedvalue.ShowGone(true);
+            this.mItemBehindLight.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+        } else if (subType == 6) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemStartAvm.ShowGone(true);
+            this.mItemAvmAnim.ShowGone(true);
+            this.mItemCarLine.ShowGone(true);
+            this.mItemSpeedWarn.ShowGone(true);
+            this.mItemSpeedvalue.ShowGone(true);
+            this.mItemBehindLight.ShowGone(true);
+            this.mItemWhsjzdzd.ShowGone(true);
+            this.mItemSssb.ShowGone(true);
+            this.mItemSstc.ShowGone(true);
+            this.mItemHfmrsz.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+        } else if (subType == 7) {
+            this.mItemAlarm.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemZdjs.ShowGone(true);
+            this.mItemMqjc.ShowGone(true);
+            this.mItemCdpl.ShowGone(true);
+            this.mItemWhsjzdzd.ShowGone(true);
+            this.mItemBWHJ.ShowGone(true);
+            this.mItemBDSD.ShowGone(true);
+            this.mItemYBGN.ShowGone(true);
+            this.mItemEPS.ShowGone(true);
+            this.mItemFWD.ShowGone(true);
+        } else if (subType == 8) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemLightDelay.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemStartAvm.ShowGone(true);
+            this.mItemAvmAnim.ShowGone(true);
+            this.mItemCarLine.ShowGone(true);
+            this.mItemSpeedvalue.ShowGone(true);
+            this.mItemBehindLight.ShowGone(true);
+            this.mItemMqjc.ShowGone(true);
+            this.mItemCdpl.ShowGone(true);
+            this.mItemWhsjzdzd.ShowGone(true);
+            this.mItemHfmrsz.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+        } else if (subType == 9) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemLightDelay.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemStartAvm.ShowGone(true);
+            this.mItemAvmAnim.ShowGone(true);
+            this.mItemCarLine.ShowGone(true);
+            this.mItemSpeedvalue.ShowGone(true);
+            this.mItemBehindLight.ShowGone(true);
+            this.mItemMqjc.ShowGone(true);
+            this.mItemCdpl.ShowGone(true);
+            this.mItemWhsjzdzd.ShowGone(true);
+            this.mItemEPS.ShowGone(true);
+            this.mItemGfjtqkq.ShowGone(true);
+            this.mItemGfjysgb.ShowGone(true);
+            this.mItemHbxkqcd.ShowGone(true);
+            this.mItemHfmrsz.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+        } else if (subType == 11) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemSpeedWarn.ShowGone(true);
+            this.mItemBehindLight.ShowGone(true);
+            this.mItemFWD.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+            this.mItemYBD.ShowGone(true);
+            this.mItemZnysgjjsls.ShowGone(true);
+            this.mItemFwdGljsms.ShowGone(true);
+            this.mItemFwdYlld.ShowGone(true);
+            this.mItemFwdld.ShowGone(true);
+            this.mItemFwdys.ShowGone(true);
+            this.mItemZxlmsGljsms.ShowGone(true);
+            this.mItemZxlms.ShowGone(true);
+            this.mItemHfmrsz.ShowGone(true);
+        } else if (subType == 12) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemSpeedWarn.ShowGone(true);
+        } else if (subType == 13) {
+            this.mItemTip.ShowGone(true);
+            this.mItemAutoLock.ShowGone(true);
+            this.mItemLightDelay.ShowGone(true);
+            this.mItemDayLight.ShowGone(true);
+            this.mItemSpeedWarn.ShowGone(true);
+            this.mItemBehindLight.ShowGone(true);
+            this.mItemWhsjzdzd.ShowGone(true);
+            this.mItemFWD.ShowGone(true);
+            this.mItemGfjtqkq.ShowGone(true);
+            this.mItemGfjysgb.ShowGone(true);
+            this.mItemHbxkqcd.ShowGone(true);
+            this.mItemYBD.ShowGone(true);
+            this.mItemZnysgjjsls.ShowGone(true);
+            this.mItemFwdGljsms.ShowGone(true);
+            this.mItemFwdYlld.ShowGone(true);
+            this.mItemFwdld.ShowGone(true);
+            this.mItemFwdys.ShowGone(true);
+            this.mItemZxlmsGljsms.ShowGone(true);
+            this.mItemZxlms.ShowGone(true);
+            this.mItemJlbjxt.ShowGone(true);
+            this.mItemZdjjzdxt.ShowGone(true);
+            this.mItemQpyjxt.ShowGone(true);
+            this.mItemZsyxhxt.ShowGone(true);
+            this.mItemZsyxhxtScxzcj.ShowGone(true);
+            this.mItemZnysgywmkq.ShowGone(true);
+            this.mItemKqjh.ShowGone(true);
+            this.mItemAirMode.ShowGone(true);
+            this.mItemHfmrsz.ShowGone(true);
         } else {
-            if (subType == 4) {
-                this.mItemZxfzzm.ShowGone(true);
-                this.mItemZdjs.ShowGone(true);
-                this.mItemJykkhbx.ShowGone(true);
-                this.mItemKjxsdnl.ShowGone(true);
-                this.mItemAirMode.ShowGone(true);
-            } else if (subType == 5) {
-                this.mItemTip.ShowGone(true);
-                this.mItemAutoLock.ShowGone(true);
-                this.mItemLightDelay.ShowGone(true);
-                this.mItemDayLight.ShowGone(true);
-                this.mItemStartAvm.ShowGone(true);
-                this.mItemAvmAnim.ShowGone(true);
-                this.mItemCarLine.ShowGone(true);
-                this.mItemSpeedWarn.ShowGone(true);
-                this.mItemSpeedvalue.ShowGone(true);
-                this.mItemBehindLight.ShowGone(true);
-                this.mItemMqjc.ShowGone(true);
-                this.mItemCdpl.ShowGone(true);
-                this.mItemWhsjzdzd.ShowGone(true);
-                this.mItemHfmrsz.ShowGone(true);
-                this.mItemAirMode.ShowGone(true);
-            } else if (subType == 1) {
-                this.mItemTip.ShowGone(true);
-                this.mItemAutoLock.ShowGone(true);
-                this.mItemLightDelay.ShowGone(true);
-                this.mItemDayLight.ShowGone(true);
-                this.mItemStartAvm.ShowGone(true);
-                this.mItemAvmAnim.ShowGone(true);
-                this.mItemCarLine.ShowGone(true);
-                this.mItemSpeedWarn.ShowGone(true);
-                this.mItemSpeedvalue.ShowGone(true);
-                this.mItemBehindLight.ShowGone(true);
-                this.mItemAirMode.ShowGone(true);
-            } else if (subType == 6) {
-                this.mItemTip.ShowGone(true);
-                this.mItemAutoLock.ShowGone(true);
-                this.mItemDayLight.ShowGone(true);
-                this.mItemStartAvm.ShowGone(true);
-                this.mItemAvmAnim.ShowGone(true);
-                this.mItemCarLine.ShowGone(true);
-                this.mItemSpeedWarn.ShowGone(true);
-                this.mItemSpeedvalue.ShowGone(true);
-                this.mItemBehindLight.ShowGone(true);
-                this.mItemWhsjzdzd.ShowGone(true);
-                this.mItemSssb.ShowGone(true);
-                this.mItemSstc.ShowGone(true);
-                this.mItemHfmrsz.ShowGone(true);
-                this.mItemAirMode.ShowGone(true);
-            } else if (subType == 7) {
-                this.mItemAlarm.ShowGone(true);
-                this.mItemAutoLock.ShowGone(true);
-                this.mItemZdjs.ShowGone(true);
-                this.mItemMqjc.ShowGone(true);
-                this.mItemCdpl.ShowGone(true);
-                this.mItemWhsjzdzd.ShowGone(true);
-                this.mItemBWHJ.ShowGone(true);
-                this.mItemBDSD.ShowGone(true);
-                this.mItemYBGN.ShowGone(true);
-                this.mItemEPS.ShowGone(true);
-                this.mItemFWD.ShowGone(true);
-            } else if (subType == 8) {
-                this.mItemTip.ShowGone(true);
-                this.mItemAutoLock.ShowGone(true);
-                this.mItemLightDelay.ShowGone(true);
-                this.mItemDayLight.ShowGone(true);
-                this.mItemStartAvm.ShowGone(true);
-                this.mItemAvmAnim.ShowGone(true);
-                this.mItemCarLine.ShowGone(true);
-                this.mItemSpeedvalue.ShowGone(true);
-                this.mItemBehindLight.ShowGone(true);
-                this.mItemMqjc.ShowGone(true);
-                this.mItemCdpl.ShowGone(true);
-                this.mItemWhsjzdzd.ShowGone(true);
-                this.mItemHfmrsz.ShowGone(true);
-                this.mItemAirMode.ShowGone(true);
-            } else if (subType == 9) {
-                this.mItemTip.ShowGone(true);
-                this.mItemAutoLock.ShowGone(true);
-                this.mItemLightDelay.ShowGone(true);
-                this.mItemDayLight.ShowGone(true);
-                this.mItemStartAvm.ShowGone(true);
-                this.mItemAvmAnim.ShowGone(true);
-                this.mItemCarLine.ShowGone(true);
-                this.mItemSpeedvalue.ShowGone(true);
-                this.mItemBehindLight.ShowGone(true);
-                this.mItemMqjc.ShowGone(true);
-                this.mItemCdpl.ShowGone(true);
-                this.mItemWhsjzdzd.ShowGone(true);
-                this.mItemEPS.ShowGone(true);
-                this.mItemGfjtqkq.ShowGone(true);
-                this.mItemGfjysgb.ShowGone(true);
-                this.mItemHbxkqcd.ShowGone(true);
-                this.mItemHfmrsz.ShowGone(true);
-                this.mItemAirMode.ShowGone(true);
-            } else {
-                this.mItemLang.ShowGone(true);
-                this.mItemTip.ShowGone(true);
-                this.mItemAlarm.ShowGone(true);
-            }
+            this.mItemLang.ShowGone(true);
+            this.mItemTip.ShowGone(true);
+            this.mItemAlarm.ShowGone(true);
         }
     }
 
@@ -465,12 +569,77 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
                 this.mItemHbxkqcd.SetValText(String.valueOf(this.mSetData.Hbxkqcd) + " %");
             }
         }
-        if (!i2b(this.mSetData.AirModeUpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mSetData.AirModeUpdate)) {
+        if (i2b(this.mSetData.AirModeUpdateOnce) && (!check || i2b(this.mSetData.AirModeUpdate))) {
             this.mSetData.AirModeUpdate = 0;
             this.mItemAirMode.SetSel(this.mSetData.AirMode);
+        }
+        if (i2b(this.mSetData.FwdldUpdateOnce) && (!check || i2b(this.mSetData.FwdldUpdate))) {
+            this.mSetData.FwdldUpdate = 0;
+            this.mItemFwdld.SetSel(this.mSetData.Fwdld - 1);
+        }
+        if (i2b(this.mSetData.FwdysUpdateOnce) && (!check || i2b(this.mSetData.FwdysUpdate))) {
+            this.mSetData.FwdysUpdate = 0;
+            this.mItemFwdys.SetSel(this.mSetData.Fwdys - 1);
+        }
+        if (i2b(this.mSetData.ZxlmsGljsmsyxUpdateOnce) && (!check || i2b(this.mSetData.ZxlmsGljsmsyxUpdate))) {
+            this.mSetData.ZxlmsGljsmsyxUpdate = 0;
+            this.mItemZxlms.SetSel(this.mSetData.ZxlmsGljsmsyx);
+        }
+        if (CanJni.GetSubType() == 11) {
+            if (i2b(this.mSetData.ZxlmsGljsmsUpdateOnce) && (!check || i2b(this.mSetData.ZxlmsGljsmsUpdate))) {
+                this.mSetData.ZxlmsGljsmsUpdate = 0;
+                this.mItemZxlmsGljsms.SetCheck(this.mSetData.ZxlmsGljsms);
+                this.mItemZxlms.ShowGone(this.mSetData.ZxlmsGljsms);
+            }
+            if (i2b(this.mSetData.YlldUpdateOnce) && (!check || i2b(this.mSetData.YlldUpdate))) {
+                this.mSetData.YlldUpdate = 0;
+                this.mItemFwdYlld.SetCheck(this.mSetData.Ylld);
+                this.mItemFwdld.ShowGone(this.mSetData.Ylld);
+                this.mItemFwdys.ShowGone(this.mSetData.Ylld);
+            }
+        }
+        if (i2b(this.mSetData.FwdGljsmsUpdateOnce) && (!check || i2b(this.mSetData.FwdGljsmsUpdate))) {
+            this.mSetData.FwdGljsmsUpdate = 0;
+            this.mItemFwdGljsms.SetCheck(this.mSetData.FwdGljsms);
+        }
+        if (i2b(this.mSetData.ZnysgyjslsUpdateOnce) && (!check || i2b(this.mSetData.ZnysgyjslsUpdate))) {
+            this.mSetData.ZnysgyjslsUpdate = 0;
+            this.mItemZnysgjjsls.SetCheck(this.mSetData.Znysgyjsls);
+        }
+        if (i2b(this.mSetData.YbdUpdateOnce) && (!check || i2b(this.mSetData.YbdUpdate))) {
+            this.mSetData.YbdUpdate = 0;
+            this.mItemYBD.SetCheck(this.mSetData.Ybd);
+        }
+        if (i2b(this.mSetData.JlbjxtUpdateOnce) && (!check || i2b(this.mSetData.JlbjxtUpdate))) {
+            this.mSetData.JlbjxtUpdate = 0;
+            this.mItemJlbjxt.SetCheck(this.mSetData.Jlbjxt);
+        }
+        if (i2b(this.mSetData.ZdjjzdxtUpdateOnce) && (!check || i2b(this.mSetData.ZdjjzdxtUpdate))) {
+            this.mSetData.ZdjjzdxtUpdate = 0;
+            this.mItemZdjjzdxt.SetCheck(this.mSetData.Zdjjzdxt);
+        }
+        if (i2b(this.mSetData.QpyjxtUpdateOnce) && (!check || i2b(this.mSetData.QpyjxtUpdate))) {
+            this.mSetData.QpyjxtUpdate = 0;
+            this.mItemQpyjxt.SetSel(this.mSetData.Qpyjxt - 1);
+        }
+        if (i2b(this.mSetData.ZsyxhxtUpdateOnce) && (!check || i2b(this.mSetData.ZsyxhxtUpdate))) {
+            this.mSetData.ZsyxhxtUpdate = 0;
+            this.mItemZsyxhxt.SetSel(this.mSetData.Zsyxhxt - 1);
+        }
+        if (i2b(this.mSetData.ZsyxhxtScxzcjUpdateOnce) && (!check || i2b(this.mSetData.ZsyxhxtScxzcjUpdate))) {
+            this.mSetData.ZsyxhxtScxzcjUpdate = 0;
+            this.mItemZsyxhxtScxzcj.SetCheck(this.mSetData.ZsyxhxtScxzcj);
+        }
+        if (i2b(this.mSetData.ZnysgywmkqUpdateOnce) && (!check || i2b(this.mSetData.ZnysgywmkqUpdate))) {
+            this.mSetData.ZnysgywmkqUpdate = 0;
+            this.mItemZnysgywmkq.SetCheck(this.mSetData.Znysgywmkq);
+        }
+        if (!i2b(this.mSetData.KqjhUpdateOnce)) {
+            return;
+        }
+        if (!check || i2b(this.mSetData.KqjhUpdate)) {
+            this.mSetData.KqjhUpdate = 0;
+            this.mItemKqjh.SetCheck(this.mSetData.Kqjh);
         }
     }
 
@@ -500,6 +669,21 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
                 return;
             case 37:
                 CanJni.AiRuizeCarSet(Can.CAN_FLAT_RZC, item);
+                return;
+            case 42:
+                CanJni.AiRuizeCarSet(32, item + 1);
+                return;
+            case 43:
+                CanJni.AiRuizeCarSet(33, item + 1);
+                return;
+            case 45:
+                CanJni.AiRuizeCarSet(35, item);
+                return;
+            case 48:
+                CanJni.AiRuizeCarSet(38, item + 1);
+                return;
+            case 49:
+                CanJni.AiRuizeCarSet(39, item + 1);
                 return;
             default:
                 return;
@@ -570,6 +754,36 @@ public class CanCheryAiRuizeCarInfoActivity extends CanBaseActivity implements U
                 return;
             case 35:
                 CanJni.AiRuizeCarSet(26, SwValue(this.mSetData.Gfjycgb));
+                return;
+            case 38:
+                CanJni.AiRuizeCarSet(28, SwValue(this.mSetData.Ybd));
+                return;
+            case 39:
+                CanJni.AiRuizeCarSet(29, SwValue(this.mSetData.Znysgyjsls));
+                return;
+            case 40:
+                CanJni.AiRuizeCarSet(30, SwValue(this.mSetData.FwdGljsms));
+                return;
+            case 41:
+                CanJni.AiRuizeCarSet(31, SwValue(this.mSetData.Ylld));
+                return;
+            case 44:
+                CanJni.AiRuizeCarSet(34, SwValue(this.mSetData.ZxlmsGljsms));
+                return;
+            case 46:
+                CanJni.AiRuizeCarSet(36, SwValue(this.mSetData.Jlbjxt));
+                return;
+            case 47:
+                CanJni.AiRuizeCarSet(37, SwValue(this.mSetData.Zdjjzdxt));
+                return;
+            case 50:
+                CanJni.AiRuizeCarSet(40, SwValue(this.mSetData.ZsyxhxtScxzcj));
+                return;
+            case 51:
+                CanJni.AiRuizeCarSet(41, SwValue(this.mSetData.Znysgywmkq));
+                return;
+            case 52:
+                CanJni.AiRuizeCarSet(42, SwValue(this.mSetData.Kqjh));
                 return;
             default:
                 return;

@@ -10,7 +10,7 @@ import java.net.URL;
 public class Tr6 implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Tr6 f161T = new Tr6();
+    public static final Tr6 f164T = new Tr6();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         String url = (String) parser.Tv();

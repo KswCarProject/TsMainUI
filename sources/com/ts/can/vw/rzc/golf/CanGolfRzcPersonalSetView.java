@@ -2,7 +2,6 @@ package com.ts.can.vw.rzc.golf;
 
 import android.app.Activity;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -36,7 +35,7 @@ public class CanGolfRzcPersonalSetView extends CanScrollCarInfoView {
     public void onClick(View v) {
         switch (((Integer) v.getTag()).intValue()) {
             case 0:
-                CarSet(Can.CAN_CHANA_CS75_WC, Neg(this.mSetData.Active));
+                CarSet(160, Neg(this.mSetData.Active));
                 return;
             case 3:
                 CarSet(163, 1);

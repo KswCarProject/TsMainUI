@@ -3,10 +3,12 @@ package com.ts.can;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,6 +24,7 @@ import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBack {
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private View.OnClickListener VwBtnClick = new View.OnClickListener() {
         public void onClick(View v) {
             if (v.getId() == R.id.can_btn_dw) {
@@ -71,6 +74,19 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
             InitUI_1280x480();
         } else if (MainSet.GetScreenType() == 3) {
             InitUI_768X1024();
+        } else if (MainSet.GetScreenType() == 9) {
+            getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+            Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+            this.mManager = (RelativeLayout) findViewById(R.id.layout_vw_carinfo);
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.getLayoutParams();
+            lp.width = 1280;
+            lp.height = 425;
+            lp.gravity = 17;
+            this.mManager.setLayoutParams(lp);
+            InitUI_1280x480();
+            this.mManager.setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1280.0f);
+            this.mManager.setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 480.0f);
+            Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1280.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 480.0f)}));
         } else {
             DisplayMetrics outMetrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(outMetrics);
@@ -103,7 +119,7 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
         this.mParkingIcon = addImage(516, Can.CAN_BENC_ZMYT, R.drawable.canvw_parking_up_1024x400, R.drawable.canvw_parking_dn_1024x400);
         this.mWashingIcon = addImage(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6, Can.CAN_BYD_M6_DJ, R.drawable.canvw_washing_up_1024x400, R.drawable.canvw_washing_dn_1024x400);
         addImage(KeyDef.RKEY_MEDIA_STOP, 119, R.drawable.canvw_car3_up_1024x400);
-        this.mDoorIcons[0] = addImage(KeyDef.RKEY_MEDIA_SUBT, 184, R.drawable.canvw_left_door_dn_1024x400);
+        this.mDoorIcons[0] = addImage(310, 184, R.drawable.canvw_left_door_dn_1024x400);
         this.mDoorIcons[1] = addImage(416, 184, R.drawable.canvw_right_door_dn_1024x400);
         this.mDoorIcons[2] = addImage(KeyDef.RKEY_EJECT, Can.CAN_JIANGLING_MYX, R.drawable.canvw_left_door01_dn_1024x400);
         this.mDoorIcons[3] = addImage(410, Can.CAN_JIANGLING_MYX, R.drawable.canvw_right_door01_dn_1024x400);
@@ -115,21 +131,21 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
         this.mOilItem = addText(40, Can.CAN_NISSAN_XFY, R.string.can_rest_oil, -1, false);
         if (CanFunc.mFsCanTp == 103) {
             this.mTempItem = addText(65, Can.CAN_BENC_ZMYT, R.string.can_lqywd, -1, false);
-            this.mDistanceItem = addText(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_trav_time, -16777216, true);
+            this.mDistanceItem = addText(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_trav_time, ViewCompat.MEASURED_STATE_MASK, true);
         } else if (CanFunc.mFsCanTp == 111) {
             this.mTempItem = addText(65, Can.CAN_BENC_ZMYT, R.string.can_car_water_temp, -1, false);
-            this.mDistanceItem = addText(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_driving_mileage, -16777216, true);
+            this.mDistanceItem = addText(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
         } else {
             this.mTempItem = addText(65, Can.CAN_BENC_ZMYT, R.string.can_out_temp, -1, false);
-            this.mDistanceItem = addText(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_driving_mileage, -16777216, true);
+            this.mDistanceItem = addText(KeyDef.SKEY_RETURN_2, Can.CAN_NISSAN_RICH6_WC, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
         }
         this.mElctricItem = addText(148, 66, R.string.can_battery, -1, false);
         this.mSeatBeltItem = addText(Can.CAN_BENZ_SMART_OD, 5, R.string.can_belt);
-        this.mTrunkUpItem = addText(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 66, R.string.can_trunk, -1, false);
+        this.mTrunkUpItem = addText(540, 66, R.string.can_trunk, -1, false);
         this.mParkingItem = addText(620, 146, R.string.can_brake, -1, false);
         this.mWashingItem = addWashItemText(CanCameraUI.BTN_LANDWIND_2D3D, Can.CAN_NISSAN_XFY, -1, false);
-        this.mRPMItem = addText(KeyDef.SKEY_RETURN_2, 32, R.string.can_rpm, -16777216, true);
-        this.mSpeedItem = addText(KeyDef.SKEY_RETURN_2, 135, R.string.can_curspeed, -16777216, true);
+        this.mRPMItem = addText(KeyDef.SKEY_RETURN_2, 32, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mSpeedItem = addText(KeyDef.SKEY_RETURN_2, 135, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private void InitUI() {
@@ -154,21 +170,21 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
         this.mOilItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 60, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + KeyDef.RKEY_MEDIA_SLOW, R.string.can_rest_oil, -1, true);
         if (CanFunc.mFsCanTp == 103) {
             this.mTempItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 77, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 180, R.string.can_lqywd, -1, true);
-            this.mDistanceItem = addText(getResources().getDimensionPixelSize(R.dimen.x2_vw_carinfo_flg) + 850, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_trav_time, -16777216, true);
+            this.mDistanceItem = addText(getResources().getDimensionPixelSize(R.dimen.x2_vw_carinfo_flg) + 850, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_trav_time, ViewCompat.MEASURED_STATE_MASK, true);
         } else if (CanFunc.mFsCanTp == 111) {
             this.mTempItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 77, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 180, R.string.can_car_water_temp, -1, true);
-            this.mDistanceItem = addText(getResources().getDimensionPixelSize(R.dimen.x2_vw_carinfo_flg) + 850, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_driving_mileage, -16777216, true);
+            this.mDistanceItem = addText(getResources().getDimensionPixelSize(R.dimen.x2_vw_carinfo_flg) + 850, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
         } else {
             this.mTempItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 77, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 180, R.string.can_out_temp, -1, true);
-            this.mDistanceItem = addText(getResources().getDimensionPixelSize(R.dimen.x2_vw_carinfo_flg) + 850, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_driving_mileage, -16777216, true);
+            this.mDistanceItem = addText(getResources().getDimensionPixelSize(R.dimen.x2_vw_carinfo_flg) + 850, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
         }
         this.mElctricItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 218, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 78, R.string.can_battery, -1, false);
         this.mSeatBeltItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 365, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 5, R.string.can_belt);
         this.mTrunkUpItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 720, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 78, R.string.can_trunk, -1, false);
         this.mParkingItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + KeyDef.SKEY_CALLDN_4, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + 180, R.string.can_brake, -1, false);
         this.mWashingItem = addWashItemText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 859, getResources().getDimensionPixelSize(R.dimen.y_vw_carinfo_flg) + KeyDef.RKEY_MEDIA_SLOW, -1, false);
-        this.mRPMItem = addText(getResources().getDimensionPixelSize(R.dimen.x1_vw_carinfo_flg) + 161, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_rpm, -16777216, true);
-        this.mSpeedItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 515, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_curspeed, -16777216, true);
+        this.mRPMItem = addText(getResources().getDimensionPixelSize(R.dimen.x1_vw_carinfo_flg) + 161, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mSpeedItem = addText(getResources().getDimensionPixelSize(R.dimen.x_vw_carinfo_flg) + 515, getResources().getDimensionPixelSize(R.dimen.y2_vw_carinfo_flg) + 445, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private void InitUI_1280x480() {
@@ -176,7 +192,7 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
         this.mManager.setBackgroundResource(R.drawable.can_vw_carinfo_bg_1280x480);
         this.mOilIcon = addImage(161, KeyDef.RKEY_MEDIA_OSD, R.drawable.canvw_elctric_up, R.drawable.canvw_elctric_dn);
         addImage(197, 173, R.drawable.canvw_outtemd_up, R.drawable.canvw_outtemd_dn);
-        this.mBatteryIcon = addImage(KeyDef.RKEY_LOC, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
+        this.mBatteryIcon = addImage(298, 71, R.drawable.canvw_battery_up, R.drawable.canvw_battery_dn);
         this.mSeatBeltIcon = addImage(436, 33, R.drawable.canvw_seat_belt_up, R.drawable.canvw_seat_belt_dn);
         this.mTrunkUpIcon = addImage(CanCameraUI.BTN_CHANA_CS75_MODE5, 71, R.drawable.canvw_trunk_up, R.drawable.canvw_trunk_dn);
         this.mParkingIcon = addImage(676, 173, R.drawable.canvw_parking_up, R.drawable.canvw_parking_dn);
@@ -190,25 +206,25 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
         showDoor(0, 0, 0, 0, 0);
         addImage(922, 38, R.drawable.canvw_speed_up);
         addImage(922, 165, R.drawable.canvw_instant_up);
-        addImage(922, KeyDef.RKEY_PRE, R.drawable.canvw_road_haul_up);
+        addImage(922, 292, R.drawable.canvw_road_haul_up);
         this.mOilItem = addText(60, KeyDef.RKEY_MEDIA_SLOW, R.string.can_rest_oil, -1, false);
         if (CanFunc.mFsCanTp == 103) {
             this.mTempItem = addText(97, 180, R.string.can_lqywd, -1, false);
-            this.mDistanceItem = addText(1080, KeyDef.RKEY_MEDIA_SEL, R.string.can_trav_time, -16777216, true);
+            this.mDistanceItem = addText(1080, 311, R.string.can_trav_time, ViewCompat.MEASURED_STATE_MASK, true);
         } else if (CanFunc.mFsCanTp == 111) {
             this.mTempItem = addText(97, 180, R.string.can_car_water_temp, -1, false);
-            this.mDistanceItem = addText(1080, KeyDef.RKEY_MEDIA_SEL, R.string.can_driving_mileage, -16777216, true);
+            this.mDistanceItem = addText(1080, 311, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
         } else {
             this.mTempItem = addText(97, 180, R.string.can_out_temp, -1, false);
-            this.mDistanceItem = addText(1080, KeyDef.RKEY_MEDIA_SEL, R.string.can_driving_mileage, -16777216, true);
+            this.mDistanceItem = addText(1080, 311, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true);
         }
         this.mElctricItem = addText(198, 78, R.string.can_battery, -1, false);
         this.mSeatBeltItem = addText(345, 5, R.string.can_belt);
         this.mTrunkUpItem = addText(CanCameraUI.BTN_CC_WC_DIRECTION1, 78, R.string.can_trunk, -1, false);
         this.mParkingItem = addText(802, 180, R.string.can_brake, -1, false);
         this.mWashingItem = addWashItemWidthText(KeyDef.SKEY_RETURN_1, KeyDef.RKEY_MEDIA_SLOW, 90, -1, false);
-        this.mRPMItem = addText(1080, 57, R.string.can_rpm, -16777216, true);
-        this.mSpeedItem = addText(1080, 184, R.string.can_curspeed, -16777216, true);
+        this.mRPMItem = addText(1080, 57, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mSpeedItem = addText(1080, 184, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private void InitUI_768X1024() {
@@ -226,29 +242,29 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
         this.mDoorIcons[1] = addImage(422, 192, 31, 52, R.drawable.canvw_right_door_dn);
         this.mDoorIcons[2] = addImage(KeyDef.RKEY_MEDIA_PROG, Can.CAN_ZH_WC, 33, 50, R.drawable.canvw_left_door01_dn);
         this.mDoorIcons[3] = addImage(416, Can.CAN_ZH_WC, 33, 50, R.drawable.canvw_right_door01_dn);
-        this.mDoorIcons[4] = addImage(351, KeyDef.RKEY_LOC, 65, 30, R.drawable.canvw_car3trunk_dn);
+        this.mDoorIcons[4] = addImage(351, 298, 65, 30, R.drawable.canvw_car3trunk_dn);
         showDoor(0, 0, 0, 0, 0);
         addImage(8, KeyDef.RKEY_res3, Can.CAN_LUXGEN_WC, 89, R.drawable.canvw_speed_up);
         addImage(260, KeyDef.RKEY_res3, Can.CAN_LUXGEN_WC, 89, R.drawable.canvw_instant_up);
         addImage(CanCameraUI.BTN_YG9_XBS_MODE2, KeyDef.RKEY_res3, Can.CAN_LUXGEN_WC, 89, R.drawable.canvw_road_haul_up);
         this.mOilItem = addText(35, 255, R.string.can_rest_oil, -1, false, 20);
         if (CanFunc.mFsCanTp == 103) {
-            this.mTempItem = addText(77, Can.CAN_HYUNDAI_WC, R.string.can_lqywd, -1, false, 20);
-            this.mDistanceItem = addText(CanCameraUI.BTN_CCH9_MODE9, 347, R.string.can_trav_time, -16777216, true, 20);
+            this.mTempItem = addText(77, 153, R.string.can_lqywd, -1, false, 20);
+            this.mDistanceItem = addText(CanCameraUI.BTN_CCH9_MODE9, 347, R.string.can_trav_time, ViewCompat.MEASURED_STATE_MASK, true, 20);
         } else if (CanFunc.mFsCanTp == 111) {
-            this.mTempItem = addText(77, Can.CAN_HYUNDAI_WC, R.string.can_car_water_temp, -1, false, 20);
-            this.mDistanceItem = addText(CanCameraUI.BTN_CCH9_MODE9, 347, R.string.can_driving_mileage, -16777216, true, 20);
+            this.mTempItem = addText(77, 153, R.string.can_car_water_temp, -1, false, 20);
+            this.mDistanceItem = addText(CanCameraUI.BTN_CCH9_MODE9, 347, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true, 20);
         } else {
-            this.mTempItem = addText(77, Can.CAN_HYUNDAI_WC, R.string.can_out_temp, -1, false, 20);
-            this.mDistanceItem = addText(CanCameraUI.BTN_CCH9_MODE9, 347, R.string.can_driving_mileage, -16777216, true, 20);
+            this.mTempItem = addText(77, 153, R.string.can_out_temp, -1, false, 20);
+            this.mDistanceItem = addText(CanCameraUI.BTN_CCH9_MODE9, 347, R.string.can_driving_mileage, ViewCompat.MEASURED_STATE_MASK, true, 20);
         }
         this.mElctricItem = addText(128, 75, R.string.can_battery, -1, false, 20);
         this.mSeatBeltItem = addText(Can.CAN_ZH_WC, 15, R.string.can_belt, 20);
         this.mTrunkUpItem = addText(CanCameraUI.BTN_TRUMPCHI_GS7_MODE1, 75, R.string.can_trunk, -1, false, 20);
-        this.mParkingItem = addText(622, Can.CAN_HYUNDAI_WC, R.string.can_brake, -1, false, 20);
+        this.mParkingItem = addText(622, 153, R.string.can_brake, -1, false, 20);
         this.mWashingItem = addWashItemText(659, 258, -1, false, 20);
-        this.mRPMItem = addText(108, 347, R.string.can_rpm, -16777216, true, 20);
-        this.mSpeedItem = addText(368, 347, R.string.can_curspeed, -16777216, true, 20);
+        this.mRPMItem = addText(108, 347, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true, 20);
+        this.mSpeedItem = addText(368, 347, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true, 20);
     }
 
     private ImageView addImage(int x, int y, int iconId) {
@@ -350,7 +366,7 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
     }
 
     private TextView addText(int x, int y, int textId, int color, boolean isCenterAlign) {
-        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(Can.CAN_CHANA_CS75_WC, -2);
+        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(160, -2);
         layoutLp.leftMargin = x;
         layoutLp.topMargin = y;
         LinearLayout layout = new LinearLayout(this);
@@ -380,7 +396,7 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
     }
 
     private TextView addText(int x, int y, int textId, int color, boolean isCenterAlign, int textSize) {
-        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(Can.CAN_CHANA_CS75_WC, -2);
+        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(160, -2);
         layoutLp.leftMargin = x;
         layoutLp.topMargin = y;
         LinearLayout layout = new LinearLayout(this);
@@ -431,7 +447,7 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
     }
 
     private TextView addWashItemText(int x, int y, int color, boolean isCenterAlign) {
-        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(Can.CAN_CHANA_CS75_WC, -2);
+        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(160, -2);
         layoutLp.leftMargin = x;
         layoutLp.topMargin = y;
         LinearLayout layout = new LinearLayout(this);
@@ -453,7 +469,7 @@ public class CanVwCarInfoActivity extends CanBaseActivity implements UserCallBac
     }
 
     private TextView addWashItemText(int x, int y, int color, boolean isCenterAlign, int textSize) {
-        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(Can.CAN_CHANA_CS75_WC, -2);
+        RelativeLayout.LayoutParams layoutLp = new RelativeLayout.LayoutParams(160, -2);
         layoutLp.leftMargin = x;
         layoutLp.topMargin = y;
         LinearLayout layout = new LinearLayout(this);

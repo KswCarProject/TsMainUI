@@ -8,6 +8,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public abstract class CanBaseACWidgetView implements View.OnTouchListener {
     private Context mContext;
@@ -57,7 +58,7 @@ public abstract class CanBaseACWidgetView implements View.OnTouchListener {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(24);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setTextColor(-1);
         temp.setGravity(17);
         return temp;

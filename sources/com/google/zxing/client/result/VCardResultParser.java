@@ -1,9 +1,11 @@
 package com.google.zxing.client.result;
 
+import com.android.SdkConstants;
 import com.google.zxing.Result;
 import com.ts.bt.ContactInfo;
 import com.ts.main.common.ShellUtils;
 import com.ts.main.txz.AmapAuto;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -47,7 +49,7 @@ public final class VCardResultParser extends ResultParser {
         List<List<String>> emails = matchVCardPrefixedField("EMAIL", rawText, true, false);
         List<String> note = matchSingleVCardPrefixedField("NOTE", rawText, false, false);
         List<List<String>> addresses = matchVCardPrefixedField("ADR", rawText, true, true);
-        List<String> org = matchSingleVCardPrefixedField("ORG", rawText, true, true);
+        List<String> org2 = matchSingleVCardPrefixedField("ORG", rawText, true, true);
         List<String> birthday = matchSingleVCardPrefixedField("BDAY", rawText, true, false);
         if (birthday != null && !isLikeVCardDate(birthday.get(0))) {
             birthday = null;
@@ -60,7 +62,7 @@ public final class VCardResultParser extends ResultParser {
         if (!(geo == null || geo.length == 2)) {
             geo = null;
         }
-        return new AddressBookParsedResult(toPrimaryValues(names), nicknames, (String) null, toPrimaryValues(phoneNumbers), toTypes(phoneNumbers), toPrimaryValues(emails), toTypes(emails), toPrimaryValue(instantMessenger), toPrimaryValue(note), toPrimaryValues(addresses), toTypes(addresses), toPrimaryValue(org), toPrimaryValue(birthday), toPrimaryValue(title), toPrimaryValues(urls), geo);
+        return new AddressBookParsedResult(toPrimaryValues(names), nicknames, (String) null, toPrimaryValues(phoneNumbers), toTypes(phoneNumbers), toPrimaryValues(emails), toTypes(emails), toPrimaryValue(instantMessenger), toPrimaryValue(note), toPrimaryValues(addresses), toTypes(addresses), toPrimaryValue(org2), toPrimaryValue(birthday), toPrimaryValue(title), toPrimaryValues(urls), geo);
     }
 
     static List<List<String>> matchVCardPrefixedField(CharSequence prefix, String rawText, boolean trim, boolean parseFieldDivider) {
@@ -136,7 +138,7 @@ public final class VCardResultParser extends ResultParser {
                     if (parseFieldDivider) {
                         element2 = UNESCAPED_SEMICOLONS.matcher(element2).replaceAll(ShellUtils.COMMAND_LINE_END).trim();
                     }
-                    element = VCARD_ESCAPES.matcher(NEWLINE_ESCAPE.matcher(CR_LF_SPACE_TAB.matcher(element2).replaceAll("")).replaceAll(ShellUtils.COMMAND_LINE_END)).replaceAll("$1");
+                    element = VCARD_ESCAPES.matcher(NEWLINE_ESCAPE.matcher(CR_LF_SPACE_TAB.matcher(element2).replaceAll(TXZResourceManager.STYLE_DEFAULT)).replaceAll(ShellUtils.COMMAND_LINE_END)).replaceAll("$1");
                 }
                 if (metadata == null) {
                     List<String> match = new ArrayList<>(1);
@@ -193,12 +195,12 @@ public final class VCardResultParser extends ResultParser {
         if (fragmentBuffer.size() > 0) {
             byte[] fragmentBytes = fragmentBuffer.toByteArray();
             if (charset == null) {
-                fragment = new String(fragmentBytes, Charset.forName("UTF-8"));
+                fragment = new String(fragmentBytes, Charset.forName(SdkConstants.INI_CHARSET));
             } else {
                 try {
                     fragment = new String(fragmentBytes, charset);
                 } catch (UnsupportedEncodingException e) {
-                    fragment = new String(fragmentBytes, Charset.forName("UTF-8"));
+                    fragment = new String(fragmentBytes, Charset.forName(SdkConstants.INI_CHARSET));
                 }
             }
             fragmentBuffer.reset();

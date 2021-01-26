@@ -3,7 +3,9 @@ package com.txznet.comm.Tr.Tr;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.tongting.IConstantData;
 import com.txznet.txz.T.Tn;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import org.json.JSONObject;
 public class Th {
 
     /* renamed from: T  reason: collision with root package name */
-    public static int f390T = 4;
+    public static int f394T = 4;
     /* access modifiers changed from: private */
     public static SparseArray<Ty> T9 = new SparseArray<>();
     /* access modifiers changed from: private */
@@ -41,9 +43,9 @@ public class Th {
     /* compiled from: Proguard */
     public static class T9 {
         public long duration;
-        public String text = "";
+        public String text = TXZResourceManager.STYLE_DEFAULT;
         public T type;
-        public String url = "";
+        public String url = TXZResourceManager.STYLE_DEFAULT;
 
         /* compiled from: Proguard */
         public enum T {
@@ -88,45 +90,45 @@ public class Th {
                 org.json.JSONObject r1 = new org.json.JSONObject
                 r1.<init>()
                 java.lang.String r2 = "type"
-                com.txznet.comm.Tr.Tr.Th$T9$T r3 = r5.type     // Catch:{ Exception -> 0x0026 }
-                java.lang.String r3 = r3.name()     // Catch:{ Exception -> 0x0026 }
-                r1.put(r2, r3)     // Catch:{ Exception -> 0x0026 }
-                int[] r2 = com.txznet.comm.Tr.Tr.Th.AnonymousClass8.f396T     // Catch:{ Exception -> 0x0026 }
-                com.txznet.comm.Tr.Tr.Th$T9$T r3 = r5.type     // Catch:{ Exception -> 0x0026 }
-                int r3 = r3.ordinal()     // Catch:{ Exception -> 0x0026 }
-                r2 = r2[r3]     // Catch:{ Exception -> 0x0026 }
+                com.txznet.comm.Tr.Tr.Th$T9$T r3 = r5.type     // Catch:{ Exception -> 0x0028 }
+                java.lang.String r3 = r3.name()     // Catch:{ Exception -> 0x0028 }
+                r1.put(r2, r3)     // Catch:{ Exception -> 0x0028 }
+                int[] r2 = com.txznet.comm.Tr.Tr.Th.AnonymousClass8.f400T     // Catch:{ Exception -> 0x0028 }
+                com.txznet.comm.Tr.Tr.Th$T9$T r3 = r5.type     // Catch:{ Exception -> 0x0028 }
+                int r3 = r3.ordinal()     // Catch:{ Exception -> 0x0028 }
+                r2 = r2[r3]     // Catch:{ Exception -> 0x0028 }
                 switch(r2) {
-                    case 1: goto L_0x001e;
-                    case 2: goto L_0x0032;
-                    case 3: goto L_0x0032;
-                    case 4: goto L_0x003a;
-                    case 5: goto L_0x003a;
-                    case 6: goto L_0x001d;
-                    default: goto L_0x001d;
-                }     // Catch:{ Exception -> 0x0026 }
-            L_0x001d:
-                return r1
+                    case 1: goto L_0x001f;
+                    case 2: goto L_0x0034;
+                    case 3: goto L_0x0034;
+                    case 4: goto L_0x003d;
+                    case 5: goto L_0x003d;
+                    case 6: goto L_0x001e;
+                    default: goto L_0x001e;
+                }     // Catch:{ Exception -> 0x0028 }
             L_0x001e:
+                return r1
+            L_0x001f:
                 java.lang.String r2 = "text"
-                java.lang.String r3 = r5.text     // Catch:{ Exception -> 0x0026 }
-                r1.put(r2, r3)     // Catch:{ Exception -> 0x0026 }
-                goto L_0x001d
-            L_0x0026:
+                java.lang.String r3 = r5.text     // Catch:{ Exception -> 0x0028 }
+                r1.put(r2, r3)     // Catch:{ Exception -> 0x0028 }
+                goto L_0x001e
+            L_0x0028:
                 r0 = move-exception
                 java.lang.String r2 = r0.getMessage()
                 com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r2)
                 r0.printStackTrace()
-                goto L_0x001d
-            L_0x0032:
+                goto L_0x001e
+            L_0x0034:
                 java.lang.String r2 = "url"
-                java.lang.String r3 = r5.url     // Catch:{ Exception -> 0x0026 }
-                r1.put(r2, r3)     // Catch:{ Exception -> 0x0026 }
-                goto L_0x001d
-            L_0x003a:
+                java.lang.String r3 = r5.url     // Catch:{ Exception -> 0x0028 }
+                r1.put(r2, r3)     // Catch:{ Exception -> 0x0028 }
+                goto L_0x001e
+            L_0x003d:
                 java.lang.String r2 = "duration"
-                long r3 = r5.duration     // Catch:{ Exception -> 0x0026 }
-                r1.put(r2, r3)     // Catch:{ Exception -> 0x0026 }
-                goto L_0x001d
+                long r3 = r5.duration     // Catch:{ Exception -> 0x0028 }
+                r1.put(r2, r3)     // Catch:{ Exception -> 0x0028 }
+                goto L_0x001e
             */
             throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.Tr.Tr.Th.T9.T():org.json.JSONObject");
         }
@@ -148,17 +150,17 @@ public class Th {
 
         private static T9 T(JSONObject jsonObject) {
             String type2;
-            if (jsonObject == null || (type2 = jsonObject.optString(IConstantData.KEY_TYPE, (String) null)) == null) {
+            if (jsonObject == null || (type2 = jsonObject.optString("type", (String) null)) == null) {
                 return null;
             }
             T9 voiceTask = new T9(T.valueOf(type2));
             switch (voiceTask.type) {
                 case TEXT:
-                    voiceTask.setText(jsonObject.optString("text", ""));
+                    voiceTask.setText(jsonObject.optString(SdkConstants.ATTR_TEXT, TXZResourceManager.STYLE_DEFAULT));
                     return voiceTask;
                 case LOCAL_URL:
                 case NET_URL:
-                    voiceTask.setUrl(jsonObject.optString("url", ""));
+                    voiceTask.setUrl(jsonObject.optString("url", TXZResourceManager.STYLE_DEFAULT));
                     return voiceTask;
                 case QUIET:
                 case ALERT:
@@ -187,7 +189,7 @@ public class Th {
             if (voiceTasks == null || voiceTasks.length == 0) {
                 return null;
             }
-            String string = "";
+            String string = TXZResourceManager.STYLE_DEFAULT;
             for (T9 voiceTask : voiceTasks) {
                 if (!(voiceTask == null || voiceTask.type != T.TEXT || voiceTask.text == null)) {
                     string = string + voiceTask.text;
@@ -203,7 +205,7 @@ public class Th {
             ArrayList<String> urls = new ArrayList<>();
             for (T9 voiceTask : voiceTasks) {
                 if (voiceTask != null) {
-                    String string = "";
+                    String string = TXZResourceManager.STYLE_DEFAULT;
                     switch (voiceTask.type) {
                         case LOCAL_URL:
                         case NET_URL:
@@ -278,16 +280,16 @@ public class Th {
     private static class Ty {
 
         /* renamed from: T  reason: collision with root package name */
-        int f400T;
+        int f404T;
         boolean Tr;
         T Ty;
 
         private Ty() {
-            this.f400T = -1;
+            this.f404T = -1;
         }
 
         public int hashCode() {
-            return this.f400T + 31;
+            return this.f404T + 31;
         }
 
         public boolean equals(Object obj) {
@@ -300,14 +302,14 @@ public class Th {
             if (getClass() != obj.getClass()) {
                 return false;
             }
-            if (this.f400T != ((Ty) obj).f400T) {
+            if (this.f404T != ((Ty) obj).f404T) {
                 return false;
             }
             return true;
         }
 
         public String toString() {
-            return "RemoteTtsTask [remoteId=" + this.f400T + ", isCanceled=" + this.Tr + ", callback=" + this.Ty + "]";
+            return "RemoteTtsTask [remoteId=" + this.f404T + ", isCanceled=" + this.Tr + ", callback=" + this.Ty + "]";
         }
     }
 
@@ -315,7 +317,7 @@ public class Th {
     private static class Tn {
 
         /* renamed from: T  reason: collision with root package name */
-        String f398T;
+        String f402T;
         Integer Tr;
         long Ty;
 
@@ -369,7 +371,7 @@ public class Th {
     }
 
     public static int Tr(String voiceUrl, Tr bPreempt, T oRun) {
-        return T("", voiceUrl, bPreempt, oRun);
+        return T(TXZResourceManager.STYLE_DEFAULT, voiceUrl, bPreempt, oRun);
     }
 
     public static int T(String sText, String voiceUrl, Tr bPreempt, T oRun) {
@@ -380,15 +382,15 @@ public class Th {
     }
 
     public static int T(int iStream, String sText, String[] voiceUrls, Tr bPreempt, T oRun) {
-        return T(iStream, "", (String[]) null, sText, voiceUrls, 0, bPreempt, oRun);
+        return T(iStream, TXZResourceManager.STYLE_DEFAULT, (String[]) null, sText, voiceUrls, 0, bPreempt, oRun);
     }
 
     public static int T(int iStream, String sText, String[] voiceUrls, long delay, Tr bPreempt, T oRun) {
-        return T(iStream, "", (String[]) null, sText, voiceUrls, delay, bPreempt, oRun);
+        return T(iStream, TXZResourceManager.STYLE_DEFAULT, (String[]) null, sText, voiceUrls, delay, bPreempt, oRun);
     }
 
     public static int T(int iStream, Tr bPreempt, T9[] voiceTasks, T oRun) {
-        return T(iStream, "", (String[]) null, "", (String[]) null, 0, bPreempt, voiceTasks, oRun);
+        return T(iStream, TXZResourceManager.STYLE_DEFAULT, (String[]) null, TXZResourceManager.STYLE_DEFAULT, (String[]) null, 0, bPreempt, voiceTasks, oRun);
     }
 
     public static void Ty() {
@@ -410,7 +412,7 @@ public class Th {
                                     if (isSupportOnBeginOld == null && !Th.TZ.booleanValue()) {
                                         for (int i = 0; i < Th.T9.size(); i++) {
                                             Ty task = (Ty) Th.T9.valueAt(i);
-                                            if (!(task.f400T == -1 || task.Ty == null)) {
+                                            if (!(task.f404T == -1 || task.Ty == null)) {
                                                 task.Ty.onBegin();
                                             }
                                         }
@@ -443,8 +445,8 @@ public class Th {
                                 Iterator it = taskEventList.iterator();
                                 while (it.hasNext()) {
                                     Tn taskEvent = (Tn) it.next();
-                                    Tn.Ty("process tts old event " + taskEvent.f398T + " for :" + remoteId);
-                                    Th.T(taskEvent.f398T, remoteId, taskEvent.Tr);
+                                    Tn.Ty("process tts old event " + taskEvent.f402T + " for :" + remoteId);
+                                    Th.T(taskEvent.f402T, remoteId, taskEvent.Tr);
                                 }
                             }
                         }, 0);
@@ -472,13 +474,13 @@ public class Th {
             cb = new T() {
 
                 /* renamed from: T  reason: collision with root package name */
-                boolean f393T = false;
+                boolean f397T = false;
                 boolean Tr = false;
                 boolean Ty = false;
 
                 public void onBegin() {
-                    if (!this.f393T) {
-                        this.f393T = true;
+                    if (!this.f397T) {
+                        this.f397T = true;
                         t.onBegin();
                     }
                 }
@@ -499,7 +501,7 @@ public class Th {
                 }
 
                 public void onSuccess() {
-                    if (!this.f393T) {
+                    if (!this.f397T) {
                         Boolean unused = Th.TZ = false;
                         onBegin();
                     }
@@ -530,83 +532,83 @@ public class Th {
                         r7 = this;
                         android.util.SparseArray r2 = com.txznet.comm.Tr.Tr.Th.T9
                         monitor-enter(r2)
-                        android.util.SparseArray r1 = com.txznet.comm.Tr.Tr.Th.T9     // Catch:{ all -> 0x008c }
-                        int r3 = r7.Tr()     // Catch:{ all -> 0x008c }
-                        java.lang.Object r0 = r1.get(r3)     // Catch:{ all -> 0x008c }
-                        com.txznet.comm.Tr.Tr.Th$Ty r0 = (com.txznet.comm.Tr.Tr.Th.Ty) r0     // Catch:{ all -> 0x008c }
-                        if (r0 != 0) goto L_0x0031
-                        java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch:{ all -> 0x008c }
-                        r1.<init>()     // Catch:{ all -> 0x008c }
+                        android.util.SparseArray r1 = com.txznet.comm.Tr.Tr.Th.T9     // Catch:{ all -> 0x0090 }
+                        int r3 = r7.Tr()     // Catch:{ all -> 0x0090 }
+                        java.lang.Object r0 = r1.get(r3)     // Catch:{ all -> 0x0090 }
+                        com.txznet.comm.Tr.Tr.Th$Ty r0 = (com.txznet.comm.Tr.Tr.Th.Ty) r0     // Catch:{ all -> 0x0090 }
+                        if (r0 != 0) goto L_0x0032
+                        java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch:{ all -> 0x0090 }
+                        r1.<init>()     // Catch:{ all -> 0x0090 }
                         java.lang.String r3 = "find local task failed: "
-                        java.lang.StringBuilder r1 = r1.append(r3)     // Catch:{ all -> 0x008c }
-                        int r3 = r7.Tr()     // Catch:{ all -> 0x008c }
-                        java.lang.StringBuilder r1 = r1.append(r3)     // Catch:{ all -> 0x008c }
-                        java.lang.String r1 = r1.toString()     // Catch:{ all -> 0x008c }
-                        com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r1)     // Catch:{ all -> 0x008c }
-                        monitor-exit(r2)     // Catch:{ all -> 0x008c }
-                    L_0x0030:
-                        return
+                        java.lang.StringBuilder r1 = r1.append(r3)     // Catch:{ all -> 0x0090 }
+                        int r3 = r7.Tr()     // Catch:{ all -> 0x0090 }
+                        java.lang.StringBuilder r1 = r1.append(r3)     // Catch:{ all -> 0x0090 }
+                        java.lang.String r1 = r1.toString()     // Catch:{ all -> 0x0090 }
+                        com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r1)     // Catch:{ all -> 0x0090 }
+                        monitor-exit(r2)     // Catch:{ all -> 0x0090 }
                     L_0x0031:
-                        java.lang.Boolean r1 = com.txznet.comm.Tr.Tr.Th.TZ     // Catch:{ all -> 0x008c }
-                        if (r1 == 0) goto L_0x004a
-                        java.lang.Boolean r1 = com.txznet.comm.Tr.Tr.Th.TZ     // Catch:{ all -> 0x008c }
-                        boolean r1 = r1.booleanValue()     // Catch:{ all -> 0x008c }
-                        if (r1 != 0) goto L_0x004a
-                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x008c }
-                        if (r1 == 0) goto L_0x004a
-                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x008c }
-                        r1.onBegin()     // Catch:{ all -> 0x008c }
-                    L_0x004a:
-                        if (r8 == 0) goto L_0x009a
-                        java.lang.Integer r1 = r8.Ty()     // Catch:{ all -> 0x008c }
-                        int r1 = r1.intValue()     // Catch:{ all -> 0x008c }
-                        r0.f400T = r1     // Catch:{ all -> 0x008c }
-                        boolean r1 = r0.Tr     // Catch:{ all -> 0x008c }
-                        if (r1 == 0) goto L_0x008f
-                        com.txznet.comm.Tr.Tn r1 = com.txznet.comm.Tr.Tn.Tr()     // Catch:{ all -> 0x008c }
+                        return
+                    L_0x0032:
+                        java.lang.Boolean r1 = com.txznet.comm.Tr.Tr.Th.TZ     // Catch:{ all -> 0x0090 }
+                        if (r1 == 0) goto L_0x004b
+                        java.lang.Boolean r1 = com.txznet.comm.Tr.Tr.Th.TZ     // Catch:{ all -> 0x0090 }
+                        boolean r1 = r1.booleanValue()     // Catch:{ all -> 0x0090 }
+                        if (r1 != 0) goto L_0x004b
+                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x0090 }
+                        if (r1 == 0) goto L_0x004b
+                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x0090 }
+                        r1.onBegin()     // Catch:{ all -> 0x0090 }
+                    L_0x004b:
+                        if (r8 == 0) goto L_0x009e
+                        java.lang.Integer r1 = r8.Ty()     // Catch:{ all -> 0x0090 }
+                        int r1 = r1.intValue()     // Catch:{ all -> 0x0090 }
+                        r0.f404T = r1     // Catch:{ all -> 0x0090 }
+                        boolean r1 = r0.Tr     // Catch:{ all -> 0x0090 }
+                        if (r1 == 0) goto L_0x0093
+                        com.txznet.comm.Tr.Tn r1 = com.txznet.comm.Tr.Tn.Tr()     // Catch:{ all -> 0x0090 }
                         java.lang.String r3 = "com.txznet.txz"
                         java.lang.String r4 = "comm.tts.cancel"
-                        java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ all -> 0x008c }
-                        r5.<init>()     // Catch:{ all -> 0x008c }
+                        java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ all -> 0x0090 }
+                        r5.<init>()     // Catch:{ all -> 0x0090 }
                         java.lang.String r6 = ""
-                        java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ all -> 0x008c }
-                        int r6 = r0.f400T     // Catch:{ all -> 0x008c }
-                        java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ all -> 0x008c }
-                        java.lang.String r5 = r5.toString()     // Catch:{ all -> 0x008c }
-                        byte[] r5 = r5.getBytes()     // Catch:{ all -> 0x008c }
+                        java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ all -> 0x0090 }
+                        int r6 = r0.f404T     // Catch:{ all -> 0x0090 }
+                        java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ all -> 0x0090 }
+                        java.lang.String r5 = r5.toString()     // Catch:{ all -> 0x0090 }
+                        byte[] r5 = r5.getBytes()     // Catch:{ all -> 0x0090 }
                         r6 = 0
-                        r1.T((java.lang.String) r3, (java.lang.String) r4, (byte[]) r5, (com.txznet.comm.Tr.Tn.Tr) r6)     // Catch:{ all -> 0x008c }
-                        android.util.SparseArray r1 = com.txznet.comm.Tr.Tr.Th.T9     // Catch:{ all -> 0x008c }
-                        int r3 = r7.Tr()     // Catch:{ all -> 0x008c }
-                        r1.remove(r3)     // Catch:{ all -> 0x008c }
-                        monitor-exit(r2)     // Catch:{ all -> 0x008c }
-                        goto L_0x0030
-                    L_0x008c:
+                        r1.T((java.lang.String) r3, (java.lang.String) r4, (byte[]) r5, (com.txznet.comm.Tr.Tn.Tr) r6)     // Catch:{ all -> 0x0090 }
+                        android.util.SparseArray r1 = com.txznet.comm.Tr.Tr.Th.T9     // Catch:{ all -> 0x0090 }
+                        int r3 = r7.Tr()     // Catch:{ all -> 0x0090 }
+                        r1.remove(r3)     // Catch:{ all -> 0x0090 }
+                        monitor-exit(r2)     // Catch:{ all -> 0x0090 }
+                        goto L_0x0031
+                    L_0x0090:
                         r1 = move-exception
-                        monitor-exit(r2)     // Catch:{ all -> 0x008c }
+                        monitor-exit(r2)     // Catch:{ all -> 0x0090 }
                         throw r1
-                    L_0x008f:
-                        int r1 = r0.f400T     // Catch:{ all -> 0x008c }
-                        java.lang.Integer r1 = java.lang.Integer.valueOf(r1)     // Catch:{ all -> 0x008c }
-                        com.txznet.comm.Tr.Tr.Th.Tr(r1)     // Catch:{ all -> 0x008c }
-                    L_0x0098:
-                        monitor-exit(r2)     // Catch:{ all -> 0x008c }
-                        goto L_0x0030
-                    L_0x009a:
-                        boolean r1 = r7.T()     // Catch:{ all -> 0x008c }
-                        if (r1 == 0) goto L_0x0098
-                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x008c }
-                        if (r1 == 0) goto L_0x00af
-                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x008c }
-                        r1.onBegin()     // Catch:{ all -> 0x008c }
-                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x008c }
+                    L_0x0093:
+                        int r1 = r0.f404T     // Catch:{ all -> 0x0090 }
+                        java.lang.Integer r1 = java.lang.Integer.valueOf(r1)     // Catch:{ all -> 0x0090 }
+                        com.txznet.comm.Tr.Tr.Th.Tr(r1)     // Catch:{ all -> 0x0090 }
+                    L_0x009c:
+                        monitor-exit(r2)     // Catch:{ all -> 0x0090 }
+                        goto L_0x0031
+                    L_0x009e:
+                        boolean r1 = r7.T()     // Catch:{ all -> 0x0090 }
+                        if (r1 == 0) goto L_0x009c
+                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x0090 }
+                        if (r1 == 0) goto L_0x00b3
+                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x0090 }
+                        r1.onBegin()     // Catch:{ all -> 0x0090 }
+                        com.txznet.comm.Tr.Tr.Th$T r1 = r10     // Catch:{ all -> 0x0090 }
                         r3 = 1
-                        r1.onError(r3)     // Catch:{ all -> 0x008c }
-                    L_0x00af:
-                        android.util.SparseArray r1 = com.txznet.comm.Tr.Tr.Th.T9     // Catch:{ all -> 0x008c }
-                        int r3 = r7.Tr()     // Catch:{ all -> 0x008c }
-                        r1.remove(r3)     // Catch:{ all -> 0x008c }
-                        goto L_0x0098
+                        r1.onError(r3)     // Catch:{ all -> 0x0090 }
+                    L_0x00b3:
+                        android.util.SparseArray r1 = com.txznet.comm.Tr.Tr.Th.T9     // Catch:{ all -> 0x0090 }
+                        int r3 = r7.Tr()     // Catch:{ all -> 0x0090 }
+                        r1.remove(r3)     // Catch:{ all -> 0x0090 }
+                        goto L_0x009c
                     */
                     throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.Tr.Tr.Th.AnonymousClass5.T(com.txznet.comm.Tr.Tn$Ty):void");
                 }
@@ -634,10 +636,10 @@ public class Th {
                         }
                     }, 0);
                 }
-                if (task.f400T == -1) {
+                if (task.f404T == -1) {
                     task.Tr = true;
                 } else {
-                    com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.tts.cancel", ("" + task.f400T).getBytes(), (Tn.Tr) null);
+                    com.txznet.comm.Tr.Tn.Tr().T("com.txznet.txz", "comm.tts.cancel", (TXZResourceManager.STYLE_DEFAULT + task.f404T).getBytes(), (Tn.Tr) null);
                     if (task.Ty == null) {
                         T9.remove(iTaskId);
                     }
@@ -655,91 +657,91 @@ public class Th {
             android.util.SparseArray<com.txznet.comm.Tr.Tr.Th$Ty> r5 = T9
             monitor-enter(r5)
             java.lang.String r4 = "begin"
-            boolean r4 = r4.equals(r8)     // Catch:{ all -> 0x0097 }
-            if (r4 == 0) goto L_0x0012
+            boolean r4 = r4.equals(r8)     // Catch:{ all -> 0x009b }
+            if (r4 == 0) goto L_0x0013
             r4 = 1
-            java.lang.Boolean r4 = java.lang.Boolean.valueOf(r4)     // Catch:{ all -> 0x0097 }
-            TZ = r4     // Catch:{ all -> 0x0097 }
-        L_0x0012:
-            java.lang.Boolean r4 = TZ     // Catch:{ all -> 0x0097 }
-            if (r4 == 0) goto L_0x009a
+            java.lang.Boolean r4 = java.lang.Boolean.valueOf(r4)     // Catch:{ all -> 0x009b }
+            TZ = r4     // Catch:{ all -> 0x009b }
+        L_0x0013:
+            java.lang.Boolean r4 = TZ     // Catch:{ all -> 0x009b }
+            if (r4 == 0) goto L_0x009e
             r0 = 0
-        L_0x0017:
-            android.util.SparseArray<com.txznet.comm.Tr.Tr.Th$Ty> r4 = T9     // Catch:{ all -> 0x0097 }
-            int r4 = r4.size()     // Catch:{ all -> 0x0097 }
-            if (r0 >= r4) goto L_0x004e
-            android.util.SparseArray<com.txznet.comm.Tr.Tr.Th$Ty> r4 = T9     // Catch:{ all -> 0x0097 }
-            java.lang.Object r1 = r4.valueAt(r0)     // Catch:{ all -> 0x0097 }
-            com.txznet.comm.Tr.Tr.Th$Ty r1 = (com.txznet.comm.Tr.Tr.Th.Ty) r1     // Catch:{ all -> 0x0097 }
-            int r4 = r1.f400T     // Catch:{ all -> 0x0097 }
-            if (r4 != r9) goto L_0x004b
-            com.txznet.comm.Tr.Tr.Th$T r4 = r1.Ty     // Catch:{ all -> 0x0097 }
-            if (r4 == 0) goto L_0x003c
-            com.txznet.comm.Tr.Tn r4 = com.txznet.comm.Tr.Tn.Tr()     // Catch:{ all -> 0x0097 }
-            com.txznet.comm.Tr.Tr.Th$7 r6 = new com.txznet.comm.Tr.Tr.Th$7     // Catch:{ all -> 0x0097 }
-            r6.<init>(r8, r1, r10)     // Catch:{ all -> 0x0097 }
+        L_0x0018:
+            android.util.SparseArray<com.txznet.comm.Tr.Tr.Th$Ty> r4 = T9     // Catch:{ all -> 0x009b }
+            int r4 = r4.size()     // Catch:{ all -> 0x009b }
+            if (r0 >= r4) goto L_0x0050
+            android.util.SparseArray<com.txznet.comm.Tr.Tr.Th$Ty> r4 = T9     // Catch:{ all -> 0x009b }
+            java.lang.Object r1 = r4.valueAt(r0)     // Catch:{ all -> 0x009b }
+            com.txznet.comm.Tr.Tr.Th$Ty r1 = (com.txznet.comm.Tr.Tr.Th.Ty) r1     // Catch:{ all -> 0x009b }
+            int r4 = r1.f404T     // Catch:{ all -> 0x009b }
+            if (r4 != r9) goto L_0x004d
+            com.txznet.comm.Tr.Tr.Th$T r4 = r1.Ty     // Catch:{ all -> 0x009b }
+            if (r4 == 0) goto L_0x003d
+            com.txznet.comm.Tr.Tn r4 = com.txznet.comm.Tr.Tn.Tr()     // Catch:{ all -> 0x009b }
+            com.txznet.comm.Tr.Tr.Th$7 r6 = new com.txznet.comm.Tr.Tr.Th$7     // Catch:{ all -> 0x009b }
+            r6.<init>(r8, r1, r10)     // Catch:{ all -> 0x009b }
             r7 = 0
-            r4.T((java.lang.Runnable) r6, (int) r7)     // Catch:{ all -> 0x0097 }
-        L_0x003c:
+            r4.T((java.lang.Runnable) r6, (int) r7)     // Catch:{ all -> 0x009b }
+        L_0x003d:
             java.lang.String r4 = "begin"
-            boolean r4 = r4.equals(r8)     // Catch:{ all -> 0x0097 }
-            if (r4 != 0) goto L_0x0049
-            android.util.SparseArray<com.txznet.comm.Tr.Tr.Th$Ty> r4 = T9     // Catch:{ all -> 0x0097 }
-            r4.removeAt(r0)     // Catch:{ all -> 0x0097 }
-        L_0x0049:
-            monitor-exit(r5)     // Catch:{ all -> 0x0097 }
-        L_0x004a:
-            return
+            boolean r4 = r4.equals(r8)     // Catch:{ all -> 0x009b }
+            if (r4 != 0) goto L_0x004b
+            android.util.SparseArray<com.txznet.comm.Tr.Tr.Th$Ty> r4 = T9     // Catch:{ all -> 0x009b }
+            r4.removeAt(r0)     // Catch:{ all -> 0x009b }
         L_0x004b:
+            monitor-exit(r5)     // Catch:{ all -> 0x009b }
+        L_0x004c:
+            return
+        L_0x004d:
             int r0 = r0 + 1
-            goto L_0x0017
-        L_0x004e:
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch:{ all -> 0x0097 }
-            r4.<init>()     // Catch:{ all -> 0x0097 }
+            goto L_0x0018
+        L_0x0050:
+            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch:{ all -> 0x009b }
+            r4.<init>()     // Catch:{ all -> 0x009b }
             java.lang.String r6 = "can not found task: "
-            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x0097 }
-            java.lang.StringBuilder r4 = r4.append(r9)     // Catch:{ all -> 0x0097 }
+            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x009b }
+            java.lang.StringBuilder r4 = r4.append(r9)     // Catch:{ all -> 0x009b }
             java.lang.String r6 = " for event "
-            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x0097 }
-            java.lang.StringBuilder r4 = r4.append(r8)     // Catch:{ all -> 0x0097 }
-            java.lang.String r4 = r4.toString()     // Catch:{ all -> 0x0097 }
-            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ all -> 0x0097 }
-        L_0x006e:
-            android.util.SparseArray<java.util.ArrayList<com.txznet.comm.Tr.Tr.Th$Tn>> r4 = Tk     // Catch:{ all -> 0x0097 }
-            java.lang.Object r3 = r4.get(r9)     // Catch:{ all -> 0x0097 }
-            java.util.ArrayList r3 = (java.util.ArrayList) r3     // Catch:{ all -> 0x0097 }
-            if (r3 != 0) goto L_0x0082
-            java.util.ArrayList r3 = new java.util.ArrayList     // Catch:{ all -> 0x0097 }
-            r3.<init>()     // Catch:{ all -> 0x0097 }
-            android.util.SparseArray<java.util.ArrayList<com.txznet.comm.Tr.Tr.Th$Tn>> r4 = Tk     // Catch:{ all -> 0x0097 }
-            r4.put(r9, r3)     // Catch:{ all -> 0x0097 }
-        L_0x0082:
-            com.txznet.comm.Tr.Tr.Th$Tn r2 = new com.txznet.comm.Tr.Tr.Th$Tn     // Catch:{ all -> 0x0097 }
+            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x009b }
+            java.lang.StringBuilder r4 = r4.append(r8)     // Catch:{ all -> 0x009b }
+            java.lang.String r4 = r4.toString()     // Catch:{ all -> 0x009b }
+            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ all -> 0x009b }
+        L_0x0072:
+            android.util.SparseArray<java.util.ArrayList<com.txznet.comm.Tr.Tr.Th$Tn>> r4 = Tk     // Catch:{ all -> 0x009b }
+            java.lang.Object r3 = r4.get(r9)     // Catch:{ all -> 0x009b }
+            java.util.ArrayList r3 = (java.util.ArrayList) r3     // Catch:{ all -> 0x009b }
+            if (r3 != 0) goto L_0x0086
+            java.util.ArrayList r3 = new java.util.ArrayList     // Catch:{ all -> 0x009b }
+            r3.<init>()     // Catch:{ all -> 0x009b }
+            android.util.SparseArray<java.util.ArrayList<com.txznet.comm.Tr.Tr.Th$Tn>> r4 = Tk     // Catch:{ all -> 0x009b }
+            r4.put(r9, r3)     // Catch:{ all -> 0x009b }
+        L_0x0086:
+            com.txznet.comm.Tr.Tr.Th$Tn r2 = new com.txznet.comm.Tr.Tr.Th$Tn     // Catch:{ all -> 0x009b }
             r4 = 0
-            r2.<init>()     // Catch:{ all -> 0x0097 }
-            r2.f398T = r8     // Catch:{ all -> 0x0097 }
-            long r6 = android.os.SystemClock.elapsedRealtime()     // Catch:{ all -> 0x0097 }
-            r2.Ty = r6     // Catch:{ all -> 0x0097 }
-            r2.Tr = r10     // Catch:{ all -> 0x0097 }
-            r3.add(r2)     // Catch:{ all -> 0x0097 }
-            monitor-exit(r5)     // Catch:{ all -> 0x0097 }
-            goto L_0x004a
-        L_0x0097:
+            r2.<init>()     // Catch:{ all -> 0x009b }
+            r2.f402T = r8     // Catch:{ all -> 0x009b }
+            long r6 = android.os.SystemClock.elapsedRealtime()     // Catch:{ all -> 0x009b }
+            r2.Ty = r6     // Catch:{ all -> 0x009b }
+            r2.Tr = r10     // Catch:{ all -> 0x009b }
+            r3.add(r2)     // Catch:{ all -> 0x009b }
+            monitor-exit(r5)     // Catch:{ all -> 0x009b }
+            goto L_0x004c
+        L_0x009b:
             r4 = move-exception
-            monitor-exit(r5)     // Catch:{ all -> 0x0097 }
+            monitor-exit(r5)     // Catch:{ all -> 0x009b }
             throw r4
-        L_0x009a:
-            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch:{ all -> 0x0097 }
-            r4.<init>()     // Catch:{ all -> 0x0097 }
+        L_0x009e:
+            java.lang.StringBuilder r4 = new java.lang.StringBuilder     // Catch:{ all -> 0x009b }
+            r4.<init>()     // Catch:{ all -> 0x009b }
             java.lang.String r6 = "need sync feature: "
-            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x0097 }
-            java.lang.StringBuilder r4 = r4.append(r9)     // Catch:{ all -> 0x0097 }
+            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x009b }
+            java.lang.StringBuilder r4 = r4.append(r9)     // Catch:{ all -> 0x009b }
             java.lang.String r6 = " for event "
-            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x0097 }
-            java.lang.StringBuilder r4 = r4.append(r8)     // Catch:{ all -> 0x0097 }
-            java.lang.String r4 = r4.toString()     // Catch:{ all -> 0x0097 }
-            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ all -> 0x0097 }
-            goto L_0x006e
+            java.lang.StringBuilder r4 = r4.append(r6)     // Catch:{ all -> 0x009b }
+            java.lang.StringBuilder r4 = r4.append(r8)     // Catch:{ all -> 0x009b }
+            java.lang.String r4 = r4.toString()     // Catch:{ all -> 0x009b }
+            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ all -> 0x009b }
+            goto L_0x0072
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.Tr.Tr.Th.T(java.lang.String, int, java.lang.Integer):void");
     }

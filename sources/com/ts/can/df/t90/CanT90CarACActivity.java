@@ -143,11 +143,11 @@ public class CanT90CarACActivity extends CanCommonActivity implements View.OnTou
         RelativeLayoutContainer container = new RelativeLayoutContainer(this);
         container.setBackgroundResource(R.drawable.can_rh7_bg_hp);
         ParamButton leftTempIncrease = container.addButton(179, 100);
-        ParamButton leftTempDecrease = container.addButton(179, KeyDef.RKEY_ST);
+        ParamButton leftTempDecrease = container.addButton(179, 297);
         ParamButton rightTempIncrease = container.addButton(1009, 100);
-        ParamButton rightTempDecrease = container.addButton(1009, KeyDef.RKEY_ST);
+        ParamButton rightTempDecrease = container.addButton(1009, 297);
         ParamButton windIncrease = container.addButton(KeyDef.RKEY_ANGLEUP, 100);
-        ParamButton windDecrease = container.addButton(KeyDef.RKEY_ANGLEUP, KeyDef.RKEY_ST);
+        ParamButton windDecrease = container.addButton(KeyDef.RKEY_ANGLEUP, 297);
         container.addImage(KeyDef.RKEY_MEDIA_SLOW, 211, R.drawable.can_rh7_signal_up);
         for (int i = 0; i < this.mIvWinds.length; i++) {
             this.mIvWinds[i] = container.addImage(KeyDef.RKEY_MEDIA_SLOW, 211, mWindArrays[i]);
@@ -185,10 +185,10 @@ public class CanT90CarACActivity extends CanCommonActivity implements View.OnTou
         }
         this.mTvLeftTemp = container.addText(53, Can.CAN_TEANA_OLD_DJ, 95, 61);
         this.mTvRightTemp = container.addText(883, Can.CAN_TEANA_OLD_DJ, 95, 61);
-        this.mBtnModeHead = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, 108);
-        this.mBtnModeHeadFoot = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, 185);
-        this.mBtnModeFoot = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, 264);
-        this.mBtnModeFootFront = container.addButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_res5);
+        this.mBtnModeHead = container.addButton(305, 108);
+        this.mBtnModeHeadFoot = container.addButton(305, 185);
+        this.mBtnModeFoot = container.addButton(305, 264);
+        this.mBtnModeFootFront = container.addButton(305, KeyDef.RKEY_res5);
         this.mBtnDual = container.addButton(200, 20);
         this.mBtnAcMax = container.addButton(KeyDef.RKEY_MEDIA_SLOW, 20);
         this.mBtnFront = container.addButton(450, 17);

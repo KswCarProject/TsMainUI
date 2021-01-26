@@ -42,6 +42,7 @@ public class AtvMainActivity extends Activity implements UserCallBack {
     String[] TvMode = {"PAL_I", "PAL_DK", "PAL_BG", "PAL_M", "PAL_N", "SECAM_DK", "SECAM_BG", "NTSC_MN"};
     ListView TvPlayList;
     boolean bListShow = false;
+    boolean bLongClick = false;
     boolean bModeShow = false;
     ArrayList<HashMap<String, Object>> listItem = new ArrayList<>();
     CstTv mCstTv = CstTv.GetInstance();
@@ -85,6 +86,7 @@ public class AtvMainActivity extends Activity implements UserCallBack {
             public void onItemClick(AdapterView<?> adapterView, View arg1, int arg2, long arg3) {
                 AtvMainActivity.this.mCstTv.ChgMode((byte) arg2);
                 AtvMainActivity.this.nListDelayTime = 150;
+                AtvMainActivity.this.AtvShow.SetBtnDelay();
             }
         });
     }
@@ -110,6 +112,7 @@ public class AtvMainActivity extends Activity implements UserCallBack {
             public void onItemClick(AdapterView<?> adapterView, View arg1, int arg2, long arg3) {
                 AtvMainActivity.this.mCstTv.PlayFre(arg2 + 1);
                 AtvMainActivity.this.nListDelayTime = 150;
+                AtvMainActivity.this.AtvShow.SetBtnDelay();
             }
         });
     }
@@ -119,6 +122,7 @@ public class AtvMainActivity extends Activity implements UserCallBack {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avin_main);
         this.AtvShow.Inint(this, (RelativeLayout) findViewById(R.id.activity_avin_mainid), 2);
+        this.AtvShow.SetIsHaveVol(true);
         this.AtvShow.InintCommonBtn();
         this.AtvShow.GetVideoName().setText(R.string.title_activity_atv_main);
         this.MyRelativeLayout = (RelativeLayout) findViewById(R.id.activity_avin_mainid);
@@ -126,14 +130,30 @@ public class AtvMainActivity extends Activity implements UserCallBack {
         this.AtvFre = ParamButton.fsCreateRelative(10, 80, 260, 80);
         this.AtvFre.setStateDrawable(R.drawable.cmmb_box, R.drawable.cmmb_box, R.drawable.cmmb_box);
         this.AtvFre.setTextColor(-256);
-        this.AtvFre.setTextSize(20.0f);
+        this.AtvFre.setTextSize(0, 30.0f);
         for (int i = 0; i < 7; i++) {
             int i2 = 198 / 8;
             this.BtnAtv[i] = ParamButton.fsCreateRelative((i * 142) + 24, 500, 118, 78);
             this.BtnAtv[i].setStateDrawable(this.Atv_btn_Iconup[i], this.Atv_btn_Icondn[i], this.Atv_btn_Icondn[i]);
             this.BtnAtv[i].setIntParam(i + 1);
+            this.BtnAtv[i].setOnLongClickListener(new View.OnLongClickListener() {
+                public boolean onLongClick(View v) {
+                    switch (((ParamButton) v).getIntParam()) {
+                        case 3:
+                            AtvMainActivity.this.mCstTv.TvStep((byte) 0);
+                            AtvMainActivity.this.bLongClick = true;
+                            break;
+                        case 4:
+                            AtvMainActivity.this.mCstTv.TvStep((byte) 1);
+                            AtvMainActivity.this.bLongClick = true;
+                            break;
+                    }
+                    return false;
+                }
+            });
             this.BtnAtv[i].setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+                    AtvMainActivity.this.AtvShow.SetBtnDelay();
                     switch (((ParamButton) v).getIntParam()) {
                         case 1:
                             AtvMainActivity.this.mCstTv.AutoSearch();
@@ -142,10 +162,16 @@ public class AtvMainActivity extends Activity implements UserCallBack {
                             MainVolume.GetInstance().VolWinShow();
                             return;
                         case 3:
-                            AtvMainActivity.this.mCstTv.PlayChg((byte) 0);
+                            if (!AtvMainActivity.this.bLongClick) {
+                                AtvMainActivity.this.mCstTv.PlayChg((byte) 0);
+                            }
+                            AtvMainActivity.this.bLongClick = false;
                             return;
                         case 4:
-                            AtvMainActivity.this.mCstTv.PlayChg((byte) 1);
+                            if (!AtvMainActivity.this.bLongClick) {
+                                AtvMainActivity.this.mCstTv.PlayChg((byte) 1);
+                            }
+                            AtvMainActivity.this.bLongClick = false;
                             return;
                         case 5:
                             WinShow.TurnToEq();
@@ -199,47 +225,61 @@ public class AtvMainActivity extends Activity implements UserCallBack {
     }
 
     public void UserAll() {
-        this.AtvShow.SignalDetect();
-        if (nOldMode != this.AtvShow.nShowMode) {
-            this.TvPlayList.setVisibility(4);
-            this.bListShow = false;
-            this.bModeShow = false;
-            nOldMode = this.AtvShow.nShowMode;
-            switch (this.AtvShow.nShowMode) {
-                case 1:
-                    ShowTvBtn(true);
-                    break;
-                case 2:
-                    ShowTvBtn(true);
-                    break;
-                case 3:
-                    ShowTvBtn(true);
-                    break;
-                case 4:
-                    ShowTvBtn(false);
-                    break;
+        if (this.AtvShow.bCameraReady) {
+            this.AtvShow.SignalDetect();
+            if (nOldMode != this.AtvShow.nShowMode) {
+                this.TvPlayList.setVisibility(4);
+                this.bListShow = false;
+                this.bModeShow = false;
+                nOldMode = this.AtvShow.nShowMode;
+                switch (this.AtvShow.nShowMode) {
+                    case 1:
+                        ShowTvBtn(true);
+                        break;
+                    case 2:
+                        ShowTvBtn(true);
+                        break;
+                    case 3:
+                        ShowTvBtn(true);
+                        break;
+                    case 4:
+                        ShowTvBtn(false);
+                        break;
+                }
             }
-        }
-        if (this.AtvFre == null) {
+            if (this.AtvFre == null) {
+                return;
+            }
+            if (this.mCstTv.isAutoSearch()) {
+                this.AtvFre.setText(String.format("CH:%d %.2f", new Object[]{Integer.valueOf(this.mCstTv.tvSave.nSaveNum + 1), Float.valueOf(((float) this.mCstTv.nCurNum) / 20.0f)}));
+                this.AtvShow.SetBtnDelay();
+                return;
+            }
+            this.AtvFre.setText("CH:" + (this.mCstTv.tvSave.nWatchNum + 1) + "  " + (((float) this.mCstTv.nCurNum) / 20.0f));
             return;
         }
-        if (this.mCstTv.isAutoSearch()) {
-            this.AtvFre.setText("CH:" + (this.mCstTv.tvSave.nSaveNum + 1) + "  " + (((float) this.mCstTv.nCurNum) / 20.0f));
-        } else {
-            this.AtvFre.setText("CH:" + (this.mCstTv.tvSave.nWatchNum + 1) + "  " + (((float) this.mCstTv.nCurNum) / 20.0f));
+        EnterAtv();
+    }
+
+    /* access modifiers changed from: package-private */
+    public void EnterAtv() {
+        if (BackcarService.getInstance().bIninOK) {
+            this.mEvc.evol_workmode_set(7);
+            MainSet.GetInstance().SetVideoChannel(1);
+            BackcarService.getInstance().StartCamera((AutoFitTextureView) findViewById(R.id.textureView), false);
+            TsDisplay.GetInstance().SetDispParat(2);
+            this.AtvShow.bCameraReady = BackcarService.getInstance().bIninOK;
         }
     }
 
     /* access modifiers changed from: protected */
     public void onResume() {
         this.AtvShow.nDelayNum = 50;
+        this.AtvShow.bCameraReady = BackcarService.getInstance().bIninOK;
         MainTask.GetInstance().SetUserCallBack(this);
-        this.mEvc.evol_workmode_set(7);
         this.AtvShow.ShowMode(1, true);
         this.AtvShow.nShowMode = 0;
-        TsDisplay.GetInstance().SetDispParat(2);
-        MainSet.GetInstance().SetVideoChannel(1);
-        BackcarService.getInstance().StartCamera((AutoFitTextureView) findViewById(R.id.textureView), true);
+        EnterAtv();
         super.onResume();
     }
 
@@ -250,6 +290,9 @@ public class AtvMainActivity extends Activity implements UserCallBack {
         MainTask.GetInstance().SetUserCallBack((UserCallBack) null);
         BackcarService.getInstance().StopCamera();
         TsDisplay.GetInstance().SetDispParat(-1);
+        if (BackcarService.getInstance().bIsAvm360()) {
+            MainSet.GetInstance().SetVideoChannel(0);
+        }
         super.onPause();
     }
 }

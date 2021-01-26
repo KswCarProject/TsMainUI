@@ -55,10 +55,10 @@ public class CanChryslerWcSystemSetView extends CanScrollCarInfoView {
         this.mItemTitleIds = new int[]{R.string.can_lang_set, R.string.can_units, R.string.can_TPMS_DW, R.string.can_temp_dw, R.string.can_YH_DW, R.string.can_YL_DW, R.string.can_lcdw};
         this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
         this.mPopValueIds[0] = new int[]{R.string.lang_en_uk, R.string.can_lang_cn, R.string.lang_deutsch, R.string.lang_itanliano, R.string.lang_francais, R.string.can_reserved, R.string.lang_espanol, R.string.lang_nederlands, R.string.lang_portugues, R.string.can_reserved, R.string.can_reserved, R.string.can_reserved, R.string.can_reserved, R.string.can_reserved, R.string.can_reserved, R.string.lang_turkce, R.string.can_reserved, R.string.can_reserved, R.string.can_reserved, R.string.can_reserved, R.string.lang_polski};
-        this.mPopValueIds[1] = new int[]{R.string.can_dw_gz, R.string.can_dw_mz};
+        this.mPopValueIds[1] = new int[]{R.string.can_dw_gz, R.string.can_dw_mz, R.string.can_dw_zdy};
         this.mPopValueIds[2] = new int[]{R.string.can_pressure_psi, R.string.can_pressure_kpa, R.string.can_pressure_bar};
         this.mPopValueIds[3] = new int[]{R.string.can_temperature_c, R.string.can_temperature_f};
-        this.mPopValueIds[4] = new int[]{R.string.can_fuels_lkm, R.string.can_fuels_kml, R.string.can_fuels_mpg};
+        this.mPopValueIds[4] = new int[]{R.string.can_fuels_lkm, R.string.can_fuels_kml, R.string.can_fuels_mpg_uk, R.string.can_fuels_mpg_us};
         this.mPopValueIds[5] = new int[]{R.string.can_pressure_psi, R.string.can_pressure_kpa, R.string.can_pressure_bar};
         this.mPopValueIds[6] = new int[]{R.string.can_distance_km, R.string.can_distance_mile};
         this.mUnitData = new CanDataInfo.ChrWcUnit();

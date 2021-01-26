@@ -18,7 +18,7 @@ public class TZ extends Ts {
         if (lexer.Tn() == 6) {
             lexer.T(16);
             if (object == null) {
-                fieldValues.put(this.f170T.Ty(), Boolean.TRUE);
+                fieldValues.put(this.f173T.Ty(), Boolean.TRUE);
             } else {
                 T(object, true);
             }
@@ -29,7 +29,7 @@ public class TZ extends Ts {
                 booleanValue = false;
             }
             if (object == null) {
-                fieldValues.put(this.f170T.Ty(), Boolean.valueOf(booleanValue));
+                fieldValues.put(this.f173T.Ty(), Boolean.valueOf(booleanValue));
             } else {
                 T(object, booleanValue);
             }
@@ -41,7 +41,7 @@ public class TZ extends Ts {
         } else if (lexer.Tn() == 7) {
             lexer.T(16);
             if (object == null) {
-                fieldValues.put(this.f170T.Ty(), Boolean.FALSE);
+                fieldValues.put(this.f173T.Ty(), Boolean.FALSE);
             } else {
                 T(object, false);
             }
@@ -49,7 +49,7 @@ public class TZ extends Ts {
             Boolean value = com.T.T.Tn.TZ.Tq(parser.Tv());
             if (value != null || Tn() != Boolean.TYPE) {
                 if (object == null) {
-                    fieldValues.put(this.f170T.Ty(), value);
+                    fieldValues.put(this.f173T.Ty(), value);
                 } else {
                     T(object, (Object) value);
                 }

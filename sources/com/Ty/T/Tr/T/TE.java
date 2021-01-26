@@ -12,47 +12,47 @@ public enum TE {
     static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: T  reason: collision with root package name */
-        static final /* synthetic */ int[] f314T = null;
+        static final /* synthetic */ int[] f317T = null;
 
         static {
-            f314T = new int[ImageView.ScaleType.values().length];
+            f317T = new int[ImageView.ScaleType.values().length];
             try {
-                f314T[ImageView.ScaleType.FIT_CENTER.ordinal()] = 1;
+                f317T[ImageView.ScaleType.FIT_CENTER.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f314T[ImageView.ScaleType.FIT_XY.ordinal()] = 2;
+                f317T[ImageView.ScaleType.FIT_XY.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f314T[ImageView.ScaleType.FIT_START.ordinal()] = 3;
+                f317T[ImageView.ScaleType.FIT_START.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f314T[ImageView.ScaleType.FIT_END.ordinal()] = 4;
+                f317T[ImageView.ScaleType.FIT_END.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f314T[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 5;
+                f317T[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
             try {
-                f314T[ImageView.ScaleType.MATRIX.ordinal()] = 6;
+                f317T[ImageView.ScaleType.MATRIX.ordinal()] = 6;
             } catch (NoSuchFieldError e6) {
             }
             try {
-                f314T[ImageView.ScaleType.CENTER.ordinal()] = 7;
+                f317T[ImageView.ScaleType.CENTER.ordinal()] = 7;
             } catch (NoSuchFieldError e7) {
             }
             try {
-                f314T[ImageView.ScaleType.CENTER_CROP.ordinal()] = 8;
+                f317T[ImageView.ScaleType.CENTER_CROP.ordinal()] = 8;
             } catch (NoSuchFieldError e8) {
             }
         }
     }
 
     public static TE T(ImageView imageView) {
-        switch (AnonymousClass1.f314T[imageView.getScaleType().ordinal()]) {
+        switch (AnonymousClass1.f317T[imageView.getScaleType().ordinal()]) {
             case 1:
             case 2:
             case 3:

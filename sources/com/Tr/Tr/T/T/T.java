@@ -6,14 +6,14 @@ import com.Tr.Tr.Tr.Tr;
 public final class T {
 
     /* renamed from: T  reason: collision with root package name */
-    private boolean f244T;
+    private boolean f247T;
     private Tr T9;
     private int Tn;
     private int Tr;
     private int Ty;
 
     public void T(boolean compact) {
-        this.f244T = compact;
+        this.f247T = compact;
     }
 
     public void T(int size) {

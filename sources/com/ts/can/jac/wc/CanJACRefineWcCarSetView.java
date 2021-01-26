@@ -8,11 +8,10 @@ import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
 
 public class CanJACRefineWcCarSetView extends CanScrollCarInfoView {
-    private String[] mHldtjValues;
     private CanDataInfo.JACWC_SETDATA mSetData;
 
     public CanJACRefineWcCarSetView(Activity activity) {
-        super(activity, 3);
+        super(activity, 4);
     }
 
     public void onItem(int id, int item) {
@@ -20,11 +19,8 @@ public class CanJACRefineWcCarSetView extends CanScrollCarInfoView {
             case 0:
                 CanJni.JACRefineWcCarSet(3, item + 1);
                 return;
-            case 1:
-                CanJni.JACRefineWcCarSet(4, item + 1);
-                return;
-            case 2:
-                CanJni.JACRefineWcCarSet(5, item + 1);
+            case 3:
+                CanJni.JACRefineWcCarSet(6, item + 1);
                 return;
             default:
                 return;
@@ -32,6 +28,16 @@ public class CanJACRefineWcCarSetView extends CanScrollCarInfoView {
     }
 
     public void onChanged(int id, int pos) {
+        switch (id) {
+            case 1:
+                CanJni.JACRefineWcCarSet(4, pos);
+                return;
+            case 2:
+                CanJni.JACRefineWcCarSet(5, pos);
+                return;
+            default:
+                return;
+        }
     }
 
     public void onClick(View v) {
@@ -41,22 +47,23 @@ public class CanJACRefineWcCarSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_ldwlmd, R.string.can_hldyltjxy, R.string.can_hldyptjxy};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
-        this.mPopValueIds[0] = new int[]{R.string.can_ac_low, R.string.can_ac_high};
-        this.mPopValueIds[1] = new int[]{R.string.app_name};
-        this.mPopValueIds[2] = new int[]{R.string.app_name};
+        this.mItemTitleIds = new int[]{R.string.can_ldwlmd, R.string.can_hldyltjxy, R.string.can_hldyptjxy, R.string.can_bcfs};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP};
+        this.mPopValueIds[0] = new int[]{R.string.can_ac_low, R.string.can_ac_high, R.string.can_default};
+        int[][] iArr = this.mProgressAttrs;
+        int[] iArr2 = new int[4];
+        iArr2[0] = 1;
+        iArr2[1] = 5;
+        iArr2[2] = 1;
+        iArr[1] = iArr2;
+        int[][] iArr3 = this.mProgressAttrs;
+        int[] iArr4 = new int[4];
+        iArr4[0] = 1;
+        iArr4[1] = 5;
+        iArr4[2] = 1;
+        iArr3[2] = iArr4;
+        this.mPopValueIds[3] = new int[]{R.string.can_czstc, R.string.can_pxstc};
         this.mSetData = new CanDataInfo.JACWC_SETDATA();
-    }
-
-    /* access modifiers changed from: protected */
-    public void InitUI() {
-        super.InitUI();
-        this.mHldtjValues = new String[]{"Level 1", "Level 2", "Level 3", "Level 4", "Level 5"};
-        getScrollManager().RemoveView(1);
-        this.mItemObjects[1] = getScrollManager().addItemPopupList(this.mItemTitleIds[1], this.mHldtjValues, 1, this, 1);
-        getScrollManager().RemoveView(2);
-        this.mItemObjects[2] = getScrollManager().addItemPopupList(this.mItemTitleIds[2], this.mHldtjValues, 2, this, 2);
     }
 
     public void ResetData(boolean check) {
@@ -67,8 +74,9 @@ public class CanJACRefineWcCarSetView extends CanScrollCarInfoView {
         if (!check || i2b(this.mSetData.Update)) {
             this.mSetData.Update = 0;
             updateItem(0, this.mSetData.LDW - 1);
-            updateItem(1, this.mSetData.R_radarYltj - 1);
-            updateItem(2, this.mSetData.R_radarYptj - 1);
+            updateItem(1, this.mSetData.R_radarYltj, "Lev " + this.mSetData.R_radarYltj);
+            updateItem(2, this.mSetData.R_radarYptj, "Lev " + this.mSetData.R_radarYptj);
+            updateItem(3, this.mSetData.ParkType - 1);
         }
     }
 

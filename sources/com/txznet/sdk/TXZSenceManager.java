@@ -1,6 +1,6 @@
 package com.txznet.sdk;
 
-import com.ts.main.txz.AmapAuto;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.sdk.TXZService;
 import com.txznet.sdk.bean.Poi;
@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class TXZSenceManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZSenceManager f811T = new TXZSenceManager();
+    private static TXZSenceManager f815T = new TXZSenceManager();
     private Map<SenceType, SenceTool> Tr = new ConcurrentHashMap();
     private SenceTool Ty = new SenceTool() {
         public boolean process(SenceType type, String json) {
@@ -54,7 +54,7 @@ public class TXZSenceManager {
     }
 
     public static TXZSenceManager getInstance() {
-        return f811T;
+        return f815T;
     }
 
     /* access modifiers changed from: package-private */
@@ -78,7 +78,7 @@ public class TXZSenceManager {
         String cmd;
         switch (type) {
             case SENCE_TYPE_ALL:
-                sence = "all";
+                sence = SdkConstants.SUPPRESS_ALL;
                 break;
             case SENCE_TYPE_WAKEUP:
                 sence = "wakeup";
@@ -102,10 +102,10 @@ public class TXZSenceManager {
                 sence = "unsupport";
                 break;
             case SENCE_TYPE_APP:
-                sence = "app";
+                sence = SdkConstants.APP_PREFIX;
                 break;
             case SENCE_TYPE_COMMAND:
-                sence = AmapAuto.CMDNAME;
+                sence = "command";
                 break;
             case SENCE_TYPE_LIMIT_NUMBER:
                 sence = "limit_number";
@@ -151,7 +151,7 @@ public class TXZSenceManager {
         Tn.Tr().T("com.txznet.txz", cmd + sence, (byte[]) null, (Tn.Tr) null);
         TXZService.T("tool.sence." + sence, new TXZService.T() {
             public byte[] T(String packageName, String command, byte[] data) {
-                return ("" + tool.process(type, new String(data))).getBytes();
+                return (TXZResourceManager.STYLE_DEFAULT + tool.process(type, new String(data))).getBytes();
             }
         });
     }

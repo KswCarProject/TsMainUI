@@ -15,7 +15,7 @@ import com.ts.canview.CanVerticalBar;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
-import com.yyw.ts70xhw.KeyDef;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanToyotaWCTripPerMinActivity extends CanToyotaWCBaseActivity implements UserCallBack, View.OnClickListener {
     private static final int ID_CLEAR = 1281;
@@ -62,7 +62,7 @@ public class CanToyotaWCTripPerMinActivity extends CanToyotaWCBaseActivity imple
         this.mDW.setText("L/100km");
         this.mPastDW = this.mManager.AddText(CanCameraUI.BTN_CCH9_MODE1, 20, 130, 30);
         SetProgText(this.mPastDW);
-        this.mPastDW.setText("");
+        this.mPastDW.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mProgText = new TextView[4];
         TextView[] tvBot = new TextView[4];
         for (int i2 = 0; i2 < this.mProgText.length; i2++) {
@@ -84,7 +84,7 @@ public class CanToyotaWCTripPerMinActivity extends CanToyotaWCBaseActivity imple
         for (int i3 = 0; i3 < this.m30Min.length; i3++) {
             this.m30Min[i3] = new CanVerticalBar((Context) this, R.drawable.fuel_consumption_pillars04);
             this.m30Min[i3].setMinMax(0.0f, 100.0f);
-            this.mManager.AddView(this.m30Min[i3], ((i3 % 10) * 16) + Can.CAN_LIEBAO_WC + ((i3 / 10) * 177), 65, 15, KeyDef.RKEY_MEDIA_MENU);
+            this.mManager.AddView(this.m30Min[i3], ((i3 % 10) * 16) + Can.CAN_LIEBAO_WC + ((i3 / 10) * 177), 65, 15, 308);
         }
         if (MainSet.GetScreenType() == 5) {
             this.mBtnHistory = this.mManager.AddButton(1044, 54);
@@ -135,7 +135,7 @@ public class CanToyotaWCTripPerMinActivity extends CanToyotaWCBaseActivity imple
             case 2:
                 return "L/100KM";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -202,7 +202,7 @@ public class CanToyotaWCTripPerMinActivity extends CanToyotaWCBaseActivity imple
             this.mDW.setText(GetDWStr(this.mYhPage1.Yhdw));
             int base = 10;
             if (this.mYhPage1.Yhdw == 0) {
-                max2 = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max2 = 600;
                 base = 20;
             } else {
                 max2 = 300;
@@ -226,7 +226,7 @@ public class CanToyotaWCTripPerMinActivity extends CanToyotaWCBaseActivity imple
             this.mYhPage2.Update = 0;
             this.mPastDW.setText(GetDWStr(this.mYhPage2.Yhdw));
             if (this.mYhPage2.Yhdw == 0) {
-                max = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max = 600;
             } else {
                 max = 300;
             }

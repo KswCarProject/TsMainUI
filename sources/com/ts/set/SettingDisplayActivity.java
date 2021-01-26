@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
+import com.android.SdkConstants;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.ts.main.common.ScreenSaver;
 import com.ts.main.common.WinShow;
 import com.ts.set.setview.SetDisplayItemProgressList;
+import com.ts.set.setview.SetItemPopupList;
 import com.ts.set.setview.SetItemProgressList;
 import com.ts.set.setview.SetMainItemNoIcon;
 import com.ts.set.setview.SetMainItemSw;
@@ -20,11 +24,22 @@ import com.ts.set.setview.UISetSroView;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.StSet;
 
-public class SettingDisplayActivity extends Activity implements UserCallBack, SetItemProgressList.onPosChange, CompoundButton.OnCheckedChangeListener, View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+public class SettingDisplayActivity extends Activity implements UserCallBack, SetItemProgressList.onPosChange, CompoundButton.OnCheckedChangeListener, View.OnClickListener, SeekBar.OnSeekBarChangeListener, SetItemPopupList.onPopItemClick {
     private static final String TAG = "SettingDisplayActivity";
     SetMainItemNoIcon KeyColor;
     SetMainItemSw autolight;
     SetDisplayItemProgressList daylight;
+    SetItemPopupList mScreenSaver;
+    private SparseArray<String> mScreenTime = new SparseArray<String>() {
+        {
+            put(0, "Never");
+            put(15, "15S");
+            put(30, "30S");
+            put(60, "1M");
+            put(180, "3M");
+            put(300, "5M");
+        }
+    };
     int nDayLight;
     int nNightLight;
     SetDisplayItemProgressList nightlight;
@@ -34,6 +49,7 @@ public class SettingDisplayActivity extends Activity implements UserCallBack, Se
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.mScreenTime.put(0, getResources().getString(R.string.set_common_switch_off));
         UISetSroView.Inint(this);
         initSetDisplayOptions();
         UISetSroView.Show(this);
@@ -52,8 +68,15 @@ public class SettingDisplayActivity extends Activity implements UserCallBack, Se
         this.nDayLight = StSet.GetBLDay();
         this.nNightLight = StSet.GetBLNight();
         this.autolight.SetSwitch(StSet.GetBLIll());
+        if (this.mScreenSaver != null) {
+            updateScreenTime();
+        }
         MainTask.GetInstance().SetUserCallBack(this);
         super.onResume();
+    }
+
+    private void updateScreenTime() {
+        this.mScreenSaver.SetSel(this.mScreenTime.indexOfKey(StSet.GetScreenTimeout()));
     }
 
     private boolean isHaveOption(int setOption) {
@@ -70,7 +93,7 @@ public class SettingDisplayActivity extends Activity implements UserCallBack, Se
                 SettingDisplayActivity.this.finish();
             }
         });
-        UISetSroView.AddView(this.topname.GetView(), 1280, 80);
+        UISetSroView.AddView(this.topname.GetView(), 1024, -2);
         this.setDisplayOptions = getResources().getStringArray(R.array.set_display_options);
         for (int setOpt = 0; setOpt < 4; setOpt++) {
             if (isHaveOption(setOpt)) {
@@ -79,18 +102,18 @@ public class SettingDisplayActivity extends Activity implements UserCallBack, Se
                         this.daylight = new SetDisplayItemProgressList((Context) this, this.setDisplayOptions[setOpt]);
                         this.daylight.SetMinMax(0, 6);
                         this.daylight.SetIdCallBack(setOpt, this);
-                        UISetSroView.AddView(this.daylight.GetView(), 1280, 87);
+                        UISetSroView.AddView(this.daylight.GetView(), 1024, 111);
                         break;
                     case 1:
                         this.nightlight = new SetDisplayItemProgressList((Context) this, this.setDisplayOptions[setOpt]);
                         this.nightlight.SetMinMax(0, 6);
                         this.nightlight.SetIdCallBack(setOpt, this);
-                        UISetSroView.AddView(this.nightlight.GetView(), 1280, 87);
+                        UISetSroView.AddView(this.nightlight.GetView(), 1024, 111);
                         break;
                     case 2:
                         this.autolight = new SetMainItemSw(this, this.setDisplayOptions[setOpt]);
                         this.autolight.SetUserCallback(setOpt, this);
-                        UISetSroView.AddView(this.autolight.GetView(), 1280, 87);
+                        UISetSroView.AddView(this.autolight.GetView(), 1024, 111);
                         break;
                     case 3:
                         this.KeyColor = new SetMainItemNoIcon(this, this.setDisplayOptions[setOpt]);
@@ -98,12 +121,25 @@ public class SettingDisplayActivity extends Activity implements UserCallBack, Se
                         if (!isHaveOption(setOpt)) {
                             break;
                         } else {
-                            UISetSroView.AddView(this.KeyColor.GetView(), 1280, 87);
+                            UISetSroView.AddView(this.KeyColor.GetView(), 1024, 111);
                             break;
                         }
                 }
             }
         }
+        if (getResources().getIdentifier("support_screen_saver", SdkConstants.TAG_STRING, getPackageName()) > 0) {
+            this.mScreenSaver = new SetItemPopupList((Context) this, R.string.screen_time_out, getScreenDisplay(), (SetItemPopupList.onPopItemClick) this);
+            this.mScreenSaver.SetId(4);
+            UISetSroView.AddView(this.mScreenSaver.GetView(), -1, 111);
+        }
+    }
+
+    private String[] getScreenDisplay() {
+        String[] items = new String[this.mScreenTime.size()];
+        for (int i = 0; i < items.length; i++) {
+            items[i] = this.mScreenTime.valueAt(i);
+        }
+        return items;
     }
 
     public void onChanged(int id, int pos) {
@@ -153,7 +189,6 @@ public class SettingDisplayActivity extends Activity implements UserCallBack, Se
         switch (((Integer) seekBar.getTag()).intValue()) {
             case 0:
                 this.daylight.SetCurVal(progress);
-                Log.d("hdd", "progress = " + progress);
                 StSet.SetBLDay(progress);
                 return;
             case 1:
@@ -179,6 +214,16 @@ public class SettingDisplayActivity extends Activity implements UserCallBack, Se
         if (this.nNightLight != StSet.GetBLNight()) {
             this.nNightLight = StSet.GetBLNight();
             this.nightlight.SetCurVal(this.nNightLight);
+        }
+    }
+
+    public void onItem(int Id, int item) {
+        if (Id == 4) {
+            StSet.SetScreenTimeout(this.mScreenTime.keyAt(item));
+            this.mScreenSaver.SetSel(item);
+            if (item > 0) {
+                ScreenSaver.startScreenCount();
+            }
         }
     }
 }

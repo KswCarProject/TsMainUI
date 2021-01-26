@@ -16,8 +16,8 @@ import java.io.OutputStream;
 public class Tr implements T {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Bitmap.CompressFormat f302T = Bitmap.CompressFormat.PNG;
-    protected Bitmap.CompressFormat T9 = f302T;
+    public static final Bitmap.CompressFormat f305T = Bitmap.CompressFormat.PNG;
+    protected Bitmap.CompressFormat T9 = f305T;
     private File TZ;
     protected int Tk = 100;
     protected int Tn = 32768;

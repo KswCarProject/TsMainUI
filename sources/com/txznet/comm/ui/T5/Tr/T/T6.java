@@ -21,7 +21,7 @@ public class T6 extends Tj {
     private static T6 TP = new T6();
 
     /* renamed from: T  reason: collision with root package name */
-    protected int f466T;
+    protected int f470T;
     private int T0;
     protected int T5;
     private float T6;
@@ -86,7 +86,7 @@ public class T6 extends Tj {
         }
         Tn.T adapter = new Tn.T();
         adapter.Tr = Tk();
-        adapter.f462T = 16;
+        adapter.f466T = 16;
         return adapter;
     }
 
@@ -118,9 +118,9 @@ public class T6 extends Tj {
 
     /* access modifiers changed from: protected */
     public void T(TB.T titleInfo) {
-        this.f466T = titleInfo.Tk;
+        this.f470T = titleInfo.Tk;
         this.Tr = titleInfo.TZ;
-        this.Tn = titleInfo.f431T;
+        this.Tn = titleInfo.f435T;
         this.TZ = titleInfo.Tn;
         this.T9 = titleInfo.Tr;
         this.Tk = titleInfo.Ty;
@@ -249,12 +249,12 @@ public class T6 extends Tj {
             this.TI.setVisibility(8);
         } else {
             this.TI.setVisibility(0);
-            if (this.f466T == 0) {
+            if (this.f470T == 0) {
                 com.txznet.comm.Ty.Tk.T(this.TL, this.TO);
             } else {
                 com.txznet.comm.Ty.Tk.T(this.TL, this.Tu);
             }
-            if (this.f466T == this.Tr - 1) {
+            if (this.f470T == this.Tr - 1) {
                 com.txznet.comm.Ty.Tk.T(this.Tw, this.TO);
             } else {
                 com.txznet.comm.Ty.Tk.T(this.Tw, this.Tu);
@@ -263,7 +263,7 @@ public class T6 extends Tj {
                 com.txznet.comm.Ty.Tk.Tr(this.TL, "poi_pageColor1.list_pageColor1.base_color4");
                 com.txznet.comm.Ty.Tk.Tr(this.Tw, "poi_pageColor1.list_pageColor1.base_color4");
             }
-            this.Ta.setText((this.f466T + 1) + "/" + this.Tr);
+            this.Ta.setText((this.f470T + 1) + "/" + this.Tr);
         }
         if (!TextUtils.isEmpty(this.Tn)) {
             this.TC.setText(com.txznet.txz.util.Tr.T(this.Tn));
@@ -324,12 +324,12 @@ public class T6 extends Tj {
             this.TI.setVisibility(8);
         } else {
             this.TI.setVisibility(0);
-            if (this.f466T == 0) {
+            if (this.f470T == 0) {
                 com.txznet.comm.Ty.Tk.T(this.TL, this.TO);
             } else {
                 com.txznet.comm.Ty.Tk.T(this.TL, this.Tu);
             }
-            if (this.f466T == this.Tr - 1) {
+            if (this.f470T == this.Tr - 1) {
                 com.txznet.comm.Ty.Tk.T(this.Tw, this.TO);
             } else {
                 com.txznet.comm.Ty.Tk.T(this.Tw, this.Tu);
@@ -338,7 +338,7 @@ public class T6 extends Tj {
                 com.txznet.comm.Ty.Tk.Tr(this.TL, "poi_pageColor1.list_pageColor1.base_color4");
                 com.txznet.comm.Ty.Tk.Tr(this.Tw, "poi_pageColor1.list_pageColor1.base_color4");
             }
-            this.Ta.setText((this.f466T + 1) + "/" + this.Tr);
+            this.Ta.setText((this.f470T + 1) + "/" + this.Tr);
         }
         if (!TextUtils.isEmpty(this.Tn)) {
             this.TC.setText(com.txznet.txz.util.Tr.T(this.Tn));

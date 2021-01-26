@@ -6,7 +6,7 @@ import android.view.View;
 public class Tk extends TM {
 
     /* renamed from: T  reason: collision with root package name */
-    public String f447T;
+    public String f451T;
     public View.OnClickListener Tr;
 
     public Tk() {
@@ -14,6 +14,6 @@ public class Tk extends TM {
     }
 
     public void T(String content) {
-        this.f447T = content;
+        this.f451T = content;
     }
 }

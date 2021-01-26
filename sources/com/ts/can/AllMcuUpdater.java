@@ -5,11 +5,15 @@ import android.util.Log;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Mcu;
 
 /* compiled from: CanAllUpdateActivity */
 class AllMcuUpdater {
+    private static final int ITEM_CUSTOM_FL = 2;
+    private static final int ITEM_CUSTOM_XP = 1;
     private static final String MCU_FILE = "can_app.bin";
+    private static final String MCU_FILE_FL = "can_app1.bin";
     public static final int UPDATE_FILE_MAX = 204800;
     public static final int UPDATE_FILE_MIN = 1024;
     private static final int UPDATE_SIZE_PER_TIME = 32;
@@ -21,6 +25,7 @@ class AllMcuUpdater {
     private int mIapDex = 0;
     private int mIapDexCnt = 0;
     private int mIapDexb = -1;
+    private int mIapMcuType = 0;
     private int mIapPro = 0;
     private int mIapSta = 0;
     private boolean mIsUpdating = false;
@@ -67,8 +72,9 @@ class AllMcuUpdater {
             setSta(1);
             this.mRevUpdateAck = false;
             this.mLastUpdateTick = SystemClock.uptimeMillis();
-            this.mUpdateFile = "";
-            if (getMcuUpdateData()) {
+            this.mUpdateFile = TXZResourceManager.STYLE_DEFAULT;
+            this.mIapMcuType = getMcuUpdateData();
+            if (this.mIapMcuType > 0) {
                 CanFunc.mIapInfo.Sta = 1;
                 sendStart();
                 setSta(2);
@@ -140,13 +146,22 @@ class AllMcuUpdater {
         byte chk = 0;
         this.mSendData[0] = 46;
         this.mSendData[1] = -86;
-        this.mSendData[2] = 1;
-        this.mSendData[3] = 0;
-        for (int i = 1; i < 4; i++) {
+        if (CanFunc.mIapInfo.Type != 2) {
+            this.mSendData[2] = 1;
+            this.mSendData[3] = 0;
+        } else if (this.mIapMcuType == 2) {
+            this.mSendData[2] = 2;
+            this.mSendData[3] = 0;
+            this.mSendData[4] = 1;
+        } else {
+            this.mSendData[2] = 1;
+            this.mSendData[3] = 0;
+        }
+        for (int i = 1; i < this.mSendData[2] + 3; i++) {
             chk = (byte) (this.mSendData[i] + chk);
         }
-        this.mSendData[4] = (byte) (chk ^ 255);
-        Send(5);
+        this.mSendData[this.mSendData[2] + 3] = (byte) (chk ^ 255);
+        Send(this.mSendData[2] + 4);
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {
@@ -361,10 +376,13 @@ class AllMcuUpdater {
         return false;
     }
 
-    public boolean getMcuUpdateData() {
+    public int getMcuUpdateData() {
         if (getMcuFileData(MCU_FILE)) {
-            return true;
+            return 1;
         }
-        return false;
+        if (CanFunc.mIapInfo.Type != 2 || !getMcuFileData(MCU_FILE_FL)) {
+            return 0;
+        }
+        return 2;
     }
 }

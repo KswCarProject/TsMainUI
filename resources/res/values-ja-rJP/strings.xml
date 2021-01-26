@@ -15,10 +15,6 @@
     <string name="str_bt_ok">OK</string>
     <string name="str_bt_cancel">キャンセル</string>
     <string name="str_bt_dial">ダイアル</string>
-    <string name="tpms_general_bar">Bar</string>
-    <string name="tpms_general_psi">Psi</string>
-    <string name="tpms_general_satrt">Start study</string>
-    <string name="tpms_general_end">Cancel study</string>
     <string name="str_setting_title">設定</string>
     <string name="set_general_automatic">Auto</string>
     <string name="set_sound_jazz">ジャズ</string>
@@ -28,7 +24,7 @@
     <string name="set_sound_pop">ポップ</string>
     <string name="set_sound_rock">ロック</string>
     <string name="set_balance_center">Center</string>
-    <string name="set_balance_examp">Ex Amp</string>
+    <string name="set_balance_examp">EXT AMP</string>
     <string name="set_balance_loud">Loud</string>
     <string name="set_balance_subwoof">SubWoof</string>
     <string name="set_general_backcarvol_none">なし</string>
@@ -84,7 +80,7 @@
     <string name="title_activity_tpmsmain">TPMS</string>
     <string name="title_activity_tpmsset_main">Setting</string>
     <string name="title_activity_weather">BT SWC</string>
-    <string name="title_activity_adasmain">ADAS</string>
+    <string name="title_activity_adasmain">DSP</string>
     <string name="video_state_none">无信号</string>
     <string name="video_state_forbiden">運転中ビデオを見ないてください</string>
     <string name="hello_world">Hello world!</string>
@@ -100,4 +96,8 @@
     <string name="vol_common_navivol">ナビ音量</string>
     <string name="vol_common_mut">ミュート</string>
     <string name="del_common_no_apk">No APP</string>
+    <string name="tpms_general_bar">Bar</string>
+    <string name="tpms_general_psi">Psi</string>
+    <string name="tpms_general_satrt">Start study</string>
+    <string name="tpms_general_end">Cancel study</string>
 </resources>

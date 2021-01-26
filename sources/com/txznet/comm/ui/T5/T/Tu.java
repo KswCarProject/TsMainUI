@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class Tu extends TB {
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f457T;
+    public boolean f461T;
     public int Tr;
     private ArrayList<Poi> Ty = new ArrayList<>();
 
@@ -33,9 +33,9 @@ public class Tu extends TB {
         String str = (String) data.T("city", String.class);
         String business = (String) data.T("poitype", String.class);
         this.Tr = ((Integer) data.T("showcount", Integer.class)).intValue();
-        this.f457T = false;
+        this.f461T = false;
         if (!TextUtils.isEmpty(business) && business.equals("business")) {
-            this.f457T = true;
+            this.f461T = true;
         }
         JSONArray obJsonArray = (JSONArray) data.T("pois", JSONArray.class);
         if (obJsonArray != null) {

@@ -1,6 +1,7 @@
 package com.txznet.comm.ui.TZ;
 
 import com.txznet.comm.ui.TE.Tr;
+import com.txznet.sdk.TXZResourceManager;
 
 /* compiled from: Proguard */
 public class Tn {
@@ -43,7 +44,7 @@ public class Tn {
     public static int Ty;
 
     /* renamed from: T  reason: collision with root package name */
-    String f540T = "";
+    String f544T = TXZResourceManager.STYLE_DEFAULT;
 
     private Tn() {
     }
@@ -81,48 +82,48 @@ public class Tn {
             r3 = 0
             r1 = 0
             java.lang.String r4 = com.txznet.comm.ui.TE.T.Tk()
-            r11.f540T = r4
-            java.lang.String r4 = r11.f540T
+            r11.f544T = r4
+            java.lang.String r4 = r11.f544T
             boolean r4 = android.text.TextUtils.isEmpty(r4)
-            if (r4 == 0) goto L_0x0115
+            if (r4 == 0) goto L_0x0124
         L_0x0014:
-            int r4 = com.txznet.comm.ui.TE.T.Tr()     // Catch:{ Exception -> 0x01f2 }
-            if (r4 != r7) goto L_0x01c4
-            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01f2 }
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01f2 }
-            r5.<init>()     // Catch:{ Exception -> 0x01f2 }
-            java.lang.String r6 = r11.f540T     // Catch:{ Exception -> 0x01f2 }
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01f2 }
+            int r4 = com.txznet.comm.ui.TE.T.Tr()     // Catch:{ Exception -> 0x0208 }
+            if (r4 != r7) goto L_0x01d8
+            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x0208 }
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x0208 }
+            r5.<init>()     // Catch:{ Exception -> 0x0208 }
+            java.lang.String r6 = r11.f544T     // Catch:{ Exception -> 0x0208 }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x0208 }
             java.lang.String r6 = "ThemeConfigHorizontal"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01f2 }
-            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01f2 }
-            java.lang.Class r1 = r4.Ty(r5)     // Catch:{ Exception -> 0x01f2 }
-            if (r1 != 0) goto L_0x0040
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x0208 }
+            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x0208 }
+            java.lang.Class r1 = r4.Ty(r5)     // Catch:{ Exception -> 0x0208 }
+            if (r1 != 0) goto L_0x0042
             java.lang.String r4 = "get ThemeConfigVertical error!"
-            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ Exception -> 0x01f2 }
+            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ Exception -> 0x0208 }
             java.lang.Class<com.txznet.comm.ui.TZ.Tr> r1 = com.txznet.comm.ui.TZ.Tr.class
-        L_0x0040:
+        L_0x0042:
             java.lang.String r4 = "RECORD_WIN_CIRCLE_LY_HEIGHT"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x01f2 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0208 }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x01f2 }
-            TP = r4     // Catch:{ Exception -> 0x01f2 }
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0208 }
+            TP = r4     // Catch:{ Exception -> 0x0208 }
             java.lang.String r4 = "RECORD_WIN_CIRCLE_LY_HEIGHT"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x01f2 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0208 }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x01f2 }
-            TI = r4     // Catch:{ Exception -> 0x01f2 }
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0208 }
+            TI = r4     // Catch:{ Exception -> 0x0208 }
             java.lang.String r4 = "RECORD_WIN_VOICE_VIEW_WIDTH"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x01f2 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0208 }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x01f2 }
-            TL = r4     // Catch:{ Exception -> 0x01f2 }
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0208 }
+            TL = r4     // Catch:{ Exception -> 0x0208 }
             java.lang.String r4 = "RECORD_WIN_VOICE_VIEW_HEIGHT"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x01f2 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0208 }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x01f2 }
-            Tw = r4     // Catch:{ Exception -> 0x01f2 }
-        L_0x0074:
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0208 }
+            Tw = r4     // Catch:{ Exception -> 0x0208 }
+        L_0x007a:
             java.lang.StringBuilder r4 = new java.lang.StringBuilder
             r4.<init>()
             java.lang.String r5 = "themeConfig:"
@@ -130,39 +131,39 @@ public class Tn {
             java.lang.StringBuilder r4 = r4.append(r3)
             java.lang.String r4 = r4.toString()
             com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r4)
-            if (r3 != 0) goto L_0x0097
+            if (r3 != 0) goto L_0x009e
             int r4 = com.txznet.comm.ui.TE.T.T()
-            if (r4 != r9) goto L_0x01f8
+            if (r4 != r9) goto L_0x020e
             com.txznet.comm.ui.TZ.T.Ty r3 = new com.txznet.comm.ui.TZ.T.Ty
             r3.<init>()
-        L_0x0097:
+        L_0x009e:
             r11.T((com.txznet.comm.ui.TZ.T) r3)
-            if (r1 != 0) goto L_0x00d8
+            if (r1 != 0) goto L_0x00e3
             int r4 = com.txznet.comm.ui.TE.T.Tr()
-            if (r4 != r7) goto L_0x021f
+            if (r4 != r7) goto L_0x0235
             java.lang.Class<com.txznet.comm.ui.TZ.Tr> r1 = com.txznet.comm.ui.TZ.Tr.class
-        L_0x00a4:
+        L_0x00ab:
             java.lang.String r4 = "RECORD_WIN_CIRCLE_LY_HEIGHT"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0229 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x023f }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0229 }
-            TP = r4     // Catch:{ Exception -> 0x0229 }
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x023f }
+            TP = r4     // Catch:{ Exception -> 0x023f }
             java.lang.String r4 = "RECORD_WIN_CIRCLE_LY_HEIGHT"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0229 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x023f }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0229 }
-            TI = r4     // Catch:{ Exception -> 0x0229 }
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x023f }
+            TI = r4     // Catch:{ Exception -> 0x023f }
             java.lang.String r4 = "RECORD_WIN_VOICE_VIEW_WIDTH"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0229 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x023f }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0229 }
-            TL = r4     // Catch:{ Exception -> 0x0229 }
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x023f }
+            TL = r4     // Catch:{ Exception -> 0x023f }
             java.lang.String r4 = "RECORD_WIN_VOICE_VIEW_HEIGHT"
-            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x0229 }
+            java.lang.reflect.Field r4 = r1.getField(r4)     // Catch:{ Exception -> 0x023f }
             r5 = 0
-            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x0229 }
-            Tw = r4     // Catch:{ Exception -> 0x0229 }
-        L_0x00d8:
+            int r4 = r4.getInt(r5)     // Catch:{ Exception -> 0x023f }
+            Tw = r4     // Catch:{ Exception -> 0x023f }
+        L_0x00e3:
             java.lang.StringBuilder r4 = new java.lang.StringBuilder
             r4.<init>()
             java.lang.String r5 = "RECORD_WIN_CIRCLE_LY_WIDTH:"
@@ -184,124 +185,124 @@ public class Tn {
             java.lang.String r4 = r4.toString()
             com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r4)
             return
-        L_0x0115:
-            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01b9 }
-            if (r4 != r9) goto L_0x013e
-            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01b9 }
-            r5.<init>()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r6 = r11.f540T     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
+        L_0x0124:
+            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01cc }
+            if (r4 != r9) goto L_0x014e
+            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01cc }
+            r5.<init>()     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r6 = r11.f544T     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
             java.lang.String r6 = "ThemeConfigLarge"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01b9 }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01cc }
+            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01cc }
             r0 = r4
-            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01b9 }
+            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01cc }
             r3 = r0
             goto L_0x0014
-        L_0x013e:
-            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01b9 }
-            if (r4 != r7) goto L_0x0167
-            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01b9 }
-            r5.<init>()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r6 = r11.f540T     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
+        L_0x014e:
+            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01cc }
+            if (r4 != r7) goto L_0x0178
+            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01cc }
+            r5.<init>()     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r6 = r11.f544T     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
             java.lang.String r6 = "ThemeConfigSmall"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01b9 }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01cc }
+            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01cc }
             r0 = r4
-            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01b9 }
+            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01cc }
             r3 = r0
             goto L_0x0014
-        L_0x0167:
-            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01b9 }
-            if (r4 != r10) goto L_0x0190
-            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01b9 }
-            r5.<init>()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r6 = r11.f540T     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
+        L_0x0178:
+            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01cc }
+            if (r4 != r10) goto L_0x01a2
+            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01cc }
+            r5.<init>()     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r6 = r11.f544T     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
             java.lang.String r6 = "ThemeConfigCar"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01b9 }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01cc }
+            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01cc }
             r0 = r4
-            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01b9 }
+            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01cc }
             r3 = r0
             goto L_0x0014
-        L_0x0190:
-            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01b9 }
+        L_0x01a2:
+            int r4 = com.txznet.comm.ui.TE.T.T()     // Catch:{ Exception -> 0x01cc }
             if (r4 != r8) goto L_0x0014
-            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01b9 }
-            r5.<init>()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r6 = r11.f540T     // Catch:{ Exception -> 0x01b9 }
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
+            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01cc }
+            r5.<init>()     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r6 = r11.f544T     // Catch:{ Exception -> 0x01cc }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
             java.lang.String r6 = "ThemeConfig"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01b9 }
-            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01b9 }
-            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01b9 }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01cc }
+            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01cc }
+            java.lang.Object r4 = r4.Tr(r5)     // Catch:{ Exception -> 0x01cc }
             r0 = r4
-            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01b9 }
+            com.txznet.comm.ui.TZ.T r0 = (com.txznet.comm.ui.TZ.T) r0     // Catch:{ Exception -> 0x01cc }
             r3 = r0
             goto L_0x0014
-        L_0x01b9:
+        L_0x01cc:
             r2 = move-exception
             java.lang.String r4 = "load theme config error"
             com.txznet.comm.Tr.Tr.Tn.Tn(r4)
             r2.printStackTrace()
             goto L_0x0014
-        L_0x01c4:
-            int r4 = com.txznet.comm.ui.TE.T.Tr()     // Catch:{ Exception -> 0x01f2 }
-            if (r4 != r8) goto L_0x0040
-            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x01f2 }
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x01f2 }
-            r5.<init>()     // Catch:{ Exception -> 0x01f2 }
-            java.lang.String r6 = r11.f540T     // Catch:{ Exception -> 0x01f2 }
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01f2 }
+        L_0x01d8:
+            int r4 = com.txznet.comm.ui.TE.T.Tr()     // Catch:{ Exception -> 0x0208 }
+            if (r4 != r8) goto L_0x0042
+            com.txznet.comm.ui.Tk.T r4 = com.txznet.comm.ui.Tk.T.Tr()     // Catch:{ Exception -> 0x0208 }
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x0208 }
+            r5.<init>()     // Catch:{ Exception -> 0x0208 }
+            java.lang.String r6 = r11.f544T     // Catch:{ Exception -> 0x0208 }
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x0208 }
             java.lang.String r6 = "ThemeConfigVertical"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x01f2 }
-            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x01f2 }
-            java.lang.Class r1 = r4.Ty(r5)     // Catch:{ Exception -> 0x01f2 }
-            if (r1 != 0) goto L_0x0040
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch:{ Exception -> 0x0208 }
+            java.lang.String r5 = r5.toString()     // Catch:{ Exception -> 0x0208 }
+            java.lang.Class r1 = r4.Ty(r5)     // Catch:{ Exception -> 0x0208 }
+            if (r1 != 0) goto L_0x0042
             java.lang.String r4 = "get ThemeConfigVertical error!"
-            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ Exception -> 0x01f2 }
+            com.txznet.comm.Tr.Tr.Tn.Ty((java.lang.String) r4)     // Catch:{ Exception -> 0x0208 }
             java.lang.Class<com.txznet.comm.ui.TZ.Tr> r1 = com.txznet.comm.ui.TZ.Tr.class
-            goto L_0x0040
-        L_0x01f2:
+            goto L_0x0042
+        L_0x0208:
             r2 = move-exception
             r2.printStackTrace()
-            goto L_0x0074
-        L_0x01f8:
+            goto L_0x007a
+        L_0x020e:
             int r4 = com.txznet.comm.ui.TE.T.T()
-            if (r4 != r7) goto L_0x0205
+            if (r4 != r7) goto L_0x021b
             com.txznet.comm.ui.TZ.T.Tn r3 = new com.txznet.comm.ui.TZ.T.Tn
             r3.<init>()
-            goto L_0x0097
-        L_0x0205:
+            goto L_0x009e
+        L_0x021b:
             int r4 = com.txznet.comm.ui.TE.T.T()
-            if (r4 != r10) goto L_0x0212
+            if (r4 != r10) goto L_0x0228
             com.txznet.comm.ui.TZ.T.Tr r3 = new com.txznet.comm.ui.TZ.T.Tr
             r3.<init>()
-            goto L_0x0097
-        L_0x0212:
+            goto L_0x009e
+        L_0x0228:
             int r4 = com.txznet.comm.ui.TE.T.T()
-            if (r4 != r8) goto L_0x0097
+            if (r4 != r8) goto L_0x009e
             com.txznet.comm.ui.TZ.T.T r3 = new com.txznet.comm.ui.TZ.T.T
             r3.<init>()
-            goto L_0x0097
-        L_0x021f:
+            goto L_0x009e
+        L_0x0235:
             int r4 = com.txznet.comm.ui.TE.T.Tr()
-            if (r4 != r8) goto L_0x00a4
+            if (r4 != r8) goto L_0x00ab
             java.lang.Class<com.txznet.comm.ui.TZ.Ty> r1 = com.txznet.comm.ui.TZ.Ty.class
-            goto L_0x00a4
-        L_0x0229:
+            goto L_0x00ab
+        L_0x023f:
             r2 = move-exception
             r2.printStackTrace()
-            goto L_0x00d8
+            goto L_0x00e3
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.ui.TZ.Tn.Ty():void");
     }
@@ -315,7 +316,7 @@ public class Tn {
     }
 
     public void T(T src) {
-        Tr = src.f539T;
+        Tr = src.f543T;
         Ty = src.Tr;
         Tn = src.Ty;
         T9 = src.Tn;

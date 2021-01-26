@@ -13,6 +13,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanKaWeiWcACView extends CanBaseACView {
@@ -184,7 +185,7 @@ public class CanKaWeiWcACView extends CanBaseACView {
         this.mBtnSync = AddBtn(20, 893, 407, R.drawable.can_jeep_ac_sync_up, R.drawable.can_jeep_ac_sync_dn);
         this.mTvWindVal = AddTemp(717, 441, 32, 40);
         this.mBtnMode = AddBtn(22, 0, 25, R.drawable.can_jeep_ac_mode_up, R.drawable.can_jeep_ac_mode_dn);
-        this.mTvInTemp = AddTemp(386, KeyDef.RKEY_FR, Can.CAN_FLAT_WC, 40);
+        this.mTvInTemp = AddTemp(386, 294, Can.CAN_FLAT_WC, 40);
     }
 
     protected static int uint2Bool(int val) {
@@ -260,7 +261,7 @@ public class CanKaWeiWcACView extends CanBaseACView {
         this.mBtnSync.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
         } else {
             this.mWindProg.SetCurPos(this.mACInfo.nWindValue);

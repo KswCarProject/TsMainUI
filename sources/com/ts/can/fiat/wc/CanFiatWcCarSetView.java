@@ -11,6 +11,7 @@ public class CanFiatWcCarSetView extends CanScrollCarInfoView {
     private static final int BCFZ = 3;
     private static final int BCFZYL = 4;
     private static final int CMZDSD = 0;
+    private static final int COURTESY_LIGHTS_DELAY = 11;
     private static final int DDYC = 9;
     private static final int HSCKX = 8;
     private static final int HSYC = 10;
@@ -23,7 +24,7 @@ public class CanFiatWcCarSetView extends CanScrollCarInfoView {
     CanDataInfo.FiatAllWcSet mSetData;
 
     public CanFiatWcCarSetView(Activity activity) {
-        super(activity, 11);
+        super(activity, 12);
     }
 
     public void onItem(int id, int item) {
@@ -36,6 +37,9 @@ public class CanFiatWcCarSetView extends CanScrollCarInfoView {
                 return;
             case 9:
                 CanJni.FiatAllWcCarSet(23, item);
+                return;
+            case 11:
+                CanJni.FiatAllWcCarSet(25, item);
                 return;
             default:
                 return;
@@ -78,11 +82,12 @@ public class CanFiatWcCarSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_zmzdsd, R.string.can_rjxcd, R.string.can_tripb_disp, R.string.can_bcfz, R.string.can_bcfzyl, R.string.can_yb_light, R.string.can_zxfzd, R.string.can_scsd, R.string.can_hsckx, R.string.can_cch6_dingdeng_delaytime, R.string.can_hsyc};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH};
+        this.mItemTitleIds = new int[]{R.string.can_zmzdsd, R.string.can_rjxcd, R.string.can_tripb_disp, R.string.can_bcfz, R.string.can_bcfzyl, R.string.can_yb_light, R.string.can_zxfzd, R.string.can_scsd, R.string.can_hsckx, R.string.can_cch6_dingdeng_delaytime, R.string.can_hsyc, R.string.can_courtesylightdelay};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.SWITCH, CanScrollCarInfoView.Item.POP};
         this.mPopValueIds[3] = new int[]{R.string.can_type_vol, R.string.can_vol_img};
         this.mPopValueIds[4] = new int[]{R.string.can_sensitivity_low, R.string.can_sensitivity_mid, R.string.can_sensitivity_high};
         this.mPopValueIds[9] = new int[]{R.string.can_headlightautoofftime_0s, R.string.can_headlightautoofftime_30s, R.string.can_headlightautoofftime_60s, R.string.can_headlightautoofftime_90s};
+        this.mPopValueIds[11] = new int[]{R.string.can_headlightautoofftime_0s, R.string.can_headlightautoofftime_30s, R.string.can_headlightautoofftime_60s, R.string.can_headlightautoofftime_90s};
         this.mSetData = new CanDataInfo.FiatAllWcSet();
         this.mAdtData = new CanDataInfo.FiatAllWcSet();
     }
@@ -91,7 +96,7 @@ public class CanFiatWcCarSetView extends CanScrollCarInfoView {
         CanJni.FiatAllWcGetSetData(this.mAdtData, 0);
         if (i2b(this.mAdtData.UpdateOnce) && (!check || i2b(this.mAdtData.Update))) {
             this.mAdtData.Update = 0;
-            showItem(new int[]{this.mAdtData.Cmzdsd, this.mAdtData.Rjxcd, this.mAdtData.Tripb, this.mAdtData.ParkSense, this.mAdtData.RearParkSenseVol, this.mAdtData.CourtesyLigts, this.mAdtData.CorningLights, this.mAdtData.FlashLightsWithLock, this.mAdtData.RearViewCameraGuidelines, this.mAdtData.HeadlightOffDelay, this.mAdtData.RearViewCameraDelay});
+            showItem(new int[]{this.mAdtData.Cmzdsd, this.mAdtData.Rjxcd, this.mAdtData.Tripb, this.mAdtData.ParkSense, this.mAdtData.RearParkSenseVol, this.mAdtData.CourtesyLigts, this.mAdtData.CorningLights, this.mAdtData.FlashLightsWithLock, this.mAdtData.RearViewCameraGuidelines, this.mAdtData.HeadlightOffDelay, this.mAdtData.RearViewCameraDelay, this.mAdtData.CourtesyLightDelay});
         }
         CanJni.FiatAllWcGetSetData(this.mSetData, 1);
         if (!i2b(this.mSetData.UpdateOnce)) {
@@ -99,7 +104,7 @@ public class CanFiatWcCarSetView extends CanScrollCarInfoView {
         }
         if (!check || i2b(this.mSetData.Update)) {
             this.mSetData.Update = 0;
-            updateItem(new int[]{this.mSetData.Cmzdsd, this.mSetData.Rjxcd, this.mSetData.Tripb, this.mSetData.ParkSense, this.mSetData.RearParkSenseVol, this.mSetData.CourtesyLigts, this.mSetData.CorningLights, this.mSetData.FlashLightsWithLock, this.mSetData.RearViewCameraGuidelines, this.mSetData.HeadlightOffDelay, this.mSetData.RearViewCameraDelay});
+            updateItem(new int[]{this.mSetData.Cmzdsd, this.mSetData.Rjxcd, this.mSetData.Tripb, this.mSetData.ParkSense, this.mSetData.RearParkSenseVol, this.mSetData.CourtesyLigts, this.mSetData.CorningLights, this.mSetData.FlashLightsWithLock, this.mSetData.RearViewCameraGuidelines, this.mSetData.HeadlightOffDelay, this.mSetData.RearViewCameraDelay, this.mSetData.CourtesyLightDelay});
         }
     }
 

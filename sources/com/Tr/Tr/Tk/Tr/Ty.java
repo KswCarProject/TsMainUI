@@ -12,51 +12,51 @@ import java.util.Collection;
 public final class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final int[] f268T = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 36, -1, -1, -1, 37, 38, -1, -1, -1, -1, 39, 40, -1, 41, 42, 43, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 44, -1, -1, -1, -1, -1, -1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1};
+    private static final int[] f271T = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 36, -1, -1, -1, 37, 38, -1, -1, -1, -1, 39, 40, -1, 41, 42, 43, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 44, -1, -1, -1, -1, -1, -1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1};
 
     private static int T(Tr matrix) {
         return Tn.T(matrix) + Tn.Tr(matrix) + Tn.Ty(matrix) + Tn.Tn(matrix);
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:23:0x008d  */
-    /* JADX WARNING: Removed duplicated region for block: B:26:0x00e3  */
+    /* JADX WARNING: Removed duplicated region for block: B:23:0x0090  */
+    /* JADX WARNING: Removed duplicated region for block: B:26:0x00e6  */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     public static com.Tr.Tr.Tk.Tr.Tk T(java.lang.String r17, com.Tr.Tr.Tk.T.T r18, java.util.Map<com.Tr.Tr.Ty, ?> r19) throws com.Tr.Tr.TE {
         /*
             java.lang.String r5 = "ISO-8859-1"
-            if (r19 == 0) goto L_0x001a
+            if (r19 == 0) goto L_0x001b
             com.Tr.Tr.Ty r15 = com.Tr.Tr.Ty.CHARACTER_SET
             r0 = r19
             boolean r15 = r0.containsKey(r15)
-            if (r15 == 0) goto L_0x001a
+            if (r15 == 0) goto L_0x001b
             com.Tr.Tr.Ty r15 = com.Tr.Tr.Ty.CHARACTER_SET
             r0 = r19
             java.lang.Object r15 = r0.get(r15)
             java.lang.String r5 = r15.toString()
-        L_0x001a:
+        L_0x001b:
             r0 = r17
             com.Tr.Tr.Tk.T.Tr r11 = T((java.lang.String) r0, (java.lang.String) r5)
             com.Tr.Tr.Tr.T r8 = new com.Tr.Tr.Tr.T
             r8.<init>()
             com.Tr.Tr.Tk.T.Tr r15 = com.Tr.Tr.Tk.T.Tr.BYTE
-            if (r11 != r15) goto L_0x003a
+            if (r11 != r15) goto L_0x003c
             java.lang.String r15 = "ISO-8859-1"
             boolean r15 = r15.equals(r5)
-            if (r15 != 0) goto L_0x003a
+            if (r15 != 0) goto L_0x003c
             com.Tr.Tr.Tr.Ty r4 = com.Tr.Tr.Tr.Ty.T(r5)
-            if (r4 == 0) goto L_0x003a
+            if (r4 == 0) goto L_0x003c
             T((com.Tr.Tr.Tr.Ty) r4, (com.Tr.Tr.Tr.T) r8)
-        L_0x003a:
+        L_0x003c:
             T((com.Tr.Tr.Tk.T.Tr) r11, (com.Tr.Tr.Tr.T) r8)
             com.Tr.Tr.Tr.T r1 = new com.Tr.Tr.Tr.T
             r1.<init>()
             r0 = r17
             T((java.lang.String) r0, (com.Tr.Tr.Tk.T.Tr) r11, (com.Tr.Tr.Tr.T) r1, (java.lang.String) r5)
-            if (r19 == 0) goto L_0x007b
+            if (r19 == 0) goto L_0x007e
             com.Tr.Tr.Ty r15 = com.Tr.Tr.Ty.QR_VERSION
             r0 = r19
             boolean r15 = r0.containsKey(r15)
-            if (r15 == 0) goto L_0x007b
+            if (r15 == 0) goto L_0x007e
             com.Tr.Tr.Ty r15 = com.Tr.Tr.Ty.QR_VERSION
             r0 = r19
             java.lang.Object r15 = r0.get(r15)
@@ -66,22 +66,22 @@ public final class Ty {
             int r15 = T((com.Tr.Tr.Tk.T.Tr) r11, (com.Tr.Tr.Tr.T) r8, (com.Tr.Tr.Tr.T) r1, (com.Tr.Tr.Tk.T.Ty) r14)
             r0 = r18
             boolean r15 = T((int) r15, (com.Tr.Tr.Tk.T.Ty) r14, (com.Tr.Tr.Tk.T.T) r0)
-            if (r15 != 0) goto L_0x0081
+            if (r15 != 0) goto L_0x0084
             com.Tr.Tr.TE r15 = new com.Tr.Tr.TE
             java.lang.String r16 = "Data too big for requested version"
             r15.<init>((java.lang.String) r16)
             throw r15
-        L_0x007b:
+        L_0x007e:
             r0 = r18
             com.Tr.Tr.Tk.T.Ty r14 = T((com.Tr.Tr.Tk.T.T) r0, (com.Tr.Tr.Tk.T.Tr) r11, (com.Tr.Tr.Tr.T) r8, (com.Tr.Tr.Tr.T) r1)
-        L_0x0081:
+        L_0x0084:
             com.Tr.Tr.Tr.T r7 = new com.Tr.Tr.Tr.T
             r7.<init>()
             r7.T((com.Tr.Tr.Tr.T) r8)
             com.Tr.Tr.Tk.T.Tr r15 = com.Tr.Tr.Tk.T.Tr.BYTE
-            if (r11 != r15) goto L_0x00e3
+            if (r11 != r15) goto L_0x00e6
             int r15 = r1.Tr()
-        L_0x0091:
+        L_0x0094:
             T((int) r15, (com.Tr.Tr.Tk.T.Ty) r14, (com.Tr.Tr.Tk.T.Tr) r11, (com.Tr.Tr.Tr.T) r7)
             r7.T((com.Tr.Tr.Tr.T) r1)
             r0 = r18
@@ -110,9 +110,9 @@ public final class Ty {
             com.Tr.Tr.Tk.Tr.T9.T(r6, r0, r14, r9, r10)
             r13.T((com.Tr.Tr.Tk.Tr.Tr) r10)
             return r13
-        L_0x00e3:
+        L_0x00e6:
             int r15 = r17.length()
-            goto L_0x0091
+            goto L_0x0094
         */
         throw new UnsupportedOperationException("Method not decompiled: com.Tr.Tr.Tk.Tr.Ty.T(java.lang.String, com.Tr.Tr.Tk.T.T, java.util.Map):com.Tr.Tr.Tk.Tr.Tk");
     }
@@ -126,8 +126,8 @@ public final class Ty {
     }
 
     static int T(int code) {
-        if (code < f268T.length) {
-            return f268T[code];
+        if (code < f271T.length) {
+            return f271T[code];
         }
         return -1;
     }

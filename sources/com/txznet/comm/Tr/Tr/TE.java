@@ -7,7 +7,7 @@ import com.txznet.comm.Tr.Tn;
 public class TE {
 
     /* renamed from: T  reason: collision with root package name */
-    public static long f388T = 0;
+    public static long f392T = 0;
     public static boolean Tr = true;
 
     public static int T(int type, byte[] jsonData) {

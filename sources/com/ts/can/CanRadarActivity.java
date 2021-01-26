@@ -79,7 +79,7 @@ public class CanRadarActivity extends CanBaseActivity implements UserCallBack {
                 lp.rightMargin = 64;
                 this.mRightSideRadar.setLayoutParams(lp);
                 RelativeLayout.LayoutParams lp2 = (RelativeLayout.LayoutParams) this.mBigLeftSideRadar.getLayoutParams();
-                lp2.leftMargin = 240;
+                lp2.leftMargin = Can.CAN_VOLKS_XP;
                 lp2.topMargin = 460;
                 this.mBigLeftSideRadar.setLayoutParams(lp2);
                 RelativeLayout.LayoutParams lp3 = (RelativeLayout.LayoutParams) this.mBigRightSideRadar.getLayoutParams();

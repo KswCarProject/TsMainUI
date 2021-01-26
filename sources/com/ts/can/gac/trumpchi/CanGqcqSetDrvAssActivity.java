@@ -14,24 +14,39 @@ import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
 
 public class CanGqcqSetDrvAssActivity extends CanGqcqBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
+    public static final int ITEM_CDFZ = 13;
+    public static final int ITEM_CDFZKG = 12;
     public static final int ITEM_CSBJ = 1;
-    private static final int ITEM_MAX = 7;
+    private static final int ITEM_MAX = 13;
     private static final int ITEM_MIN = 1;
+    public static final int ITEM_QPZJGJL = 11;
+    public static final int ITEM_QPZYJ = 10;
+    public static final int ITEM_XHMS = 9;
     public static final int ITEM_YCBXFZ = 6;
     public static final int ITEM_YCQDSJ = 4;
     public static final int ITEM_YCSDSJ = 3;
     public static final int ITEM_ZCBXFZ = 7;
+    public static final int ITEM_ZDZDFZ = 8;
     public static final int ITEM_ZHYBYL = 2;
     public static final int ITEM_ZXMS = 5;
     public static final String TAG = "CanGqcqSetDrvAssActivity";
+    protected int[] mCdfzArr = {R.string.can_zxfz, R.string.can_jg, R.string.can_zxfz_jg};
+    private CanItemPopupList mItemCdfz;
+    private CanItemSwitchList mItemCdfzkg;
     private CanItemProgressList mItemCsbj;
+    private CanItemPopupList mItemQpzjgjl;
+    private CanItemSwitchList mItemQpzyj;
+    private CanItemPopupList mItemXhms;
     private CanItemPopupList mItemYcbxfz;
     private CanItemProgressList mItemYcqdsj;
     private CanItemProgressList mItemYcsdsj;
     private CanItemPopupList mItemZcbxfz;
+    private CanItemSwitchList mItemZdzdfz;
     private CanItemPopupList mItemZhybyl;
     private CanItemPopupList mItemZxms;
     private CanScrollList mManager;
+    protected int[] mQpzjgjlArr = {R.string.can_sdqfwxjgjl_2, R.string.can_sdqfwxjgjl_3, R.string.can_sdqfwxjgjl_1};
+    protected int[] mXhmsArr = {R.string.can_zsyxh, R.string.can_cruise_jcszsyxh};
     protected int[] mZhybylArr = {R.string.can_cdjd, R.string.can_cdzj, R.string.can_cdjg};
     protected int[] mZxmsArr = {R.string.can_sport, R.string.can_mode_normal, R.string.can_mode_ss};
     private boolean mbLayout;
@@ -59,6 +74,12 @@ public class CanGqcqSetDrvAssActivity extends CanGqcqBaseActivity implements Vie
             this.mItemZxms.SetSel(this.mSetData.ZxMode - 1);
             this.mItemYcbxfz.SetSel(this.mSetData.Ycbxfz - 1);
             this.mItemZcbxfz.SetSel(this.mSetData.Zcbxfz - 1);
+            this.mItemZdzdfz.SetCheck(this.mSetData.Zdzdfz - 1);
+            this.mItemXhms.SetSel(this.mSetData.Xhms - 1);
+            this.mItemQpzyj.SetCheck(this.mSetData.Qpzyj - 1);
+            this.mItemQpzjgjl.SetSel(this.mSetData.Qpzjgjl - 1);
+            this.mItemCdfzkg.SetCheck(this.mSetData.Cdfzkg - 1);
+            this.mItemCdfz.SetSel(this.mSetData.Cdfz - 1);
         }
     }
 
@@ -95,12 +116,18 @@ public class CanGqcqSetDrvAssActivity extends CanGqcqBaseActivity implements Vie
         this.mItemYcqdsj.SetMinMax(0, 30);
         this.mItemYcbxfz = AddPopupItem(R.string.can_trumpchi_ycbxfz, this.mSWArr, 6);
         this.mItemZcbxfz = AddPopupItem(R.string.can_trumpchi_zcbxfz, this.mSWArr, 7);
+        this.mItemZdzdfz = AddCheckItem(R.string.can_zdzdfzxt, 8);
+        this.mItemXhms = AddPopupItem(R.string.can_xhms, this.mXhmsArr, 9);
+        this.mItemQpzyj = AddCheckItem(R.string.can_qpzyj, 10);
+        this.mItemQpzjgjl = AddPopupItem(R.string.can_qfzfz_qpzyjlmd, this.mQpzjgjlArr, 11);
+        this.mItemCdfzkg = AddCheckItem(R.string.can_psa_wc_cdbcfz, 12);
+        this.mItemCdfz = AddPopupItem(R.string.can_cdfzlx, this.mCdfzArr, 13);
         LayoutUI();
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 1; i <= 13; i++) {
             ShowItem(i);
         }
     }
@@ -135,6 +162,24 @@ public class CanGqcqSetDrvAssActivity extends CanGqcqBaseActivity implements Vie
             case 7:
                 this.mItemZcbxfz.ShowGone(show);
                 return;
+            case 8:
+                this.mItemZdzdfz.ShowGone(show);
+                return;
+            case 9:
+                this.mItemXhms.ShowGone(show);
+                return;
+            case 10:
+                this.mItemQpzyj.ShowGone(show);
+                return;
+            case 11:
+                this.mItemQpzjgjl.ShowGone(show);
+                return;
+            case 12:
+                this.mItemCdfzkg.ShowGone(show);
+                return;
+            case 13:
+                this.mItemCdfz.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -168,7 +213,19 @@ public class CanGqcqSetDrvAssActivity extends CanGqcqBaseActivity implements Vie
     }
 
     public void onClick(View v) {
-        int intValue = ((Integer) v.getTag()).intValue();
+        switch (((Integer) v.getTag()).intValue()) {
+            case 8:
+                CarSet(45, Neg(this.mSetData.Zdzdfz - 1));
+                return;
+            case 10:
+                CarSet(47, Neg(this.mSetData.Qpzyj - 1));
+                return;
+            case 12:
+                CarSet(49, Neg(this.mSetData.Cdfzkg - 1));
+                return;
+            default:
+                return;
+        }
     }
 
     public void UserAll() {
@@ -188,6 +245,15 @@ public class CanGqcqSetDrvAssActivity extends CanGqcqBaseActivity implements Vie
                 return;
             case 7:
                 CarSet(35, item);
+                return;
+            case 9:
+                CarSet(46, item);
+                return;
+            case 11:
+                CarSet(48, item);
+                return;
+            case 13:
+                CarSet(50, item);
                 return;
             default:
                 return;

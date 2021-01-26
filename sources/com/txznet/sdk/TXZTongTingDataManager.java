@@ -18,7 +18,7 @@ public class TXZTongTingDataManager implements IConstantCmd, IConstantData {
     private static int Ty = 0;
 
     /* renamed from: T  reason: collision with root package name */
-    Map<Integer, ICallback<List<TongTingAlbum>>> f830T;
+    Map<Integer, ICallback<List<TongTingAlbum>>> f834T;
 
     /* compiled from: Proguard */
     public interface ICallback<T> {
@@ -28,8 +28,8 @@ public class TXZTongTingDataManager implements IConstantCmd, IConstantData {
     }
 
     private TXZTongTingDataManager() {
-        this.f830T = null;
-        this.f830T = new HashMap();
+        this.f834T = null;
+        this.f834T = new HashMap();
         Tr();
     }
 
@@ -57,11 +57,11 @@ public class TXZTongTingDataManager implements IConstantCmd, IConstantData {
     }
 
     private void T(int sequenceId, ICallback<List<TongTingAlbum>> callback) {
-        this.f830T.put(Integer.valueOf(sequenceId), callback);
+        this.f834T.put(Integer.valueOf(sequenceId), callback);
     }
 
     private ICallback<List<TongTingAlbum>> T(int sequenceId) {
-        return this.f830T.get(Integer.valueOf(sequenceId));
+        return this.f834T.get(Integer.valueOf(sequenceId));
     }
 
     private synchronized int T() {
@@ -80,7 +80,7 @@ public class TXZTongTingDataManager implements IConstantCmd, IConstantData {
         jsonBuilder.T(IConstantData.KEY_LIMIT, (Object) Integer.valueOf(limit));
         jsonBuilder.T(IConstantData.KEY_DIRECTION, (Object) Integer.valueOf(direction));
         jsonBuilder.T(IConstantData.KEY_SEQUENCE, (Object) Integer.valueOf(sequence));
-        jsonBuilder.T(IConstantData.KEY_TYPE, (Object) 0);
+        jsonBuilder.T("type", (Object) 0);
         Tn.Tr().T("com.txznet.music", IConstantCmd.SEND_CMD_GETRECOMMENDALBUM, jsonBuilder.Ty(), (Tn.Tr) null);
         T(sequence, callback);
     }
@@ -92,21 +92,21 @@ public class TXZTongTingDataManager implements IConstantCmd, IConstantData {
         jsonBuilder.T(IConstantData.KEY_LIMIT, (Object) Integer.valueOf(limit));
         jsonBuilder.T(IConstantData.KEY_DIRECTION, (Object) Integer.valueOf(up));
         jsonBuilder.T(IConstantData.KEY_SEQUENCE, (Object) Integer.valueOf(sequence));
-        jsonBuilder.T(IConstantData.KEY_TYPE, (Object) 1);
+        jsonBuilder.T("type", (Object) 1);
         Tn.Tr().T("com.txznet.music", IConstantCmd.SEND_CMD_GETRECOMMENDALBUM, jsonBuilder.Ty(), (Tn.Tr) null);
         T(sequence, callback);
     }
 
     public void playAudio(long id, int sid) {
         Tr jsonBuilder = new Tr();
-        jsonBuilder.T(IConstantData.KEY_ID, (Object) Long.valueOf(id));
+        jsonBuilder.T("id", (Object) Long.valueOf(id));
         jsonBuilder.T(IConstantData.KEY_SID, (Object) Integer.valueOf(sid));
         Tn.Tr().T("com.txznet.music", IConstantCmd.SEND_CMD_PLAY_AUDIO, jsonBuilder.Ty(), (Tn.Tr) null);
     }
 
     public void playAlbum(long albumId, int albumSid, long categoryId) {
         Tr jsonBuilder = new Tr();
-        jsonBuilder.T(IConstantData.KEY_ID, (Object) Long.valueOf(albumId));
+        jsonBuilder.T("id", (Object) Long.valueOf(albumId));
         jsonBuilder.T(IConstantData.KEY_SID, (Object) Integer.valueOf(albumSid));
         jsonBuilder.T(IConstantData.KEY_CATEGORYID, (Object) Long.valueOf(categoryId));
         Tn.Tr().T("com.txznet.music", IConstantCmd.SEND_CMD_PLAY_ALBUM, jsonBuilder.Ty(), (Tn.Tr) null);
@@ -122,7 +122,7 @@ public class TXZTongTingDataManager implements IConstantCmd, IConstantData {
                     int errorCode = ((Integer) jsonBuilder.T(IConstantData.KEY_ERRORCODE, Integer.class, 0)).intValue();
                     if (errorCode == 0) {
                         try {
-                            list = TongTingAlbum.createAlbums((JSONArray) jsonBuilder.T(IConstantData.KEY_DATA, JSONArray.class, new JSONArray()));
+                            list = TongTingAlbum.createAlbums((JSONArray) jsonBuilder.T("data", JSONArray.class, new JSONArray()));
                         } catch (JSONException e) {
                             e.printStackTrace();
                             errorCode = -2;

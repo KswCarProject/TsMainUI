@@ -18,12 +18,13 @@ import com.ts.can.CanFunc;
 import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanAudiACBox implements UserCallBack {
     private static final String TAG = "CanAudiACBox";
-    private static boolean mIsAC;
+    private static boolean mIsAC = false;
     private static final int[] mModeDnIds = {R.drawable.aic_right_auto_dn, R.drawable.aic_right_01_dn, R.drawable.aic_right_02_dn, R.drawable.aic_right_03_dn, R.drawable.aic_right_04_dn, R.drawable.aic_right_05_dn, R.drawable.aic_right_06_dn, R.drawable.aic_right_07_dn};
     private static final int[] mModeUpIds = {R.drawable.aic_right_auto_up, R.drawable.aic_right_01_up, R.drawable.aic_right_02_up, R.drawable.aic_right_03_up, R.drawable.aic_right_04_up, R.drawable.aic_right_05_up, R.drawable.aic_right_06_up, R.drawable.aic_right_07_up};
     private static boolean mfgJump;
@@ -61,24 +62,27 @@ public class CanAudiACBox implements UserCallBack {
     }
 
     public void Init(Context context) {
-        if (this.mWinManager == null) {
-            this.mAppContext = context.getApplicationContext();
-            this.mWinManager = (WindowManager) this.mAppContext.getSystemService("window");
-            this.mWinParams = new WindowManager.LayoutParams();
-            this.mWinParams.type = 2003;
-            this.mWinParams.format = 1;
-            this.mWinParams.flags = 24;
-            this.mWinParams.width = -1;
-            this.mWinParams.height = -1;
-            this.mWinParams.alpha = 30.0f;
-            this.mManager = new RelativeLayoutManager(new RelativeLayout(this.mAppContext));
-            if (MainSet.GetScreenType() == 5) {
-                initViews();
-            } else if (MainSet.GetScreenType() == 9) {
-                initViews_1920x720();
-            } else {
-                initViews_800x480();
-            }
+        if (this.mWinManager != null) {
+            Log.d(TAG, "Already have instance");
+            return;
+        }
+        Log.d(TAG, "Init");
+        this.mAppContext = context.getApplicationContext();
+        this.mWinManager = (WindowManager) this.mAppContext.getSystemService("window");
+        this.mWinParams = new WindowManager.LayoutParams();
+        this.mWinParams.type = 2003;
+        this.mWinParams.format = 1;
+        this.mWinParams.flags = 24;
+        this.mWinParams.width = -1;
+        this.mWinParams.height = -1;
+        this.mWinParams.alpha = 30.0f;
+        this.mManager = new RelativeLayoutManager(new RelativeLayout(this.mAppContext));
+        if (MainSet.GetScreenType() == 5) {
+            initViews();
+        } else if (MainSet.GetScreenType() == 9) {
+            initViews_1920x720();
+        } else {
+            initViews_800x480();
         }
     }
 
@@ -89,43 +93,43 @@ public class CanAudiACBox implements UserCallBack {
             this.mIvLtArrows[i] = AddImage(this.mLeftManager, 128, 115, 190, 190, R.drawable.aic_arrow);
             this.mIvRtArrows[i] = AddImage(this.mRightManager, 124, 115, 190, 190, R.drawable.aic_arrow);
         }
-        this.mTvLtWinds[0] = AddText(this.mLeftManager, 103, 286, MainSet.SP_XPH5);
-        this.mTvLtWinds[1] = AddText(this.mLeftManager, 79, Can.CAN_GM_CAPTIVA_OD, MainSet.SP_RLF_KORON);
-        this.mTvLtWinds[2] = AddText(this.mLeftManager, 74, 180, MainSet.SP_XH_DMAX);
+        this.mTvLtWinds[0] = AddText(this.mLeftManager, 103, 286, "1");
+        this.mTvLtWinds[1] = AddText(this.mLeftManager, 79, Can.CAN_GM_CAPTIVA_OD, "2");
+        this.mTvLtWinds[2] = AddText(this.mLeftManager, 74, 180, "3");
         this.mTvLtWinds[3] = AddText(this.mLeftManager, 92, 124, MainSet.SP_KS_QOROS);
-        this.mTvLtWinds[4] = AddText(this.mLeftManager, 130, 83, MainSet.SP_LM_WR);
-        this.mTvLtWinds[5] = AddText(this.mLeftManager, 185, 57, MainSet.SP_YSJ_QP);
-        this.mTvLtWinds[6] = AddText(this.mLeftManager, Can.CAN_MZD_TXB, 56, MainSet.SP_TW_CJW);
-        this.mTvLtWinds[7] = AddText(this.mLeftManager, KeyDef.RKEY_PRE, 75, MainSet.SP_FLKJ);
-        this.mTvLtWinds[8] = AddText(this.mLeftManager, KeyDef.RKEY_EJECT_L, 120, MainSet.SP_FXCARPLAY);
-        this.mTvLtWinds[9] = AddText(this.mLeftManager, 352, 178, MainSet.SP_XH_FORD);
+        this.mTvLtWinds[4] = AddText(this.mLeftManager, 130, 83, MainSet.SP_TW_CJW);
+        this.mTvLtWinds[5] = AddText(this.mLeftManager, 185, 57, MainSet.SP_XS_DZ);
+        this.mTvLtWinds[6] = AddText(this.mLeftManager, Can.CAN_MZD_TXB, 56, MainSet.SP_PCBA_VOL);
+        this.mTvLtWinds[7] = AddText(this.mLeftManager, 292, 75, "8");
+        this.mTvLtWinds[8] = AddText(this.mLeftManager, KeyDef.RKEY_EJECT_L, 120, "9");
+        this.mTvLtWinds[9] = AddText(this.mLeftManager, 352, 178, "10");
         this.mTvLtWinds[10] = AddText(this.mLeftManager, 349, Can.CAN_BYD_S6_S7, "11");
         this.mTvLtWinds[11] = AddText(this.mLeftManager, KeyDef.RKEY_RADIO_3S, 285, "12");
-        this.mTvRtWinds[0] = AddText(this.mRightManager, 99, 286, MainSet.SP_XPH5);
-        this.mTvRtWinds[1] = AddText(this.mRightManager, 75, Can.CAN_GM_CAPTIVA_OD, MainSet.SP_RLF_KORON);
-        this.mTvRtWinds[2] = AddText(this.mRightManager, 70, 180, MainSet.SP_XH_DMAX);
+        this.mTvRtWinds[0] = AddText(this.mRightManager, 99, 286, "1");
+        this.mTvRtWinds[1] = AddText(this.mRightManager, 75, Can.CAN_GM_CAPTIVA_OD, "2");
+        this.mTvRtWinds[2] = AddText(this.mRightManager, 70, 180, "3");
         this.mTvRtWinds[3] = AddText(this.mRightManager, 88, 124, MainSet.SP_KS_QOROS);
-        this.mTvRtWinds[4] = AddText(this.mRightManager, 126, 83, MainSet.SP_LM_WR);
-        this.mTvRtWinds[5] = AddText(this.mRightManager, 181, 57, MainSet.SP_YSJ_QP);
-        this.mTvRtWinds[6] = AddText(this.mRightManager, Can.CAN_GM_CAPTIVA_OD, 55, MainSet.SP_TW_CJW);
-        this.mTvRtWinds[7] = AddText(this.mRightManager, 288, 75, MainSet.SP_FLKJ);
-        this.mTvRtWinds[8] = AddText(this.mRightManager, KeyDef.RKEY_RDS_TA, 120, MainSet.SP_FXCARPLAY);
-        this.mTvRtWinds[9] = AddText(this.mRightManager, 348, 178, MainSet.SP_XH_FORD);
+        this.mTvRtWinds[4] = AddText(this.mRightManager, 126, 83, MainSet.SP_TW_CJW);
+        this.mTvRtWinds[5] = AddText(this.mRightManager, 181, 57, MainSet.SP_XS_DZ);
+        this.mTvRtWinds[6] = AddText(this.mRightManager, Can.CAN_GM_CAPTIVA_OD, 55, MainSet.SP_PCBA_VOL);
+        this.mTvRtWinds[7] = AddText(this.mRightManager, 288, 75, "8");
+        this.mTvRtWinds[8] = AddText(this.mRightManager, KeyDef.RKEY_RDS_TA, 120, "9");
+        this.mTvRtWinds[9] = AddText(this.mRightManager, 348, 178, "10");
         this.mTvRtWinds[10] = AddText(this.mRightManager, 345, Can.CAN_BYD_S6_S7, "11");
         this.mTvRtWinds[11] = AddText(this.mRightManager, KeyDef.RKEY_MEDIA_PROG, 285, "12");
-        this.mTvMinTemps[0] = AddText(this.mLeftManager, 121, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_low));
-        this.mTvMinTemps[1] = AddText(this.mRightManager, 123, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_low));
-        this.mTvMaxTemps[0] = AddText(this.mLeftManager, 283, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_high));
-        this.mTvMaxTemps[1] = AddText(this.mRightManager, 278, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_high));
-        this.mTvTemps[0] = AddText(this.mLeftManager, 183, 170, 80, 83, "");
-        this.mTvTemps[1] = AddText(this.mRightManager, 179, 170, 80, 83, "");
+        this.mTvMinTemps[0] = AddText(this.mLeftManager, 121, 311, this.mAppContext.getString(R.string.can_ac_low));
+        this.mTvMinTemps[1] = AddText(this.mRightManager, 123, 311, this.mAppContext.getString(R.string.can_ac_low));
+        this.mTvMaxTemps[0] = AddText(this.mLeftManager, 283, 311, this.mAppContext.getString(R.string.can_ac_high));
+        this.mTvMaxTemps[1] = AddText(this.mRightManager, 278, 311, this.mAppContext.getString(R.string.can_ac_high));
+        this.mTvTemps[0] = AddText(this.mLeftManager, 183, 170, 80, 83, TXZResourceManager.STYLE_DEFAULT);
+        this.mTvTemps[1] = AddText(this.mRightManager, 179, 170, 80, 83, TXZResourceManager.STYLE_DEFAULT);
         this.mIvLtModes[0] = AddImage(this.mLeftManager, 54, 200, 68, 21, mModeUpIds[0], mModeDnIds[0]);
         this.mIvLtModes[1] = AddImage(this.mLeftManager, 104, 92, 55, 50, mModeUpIds[1], mModeDnIds[1]);
         this.mIvLtModes[2] = AddImage(this.mLeftManager, 190, 60, 55, 50, mModeUpIds[2], mModeDnIds[2]);
         this.mIvLtModes[3] = AddImage(this.mLeftManager, 276, 95, 55, 50, mModeUpIds[3], mModeDnIds[3]);
         this.mIvLtModes[4] = AddImage(this.mLeftManager, KeyDef.RKEY_ANGLEDN, 180, 55, 50, mModeUpIds[4], mModeDnIds[4]);
-        this.mIvLtModes[5] = AddImage(this.mLeftManager, KeyDef.RKEY_FR, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
-        this.mIvLtModes[6] = AddImage(this.mLeftManager, 204, KeyDef.RKEY_MEDIA_MENU, 55, 50, mModeUpIds[6], mModeDnIds[6]);
+        this.mIvLtModes[5] = AddImage(this.mLeftManager, 294, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
+        this.mIvLtModes[6] = AddImage(this.mLeftManager, 204, 308, 55, 50, mModeUpIds[6], mModeDnIds[6]);
         this.mIvLtModes[7] = AddImage(this.mLeftManager, 107, 272, 55, 50, mModeUpIds[7], mModeDnIds[7]);
         this.mIvRtModes[0] = AddImage(this.mRightManager, 50, 200, 68, 21, mModeUpIds[0], mModeDnIds[0]);
         this.mIvRtModes[1] = AddImage(this.mRightManager, 100, 92, 55, 50, mModeUpIds[1], mModeDnIds[1]);
@@ -133,7 +137,7 @@ public class CanAudiACBox implements UserCallBack {
         this.mIvRtModes[3] = AddImage(this.mRightManager, 272, 95, 55, 50, mModeUpIds[3], mModeDnIds[3]);
         this.mIvRtModes[4] = AddImage(this.mRightManager, KeyDef.RKEY_POWER, 180, 55, 50, mModeUpIds[4], mModeDnIds[4]);
         this.mIvRtModes[5] = AddImage(this.mRightManager, 290, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
-        this.mIvRtModes[6] = AddImage(this.mRightManager, 200, KeyDef.RKEY_MEDIA_MENU, 55, 50, mModeUpIds[6], mModeDnIds[6]);
+        this.mIvRtModes[6] = AddImage(this.mRightManager, 200, 308, 55, 50, mModeUpIds[6], mModeDnIds[6]);
         this.mIvRtModes[7] = AddImage(this.mRightManager, 103, 272, 55, 50, mModeUpIds[7], mModeDnIds[7]);
     }
 
@@ -144,43 +148,43 @@ public class CanAudiACBox implements UserCallBack {
             this.mIvLtArrows[i] = AddImage(this.mLeftManager, 85, 115, 190, 190, R.drawable.aic_arrow);
             this.mIvRtArrows[i] = AddImage(this.mRightManager, 124, 115, 190, 190, R.drawable.aic_arrow);
         }
-        this.mTvLtWinds[0] = AddText(this.mLeftManager, 60, 286, MainSet.SP_XPH5);
-        this.mTvLtWinds[1] = AddText(this.mLeftManager, 36, Can.CAN_GM_CAPTIVA_OD, MainSet.SP_RLF_KORON);
-        this.mTvLtWinds[2] = AddText(this.mLeftManager, 31, 180, MainSet.SP_XH_DMAX);
+        this.mTvLtWinds[0] = AddText(this.mLeftManager, 60, 286, "1");
+        this.mTvLtWinds[1] = AddText(this.mLeftManager, 36, Can.CAN_GM_CAPTIVA_OD, "2");
+        this.mTvLtWinds[2] = AddText(this.mLeftManager, 31, 180, "3");
         this.mTvLtWinds[3] = AddText(this.mLeftManager, 49, 124, MainSet.SP_KS_QOROS);
-        this.mTvLtWinds[4] = AddText(this.mLeftManager, 87, 83, MainSet.SP_LM_WR);
-        this.mTvLtWinds[5] = AddText(this.mLeftManager, 142, 57, MainSet.SP_YSJ_QP);
-        this.mTvLtWinds[6] = AddText(this.mLeftManager, 200, 56, MainSet.SP_TW_CJW);
-        this.mTvLtWinds[7] = AddText(this.mLeftManager, Can.CAN_LUXGEN_WC, 75, MainSet.SP_FLKJ);
-        this.mTvLtWinds[8] = AddText(this.mLeftManager, KeyDef.RKEY_NEXT, 120, MainSet.SP_FXCARPLAY);
-        this.mTvLtWinds[9] = AddText(this.mLeftManager, KeyDef.RKEY_MEDIA_ZOOM, 178, MainSet.SP_XH_FORD);
-        this.mTvLtWinds[10] = AddText(this.mLeftManager, KeyDef.RKEY_MEDIA_TITLE, Can.CAN_BYD_S6_S7, "11");
+        this.mTvLtWinds[4] = AddText(this.mLeftManager, 87, 83, MainSet.SP_TW_CJW);
+        this.mTvLtWinds[5] = AddText(this.mLeftManager, 142, 57, MainSet.SP_XS_DZ);
+        this.mTvLtWinds[6] = AddText(this.mLeftManager, 200, 56, MainSet.SP_PCBA_VOL);
+        this.mTvLtWinds[7] = AddText(this.mLeftManager, Can.CAN_LUXGEN_WC, 75, "8");
+        this.mTvLtWinds[8] = AddText(this.mLeftManager, 291, 120, "9");
+        this.mTvLtWinds[9] = AddText(this.mLeftManager, 309, 178, "10");
+        this.mTvLtWinds[10] = AddText(this.mLeftManager, 306, Can.CAN_BYD_S6_S7, "11");
         this.mTvLtWinds[11] = AddText(this.mLeftManager, 282, 285, "12");
-        this.mTvRtWinds[0] = AddText(this.mRightManager, 99, 286, MainSet.SP_XPH5);
-        this.mTvRtWinds[1] = AddText(this.mRightManager, 75, Can.CAN_GM_CAPTIVA_OD, MainSet.SP_RLF_KORON);
-        this.mTvRtWinds[2] = AddText(this.mRightManager, 70, 180, MainSet.SP_XH_DMAX);
+        this.mTvRtWinds[0] = AddText(this.mRightManager, 99, 286, "1");
+        this.mTvRtWinds[1] = AddText(this.mRightManager, 75, Can.CAN_GM_CAPTIVA_OD, "2");
+        this.mTvRtWinds[2] = AddText(this.mRightManager, 70, 180, "3");
         this.mTvRtWinds[3] = AddText(this.mRightManager, 88, 124, MainSet.SP_KS_QOROS);
-        this.mTvRtWinds[4] = AddText(this.mRightManager, 126, 83, MainSet.SP_LM_WR);
-        this.mTvRtWinds[5] = AddText(this.mRightManager, 181, 57, MainSet.SP_YSJ_QP);
-        this.mTvRtWinds[6] = AddText(this.mRightManager, Can.CAN_GM_CAPTIVA_OD, 55, MainSet.SP_TW_CJW);
-        this.mTvRtWinds[7] = AddText(this.mRightManager, 288, 75, MainSet.SP_FLKJ);
-        this.mTvRtWinds[8] = AddText(this.mRightManager, KeyDef.RKEY_RDS_TA, 120, MainSet.SP_FXCARPLAY);
-        this.mTvRtWinds[9] = AddText(this.mRightManager, 348, 178, MainSet.SP_XH_FORD);
+        this.mTvRtWinds[4] = AddText(this.mRightManager, 126, 83, MainSet.SP_TW_CJW);
+        this.mTvRtWinds[5] = AddText(this.mRightManager, 181, 57, MainSet.SP_XS_DZ);
+        this.mTvRtWinds[6] = AddText(this.mRightManager, Can.CAN_GM_CAPTIVA_OD, 55, MainSet.SP_PCBA_VOL);
+        this.mTvRtWinds[7] = AddText(this.mRightManager, 288, 75, "8");
+        this.mTvRtWinds[8] = AddText(this.mRightManager, KeyDef.RKEY_RDS_TA, 120, "9");
+        this.mTvRtWinds[9] = AddText(this.mRightManager, 348, 178, "10");
         this.mTvRtWinds[10] = AddText(this.mRightManager, 345, Can.CAN_BYD_S6_S7, "11");
         this.mTvRtWinds[11] = AddText(this.mRightManager, KeyDef.RKEY_MEDIA_PROG, 285, "12");
-        this.mTvMinTemps[0] = AddText(this.mLeftManager, 78, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_low));
-        this.mTvMinTemps[1] = AddText(this.mRightManager, 123, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_low));
-        this.mTvMaxTemps[0] = AddText(this.mLeftManager, 240, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_high));
-        this.mTvMaxTemps[1] = AddText(this.mRightManager, 278, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_high));
-        this.mTvTemps[0] = AddText(this.mLeftManager, Can.CAN_BENC_ZMYT, 170, 80, 83, "");
-        this.mTvTemps[1] = AddText(this.mRightManager, 179, 170, 80, 83, "");
+        this.mTvMinTemps[0] = AddText(this.mLeftManager, 78, 311, this.mAppContext.getString(R.string.can_ac_low));
+        this.mTvMinTemps[1] = AddText(this.mRightManager, 123, 311, this.mAppContext.getString(R.string.can_ac_low));
+        this.mTvMaxTemps[0] = AddText(this.mLeftManager, Can.CAN_VOLKS_XP, 311, this.mAppContext.getString(R.string.can_ac_high));
+        this.mTvMaxTemps[1] = AddText(this.mRightManager, 278, 311, this.mAppContext.getString(R.string.can_ac_high));
+        this.mTvTemps[0] = AddText(this.mLeftManager, Can.CAN_BENC_ZMYT, 170, 80, 83, TXZResourceManager.STYLE_DEFAULT);
+        this.mTvTemps[1] = AddText(this.mRightManager, 179, 170, 80, 83, TXZResourceManager.STYLE_DEFAULT);
         this.mIvLtModes[0] = AddImage(this.mLeftManager, 11, 200, 68, 21, mModeUpIds[0], mModeDnIds[0]);
         this.mIvLtModes[1] = AddImage(this.mLeftManager, 61, 92, 55, 50, mModeUpIds[1], mModeDnIds[1]);
         this.mIvLtModes[2] = AddImage(this.mLeftManager, 147, 60, 55, 50, mModeUpIds[2], mModeDnIds[2]);
         this.mIvLtModes[3] = AddImage(this.mLeftManager, Can.CAN_SGMW_WC, 95, 55, 50, mModeUpIds[3], mModeDnIds[3]);
         this.mIvLtModes[4] = AddImage(this.mLeftManager, 275, 180, 55, 50, mModeUpIds[4], mModeDnIds[4]);
         this.mIvLtModes[5] = AddImage(this.mLeftManager, Can.CAN_MG_ZS_WC, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
-        this.mIvLtModes[6] = AddImage(this.mLeftManager, 161, KeyDef.RKEY_MEDIA_MENU, 55, 50, mModeUpIds[6], mModeDnIds[6]);
+        this.mIvLtModes[6] = AddImage(this.mLeftManager, 161, 308, 55, 50, mModeUpIds[6], mModeDnIds[6]);
         this.mIvLtModes[7] = AddImage(this.mLeftManager, 64, 272, 55, 50, mModeUpIds[7], mModeDnIds[7]);
         this.mIvRtModes[0] = AddImage(this.mRightManager, 50, 200, 68, 21, mModeUpIds[0], mModeDnIds[0]);
         this.mIvRtModes[1] = AddImage(this.mRightManager, 100, 92, 55, 50, mModeUpIds[1], mModeDnIds[1]);
@@ -188,7 +192,7 @@ public class CanAudiACBox implements UserCallBack {
         this.mIvRtModes[3] = AddImage(this.mRightManager, 272, 95, 55, 50, mModeUpIds[3], mModeDnIds[3]);
         this.mIvRtModes[4] = AddImage(this.mRightManager, KeyDef.RKEY_POWER, 180, 55, 50, mModeUpIds[4], mModeDnIds[4]);
         this.mIvRtModes[5] = AddImage(this.mRightManager, 290, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
-        this.mIvRtModes[6] = AddImage(this.mRightManager, 200, KeyDef.RKEY_MEDIA_MENU, 55, 50, mModeUpIds[6], mModeDnIds[6]);
+        this.mIvRtModes[6] = AddImage(this.mRightManager, 200, 308, 55, 50, mModeUpIds[6], mModeDnIds[6]);
         this.mIvRtModes[7] = AddImage(this.mRightManager, 103, 272, 55, 50, mModeUpIds[7], mModeDnIds[7]);
     }
 
@@ -199,43 +203,43 @@ public class CanAudiACBox implements UserCallBack {
             this.mIvLtArrows[i] = AddImage(this.mLeftManager, 128, 115, 190, 190, R.drawable.aic_arrow);
             this.mIvRtArrows[i] = AddImage(this.mRightManager, 124, 115, 190, 190, R.drawable.aic_arrow);
         }
-        this.mTvLtWinds[0] = AddText(this.mLeftManager, 103, 286, MainSet.SP_XPH5);
-        this.mTvLtWinds[1] = AddText(this.mLeftManager, 79, Can.CAN_GM_CAPTIVA_OD, MainSet.SP_RLF_KORON);
-        this.mTvLtWinds[2] = AddText(this.mLeftManager, 74, 180, MainSet.SP_XH_DMAX);
+        this.mTvLtWinds[0] = AddText(this.mLeftManager, 103, 286, "1");
+        this.mTvLtWinds[1] = AddText(this.mLeftManager, 79, Can.CAN_GM_CAPTIVA_OD, "2");
+        this.mTvLtWinds[2] = AddText(this.mLeftManager, 74, 180, "3");
         this.mTvLtWinds[3] = AddText(this.mLeftManager, 92, 124, MainSet.SP_KS_QOROS);
-        this.mTvLtWinds[4] = AddText(this.mLeftManager, 130, 83, MainSet.SP_LM_WR);
-        this.mTvLtWinds[5] = AddText(this.mLeftManager, 185, 57, MainSet.SP_YSJ_QP);
-        this.mTvLtWinds[6] = AddText(this.mLeftManager, Can.CAN_MZD_TXB, 56, MainSet.SP_TW_CJW);
-        this.mTvLtWinds[7] = AddText(this.mLeftManager, KeyDef.RKEY_PRE, 75, MainSet.SP_FLKJ);
-        this.mTvLtWinds[8] = AddText(this.mLeftManager, KeyDef.RKEY_EJECT_L, 120, MainSet.SP_FXCARPLAY);
-        this.mTvLtWinds[9] = AddText(this.mLeftManager, 352, 178, MainSet.SP_XH_FORD);
+        this.mTvLtWinds[4] = AddText(this.mLeftManager, 130, 83, MainSet.SP_TW_CJW);
+        this.mTvLtWinds[5] = AddText(this.mLeftManager, 185, 57, MainSet.SP_XS_DZ);
+        this.mTvLtWinds[6] = AddText(this.mLeftManager, Can.CAN_MZD_TXB, 56, MainSet.SP_PCBA_VOL);
+        this.mTvLtWinds[7] = AddText(this.mLeftManager, 292, 75, "8");
+        this.mTvLtWinds[8] = AddText(this.mLeftManager, KeyDef.RKEY_EJECT_L, 120, "9");
+        this.mTvLtWinds[9] = AddText(this.mLeftManager, 352, 178, "10");
         this.mTvLtWinds[10] = AddText(this.mLeftManager, 349, Can.CAN_BYD_S6_S7, "11");
         this.mTvLtWinds[11] = AddText(this.mLeftManager, KeyDef.RKEY_RADIO_3S, 285, "12");
-        this.mTvRtWinds[0] = AddText(this.mRightManager, 99, 286, MainSet.SP_XPH5);
-        this.mTvRtWinds[1] = AddText(this.mRightManager, 75, Can.CAN_GM_CAPTIVA_OD, MainSet.SP_RLF_KORON);
-        this.mTvRtWinds[2] = AddText(this.mRightManager, 70, 180, MainSet.SP_XH_DMAX);
+        this.mTvRtWinds[0] = AddText(this.mRightManager, 99, 286, "1");
+        this.mTvRtWinds[1] = AddText(this.mRightManager, 75, Can.CAN_GM_CAPTIVA_OD, "2");
+        this.mTvRtWinds[2] = AddText(this.mRightManager, 70, 180, "3");
         this.mTvRtWinds[3] = AddText(this.mRightManager, 88, 124, MainSet.SP_KS_QOROS);
-        this.mTvRtWinds[4] = AddText(this.mRightManager, 126, 83, MainSet.SP_LM_WR);
-        this.mTvRtWinds[5] = AddText(this.mRightManager, 181, 57, MainSet.SP_YSJ_QP);
-        this.mTvRtWinds[6] = AddText(this.mRightManager, Can.CAN_GM_CAPTIVA_OD, 55, MainSet.SP_TW_CJW);
-        this.mTvRtWinds[7] = AddText(this.mRightManager, 288, 75, MainSet.SP_FLKJ);
-        this.mTvRtWinds[8] = AddText(this.mRightManager, KeyDef.RKEY_RDS_TA, 120, MainSet.SP_FXCARPLAY);
-        this.mTvRtWinds[9] = AddText(this.mRightManager, 348, 178, MainSet.SP_XH_FORD);
+        this.mTvRtWinds[4] = AddText(this.mRightManager, 126, 83, MainSet.SP_TW_CJW);
+        this.mTvRtWinds[5] = AddText(this.mRightManager, 181, 57, MainSet.SP_XS_DZ);
+        this.mTvRtWinds[6] = AddText(this.mRightManager, Can.CAN_GM_CAPTIVA_OD, 55, MainSet.SP_PCBA_VOL);
+        this.mTvRtWinds[7] = AddText(this.mRightManager, 288, 75, "8");
+        this.mTvRtWinds[8] = AddText(this.mRightManager, KeyDef.RKEY_RDS_TA, 120, "9");
+        this.mTvRtWinds[9] = AddText(this.mRightManager, 348, 178, "10");
         this.mTvRtWinds[10] = AddText(this.mRightManager, 345, Can.CAN_BYD_S6_S7, "11");
         this.mTvRtWinds[11] = AddText(this.mRightManager, KeyDef.RKEY_MEDIA_PROG, 285, "12");
-        this.mTvMinTemps[0] = AddText(this.mLeftManager, 121, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_low));
-        this.mTvMinTemps[1] = AddText(this.mRightManager, 123, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_low));
-        this.mTvMaxTemps[0] = AddText(this.mLeftManager, 283, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_high));
-        this.mTvMaxTemps[1] = AddText(this.mRightManager, 278, KeyDef.RKEY_MEDIA_SEL, this.mAppContext.getString(R.string.can_ac_high));
-        this.mTvTemps[0] = AddText(this.mLeftManager, 183, 170, 80, 83, "");
-        this.mTvTemps[1] = AddText(this.mRightManager, 179, 170, 80, 83, "");
+        this.mTvMinTemps[0] = AddText(this.mLeftManager, 121, 311, this.mAppContext.getString(R.string.can_ac_low));
+        this.mTvMinTemps[1] = AddText(this.mRightManager, 123, 311, this.mAppContext.getString(R.string.can_ac_low));
+        this.mTvMaxTemps[0] = AddText(this.mLeftManager, 283, 311, this.mAppContext.getString(R.string.can_ac_high));
+        this.mTvMaxTemps[1] = AddText(this.mRightManager, 278, 311, this.mAppContext.getString(R.string.can_ac_high));
+        this.mTvTemps[0] = AddText(this.mLeftManager, 183, 170, 80, 83, TXZResourceManager.STYLE_DEFAULT);
+        this.mTvTemps[1] = AddText(this.mRightManager, 179, 170, 80, 83, TXZResourceManager.STYLE_DEFAULT);
         this.mIvLtModes[0] = AddImage(this.mLeftManager, 54, 200, 68, 21, mModeUpIds[0], mModeDnIds[0]);
         this.mIvLtModes[1] = AddImage(this.mLeftManager, 104, 92, 55, 50, mModeUpIds[1], mModeDnIds[1]);
         this.mIvLtModes[2] = AddImage(this.mLeftManager, 190, 60, 55, 50, mModeUpIds[2], mModeDnIds[2]);
         this.mIvLtModes[3] = AddImage(this.mLeftManager, 276, 95, 55, 50, mModeUpIds[3], mModeDnIds[3]);
         this.mIvLtModes[4] = AddImage(this.mLeftManager, KeyDef.RKEY_ANGLEDN, 180, 55, 50, mModeUpIds[4], mModeDnIds[4]);
-        this.mIvLtModes[5] = AddImage(this.mLeftManager, KeyDef.RKEY_FR, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
-        this.mIvLtModes[6] = AddImage(this.mLeftManager, 204, KeyDef.RKEY_MEDIA_MENU, 55, 50, mModeUpIds[6], mModeDnIds[6]);
+        this.mIvLtModes[5] = AddImage(this.mLeftManager, 294, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
+        this.mIvLtModes[6] = AddImage(this.mLeftManager, 204, 308, 55, 50, mModeUpIds[6], mModeDnIds[6]);
         this.mIvLtModes[7] = AddImage(this.mLeftManager, 107, 272, 55, 50, mModeUpIds[7], mModeDnIds[7]);
         this.mIvRtModes[0] = AddImage(this.mRightManager, 50, 200, 68, 21, mModeUpIds[0], mModeDnIds[0]);
         this.mIvRtModes[1] = AddImage(this.mRightManager, 100, 92, 55, 50, mModeUpIds[1], mModeDnIds[1]);
@@ -243,7 +247,7 @@ public class CanAudiACBox implements UserCallBack {
         this.mIvRtModes[3] = AddImage(this.mRightManager, 272, 95, 55, 50, mModeUpIds[3], mModeDnIds[3]);
         this.mIvRtModes[4] = AddImage(this.mRightManager, KeyDef.RKEY_POWER, 180, 55, 50, mModeUpIds[4], mModeDnIds[4]);
         this.mIvRtModes[5] = AddImage(this.mRightManager, 290, 275, 55, 50, mModeUpIds[5], mModeDnIds[5]);
-        this.mIvRtModes[6] = AddImage(this.mRightManager, 200, KeyDef.RKEY_MEDIA_MENU, 55, 50, mModeUpIds[6], mModeDnIds[6]);
+        this.mIvRtModes[6] = AddImage(this.mRightManager, 200, 308, 55, 50, mModeUpIds[6], mModeDnIds[6]);
         this.mIvRtModes[7] = AddImage(this.mRightManager, 103, 272, 55, 50, mModeUpIds[7], mModeDnIds[7]);
     }
 
@@ -327,6 +331,7 @@ public class CanAudiACBox implements UserCallBack {
 
     /* access modifiers changed from: protected */
     public void onResume() {
+        Init(CanFunc.mContext);
         Log.d(TAG, "-----onResume-----");
         showBox(0);
         this.mWinManager.addView(this.mManager.GetLayout(), this.mWinParams);

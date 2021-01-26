@@ -1,7 +1,6 @@
 package com.T.T.Tr;
 
 import com.T.T.T;
-import com.ts.dvdplayer.definition.MediaDef;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
@@ -121,7 +120,7 @@ public final class Tk extends T9 {
                 long millis2 = Long.parseLong(T(offset, plusIndex - offset));
                 this.Th = Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
                 this.Th.setTimeInMillis(millis2);
-                this.f176T = 5;
+                this.f179T = 5;
                 return true;
             }
         }
@@ -175,7 +174,7 @@ public final class Tk extends T9 {
             this.Th.set(12, minute);
             this.Th.set(13, seconds);
             this.Th.set(14, millis);
-            this.f176T = 5;
+            this.f179T = 5;
             return true;
         } else if (rest < this.Tj) {
             return false;
@@ -229,7 +228,7 @@ public final class Tk extends T9 {
                     int i2 = this.T9 + 19;
                     this.T9 = i2;
                     this.Tn = Ty(i2);
-                    this.f176T = 5;
+                    this.f179T = 5;
                     return true;
                 } else if (rest < this.TK) {
                     return false;
@@ -244,7 +243,7 @@ public final class Tk extends T9 {
                     int i3 = this.T9 + 23;
                     this.T9 = i3;
                     this.Tn = Ty(i3);
-                    this.f176T = 5;
+                    this.f179T = 5;
                     return true;
                 }
             } else if (t != '\"' && t != 26) {
@@ -257,7 +256,7 @@ public final class Tk extends T9 {
                 int i4 = this.T9 + 10;
                 this.T9 = i4;
                 this.Tn = Ty(i4);
-                this.f176T = 5;
+                this.f179T = 5;
                 return true;
             }
         }
@@ -294,7 +293,7 @@ public final class Tk extends T9 {
 
     private void T(char y0, char y1, char y2, char y3, char M0, char M1, char d0, char d1) {
         this.Th = Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
-        int year = (TF[y0] * MediaDef.PROGRESS_MAX) + (TF[y1] * 100) + (TF[y2] * 10) + TF[y3];
+        int year = (TF[y0] * 1000) + (TF[y1] * 100) + (TF[y2] * 10) + TF[y3];
         int month = ((TF[M0] * 10) + TF[M1]) - 1;
         int day = (TF[d0] * 10) + TF[d1];
         this.Th.set(1, year);

@@ -35,7 +35,7 @@ public class CanFiatRzcCarSetView extends CanScrollCarInfoView {
     public void onClick(View v) {
         switch (((Integer) v.getTag()).intValue()) {
             case 0:
-                CanJni.FiatRzcCarSet(240, Neg(this.mSetData.DisplayTripB));
+                CanJni.FiatRzcCarSet(Can.CAN_VOLKS_XP, Neg(this.mSetData.DisplayTripB));
                 return;
             case 1:
                 CanJni.FiatRzcCarSet(Can.CAN_MZD_TXB, Neg(this.mSetData.Fmq));
@@ -67,7 +67,7 @@ public class CanFiatRzcCarSetView extends CanScrollCarInfoView {
     }
 
     public void QueryData() {
-        CanJni.FiatRzcQuery(128, 240);
+        CanJni.FiatRzcQuery(128, Can.CAN_VOLKS_XP);
         Sleep(5);
         CanJni.FiatRzcQuery(128, Can.CAN_MZD_TXB);
         Sleep(5);

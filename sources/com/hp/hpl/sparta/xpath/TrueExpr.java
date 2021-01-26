@@ -1,5 +1,7 @@
 package com.hp.hpl.sparta.xpath;
 
+import com.txznet.sdk.TXZResourceManager;
+
 public class TrueExpr extends BooleanExpr {
     static final TrueExpr INSTANCE = new TrueExpr();
 
@@ -11,6 +13,6 @@ public class TrueExpr extends BooleanExpr {
     }
 
     public String toString() {
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 }

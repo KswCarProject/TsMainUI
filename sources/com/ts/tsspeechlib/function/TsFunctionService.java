@@ -1,18 +1,28 @@
 package com.ts.tsspeechlib.function;
 
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
+import com.ts.MainUI.AuthServer;
 import com.ts.MainUI.Evc;
+import com.ts.can.CanIF;
 import com.ts.main.common.KeyTouch;
+import com.ts.main.common.MainSet;
+import com.ts.main.common.MainUI;
+import com.ts.main.common.WinShow;
+import com.ts.main.common.tool;
 import com.ts.tsspeechlib.function.ITsSpeechFunction;
+import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 import com.yyw.ts70xhw.StSet;
 
 public class TsFunctionService extends Service {
+    public static final String BROADCAST_LANCHER_FUNC_CLOSEMEDIA = "forfan.intent.action.CLOSEMEDIA";
+    /* access modifiers changed from: private */
+    public ITsFunctionCallback functionCallback;
     private mTsSpeechFunction mBinder;
 
     public IBinder onBind(Intent arg0) {
@@ -134,38 +144,21 @@ public class TsFunctionService extends Service {
         }
 
         public void openSetting() throws RemoteException {
-            Intent intent = new Intent();
-            intent.addFlags(337641472);
-            intent.setComponent(new ComponentName("com.ts.MainUI", "com.ts.set.SetMainActivity"));
-            if (intent != null) {
-                TsFunctionService.this.startActivity(intent);
-            }
+            WinShow.show("com.ts.MainUI", "com.ts.set.SetMainActivity");
         }
 
         public void openAvin() throws RemoteException {
-            Intent intent = new Intent();
-            intent.addFlags(337641472);
-            intent.setComponent(new ComponentName("com.ts.MainUI", "com.ts.main.avin.AvinMainActivity"));
-            if (intent != null) {
-                TsFunctionService.this.startActivity(intent);
-            }
+            WinShow.show("com.ts.MainUI", "com.ts.main.avin.AvinMainActivity");
         }
 
         public void openCarInfo() throws RemoteException {
-            Intent intent = new Intent();
-            intent.addFlags(337641472);
-            intent.setComponent(new ComponentName("com.ts.MainUI", "com.ts.can.CanMainActivity"));
-            if (intent != null) {
-                TsFunctionService.this.startActivity(intent);
-            }
+            WinShow.show("com.ts.MainUI", "com.ts.can.CanMainActivity");
         }
 
         public void speechStartTTS() throws RemoteException {
-            Evc.GetInstance().evol_mix_set(1, false);
         }
 
         public void speechStopTTS() throws RemoteException {
-            Evc.GetInstance().evol_mix_set(0, false);
         }
 
         public void speechStartRecognition() throws RemoteException {
@@ -186,6 +179,99 @@ public class TsFunctionService extends Service {
             if (number >= 0 && number <= 6) {
                 StSet.SetBLDay(number);
             }
+        }
+
+        public void supportFastCharging(int state) throws RemoteException {
+            Log.d("TsFunctionService", "supportFastCharging : " + state);
+            if (TsFunctionService.this.functionCallback == null) {
+                return;
+            }
+            if (state == 1) {
+                TsFunctionService.this.functionCallback.isSupportFastCharging(true);
+            } else if (state == 0) {
+                TsFunctionService.this.functionCallback.isSupportFastCharging(false);
+            }
+        }
+
+        public void setFunctionCallback(ITsFunctionCallback callback) throws RemoteException {
+            Log.d("TsFunctionService", "setFunctionCallback");
+            TsFunctionService.this.functionCallback = callback;
+        }
+
+        public int isIllOn() throws RemoteException {
+            if (Mcu.GetIll() == 1) {
+                return 1;
+            }
+            return 0;
+        }
+
+        public int isBackCar() throws RemoteException {
+            if (MainUI.IsCameraMode() == 1) {
+                return 1;
+            }
+            return 0;
+        }
+
+        public int withBrakes() throws RemoteException {
+            if (Mcu.GetBrake() == 1) {
+                return 1;
+            }
+            return 0;
+        }
+
+        public String getDeviceType() throws RemoteException {
+            return "8259";
+        }
+
+        public String getHMI() throws RemoteException {
+            return MainSet.GetHMIVersionToClient();
+        }
+
+        public String getBranch() throws RemoteException {
+            return tool.GetInstance().GetBranchVerSion();
+        }
+
+        public int GetRadioIC() throws RemoteException {
+            return FtSet.GetRadioIc();
+        }
+
+        public int GetCanType() throws RemoteException {
+            return FtSet.GetCanTp();
+        }
+
+        public int GetCameraType() throws RemoteException {
+            return FtSet.GetCamType();
+        }
+
+        public void SendKey(int KeyCode) throws RemoteException {
+            Mcu.SetCkey(KeyCode);
+        }
+
+        public void KillProcess(String pname) throws RemoteException {
+            tool.GetInstance().killProcess(pname);
+        }
+
+        public void OpenMainUIApp(int nWin, int parat) throws RemoteException {
+            if (nWin > 0 && nWin <= 11) {
+                WinShow.GotoWin(nWin, parat);
+            }
+        }
+
+        public void CloseMainUIApp(int nWin) throws RemoteException {
+            if (nWin <= 0 || nWin >= 11) {
+                MainUI.GetInstance().BackToLauncher();
+                return;
+            }
+            TsFunctionService.this.sendBroadcast(new Intent("forfan.intent.action.CLOSEMEDIA"));
+        }
+
+        public String GetDeviceID() throws RemoteException {
+            if (AuthServer.GetInstance().GetIDType() <= 0) {
+                return null;
+            }
+            byte[] mcuid = new byte[14];
+            Mcu.GetSerialId(mcuid);
+            return CanIF.byte2String(mcuid);
         }
     }
 }

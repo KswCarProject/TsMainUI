@@ -78,7 +78,7 @@ public class CanCarACActivity extends CanBaseActivity {
                 }
             case 17:
                 if (CanFunc.IsHaveIco(26) != 0) {
-                    if (CanJni.GetSubType() != 6 && CanJni.GetSubType() != 8 && CanJni.GetSubType() != 14 && CanJni.GetSubType() != 15 && CanJni.GetSubType() != 16) {
+                    if (CanJni.GetSubType() != 6 && CanJni.GetSubType() != 8 && CanJni.GetSubType() != 14 && CanJni.GetSubType() != 15 && CanJni.GetSubType() != 16 && CanJni.GetSubType() != 17 && CanJni.GetSubType() != 18 && CanJni.GetSubType() != 19 && CanJni.GetSubType() != 20) {
                         if (CanJni.GetSubType() == 7 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11) {
                             enterSubWin(CanGs3AcActivity.class);
                             break;
@@ -90,7 +90,12 @@ public class CanCarACActivity extends CanBaseActivity {
                 }
                 break;
             case 26:
-                if (CanFunc.IsHaveIco(26) != 0) {
+                if (CanFunc.IsHaveIco(26) == 0 || (CanJni.GetSubType() != 3 && CanJni.GetSubType() != 6 && CanJni.GetSubType() != 7 && CanJni.GetSubType() != 11)) {
+                    if (CanFunc.IsHaveIco(26) != 0) {
+                        enterSubWin(CanBaseACActivity.class);
+                        break;
+                    }
+                } else {
                     enterSubWin(CanMGGSACActivity.class);
                     break;
                 }
@@ -114,7 +119,10 @@ public class CanCarACActivity extends CanBaseActivity {
             case 47:
                 if (CanFunc.IsHaveIco(26) != 0) {
                     if (CanJni.GetSubType() != 2 && CanJni.GetSubType() != 4) {
-                        if (CanJni.GetSubType() == 3) {
+                        if (CanJni.GetSubType() != 3) {
+                            enterSubWin(CanBaseACActivity.class);
+                            break;
+                        } else {
                             enterSubWin(CanD60RzcCarACActivity.class);
                             break;
                         }
@@ -141,17 +149,16 @@ public class CanCarACActivity extends CanBaseActivity {
                 }
                 break;
             case 57:
-                if (CanFunc.IsHaveIco(26) != 0 && (CanJni.GetSubType() == 1 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 6)) {
+                if (CanFunc.IsHaveIco(26) != 0) {
                     enterSubWin(CanTigger7AcActivity.class);
                     break;
                 }
+                break;
             case 60:
                 if (CanFunc.IsHaveIco(26) != 0) {
                     if (CanJni.GetSubType() != 2) {
-                        if (CanJni.GetSubType() == 3 || CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 6) {
-                            enterSubWin(CanBaseACActivity.class);
-                            break;
-                        }
+                        enterSubWin(CanBaseACActivity.class);
+                        break;
                     } else {
                         enterSubWin(CanZotyetX7ACActivity.class);
                         break;
@@ -236,12 +243,8 @@ public class CanCarACActivity extends CanBaseActivity {
                     }
                 }
                 break;
-            case 127:
-                if ((CanJni.GetSubType() == 1 || CanJni.GetSubType() == 2) && CanFunc.IsHaveIco(26) != 0) {
-                    enterSubWin(CanPSAACActivity.class);
-                    break;
-                }
             case 129:
+            case 310:
                 if (CanFunc.IsHaveIco(26) != 0) {
                     enterSubWin(CanTouaregCarACActivity.class);
                     break;

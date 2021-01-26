@@ -8,7 +8,7 @@ import java.lang.reflect.Type;
 public class TG implements T7 {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TG f149T = new TG();
+    public static final TG f152T = new TG();
 
     public <T> T T(Ty parser, Type clazz, Object fieldName) {
         Object value = parser.Tv();

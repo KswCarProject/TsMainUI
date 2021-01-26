@@ -110,17 +110,27 @@ public class CanCarDeviceActivity extends CanBaseActivity {
                 enterSubWin(CanCadillacAtsXhdExdActivity.class);
                 break;
             case 138:
-                enterSubWin(CanBmwWithCDExdActivity.class);
-                break;
+                if (CanJni.GetSubType() != 1) {
+                    enterSubWin(CanBmwWithCDExdActivity.class);
+                    break;
+                } else {
+                    enterSubWin(CanBaseCarDeviceActivity.class);
+                    break;
+                }
             case Can.CAN_BENC_ZMYT:
                 enterSubWin(CanBencWithCDExdActivity.class);
                 break;
-            case Can.CAN_AUDI_ZMYT:
+            case 152:
                 enterSubWin(CanAudiWithCDExdActivity.class);
                 break;
             case 162:
-                enterSub1Win(CanCarInfoSub1Activity.class, -1);
-                break;
+                if (CanJni.GetSubType() != 8) {
+                    enterSub1Win(CanCarInfoSub1Activity.class, -1);
+                    break;
+                } else {
+                    enterSubWin(CanBaseCarDeviceActivity.class);
+                    break;
+                }
             case 164:
                 CanFunc.showCanActivity(CanCarInfoSub1Activity.class, -1);
                 break;
@@ -149,6 +159,9 @@ public class CanCarDeviceActivity extends CanBaseActivity {
                 break;
             case 256:
                 CanFunc.showCanActivity(CanBaseCarDeviceActivity.class, -1);
+                break;
+            case 302:
+                CanFunc.showCanActivity(CanBaseCarDeviceActivity.class, -3);
                 break;
             default:
                 enterSubWin(CanBaseCarDeviceActivity.class);

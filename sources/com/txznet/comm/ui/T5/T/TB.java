@@ -14,7 +14,7 @@ public abstract class TB extends TM {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public String f431T;
+        public String f435T;
         public String T9;
         public int TZ;
         public int Tk;
@@ -43,7 +43,7 @@ public abstract class TB extends TM {
         this.Tn = new T();
         this.Tn.Tk = ((Integer) data.T("curPage", Integer.class, 0)).intValue();
         this.Tn.TZ = ((Integer) data.T("maxPage", Integer.class, 0)).intValue();
-        this.Tn.f431T = (String) data.T("prefix", String.class);
+        this.Tn.f435T = (String) data.T("prefix", String.class);
         this.Tn.Tn = (String) data.T("titlefix", String.class);
         this.Tn.T9 = (String) data.T("aftfix", String.class);
         this.Tn.Tr = (String) data.T("city", String.class);

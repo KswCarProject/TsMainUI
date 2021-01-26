@@ -27,7 +27,7 @@ public class CanKadjarSystemActivity extends CanScrollBaseActivity implements Vi
     public static final String TAG = "CanKadjarSystemActivity";
     protected static final int[] mLangArr = {R.string.lang_cn, R.string.lang_en_us, R.string.lang_Bulgarian, R.string.lang_arab, R.string.can_reserved, R.string.can_reserved, R.string.lang_Hrvatski, R.string.lang_Cesky, R.string.lang_dansk, R.string.lang_nederlands, R.string.lang_en_uk, R.string.lang_Eestlane, R.string.lang_suomi, R.string.lang_Belgian, R.string.lang_francais, R.string.lang_deutsch, R.string.lang_greek, R.string.lang_Israeli, R.string.lang_Magyar, R.string.lang_India, R.string.lang_Iran, R.string.lang_itanliano, R.string.lang_Japanese, R.string.can_reserved, R.string.lang_Austrian, R.string.lang_Lietuvis, R.string.lang_norsk, R.string.lang_polski, R.string.lang_portugues_br, R.string.lang_portugues, R.string.lang_Romagnio, R.string.lang_pyccknn, R.string.lang_Serbian, R.string.lang_Slovencina, R.string.lang_Slovensko, R.string.lang_espanol, R.string.lang_espanol_me, R.string.lang_svenska, R.string.can_reserved, R.string.lang_turkce, R.string.lang_Ykpaihcbka, R.string.can_yb_msg};
     protected static final String[] mYbColorArr = {"绿色", "红色", "蓝色", "紫色", "橙色"};
-    protected static final String[] mYbysArr = {MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS};
+    protected static final String[] mYbysArr = {"1", "2", "3", MainSet.SP_KS_QOROS};
     protected CanItemPopupList mItemLang;
     protected CanItemFsSetList mItemReset;
     protected CanItemPopupList mItemYbColor;

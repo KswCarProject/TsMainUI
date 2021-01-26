@@ -20,7 +20,7 @@ public interface T {
 
         public static C0001T[] Tn() {
             if (Tk == null) {
-                synchronized (Ty.f241T) {
+                synchronized (Ty.f244T) {
                     if (Tk == null) {
                         Tk = new C0001T[0];
                     }
@@ -38,7 +38,7 @@ public interface T {
             this.Ty = null;
             this.Tn = null;
             this.T9 = null;
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 

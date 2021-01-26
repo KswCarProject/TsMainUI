@@ -5,9 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class BtDatabaseHelper extends SQLiteOpenHelper {
-    private static final String CREATE_BONED_DEVICE = "create table boned_device(id integer primary key autoincrement, addr text, name text)";
-    private static final String CREATE_DIALLOG = "create table diallog(id integer primary key autoincrement, addr text, name text, num text , time text,type text,calltime integer)";
-    private static final String CREATE_PHONEBOOK = "create table phonebook(id integer primary key autoincrement, addr text, name text, num text, collect integer, pinyin text, first_name text, middle_name text, given_name text)";
+    public static final String CREATE_BONED_DEVICE = "create table boned_device(id integer primary key autoincrement, addr text, name text)";
+    public static final String CREATE_DIALLOG = "create table diallog(id integer primary key autoincrement, addr text, name text, num text , time text,type text,calltime integer)";
+    public static final String CREATE_PHONEBOOK = "create table phonebook(id integer primary key autoincrement, addr text, name text, num text, collect integer, pinyin text, first_name text, middle_name text, given_name text)";
     private Context mContext;
 
     public BtDatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {

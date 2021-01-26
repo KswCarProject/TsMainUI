@@ -1,6 +1,7 @@
 package com.ts.can.psa;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
@@ -44,7 +45,7 @@ public class CanPSACruiseSpeedActivity extends CanBaseActivity implements UserCa
         btn.setTag(Integer.valueOf(id));
         btn.setOnClickListener(this);
         btn.setStateUpDn(R.drawable.can_psa_yuan_up, R.drawable.can_psa_yuan_dn);
-        btn.setColorUpDn(-16777216, -1);
+        btn.setColorUpDn(ViewCompat.MEASURED_STATE_MASK, -1);
         btn.setTextSize(0, 45.0f);
         return btn;
     }

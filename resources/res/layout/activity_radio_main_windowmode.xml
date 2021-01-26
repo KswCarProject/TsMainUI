@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/rad_main_layout2" android:background="@drawable/radio_bg_s" android:layout_width="512px" android:layout_height="match_parent"/>

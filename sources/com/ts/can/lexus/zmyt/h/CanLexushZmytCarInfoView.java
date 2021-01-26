@@ -3,7 +3,6 @@ package com.ts.can.lexus.zmyt.h;
 import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.ts.MainUI.R;
 import com.ts.can.CanCarInfoSub1Activity;
 import com.ts.can.CanFunc;
@@ -60,7 +59,7 @@ public class CanLexushZmytCarInfoView extends CanScrollCarInfoView {
         } else {
             switch (id) {
                 case 0:
-                    this.nTouchTime = Can.CAN_JAC_REFINE_OD;
+                    this.nTouchTime = 150;
                     break;
                 case 1:
                     CanFunc.showCanActivity(CanCarInfoSub1Activity.class, id);

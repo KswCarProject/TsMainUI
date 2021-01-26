@@ -13,6 +13,7 @@ import com.ts.MainUI.R;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.canview.CanItemTextBtnList;
 import com.ts.canview.CanScrollList;
+import com.txznet.sdk.TXZResourceManager;
 import java.lang.reflect.Array;
 
 public class CanFordFiestaWcWarnInfoView extends CanRelativeCarInfoView {
@@ -44,7 +45,7 @@ public class CanFordFiestaWcWarnInfoView extends CanRelativeCarInfoView {
                     n = n3 + 1;
                     this.mTextArr[i][j] = warninfo[n3];
                 } else {
-                    this.mTextArr[i][j] = "";
+                    this.mTextArr[i][j] = TXZResourceManager.STYLE_DEFAULT;
                     n = n3;
                 }
                 j++;

@@ -5,19 +5,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import com.hongfans.carmedia.BuildConfig;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.T;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZService;
-import com.txznet.sdk.tongting.IConstantData;
 import org.json.JSONObject;
 
 /* compiled from: Proguard */
 public class TXZSysManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static TXZSysManager f822T;
+    private static TXZSysManager f826T;
     /* access modifiers changed from: private */
     public WakeLockTool T5 = null;
     private byte[] T6;
@@ -112,14 +111,14 @@ public class TXZSysManager {
     }
 
     public static TXZSysManager getInstance() {
-        if (f822T == null) {
+        if (f826T == null) {
             synchronized (TXZSysManager.class) {
-                if (f822T == null) {
-                    f822T = new TXZSysManager();
+                if (f826T == null) {
+                    f826T = new TXZSysManager();
                 }
             }
         }
-        return f822T;
+        return f826T;
     }
 
     /* access modifiers changed from: package-private */
@@ -192,13 +191,13 @@ public class TXZSysManager {
             public byte[] T(String packageName, String command, byte[] data) {
                 if (command.equals("decVolume")) {
                     if (data != null && data.length > 0) {
-                        return (TXZSysManager.this.T9.decVolume(((Integer) new Tr(data).T(IConstantData.KEY_DATA, Integer.class, 0)).intValue()) + "").getBytes();
+                        return (TXZSysManager.this.T9.decVolume(((Integer) new Tr(data).T("data", Integer.class, 0)).intValue()) + TXZResourceManager.STYLE_DEFAULT).getBytes();
                     }
                     TXZSysManager.this.T9.decVolume();
                     return data;
                 } else if (command.equals("incVolume")) {
                     if (data != null && data.length > 0) {
-                        return (TXZSysManager.this.T9.incVolume(((Integer) new Tr(data).T(IConstantData.KEY_DATA, Integer.class, 0)).intValue()) + "").getBytes();
+                        return (TXZSysManager.this.T9.incVolume(((Integer) new Tr(data).T("data", Integer.class, 0)).intValue()) + TXZResourceManager.STYLE_DEFAULT).getBytes();
                     }
                     TXZSysManager.this.T9.incVolume();
                     return data;
@@ -209,10 +208,10 @@ public class TXZSysManager {
                     TXZSysManager.this.T9.minVolume();
                     return data;
                 } else if (command.equals("isMaxVolume")) {
-                    return (TXZSysManager.this.T9.isMaxVolume() + "").getBytes();
+                    return (TXZSysManager.this.T9.isMaxVolume() + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 } else {
                     if (command.equals("isMinVolume")) {
-                        return (TXZSysManager.this.T9.isMinVolume() + "").getBytes();
+                        return (TXZSysManager.this.T9.isMinVolume() + TXZResourceManager.STYLE_DEFAULT).getBytes();
                     }
                     if (command.equals("mute")) {
                         try {
@@ -224,7 +223,7 @@ public class TXZSysManager {
                     } else if (!command.equals("setVolume") || data == null || data.length <= 0) {
                         return data;
                     } else {
-                        return (TXZSysManager.this.T9.setVolume(((Integer) new Tr(data).T(IConstantData.KEY_DATA, Integer.class, 0)).intValue()) + "").getBytes();
+                        return (TXZSysManager.this.T9.setVolume(((Integer) new Tr(data).T("data", Integer.class, 0)).intValue()) + TXZResourceManager.STYLE_DEFAULT).getBytes();
                     }
                 }
             }
@@ -266,12 +265,12 @@ public class TXZSysManager {
             public byte[] T(String packageName, String command, byte[] data) {
                 if (command.equals("acquire")) {
                     TXZSysManager.this.T5.acquire();
-                    return "true".getBytes();
-                } else if (!command.equals(BuildConfig.BUILD_TYPE)) {
+                    return SdkConstants.VALUE_TRUE.getBytes();
+                } else if (!command.equals("release")) {
                     return null;
                 } else {
                     TXZSysManager.this.T5.release();
-                    return "true".getBytes();
+                    return SdkConstants.VALUE_TRUE.getBytes();
                 }
             }
         });
@@ -293,20 +292,20 @@ public class TXZSysManager {
                 new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
 
                     /* renamed from: T  reason: collision with root package name */
-                    int f829T = 0;
+                    int f833T = 0;
 
                     public void run() {
                         if (TXZSysManager.Tr(T.Tr(), packageName)) {
                             try {
-                                this.f829T++;
-                                ((ActivityManager) T.Tr().getSystemService("activity")).killBackgroundProcesses(packageName);
+                                this.f833T++;
+                                ((ActivityManager) T.Tr().getSystemService(SdkConstants.TAG_ACTIVITY)).killBackgroundProcesses(packageName);
                             } catch (Exception e) {
                             }
-                            if (this.f829T < 50) {
+                            if (this.f833T < 50) {
                                 new Handler(Looper.getMainLooper()).postDelayed(this, 0);
                             }
-                        } else if (this.f829T > 0) {
-                            this.f829T = 0;
+                        } else if (this.f833T > 0) {
+                            this.f833T = 0;
                             new Handler(Looper.getMainLooper()).postDelayed(this, 2000);
                         }
                     }
@@ -318,7 +317,7 @@ public class TXZSysManager {
     /* access modifiers changed from: private */
     public static boolean Tr(Context context, String packageName) {
         try {
-            for (ActivityManager.RunningAppProcessInfo rapi : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+            for (ActivityManager.RunningAppProcessInfo rapi : ((ActivityManager) context.getSystemService(SdkConstants.TAG_ACTIVITY)).getRunningAppProcesses()) {
                 if (rapi.processName.equals(packageName)) {
                     return true;
                 }
@@ -419,10 +418,10 @@ public class TXZSysManager {
                     TXZSysManager.this.Tj.minLight();
                     return data;
                 } else if (command.equals("isMaxLight")) {
-                    return (TXZSysManager.this.Tj.isMaxLight() + "").getBytes();
+                    return (TXZSysManager.this.Tj.isMaxLight() + TXZResourceManager.STYLE_DEFAULT).getBytes();
                 } else {
                     if (command.equals("isMinLight")) {
-                        return (TXZSysManager.this.Tj.isMinLight() + "").getBytes();
+                        return (TXZSysManager.this.Tj.isMinLight() + TXZResourceManager.STYLE_DEFAULT).getBytes();
                     }
                     return data;
                 }

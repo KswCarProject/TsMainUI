@@ -13,7 +13,7 @@ import java.util.Date;
 public class Tu implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final Tu f232T = new Tu();
+    public static final Tu f235T = new Tu();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         char[] buf;
@@ -83,7 +83,7 @@ public class Tu implements Trh {
             out.T(((Date) object).getTime(), ')');
         } else {
             out.T('{');
-            out.Tr(T.f128T);
+            out.Tr(T.f131T);
             serializer.T(object.getClass().getName());
             out.T(',');
             out.Tr("val");

@@ -12,6 +12,7 @@ import com.ts.can.CanCameraUI;
 import com.ts.canview.CanVerticalBar;
 import com.ts.main.common.MainSet;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanMzdCx4CarOilActivity extends CanMzdCx4BaseActivity {
@@ -111,7 +112,7 @@ public class CanMzdCx4CarOilActivity extends CanMzdCx4BaseActivity {
             if (avgOils[i] > 0) {
                 this.mTvAveValue[(this.mTvAveValue.length - 1) - i].setText(String.format("%.1f", new Object[]{Float.valueOf(((float) avgOils[i]) * 0.1f)}));
             } else {
-                this.mTvAveValue[(this.mTvAveValue.length - 1) - i].setText("");
+                this.mTvAveValue[(this.mTvAveValue.length - 1) - i].setText(TXZResourceManager.STYLE_DEFAULT);
             }
         }
     }
@@ -119,7 +120,7 @@ public class CanMzdCx4CarOilActivity extends CanMzdCx4BaseActivity {
     private void showAvgOilIcons(int[] avgOils) {
         for (int i = 0; i < this.mIvAveOils.length; i++) {
             if (avgOils[i] > 150) {
-                this.mIvAveOils[(this.mIvAveOils.length - 1) - i].setCurPos(Can.CAN_JAC_REFINE_OD);
+                this.mIvAveOils[(this.mIvAveOils.length - 1) - i].setCurPos(150);
             } else {
                 this.mIvAveOils[(this.mIvAveOils.length - 1) - i].setCurPos(avgOils[i]);
             }
@@ -129,7 +130,7 @@ public class CanMzdCx4CarOilActivity extends CanMzdCx4BaseActivity {
     private void showMinOilIcons(int[] minOils) {
         for (int i = 0; i < this.mIvMinOils.length; i++) {
             if (minOils[i] > 150) {
-                this.mIvMinOils[i].setCurPos(Can.CAN_JAC_REFINE_OD);
+                this.mIvMinOils[i].setCurPos(150);
             } else {
                 this.mIvMinOils[i].setCurPos(minOils[i]);
             }

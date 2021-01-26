@@ -31,18 +31,18 @@ public class ChineseToPinyinHelper {
             r6 = 1
             r0 = 0
             java.lang.String r5 = "gb2312"
-            byte[] r1 = r9.getBytes(r5)     // Catch:{ Exception -> 0x0019 }
-            if (r1 == 0) goto L_0x0011
-            int r5 = r1.length     // Catch:{ Exception -> 0x0019 }
-            if (r5 > r7) goto L_0x0011
-            int r5 = r1.length     // Catch:{ Exception -> 0x0019 }
-            if (r5 > 0) goto L_0x002f
-        L_0x0011:
-            java.lang.RuntimeException r5 = new java.lang.RuntimeException     // Catch:{ Exception -> 0x0019 }
+            byte[] r1 = r9.getBytes(r5)     // Catch:{ Exception -> 0x001b }
+            if (r1 == 0) goto L_0x0012
+            int r5 = r1.length     // Catch:{ Exception -> 0x001b }
+            if (r5 > r7) goto L_0x0012
+            int r5 = r1.length     // Catch:{ Exception -> 0x001b }
+            if (r5 > 0) goto L_0x0032
+        L_0x0012:
+            java.lang.RuntimeException r5 = new java.lang.RuntimeException     // Catch:{ Exception -> 0x001b }
             java.lang.String r6 = "illegal resource string"
-            r5.<init>(r6)     // Catch:{ Exception -> 0x0019 }
-            throw r5     // Catch:{ Exception -> 0x0019 }
-        L_0x0019:
+            r5.<init>(r6)     // Catch:{ Exception -> 0x001b }
+            throw r5     // Catch:{ Exception -> 0x001b }
+        L_0x001b:
             r2 = move-exception
             java.io.PrintStream r5 = java.lang.System.out
             java.lang.StringBuilder r6 = new java.lang.StringBuilder
@@ -51,27 +51,27 @@ public class ChineseToPinyinHelper {
             java.lang.StringBuilder r6 = r6.append(r2)
             java.lang.String r6 = r6.toString()
             r5.println(r6)
-        L_0x002e:
+        L_0x0031:
             return r0
-        L_0x002f:
-            int r5 = r1.length     // Catch:{ Exception -> 0x0019 }
-            if (r5 != r6) goto L_0x0035
+        L_0x0032:
+            int r5 = r1.length     // Catch:{ Exception -> 0x001b }
+            if (r5 != r6) goto L_0x0038
             r5 = 0
-            byte r0 = r1[r5]     // Catch:{ Exception -> 0x0019 }
-        L_0x0035:
-            int r5 = r1.length     // Catch:{ Exception -> 0x0019 }
-            if (r5 != r7) goto L_0x002e
+            byte r0 = r1[r5]     // Catch:{ Exception -> 0x001b }
+        L_0x0038:
+            int r5 = r1.length     // Catch:{ Exception -> 0x001b }
+            if (r5 != r7) goto L_0x0031
             r5 = 0
-            byte r5 = r1[r5]     // Catch:{ Exception -> 0x0019 }
+            byte r5 = r1[r5]     // Catch:{ Exception -> 0x001b }
             int r3 = r5 + 256
             r5 = 1
-            byte r5 = r1[r5]     // Catch:{ Exception -> 0x0019 }
+            byte r5 = r1[r5]     // Catch:{ Exception -> 0x001b }
             int r4 = r5 + 256
             int r5 = r3 * 256
             int r5 = r5 + r4
             r6 = 65536(0x10000, float:9.18355E-41)
             int r0 = r5 - r6
-            goto L_0x002e
+            goto L_0x0031
         */
         throw new UnsupportedOperationException("Method not decompiled: com.ts.bt.ChineseToPinyinHelper.getChsAscii(java.lang.String):int");
     }

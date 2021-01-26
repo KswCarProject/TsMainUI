@@ -12,6 +12,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanChryslerWcACView extends CanBaseACView {
@@ -72,6 +73,10 @@ public class CanChryslerWcACView extends CanBaseACView {
         if (action == 0) {
             switch (Id) {
                 case 1:
+                    if (CanJni.GetSubType() == 4) {
+                        ACSet(30);
+                        return false;
+                    }
                     ACSet(21);
                     return false;
                 case 2:
@@ -96,15 +101,31 @@ public class CanChryslerWcACView extends CanBaseACView {
                     ACSet(14);
                     return false;
                 case 9:
+                    if (CanJni.GetSubType() == 4) {
+                        ACSet(26);
+                        return false;
+                    }
                     ACSet(9);
                     return false;
                 case 10:
+                    if (CanJni.GetSubType() == 4) {
+                        ACSet(27);
+                        return false;
+                    }
                     ACSet(24);
                     return false;
                 case 11:
+                    if (CanJni.GetSubType() == 4) {
+                        ACSet(29);
+                        return false;
+                    }
                     ACSet(10);
                     return false;
                 case 12:
+                    if (CanJni.GetSubType() == 4) {
+                        ACSet(28);
+                        return false;
+                    }
                     ACSet(23);
                     return false;
                 case 13:
@@ -139,6 +160,10 @@ public class CanChryslerWcACView extends CanBaseACView {
         } else {
             switch (Id) {
                 case 1:
+                    if (CanJni.GetSubType() == 4) {
+                        ACUPSet(30);
+                        return false;
+                    }
                     ACUPSet(21);
                     return false;
                 case 2:
@@ -163,15 +188,31 @@ public class CanChryslerWcACView extends CanBaseACView {
                     ACUPSet(14);
                     return false;
                 case 9:
+                    if (CanJni.GetSubType() == 4) {
+                        ACUPSet(26);
+                        return false;
+                    }
                     ACUPSet(9);
                     return false;
                 case 10:
+                    if (CanJni.GetSubType() == 4) {
+                        ACUPSet(27);
+                        return false;
+                    }
                     ACUPSet(24);
                     return false;
                 case 11:
+                    if (CanJni.GetSubType() == 4) {
+                        ACUPSet(29);
+                        return false;
+                    }
                     ACUPSet(10);
                     return false;
                 case 12:
+                    if (CanJni.GetSubType() == 4) {
+                        ACUPSet(28);
+                        return false;
+                    }
                     ACUPSet(23);
                     return false;
                 case 13:
@@ -242,12 +283,12 @@ public class CanChryslerWcACView extends CanBaseACView {
         this.mBtnRtTempDec = AddBtn(14, 890, KeyDef.RKEY_res1, R.drawable.can_jeep_ac_leng_up, R.drawable.can_jeep_ac_leng_dn);
         this.mBtnRtTempInc = AddBtn(13, 890, 124, R.drawable.can_jeep_ac_re_up, R.drawable.can_jeep_ac_re_dn);
         this.mTvRtTemp = AddTemp(889, Can.CAN_FORD_SYNC3, 95, 51);
-        this.mBtnWdPx = AddBtn(9, 241, 144, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
+        this.mBtnWdPx = AddBtn(9, Can.CAN_SITECHDEV_CW, 144, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
         this.mBtnWdPxDn = AddBtn(10, 388, 144, R.drawable.can_jeep_ac_02_up, R.drawable.can_jeep_ac_02_dn);
         this.mBtnWdDn = AddBtn(11, 536, 144, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
         this.mBtnWdUpDn = AddBtn(12, 683, 144, R.drawable.can_jeep_ac_04_up, R.drawable.can_jeep_ac_04_dn);
-        this.mBtnLtHot = AddBtn(15, 241, KeyDef.RKEY_FR, R.drawable.can_jeep_ac_lchair_up, R.drawable.can_jeep_ac_lchair_dn);
-        this.mBtnRtHot = AddBtn(16, 536, KeyDef.RKEY_FR, R.drawable.can_jeep_ac_rchair_up, R.drawable.can_jeep_ac_rchair_dn);
+        this.mBtnLtHot = AddBtn(15, Can.CAN_SITECHDEV_CW, 294, R.drawable.can_jeep_ac_lchair_up, R.drawable.can_jeep_ac_lchair_dn);
+        this.mBtnRtHot = AddBtn(16, 536, 294, R.drawable.can_jeep_ac_rchair_up, R.drawable.can_jeep_ac_rchair_dn);
         this.mBtnLtHot.setPadding(0, 0, 162, 0);
         this.mBtnLtHot.setTextSize(0, 30.0f);
         this.mBtnLtHot.setGravity(21);
@@ -357,7 +398,7 @@ public class CanChryslerWcACView extends CanBaseACView {
         this.mBtnSync.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
             return;
         }

@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class Ts extends TB {
 
     /* renamed from: T  reason: collision with root package name */
-    private ArrayList<T> f454T = new ArrayList<>();
+    private ArrayList<T> f458T = new ArrayList<>();
 
     /* compiled from: Proguard */
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public String f455T;
+        public String f459T;
         public String Tr;
     }
 
@@ -22,18 +22,18 @@ public class Ts extends TB {
     }
 
     public ArrayList<T> T() {
-        return this.f454T;
+        return this.f458T;
     }
 
     public void T(Tr data) {
-        this.f454T.clear();
+        this.f458T.clear();
         String[] beans = (String[]) data.T("beans", String[].class);
         for (String val : beans) {
             String[] vals = val.split(":");
             T object = new T();
             object.Tr = vals[0];
-            object.f455T = vals[1];
-            this.f454T.add(object);
+            object.f459T = vals[1];
+            this.f458T.add(object);
         }
     }
 }

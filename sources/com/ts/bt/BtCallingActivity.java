@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
+import com.txznet.sdk.TXZResourceManager;
 
 public class BtCallingActivity extends BtBaseActivity implements View.OnClickListener, UserCallBack {
     public static final int BT_ACTIVITY_ID = 3;
@@ -68,7 +69,7 @@ public class BtCallingActivity extends BtBaseActivity implements View.OnClickLis
         this.mOldSta = 0;
         this.mStrOldNo = BtExe.UNKOWN_PHONE_NUMBER;
         this.mbHold = false;
-        this.mStrOldCallName = "";
+        this.mStrOldCallName = TXZResourceManager.STYLE_DEFAULT;
     }
 
     /* access modifiers changed from: package-private */
@@ -93,7 +94,7 @@ public class BtCallingActivity extends BtBaseActivity implements View.OnClickLis
                     this.mStrSta = String.format("%s, %02d:%02d:%02d", new Object[]{res.getString(R.string.str_bt_call_active), Long.valueOf(BtExe.mActiveSecond / 3600), Long.valueOf((BtExe.mActiveSecond / 60) % 60), Long.valueOf(BtExe.mActiveSecond % 60)});
                     break;
                 default:
-                    this.mStrSta = "";
+                    this.mStrSta = TXZResourceManager.STYLE_DEFAULT;
                     break;
             }
             if (!this.mbHold) {
@@ -116,7 +117,7 @@ public class BtCallingActivity extends BtBaseActivity implements View.OnClickLis
             }
         } else if (!this.mbHold) {
             Log.e(TAG, "Hold不住啦，消灭窗口是也");
-            mBaseStrDialNo = "";
+            mBaseStrDialNo = TXZResourceManager.STYLE_DEFAULT;
             finish();
             resetBaseActivity();
         } else if (BtExe.getTickCount() > this.mHoldBegin + 4000) {

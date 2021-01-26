@@ -76,9 +76,7 @@ public class RelativeLayoutManager {
 
     public CustomImgView AddImageEx(int x, int y, int w, int h, int resId) {
         CustomImgView img = new CustomImgView(this.mContext);
-        if (resId != 0) {
-            img.setImageResource(resId);
-        }
+        img.setImageResource(resId);
         AddView(img, x, y, w, h);
         return img;
     }

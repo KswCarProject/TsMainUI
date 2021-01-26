@@ -22,11 +22,12 @@ import com.yyw.ts70xhw.Mcu;
 
 public class CanGeelyCarTypeActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
     public static final int ITEM_AVM = 5;
-    public static final int ITEM_CAR_INFO = 3;
+    public static final int ITEM_CAR_INFO = 7;
     public static final int ITEM_CAR_SET = 2;
-    private static final int ITEM_MAX = 6;
+    private static final int ITEM_MAX = 7;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_MIX = 6;
+    public static final int ITEM_PM25 = 3;
     public static final int ITEM_TPMS = 4;
     public static final int ITEM_TYPE = 1;
     public static final String TAG = "CanGeelyCarTypeActivity";
@@ -35,6 +36,7 @@ public class CanGeelyCarTypeActivity extends CanBaseActivity implements View.OnC
     private CanItemTextBtnList mItemCarSet;
     private CanItemCarType mItemCarType;
     private CanItemTextBtnList mItemMix;
+    private CanItemTextBtnList mItemPM25;
     private CanItemTextBtnList mItemTpms;
     private CanScrollList mManager;
     private String[] mTypeArr;
@@ -79,15 +81,16 @@ public class CanGeelyCarTypeActivity extends CanBaseActivity implements View.OnC
         this.mItemCarType = new CanItemCarType((Context) this, R.string.can_car_type_select, this.mTypeArr, 1, (CanItemPopupList.onPopItemClick) this);
         this.mManager.AddView(this.mItemCarType.GetView());
         this.mItemCarSet = AddTextBtn(R.string.can_car_set, 2);
-        this.mItemCarInfo = AddTextBtn(R.string.can_car_info, 3);
+        this.mItemPM25 = AddTextBtn(R.string.can_pm_25, 3);
         this.mItemTpms = AddTextBtn(R.string.can_tmps, 4);
         this.mItemAvm = AddTextBtn(R.string.can_honda_qjyxxtsz, 5);
         this.mItemMix = AddTextBtn(R.string.can_car_set, 6);
+        this.mItemCarInfo = AddTextBtn(R.string.can_car_info, 7);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 7; i++) {
             ShowItem(i);
         }
     }
@@ -97,25 +100,24 @@ public class CanGeelyCarTypeActivity extends CanBaseActivity implements View.OnC
         int ret = 0;
         switch (item) {
             case 1:
+            case 7:
                 ret = 1;
                 break;
             case 2:
-                if (2 == CanJni.GetSubType() || 5 == CanJni.GetSubType() || 1 == CanJni.GetSubType() || 3 == CanJni.GetSubType() || 4 == CanJni.GetSubType() || 9 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 11 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 14 == CanJni.GetSubType()) {
+                if (2 == CanJni.GetSubType() || 5 == CanJni.GetSubType() || 1 == CanJni.GetSubType() || 3 == CanJni.GetSubType() || 4 == CanJni.GetSubType() || 9 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 11 == CanJni.GetSubType() || 12 == CanJni.GetSubType() || 14 == CanJni.GetSubType() || 15 == CanJni.GetSubType() || 16 == CanJni.GetSubType() || 17 == CanJni.GetSubType() || 18 == CanJni.GetSubType() || 19 == CanJni.GetSubType() || 20 == CanJni.GetSubType() || 22 == CanJni.GetSubType() || 23 == CanJni.GetSubType()) {
                     ret = 1;
                     break;
                 }
             case 3:
-                if (4 == CanJni.GetSubType()) {
+                if (4 == CanJni.GetSubType() || 16 == CanJni.GetSubType()) {
                     ret = 1;
                     break;
                 }
-                break;
             case 4:
-                if (6 == CanJni.GetSubType()) {
+                if (6 == CanJni.GetSubType() || 17 == CanJni.GetSubType()) {
                     ret = 1;
                     break;
                 }
-                break;
             case 5:
                 if (10 == CanJni.GetSubType()) {
                     ret = 1;
@@ -140,7 +142,7 @@ public class CanGeelyCarTypeActivity extends CanBaseActivity implements View.OnC
                 this.mItemCarSet.ShowGone(show);
                 return;
             case 3:
-                this.mItemCarInfo.ShowGone(show);
+                this.mItemPM25.ShowGone(show);
                 return;
             case 4:
                 this.mItemTpms.ShowGone(show);
@@ -150,6 +152,9 @@ public class CanGeelyCarTypeActivity extends CanBaseActivity implements View.OnC
                 return;
             case 6:
                 this.mItemMix.ShowGone(show);
+                return;
+            case 7:
+                this.mItemCarInfo.ShowGone(show);
                 return;
             default:
                 return;
@@ -189,6 +194,9 @@ public class CanGeelyCarTypeActivity extends CanBaseActivity implements View.OnC
                 return;
             case 6:
                 CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 3);
+                return;
+            case 7:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 4);
                 return;
             default:
                 return;

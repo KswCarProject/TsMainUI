@@ -1,249 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="str_fs_rev_volarr">
-        <item>No</item>
-        <item>Weak</item>
-        <item>Mid</item>
-        <item>Strong</item>
+    <array name="google_open_radio">
+        <item>open radio</item>
+        <item>turn on radio</item>
+        <item>listen to radio</item>
+        <item>play radio</item>
+        <item>open the radio</item>
+        <item>play the radio</item>
     </array>
-    <array name="str_fsrad_zonearray">
-        <item>Asia</item>
-        <item>Europ</item>
-        <item>USA1</item>
-        <item>USA2</item>
-        <item>Brazil</item>
-        <item>Japan</item>
-        <item>Brazil2</item>
-        <item>Japan2</item>
-        <item>Brazil3</item>
+    <array name="google_close_radio">
+        <item>close radio</item>
+        <item>close the radio</item>
     </array>
-    <array name="str_fsdoor_title">
-        <item>Swap F-Door</item>
-        <item>Swap R-Door</item>
-        <item>Trunk</item>
-        <item>Hood</item>
-        <item>∧∨ Key</item>
-        <item>Inside Temp</item>
-        <item>Temp Unit</item>
-        <item>AVM Icon</item>
-        <item>Outside Temp</item>
-        <item>P Radar</item>
+    <array name="google_open_music">
+        <item>turn on music</item>
+        <item>listen to music</item>
+        <item>open music</item>
+        <item>play music</item>
+        <item>open the music</item>
+        <item>play the music</item>
+        <item>open some music</item>
+        <item>play some music</item>
+        <item>open audio</item>
+        <item>play audio</item>
+        <item>open the audio</item>
+        <item>play the audio</item>
     </array>
-    <array name="str_fsother_title">
-        <item>LCM type</item>
-        <item>Brake</item>
-        <item>Ext UART</item>
-        <item>DVR type</item>
-        <item>DTV type</item>
-        <item>Capacitive scr.</item>
-        <item>Park mute</item>
-        <item>Camera detect</item>
-        <item>Camera mirror</item>
-        <item>Auto NAVI</item>
-        <item>Color light</item>
-        <item>Logo option</item>
-        <item>SWC option</item>
-        <item>Boot warn</item>
-        <item>Last memory</item>
-        <item>USB1 speed</item>
-        <item>USB2 speed</item>
-        <item>USB2 Debug</item>
-        <item>Ecd swap</item>
-        <item>Debug output</item>
-        <item>Video out</item>
-        <item>BT name</item>
-        <item>SD swap</item>
-        <item>GPS mode</item>
+    <array name="google_close_music">
+        <item>close music</item>
+        <item>close the music</item>
+        <item>close audio</item>
+        <item>close the audio</item>
     </array>
-    <array name="str_fsother_arrayoff">
-        <item>Not detect</item>
-        <item>Normal</item>
-        <item>Off</item>
-        <item>Disable</item>
-        <item>Disable</item>
-        <item>Disable</item>
-        <item>Disable</item>
-        <item>Unremember</item>
-        <item>high</item>
-        <item>high</item>
-        <item>Off</item>
-        <item>Not swap</item>
-        <item>Off</item>
-        <item>NTSC</item>
-        <item>BT name</item>
-        <item>Not swap</item>
-        <item>GPS+BD</item>
+    <array name="google_open_video">
+        <item>open video</item>
+        <item>play video</item>
+        <item>open the video</item>
+        <item>play the video</item>
     </array>
-    <array name="str_fsother_arrayon">
-        <item>Detect</item>
-        <item>Mirror</item>
-        <item>On</item>
-        <item>Enable</item>
-        <item>Enable</item>
-        <item>Enable</item>
-        <item>Enable</item>
-        <item>Remember</item>
-        <item>low</item>
-        <item>low</item>
-        <item>Enable</item>
-        <item>Swap</item>
-        <item>Enable</item>
-        <item>PAL</item>
-        <item>BT name</item>
-        <item>Swap</item>
-        <item>GPS+GNS</item>
+    <array name="google_close_video">
+        <item>close video</item>
+        <item>close the video</item>
     </array>
-    <array name="str_fsother_arraylcmstype">
-        <item>10-IPS</item>
-        <item>7-IPS</item>
-        <item>9-IPS</item>
-        <item>LVDS</item>
+    <array name="google_open_bt">
+        <item>open bt</item>
+        <item>play bt</item>
+        <item>open the bt</item>
+        <item>play the bt</item>
+        <item>open bluetooth</item>
+        <item>play bluetooth</item>
+        <item>open the bluetooth</item>
+        <item>play the bluetooth</item>
     </array>
-    <array name="str_fsother_arraybrake">
-        <item>User off</item>
-        <item>Force off</item>
-        <item>Force on</item>
-        <item>User on</item>
+    <array name="google_open_navi">
+        <item>open navigation</item>
+        <item>open the navigation</item>
+        <item>open map</item>
+        <item>open the map</item>
     </array>
-    <array name="str_fsother_arrparkmute">
-        <item>No</item>
-        <item>Weak</item>
-        <item>Mid</item>
-        <item>Strong</item>
-    </array>
-    <array name="menu_ico_arr">
-        <item>NAVI</item>
-        <item>Radio</item>
-        <item>DVD</item>
-        <item>Ext DVD</item>
-        <item>Video</item>
-        <item>Audio</item>
-        <item>BT Music</item>
-        <item>CMMB</item>
-        <item>ATV</item>
-        <item>AVIN</item>
-        <item>OBD</item>
-        <item>IPOD</item>
-        <item>POD</item>
-        <item>VMCD</item>
-        <item>Car Device</item>
-        <item>Car Radio</item>
-        <item>360 View</item>
-        <item>Bluetooth</item>
-        <item>Setup</item>
-        <item>OnStar</item>
-        <item>SYNC</item>
-        <item>Car Info</item>
-        <item>TPMS</item>
-        <item>DVR</item>
-        <item>F-Camera</item>
-        <item>Air Condition</item>
-        <item>DSP</item>
-        <item>Phone</item>
-        <item>BT SWC</item>
-        <item>Carplay</item>
-    </array>
-    <array name="can_type_array">
-        <item>NULL</item>
-        <item>Volkswagen</item>
-        <item>VW(MQB System)</item>
-        <item>Toyota</item>
-        <item>Civic、CRV2012</item>
-        <item>Honda DA System</item>
-        <item>Nissan</item>
-        <item>Prado 2014</item>
-        <item>GM</item>
-        <item>Accord 9</item>
-        <item>Sail 3</item>
-        <item>PSA</item>
-        <item>TS</item>
-        <item>Ford</item>
-        <item>Hyundai</item>
-        <item>Chrysler</item>
-        <item>Baojun</item>
-        <item>Trumpchi</item>
-        <item>Roewe 550</item>
-        <item>Roewe(RZ)</item>
-        <item>Crosstour 2014</item>
-        <item>Old MZD, Opel</item>
-        <item>B70 2011</item>
-        <item>B70 2014</item>
-        <item>X80</item>
-        <item>Roewe 950</item>
-        <item>MG GS 15</item>
-        <item>Refine S2,S3</item>
-        <item>Jiangling</item>
-        <item>Cherokee 2016</item>
-        <item>ZTY 100</item>
-    </array>
-    <array name="fs_vol_item_arr">
-        <item>Radio</item>
-        <item>DISC</item>
-        <item>USB</item>
-        <item>SD</item>
-        <item>BT Music</item>
-        <item>CMMB</item>
-        <item>ATV</item>
-        <item>AUX1</item>
-        <item>AUX2</item>
-        <item>IPOD</item>
-        <item>VMCD</item>
-        <item>Car Audio</item>
-        <item>Navi default</item>
-        <item>Phone default</item>
-        <item>Boot max vol</item>
-        <item>BT mic gain</item>
-        <item>BT Vol</item>
-    </array>
-    <array name="tpms_general_mode">
-        <item>Alarm off</item>
-        <item>Alarm once</item>
-        <item>Alarm always</item>
-    </array>
-    <array name="tpms_general_disp">
-        <item>TEMP Unit</item>
-        <item>Pressure Unit</item>
-        <item>MAX TEMP</item>
-        <item>MAX Pressure</item>
-        <item>MIN Pressure</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>Flat Tire</item>
-        <item>Low Voltage</item>
-        <item>No Signal</item>
-        <item>Low Pressure</item>
-        <item>High Pressure</item>
-        <item>Start study</item>
-        <item>studying</item>
-    </array>
-    <array name="ctouch_general">
-        <item>Power</item>
-        <item>Home</item>
-        <item>Back</item>
-        <item>Vol+</item>
-        <item>Vol-</item>
-        <item>Navi</item>
-        <item>Answer</item>
-        <item>Hang</item>
-        <item>Prev</item>
-        <item>Next</item>
-        <item>Eject</item>
-        <item>Search</item>
-        <item>Mode</item>
-        <item>Mute</item>
-        <item>Stop</item>
-        <item>Pause</item>
-        <item>Radio</item>
-        <item>DVD</item>
-        <item>MUSIC</item>
-        <item>APP</item>
-        <item>Brightness</item>
-        <item>P/MUTE</item>
-        <item>Clear</item>
+    <array name="google_dial_phone">
+        <item>call</item>
+        <item>dial</item>
     </array>
     <array name="txz_sdk_init_wakeup_keywords">
         <item>你好美芯</item>
         <item>美芯你好</item>
+    </array>
+    <array name="txz_sdk_init2_wakeup_keywords">
+        <item>你好小腾</item>
+        <item>小腾你好</item>
     </array>
     <array name="open_radio">
         <item>打开收音机</item>
@@ -269,11 +94,6 @@
     </array>
     <array name="open_bt">
         <item>打开蓝牙</item>
-        <item>播放蓝牙</item>
-        <item>打电话</item>
-        <item>电话</item>
-        <item>蓝牙</item>
-        <item>开启蓝牙</item>
         <item>启动蓝牙</item>
     </array>
     <array name="close_bt">
@@ -283,8 +103,6 @@
     <array name="open_cmmb">
         <item>打开数字电视</item>
         <item>打开数位电视</item>
-        <item>数字电视</item>
-        <item>电视</item>
     </array>
     <array name="close_cmmb">
         <item>关闭数字电视</item>
@@ -300,60 +118,31 @@
     <array name="close_audio">
         <item>关闭音乐</item>
         <item>退出音乐</item>
-        <item>关闭歌曲</item>
-        <item>退出歌曲</item>
-        <item>关闭酷我音乐</item>
-        <item>退出酷我音乐</item>
-        <item>关闭滴滴音乐</item>
-        <item>退出滴滴音乐</item>
     </array>
     <array name="open_video">
         <item>打开视频</item>
         <item>播放视频</item>
-        <item>看视频</item>
-        <item>视频</item>
-        <item>打开视频播放器</item>
-        <item>启动视频播放器</item>
-        <item>启动视频</item>
-        <item>开始视频</item>
     </array>
     <array name="close_video">
         <item>关闭视频</item>
         <item>退出视频</item>
-        <item>关闭视频播放器</item>
-        <item>退出视频播放器</item>
     </array>
     <array name="open_dvd">
         <item>打开DVD</item>
         <item>打开光碟</item>
         <item>打开光盘</item>
-        <item>打开dvd</item>
-        <item>播放DVD</item>
-        <item>播放光碟</item>
-        <item>播放光盘</item>
-        <item>播放dvd</item>
-        <item>看DVD</item>
-        <item>看光碟</item>
-        <item>看光盘</item>
-        <item>看dvd</item>
-        <item>光盘</item>
     </array>
     <array name="close_dvd">
         <item>关闭DVD</item>
         <item>关闭光盘</item>
-        <item>关闭光碟</item>
-        <item>关闭dvd</item>
-        <item>退出DVD</item>
-        <item>退出光盘</item>
-        <item>退出光碟</item>
-        <item>退出dvd</item>
     </array>
     <array name="open_dvr">
         <item>打开行车记录仪</item>
         <item>打开行车记录</item>
         <item>打开行车录像</item>
         <item>行车记录仪</item>
-        <item>记录仪</item>
+        <item>打開行車紀錄器</item>
+        <item>打開DVR</item>
     </array>
     <array name="close_dvr">
         <item>关闭行车记录仪</item>
@@ -447,16 +236,37 @@
         <item>进入酷我音乐</item>
     </array>
     <array name="open_glsx_ddbox_lk">
-        <item>打开滴滴路况</item>
-        <item>启动滴滴路况</item>
+        <item>打开嘀嘀路况</item>
+        <item>我想打开嘀嘀路况</item>
+        <item>我想打开路况</item>
+        <item>我想开启嘀嘀路况</item>
+        <item>我想开启路况</item>
+        <item>我想启动嘀嘀路况</item>
+        <item>我想启动路况</item>
+        <item>我要打开嘀嘀路况</item>
+        <item>我要打开路况</item>
+        <item>我要开启嘀嘀路况</item>
+        <item>我要开启路况</item>
+        <item>我要启动嘀嘀路况</item>
+        <item>我要启动路况</item>
     </array>
     <array name="open_czdh">
+        <item>打开嘀嘀电话</item>
         <item>打开车载电话</item>
+        <item>打开免费电话</item>
+        <item>打开网络电话</item>
+        <item>启动嘀嘀电话</item>
         <item>启动车载电话</item>
+        <item>启动免费电话</item>
+        <item>启动网络电话</item>
+        <item>开启嘀嘀电话</item>
+        <item>开启车载电话</item>
+        <item>开启免费电话</item>
+        <item>开启网络电话</item>
     </array>
     <array name="open_wzch">
-        <item>打开违章查询</item>
-        <item>启动违章查询</item>
+        <item>查询违章</item>
+        <item>查看违章</item>
     </array>
     <array name="open_glsx_ddbox_ddbx">
         <item>打开嘀嘀保险</item>
@@ -470,23 +280,40 @@
     </array>
     <array name="open_glsx_ddbox_hcz">
         <item>打开好车主</item>
-        <item>启动好车主</item>
+        <item>我想打开好车主</item>
+        <item>我想开启好车主</item>
+        <item>我想启动好车主</item>
+        <item>我要打开好车主</item>
+        <item>我要打开好车主</item>
+        <item>我要开启好车主</item>
+        <item>我要启动好车主</item>
     </array>
     <array name="open_glsx_ddbox_dljy">
-        <item>打开滴滴商城</item>
-        <item>打开套餐管家</item>
-        <item>启动滴滴商城</item>
-        <item>启动套餐管家</item>
+        <item>打开道路救援</item>
+        <item>我想打开道路救援</item>
+        <item>我想开启道路救援</item>
+        <item>我想启动道路救援</item>
+        <item>我要打开道路救援</item>
+        <item>我要打开道路救援</item>
+        <item>我要开启道路救援</item>
+        <item>我要启动道路救援</item>
     </array>
     <array name="open_glsx_ddbox_HumNavi">
         <item>打开人工导航</item>
         <item>启动人工导航</item>
+        <item>开启人工导航</item>
         <item>打开一键导航</item>
         <item>启动一键导航</item>
+        <item>开启一键导航</item>
     </array>
     <array name="glsx_ddbox_qflk">
-        <item>打开前方路况</item>
-        <item>启动前方路况</item>
+        <item>查询路况</item>
+        <item>查看路况</item>
+        <item>前方道路如何</item>
+        <item>前方道路怎么样</item>
+        <item>前方路况如何</item>
+        <item>前方路况怎么样</item>
+        <item>前方路况是否拥堵</item>
     </array>
     <array name="ac_power_on">
         <item>打开空调</item>
@@ -635,7 +462,7 @@
         <item>About Device</item>
     </array>
     <array name="set_genera_options">
-        <item>Standby time</item>
+        <item>Sleep mode</item>
         <item>Speech Recognition</item>
         <item>AssistiveTouch</item>
         <item>Reverse Volume Suppression</item>
@@ -666,6 +493,7 @@
         <item>Air Conditioner</item>
         <item>Rear Video</item>
         <item>Front Cam</item>
+        <item>Camera type</item>
     </array>
     <array name="set_navi_options">
         <item>Autostart Navigation</item>
@@ -728,6 +556,72 @@
         <item>High frequency</item>
         <item>Gain</item>
     </array>
+    <array name="tpms_general_mode">
+        <item>Alarm off</item>
+        <item>Alarm once</item>
+        <item>Alarm always</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>TEMP Unit</item>
+        <item>Pressure Unit</item>
+        <item>MAX TEMP</item>
+        <item>MAX Pressure</item>
+        <item>MIN Pressure</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>Flat Tire</item>
+        <item>Low Voltage</item>
+        <item>No Signal</item>
+        <item>Low Pressure</item>
+        <item>High Pressure</item>
+        <item>Start study</item>
+        <item>studying</item>
+        <item>High Temp</item>
+    </array>
+    <array name="ctouch_general">
+        <item>Power</item>
+        <item>Home</item>
+        <item>Back</item>
+        <item>Vol+</item>
+        <item>Vol-</item>
+        <item>Navi</item>
+        <item>Answer</item>
+        <item>Hang</item>
+        <item>Prev</item>
+        <item>Next</item>
+        <item>Eject</item>
+        <item>Search</item>
+        <item>Mode</item>
+        <item>Mute</item>
+        <item>Stop</item>
+        <item>Pause</item>
+        <item>Radio</item>
+        <item>DVD</item>
+        <item>MUSIC</item>
+        <item>APP</item>
+        <item>Brightness</item>
+        <item>P/MUTE</item>
+        <item>P/MENU</item>
+        <item>Eject/MENU</item>
+        <item>Eject/MUTE</item>
+        <item>BT_MUSIC</item>
+        <item>Eject/NAVI</item>
+        <item>VOICE</item>
+        <item>SOUND</item>
+        <item>Carinfo</item>
+        <item>Rotate</item>
+        <item>Clear</item>
+    </array>
+    <array name="supprot_last_memory_apps">
+        <item>com.ex.dabplayer.pad</item>
+        <item>com.qiyi.video.pad</item>
+        <item>cn.kuwo.kwmusiccar</item>
+        <item>com.google.android.youtube</item>
+        <item>com.spotify.misic</item>
+        <item>com.ximalaya.ting.android.car</item>
+        <item>com.dianshijia.newlive</item>
+        <item>com.kaolafm.kradio.k_radio_horizontal</item>
+    </array>
     <array name="fs_languages">
         <item>简体中文</item>
         <item>繁體中文</item>
@@ -749,6 +643,196 @@
         <item>Português-Brasil</item>
         <item>Tiếng việt</item>
         <item>Українська</item>
+        <item>Ελληνικά</item>
+    </array>
+    <array name="menu_ico_arr">
+        <item>NAVI</item>
+        <item>Radio</item>
+        <item>DVD</item>
+        <item>Ext DVD</item>
+        <item>Video</item>
+        <item>Audio</item>
+        <item>BT Music</item>
+        <item>CMMB</item>
+        <item>ATV</item>
+        <item>AVIN</item>
+        <item>OBD</item>
+        <item>IPOD</item>
+        <item>POD</item>
+        <item>360 View</item>
+        <item>Car Device</item>
+        <item>Car Radio</item>
+        <item>Car 360</item>
+        <item>Bluetooth</item>
+        <item>Setup</item>
+        <item>OnStar</item>
+        <item>SYNC</item>
+        <item>Car Info</item>
+        <item>TPMS</item>
+        <item>DVR</item>
+        <item>F-Camera</item>
+        <item>Air Condition</item>
+        <item>DSP</item>
+        <item>Phone</item>
+        <item>BT SWC</item>
+        <item>Carplay</item>
+    </array>
+    <array name="str_fsrad_zonearray">
+        <item>Asia</item>
+        <item>Europ</item>
+        <item>USA1</item>
+        <item>USA2</item>
+        <item>Brazil</item>
+        <item>Japan</item>
+        <item>Brazil2</item>
+        <item>Japan2</item>
+    </array>
+    <array name="str_fsdoor_title">
+        <item>Swap F-Door</item>
+        <item>Swap R-Door</item>
+        <item>Trunk</item>
+        <item>Hood</item>
+        <item>∧∨ Key</item>
+        <item>Inside Temp</item>
+        <item>Temp Unit</item>
+        <item>AVM Icon</item>
+        <item>Outside Temp</item>
+        <item>P Radar</item>
+    </array>
+    <array name="str_fs_rev_volarr">
+        <item>No</item>
+        <item>Weak</item>
+        <item>Mid</item>
+        <item>Strong</item>
+    </array>
+    <array name="str_fsother_title">
+        <item>LCM type</item>
+        <item>Brake</item>
+        <item>Ext UART</item>
+        <item>DVR type</item>
+        <item>DTV type</item>
+        <item>Capacitive scr.</item>
+        <item>Park mute</item>
+        <item>Camera detect</item>
+        <item>Camera mirror</item>
+        <item>Auto NAVI</item>
+        <item>Color light</item>
+        <item>Logo option</item>
+        <item>SWC option</item>
+        <item>Boot warn</item>
+        <item>Last memory</item>
+        <item>USB1 speed</item>
+        <item>USB2 speed</item>
+        <item>USB2 Debug</item>
+        <item>Ecd swap</item>
+        <item>Debug output</item>
+        <item>Video out</item>
+        <item>BT name</item>
+        <item>SD swap</item>
+        <item>GPS mode</item>
+    </array>
+    <array name="str_fsother_arrayoff">
+        <item>Not detect</item>
+        <item>Normal</item>
+        <item>Off</item>
+        <item>Disable</item>
+        <item>Disable</item>
+        <item>Disable</item>
+        <item>Disable</item>
+        <item>Unremember</item>
+        <item>high</item>
+        <item>high</item>
+        <item>Off</item>
+        <item>Not swap</item>
+        <item>Off</item>
+        <item>NTSC</item>
+        <item>BT name</item>
+        <item>Not swap</item>
+        <item>GPS+BD</item>
+    </array>
+    <array name="str_fsother_arrayon">
+        <item>Detect</item>
+        <item>Mirror</item>
+        <item>On</item>
+        <item>Enable</item>
+        <item>Enable</item>
+        <item>Enable</item>
+        <item>Enable</item>
+        <item>Remember</item>
+        <item>low</item>
+        <item>low</item>
+        <item>Enable</item>
+        <item>Swap</item>
+        <item>Enable</item>
+        <item>PAL</item>
+        <item>BT name</item>
+        <item>Swap</item>
+        <item>GPS+GNS</item>
+    </array>
+    <array name="str_fsother_camtype">
+        <item>CVBS</item>
+        <item>AHD-720P-25</item>
+        <item>AHD-1080P-25</item>
+        <item>360-720P</item>
+        <item>360-720P-Rear</item>
+        <item>MIPI-USER</item>
+        <item>AHD-720P-30</item>
+        <item>AHD-1080P-30</item>
+        <item>TVI-720P-25</item>
+        <item>TVI-720P-30</item>
+        <item>360-720P-F+R</item>
+    </array>
+    <array name="str_fsother_lcd_rotate">
+        <item>@null</item>
+        <item>90</item>
+        <item>180</item>
+        <item>270</item>
+    </array>
+    <array name="str_fsother_machine_rotate">
+        <item>90</item>
+        <item>270</item>
+    </array>
+    <array name="str_fsother_arraylcmstype">
+        <item>10-IPS</item>
+        <item>7-IPS</item>
+        <item>9-IPS</item>
+        <item>LVDS</item>
+    </array>
+    <array name="str_fsother_arraybrake">
+        <item>User off</item>
+        <item>Force off</item>
+        <item>Force on</item>
+        <item>User on</item>
+    </array>
+    <array name="str_fsother_arrparkmute">
+        <item>No</item>
+        <item>Weak</item>
+        <item>Mid</item>
+        <item>Strong</item>
+    </array>
+    <array name="can_type_array">
+        <item>NULL</item>
+        <item>Volkswagen</item>
+        <item>VW(MQB System)</item>
+    </array>
+    <array name="fs_vol_item_arr">
+        <item>Radio</item>
+        <item>DISC</item>
+        <item>USB</item>
+        <item>SD</item>
+        <item>BT Music</item>
+        <item>CMMB</item>
+        <item>ATV</item>
+        <item>AUX1</item>
+        <item>AUX2</item>
+        <item>IPOD</item>
+        <item>VMCD</item>
+        <item>Car Audio</item>
+        <item>Navi default</item>
+        <item>Phone default</item>
+        <item>Boot max vol</item>
+        <item>BT mic gain</item>
+        <item>BT Vol</item>
     </array>
     <array name="mcu_update_msg">
         <item>No update process</item>
@@ -809,6 +893,12 @@
         <item>Eject</item>
         <item>Loading</item>
     </array>
+    <array name="can_teanaoldxc_car_play_sta">
+        <item>Play</item>
+        <item>Stop</item>
+        <item>Pause</item>
+        <item />
+    </array>
     <array name="can_fist_set_title">
         <item>Mileage unit</item>
         <item>Turn signal flashing indicator</item>
@@ -854,6 +944,14 @@
     <array name="can_psa_wc_syfb_array">
         <item>Drive position</item>
         <item>All passengers</item>
+    </array>
+    <array name="can_psarzc_musicstyle">
+        <item>User</item>
+        <item>Classical</item>
+        <item>Jazz-Blues</item>
+        <item>Pop-Rock</item>
+        <item>Vocal</item>
+        <item>Techno</item>
     </array>
     <array name="can_byds6s7_musicstyle">
         <item>Default</item>
@@ -1312,6 +1410,19 @@
         <item>RTC wake up</item>
         <item>Malfunction</item>
         <item>Precharge</item>
+    </array>
+    <array name="can_hyundai_zgxs_arrays">
+        <item>Null</item>
+        <item>90KM/H</item>
+        <item>100KM/H</item>
+        <item>110KM/H</item>
+        <item>120KM/H</item>
+        <item>130KM/H</item>
+    </array>
+    <array name="can_hyundai_hxnyzs_arrays">
+        <item>Level 1</item>
+        <item>Level 2</item>
+        <item>Level 3</item>
     </array>
     <array name="can_gc_week_arrays">
         <item>Monday</item>
@@ -2407,6 +2518,15 @@
         <item>* Brake manually</item>
         <item>* Release steering wheel during auto steer</item>
     </array>
+    <array name="can_nissan_teana_rvs_declare">
+        <item>Park Assist</item>
+        <item>Stop beside parking space,and align blue box to</item>
+        <item>park space by △▽,then press Start.</item>
+        <item />
+        <item />
+        <item />
+        <item />
+    </array>
     <array name="can_cdzt_arrays">
         <item>Not charged</item>
         <item>Driving charging</item>
@@ -2505,6 +2625,16 @@
         <item>POS FRONT</item>
         <item>POS REAR</item>
         <item>POS DRIVER</item>
+    </array>
+    <array name="can_landrover_ent_dev_arrays">
+        <item>AUX</item>
+        <item>FM</item>
+        <item>AM</item>
+    </array>
+    <array name="can_CCH9_auto_speed_lock_array">
+        <item>Close</item>
+        <item>8km/h</item>
+        <item>15km/h</item>
     </array>
     <array name="can_auto_speed_lock_array">
         <item>Close</item>
@@ -2620,6 +2750,24 @@
         <item>14</item>
         <item>15</item>
     </array>
+    <array name="can_hant_fwd_num">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+    </array>
     <array name="can_AuxLine2Arr">
         <item>1</item>
         <item>2</item>
@@ -2637,6 +2785,23 @@
     <array name="can_psa_scr_car_type">
         <item>MAS 508</item>
         <item>RZC</item>
+    </array>
+    <array name="can_landrover_scr_car_type">
+        <item>Land Rover Range Rover Sport 2014</item>
+        <item>Land Rover Range Rover Sport 2015</item>
+        <item>Land Rover Range Rover Sport 2016</item>
+        <item>Land Rover Range Rover 2013</item>
+        <item>Land Rover Range Rover 2014</item>
+        <item>Land Rover Range Rover 2015</item>
+        <item>Land Rover Range Rover 2016</item>
+        <item>Land Rover found 2017 models</item>
+        <item>Land Rover Range Rover Aurora 2012, 2013, 2014, 2015</item>
+        <item>Land Rover Jaguar Discovery Shenxing 2016</item>
+        <item>Land Rover Jaguar Discovery 2017 2017</item>
+        <item>Land Rover Jaguar Discovery Shenxing 2018</item>
+        <item>Land Rover Jaguar Discovery Shenxing 2019</item>
+        <item>Land Rover Discovery (Imported) 2015 models</item>
+        <item>Land Rover Discovery (Imported) 2016 models</item>
     </array>
     <array name="can_fs_declare_162_direction">
         <item>North</item>
@@ -2698,6 +2863,13 @@
         <item>NORMAL</item>
         <item>NO CD</item>
     </array>
+    <array name="can_ford_car_play_sta">
+        <item />
+        <item>No CD disc</item>
+        <item>Reading disc</item>
+        <item>disc is being ejected</item>
+        <item>CD error</item>
+    </array>
     <array name="can_ford_fiesta_wc_warninfo">
         <item>Engine oil oil pressure is low, please park safely</item>
         <item>Change engine oil, please take care now</item>
@@ -2746,6 +2918,111 @@
         <item>The door is open, please apply brake</item>
         <item>Theft system is triggered, please check the vehicle</item>
     </array>
+    <array name="can_res_num">
+        <item>800x480</item>
+        <item>400x240</item>
+        <item>1024x600</item>
+        <item>1280x480</item>
+        <item>480x240</item>
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+        <item>1920x720</item>
+        <item>--</item>
+        <item>--</item>
+        <item>A</item>
+    </array>
+    <array name="can_res_ts_bmw_num">
+        <item>800x480</item>
+        <item>400x240</item>
+        <item>1024x600</item>
+        <item>1280x480</item>
+        <item>480x240</item>
+        <item>ccc</item>
+        <item>ccc 400x250</item>
+        <item>--</item>
+        <item>--</item>
+        <item>1920x720</item>
+        <item>--</item>
+        <item>--</item>
+        <item>A</item>
+    </array>
+    <array name="can_res_audi_num">
+        <item>800x480</item>
+        <item>400x240</item>
+        <item>1024x600</item>
+        <item>1280x480</item>
+        <item>480x240</item>
+        <item>1024x480</item>
+        <item>--</item>
+        <item>--</item>
+        <item>--</item>
+        <item>1920x720</item>
+        <item>--</item>
+        <item>--</item>
+        <item>A</item>
+    </array>
+    <array name="can_lvds_type">
+        <item>Jedia</item>
+        <item>Vesa</item>
+    </array>
+    <array name="can_disp_para">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </array>
+    <array name="can_ford_mondeo_mix">
+        <item />
+        <item>Hybrid drive</item>
+        <item>Charging the high voltage battery</item>
+        <item>Idle speed</item>
+        <item>Idle speed charging</item>
+        <item>Electric drive</item>
+        <item>Engine driven</item>
+        <item>Remote control started</item>
+        <item>Charging completed</item>
+        <item>Quick charge completed</item>
+        <item>Fast charging</item>
+    </array>
+    <array name="can_ford_mondeo_start_tip">
+        <item />
+        <item>Requirements for driving force</item>
+        <item>Too fast</item>
+        <item>Heater requirements</item>
+        <item>Neutral</item>
+        <item>The engine temperature is too low</item>
+        <item>The battery is charging</item>
+        <item>Low gear</item>
+        <item>Normal operation</item>
+        <item>Low utilization</item>
+        <item>Fuel maintenance</item>
+        <item>Engine brake start</item>
+        <item>Battery temperature</item>
+    </array>
+    <array name="can_ford_mondeo_mix_para">
+        <item>Other</item>
+        <item>Air conditioner</item>
+        <item>Fuel</item>
+        <item>Engine</item>
+        <item>Driver</item>
+        <item>Motor</item>
+        <item>plug in</item>
+    </array>
+    <array name="can_cc_h7_cd_sta">
+        <item>No discs</item>
+        <item>Play</item>
+        <item>Load</item>
+        <item>Read</item>
+        <item>Disc</item>
+        <item>Pause</item>
+        <item>Stop</item>
+        <item />
+        <item>Change music</item>
+        <item>error</item>
+    </array>
     <array name="can_fs_declare_1">
         <item>Volkswagen（Magotan、Superb、Tiguan、golf6 ）（RZC）</item>
     </array>
@@ -2754,11 +3031,12 @@
         <item>Magotan 2017,Magotan 2018</item>
         <item>TiguanL 2017 *Air</item>
         <item>Teramont 2017，KODIAQ *Air</item>
-        <item>Passat(Mix)</item>
+        <item>Passat(Mix)，TiguanL 2020(Mix)</item>
+        <item>Jetta VS7, 2020 Bora, 2019 Faion, 2020 Golf Elec, 2020 Bora Elec, 2020 Magotan, 2019 Lavida Elec</item>
     </array>
     <array name="can_fs_declare_3">
         <item>Camry 2012、2015,RAV4 2013,Reiz 2013,Carola 2014,Levin 2014、Highlander 2015</item>
-        <item>RAV4 2016 *Special MCU</item>
+        <item>RAV4 2016</item>
         <item>Camery 2018</item>
         <item>Vertical screen Carolla （OD）</item>
     </array>
@@ -2866,6 +3144,10 @@
         <item>RSW OBD</item>
         <item>Hyundai(*UART)</item>
         <item>Kia Sportage With High Ver。2019</item>
+        <item>19 Kia Optima high-end models (Russia)</item>
+        <item>19 Hyundai Sonata 9 (Russia)</item>
+        <item>19 models of Kia smart sports cars (Russia)</item>
+        <item>20 models of KX5 (Russia)</item>
     </array>
     <array name="can_fs_declare_15">
         <item>Grand Cherokee 2010，Compass 2010,2014，Caliber 2010、Patriot 2014、Wrangler 2010、JCUV 2010（Xp,Bnr）</item>
@@ -2874,6 +3156,7 @@
         <item>Baojun 730</item>
         <item>Baojun 560，Baojun 730 2015,2017</item>
         <item>Baojun 530,SGMW S3 2018</item>
+        <item>Baojun RS-3 2020</item>
     </array>
     <array name="can_fs_declare_17">
         <item>GA3</item>
@@ -2893,6 +3176,10 @@
         <item>GM6.2019</item>
         <item>GA6.2019</item>
         <item>GS4.2020</item>
+        <item>GM8.2020</item>
+        <item>GS5.2020</item>
+        <item>GS3 Hi.2017 *Air</item>
+        <item>GS3 .2021*Air</item>
     </array>
     <array name="can_fs_declare_18">
         <item>Roewe 550 Steering wheel key1</item>
@@ -2937,6 +3224,8 @@
         <item>Roewe i6 2019</item>
         <item>MG EZS 2019</item>
         <item>Roewe RX8 2019</item>
+        <item>ZS .2020</item>
+        <item>Roewe MG6 .2019 *Air</item>
     </array>
     <array name="can_fs_declare_27">
         <item>Refine S2 S3 Refine S3 2017,Refine m4 2016,M5 2017</item>
@@ -3030,6 +3319,8 @@
         <item>Venucia T90 2017 *Air</item>
         <item>Venucia D60 2018 *Air</item>
         <item>Venucia T70 2018 *Air</item>
+        <item>Venucia T60 2020 *Air</item>
+        <item>Venucia T70 2020 *Air</item>
     </array>
     <array name="can_fs_declare_48">
         <item>B50 2013</item>
@@ -3070,6 +3361,7 @@
         <item>Koleos With MidVer，Turkey‘s MEGANE MidVer</item>
         <item>Koleos With HighVer，Turkey‘s MEGANE HighVer</item>
         <item>09~16 Koleos With CD *Car Device</item>
+        <item>Kadjar，Captur，Brazil： SANDERO,DUSTER,CAPTUR *Xzc</item>
     </array>
     <array name="can_fs_declare_56">
         <item>Outlander Without AMP.</item>
@@ -3086,6 +3378,11 @@
         <item>JieTu X70</item>
         <item>Tigger7 2018</item>
         <item>Tigger8 2018</item>
+        <item>JieTu X70m .2020</item>
+        <item>Tigger7 .2020</item>
+        <item>Tigger3X .2020</item>
+        <item>Tigger8 .2020</item>
+        <item>Tigger5 .2015</item>
     </array>
     <array name="can_fs_declare_58">
         <item>Peugeot 301、308、Elysee</item>
@@ -3103,6 +3400,7 @@
     </array>
     <array name="can_fs_declare_59">
         <item>ZH V3 With High Ver（xbs,rzc）,H3（rzc）</item>
+        <item>ZH V6（rzc）*Air</item>
     </array>
     <array name="can_fs_declare_60">
         <item>Zotye DM X5,Zotye DM X5 2017,HH N2,JM S70 。2018</item>
@@ -3112,6 +3410,7 @@
         <item>SR9 *Air</item>
         <item>T300 *Air</item>
         <item>Bojun 2019 *Air</item>
+        <item>Zotye E200 .2018 *Air</item>
     </array>
     <array name="can_fs_declare_61">
     </array>
@@ -3139,20 +3438,23 @@
         <item>CX-4，Axela，CX-5,Artzt *Car Device(Xbs,Bnr,Od)</item>
     </array>
     <array name="can_fs_declare_70">
-        <item>FG 360 330S 580 ,370，D-MAX,Remex，330S 2018,JINBEI X30L(Hs) 2016</item>
+        <item>FG 360 330S 580 ,370，D-MAX,Remex，330S 2018,JINBEI X30L(Hs) 2016,Lingtuos 2020</item>
         <item>FG580 2018（AVM） *Air</item>
         <item>EV3</item>
         <item>S560 .2018</item>
+        <item>mu-X .2018</item>
+        <item>Remex.2019</item>
+        <item>Qingling.2018</item>
     </array>
     <array name="can_fs_declare_71">
-        <item>B50 2016,X80 2017,X40 2017</item>
+        <item>B50 2016,X80 2017,X40 2017，B30.2016</item>
         <item>X80 With Low Ver 2017</item>
         <item>SY R9 2018</item>
         <item>CX65 2018</item>
         <item>B50 2019 *Air</item>
     </array>
     <array name="can_fs_declare_72">
-        <item>GS，GL 2016,Yuanjing</item>
+        <item>GS，GL 2016,Yuanjing,Baoteng PERSONA.2015</item>
         <item>Yuanjing SUV.X6 2016</item>
         <item>Yuanjing X1 *Air</item>
         <item>BR，BY *Air</item>
@@ -3161,12 +3463,21 @@
         <item>Yuanjing X3 2018</item>
         <item>EC7</item>
         <item>Yuanjing 2015</item>
-        <item>Yuanjing 2018</item>
+        <item>Yuanjing 2018~2020</item>
         <item>BY .AVM *Air</item>
-        <item>Emperor 2019</item>
+        <item>Emperor 2019~2020</item>
         <item>Emperor Ele 2019</item>
         <item>Emperor GL Mix 2019</item>
         <item>Emperor 2018</item>
+        <item>Yuanjing S1 .2018</item>
+        <item>GS,GL .2019</item>
+        <item>Yuanjing X3 .2019~2020</item>
+        <item>Yuanjing X6 .2020</item>
+        <item>20 GL,GS</item>
+        <item>20 BoYue Pro</item>
+        <item>16~18 Boyue</item>
+        <item>19~20 Binyue</item>
+        <item>GSe .2020</item>
     </array>
     <array name="can_fs_declare_73">
         <item>CS75,CS75 2017,Auchan</item>
@@ -3181,9 +3492,14 @@
         <item>CX70 2017</item>
         <item>CS75（*R Camera,Sw MODE Long press default to the RCamera button.）</item>
         <item>Cos1</item>
-        <item>CS75 。2018（*R Camera,Sw MODE Long press default to the RCamera button.）</item>
+        <item>CS75 .(2018,2020)（*Sw MODE Long press default to the RCamera button.）</item>
         <item>ChanA YueXiang .2019</item>
         <item>CS15 .2019</item>
+        <item>Os X7 .2020</item>
+        <item>ChanA YiDong 2019</item>
+        <item>ChanA CS35 Plus .2019</item>
+        <item>OsKs .2019</item>
+        <item>ChanA Yuexiang low profile.2019</item>
     </array>
     <array name="can_fs_declare_74">
         <item>LiFan 720/820/650EV</item>
@@ -3206,11 +3522,15 @@
         <item>H6 2017,M6 2017</item>
         <item>H6 Couple Red 2017</item>
         <item>H6 Couple Blue 2017</item>
-        <item>H6 2018</item>
-        <item>H9 2018</item>
+        <item>H6 2018，H6 Sport.2019</item>
+        <item>H9</item>
         <item>H6 Couple 2016</item>
         <item>H6 Couple 2019</item>
-        <item>H6 2019</item>
+        <item>H6 2018~2020</item>
+        <item>H7 .2019</item>
+        <item>H4 .2020</item>
+        <item>F7 .2020</item>
+        <item>CCP .2019</item>
     </array>
     <array name="can_fs_declare_79">
         <item>Other</item>
@@ -3268,8 +3588,8 @@
         <item>Geely Boy</item>
     </array>
     <array name="can_fs_declare_92">
-        <item>Plaza X5 With High Ver</item>
-        <item>Plaza X5 With Low Mid Ver</item>
+        <item>Plaza X5(2017~2019),T5(2020),SX6(2019) With High Ver</item>
+        <item>Low Mid Ver</item>
     </array>
     <array name="can_fs_declare_93">
     </array>
@@ -3283,11 +3603,14 @@
         <item>Accord 9 2.4 *Car Radio</item>
     </array>
     <array name="can_fs_declare_97">
-        <item>M3,T3</item>
+        <item>M3</item>
+        <item>T3</item>
+        <item>T5</item>
+        <item>T5.AVM</item>
     </array>
     <array name="can_fs_declare_98">
         <item>EC180</item>
-        <item>EC5 *Air</item>
+        <item>EC5.2019 *Air</item>
     </array>
     <array name="can_fs_declare_99">
         <item>Alsvin V7 2015,2016</item>
@@ -3304,15 +3627,18 @@
         <item>K4</item>
         <item>Kia SportAge 2018</item>
         <item>IX35 LowVer 10~15</item>
-        <item>Sonata 9 LowVer .2018</item>
-        <item>Sonata 9 MidVer .2018</item>
-        <item>Sonata 9 HighVer .2018</item>
+        <item>Sonata 9 (Mix)LowVer .2018</item>
+        <item>Sonata 9 (Mix)MidVer .2018</item>
+        <item>Sonata 9 (Mix)HighVer .2018</item>
         <item>Lafesta .2019</item>
         <item>Santafe AVM .2019</item>
         <item>Santafe .2019</item>
         <item>Tucson AVM .2019</item>
         <item>Kia KX5 .2019</item>
-        <item>Kia K3 .2019</item>
+        <item>Kia K3(new energy) .2019</item>
+        <item>Kia KX3 .2020</item>
+        <item>Kia K5(new energy) .2019</item>
+        <item>Encino .2020</item>
     </array>
     <array name="can_fs_declare_103">
         <item>Volkswagen（Magotan、Superb、Tiguan、golf6 ）</item>
@@ -3339,6 +3665,7 @@
         <item>Refine S2_Mini/S3/S5</item>
         <item>Iev6e</item>
         <item>T8</item>
+        <item>Refine S2 (Overseas) Panorama</item>
     </array>
     <array name="can_fs_declare_111">
     </array>
@@ -3397,17 +3724,22 @@
         <item>G10,EV30</item>
         <item>DT T60</item>
         <item>DT V80</item>
-        <item>DT G50</item>
+        <item>DT G50.2019</item>
+        <item>DT T70.2019</item>
+        <item>DT V90.2019</item>
     </array>
     <array name="can_fs_declare_127">
         <item>other types of cars</item>
         <item>408（2014）,308s，308（2016） *air</item>
         <item>408（2019） *air</item>
+        <item>C4(BR)</item>
+        <item>3008, 408 before 13 and 13, with screen of the original car</item>
     </array>
     <array name="can_fs_declare_128">
-        <item>Camry 12~17、RAV4 13~15、Reiz 09~13、Carola 13~19、Levin 14~19、Highlander 15~18,PRADO 08~18，Sienna 15~18 ,IZOA 18，CHR 18，Avalon 19， (TW:Carola 19，RAV4 19,Previa 06~15,LEXUS RX300 98~05), (JA/MAS：LEXUS RX300 98~05,Previa 06~15)</item>
+        <item>Camry 12~17、RAV4 13~15、Reiz 09~13、Carola 13~19、Levin 14~19、Highlander 15~18,PRADO 08~18，Sienna 15~18 ,IZOA 18，CHR 18，Avalon 19，Wildlander 20, Hilux 15~18, (TW:Carola 19，RAV4 19,Previa 06~15,LEXUS RX300 98~05， LC100 98-03)), (JA/MAS：LEXUS RX300 98~05,Previa 06~15)</item>
         <item>RAV4 2016</item>
         <item>Camry 2018 *air</item>
+        <item>20 RAV4, 20 Veranda, CHR-EV</item>
     </array>
     <array name="can_fs_declare_129">
         <item>Touareg *air</item>
@@ -3445,6 +3777,8 @@
     <array name="can_fs_declare_137">
     </array>
     <array name="can_fs_declare_138">
+        <item>Other</item>
+        <item>CVBS input</item>
     </array>
     <array name="can_fs_declare_139">
         <item>Mondeo Chiax(wc) *Air</item>
@@ -3452,6 +3786,8 @@
     <array name="can_fs_declare_140">
         <item>Ordinary model</item>
         <item>Mercedes-Benz new A screen change</item>
+        <item>NTG5.5 With touch</item>
+        <item>Ordinary model (panorama)</item>
     </array>
     <array name="can_fs_declare_141">
     </array>
@@ -3468,6 +3804,8 @@
         <item>Rav4 2016</item>
         <item>Camry</item>
         <item>Corolla</item>
+        <item>Yzl</item>
+        <item>18 Lexus ES200, 09 ES350, with CD *Car Device</item>
     </array>
     <array name="can_fs_declare_145">
         <item>MZD（Mzd5，CX7），Bent（B50，B70),Chery（A3）,HnMzd（Fumei，M3，S7，S5），BYD（F3,SR），Trumpchi（GA3）,</item>
@@ -3484,6 +3822,12 @@
         <item>Taurus 2019</item>
         <item>Territory 2019</item>
         <item>Explorer 2019</item>
+        <item>Focus 2012，Ecosport，Escape，Fiesta 2013(With Cd) *Car Device</item>
+        <item>Escape 2017~2018(With Cd) *Car Device</item>
+        <item>Focus 2019~2020(With Cd) *Car Device</item>
+        <item>Mondeo Mix 2018</item>
+        <item>Kuga 2019</item>
+        <item>Escape 2020</item>
     </array>
     <array name="can_fs_declare_148">
         <item>Quatre</item>
@@ -3524,6 +3868,7 @@
         <item>Teana 2019，Sylphy 2020</item>
         <item>X-TRAIL 2019</item>
         <item>Navara 2020</item>
+        <item>Sylphy 2021</item>
     </array>
     <array name="can_fs_declare_150">
         <item>Refine S2 S3 Refine S3 2017,Refine m4 2016</item>
@@ -3580,6 +3925,7 @@
         <item>EDGE 2018</item>
         <item>Everest.LowVer 2018</item>
         <item>Everest.HighVer 2018</item>
+        <item>Ford Transit 2020</item>
     </array>
     <array name="can_fs_declare_159">
         <item>AX7(16-20 LowVer) *20 Air</item>
@@ -3606,8 +3952,11 @@
         <item>Cherokke(MidVer)</item>
         <item>Cherokke(HighVer)</item>
         <item>Renegade</item>
-        <item>Renegade 2019(Abroad)</item>
+        <item>Jeep Compass</item>
         <item>Fiat 500L 2019(Abroad)</item>
+        <item>Renegade 2019(Abroad)</item>
+        <item>Dodge Journey 2013</item>
+        <item>Dodge Journey WithCd.2013 *Car Device</item>
     </array>
     <array name="can_fs_declare_164">
         <item>Reserved</item>
@@ -3648,9 +3997,12 @@
     </array>
     <array name="can_fs_declare_172">
         <item>H6 2013~2016,M6,H6 Sports version 2014~2018</item>
-        <item>H6 2017 *Air</item>
-        <item>H6 Coupe .2019</item>
-        <item>F7 2019 *Air</item>
+        <item>H2</item>
+        <item>H6 15~16 Coupe</item>
+        <item>H6 2017~2020,H2S,H4 *Air</item>
+        <item>H6 18 Coupe</item>
+        <item>H6 Coupe.Avm 2019</item>
+        <item>F7 2019.Avm *Air</item>
         <item>FengJun7 2020</item>
     </array>
     <array name="can_fs_declare_173">
@@ -3703,6 +4055,7 @@
     </array>
     <array name="can_fs_declare_183">
         <item>Teana 2008(WC) *Car Device</item>
+        <item>Teana 2008(WC,foreign) *Car Device</item>
     </array>
     <array name="can_fs_declare_192">
         <item>Hm V70 2016(WC) *Air</item>
@@ -3714,6 +4067,10 @@
         <item>13 Mondeo, 18 Wing(Manual AC)</item>
         <item>13 Mondeo, 18 Wing(Auto AC)</item>
     </array>
+    <array name="can_fs_declare_198">
+        <item>other types of cars</item>
+        <item>AVM</item>
+    </array>
     <array name="can_fs_declare_199">
         <item>Teana 04~07，X-Trail Low Ver and other types of cars</item>
         <item>Loulan</item>
@@ -3723,6 +4080,7 @@
         <item>X-Trail With High Ver（*Reversing aid）</item>
         <item>SYLPHY 2020(od)</item>
         <item>Teana 08~12（TW） *Car Device</item>
+        <item>Teana .2020（*Reversing aid）</item>
     </array>
     <array name="can_fs_declare_200">
         <item>Surui，S6 *S6 Air</item>
@@ -3745,18 +4103,26 @@
         <item>CT200(11~17)</item>
     </array>
     <array name="can_fs_declare_210">
-        <item>Excelle、regal、LaCrosse、Verano、Cruze、AVEO、MALIBU、Encore、MALIBU XL,GL8 2017 *GL8 Car Air</item>
+        <item>Excelle、regal、LaCrosse、Verano、Cruze、AVEO、MALIBU、Encore、MALIBU XL、GL8 2017 *GL8 Car Air</item>
         <item>GL8（Business edition）</item>
         <item>Encore（Low Ver）</item>
-        <item>Regal 2018 *Car Air</item>
+        <item>Regal 2018，Blazer 2020 *Car Air</item>
         <item>Orlando (Low Ver)</item>
         <item>Orlando (High Ver)</item>
+        <item>Opel Astra J 11~17、 Corsa E 17~19、 Insignia 15~19、Astra H 08~10、Corsa D 11、Combo 08</item>
+        <item>Envision .2020</item>
+        <item>GL8 Aivia</item>
+        <item>Cruze(Low Ver).2019</item>
+        <item>Cruze(Low Ver).2021</item>
+        <item>GL8 652T (Low Ver).2020</item>
+        <item>GL8 652T (High Ver).2020</item>
+        <item>GL8 2.4L Deluxe Edition.2015</item>
     </array>
     <array name="can_fs_declare_211">
         <item>BYD S，E5,G5,Benc B200 （Od）</item>
     </array>
     <array name="can_fs_declare_213">
-        <item>CLK300,A180,ML350CDI。2014，ML320。2016,04~12 A，05~11 B ，06~14 R，05~11 ML，05~13 GL，03~13 Vito，Vijano</item>
+        <item>CLK300,A180,ML350CDI。2014，ML320。2016,04~12 A，05~11 B ，06~14 R，05~11 ML，05~13 GL，03~13 Vito，Vijano ,Vito 16~18</item>
     </array>
     <array name="can_fs_declare_214">
         <item>ChanA Auchan，X70a(WC)</item>
@@ -3765,7 +4131,7 @@
         <item>DFFG 360,330S,370,580,560(OD)</item>
     </array>
     <array name="can_fs_declare_216">
-        <item>Captur，Kadjar，Duster，CLIO4 LowVer,DUSTER,Megane2,Megane3,Megane4,Fluence(WC)</item>
+        <item>Captur，Kadjar，Duster，CLIO4 LowVer,DUSTER,Megane2,Megane3,Megane4,Fluence,Latitude，19 Craybin(WC)</item>
     </array>
     <array name="can_fs_declare_217">
         <item>Luxgen(OD) *Car Device</item>
@@ -3784,6 +4150,7 @@
     </array>
     <array name="can_fs_declare_221">
         <item>PorsChe 2011~2017，Cayenne 2011(LZ)</item>
+        <item>PorsChe 2011~2017，Cayenne 2011 Avm(LZ)</item>
     </array>
     <array name="can_fs_declare_222">
         <item>X55、X25</item>
@@ -3832,6 +4199,9 @@
         <item>Byd Sr/G5/S6/S7(HYKJ)</item>
         <item>Byd Sr/G5/S6/S7 Panoramic(HYKJ)</item>
     </array>
+    <array name="can_fs_declare_238">
+        <item>DX7 15~17,DX3 2018,DX5 2019</item>
+    </array>
     <array name="can_fs_declare_240">
         <item>Volkswagen（Magotan、Superb、Tiguan、golf6 ）（XP）</item>
     </array>
@@ -3871,14 +4241,17 @@
         <item>Prado 2010 AutoAir</item>
     </array>
     <array name="can_fs_declare_254">
-        <item>Viaggio 12~15,Ottimo 14~15,TORO,DOBLO,EGE,FLORLNO *SW1</item>
-        <item>Viaggio 12~15,Ottimo 14~15,TORO,DOBLO,EGE,FLORLNO *SW2</item>
+        <item>Viaggio 12~15,Ottimo 14~15,TORO,DOBLO,EGE,FLORLNO,500L,LINEA,PUNTO *SW1</item>
+        <item>Viaggio 12~15,Ottimo 14~15,TORO,DOBLO,EGE,FLORLNO,500L,LINEA,PUNTO *SW2</item>
     </array>
     <array name="can_fs_declare_255">
         <item>Cos1 HighVer .2019 *Car Air</item>
         <item>Cos1 LowVer .2019</item>
         <item>Auchan A800 .2019 *Car Air</item>
         <item>CS55 .2018</item>
+        <item>OS X7 MidVer.2020</item>
+        <item>OS X7 HighVer.2020</item>
+        <item>CS35 PLUS.2019</item>
     </array>
     <array name="can_fs_declare_259">
         <item>other types of cars</item>
@@ -3889,6 +4262,8 @@
         <item>CX-4 *Car Device</item>
         <item>MZD3 CX-3 CX-4(TW) *Car Device</item>
         <item>MZD3 CX-3 CX-4(TW) 。with AMP *Car Device</item>
+        <item>MZD 3 .2020</item>
+        <item>Atez .2020</item>
     </array>
     <array name="can_fs_declare_263">
         <item>Excelle、regal、LaCrosse、Verano、Cruze、AVEO、MALIBU、Encore、MALIBU XL,GL8 2017 *GL8 Car Air</item>
@@ -3906,9 +4281,10 @@
         <item>Aegea 2019</item>
         <item>500l 2013</item>
         <item>500l 2019</item>
+        <item>Panda 2017</item>
     </array>
     <array name="can_fs_declare_265">
-        <item>Eclipse Cross 2018，OutLander 2019，PAJERO 2018，2020</item>
+        <item>Eclipse Cross 2018，OutLander 2019，PAJERO 2018~2020,PAJERO JC 2020</item>
         <item>Eclipse Cross 2019(TW)</item>
     </array>
     <array name="can_fs_declare_266">
@@ -3965,6 +4341,9 @@
         <item>LowVer</item>
         <item>HighVer</item>
     </array>
+    <array name="can_fs_declare_282">
+        <item>swm G01.2018,ChaiWei U70.2020</item>
+    </array>
     <array name="can_fs_declare_284">
         <item>MPV Tepee,307 04~13，408 10~13，408SW,408CC,3008 13~19，508 Malaysia</item>
     </array>
@@ -3981,6 +4360,55 @@
         <item>Accord10/InSpire 2019</item>
         <item>2015~2018 Odyssey(Taiwan.avm。)</item>
         <item>Haoying</item>
+        <item>EV-1</item>
+    </array>
+    <array name="can_fs_declare_289">
+        <item>Other types of cars</item>
+        <item>Land Rover Range Rover Sport Edition (14 models), Jaguar FTYPE 13 models (imported version)</item>
+    </array>
+    <array name="can_fs_declare_290">
+        <item>D50.2018，U60V</item>
+    </array>
+    <array name="can_fs_declare_292">
+        <item>Fiesta 09~15，KUGA</item>
+    </array>
+    <array name="can_fs_declare_293">
+        <item>B70 *Car Device</item>
+    </array>
+    <array name="can_fs_declare_294">
+        <item>Teana GJ *Car Device</item>
+    </array>
+    <array name="can_fs_declare_295">
+        <item>TT 08~13,A3 04~12,A4 03~07,Q3 13~18</item>
+        <item>Q5 2010~2018</item>
+    </array>
+    <array name="can_fs_declare_296">
+        <item>LowVer</item>
+        <item>HighVer</item>
+    </array>
+    <array name="can_fs_declare_299">
+        <item>Corolla leading version</item>
+        <item>Corolla e+ Pioneer Edition</item>
+        <item>Sylphy Base Edition</item>
+        <item>Dongfeng Fengshen A60 Rental Edition</item>
+        <item>Dongfeng Fengshen E70</item>
+        <item>Geely GeA</item>
+    </array>
+    <array name="can_fs_declare_302">
+        <item>Crown With HighVer(HiWorld) *Air,Car Device</item>
+    </array>
+    <array name="can_fs_declare_305">
+        <item>XC60 .2010~2013</item>
+    </array>
+    <array name="can_fs_declare_306">
+        <item>Automatic air conditioning *Air</item>
+        <item>Manual air conditioning *Air</item>
+    </array>
+    <array name="can_fs_declare_307">
+        <item>HEXA *Air</item>
+    </array>
+    <array name="can_fs_declare_310">
+        <item>Touareg *air</item>
     </array>
     <array name="can_auto_array">
         <item>NULL</item>
@@ -4051,7 +4479,7 @@
         <item>BMW Mini</item>
         <item>Venucia ER70</item>
         <item>FG 580</item>
-        <item>Mitsubishi Outlander 09-11</item>
+        <item>Mitsubishi Outlander 09~11</item>
         <item>MZD CX-4(Xbs,Bnr，Od)</item>
         <item>DF FG 360,330s,580</item>
         <item>B50 2016</item>
@@ -4074,8 +4502,8 @@
         <item>GM（SiBo）</item>
         <item>KaiYi 3X</item>
         <item>BYD F6(DJ)</item>
-        <item>Geely Boy</item>
-        <item>Dongfeng Plaza X5</item>
+        <item>Geely Boy(Rzc)</item>
+        <item>Dongfeng Fengshen(Rzc)</item>
         <item>BS M3</item>
         <item>B50 2011</item>
         <item>Family</item>
@@ -4093,7 +4521,7 @@
         <item>Teana 08</item>
         <item>Peugot206/207/307（xp）</item>
         <item>DT T60(OUDI)</item>
-        <item>Refine S5(Wc)</item>
+        <item>Refine S5(HiWorld)</item>
         <item>Mzd</item>
         <item>Mzd Cx5</item>
         <item>Toyota(kj)</item>
@@ -4112,9 +4540,9 @@
         <item>DT T60,G10(Rzc)</item>
         <item>PSA(Rzc)</item>
         <item>Toyota(Rzc)</item>
-        <item>Touareg(wc)</item>
+        <item>Touareg(HiWorld)</item>
         <item>Qoros (DJ)</item>
-        <item>CHANA AlsvinV7(wc)</item>
+        <item>CHANA AlsvinV7(HiWorld)</item>
         <item>Qoros</item>
         <item>Koleos (Xp)</item>
         <item>Ht(Od)</item>
@@ -4122,65 +4550,65 @@
         <item>Cadillac ATS(Zmyt)</item>
         <item>DT G10(od)</item>
         <item>BMW (with Host)</item>
-        <item>Mondeo Chiax(wc)</item>
+        <item>Mondeo Chiax(HiWorld)</item>
         <item>Benc(Zmyt)</item>
         <item>Hyundai(xbs)</item>
-        <item>VW MQB(wc)</item>
-        <item>Volkswagen/Benc(wc)</item>
-        <item>Toyota(wc)</item>
+        <item>VW MQB(HiWorld)</item>
+        <item>Volkswagen/Benc(HiWorld)</item>
+        <item>Toyota(HiWorld)</item>
         <item>MZD，Bent，Chery，BYD，Trumpchi（Rzc）</item>
         <item>Ford(rzc)</item>
         <item>LandWind XiaoYao（Rzc）</item>
-        <item>PSA(WC)</item>
-        <item>Nissan（WC）</item>
+        <item>PSA(HiWorld)</item>
+        <item>Nissan（HiWorld）</item>
         <item>Refine(od)</item>
-        <item>GM（WC）</item>
+        <item>GM（HiWorld）</item>
         <item>Audi(Zmyt)</item>
-        <item>Hyundai（WC）</item>
-        <item>CC（WC）</item>
+        <item>Hyundai（HiWorld）</item>
+        <item>CC（HiWorld）</item>
         <item>FG S560</item>
-        <item>Honda（WC）</item>
-        <item>Ford （WC）</item>
-        <item>BJ20（WC）</item>
-        <item>DFFS（WC）</item>
-        <item>CHANA CS75（WC）</item>
-        <item>Trumpchi（WC）</item>
-        <item>CHRYSLER（WC）</item>
-        <item>BMW X1（WC）</item>
-        <item>Mzd (WC)</item>
-        <item>Benz(WC)</item>
-        <item>Venucia（WC）</item>
+        <item>Honda（HiWorld）</item>
+        <item>Ford （HiWorld）</item>
+        <item>BJ20（HiWorld）</item>
+        <item>DFFS（HiWorld）</item>
+        <item>CHANA CS75（HiWorld）</item>
+        <item>Trumpchi（HiWorld）</item>
+        <item>CHRYSLER（HiWorld）</item>
+        <item>BMW X1（HiWorld）</item>
+        <item>Mzd (HiWorld)</item>
+        <item>Benz(HiWorld)</item>
+        <item>Venucia（HiWorld）</item>
         <item>DT V80</item>
-        <item>Crown（WC）</item>
-        <item>Jeep(WC)</item>
-        <item>Elysion 2012~2015（WC）</item>
-        <item>12Crv Civic（WC）</item>
-        <item>HAVAL H6（WC）</item>
-        <item>JEEP Compass（WC）</item>
-        <item>HAVAL H2（WC）</item>
+        <item>Crown（HiWorld）</item>
+        <item>Jeep(HiWorld)</item>
+        <item>Elysion 2012~2015（HiWorld）</item>
+        <item>12Crv Civic（HiWorld）</item>
+        <item>HAVAL H6（HiWorld）</item>
+        <item>JEEP Compass（HiWorld）</item>
+        <item>HAVAL H2（HiWorld）</item>
         <item>Volvo（LZ）</item>
         <item>BMW (Zmyt)</item>
-        <item>RW MG（WC）</item>
-        <item>09~12 B50(WC)</item>
-        <item>BYD(WC)</item>
-        <item>CHERY(WC)</item>
+        <item>RW MG（HiWorld）</item>
+        <item>09~12 B50(HiWorld)</item>
+        <item>BYD(HiWorld)</item>
+        <item>CHERY(HiWorld)</item>
         <item>Odyssey(03~08)，Accord 8，Crosstour(12~14)(Od)</item>
-        <item>Baojun(WC)</item>
-        <item>Teana 2008(WC)</item>
-        <item>HAVAL H1(WC)</item>
-        <item>GEELY Vision(WC)</item>
-        <item>B50 2013(WC)</item>
-        <item>X80 2013(WC)</item>
-        <item>X40 2017(WC)</item>
-        <item>B50 2016(WC)</item>
-        <item>X80 2017(WC)</item>
-        <item>Zotye DM X5(WC)</item>
-        <item>Hm V70 2016(WC)</item>
-        <item>Hm Fml 2017(WC)</item>
-        <item>Ford Mondeo 2013，EcoSport 2018(WC)</item>
-        <item>HM M3,S7(WC)</item>
-        <item>HONDA ACCORD9(WC)</item>
-        <item>HSS6(WC)</item>
+        <item>Baojun(HiWorld)</item>
+        <item>Teana 2008(HiWorld)</item>
+        <item>HAVAL H1(HiWorld)</item>
+        <item>GEELY Vision(HiWorld)</item>
+        <item>B50 2013(HiWorld)</item>
+        <item>X80 2013(HiWorld)</item>
+        <item>X40 2017(HiWorld)</item>
+        <item>B50 2016(HiWorld)</item>
+        <item>X80 2017(HiWorld)</item>
+        <item>Zotye DM X5(HiWorld)</item>
+        <item>Hm V70 2016(HiWorld)</item>
+        <item>Hm Fml 2017(HiWorld)</item>
+        <item>Ford Mondeo 2013，EcoSport 2018(HiWorld)</item>
+        <item>HM M3,S7(HiWorld)</item>
+        <item>HONDA ACCORD9(HiWorld)</item>
+        <item>HSS6(HiWorld)</item>
         <item>Porsche(Od)</item>
         <item>NISSAN(RZC)</item>
         <item>BYD(DJ)</item>
@@ -4189,21 +4617,21 @@
         <item>DST OBD</item>
         <item>MZD(LZ)</item>
         <item>Lexus(LZ)</item>
-        <item>Roewe 550，MG 6(WC)</item>
+        <item>Roewe 550，MG 6(HiWorld)</item>
         <item>Lexus(ZMYT)</item>
         <item>Accord8,Spirior（LZ）</item>
         <item>OBD(BNR)</item>
-        <item>GM(RZC)</item>
+        <item>GM,OPEL(RZC)</item>
         <item>BYD ,Benc B200（OD）</item>
         <item>HANT_ELECTCAR</item>
         <item>Benz（RZC）</item>
-        <item>ChanA（WC）</item>
+        <item>ChanA（HiWorld）</item>
         <item>DFFG（OD）</item>
-        <item>Renault（WC）</item>
+        <item>Renault（HiWorld）</item>
         <item>Luxgen（OD）</item>
         <item>Venucia M50V（WC）</item>
-        <item>Venucia M50F ，X35（WC）</item>
-        <item>ChanA CX70（WC）</item>
+        <item>Venucia M50F ，X35（HiWorld）</item>
+        <item>ChanA CX70（HiWorld）</item>
         <item>Porsche（LZ）</item>
         <item>BAIC Senova（OD）</item>
         <item>X80 (RZC)</item>
@@ -4215,13 +4643,13 @@
         <item>Volvo(Xfy)</item>
         <item>Haval(Dj)</item>
         <item>Byd Sr/G5/S6/S7(HYKJ)</item>
-        <item>Flat(WC)</item>
-        <item>SGMW(WC)</item>
-        <item>ChangF Liebao(WC)</item>
-        <item>ZH H3,V3(WC)</item>
+        <item>Flat(HiWorld)</item>
+        <item>SGMW(HiWorld)</item>
+        <item>ChangF Liebao(HiWorld)</item>
+        <item>ZH H3,V3(HiWorld)</item>
         <item>Chrysler(Hc)</item>
-        <item>Nissan RiCh6(WC)</item>
-        <item>SouthEast DX7,DX3,DX5（RZC）</item>
+        <item>Nissan RiCh6(HiWorld)</item>
+        <item>SouthEast（RZC）</item>
         <item>Chevrolet Captive（Od）</item>
         <item>Volkswagen(XP)</item>
         <item>Dev1(CW)</item>
@@ -4232,22 +4660,22 @@
         <item>Jeep Wrangler(TXB)</item>
         <item>Ford Edge(Xfy)</item>
         <item>Koleos (Xfy)</item>
-        <item>LUXGEN(WC)</item>
+        <item>LUXGEN(HiWorld)</item>
         <item>Nissan(Xfy)</item>
-        <item>MG ZS,DT(WC)</item>
+        <item>MG ZS,DT(HiWorld)</item>
         <item>Toyota Vs(Xp)</item>
         <item>Escort(Ly)</item>
         <item>Fiat(Rzc)</item>
-        <item>ChanA(WC)</item>
+        <item>ChanA(HiWorld)</item>
         <item>Mzd CX4(Bnr)</item>
         <item>Volvo XC60(LZ)</item>
-        <item>DF JYX5(WC)</item>
+        <item>DF JYX5(HiWorld)</item>
         <item>BLSU（OD）</item>
         <item>Mzd（Rzc）</item>
         <item>Accord8 （Xbs）</item>
-        <item>08~12 Fiesta(WC)</item>
+        <item>08~12 Fiesta(HiWorld)</item>
         <item>GM (TXB)</item>
-        <item>Fiat Ftf1(WC)</item>
+        <item>Fiat Ftf1(HiWorld)</item>
         <item>Mitsubishi(Rzc)</item>
         <item>Toyota(DJ)</item>
         <item>DF AX7(OD)</item>
@@ -4261,24 +4689,46 @@
         <item>LandWind（Od）</item>
         <item>Lexus .HighVer（Zmyt）</item>
         <item>Bmw（LZ）</item>
-        <item>TATA(WC)</item>
+        <item>TATA(HiWorld)</item>
         <item>T3</item>
-        <item>Manindra(WC)</item>
+        <item>Manindra(HiWorld)</item>
         <item>Iveco(Rzc)</item>
-        <item>Swm(Rzc)</item>
+        <item>Swm,WeiChai(Rzc)</item>
         <item>H5</item>
         <item>PSA SCR(Rzc)</item>
         <item>Subuar(Xp)</item>
         <item>FAW B30-T3</item>
-        <item>KaWei(WC)</item>
+        <item>KaWei(HiWorld)</item>
         <item>HondaDa(Rzc)</item>
+        <item>LandRover(Zmyt)</item>
+        <item>WeiChai(HiWorld)</item>
+        <item>ISUZU(Xp)</item>
+        <item>Ford(Dj)</item>
+        <item>B70(Dj)</item>
+        <item>Teana(XC)</item>
+        <item>Audi(Rzc)</item>
+        <item>Iveco V2(Rzc)</item>
+        <item>Excelle 2019,2021(HiWorld)</item>
+        <item>Audi（LZ）</item>
+        <item>T3</item>
+        <item>GM ENCLAVE(HiWorld)</item>
+        <item>Chery Tiggo(Xp)</item>
+        <item>Crown With.HighVer(HiWorld)</item>
+        <item>Audi（Xbs）</item>
+        <item>Mitsubishi OutLander（HiWorld）</item>
+        <item>Volvo（Rzc）</item>
+        <item>Renault（Baogu）</item>
+        <item>Hexa（LZ）</item>
+        <item>Hummer（OD）</item>
+        <item>BMW（Rzc）</item>
+        <item>Mjb（Fl）</item>
     </array>
     <array name="can_car_kinds_array">
         <item>ALL</item>
         <item>Xp</item>
         <item>Rzc</item>
         <item>Xbs</item>
-        <item>Wc</item>
+        <item>HiWorld</item>
         <item>Od</item>
     </array>
     <array name="can_kind_sub_array_1">
@@ -4320,6 +4770,8 @@
         <item>240</item>
         <item>252</item>
         <item>285</item>
+        <item>291</item>
+        <item>301</item>
     </array>
     <array name="can_kind_sub_array_2">
         <item>1</item>
@@ -4394,6 +4846,10 @@
         <item>282</item>
         <item>284</item>
         <item>288</item>
+        <item>295</item>
+        <item>296</item>
+        <item>305</item>
+        <item>309</item>
     </array>
     <array name="can_kind_sub_array_3">
         <item>1</item>
@@ -4493,6 +4949,11 @@
         <item>278</item>
         <item>280</item>
         <item>287</item>
+        <item>290</item>
+        <item>297</item>
+        <item>300</item>
+        <item>302</item>
+        <item>304</item>
     </array>
     <array name="can_kind_sub_array_5">
         <item>26</item>
@@ -4517,53 +4978,5 @@
         <item>267</item>
         <item>269</item>
         <item>275</item>
-    </array>
-    <array name="WeekDay">
-        <item>Sunday</item>
-        <item>Monday</item>
-        <item>Tuesday</item>
-        <item>Wednesday</item>
-        <item>Thursday</item>
-        <item>Friday</item>
-        <item>Saturday</item>
-    </array>
-    <array name="weather_type">
-        <item>晴</item>
-        <item>多云</item>
-        <item>阴</item>
-        <item>阵雨</item>
-        <item>雷阵雨</item>
-        <item>雷阵雨并伴有冰雹</item>
-        <item>雨夹雪</item>
-        <item>小雨</item>
-        <item>中雨</item>
-        <item>大雨</item>
-        <item>暴雨</item>
-        <item>大暴雨</item>
-        <item>特大暴雨</item>
-        <item>阵雪</item>
-        <item>小雪</item>
-        <item>中雪</item>
-        <item>大雪</item>
-        <item>暴雪</item>
-        <item>雾</item>
-        <item>冻雨</item>
-        <item>沙尘暴</item>
-        <item>小雨-中雨</item>
-        <item>中雨-大雨</item>
-        <item>大雨-暴雨</item>
-        <item>暴雨-大暴雨</item>
-        <item>大暴雨-特大暴雨</item>
-        <item>小雪-中雪</item>
-        <item>中雪-大雪</item>
-        <item>大雪-暴雪</item>
-        <item>浮尘</item>
-        <item>扬沙</item>
-        <item>强沙尘暴</item>
-        <item>飑</item>
-        <item>龙卷风</item>
-        <item>弱高吹雪</item>
-        <item>轻霾</item>
-        <item>霾</item>
     </array>
 </resources>

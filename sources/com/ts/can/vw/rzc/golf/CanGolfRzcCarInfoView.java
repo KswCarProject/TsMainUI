@@ -12,7 +12,7 @@ import com.yyw.ts70xhw.Mcu;
 
 public class CanGolfRzcCarInfoView extends CanScrollCarInfoView {
     public CanGolfRzcCarInfoView(Activity activity) {
-        super(activity, 8);
+        super(activity, 9);
     }
 
     public void onItem(int id, int item) {
@@ -33,6 +33,8 @@ public class CanGolfRzcCarInfoView extends CanScrollCarInfoView {
                 enterSubWin(CanCarInfoSub1Activity.class, -7);
             } else if (CanJni.GetSubType() == 4) {
                 enterSubWin(CanCarInfoSub1Activity.class, -6);
+            } else if (CanJni.GetSubType() == 5) {
+                enterSubWin(CanCarInfoSub1Activity.class, -9);
             } else {
                 enterSubWin(CanCarInfoSub1Activity.class, -8);
             }
@@ -43,13 +45,18 @@ public class CanGolfRzcCarInfoView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_car_type_select, R.string.can_driving_data, R.string.can_conv_consumers, R.string.can_vehi_status, R.string.can_dzxszt, R.string.can_vehi_setup, R.string.can_lang_set, R.string.can_psa_wc_jsms};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CAR_TYPE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE};
+        this.mItemTitleIds = new int[]{R.string.can_car_type_select, R.string.can_driving_data, R.string.can_conv_consumers, R.string.can_vehi_status, R.string.can_dzxszt, R.string.can_vehi_setup, R.string.can_lang_set, R.string.can_psa_wc_jsms, R.string.can_jac_nll_nlhs};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CAR_TYPE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE, CanScrollCarInfoView.Item.TITLE};
         this.mPopValueIds[0] = new int[]{R.array.can_fs_declare_2};
-        if (CanJni.GetSubType() == 4) {
+        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5) {
             this.mItemVisibles[4] = 1;
         } else {
             this.mItemVisibles[4] = 0;
+        }
+        if (CanJni.GetSubType() == 5) {
+            this.mItemVisibles[2] = 0;
+        } else {
+            this.mItemVisibles[2] = 1;
         }
     }
 

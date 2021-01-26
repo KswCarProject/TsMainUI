@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="564px" android:layout_height="match_parent">
     <Button android:id="@+id/screensettings_brightnessid" android:background="@drawable/screensettings_brightness" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="0px" android:layout_marginTop="0px"/>
     <Button android:id="@+id/screensettings_contrastid" android:background="@drawable/screensettings_contrast" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="94px" android:layout_marginTop="0px"/>
     <Button android:id="@+id/screensettings_hueid" android:background="@drawable/screensettings_sharpness" android:layout_width="94px" android:layout_height="58px" android:layout_marginLeft="188px" android:layout_marginTop="0px"/>

@@ -8,7 +8,7 @@ import java.util.List;
 public class TXZPowerManager {
 
     /* renamed from: T  reason: collision with root package name */
-    static Boolean f784T = null;
+    static Boolean f788T = null;
     private static TXZPowerManager Tr = new TXZPowerManager();
     private List<Runnable> Ty;
 
@@ -76,15 +76,15 @@ public class TXZPowerManager {
         synchronized (TXZPowerManager.class) {
             Tn.Tr().T9 = false;
             Tn.Tr().T();
-            f784T = true;
+            f788T = true;
         }
         Tn.Tr().T("com.txznet.txz", "comm.exitTXZ", (byte[]) null, (Tn.Tr) null);
     }
 
     public void reinitTXZ() {
         synchronized (TXZPowerManager.class) {
-            f784T = false;
-            TXZService.f816T = false;
+            f788T = false;
+            TXZService.f820T = false;
             Tn.Tr().T9 = false;
         }
         TXZConfigManager.getInstance().Ty();

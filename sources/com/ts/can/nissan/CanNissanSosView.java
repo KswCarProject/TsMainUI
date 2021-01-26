@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import com.ts.MainUI.R;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanNissanSosView {
     public static CanNissanSosView mInstance = null;
@@ -26,7 +25,7 @@ public class CanNissanSosView {
         this.mWindowManager = (WindowManager) context.getSystemService("window");
         WindowManager.LayoutParams params = new WindowManager.LayoutParams();
         params.type = 2010;
-        params.flags = KeyDef.RKEY_RADIO_SCAN;
+        params.flags = 296;
         params.format = 1;
         params.width = -1;
         params.height = -1;

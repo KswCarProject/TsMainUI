@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.ts.MainUI.R;
 import com.ts.other.CustomDialog;
 import com.ts.set.setview.SetItemPopupList;
+import com.txznet.sdk.TXZResourceManager;
 
 /* compiled from: SetItemPopupList */
 class CanPopupMenu extends CustomDialog implements View.OnClickListener {
@@ -42,8 +43,6 @@ class CanPopupMenu extends CustomDialog implements View.OnClickListener {
             WindowManager.LayoutParams wmlp = this.mWindow.getAttributes();
             wmlp.gravity = 53;
             wmlp.x = 0;
-            wmlp.y = y2;
-            this.mWindow.setAttributes(wmlp);
             int line = text.length;
             ScrollView scrView = (ScrollView) this.mWindow.findViewById(R.id.can_comm_scrview);
             if (line >= 7 || line <= 1) {
@@ -51,6 +50,12 @@ class CanPopupMenu extends CustomDialog implements View.OnClickListener {
             } else {
                 scrView.setBackgroundResource(mBk[line - 2]);
             }
+            int height = scrView.getBackground().getIntrinsicHeight();
+            if (y2 + height > 555) {
+                y2 = 555 - height;
+            }
+            wmlp.y = y2;
+            this.mWindow.setAttributes(wmlp);
             LinearLayout layout = (LinearLayout) this.mWindow.findViewById(R.id.can_comm_lineview);
             this.mViewArray = new View[line];
             this.mTextViewArray = new TextView[line];
@@ -76,7 +81,7 @@ class CanPopupMenu extends CustomDialog implements View.OnClickListener {
             Class<?> c = Class.forName("com.android.internal.R$dimen");
             sbar = context.getResources().getDimensionPixelSize(Integer.parseInt(c.getField("status_bar_height").get(c.newInstance()).toString()));
         } catch (Exception e1) {
-            Log.d("", "get status bar height fail");
+            Log.d(TXZResourceManager.STYLE_DEFAULT, "get status bar height fail");
             e1.printStackTrace();
         }
         Log.d("statusBarHeight = ", new StringBuilder().append(sbar).toString());

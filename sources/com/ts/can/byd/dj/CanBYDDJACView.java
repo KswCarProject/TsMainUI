@@ -11,7 +11,6 @@ import com.ts.MainUI.R;
 import com.ts.can.CanBaseACView;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
-import com.yyw.ts70xhw.KeyDef;
 
 public class CanBYDDJACView extends CanBaseACView {
     private static final int AC = 5;
@@ -114,7 +113,7 @@ public class CanBYDDJACView extends CanBaseACView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mAutoMode = getRelativeManager().AddCusText(KeyDef.RKEY_AMS, 426, 118, 30);
+        this.mAutoMode = getRelativeManager().AddCusText(295, 426, 118, 30);
         this.mAutoMode.setTextColor(-1);
         this.mAutoMode.setTextSize(0, 18.0f);
         this.mAutoMode.setText("AUTO");

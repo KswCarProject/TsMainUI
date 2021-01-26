@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.txznet.comm.Tr.Tr.Tr;
 import com.txznet.comm.base.BaseActivity;
 import com.txznet.sdk.TXZConfigManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.txz.comm.R;
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 public class ChangeCommandActivity extends BaseActivity {
 
     /* renamed from: T  reason: collision with root package name */
-    static Tr f663T;
+    static Tr f667T;
     static ArrayList<String> Tr = new ArrayList<>();
     private static boolean Ty = true;
     private View.OnClickListener T5 = new View.OnClickListener() {
@@ -28,7 +29,7 @@ public class ChangeCommandActivity extends BaseActivity {
                 if (ChangeCommandActivity.Tr.size() >= 4) {
                     Toast.makeText(ChangeCommandActivity.this, "亲，唤醒词太多，体验效果更不好哦", 1).show();
                 } else {
-                    ChangeCommandActivity.T("", ChangeCommandActivity.this, "添加唤醒词", -1);
+                    ChangeCommandActivity.T(TXZResourceManager.STYLE_DEFAULT, ChangeCommandActivity.this, "添加唤醒词", -1);
                 }
             }
         }
@@ -49,8 +50,8 @@ public class ChangeCommandActivity extends BaseActivity {
         setContentView(R.layout.layout_asrcommand);
         Tk();
         TZ();
-        f663T = new Tr(this);
-        this.Tn.setAdapter(f663T);
+        f667T = new Tr(this);
+        this.Tn.setAdapter(f667T);
     }
 
     /* access modifiers changed from: protected */
@@ -64,7 +65,7 @@ public class ChangeCommandActivity extends BaseActivity {
         if (Tr.size() >= 4) {
             this.T9.setVisibility(8);
         }
-        f663T.T(editable);
+        f667T.T(editable);
     }
 
     /* access modifiers changed from: protected */
@@ -72,16 +73,16 @@ public class ChangeCommandActivity extends BaseActivity {
         if (Tr.isEmpty()) {
             TZ();
         }
-        if (f663T == null) {
-            f663T = new Tr(this);
+        if (f667T == null) {
+            f667T = new Tr(this);
         }
-        f663T.notifyDataSetChanged();
+        f667T.notifyDataSetChanged();
         super.onNewIntent(intent);
     }
 
     /* access modifiers changed from: protected */
     public void onDestroy() {
-        f663T = null;
+        f667T = null;
         super.onDestroy();
     }
 
@@ -129,7 +130,7 @@ public class ChangeCommandActivity extends BaseActivity {
                     if (!str.isEmpty() || i != -1) {
                         if (!str.isEmpty() && i != -1) {
                             ChangeCommandActivity.Tr.set(i, editText.getText().toString().trim());
-                            ChangeCommandActivity.f663T.notifyDataSetChanged();
+                            ChangeCommandActivity.f667T.notifyDataSetChanged();
                         }
                     } else if (ChangeCommandActivity.Tr.contains(editText.getText().toString().trim())) {
                         synchronized (v) {
@@ -137,7 +138,7 @@ public class ChangeCommandActivity extends BaseActivity {
                         }
                     } else {
                         ChangeCommandActivity.Tr.add(editText.getText().toString().trim());
-                        ChangeCommandActivity.f663T.notifyDataSetChanged();
+                        ChangeCommandActivity.f667T.notifyDataSetChanged();
                     }
                     TXZConfigManager.getInstance().setWakeupKeywordsNew((String[]) ChangeCommandActivity.Tr.toArray(new String[ChangeCommandActivity.Tr.size()]));
                     dialog.dismiss();

@@ -85,7 +85,7 @@ public class CanCadillacAtsXhdExdActivity extends CanBaseActivity implements Use
         if (CanJni.GetSubType() == 0) {
             this.mManager.GetLayout().setBackgroundResource(R.drawable.cadillac_ats_bg01);
             for (int i = 0; i < 6; i++) {
-                this.mLine[i] = this.mManager.AddImage((i * Can.CAN_JAC_REFINE_OD) + 134, 399, R.drawable.cadillac_ats_line01);
+                this.mLine[i] = this.mManager.AddImage((i * 150) + 134, 399, R.drawable.cadillac_ats_line01);
             }
         } else {
             this.mManager.GetLayout().setOnTouchListener(this);
@@ -105,7 +105,7 @@ public class CanCadillacAtsXhdExdActivity extends CanBaseActivity implements Use
         this.mBtnPower = addButton(0, Can.CAN_CC_WC, R.drawable.cadillac_ats_mute_up, R.drawable.cadillac_ats_mute_dn, 18);
         this.mBtnMenu = addButton(Can.CAN_FORD_ESCORT_LY, 465, R.drawable.cadillac_ats_menu_up, R.drawable.cadillac_ats_menu_dn, 19);
         for (int i2 = 0; i2 < 5; i2++) {
-            this.mBtnRadioNum[i2] = addButton((i2 * Can.CAN_JAC_REFINE_OD) + Can.CAN_CC_WC, 399, R.drawable.cadillac_ats_arrow_up, R.drawable.cadillac_ats_arrow_dn, i2 + 12);
+            this.mBtnRadioNum[i2] = addButton((i2 * 150) + Can.CAN_CC_WC, 399, R.drawable.cadillac_ats_arrow_up, R.drawable.cadillac_ats_arrow_dn, i2 + 12);
         }
     }
 

@@ -10,7 +10,7 @@ import java.util.Map;
 public final class Tq extends Tj {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final int[] f278T = {1, 1, 1, 1};
+    private static final int[] f281T = {1, 1, 1, 1};
     private static final int[] Tr = {3, 1, 1};
 
     public Tr T(String contents, T format, int width, int height, Map<Ty, ?> hints) throws TE {
@@ -28,14 +28,14 @@ public final class Tq extends Tj {
             throw new IllegalArgumentException("Requested contents should be less than 80 digits long, but got " + length);
         } else {
             boolean[] result = new boolean[((length * 9) + 9)];
-            int pos = Tr(result, 0, f278T, true);
+            int pos = Tr(result, 0, f281T, true);
             for (int i = 0; i < length; i += 2) {
                 int one = Character.digit(contents.charAt(i), 10);
                 int two = Character.digit(contents.charAt(i + 1), 10);
                 int[] encoding = new int[18];
                 for (int j = 0; j < 5; j++) {
-                    encoding[j * 2] = T6.f272T[one][j];
-                    encoding[(j * 2) + 1] = T6.f272T[two][j];
+                    encoding[j * 2] = T6.f275T[one][j];
+                    encoding[(j * 2) + 1] = T6.f275T[two][j];
                 }
                 pos += Tr(result, pos, encoding, true);
             }

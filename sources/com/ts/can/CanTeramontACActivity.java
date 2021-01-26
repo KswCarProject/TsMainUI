@@ -189,11 +189,11 @@ public class CanTeramontACActivity extends CanBaseActivity implements UserCallBa
         this.mRearTemp.setTextColor(-1);
         this.mRearTemp.setGravity(21);
         this.mRearTemp.setText("13℃");
-        this.mBtnLtHot = this.mManager.AddButton(30, Can.CAN_JAC_REFINE_OD);
+        this.mBtnLtHot = this.mManager.AddButton(30, 150);
         this.mBtnLtHot.setStateDrawable(R.drawable.conditioning_leftseat_up, R.drawable.conditioning_leftseat_dn, R.drawable.conditioning_leftseat_dn);
         this.mBtnLtHot.setTag(1);
         this.mBtnLtHot.setOnClickListener(this);
-        this.mBtnRtHot = this.mManager.AddButton(217, Can.CAN_JAC_REFINE_OD);
+        this.mBtnRtHot = this.mManager.AddButton(217, 150);
         this.mBtnRtHot.setStateDrawable(R.drawable.conditioning_rightseat_up, R.drawable.conditioning_rightseat_dn, R.drawable.conditioning_rightseat_dn);
         this.mBtnRtHot.setTag(2);
         this.mBtnRtHot.setOnClickListener(this);
@@ -228,7 +228,7 @@ public class CanTeramontACActivity extends CanBaseActivity implements UserCallBa
         this.mRearLight = this.mManager.AddImage(436, KeyDef.RKEY_res1);
         this.mRearLight.setStateDrawable(R.drawable.conditioning_heat_up, R.drawable.conditioning_heat_dn);
         this.mRearLight.Show(false);
-        this.mDual = this.mManager.AddImage(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, KeyDef.RKEY_res1);
+        this.mDual = this.mManager.AddImage(540, KeyDef.RKEY_res1);
         this.mDual.setStateDrawable(R.drawable.conditioning_dual_up, R.drawable.conditioning_dual_dn);
         this.mAc = this.mManager.AddImage(CanCameraUI.BTN_LANDWIND_2D_RIGHT, KeyDef.RKEY_res1);
         this.mAc.setStateDrawable(R.drawable.conditioning_ac_up, R.drawable.conditioning_ac_dn);

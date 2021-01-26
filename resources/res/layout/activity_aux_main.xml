@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/aux_bg" android:layout_width="match_parent" android:layout_height="match_parent">
-    <Button android:id="@+id/btn_auxsound" android:background="@drawable/aux_btn_sound" android:layout_width="397px" android:layout_height="79px" android:layout_marginLeft="314px" android:layout_marginTop="521px"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/activity_aux_mainid" android:background="@drawable/avin_background" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:layout_width="987px" android:layout_height="460px" android:src="@drawable/aux_bg01" android:layout_centerInParent="true"/>
+    <TextView android:textSize="35px" android:textColor="#ffffffff" android:id="@+id/auxHomeName" android:layout_width="300px" android:layout_height="60px" android:layout_marginLeft="85px" android:layout_marginTop="15px" android:text="" android:layout_alignParentTop="true"/>
 </RelativeLayout>

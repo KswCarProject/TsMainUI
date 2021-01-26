@@ -1,6 +1,7 @@
 package com.ts.can;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class CanDataAdapter extends BaseAdapter {
             this.vh = new ViewHolder();
             convertView = LayoutInflater.from(this.mContext).inflate(R.layout.lv_item, (ViewGroup) null);
             this.vh.txt = (TextView) convertView.findViewById(R.id.lv_txt);
-            this.vh.txt.setTextColor(-16777216);
+            this.vh.txt.setTextColor(ViewCompat.MEASURED_STATE_MASK);
             convertView.setTag(this.vh);
         } else {
             this.vh = (ViewHolder) convertView.getTag();

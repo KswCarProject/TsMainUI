@@ -11,7 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    static final ReadWriteLock f887T = new ReentrantReadWriteLock(false);
+    static final ReadWriteLock f891T = new ReentrantReadWriteLock(false);
     static Map<String, T> Tr = new HashMap();
     public static int Ty = 1;
 
@@ -27,8 +27,8 @@ public class Tn {
     }
 
     public static void T(String prefix, T proc) {
-        f887T.writeLock().lock();
+        f891T.writeLock().lock();
         Tr.put(prefix, proc);
-        f887T.writeLock().unlock();
+        f891T.writeLock().unlock();
     }
 }

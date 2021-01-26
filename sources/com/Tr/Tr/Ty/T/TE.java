@@ -7,7 +7,7 @@ import java.nio.charset.Charset;
 final class TE {
 
     /* renamed from: T  reason: collision with root package name */
-    int f292T;
+    int f295T;
     private int T5;
     private Tr T9;
     private Th TE;
@@ -55,7 +55,7 @@ final class TE {
     }
 
     public char Tr() {
-        return this.Tr.charAt(this.f292T);
+        return this.Tr.charAt(this.f295T);
     }
 
     public StringBuilder Ty() {
@@ -87,7 +87,7 @@ final class TE {
     }
 
     public boolean TZ() {
-        return this.f292T < T6();
+        return this.f295T < T6();
     }
 
     private int T6() {
@@ -95,7 +95,7 @@ final class TE {
     }
 
     public int TE() {
-        return T6() - this.f292T;
+        return T6() - this.f295T;
     }
 
     public Th T5() {

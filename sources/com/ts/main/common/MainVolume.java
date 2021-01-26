@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.v4.view.ViewCompat;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
-import com.ts.can.CanCameraUI;
 import com.ts.can.CanIF;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.main.txz.AmapAuto;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
@@ -33,26 +33,26 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
     public static final int VOL_BAR_POSX1 = 301;
     public static final int VOL_BAR_POSY = 20;
     public static final int VOL_BAR_POSY1 = 137;
-    public static final int VOL_BAR_SIZEX = 976;
+    public static int VOL_BAR_SIZEX = 976;
     public static final int VOL_BAR_SIZEX1 = 166;
     public static final int VOL_BAR_SIZEY = 79;
     public static final int VOL_BAR_SIZEY1 = 166;
-    public static boolean bVolNotShow = true;
     public static int nBklisOn = 0;
+    private static int screenOrientation = 2;
     Button Btnsst_cancel;
     boolean bFullScreen = true;
     boolean bTouchDn = false;
+    private boolean isNewVolume = false;
     private boolean isVertical = false;
     /* access modifiers changed from: private */
     public Evc mEvc = Evc.GetInstance();
-    private RelativeLayout mFloatLayoutNaw = null;
+    public RelativeLayout mFloatLayoutNaw = null;
     private RelativeLayout mFloatLayoutScreenFor;
     private RelativeLayout mFloatLayoutVol;
     LinearLayout mLv;
     Button mProcessName;
     SeekBar mSeekBar;
-    Application m_Application;
-    Context m_Context;
+    Context m_Context = null;
     TextView mtrackText;
     TextView mtrackforbiden;
     public int nAidlVolumeShow = 0;
@@ -78,17 +78,28 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
     public void InintWinManage(int nSizeX, int nSizeY, int nPosX, int nPosY, Context MyContext) {
         this.wManager = (WindowManager) MyContext.getSystemService("window");
         this.wmParams = new WindowManager.LayoutParams();
-        if (this.mFloatLayoutNaw == this.mFloatLayoutScreenFor) {
-            this.wmParams.type = 2003;
-        } else if (MainSet.GetInstance().IsCustom("TSYQ")) {
-            this.wmParams.type = 2003;
-        } else if (CanIF.IsAvmMode() > 0) {
-            this.wmParams.type = 2003;
+        if (this.mFloatLayoutNaw != this.mFloatLayoutScreenFor) {
+            MainUI.GetInstance();
+            if (MainUI.IsCameraMode() == 1) {
+                this.wmParams.type = 2010;
+            } else {
+                this.wmParams.type = 2003;
+            }
         } else {
-            this.wmParams.type = 2010;
+            this.wmParams.type = 2003;
+            this.mFloatLayoutNaw.setFocusableInTouchMode(true);
+            this.mFloatLayoutNaw.setOnKeyListener(new View.OnKeyListener() {
+                public boolean onKey(View v, int keycode, KeyEvent event) {
+                    if (keycode != 4) {
+                        return false;
+                    }
+                    MainUI.GetInstance().BackToLauncher();
+                    return true;
+                }
+            });
         }
         this.wmParams.format = 1;
-        if (nSizeX == MainUI.mScrW || nSizeY == MainUI.mScrH || nSizeX == 480) {
+        if (nSizeX == MainUI.mScrW || nSizeY == MainUI.mScrH || nSizeY == 480) {
             if (this.mFloatLayoutNaw == this.mFloatLayoutScreenFor) {
                 this.wmParams.flags |= 2048;
                 this.wmParams.flags |= 256;
@@ -98,34 +109,44 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
             } else {
                 this.wmParams.flags |= 1024;
                 this.wmParams.systemUiVisibility = 516;
-                if (CanIF.IsAvmMode() > 0) {
-                    this.wmParams.systemUiVisibility |= 4096;
-                }
             }
             this.bFullScreen = true;
         } else {
             this.wmParams.flags = 8;
         }
-        this.wmParams.gravity = 81;
+        if (this.isNewVolume) {
+            this.wmParams.gravity = 17;
+        } else {
+            this.wmParams.gravity = 81;
+        }
         this.wmParams.width = nSizeX;
         this.wmParams.height = nSizeY;
     }
 
     public void Inint(Application MyApplication, Context MyContext) {
-        this.m_Application = MyApplication;
-        this.m_Context = MyContext;
-        this.nMusicVolold = -1;
-        this.nBtVolold = -1;
-        this.nNVolold = -1;
-        this.nMute = 0;
-        LayoutInflater inflater = LayoutInflater.from(MyApplication);
-        this.mFloatLayoutScreenFor = (RelativeLayout) inflater.inflate(R.layout.screen_forbiden, (ViewGroup) null);
-        this.mFloatLayoutScreenFor.setBackgroundColor(-16777216);
-        this.mtrackforbiden = (TextView) this.mFloatLayoutScreenFor.findViewById(R.id.forbiden);
-        this.mtrackforbiden.setText(R.string.drive_state_forbiden);
-        this.nVolUpColor = MyContext.getResources().getColor(R.color.vol_bar_up);
-        this.nVolDnColor = MyContext.getResources().getColor(R.color.vol_bar_dn);
-        if (MainSet.IsVSUI() || MainSet.IsBmwX1()) {
+        if (this.m_Context == null) {
+            this.m_Context = MyContext;
+            this.nMusicVolold = -1;
+            this.nBtVolold = -1;
+            this.nNVolold = -1;
+            this.nMute = 0;
+            this.mFloatLayoutScreenFor = (RelativeLayout) LayoutInflater.from(MyApplication).inflate(R.layout.screen_forbiden, (ViewGroup) null);
+            this.mFloatLayoutScreenFor.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+            this.mtrackforbiden = (TextView) this.mFloatLayoutScreenFor.findViewById(R.id.forbiden);
+            this.mtrackforbiden.setText(R.string.video_state_forbiden);
+            initVolumBarView(MyContext);
+            Log.i(TAG, "nBklisOn=" + nBklisOn);
+        }
+    }
+
+    private void initVolumBarView(Context context) {
+        this.nVolUpColor = context.getResources().getColor(R.color.vol_bar_up);
+        this.nVolDnColor = context.getResources().getColor(R.color.vol_bar_dn);
+        this.isNewVolume = MainSet.GetInstance().IsPCBAVol();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        if (this.isNewVolume) {
+            this.mFloatLayoutVol = (RelativeLayout) inflater.inflate(R.layout.special_volume, (ViewGroup) null);
+        } else if (MainSet.IsVSUI() || MainSet.IsBmwX1()) {
             this.isVertical = true;
             this.mFloatLayoutVol = (RelativeLayout) inflater.inflate(R.layout.vertical_volume, (ViewGroup) null);
         } else {
@@ -142,32 +163,46 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
             }
         });
         this.mtrackText = (TextView) this.mFloatLayoutVol.findViewById(R.id.volsize);
-        if (this.isVertical) {
+        if (this.isNewVolume) {
+            this.mSeekBar = (SeekBar) this.mFloatLayoutVol.findViewById(R.id.seekBar1);
+            this.mSeekBar.setOnSeekBarChangeListener(this);
+            this.mProcessName.setBackgroundResource(R.drawable.main_volume_btn);
+        } else if (this.isVertical) {
             this.mLv = (LinearLayout) this.mFloatLayoutVol.findViewById(R.id.lv);
+            this.mProcessName.setBackgroundResource(R.drawable.vol_popup_music);
+            this.mProcessName.setText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mSeekBar = (SeekBar) this.mFloatLayoutVol.findViewById(R.id.seekBar1);
             this.mSeekBar.setOnSeekBarChangeListener(this);
-        }
-        if (this.isVertical) {
-            this.mProcessName.setBackgroundResource(R.drawable.vol_popup_music);
-            this.mProcessName.setText("");
-        } else {
             this.mProcessName.setBackgroundResource(R.drawable.btn_vol_music);
         }
         this.mtrackText.setText(new StringBuilder().append(Iop.GetVolume(0)).toString());
         this.nMusicVolold = Iop.GetVolume(0);
         this.nBtVolold = Iop.GetVolume(1);
         this.nNVolold = StSet.GetNvol();
-        Log.i(TAG, "nBklisOn=" + nBklisOn);
-        InintVolBar();
+    }
+
+    public void ResetVolState() {
+        this.nMusicVolold = Iop.GetVolume(0);
+        this.nBtVolold = Iop.GetVolume(1);
+        this.nNVolold = StSet.GetNvol();
+        Log.i(TAG, "ResetVolState= nMusicVolold==" + Iop.GetVolume(0));
     }
 
     public void InintVolBar() {
-        if (this.mFloatLayoutNaw != this.mFloatLayoutVol) {
+        int orientation = this.m_Context.getResources().getConfiguration().orientation;
+        if (this.mFloatLayoutNaw != this.mFloatLayoutVol || orientation != screenOrientation) {
             Destroy();
+            if (orientation != screenOrientation) {
+                VOL_BAR_SIZEX = this.m_Context.getResources().getInteger(R.integer.volbar_sizex);
+                initVolumBarView(this.m_Context);
+                screenOrientation = orientation;
+            }
             this.mFloatLayoutNaw = this.mFloatLayoutVol;
-            if (MainSet.GetScreenType() == 5) {
-                InintWinManage(800, 0, 151, -79, this.m_Context);
+            if (this.isNewVolume) {
+                InintWinManage(568, 0, 0, 0, this.m_Context);
+            } else if (MainSet.GetScreenType() == 5) {
+                InintWinManage(VOL_BAR_SIZEX, 0, 151, -79, this.m_Context);
             } else if (this.isVertical) {
                 InintWinManage(166, 0, 301, -79, this.m_Context);
             } else {
@@ -183,9 +218,13 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
             this.bFullScreen = true;
             this.mFloatLayoutNaw = this.mFloatLayoutScreenFor;
             if (MainUI.mScrW <= 0 || MainUI.mScrH <= 0) {
-                InintWinManage(1024, CanCameraUI.BTN_GOLF_WC_MODE1, 0, 0, this.m_Context);
+                InintWinManage(1024, 600, 0, 0, this.m_Context);
             } else if (MainSet.GetScreenType() == 3) {
-                InintWinManage(CanToyotaDJCarDeviceView.ITEM_PLAY, 441, 0, 0, this.m_Context);
+                InintWinManage(768, 441, 0, 0, this.m_Context);
+                this.wmParams.width = -1;
+                this.wmParams.height = -1;
+            } else if (MainSet.GetScreenType() == 6) {
+                InintWinManage(MainUI.mScrH, 480, 0, 0, this.m_Context);
                 this.wmParams.width = -1;
                 this.wmParams.height = -1;
             } else if (MainSet.GetScreenType() == 8) {
@@ -194,6 +233,8 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
                 this.wmParams.height = -1;
             } else {
                 InintWinManage(MainUI.mScrW, MainUI.mScrH, 0, 0, this.m_Context);
+                this.wmParams.width = -1;
+                this.wmParams.height = -1;
             }
             this.wManager.addView(this.mFloatLayoutScreenFor, this.wmParams);
         }
@@ -244,15 +285,28 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
             Destroy();
             this.mFloatLayoutNaw = v;
             if (MainUI.mScrW <= 0 || MainUI.mScrH <= 0) {
-                InintWinManage(1024, CanCameraUI.BTN_GOLF_WC_MODE1, 0, 0, this.m_Context);
+                InintWinManage(1024, 600, 0, 0, this.m_Context);
             } else if (MainSet.GetScreenType() == 3) {
-                InintWinManage(CanToyotaDJCarDeviceView.ITEM_PLAY, 441, 0, 0, this.m_Context);
+                InintWinManage(this.m_Context.getResources().getDimensionPixelOffset(R.dimen.screen_768backcar_width), this.m_Context.getResources().getDimensionPixelOffset(R.dimen.screen_768backcar_height), 0, 0, this.m_Context);
+                this.wmParams.gravity = 49;
+                this.wmParams.flags |= 1024;
+                this.wmParams.systemUiVisibility = 516;
+            } else if (MainSet.GetScreenType() == 11) {
+                this.wmParams.width = -1;
+                this.wmParams.height = -1;
+            } else if (MainSet.GetScreenType() == 6) {
+                InintWinManage(800, 620, 0, 0, this.m_Context);
                 this.wmParams.width = -1;
                 this.wmParams.height = -1;
             } else if (MainSet.GetScreenType() == 8) {
-                InintWinManage(1024, CanToyotaDJCarDeviceView.ITEM_PLAY, 0, 0, this.m_Context);
+                InintWinManage(1024, 768, 0, 0, this.m_Context);
             } else {
                 InintWinManage(MainUI.mScrW, MainUI.mScrH, 0, 0, this.m_Context);
+                if (this.m_Context != null && this.m_Context.getResources().getConfiguration().orientation == 1) {
+                    Log.i(TAG, "InintScreen getConfiguration().orientation ==" + this.m_Context.getResources().getConfiguration().orientation);
+                    this.wmParams.width = -1;
+                    this.wmParams.height = -1;
+                }
             }
             this.wManager.addView(v, this.wmParams);
         }
@@ -277,324 +331,175 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
     }
 
     /* access modifiers changed from: package-private */
-    /* JADX WARNING: Code restructure failed: missing block: B:44:0x011a, code lost:
-        if (com.ts.MainUI.Evc.nNaviSpeeShow == 1) goto L_0x011c;
-     */
-    /* Code decompiled incorrectly, please refer to instructions dump. */
     public void InintVolBarState() {
-        /*
-            r9 = this;
-            r8 = 30
-            r6 = 4609434218613702656(0x3ff8000000000000, double:1.5)
-            r3 = 0
-            r5 = 0
-            r4 = 1
-            int r1 = com.yyw.ts70xhw.Iop.GetMute()
-            if (r1 != r4) goto L_0x009c
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = r9.nVolDnColor
-            r1.setTextColor(r2)
-            android.widget.TextView r1 = r9.mtrackText
-            int r2 = r9.nVolDnColor
-            r1.setTextColor(r2)
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x0094
-            r9.removeAllView()
-            android.widget.Button r1 = r9.mProcessName
-            java.lang.String r2 = ""
-            r1.setText(r2)
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_mute
-            r1.setBackgroundResource(r2)
-        L_0x0030:
-            int r1 = com.yyw.ts70xhw.Iop.GetMediaOrBlue()
-            if (r1 != r4) goto L_0x010a
-            boolean r1 = r9.isVertical
-            if (r1 != 0) goto L_0x0049
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r1.setOnSeekBarChangeListener(r3)
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r1.setMax(r8)
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r1.setOnSeekBarChangeListener(r9)
-        L_0x0049:
-            int r1 = com.yyw.ts70xhw.Iop.GetMute()
-            if (r1 != r4) goto L_0x00ab
-            android.widget.TextView r1 = r9.mtrackText
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            int r3 = com.yyw.ts70xhw.Iop.GetVolume(r4)
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.String r2 = r2.toString()
-            r1.setText(r2)
-        L_0x0065:
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x00e4
-            int r1 = com.yyw.ts70xhw.Iop.GetVolume(r4)
-            double r1 = (double) r1
-            double r1 = r1 / r6
-            int r0 = (int) r1
-            r9.setProgress(r0)
-            boolean r1 = com.ts.main.common.MainSet.IsVSUI()
-            if (r1 != 0) goto L_0x007f
-            boolean r1 = com.ts.main.common.MainSet.IsBmwX1()
-            if (r1 == 0) goto L_0x00dc
-        L_0x007f:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_box
-            r1.setBackgroundResource(r2)
-        L_0x0086:
-            int r1 = com.yyw.ts70xhw.Iop.GetMute()
-            if (r1 != r4) goto L_0x0093
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x0093
-            r9.removeAllView()
-        L_0x0093:
-            return
-        L_0x0094:
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.btn_vol_silent
-            r1.setBackgroundResource(r2)
-            goto L_0x0030
-        L_0x009c:
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = r9.nVolUpColor
-            r1.setTextColor(r2)
-            android.widget.TextView r1 = r9.mtrackText
-            int r2 = r9.nVolUpColor
-            r1.setTextColor(r2)
-            goto L_0x0030
-        L_0x00ab:
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x00d4
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_bt
-            r1.setBackgroundResource(r2)
-            android.widget.Button r1 = r9.mProcessName
-            java.lang.String r2 = ""
-            r1.setText(r2)
-        L_0x00bd:
-            android.widget.TextView r1 = r9.mtrackText
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            int r3 = com.yyw.ts70xhw.Iop.GetVolume(r4)
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.String r2 = r2.toString()
-            r1.setText(r2)
-            goto L_0x0065
-        L_0x00d4:
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.btn_vol_bt
-            r1.setBackgroundResource(r2)
-            goto L_0x00bd
-        L_0x00dc:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_box
-            r1.setBackgroundResource(r2)
-            goto L_0x0086
-        L_0x00e4:
-            android.widget.SeekBar r1 = r9.mSeekBar
-            int r2 = com.yyw.ts70xhw.Iop.GetVolume(r4)
-            r1.setProgress(r2)
-            boolean r1 = com.ts.main.common.MainSet.IsVSUI()
-            if (r1 != 0) goto L_0x00f9
-            boolean r1 = com.ts.main.common.MainSet.IsBmwX1()
-            if (r1 == 0) goto L_0x0101
-        L_0x00f9:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vertical_vol_bg_bt
-            r1.setBackgroundResource(r2)
-            goto L_0x0086
-        L_0x0101:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.common_btvol_bg
-            r1.setBackgroundResource(r2)
-            goto L_0x0086
-        L_0x010a:
-            boolean r1 = com.ts.MainUI.Evc.bNaviVol
-            if (r1 == 0) goto L_0x01af
-            com.ts.MainUI.Evc.GetInstance()
-            int r1 = com.ts.MainUI.Evc.nNaviSpeeking
-            if (r1 == r4) goto L_0x011c
-            com.ts.MainUI.Evc.GetInstance()
-            int r1 = com.ts.MainUI.Evc.nNaviSpeeShow
-            if (r1 != r4) goto L_0x01af
-        L_0x011c:
-            boolean r1 = r9.isVertical
-            if (r1 != 0) goto L_0x0136
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r1.setOnSeekBarChangeListener(r3)
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r2 = 100
-            r1.setMax(r2)
-            android.widget.SeekBar r1 = r9.mSeekBar
-            com.ts.main.common.MainVolume$2 r2 = new com.ts.main.common.MainVolume$2
-            r2.<init>()
-            r1.setOnSeekBarChangeListener(r2)
-        L_0x0136:
-            int r1 = com.yyw.ts70xhw.Iop.GetMute()
-            if (r1 != r4) goto L_0x016d
-            android.widget.TextView r1 = r9.mtrackText
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            int r3 = com.yyw.ts70xhw.Iop.GetVolume(r5)
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.String r2 = r2.toString()
-            r1.setText(r2)
-        L_0x0152:
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x019e
-            int r1 = com.yyw.ts70xhw.StSet.GetNvol()
-            int r0 = r1 / 5
-            r9.setProgress(r0)
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_box
-            r1.setBackgroundResource(r2)
-        L_0x0166:
-            com.ts.MainUI.Evc.GetInstance()
-            com.ts.MainUI.Evc.nNaviSpeeShow = r4
-            goto L_0x0086
-        L_0x016d:
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x0196
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_navi
-            r1.setBackgroundResource(r2)
-            android.widget.Button r1 = r9.mProcessName
-            java.lang.String r2 = ""
-            r1.setText(r2)
-        L_0x017f:
-            android.widget.TextView r1 = r9.mtrackText
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            int r3 = com.yyw.ts70xhw.StSet.GetNvol()
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.String r2 = r2.toString()
-            r1.setText(r2)
-            goto L_0x0152
-        L_0x0196:
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.btn_vol_navi
-            r1.setBackgroundResource(r2)
-            goto L_0x017f
-        L_0x019e:
-            android.widget.SeekBar r1 = r9.mSeekBar
-            int r2 = com.yyw.ts70xhw.StSet.GetNvol()
-            r1.setProgress(r2)
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vertical_vol_bg_navi
-            r1.setBackgroundResource(r2)
-            goto L_0x0166
-        L_0x01af:
-            boolean r1 = r9.isVertical
-            if (r1 != 0) goto L_0x01c2
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r1.setOnSeekBarChangeListener(r3)
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r1.setMax(r8)
-            android.widget.SeekBar r1 = r9.mSeekBar
-            r1.setOnSeekBarChangeListener(r9)
-        L_0x01c2:
-            int r1 = com.yyw.ts70xhw.Iop.GetMute()
-            if (r1 != r4) goto L_0x0201
-            android.widget.TextView r1 = r9.mtrackText
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            int r3 = com.yyw.ts70xhw.Iop.GetVolume(r5)
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.String r2 = r2.toString()
-            r1.setText(r2)
-        L_0x01de:
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x023b
-            int r1 = com.yyw.ts70xhw.Iop.GetVolume(r5)
-            double r1 = (double) r1
-            double r1 = r1 / r6
-            int r0 = (int) r1
-            r9.setProgress(r0)
-            boolean r1 = com.ts.main.common.MainSet.IsVSUI()
-            if (r1 != 0) goto L_0x01f8
-            boolean r1 = com.ts.main.common.MainSet.IsBmwX1()
-            if (r1 == 0) goto L_0x0232
-        L_0x01f8:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_box
-            r1.setBackgroundResource(r2)
-            goto L_0x0086
-        L_0x0201:
-            boolean r1 = r9.isVertical
-            if (r1 == 0) goto L_0x022a
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_music
-            r1.setBackgroundResource(r2)
-            android.widget.Button r1 = r9.mProcessName
-            java.lang.String r2 = ""
-            r1.setText(r2)
-        L_0x0213:
-            android.widget.TextView r1 = r9.mtrackText
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder
-            r2.<init>()
-            int r3 = com.yyw.ts70xhw.Iop.GetVolume(r5)
-            java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.String r2 = r2.toString()
-            r1.setText(r2)
-            goto L_0x01de
-        L_0x022a:
-            android.widget.Button r1 = r9.mProcessName
-            int r2 = com.ts.MainUI.R.drawable.btn_vol_music
-            r1.setBackgroundResource(r2)
-            goto L_0x0213
-        L_0x0232:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vol_popup_box
-            r1.setBackgroundResource(r2)
-            goto L_0x0086
-        L_0x023b:
-            android.widget.SeekBar r1 = r9.mSeekBar
-            int r2 = com.yyw.ts70xhw.Iop.GetVolume(r5)
-            r1.setProgress(r2)
-            boolean r1 = com.ts.main.common.MainSet.IsVSUI()
-            if (r1 != 0) goto L_0x0250
-            boolean r1 = com.ts.main.common.MainSet.IsBmwX1()
-            if (r1 == 0) goto L_0x0259
-        L_0x0250:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.vertical_vol_bg
-            r1.setBackgroundResource(r2)
-            goto L_0x0086
-        L_0x0259:
-            android.widget.RelativeLayout r1 = r9.mFloatLayoutVol
-            int r2 = com.ts.MainUI.R.drawable.common_vol_bg
-            r1.setBackgroundResource(r2)
-            goto L_0x0086
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.ts.main.common.MainVolume.InintVolBarState():void");
+        if (Iop.GetMute() == 1) {
+            this.mProcessName.setTextColor(this.nVolDnColor);
+            this.mtrackText.setTextColor(this.nVolDnColor);
+            if (this.isNewVolume) {
+                this.mProcessName.setBackgroundResource(R.drawable.main_volume02_btn);
+            } else if (this.isVertical) {
+                removeAllView();
+                this.mProcessName.setText(TXZResourceManager.STYLE_DEFAULT);
+                this.mProcessName.setBackgroundResource(R.drawable.vol_popup_mute);
+            } else {
+                this.mProcessName.setBackgroundResource(R.drawable.btn_vol_silent);
+            }
+        } else {
+            this.mProcessName.setTextColor(this.nVolUpColor);
+            this.mtrackText.setTextColor(this.nVolUpColor);
+        }
+        if (Iop.GetMediaOrBlue() == 1) {
+            Log.d("volume", "bt");
+            if (this.isNewVolume) {
+                this.mSeekBar.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) null);
+                this.mSeekBar.setMax(30);
+                this.mSeekBar.setOnSeekBarChangeListener(this);
+            } else if (!this.isVertical) {
+                this.mSeekBar.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) null);
+                this.mSeekBar.setMax(30);
+                this.mSeekBar.setOnSeekBarChangeListener(this);
+            }
+            if (Iop.GetMute() == 1) {
+                this.mtrackText.setText(new StringBuilder().append(Iop.GetVolume(1)).toString());
+            } else {
+                if (this.isNewVolume) {
+                    this.mProcessName.setBackgroundResource(R.drawable.main_volume03_btn);
+                    Log.d("volume", "bt isNewVolume");
+                } else if (this.isVertical) {
+                    this.mProcessName.setBackgroundResource(R.drawable.vol_popup_bt);
+                    this.mProcessName.setText(TXZResourceManager.STYLE_DEFAULT);
+                } else {
+                    this.mProcessName.setBackgroundResource(R.drawable.btn_vol_bt);
+                }
+                this.mtrackText.setText(new StringBuilder().append(Iop.GetVolume(1)).toString());
+            }
+            if (this.isNewVolume) {
+                this.mSeekBar.setProgress(Iop.GetVolume(1));
+            } else if (this.isVertical) {
+                setProgress((int) (((double) Iop.GetVolume(1)) / 1.5d));
+                if (MainSet.IsVSUI() || MainSet.IsBmwX1()) {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.vol_popup_box);
+                } else {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.vol_popup_box);
+                }
+            } else {
+                this.mSeekBar.setProgress(Iop.GetVolume(1));
+                if (MainSet.IsVSUI() || MainSet.IsBmwX1()) {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.vertical_vol_bg_bt);
+                } else {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.common_btvol_bg);
+                }
+            }
+        } else if (!Evc.bNaviVol || !(Evc.nNaviSpeeking == 1 || Evc.nNaviSpeeShow == 1)) {
+            Log.d("volume", "common");
+            if (this.isNewVolume) {
+                this.mSeekBar.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) null);
+                this.mSeekBar.setMax(30);
+                this.mSeekBar.setOnSeekBarChangeListener(this);
+            } else if (!this.isVertical) {
+                this.mSeekBar.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) null);
+                this.mSeekBar.setMax(30);
+                this.mSeekBar.setOnSeekBarChangeListener(this);
+            }
+            if (Iop.GetMute() == 1) {
+                this.mtrackText.setText(new StringBuilder().append(Iop.GetVolume(0)).toString());
+            } else {
+                if (this.isNewVolume) {
+                    this.mProcessName.setBackgroundResource(R.drawable.main_volume05_btn);
+                } else if (this.isVertical) {
+                    this.mProcessName.setBackgroundResource(R.drawable.vol_popup_music);
+                    this.mProcessName.setText(TXZResourceManager.STYLE_DEFAULT);
+                } else {
+                    this.mProcessName.setBackgroundResource(R.drawable.btn_vol_music);
+                }
+                this.mtrackText.setText(new StringBuilder().append(Iop.GetVolume(0)).toString());
+            }
+            if (this.isNewVolume) {
+                this.mSeekBar.setProgress(Iop.GetVolume(0));
+            } else if (this.isVertical) {
+                setProgress((int) (((double) Iop.GetVolume(0)) / 1.5d));
+                if (MainSet.IsVSUI() || MainSet.IsBmwX1()) {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.vol_popup_box);
+                } else {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.vol_popup_box);
+                }
+            } else {
+                this.mSeekBar.setProgress(Iop.GetVolume(0));
+                if (MainSet.IsVSUI() || MainSet.IsBmwX1()) {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.vertical_vol_bg);
+                } else {
+                    this.mFloatLayoutVol.setBackgroundResource(R.drawable.common_vol_bg);
+                }
+            }
+        } else {
+            Log.d("volume", "navi");
+            if (this.isNewVolume) {
+                this.mSeekBar.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) null);
+                this.mSeekBar.setMax(30);
+                this.mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    public void onStopTrackingTouch(SeekBar arg0) {
+                    }
+
+                    public void onStartTrackingTouch(SeekBar arg0) {
+                    }
+
+                    public void onProgressChanged(SeekBar seekbar, int progress, boolean frpmTouch) {
+                        MainVolume.this.mEvc.evol_navivol_set(progress);
+                    }
+                });
+            } else if (!this.isVertical) {
+                this.mSeekBar.setOnSeekBarChangeListener((SeekBar.OnSeekBarChangeListener) null);
+                this.mSeekBar.setMax(Evc.GetInstance().Gis_vol_max);
+                this.mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    public void onStopTrackingTouch(SeekBar arg0) {
+                    }
+
+                    public void onStartTrackingTouch(SeekBar arg0) {
+                    }
+
+                    public void onProgressChanged(SeekBar seekbar, int progress, boolean frpmTouch) {
+                        MainVolume.this.mEvc.evol_navivol_set(progress);
+                    }
+                });
+            }
+            if (Iop.GetMute() == 1) {
+                this.mtrackText.setText(new StringBuilder().append(Iop.GetVolume(0)).toString());
+            } else {
+                if (this.isNewVolume) {
+                    this.mProcessName.setBackgroundResource(R.drawable.main_volume04_btn);
+                } else if (this.isVertical) {
+                    this.mProcessName.setBackgroundResource(R.drawable.vol_popup_navi);
+                    this.mProcessName.setText(TXZResourceManager.STYLE_DEFAULT);
+                } else {
+                    this.mProcessName.setBackgroundResource(R.drawable.btn_vol_navi);
+                }
+                this.mtrackText.setText(new StringBuilder().append(StSet.GetNvol()).toString());
+            }
+            if (this.isNewVolume) {
+                this.mSeekBar.setProgress(StSet.GetNvol());
+            } else if (this.isVertical) {
+                setProgress(StSet.GetNvol() / 5);
+                this.mFloatLayoutVol.setBackgroundResource(R.drawable.vol_popup_box);
+            } else {
+                this.mSeekBar.setProgress(StSet.GetNvol());
+                this.mFloatLayoutVol.setBackgroundResource(R.drawable.vertical_vol_bg_navi);
+            }
+            Evc.nNaviSpeeShow = 1;
+        }
+        if (Iop.GetMute() == 1 && this.isVertical) {
+            removeAllView();
+        }
     }
 
     /* access modifiers changed from: package-private */
     public boolean NaviVolShow() {
-        if (this.nNVolold != StSet.GetNvol() && Evc.bNaviVol) {
-            Evc.GetInstance();
-            if (Evc.nNaviSpeeking == 1) {
-                return true;
-            }
-            Evc.GetInstance();
-            if (Evc.nNaviSpeeShow == 1) {
-                return true;
-            }
-        }
-        return false;
+        return this.nNVolold != StSet.GetNvol() && Evc.bNaviVol && (Evc.nNaviSpeeking == 1 || Evc.nNaviSpeeShow == 1);
     }
 
     public void CheckVol() {
-        if (FtSet.IsIconExist(1) == 0) {
-            int i = this.nNaviVoiceState;
-            Evc.GetInstance();
-            if (i != Evc.nNaviSpeeking) {
-                Evc.GetInstance();
-                this.nNaviVoiceState = Evc.nNaviSpeeking;
-                CanIF.DealGpsVoice(this.nNaviVoiceState);
-            }
+        if ((FtSet.IsIconExist(1) == 0 || CanIF.IsForceReadNaviSta() > 0) && this.nNaviVoiceState != Evc.nNaviSpeeking) {
+            this.nNaviVoiceState = Evc.nNaviSpeeking;
+            CanIF.DealGpsVoice(this.nNaviVoiceState);
         }
         if (this.nAidlVolumeShow == 1) {
             VolWinShow();
@@ -630,12 +535,15 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
     }
 
     public void VolWinShow() {
-        if ((!MainSet.IsFlkj() || !bVolNotShow) && this.mFloatLayoutNaw != this.mFloatLayoutScreenFor) {
+        if (this.mFloatLayoutNaw != this.mFloatLayoutScreenFor) {
             InintVolBar();
             InintVolBarState();
             if (this.mFloatLayoutVol == this.mFloatLayoutNaw) {
                 this.nVolTimeDelay = 60;
-                if (this.isVertical) {
+                if (this.isNewVolume) {
+                    this.mFloatLayoutVol.setVisibility(0);
+                    this.wmParams.height = 210;
+                } else if (this.isVertical) {
                     this.mFloatLayoutVol.setVisibility(0);
                     this.wmParams.height = 166;
                     this.wmParams.y = 137;
@@ -651,14 +559,18 @@ public class MainVolume implements SeekBar.OnSeekBarChangeListener {
 
     public void VolWinHide() {
         if (this.mFloatLayoutVol == this.mFloatLayoutNaw) {
-            if (this.isVertical) {
+            if (this.isNewVolume) {
                 this.mFloatLayoutVol.setVisibility(8);
+                this.wmParams.height = 0;
+            } else {
+                if (this.isVertical) {
+                    this.mFloatLayoutVol.setVisibility(8);
+                }
+                this.wmParams.height = 0;
+                this.wmParams.y = -79;
             }
-            this.wmParams.height = 0;
-            this.wmParams.y = -79;
             this.wManager.updateViewLayout(this.mFloatLayoutVol, this.wmParams);
         }
-        Evc.GetInstance();
         Evc.nNaviSpeeShow = 0;
     }
 

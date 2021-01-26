@@ -18,7 +18,6 @@ import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.ts.main.auth.AudioRecoderUtils;
 import com.ts.main.common.MainSet;
 import java.io.IOException;
@@ -37,13 +36,19 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
     AudioRecoderUtils mAudioRecoderUtils = new AudioRecoderUtils("/mnt/sdcard/");
     AlertDialog m_dialgo;
     private MediaPlayer mp = new MediaPlayer();
+    int nAutoStep = 0;
     int nBcheckGPSAndWifi = 0;
     int nGpsFix = 0;
+    int nLastTime = 0;
     int nNum = 0;
     int nWifiFix = 0;
     TextView showTextView;
     TextView sstTextView;
     String strPathString;
+
+    public boolean bIsAutoAudio() {
+        return MainSet.Testmode.audio == 1;
+    }
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +65,7 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
         this.BtnRight.setVisibility(4);
         this.BtnLeft.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                FactorytestAudioActivity.this.PlaySource(R.raw.left);
+                FactorytestAudioActivity.this.PlaySource(R.raw.left, false);
                 FactorytestAudioActivity.this.BtnRight.setVisibility(0);
                 FactorytestAudioActivity.this.BtnLeft.setVisibility(4);
                 FactorytestAudioActivity.this.sstTextView.setText("按下右声道键测试右边声道");
@@ -68,7 +73,7 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
         });
         this.BtnRight.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                FactorytestAudioActivity.this.PlaySource(R.raw.right);
+                FactorytestAudioActivity.this.PlaySource(R.raw.right, false);
                 factory_test.AddToSort("音频测试OK");
                 factory_test.WriteReport();
                 FactorytestAudioActivity.this.nBcheckGPSAndWifi = 1;
@@ -77,15 +82,67 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
         this.mAudioRecoderUtils.setOnAudioStatusUpdateListener(new AudioRecoderUtils.OnAudioStatusUpdateListener() {
             public void onUpdate(double db, long time) {
                 int fenbei = ((int) (3000.0d + ((6000.0d * db) / 100.0d))) / 100;
+                Log.i(FactorytestAudioActivity.TAG, "fenbei=" + fenbei);
                 FactorytestAudioActivity.this.showTextView.setText(String.valueOf(fenbei) + "分贝");
-                if (fenbei >= 80) {
-                    FactorytestAudioActivity.this.mAudioRecoderUtils.cancelRecord();
-                    if (!MainSet.bKeyBroad) {
+                if (fenbei < 80) {
+                    return;
+                }
+                if (!MainSet.bKeyBroad) {
+                    if (!FactorytestAudioActivity.this.bIsAutoAudio()) {
+                        FactorytestAudioActivity.this.mAudioRecoderUtils.cancelRecord();
                         FactorytestAudioActivity.this.BtnRecord.setVisibility(4);
                         FactorytestAudioActivity.this.BtnLeft.setVisibility(0);
                         FactorytestAudioActivity.this.sstTextView.setText("按下左声道键测试左边声道");
-                        return;
+                    } else if (FactorytestAudioActivity.this.nLastTime > 0) {
+                        FactorytestAudioActivity factorytestAudioActivity = FactorytestAudioActivity.this;
+                        factorytestAudioActivity.nLastTime--;
+                    } else if (FactorytestAudioActivity.this.nAutoStep == -1) {
+                        FactorytestAudioActivity.this.PlaySource(R.raw.left, false);
+                        FactorytestAudioActivity.this.nLastTime = 15;
+                        FactorytestAudioActivity.this.nAutoStep = 0;
+                        FactorytestAudioActivity.this.BtnRecord.setText("测试左声道");
+                    } else if (FactorytestAudioActivity.this.nAutoStep == 0) {
+                        FactorytestAudioActivity.this.nAutoStep = 1;
+                        FactorytestAudioActivity.this.PlaySource(R.raw.right, false);
+                        FactorytestAudioActivity.this.nLastTime = 15;
+                        FactorytestAudioActivity.this.BtnRecord.setText("测试右声道");
+                    } else {
+                        FactorytestAudioActivity.this.mAudioRecoderUtils.cancelRecord();
+                        factory_test.AddToSort("音频测试OK");
+                        factory_test.WriteReport();
+                        FactorytestAudioActivity.this.nBcheckGPSAndWifi = 1;
                     }
+                } else if (FactorytestAudioActivity.this.bIsAutoAudio()) {
+                    if (FactorytestAudioActivity.this.nAutoStep == -1) {
+                        FactorytestAudioActivity.this.PlaySource(R.raw.sin, true);
+                        Evc.GetInstance().evol_workmode_set(4);
+                        FactorytestAudioActivity.this.nAutoStep = 0;
+                        FactorytestAudioActivity.this.SetAutoStepAudio(0);
+                        FactorytestAudioActivity.this.BtnRecord.setText("测试音频通道" + (FactorytestAudioActivity.this.nAutoStep + 1));
+                    } else if (FactorytestAudioActivity.this.nLastTime > 0) {
+                        FactorytestAudioActivity factorytestAudioActivity2 = FactorytestAudioActivity.this;
+                        factorytestAudioActivity2.nLastTime--;
+                        return;
+                    } else {
+                        Toast.makeText(FactorytestAudioActivity.this, "通道：" + (FactorytestAudioActivity.this.nAutoStep + 1) + "正常", 0).show();
+                        FactorytestAudioActivity.this.nAutoStep++;
+                        FactorytestAudioActivity.this.SetAutoStepAudio(FactorytestAudioActivity.this.nAutoStep);
+                        if (FactorytestAudioActivity.this.nAutoStep > 3) {
+                            FactorytestAudioActivity.this.mAudioRecoderUtils.cancelRecord();
+                            factory_test.AddToSort("音频测试OK");
+                            factory_test.WriteReport();
+                            FactorytestAudioActivity.this.nBcheckGPSAndWifi = 1;
+                            Evc.GetInstance().evol_bal_set(7);
+                            Evc.GetInstance().evol_fad_set(7);
+                            FactorytestAudioActivity.this.BtnRecord.setVisibility(4);
+                        } else {
+                            FactorytestAudioActivity.this.BtnRecord.setText("测试音频通道" + (FactorytestAudioActivity.this.nAutoStep + 1));
+                        }
+                    }
+                    Log.i(FactorytestAudioActivity.TAG, "nAutoStep=" + FactorytestAudioActivity.this.nAutoStep);
+                    FactorytestAudioActivity.this.SetAutoStepAudio(FactorytestAudioActivity.this.nAutoStep);
+                } else {
+                    FactorytestAudioActivity.this.mAudioRecoderUtils.cancelRecord();
                     factory_test.AddToSort("音频测试OK");
                     factory_test.WriteReport();
                     FactorytestAudioActivity.this.nBcheckGPSAndWifi = 1;
@@ -113,10 +170,11 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
                 if (nFinish != 1) {
                     FactorytestAudioActivity.this.m_dialgo.dismiss();
                     FactorytestAudioActivity.this.StopMp();
-                    MainSet.GetInstance().Reboot();
+                    MainSet.GetInstance().SystemReboot();
                 }
             }
         }).show();
+        MainSet.GetInstance().RefreshDialog(this, this.m_dialgo);
     }
 
     /* access modifiers changed from: package-private */
@@ -129,7 +187,7 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
     }
 
     /* access modifiers changed from: package-private */
-    public void PlaySource(int id) {
+    public void PlaySource(int id, boolean Loop) {
         StopMp();
         this.mp = MediaPlayer.create(this, id);
         try {
@@ -137,38 +195,7 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
         } catch (IOException | IllegalStateException e) {
             e.printStackTrace();
         }
-        this.mp.start();
-    }
-
-    /* access modifiers changed from: package-private */
-    public void PlayFile(String strPath) {
-        if (this.mp != null) {
-            this.mp.stop();
-            this.mp.release();
-            this.mp = null;
-        }
-        this.mp = new MediaPlayer();
-        try {
-            Log.i(TAG, "PlayFile==" + strPath);
-            this.mp.setDataSource(strPath);
-        } catch (IllegalArgumentException e) {
-            Log.i(TAG, "IllegalArgumentException 111");
-            e.printStackTrace();
-        } catch (SecurityException e2) {
-            Log.i(TAG, "IllegalArgumentException 222");
-            e2.printStackTrace();
-        } catch (IllegalStateException e3) {
-            Log.i(TAG, "IllegalArgumentException 333");
-            e3.printStackTrace();
-        } catch (IOException e4) {
-            Log.i(TAG, "IllegalArgumentException 444");
-            e4.printStackTrace();
-        }
-        try {
-            this.mp.prepare();
-        } catch (IOException | IllegalStateException e5) {
-            e5.printStackTrace();
-        }
+        this.mp.setLooping(Loop);
         this.mp.start();
     }
 
@@ -186,7 +213,7 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
 
     /* access modifiers changed from: package-private */
     public int GetAlltime() {
-        return ((int) (factory_test.getTickCount() - factory_test.Starttime)) / MediaDef.PROGRESS_MAX;
+        return ((int) (factory_test.getTickCount() - factory_test.Starttime)) / 1000;
     }
 
     public void UserAll() {
@@ -198,7 +225,7 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
                 if (MyWifilist.size() > 0) {
                     for (int i = 0; i < MyWifilist.size(); i++) {
                         Log.i(TAG, "name=" + MyWifilist.get(i).SSID + "level=" + nCacuWifiLev(MyWifilist.get(i).level));
-                        if (nCacuWifiLev(MyWifilist.get(i).level) >= 4) {
+                        if (nCacuWifiLev(MyWifilist.get(i).level) >= 2) {
                             if (bWifiFix == 0) {
                                 Toast.makeText(this, "wifi名字=" + MyWifilist.get(i).SSID + "强度=" + nCacuWifiLev(MyWifilist.get(i).level), 0).show();
                             }
@@ -244,6 +271,31 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
         this.MyWifi.startScan(this);
     }
 
+    /* access modifiers changed from: package-private */
+    public void SetAutoStepAudio(int nStep) {
+        this.nLastTime = 15;
+        switch (nStep) {
+            case 0:
+                Evc.GetInstance().evol_bal_set(0);
+                Evc.GetInstance().evol_fad_set(0);
+                return;
+            case 1:
+                Evc.GetInstance().evol_bal_set(14);
+                Evc.GetInstance().evol_fad_set(0);
+                return;
+            case 2:
+                Evc.GetInstance().evol_bal_set(0);
+                Evc.GetInstance().evol_fad_set(14);
+                return;
+            case 3:
+                Evc.GetInstance().evol_bal_set(14);
+                Evc.GetInstance().evol_fad_set(14);
+                return;
+            default:
+                return;
+        }
+    }
+
     /* access modifiers changed from: protected */
     public void onResume() {
         MainTask.GetInstance().SetUserCallBack(this);
@@ -252,14 +304,17 @@ public class FactorytestAudioActivity extends Activity implements UserCallBack {
         } else {
             bWifiFix = 1;
         }
-        if (MainSet.bKeyBroad) {
-            Evc.GetInstance().evol_vol_set(12);
-            PlaySource(R.raw.sin);
-            Evc.GetInstance().evol_workmode_set(4);
-        } else {
+        if (!MainSet.bKeyBroad) {
             Evc.GetInstance().evol_vol_set(26);
+        } else if (bIsAutoAudio()) {
+            Evc.GetInstance().evol_vol_set(12);
+            this.nAutoStep = -1;
+        } else {
+            Evc.GetInstance().evol_vol_set(12);
+            PlaySource(R.raw.sin, false);
+            Evc.GetInstance().evol_workmode_set(4);
         }
-        this.BtnRecord.setText("开始录音");
+        this.BtnRecord.setText("开始测试录音");
         this.mAudioRecoderUtils.startRecord();
         super.onResume();
     }

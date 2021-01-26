@@ -1,5 +1,6 @@
 package net.sourceforge.pinyin4j;
 
+import com.txznet.sdk.TXZResourceManager;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
@@ -66,7 +67,7 @@ class PinyinFormatter {
             throw new BadHanyuPinyinOutputFormatCombination("tone marks cannot be added to v or u:");
         }
         if (HanyuPinyinToneType.WITHOUT_TONE == hanyuPinyinOutputFormat.getToneType()) {
-            str = str.replaceAll("[1-5]", "");
+            str = str.replaceAll("[1-5]", TXZResourceManager.STYLE_DEFAULT);
         } else if (HanyuPinyinToneType.WITH_TONE_MARK == hanyuPinyinOutputFormat.getToneType()) {
             str = convertToneNumber2ToneMark(str.replaceAll("u:", "v"));
         }

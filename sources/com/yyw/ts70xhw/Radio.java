@@ -130,6 +130,6 @@ public class Radio {
     public static native int TuneTask(int i);
 
     static {
-        System.loadLibrary("ts70xhw");
+        System.loadLibrary("ts59xhw");
     }
 }

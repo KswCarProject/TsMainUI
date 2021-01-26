@@ -15,6 +15,7 @@ import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
+import com.android.SdkConstants;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -22,6 +23,12 @@ import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
 import com.ts.backcar.BackCarSound;
 import com.ts.bt.BtExe;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarDevView;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarFuncView;
+import com.ts.can.audi.lz.CanAudiLzWithCdACBox;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarDevView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarFuncView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCdACBox;
 import com.ts.can.audi.xhd.CanAudiACBox;
 import com.ts.can.audi.xhd.CanAudiWithCDCarFuncView;
 import com.ts.can.audi.xhd.CanAudiWithCDExdActivity;
@@ -31,10 +38,13 @@ import com.ts.can.benc.withcd.CanBencWithCDCarFuncActivity;
 import com.ts.can.benc.withcd.CanBencWithCDCarInitActivity;
 import com.ts.can.benc.withcd.CanBencWithCDExdActivity;
 import com.ts.can.benc.withcd.CanBencWithCDMsgbox;
+import com.ts.can.benc.withcd.CanBencWithCDSoSync;
 import com.ts.can.benc.withcd.CanBencWithCDTouchDeal;
 import com.ts.can.blsu.od.CanBlsuOdDvrView;
 import com.ts.can.bmw.lz.bmw2.CanBmw2LzCarDevView;
+import com.ts.can.bmw.withcd.CanBmwWithCDCarInfoActivity;
 import com.ts.can.bmw.withcd.CanBmwWithCDExdActivity;
+import com.ts.can.bmw.withcd.CanBmwWithCdCarCvbsDevView;
 import com.ts.can.bmw.zmyt.CanBmwZmytWithCDCarFuncView;
 import com.ts.can.bmw.zmyt.CanBmwZmytWithCDExdActivity;
 import com.ts.can.byd.rsw.CanBydRswPm25SetView;
@@ -46,13 +56,17 @@ import com.ts.can.cadillac.xhd.CanCadillacAtsXhdACUI;
 import com.ts.can.cadillac.xhd.CanCadillacAtsXhdExdActivity;
 import com.ts.can.cc.h2s.CanCcH2sCarACActivity;
 import com.ts.can.cc.h6_rzc.CanCCH9RzcACActivity;
+import com.ts.can.cc.rzc.h7.CanCcH7RzcCDView;
 import com.ts.can.chana.cs75.CanChanATpmsActivity;
+import com.ts.can.chana.wc.cos.CanChanACosDvrView;
 import com.ts.can.chery.airuize.CanTigger7AcActivity;
 import com.ts.can.chrysler.CanChrOthACActivity;
 import com.ts.can.chrysler.CanJeepACWidgetActivity;
 import com.ts.can.chrysler.rz.CanRZygACActivity;
 import com.ts.can.chrysler.txb.CanChryslerTxbAmpSetView;
 import com.ts.can.chrysler.wc.CanChryslerWcCDView;
+import com.ts.can.chrysler.wc.jeep.CanJeepWcAmpSetView;
+import com.ts.can.chrysler.wc.journey.CanChryslerJourneyWcCarDeviceView;
 import com.ts.can.chrysler.xbs.CanXbsygACActivity;
 import com.ts.can.df.d60.CanD60CarACActivity;
 import com.ts.can.df.d60_rzc.CanD60RzcCarACActivity;
@@ -60,6 +74,7 @@ import com.ts.can.df.t90.CanT90CarACActivity;
 import com.ts.can.faw.CanB50_13PhoneActivity;
 import com.ts.can.faw.CanB70_14PhoneActivity;
 import com.ts.can.faw.t3.CanFawT3TouchDeal;
+import com.ts.can.faw.t3.rjm.CanFawT3RjmDeal;
 import com.ts.can.fiat.CanFiatAllExdActivity;
 import com.ts.can.fiat.CanFiatBravoExdActivity;
 import com.ts.can.ford.CanFordACActivity;
@@ -69,6 +84,7 @@ import com.ts.can.ford.CanFordSync3UIActivity;
 import com.ts.can.ford.CanFordSyncUIActivity;
 import com.ts.can.ford.chiaxWc.CanChiaxWcACActivity;
 import com.ts.can.ford.rzc.CanFordRzcACActivity;
+import com.ts.can.ford.rzc.CanFordRzcCarDeviceView;
 import com.ts.can.ford.wc.CanFordWcSyncUIActivity;
 import com.ts.can.gac.trumpchi.CanGqcqLinkSosActivity;
 import com.ts.can.gac.trumpchi.CanGs3AcActivity;
@@ -89,6 +105,7 @@ import com.ts.can.gm.sb.CanSBGL8RearACActivity;
 import com.ts.can.gm.wc.CanGMWcACView;
 import com.ts.can.gm.wc.CanGMWcOnStarSpkView;
 import com.ts.can.gm.xt5.CanCadillacXt5ACUI;
+import com.ts.can.gm.xt5.CanCadillacXt5CarFuncActivity;
 import com.ts.can.gm.xt5.CanCadillacXt5ExdActivity;
 import com.ts.can.hm.CanHmV70AcActivity;
 import com.ts.can.honda.accord.CanAccordCamModeActivity;
@@ -108,6 +125,9 @@ import com.ts.can.hyundai.CanHyundaiCarInfoView;
 import com.ts.can.jac.CanJACRefineTpmsActivity;
 import com.ts.can.jac.wc.CanJACRefineWcTpmsActivity;
 import com.ts.can.kaiyi.x3.CanKY3XACActivity;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarDevView;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarFuncView;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarInitView;
 import com.ts.can.landwind.rzc.CanLandWindAcActivity;
 import com.ts.can.lexus.is250.CanLexusIs250CarACActivity;
 import com.ts.can.lexus.is250.CanLexusIs250CarDevActivity;
@@ -115,7 +135,6 @@ import com.ts.can.lexus.is250.CanLexusIs250VolUI;
 import com.ts.can.lexus.zmyt.CanLexusZMYTCarDevView;
 import com.ts.can.lexus.zmyt.CanLexusZMYTCarFuncView;
 import com.ts.can.lexus.zmyt.CanLexusZMYTCarInitView;
-import com.ts.can.lexus.zmyt.h.CanLexushZmytACUI;
 import com.ts.can.lexus.zmyt.h.CanLexushZmytCarDevView;
 import com.ts.can.lexus.zmyt.h.CanLexushZmytCarFuncView;
 import com.ts.can.mzd.axela.CanMzd3CDActivity;
@@ -138,6 +157,7 @@ import com.ts.can.psa.CanPSASpeedLimitActivity;
 import com.ts.can.psa.hc.CanBZCheckInfoActivity;
 import com.ts.can.psa.hc.CanBZDriveInfoActivity;
 import com.ts.can.psa.pg408.CanPg408ExdActivity;
+import com.ts.can.psa.rzc.CanPSARzcDriveInfoView;
 import com.ts.can.psa.rzc.scr.CanPSAScrRzcDriveInfoView;
 import com.ts.can.psa.wc.CanPSAWCACActivity;
 import com.ts.can.psa.wc.CanPSAWCAmpSetView;
@@ -154,6 +174,8 @@ import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.can.toyota.spy.CanToyotaSpyBaseInfoActivity;
 import com.ts.can.toyota.wc.CanToyotaWCTpmsActivity;
 import com.ts.can.toyota.wc.CanToyotaWcACActivity;
+import com.ts.can.toyota.wc.crown_h.CanCrownhWcCarDeviceView;
+import com.ts.can.toyota.wc.crown_h.CanCrownhWcVolUI;
 import com.ts.can.ts.CanTSPhoneActivity;
 import com.ts.can.vw.dasauto_wc.CanCarVwWcACActivity;
 import com.ts.can.vw.dasauto_wc.CanCarVwWcCarInfoActivity;
@@ -177,6 +199,7 @@ import com.ts.main.common.MainSet;
 import com.ts.main.common.MainUI;
 import com.ts.main.common.MainVolume;
 import com.ts.main.common.WinShow;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
@@ -188,6 +211,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import org.texustek.mirror.aidl.BinderName;
 
 public class CanFunc implements CanInterface, CanTypeStrCallBack {
     public static final int CAN_WORKMODE_A2DP = 5;
@@ -216,8 +240,14 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     public static final int CanMediaStaPause = 2;
     public static final int CanMediaStaPlay = 1;
     public static final int CanMediaStaStop = 0;
+    public static final String Can_Amp_Set_fileName = "Can_Amp_Set.bin";
+    public static final String Can_Com_Para_fileName = "Can_Com_Para.bin";
     public static final String Can_Factory_Set_fileName = "Can_Factory_Set.bin";
     static final String Crash_PATH = "/mnt/sdcard/TsCarInfo/";
+    public static final int FS_CANS_E90_LRHOT_SW = 1;
+    public static final int FS_CANS_FORD_RZC_ATUO_PARK_SW = 2;
+    public static final int FS_CANS_HYUNDAI_VOL = 0;
+    public static final int FS_CANS_MINI_AQD = 3;
     protected static final String TAG = "CanFunc";
     public static final int TRUE = 1;
     public static final int WIN_AC = 0;
@@ -232,7 +262,6 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     public static int mCanInit = -1;
     private static int mCanModeTimes = 0;
     private static int mCanType = 0;
-    public static CanDataInfo.CAN_Msg mCarInfo = new CanDataInfo.CAN_Msg();
     public static Context mContext;
     protected static int mCount = 0;
     public static CanDoorMsgbox mDoorDlg = new CanDoorMsgbox();
@@ -257,11 +286,14 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     public static RadioInfo mRadioInfo = new RadioInfo();
     public static String mRadioStr = new String();
     public static RdsInfo mRdsInfo = new RdsInfo();
+    public static CanTimerMsgBox mTimerMsgBox = new CanTimerMsgBox();
+    public static UiVer mUiVer = new UiVer();
     private static Toast mWarnToast;
     public static boolean mbRadarUIUpdate = false;
     public static boolean mfgShowAC;
     public static boolean mfgShowTpms = false;
     private static boolean mfgXt5SendFunc = false;
+    public static CanCallBack mpfnCan = null;
     /* access modifiers changed from: private */
     public static int nCameraCount = 0;
     private int mBeltWarn = 0;
@@ -413,6 +445,14 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             CanJni.GeelyBoyCarSet(13, 1);
                             return;
                         }
+                    case 110:
+                        if (MainUI.IsCameraMode() > 0) {
+                            CanJni.JACRefineWcAvmCmd(1, 0);
+                            return;
+                        } else {
+                            CanJni.JACRefineWcAvmCmd(1, 1);
+                            return;
+                        }
                     case 145:
                         if (intent.getStringExtra("event.getAction").equals("ACTION_UP")) {
                             CanJni.RzcSciCameraSet(0, 0);
@@ -435,12 +475,34 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             return;
                         }
                         return;
+                    case 198:
+                        if (CanJni.GetSubType() != 1) {
+                            return;
+                        }
+                        if (MainUI.IsCameraMode() > 0) {
+                            CanJni.PorscheOdAvmCmd(0);
+                            return;
+                        } else {
+                            CanJni.PorscheOdAvmCmd(1);
+                            return;
+                        }
                     case 199:
                         if (intent.getStringExtra("event.getAction").equals("ACTION_UP")) {
                             CanJni.NissanCamera360Key(1);
                             return;
                         }
                         return;
+                    case 210:
+                        if (!intent.getStringExtra("event.getAction").equals("ACTION_UP")) {
+                            return;
+                        }
+                        if (MainUI.IsCameraMode() > 0) {
+                            CanJni.GmRzcCameraCmd(0, 0, 0, 0, 0, 0);
+                            return;
+                        } else {
+                            CanJni.GmRzcCameraCmd(1, 0, 0, 0, 0, 0);
+                            return;
+                        }
                     case 218:
                         if (!intent.getStringExtra("event.getAction").equals("ACTION_UP")) {
                             return;
@@ -501,6 +563,19 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     default:
                         return;
                 }
+            } else if (intent.getAction().equals("com.ts.can.BROADCAST_SEND_TRAILER_EVENT_COMPLETED")) {
+                switch (CanJni.GetCanType()) {
+                    case 299:
+                        if (CanFawT3RjmDeal.mT3FlDevInfo.ACC == 0) {
+                            CanJni.T3FlPowerSet(7, 1);
+                            CanJni.T3FlPowerSet(7, 1);
+                            CanJni.T3FlPowerSet(7, 1);
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
             }
         }
     };
@@ -522,6 +597,10 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         public String sAlbum;
         public String sArtist;
         public String sName;
+    }
+
+    public interface CanCallBack {
+        void CanDataCallback(byte[] bArr, int i);
     }
 
     public static class IapInfo {
@@ -607,11 +686,19 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         int fgTp;
     }
 
+    public static class UiVer {
+        public String szName;
+    }
+
     public static CanFunc getInstance() {
         if (mIns == null) {
             mIns = new CanFunc();
         }
         return mIns;
+    }
+
+    public static void SetCanCb(CanCallBack cb) {
+        mpfnCan = cb;
     }
 
     private void CarDevInit() {
@@ -663,17 +750,16 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         Log.d(TAG, "Init can tp = " + mFsCanTp + ", sub = " + SubType);
         CanJni.CanStart(mFsCanTp, SubType);
         mCanType = CanJni.GetCanType();
-        CanCameraUI.GetInstance().Init(context);
         CanRadarManager.GetInstance().Init();
         CanRadarActivity.InitRadarMax(mFsCanTp);
         CarDevInit();
         CarCanInit(context);
-        mDoorDlg.Init(context);
         mCanInit = 1;
         IntentFilter updateIntent = new IntentFilter();
         updateIntent.addAction("com.ts.can.BROADCAST_CAMERA_KEY");
         mContext.registerReceiver(this.mCameraBroadcast, updateIntent);
         updateIntent.addAction("com.ts.can.BROADCAST_T3_HOME_KEY");
+        updateIntent.addAction("com.ts.can.BROADCAST_SEND_TRAILER_EVENT_COMPLETED");
         mContext.registerReceiver(this.mCanBroadcast, updateIntent);
         mIapInfo.Sta = 0;
         mIapInfo.Type = 0;
@@ -692,57 +778,37 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             case 6:
                 if (CanJni.GetSubType() == 7) {
                     CameraBtnShow(1);
-                    return;
+                    break;
                 }
-                return;
+                break;
             case 9:
                 if (CanJni.GetSubType() == 2) {
                     CanJni.AccordCarCtrl(66, FtSet.Getlgb1());
-                    return;
+                    break;
                 }
-                return;
-            case 26:
-                if (CanJni.GetSubType() == 5 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11) {
-                    CanMGRX3PM25UI.GetInstance().InitPM(context);
-                    return;
-                }
-                return;
-            case 55:
-                if (CanJni.GetSubType() == 4) {
-                    CanKadjarVolUI.GetInstance().InitVol(context);
-                    return;
-                }
-                return;
+                break;
             case 88:
-                if (CanJni.GetSubType() == 3 || 10 == CanJni.GetSubType()) {
-                    CanCadillacXt5ACUI.GetInstance().InitAc(context);
-                    if (FtSet.IsIconExist(1) == 0) {
-                        Iop.RstPort(1);
-                        return;
-                    }
-                    return;
-                } else if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5) {
-                    if (FtSet.IsIconExist(1) == 0) {
+                if (CanJni.GetSubType() != 3 && 10 != CanJni.GetSubType()) {
+                    if (CanJni.GetSubType() != 4 && CanJni.GetSubType() != 5) {
+                        if (CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 11) {
+                            CanCadillacAtsExdActivity.Init();
+                            break;
+                        }
+                    } else if (FtSet.IsIconExist(1) == 0) {
                         Iop.RstPort(0);
-                        return;
+                        break;
                     }
-                    return;
-                } else if (CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 11) {
-                    CanCadillacAtsExdActivity.Init();
-                    return;
-                } else {
-                    return;
+                } else if (FtSet.IsIconExist(1) == 0) {
+                    Iop.RstPort(1);
+                    break;
                 }
+                break;
             case 115:
-                CanLexusIs250VolUI.GetInstance().InitVol(context);
                 if (FtSet.IsIconExist(1) == 0) {
                     Iop.RstPort(0);
-                    return;
+                    break;
                 }
-                return;
-            case 116:
-                CanAccord8VolUI.GetInstance().InitVol(context);
-                return;
+                break;
             case 118:
                 int sta = GetFileData(Can_Factory_Set_fileName, fileMsg);
                 byte[] fileMsg2 = new byte[8];
@@ -756,75 +822,146 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 getInstance();
                 sendFileCarInfo(fileMsg2, Can_Factory_Set_fileName);
                 Log.d(TAG, "Can_Factory_Set_fileMsg=" + String.format("%d,%d,%d", new Object[]{Integer.valueOf(sta), Byte.valueOf(fileMsg[0]), Byte.valueOf(fileMsg[1])}));
-                if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 8) {
-                    CanCadillacAtsACUI.GetInstance().InitAc(context);
-                }
                 CanCadillacWithCDExdActivity.Init();
-                return;
+                break;
             case 132:
                 if (CanJni.GetSubType() == 2) {
                     CanQorosACBox.GetInstance().Init(context);
-                    return;
+                    break;
                 }
-                return;
+                break;
             case 136:
-                CanCadillacAtsXhdACUI.GetInstance().InitAc(context);
                 CanCadillacAtsXhdExdActivity.Init();
-                return;
+                break;
             case 138:
-                CanBmwWithCDExdActivity.Init();
-                return;
+                if (CanJni.GetSubType() != 1) {
+                    CanBmwWithCDExdActivity.Init();
+                    break;
+                } else {
+                    Iop.SetMute(255);
+                    CanBmwWithCdCarCvbsDevView.Init();
+                    break;
+                }
             case Can.CAN_BENC_ZMYT:
                 Iop.SetMute(255);
                 if (CanJni.GetSubType() == 1) {
                     CanBencWithCDTouchDeal.ReadTheTouchPanal();
                 }
-                CanBencWithCDACUI.GetInstance().InitAc(context);
                 CanBencWithCDExdActivity.Init();
-                mBencMsgDlg.Init(context);
-                return;
-            case Can.CAN_AUDI_ZMYT:
-                CanAudiACBox.GetInstance().Init(context);
+                break;
+            case 146:
+                CanFordRzcCarDeviceView.Init();
+                break;
+            case 152:
+                Iop.SetMute(255);
                 CanAudiWithCDExdActivity.Init();
-                return;
+                break;
             case 168:
                 CanCrownWcVolUI.GetInstance().InitVol(context);
-                return;
+                break;
             case 176:
+                Iop.SetMute(255);
                 CanBmwZmytWithCDExdActivity.Init();
-                return;
+                break;
             case 181:
                 CanHondaODVolUI.GetInstance().InitVol(context);
-                return;
+                break;
             case 183:
                 CanTeanaWcVolUI.GetInstance().InitVol(context);
-                return;
+                break;
             case Can.CAN_LEXUS_ZMYT:
+                Iop.SetMute(255);
                 CanLexusZMYTCarDevView.Init();
-                return;
+                break;
             case Can.CAN_CHRYSLER_TXB:
                 CanChryslerTxbAmpSetView.AmpInit();
-                return;
-            case 261:
-                CanAccord8XbsVolUI.GetInstance().InitVol(context);
-                return;
+                break;
             case 270:
                 if (CanJni.GetSubType() == 2) {
                     CanJni.AccordCarCtrl(66, FtSet.Getlgb1());
-                    return;
+                    break;
                 }
-                return;
+                break;
             case 276:
+                Iop.SetMute(255);
                 CanLexushZmytCarDevView.Init();
-                CanLexushZmytACUI.GetInstance().InitAc(context);
-                return;
+                break;
             case 279:
             case 283:
                 CanFawT3TouchDeal.ReadTheTouchPanal();
-                return;
-            default:
-                return;
+                break;
+            case 289:
+                Iop.SetMute(255);
+                CanLandRoverZmytCarDevView.Init();
+                break;
+            case 298:
+                Iop.SetMute(255);
+                CanAudiLzWithCDCarDevView.Init();
+                break;
+            case 302:
+                CanCrownhWcVolUI.GetInstance().InitVol(context);
+                break;
+            case 303:
+                Iop.SetMute(255);
+                CanAudiXbsWithCDCarDevView.Init();
+                break;
         }
+        byte[] fileMsg3 = new byte[8];
+        fileMsg3[0] = (byte) FtSet.GetCanTp();
+        fileMsg3[1] = (byte) (FtSet.GetCanTp() >> 8);
+        fileMsg3[2] = (byte) FtSet.GetCanSubT();
+        fileMsg3[3] = 0;
+        if (FtSet.GetCanTp() == 111) {
+            fileMsg3[4] = 1;
+        } else {
+            fileMsg3[4] = 0;
+        }
+        sendFileCarInfo(fileMsg3, Can_Com_Para_fileName);
+        MyApplication.mContext.sendBroadcast(new Intent("com.ts.can.BROADCAST_CAN_UPT"));
+    }
+
+    public static int IsRviewDis() {
+        if (getInstance().IsCore() != 1) {
+            return 1;
+        }
+        switch (CanJni.GetCanType()) {
+            case Can.CAN_BENC_ZMYT:
+                if (CanBencWithCDCarFuncActivity.IsYcqpxs() > 0) {
+                    return 1;
+                }
+                break;
+            case 152:
+                if (CanAudiWithCDCarFuncView.IsYcqpxs() > 0) {
+                    return 1;
+                }
+                break;
+            case 176:
+                if (CanBmwZmytWithCDCarFuncView.IsYcqpxs() > 0) {
+                    return 1;
+                }
+                break;
+            case 276:
+                if (CanLexushZmytCarFuncView.IsYcqpxs() > 0) {
+                    return 1;
+                }
+                break;
+            case 289:
+                if (CanLandRoverZmytCarInitView.HostRes() == 3 || CanLandRoverZmytCarInitView.HostRes() == 9) {
+                    return 1;
+                }
+                break;
+            case 298:
+                if (CanAudiLzWithCDCarFuncView.IsYcqpxs() > 0) {
+                    return 1;
+                }
+                break;
+            case 303:
+                if (CanAudiXbsWithCDCarFuncView.IsYcqpxs() > 0) {
+                    return 1;
+                }
+                break;
+        }
+        return 0;
     }
 
     public static void CameraBtnShow(int bShow) {
@@ -888,7 +1025,10 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 }
                 return;
             case 26:
-                CanMGRX3PM25UI.GetInstance().UserAll();
+                if (CanJni.GetSubType() == 5 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11) {
+                    CanMGRX3PM25UI.GetInstance().UserAll();
+                    return;
+                }
                 return;
             case 55:
                 if (CanJni.GetSubType() == 4) {
@@ -979,7 +1119,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             case 148:
                 CanPSAWCAmpSetView.updateAmpSet();
                 return;
-            case Can.CAN_AUDI_ZMYT:
+            case 152:
                 CanAudiACBox.GetInstance().UserAll();
                 CanAudiWithCDExdActivity.DealDevEvent();
                 return;
@@ -1006,7 +1146,6 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 CanAccord8XbsExdView.DealDevEvent();
                 return;
             case 276:
-                CanLexushZmytACUI.GetInstance().UserAll();
                 CanLexushZmytCarDevView.DealDevEvent();
                 return;
             case 277:
@@ -1019,6 +1158,23 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     FloatingRadarUI.getInstance().UserAll();
                     return;
                 }
+                return;
+            case 289:
+                CanLandRoverZmytCarDevView.DealDevEvent();
+                return;
+            case 298:
+                CanAudiLzWithCdACBox.GetInstance().UserAll();
+                CanAudiLzWithCDCarDevView.DealDevEvent();
+                return;
+            case 299:
+                CanFawT3RjmDeal.UserAll();
+                return;
+            case 302:
+                CanCrownhWcVolUI.GetInstance().UserAll();
+                return;
+            case 303:
+                CanAudiXbsWithCdACBox.GetInstance().UserAll();
+                CanAudiXbsWithCDCarDevView.DealDevEvent();
                 return;
             default:
                 return;
@@ -1068,7 +1224,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
 
     public void UpdateCarInfo() {
         if (mCanInit != 0 && CanJni.GetCanFsTp() != 0) {
-            CanJni.GetCarInfoAidl(mCarInfo);
+            Can.updateCarInfo();
         }
     }
 
@@ -1143,18 +1299,38 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             case Can.CAN_MZD_TXB:
                 MzdCx4ModeChange(oldmode, newmode);
                 return;
+            case 88:
+                CadillacSbWithCDChange(oldmode, newmode);
+                return;
             case 101:
                 Pg408ModeChange(oldmode, newmode);
+                return;
+            case 138:
+                if (CanJni.GetSubType() == 1) {
+                    BmwWithCDChange(oldmode, newmode);
+                    return;
+                }
                 return;
             case Can.CAN_BENC_ZMYT:
                 BencWithCDChange(oldmode, newmode);
                 return;
-            case Can.CAN_AUDI_ZMYT:
+            case 144:
+                if (CanJni.GetSubType() == 6) {
+                    LexusWcWithCDChange(oldmode, newmode);
+                    return;
+                }
+                return;
+            case 152:
                 AudiWithCDChange(oldmode, newmode);
                 return;
             case 162:
-                ChrOthWcModeChange(oldmode, newmode);
-                return;
+                if (CanJni.GetSubType() == 8) {
+                    ChrJourneyWcModeChange(oldmode, newmode);
+                    return;
+                } else {
+                    ChrOthWcModeChange(oldmode, newmode);
+                    return;
+                }
             case 164:
                 MzdWcCDChange(oldmode, newmode);
                 return;
@@ -1209,9 +1385,60 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             case 284:
                 PSAScrRzcModeChange(oldmode, newmode);
                 return;
+            case 289:
+                LandRoverZmytWithCDChange(oldmode, newmode);
+                return;
+            case 294:
+                TeanaOldXcWithCDChange(oldmode, newmode);
+                return;
+            case 298:
+                AudiLzWithCDChange(oldmode, newmode);
+                return;
+            case 302:
+                CrownhWcCDChange(oldmode, newmode);
+                return;
+            case 303:
+                AudiXbsWithCDChange(oldmode, newmode);
+                return;
             default:
                 return;
         }
+    }
+
+    public static void TeanaOldXcWithCDChange(int oldmode, int newmode) {
+        if (12 == newmode) {
+            CanJni.TeanOldXcDvdCmd(128, 1);
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            CanJni.TeanOldXcDvdCmd(128, 0);
+            return;
+        }
+        CanJni.TeanOldXcDvdCmd(0, 1);
+        try {
+            Thread.sleep(5);
+        } catch (InterruptedException e2) {
+            e2.printStackTrace();
+        }
+        CanJni.TeanOldXcDvdCmd(0, 0);
+    }
+
+    public static void LandRoverZmytWithCDChange(int oldmode, int newmode) {
+        if (12 == newmode) {
+            int temp = CanLandRoverZmytCarFuncView.NaviPre();
+            if (temp > 0 && temp < 20) {
+                temp = 20;
+            }
+            Evc.GetInstance().SetNaviVolDn(temp);
+            return;
+        }
+        if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+            Iop.RstPort(0);
+        }
+        CanJni.LandRoverZmytReqControl(16, 0);
+        Evc.GetInstance().SetNaviVolDn(0);
     }
 
     public static void PSAScrRzcModeChange(int oldmode, int newmode) {
@@ -1309,6 +1536,17 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         }
     }
 
+    public static void ChrJourneyWcModeChange(int oldmode, int newmode) {
+        if (oldmode == 12) {
+            Log.d(TAG, "ChrOthModeChange Exd Exit");
+            CanJni.ChryslerWcTouchCmd(0, 0, 0, 2);
+        }
+        if (12 == newmode) {
+            Log.d(TAG, "ChrOthModeChange Exd Enter");
+            CanJni.ChryslerWcTouchCmd(0, 0, 0, 1);
+        }
+    }
+
     public static void FiatAllModeChange(int oldmode, int newmode) {
         if (oldmode == 12) {
             Log.d(TAG, "FiatAllModeChange Exd Exit");
@@ -1338,7 +1576,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         }
         if (12 == newmode) {
             Log.d(TAG, "Mzd3ModeChange Exd Enter");
-            CanJni.AxelaCDCtrl(240, 0);
+            CanJni.AxelaCDCtrl(Can.CAN_VOLKS_XP, 0);
         }
     }
 
@@ -1367,6 +1605,8 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     public static void BencWithCDChange(int oldmode, int newmode) {
         if (oldmode == 12 || 12 != newmode) {
             if (CanBencWithCDCarInitActivity.RadioUi() != 0 && CanBencWithCDCarInitActivity.AudioMethod() == 1) {
+                Iop.RstPort(0);
+            } else if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
                 Iop.RstPort(0);
             }
             Log.d(TAG, "BencWithCDChange Exd Exit");
@@ -1402,6 +1642,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     public static void AudiWithCDChange(int oldmode, int newmode) {
         if (oldmode == 12 || 12 != newmode) {
             Log.d(TAG, "AudiWithCDChange Exd Exit");
+            if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+                Iop.RstPort(0);
+            }
             if (CanJni.GetSubType() != 0) {
                 CanAudiWithCDExdActivity.AudiWithCDDModeChange(0);
             }
@@ -1424,6 +1667,82 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         }
     }
 
+    public static void AudiXbsWithCDChange(int oldmode, int newmode) {
+        if (oldmode == 12 || 12 != newmode) {
+            Log.d(TAG, "AudiXbsWithCDChange Exd Exit");
+            if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+                Iop.RstPort(0);
+            }
+            CanAudiXbsWithCDCarDevView.AudiWithCDDModeChange(0);
+            Evc.GetInstance().SetNaviVolDn(0);
+        }
+        if (12 == newmode) {
+            Log.d(TAG, "AudiXbsWithCDChange Exd Enter");
+            int temp = CanAudiXbsWithCDCarFuncView.NaviPre();
+            if (temp > 0 && temp < 20) {
+                temp = 20;
+            }
+            Evc.GetInstance().SetNaviVolDn(temp);
+        }
+    }
+
+    public static void AudiLzWithCDChange(int oldmode, int newmode) {
+        if (oldmode == 12 || 12 != newmode) {
+            Log.d(TAG, "AudiLzWithCDChange Exd Exit");
+            if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+                Iop.RstPort(0);
+            }
+            CanAudiLzWithCDCarDevView.AudiWithCDDModeChange(0);
+            Evc.GetInstance().SetNaviVolDn(0);
+        }
+        if (12 == newmode) {
+            Log.d(TAG, "AudiLzWithCDChange Exd Enter");
+            int temp = CanAudiLzWithCDCarFuncView.NaviPre();
+            if (temp > 0 && temp < 20) {
+                temp = 20;
+            }
+            Evc.GetInstance().SetNaviVolDn(temp);
+        }
+    }
+
+    public static void CadillacSbWithCDChange(int oldmode, int newmode) {
+        if (oldmode == 12 || 12 != newmode) {
+            Log.d(TAG, "CadillacSbWithCDChange Exd Exit");
+            if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+                Iop.RstPort(1);
+            }
+            Evc.GetInstance().SetNaviVolDn(0);
+        }
+        if (12 == newmode) {
+            Log.d(TAG, "CadillacSbWithCDChange Exd Enter");
+            int temp = CanCadillacXt5CarFuncActivity.NaviPre();
+            if (temp > 0 && temp < 20) {
+                temp = 20;
+            }
+            Evc.GetInstance().SetNaviVolDn(temp);
+        }
+    }
+
+    public static void BmwWithCDChange(int oldmode, int newmode) {
+        if (oldmode == 12 || 12 != newmode) {
+            Log.d(TAG, "BmwWithCDChange Exd Exit");
+            CanJni.BmwWithCDCarSet(0, CanBmwWithCDCarInfoActivity.IsBmwAuxType(), 0, 0);
+        }
+        if (12 == newmode) {
+            Log.d(TAG, "BmwWithCDChange Exd Enter");
+        }
+    }
+
+    public static void LexusWcWithCDChange(int oldmode, int newmode) {
+        if (oldmode == 12 || 12 != newmode) {
+            Log.d(TAG, "LexusWcWithCDChange Exd Exit");
+            CanJni.ToyotaWcSrcCmd(1, 5);
+        }
+        if (12 == newmode) {
+            Log.d(TAG, "LexusWcWithCDChange Exd Enter");
+        }
+    }
+
     public static void TeneaOldDjWithCDChange(int oldmode, int newmode) {
         if (12 == newmode) {
             CanJni.TeanaOldDjAudioSet(1);
@@ -1442,6 +1761,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             CanJni.LexusZmytAudioCmd(0, 0);
             return;
         }
+        if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+            Iop.RstPort(0);
+        }
         CanJni.LexusZmytAudioCmd(1, CanLexusZMYTCarInitView.IsAuxConfig());
         Evc.GetInstance().SetNaviVolDn(0);
     }
@@ -1454,6 +1776,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             }
             Evc.GetInstance().SetNaviVolDn(temp);
             return;
+        }
+        if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+            Iop.RstPort(0);
         }
         CanJni.LexusHZmytConfigSet(16, 0);
         Evc.GetInstance().SetNaviVolDn(0);
@@ -1472,14 +1797,38 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     public static void BmwZmytWithCDChange(int oldmode, int newmode) {
         if (oldmode == 12 || 12 != newmode) {
             Log.d(TAG, "BmwZmytWithCDChange Exd Exit");
+            if (FtSet.IsIconExist(1) == 0 && CanIF.IsPhoneActive() == 0) {
+                Iop.RstPort(0);
+            }
             CanBmwZmytWithCDExdActivity.BmwZmytWithCDDModeChange(0);
+            Evc.GetInstance().SetNaviVolDn(0);
         }
         if (12 == newmode) {
             Log.d(TAG, "BmwZmytWithCDChange Exd Enter");
+            int temp = CanAudiLzWithCDCarFuncView.NaviPre();
+            if (temp > 0 && temp < 20) {
+                temp = 20;
+            }
+            Evc.GetInstance().SetNaviVolDn(temp);
         }
     }
 
     public static void CrownWcCDChange(int oldmode, int newmode) {
+        if (oldmode == 12) {
+            Log.d(TAG, "CrownWcCDChange Exd Exit");
+            CanJni.CrownWcSourceSet(1, 5);
+        }
+        if (12 == newmode) {
+            Log.d(TAG, "CrownWcCDChange Exd Enter");
+            CanDataInfo.CrownWcHeadStatus headInfo = new CanDataInfo.CrownWcHeadStatus();
+            CanJni.CrownWcGetHeadStatus(headInfo);
+            if (headInfo.Mode == 2) {
+                CanJni.CrownWcSourceSet(1, 4);
+            }
+        }
+    }
+
+    public static void CrownhWcCDChange(int oldmode, int newmode) {
         if (oldmode == 12) {
             Log.d(TAG, "CrownWcCDChange Exd Exit");
             CanJni.CrownWcSourceSet(1, 5);
@@ -1746,7 +2095,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         try {
             return new String(data, 0, len, "GBK");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -1756,10 +2105,12 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             Can.mOutTemp.Update = 0;
             String str = " ";
             if (Can.mOutTemp.Val > -1000 && -1 != Can.mOutTemp.Val && FtSet.Getyw8() == 0) {
-                if (Can.mOutTemp.DW == 0) {
-                    str = String.format("%.1f℃", new Object[]{Double.valueOf(((double) Can.mOutTemp.Val) / 10.0d)});
-                } else {
+                if (Can.mOutTemp.DW != 0) {
                     str = String.format("%.1f℉", new Object[]{Double.valueOf(((double) Can.mOutTemp.Val) / 10.0d)});
+                } else if (FtSet.Getyw3() > 0) {
+                    str = String.format("%.1f℉", new Object[]{Double.valueOf(((((double) Can.mOutTemp.Val) / 10.0d) * 1.8d) + 32.0d)});
+                } else {
+                    str = String.format("%.1f℃", new Object[]{Double.valueOf(((double) Can.mOutTemp.Val) / 10.0d)});
                 }
             }
             SystemProperties.set("forfan.user.info", str);
@@ -1802,8 +2153,8 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         mBtInfo.Min = 0;
         mBtInfo.Sec = 0;
         mBtInfo.ActiveTime = 0;
-        mBtInfo.szPhone = "";
-        mBtInfo.szNo = "";
+        mBtInfo.szPhone = TXZResourceManager.STYLE_DEFAULT;
+        mBtInfo.szNo = TXZResourceManager.STYLE_DEFAULT;
         mBtInfo.BatV = 0;
         switch (bt.getSta()) {
             case 1:
@@ -1829,7 +2180,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         if (bt.getSta() > 1) {
             mBtInfo.szNo = BtExe.mStrPhoneNo;
         } else {
-            mBtInfo.szNo = "";
+            mBtInfo.szNo = TXZResourceManager.STYLE_DEFAULT;
         }
         mBtInfo.BatV = bt.getBatteryLevel();
         if (mBtInfo.BatV > 5) {
@@ -1837,6 +2188,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         }
         mBtInfo.szPhone = bt.getPhoneName();
         mBtInfo.sName = BtExe.mStrId3Name;
+        if (mBtInfo.State <= 1 && Iop.GetMediaOrBlue() > 0) {
+            mBtInfo.State = 2;
+        }
         return mBtInfo;
     }
 
@@ -1892,16 +2246,19 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     }
 
     public int IsCore() {
-        int id = MyApplication.getContext().getResources().getIdentifier("core_type_", "string", MyApplication.getContext().getPackageName());
-        if (id > 0) {
-            String str = MyApplication.getContext().getResources().getString(id);
-            Log.d(TAG, str);
-            if (str.equals("8259")) {
-                Log.d(TAG, "IsCore 8259 ");
-                return 1;
-            }
+        int id = MyApplication.getContext().getResources().getIdentifier("core_type_", SdkConstants.TAG_STRING, MyApplication.getContext().getPackageName());
+        if (id <= 0 || !MyApplication.getContext().getResources().getString(id).equals("8259")) {
+            return 0;
         }
-        return 0;
+        return 1;
+    }
+
+    public int VsUI() {
+        int id = MyApplication.getContext().getResources().getIdentifier("use_vsui_volumebar", SdkConstants.TAG_STRING, MyApplication.getContext().getPackageName());
+        if (id <= 0 || !MyApplication.getContext().getResources().getString(id).equals("1")) {
+            return 0;
+        }
+        return 1;
     }
 
     public static RdsInfo GetRdsInfo() {
@@ -1958,18 +2315,18 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         if (MainUI.GetInstance() != null) {
             MainUI.GetInstance().GetCanId3();
             if (CanIF.mID3.sName == null) {
-                CanIF.mID3.sName = "";
+                CanIF.mID3.sName = TXZResourceManager.STYLE_DEFAULT;
             }
             if (CanIF.mID3.sAlbum == null) {
-                CanIF.mID3.sAlbum = "";
+                CanIF.mID3.sAlbum = TXZResourceManager.STYLE_DEFAULT;
             }
             if (CanIF.mID3.sArtist == null) {
-                CanIF.mID3.sArtist = "";
+                CanIF.mID3.sArtist = TXZResourceManager.STYLE_DEFAULT;
             }
         } else {
-            CanIF.mID3.sName = "";
-            CanIF.mID3.sAlbum = "";
-            CanIF.mID3.sArtist = "";
+            CanIF.mID3.sName = TXZResourceManager.STYLE_DEFAULT;
+            CanIF.mID3.sAlbum = TXZResourceManager.STYLE_DEFAULT;
+            CanIF.mID3.sArtist = TXZResourceManager.STYLE_DEFAULT;
         }
         mID3.sName = CanIF.mID3.sName;
         mID3.sAlbum = CanIF.mID3.sAlbum;
@@ -2017,6 +2374,17 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         return mRadioStr;
     }
 
+    public static UiVer GetUiVer() {
+        mUiVer.szName = " ";
+        int id = MyApplication.getContext().getResources().getIdentifier("can_ui_ver", SdkConstants.TAG_STRING, MyApplication.getContext().getPackageName());
+        if (id > 0) {
+            mUiVer.szName = MyApplication.getContext().getResources().getString(id);
+            Log.d(TAG, "GetUiVer");
+        }
+        Log.d(TAG, mUiVer.szName);
+        return mUiVer;
+    }
+
     public static int IsHaveIco(int ico) {
         int[] icoArray = new int[100];
         FtSet.GetIcon(icoArray);
@@ -2041,7 +2409,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         switch (CanJni.GetCanFsTp()) {
             case Can.CAN_BENC_ZMYT:
                 return CanBencWithCDCarFuncActivity.BencZmytSpeedDw();
-            case Can.CAN_AUDI_ZMYT:
+            case 152:
                 return CanAudiWithCDCarFuncView.AudiZmytSpeedDw();
             case 176:
                 return CanBmwZmytWithCDCarFuncView.BwmZmytSpeedDw();
@@ -2049,6 +2417,12 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 return CanLexusZMYTCarFuncView.LexusZmytSpeedDw();
             case 276:
                 return CanLexushZmytCarFuncView.LexusZmytSpeedDw();
+            case 289:
+                return CanLandRoverZmytCarFuncView.SpeedDw();
+            case 298:
+                return CanAudiLzWithCDCarFuncView.AudiZmytSpeedDw();
+            case 303:
+                return CanAudiXbsWithCDCarFuncView.AudiZmytSpeedDw();
             default:
                 return 255;
         }
@@ -2119,7 +2493,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             return 0;
                         }
                     case 17:
-                        if ((CanJni.GetSubType() == 6 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 14 || CanJni.GetSubType() == 15 || CanJni.GetSubType() == 16) && IsHaveIco(26) != 0) {
+                        if ((CanJni.GetSubType() == 6 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 14 || CanJni.GetSubType() == 15 || CanJni.GetSubType() == 16 || CanJni.GetSubType() == 17 || CanJni.GetSubType() == 18 || CanJni.GetSubType() == 19 || CanJni.GetSubType() == 20) && IsHaveIco(26) != 0) {
                             showCanActivity(CanGs8AcActivity.class);
                             return 0;
                         } else if ((CanJni.GetSubType() == 7 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 10) && IsHaveIco(26) != 0) {
@@ -2133,9 +2507,13 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         if (CanJni.GetSubType() == 3 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 11) {
                             showCanActivity(CanACActivity.class);
                             return 0;
+                        } else if (IsHaveIco(26) != 0) {
+                            CanBaseACActivity.ShowAC();
+                            return 0;
+                        } else {
+                            CanMGGSACActivity.ShowAC();
+                            return 0;
                         }
-                        CanMGGSACActivity.ShowAC();
-                        return 0;
                     case 29:
                         if (!getInstance().IsCustomShow("Jeep")) {
                             CanChrOthACActivity.ShowAC();
@@ -2155,6 +2533,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             return 0;
                         } else if (CanJni.GetSubType() == 3) {
                             CanD60RzcCarACActivity.ShowAC();
+                            return 0;
+                        } else if (IsHaveIco(26) != 0) {
+                            CanBaseACActivity.ShowAC();
                             return 0;
                         } else {
                             showCanActivity(CanACActivity.class);
@@ -2182,7 +2563,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         showCanActivity(CanACActivity.class);
                         return 0;
                     case 57:
-                        if (CanJni.GetSubType() == 1 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 6 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9) {
+                        if (IsHaveIco(26) != 0) {
                             showCanActivity(CanTigger7AcActivity.class);
                             return 0;
                         }
@@ -2192,11 +2573,11 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         if (IsHaveIco(26) != 0 && CanJni.GetSubType() == 2) {
                             CanZotyetX7ACActivity.ShowAC();
                             return 0;
-                        } else if (IsHaveIco(26) == 0 || !(CanJni.GetSubType() == 3 || CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 6)) {
-                            showCanActivity(CanACActivity.class);
+                        } else if (IsHaveIco(26) != 0) {
+                            CanZotyetT500ACView.showAc();
                             return 0;
                         } else {
-                            CanZotyetT500ACView.showAc();
+                            showCanActivity(CanACActivity.class);
                             return 0;
                         }
                     case 71:
@@ -2210,11 +2591,11 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         if (IsHaveIco(26) != 0 && CanJni.GetSubType() == 2) {
                             CanGeelyYjX1ACActivity.ShowAC();
                             return 0;
-                        } else if (IsHaveIco(26) == 0 || !(CanJni.GetSubType() == 3 || CanJni.GetSubType() == 4 || CanJni.GetSubType() == 1 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 12 || CanJni.GetSubType() == 13 || CanJni.GetSubType() == 14)) {
-                            showCanActivity(CanACActivity.class);
+                        } else if (IsHaveIco(26) != 0) {
+                            CanBaseACActivity.ShowAC();
                             return 0;
                         } else {
-                            CanBaseACActivity.ShowAC();
+                            showCanActivity(CanACActivity.class);
                             return 0;
                         }
                     case 78:
@@ -2302,12 +2683,17 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         return 0;
                     case 127:
                         if (CanJni.GetSubType() == 1 || CanJni.GetSubType() == 2) {
-                            showCanActivity(CanPSAACActivity.class);
+                            CanBaseACActivity.ShowAC();
+                            return 0;
+                        } else if (IsHaveIco(26) != 0) {
+                            CanBaseACActivity.ShowAC();
+                            return 0;
+                        } else {
+                            showCanActivity(CanACActivity.class);
                             return 0;
                         }
-                        showCanActivity(CanACActivity.class);
-                        return 0;
                     case 129:
+                    case 310:
                         showCanActivity(CanTouaregCarACActivity.class);
                         return 0;
                     case 132:
@@ -2379,7 +2765,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         }
                         showCanActivity(CanACActivity.class);
                         return 0;
-                    case Can.CAN_AUDI_ZMYT:
+                    case 152:
                         if (CanAudiWithCDExdActivity.IsAudiWithCDWin()) {
                             return 0;
                         }
@@ -2395,6 +2781,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     case 168:
                     case 173:
                     case Can.CAN_BYD_S6_S7:
+                    case 302:
                         CanBaseACActivity.ShowAC();
                         return 0;
                     case Can.CAN_LEXUS_ZMYT:
@@ -2410,6 +2797,32 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             return 0;
                         }
                         showCanActivity(CanBaseACActivity.class);
+                        return 0;
+                    case 295:
+                        if (CanJni.GetSubType() == 1) {
+                            CanBaseACActivity.ShowAC();
+                            return 0;
+                        }
+                        showCanActivity(CanACActivity.class);
+                        return 0;
+                    case 298:
+                        if (CanAudiLzWithCDCarDevView.IsWin()) {
+                            return 0;
+                        }
+                        CanAudiLzWithCdACBox.GetInstance().ShowAC();
+                        return 0;
+                    case 299:
+                        if (CanJni.GetSubType() == 5) {
+                            CanBaseACActivity.ShowAC();
+                            return 0;
+                        }
+                        showCanActivity(CanACActivity.class);
+                        return 0;
+                    case 303:
+                        if (CanAudiXbsWithCDCarDevView.IsWin()) {
+                            return 0;
+                        }
+                        CanAudiXbsWithCdACBox.GetInstance().ShowAC();
                         return 0;
                     default:
                         if (IsHaveIco(26) != 0) {
@@ -2476,7 +2889,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     showCanActivity(CanHtOdTpmsActivity.class);
                     return 0;
                 } else if (73 == CanJni.GetCanType()) {
-                    if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 13) {
+                    if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5 || CanJni.GetSubType() == 13 || CanJni.GetSubType() == 15) {
                         showCanActivity(CanChanATpmsActivity.class);
                         return 0;
                     } else if (CanJni.GetSubType() != 2) {
@@ -2588,6 +3001,11 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 } else if (CanJni.GetCanFsTp() == 38) {
                     showCanActivity(CanCarInfoSub1Activity.class, 2);
                     return 0;
+                } else if (CanJni.GetCanFsTp() != 146) {
+                    showCanActivity(CanFordActiveParkActivity.class);
+                    return 0;
+                } else if (FtSet.GetCanS(2) <= 0) {
+                    return 0;
                 } else {
                     showCanActivity(CanFordActiveParkActivity.class);
                     return 0;
@@ -2617,7 +3035,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     }
                     CanCarVwWcCarInfoActivity.ShowWin();
                     return 0;
-                } else if (mFsCanTp == 152 || mFsCanTp == 140 || mFsCanTp == 207 || mFsCanTp == 276) {
+                } else if (mFsCanTp == 152 || mFsCanTp == 140 || mFsCanTp == 207 || mFsCanTp == 276 || mFsCanTp == 298 || mFsCanTp == 303) {
                     return 0;
                 } else {
                     if (mFsCanTp == 243 || mFsCanTp == 263) {
@@ -2646,7 +3064,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         return 0;
                     }
                 }
-            case Can.CAN_CHANA_CS75_WC:
+            case 160:
                 CanFiatAllExdActivity.DealDevEvent();
                 return 0;
             case 176:
@@ -2659,7 +3077,6 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         return 0;
                     case 11:
                     case 58:
-                    case 127:
                         CanPSADriveInfoActivity.DealPage();
                         return 0;
                     case 20:
@@ -2678,6 +3095,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             return 0;
                         }
                         showCanActivity(CanZotyeX5TmpsActivity.class);
+                        return 0;
+                    case 127:
+                        CanPSARzcDriveInfoView.DealPage();
                         return 0;
                     case 128:
                         showCanActivity(CanToyotaTripPerMinActivity.class);
@@ -2737,6 +3157,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             return 0;
                         } else if (CanJni.GetSubType() == 4) {
                             showCanActivity(CanCarInfoSub1Activity.class, -6);
+                            return 0;
+                        } else if (CanJni.GetSubType() == 5) {
+                            showCanActivity(CanCarInfoSub1Activity.class, -9);
                             return 0;
                         } else {
                             showCanActivity(CanCarInfoSub1Activity.class, -8);
@@ -2854,6 +3277,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     case 260:
                         CanMzdRzcCDView.DealStatusChanged();
                         return 0;
+                    case 302:
+                        CanCrownhWcCarDeviceView.DealStatusChanged();
+                        return 0;
                     default:
                         return 0;
                 }
@@ -2920,6 +3346,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         return 0;
                     }
                 } else if (88 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
                     if (CanJni.GetSubType() == 3 || 10 == CanJni.GetSubType()) {
                         CanCadillacXt5ExdActivity.entCadillacXt5Mode();
                         return 0;
@@ -2948,12 +3377,25 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     CanAccord8XbsExdView.showOdysseyWin();
                     return 0;
                 } else if (138 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
+                    if (CanJni.GetSubType() == 1) {
+                        CanBmwWithCdCarCvbsDevView.showWin();
+                        return 0;
+                    }
                     CanBmwWithCDExdActivity.showBmwWithCDWin();
                     return 0;
                 } else if (140 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
                     CanBencWithCDExdActivity.entBencWithCDMode();
                     return 0;
                 } else if (118 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
                     if (CanCadillacWithCDExdActivity.IsCadillacAtsWin()) {
                         CanCadillacWithCDExdActivity.ForefinishCadillacAtsWin();
                         return 0;
@@ -2961,9 +3403,15 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     CanCadillacWithCDExdActivity.entCadillacAtsMode();
                     return 0;
                 } else if (152 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
                     CanAudiWithCDExdActivity.entAudiWithCDMode();
                     return 0;
                 } else if (176 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
                     CanBmwZmytWithCDExdActivity.entBmwZmytWithCDMode();
                     return 0;
                 } else if (181 == CanJni.GetCanType()) {
@@ -2990,10 +3438,40 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 } else if (266 == CanJni.GetCanType()) {
                     CanToyotaDJCarDeviceView.entMode();
                     return 0;
-                } else if (276 != CanJni.GetCanType() || CanLexushZmytCarDevView.IsWin()) {
+                } else if (276 == CanJni.GetCanType()) {
+                    if (isCamMode || CanLexushZmytCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    showCanActivity(CanBaseCarDeviceActivity.class);
+                    return 0;
+                } else if (289 == CanJni.GetCanType()) {
+                    if (isCamMode || CanLandRoverZmytCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    showCanActivity(CanBaseCarDeviceActivity.class);
+                    return 0;
+                } else if (298 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
+                    CanAudiLzWithCDCarDevView.entMode();
+                    return 0;
+                } else if (255 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
+                    CanChanACosDvrView.showWin();
+                    return 0;
+                } else if (78 == CanJni.GetCanType()) {
+                    if (isCamMode || CanJni.GetSubType() != 12) {
+                        return 0;
+                    }
+                    CanCcH7RzcCDView.showWin();
+                    return 0;
+                } else if (303 != CanJni.GetCanType() || isCamMode) {
                     return 0;
                 } else {
-                    showCanActivity(CanBaseCarDeviceActivity.class);
+                    CanAudiXbsWithCDCarDevView.entMode();
                     return 0;
                 }
             case 210:
@@ -3014,6 +3492,10 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     CanLexusIs250CarDevActivity.finishLexusIs250Win();
                     return 0;
                 } else if (138 == CanJni.GetCanType()) {
+                    if (CanJni.GetSubType() == 1) {
+                        CanBmwWithCdCarCvbsDevView.finishWin();
+                        return 0;
+                    }
                     CanBmwWithCDExdActivity.finishBmwWithCDWin();
                     return 0;
                 } else if (152 != CanJni.GetCanType() || !CanAudiWithCDExdActivity.IsAudiWithCDWin()) {
@@ -3023,9 +3505,12 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     if (mOldModeb <= 1 || mOldModeb > 10) {
                         CanAudiWithCDExdActivity.finishAudiWithCDWin();
                         return 0;
+                    } else if (isCamMode) {
+                        return 0;
+                    } else {
+                        WinShow.TsEnterMode(mOldModeb);
+                        return 0;
                     }
-                    WinShow.TsEnterMode(mOldModeb);
-                    return 0;
                 }
             case 211:
                 if (88 != CanJni.GetCanType() || CanJni.GetSubType() != 3) {
@@ -3056,7 +3541,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 } else if (CanJni.GetSubType() == 6 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 9 || CanJni.GetSubType() == 11) {
                     CanCadillacAtsExdActivity.DealDevEvent();
                     return 0;
-                } else if (CanJni.GetSubType() != 4 && CanJni.GetSubType() != 5) {
+                } else if ((CanJni.GetSubType() != 4 && CanJni.GetSubType() != 5) || isCamMode) {
                     return 0;
                 } else {
                     CanLincsMkcExdActivity.showLincsMkc5Win();
@@ -3084,11 +3569,21 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 } else if (228 == CanJni.GetCanType()) {
                     showCanActivity(CanCarInfoSub1Activity.class, 0);
                     return 0;
-                } else if (55 != CanJni.GetCanType() || CanJni.GetSubType() != 4) {
-                    return 0;
-                } else {
+                } else if (55 == CanJni.GetCanType()) {
+                    if (CanJni.GetSubType() != 4) {
+                        return 0;
+                    }
                     Log.d("lq", "CanKadjarVolUI ShowVol");
                     CanKadjarVolUI.GetInstance().ShowVol();
+                    return 0;
+                } else if (12 != CanJni.GetCanType()) {
+                    return 0;
+                } else {
+                    if (CanJni.TsGetVoice() != 0) {
+                        Evc.GetInstance().evol_aux_hold();
+                        return 0;
+                    }
+                    Evc.GetInstance().evol_aux_release();
                     return 0;
                 }
             case 214:
@@ -3127,10 +3622,13 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 return 0;
             case 217:
                 if (152 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
                     CanAudiWithCDExdActivity.showAudiWithCDWin();
                     return 0;
                 } else if (176 == CanJni.GetCanType()) {
-                    if (CanBmwZmytWithCDCarFuncView.IsCameraMdoe() == 0) {
+                    if (isCamMode || CanBmwZmytWithCDCarFuncView.RvsMode() != 1) {
                         return 0;
                     }
                     CanBmwZmytWithCDExdActivity.showBmwZmytWithCDRadarWin();
@@ -3138,20 +3636,38 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                 } else if (230 == CanJni.GetCanType()) {
                     showCanActivity(CanCarInfoSub1Activity.class, 3);
                     return 0;
-                } else if (268 != CanJni.GetCanType()) {
+                } else if (268 == CanJni.GetCanType()) {
+                    CanBydRswPm25SetView.DealDevEvent();
+                    return 0;
+                } else if (298 == CanJni.GetCanType()) {
+                    if (isCamMode) {
+                        return 0;
+                    }
+                    CanAudiLzWithCDCarDevView.showWin();
+                    return 0;
+                } else if (303 != CanJni.GetCanType() || isCamMode) {
                     return 0;
                 } else {
-                    CanBydRswPm25SetView.DealDevEvent();
+                    CanAudiXbsWithCDCarDevView.showWin();
                     return 0;
                 }
             case 218:
                 if (152 == CanJni.GetCanType()) {
                     CanAudiWithCDExdActivity.finishAudiWithCDWin();
                     return 0;
-                } else if (176 != CanJni.GetCanType() || CanBmwZmytWithCDCarFuncView.IsCameraMdoe() == 0) {
+                } else if (176 == CanJni.GetCanType()) {
+                    if (CanBmwZmytWithCDCarFuncView.RvsMode() != 1) {
+                        return 0;
+                    }
+                    CanBmwZmytWithCDExdActivity.finishBmwZmytWithCDRadraWin();
+                    return 0;
+                } else if (298 == CanJni.GetCanType()) {
+                    CanAudiLzWithCDCarDevView.finishWin();
+                    return 0;
+                } else if (303 != CanJni.GetCanType()) {
                     return 0;
                 } else {
-                    CanBmwZmytWithCDExdActivity.finishBmwZmytWithCDRadraWin();
+                    CanAudiXbsWithCDCarDevView.finishWin();
                     return 0;
                 }
             case 219:
@@ -3205,10 +3721,19 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         CanNissanSosView.getInstance().hideView();
                         return 0;
                     }
-                } else if (268 != CanJni.GetCanType()) {
+                } else if (268 == CanJni.GetCanType()) {
+                    CanBydRswPm25SetView.ShowWarnToast(mContext);
+                    return 0;
+                } else if (72 != CanJni.GetCanType()) {
                     return 0;
                 } else {
-                    CanBydRswPm25SetView.ShowWarnToast(mContext);
+                    CanDataInfo.Geely_XsmsInfo mXsmsData = new CanDataInfo.Geely_XsmsInfo();
+                    CanJni.GeelyGetXsmsData(mXsmsData);
+                    if (mXsmsData.CurSelSta > 0) {
+                        mTimerMsgBox = new CanTimerMsgBox(mContext, 6000, String.valueOf(mContext.getString(R.string.can_xsmsdqxzzt)) + ":" + new String[]{"COMFORT", "ECO", "SPORT"}[mXsmsData.CurSelSta - 1]);
+                        return 0;
+                    }
+                    mTimerMsgBox.Hide();
                     return 0;
                 }
             case 221:
@@ -3224,6 +3749,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                             } else if (CanJni.GetSubType() == 4) {
                                 showCanActivity(CanCarInfoSub1Activity.class, -6);
                                 return 0;
+                            } else if (CanJni.GetSubType() == 5) {
+                                showCanActivity(CanCarInfoSub1Activity.class, -9);
+                                return 0;
                             } else {
                                 showCanActivity(CanCarInfoSub1Activity.class, -8);
                                 return 0;
@@ -3238,7 +3766,39 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         return 0;
                 }
             case 222:
+                CanDataInfo.CanTouchData mTouchData = new CanDataInfo.CanTouchData();
                 switch (GetCanType()) {
+                    case 213:
+                        CanJni.CanGetTouchData(mTouchData);
+                        if (mTouchData.X < 0 || mTouchData.X > 500 || mTouchData.Y < 0 || mTouchData.Y > 500) {
+                            return 0;
+                        }
+                        int x = (mTouchData.X * 1024) / 500;
+                        int y = (mTouchData.Y * 600) / 500;
+                        if (x > 1023) {
+                            x = 1023;
+                        }
+                        if (y > 599) {
+                            y = 599;
+                        }
+                        KeyTouch.GetInstance().SendXYClick((float) x, (float) y);
+                        return 0;
+                    case 260:
+                        CanDataInfo.Mzd_Rzc_TouchCmd mMzdRzcTouch = new CanDataInfo.Mzd_Rzc_TouchCmd();
+                        CanJni.MzdRzcGetTouchCmd(mMzdRzcTouch);
+                        if (mMzdRzcTouch.x <= 0 || mMzdRzcTouch.x >= 1024 || mMzdRzcTouch.y <= 0 || mMzdRzcTouch.y >= 1024) {
+                            return 0;
+                        }
+                        int x2 = mMzdRzcTouch.x;
+                        int y2 = (mMzdRzcTouch.y * 600) / 1024;
+                        if (x2 > 1023) {
+                            x2 = 1023;
+                        }
+                        if (y2 > 599) {
+                            y2 = 599;
+                        }
+                        KeyTouch.GetInstance().SendXYClick((float) x2, (float) y2);
+                        return 0;
                     case 265:
                         if (CanJni.GetSubType() != 1) {
                             return 0;
@@ -3248,15 +3808,15 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                         if (mMitSubishiRzcTouch.x1 <= 0 || mMitSubishiRzcTouch.x1 >= 255 || mMitSubishiRzcTouch.y1 <= 0 || mMitSubishiRzcTouch.y1 >= 255 || mMitSubishiRzcTouch.sta > 4) {
                             return 0;
                         }
-                        int x = (mMitSubishiRzcTouch.x1 * 1024) / Can.CAN_FLAT_RZC;
-                        int y = (mMitSubishiRzcTouch.y1 * CanCameraUI.BTN_GOLF_WC_MODE1) / Can.CAN_FLAT_RZC;
-                        if (x > 1023) {
-                            x = 1023;
+                        int x3 = (mMitSubishiRzcTouch.x1 * 1024) / Can.CAN_FLAT_RZC;
+                        int y3 = (mMitSubishiRzcTouch.y1 * 600) / Can.CAN_FLAT_RZC;
+                        if (x3 > 1023) {
+                            x3 = 1023;
                         }
-                        if (y > 599) {
-                            y = 599;
+                        if (y3 > 599) {
+                            y3 = 599;
                         }
-                        KeyTouch.GetInstance().sendTap((float) x, (float) y, mMitSubishiRzcTouch.sta);
+                        KeyTouch.GetInstance().sendTap((float) x3, (float) y3, mMitSubishiRzcTouch.sta);
                         return 0;
                     default:
                         return 0;
@@ -3279,14 +3839,14 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
 
     private static void showToast(String text) {
         if (mWarnToast == null) {
-            mWarnToast = Toast.makeText(mContext, "", 1);
+            mWarnToast = Toast.makeText(mContext, TXZResourceManager.STYLE_DEFAULT, 1);
         }
         mWarnToast.setText(text);
         mWarnToast.show();
     }
 
     private static void showDfWcWarnToast(CanDataInfo.DfWc_WarnData warnData, String[] warnMessage) {
-        String text = "";
+        String text = TXZResourceManager.STYLE_DEFAULT;
         if ((warnData.Warn & 1) > 0) {
             text = String.valueOf(text) + warnMessage[0] + " ";
         }
@@ -3374,6 +3934,7 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
             int r0 = com.lgb.canmodule.CanJni.GetCanType()
             switch(r0) {
                 case 5: goto L_0x0014;
+                case 72: goto L_0x000d;
                 case 73: goto L_0x000d;
                 case 154: goto L_0x000d;
                 case 156: goto L_0x000d;
@@ -3470,6 +4031,22 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         return 0;
     }
 
+    public static int DataCallBack(byte[] para, int size) throws IOException {
+        if (mpfnCan == null) {
+            return 0;
+        }
+        mpfnCan.CanDataCallback(para, size);
+        return 1;
+    }
+
+    public static int SendDataCallBack(byte[] para, int size) {
+        if (CanJni.GetCanType() == 0) {
+            return 0;
+        }
+        Mcu.SendCanMsg(para, size);
+        return 1;
+    }
+
     public static boolean IsCadillacXt51280x480() {
         if (88 == CanJni.GetCanType() && CanJni.GetSubType() == 3) {
             return true;
@@ -3509,6 +4086,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     case 3:
                         TuneBand(5, para3);
                         break;
+                    case 255:
+                        TuneBand(255, para3);
+                        break;
                 }
             }
         } else {
@@ -3525,7 +4105,9 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
     }
 
     private static void TuneBand(int bandSl, int para3) {
-        Radio.TuneBandSl(bandSl);
+        if (bandSl != 255) {
+            Radio.TuneBandSl(bandSl);
+        }
         if (para3 != 0) {
             Radio.TuneFsset(para3);
         }
@@ -3586,7 +4168,19 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     }
                     Mcu.SetCkey(22);
                     return 0;
-                } else if (CanJni.GetCanType() != 276 || CanLexushZmytCarDevView.IsWin()) {
+                } else if (CanJni.GetCanType() == 276) {
+                    if (CanLexushZmytCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    Mcu.SetCkey(22);
+                    return 0;
+                } else if (CanJni.GetCanType() == 298) {
+                    if (CanAudiLzWithCDCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    Mcu.SetCkey(22);
+                    return 0;
+                } else if (CanJni.GetCanType() != 303 || CanAudiXbsWithCDCarDevView.IsWin()) {
                     return 0;
                 } else {
                     Mcu.SetCkey(22);
@@ -3605,17 +4199,80 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
                     }
                     Mcu.SetCkey(8);
                     return 0;
-                } else if (CanJni.GetCanType() != 276 || CanLexushZmytCarDevView.IsWin()) {
+                } else if (CanJni.GetCanType() == 276) {
+                    if (CanLexushZmytCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    Mcu.SetCkey(8);
+                    return 0;
+                } else if (CanJni.GetCanType() == 289) {
+                    if (CanLandRoverZmytCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    Mcu.SetCkey(8);
+                    return 0;
+                } else if (CanJni.GetCanType() == 298) {
+                    if (CanAudiLzWithCDCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    Mcu.SetCkey(8);
+                    return 0;
+                } else if (CanJni.GetCanType() == 303) {
+                    if (CanAudiXbsWithCDCarDevView.IsWin()) {
+                        return 0;
+                    }
+                    Mcu.SetCkey(8);
+                    return 0;
+                } else if (CanJni.GetCanType() != 162) {
                     return 0;
                 } else {
+                    if (!CanChryslerJourneyWcCarDeviceView.IsWin()) {
+                        CanChryslerJourneyWcCarDeviceView.entMode();
+                        return 0;
+                    }
                     Mcu.SetCkey(8);
                     return 0;
                 }
+            case 19:
+                Mcu.SetCkey(106);
+                return 0;
+            case 20:
+                Mcu.SendXKey(27);
+                return 0;
             case 80:
-                if (CanJni.GetCanType() != 176 || CanBmwZmytWithCDExdActivity.IsBmwZmytWithCDWin()) {
+                if (CanJni.GetCanType() != 176) {
                     return 0;
                 }
-                mContext.sendBroadcast(new Intent("com.ts.can.BROADCAST_CAN_INFO_BMW_L_MENU"));
+                if (!CanBmwZmytWithCDExdActivity.IsBmwZmytWithCDWin()) {
+                    mContext.sendBroadcast(new Intent("com.ts.can.BROADCAST_CAN_INFO_BMW_L_MENU"));
+                    return 0;
+                }
+                Mcu.SetCkey(22);
+                return 0;
+            case 144:
+            case 145:
+            case 146:
+            case 147:
+                if (CanJni.GetCanType() != 299) {
+                    return 0;
+                }
+                Intent i = new Intent("com.ts.can.BROADCAST_CAN_T3_FL_CHANGE_EVT");
+                i.putExtra(BinderName.KEY, para - 143);
+                mContext.sendBroadcast(i);
+                return 0;
+            default:
+                return 0;
+        }
+    }
+
+    public static int SoSync(int para) {
+        Log.d(TAG, "SoSync =" + para);
+        switch (CanJni.GetCanType()) {
+            case Can.CAN_BENC_ZMYT:
+                CanBencWithCDSoSync.Init(mContext, para);
+                return 0;
+            case 169:
+                CanJeepWcAmpSetView.Init();
                 return 0;
             default:
                 return 0;
@@ -3628,6 +4285,14 @@ public class CanFunc implements CanInterface, CanTypeStrCallBack {
         }
         Log.d(TAG, "mfgJump");
         return true;
+    }
+
+    public static String byte2UnicodeString(byte[] data, int len) {
+        try {
+            return new String(data, 0, len, "UNICODE");
+        } catch (UnsupportedEncodingException e) {
+            return TXZResourceManager.STYLE_DEFAULT;
+        }
     }
 
     public String[] GetCanTypeArray() {

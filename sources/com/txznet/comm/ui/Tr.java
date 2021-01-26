@@ -11,7 +11,7 @@ import com.txznet.comm.Tr.Tr.Tn;
 public class Tr extends Observable<T> {
 
     /* renamed from: T  reason: collision with root package name */
-    private Context f558T;
+    private Context f562T;
     private BroadcastReceiver Tr = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
@@ -34,8 +34,8 @@ public class Tr extends Observable<T> {
     }
 
     Tr(Context context) {
-        this.f558T = context;
-        this.f558T.registerReceiver(this.Tr, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
+        this.f562T = context;
+        this.f562T.registerReceiver(this.Tr, new IntentFilter("android.intent.action.CLOSE_SYSTEM_DIALOGS"));
     }
 
     public void T() {

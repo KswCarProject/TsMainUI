@@ -43,6 +43,8 @@ public class FtSet {
 
     public static native int GetAMsd();
 
+    public static native int GetAccoffFilter();
+
     public static native int GetAmpstring();
 
     public static native int GetApkForbid();
@@ -72,6 +74,10 @@ public class FtSet {
     public static native int GetCamMir();
 
     public static native int GetCamTrack();
+
+    public static native int GetCamType();
+
+    public static native int GetCanS(int i);
 
     public static native int GetCanSubT();
 
@@ -111,6 +117,8 @@ public class FtSet {
 
     public static native int GetFanEn();
 
+    public static native int GetFastAVM();
+
     public static native int GetFcamMir();
 
     public static native int GetFcamTime();
@@ -141,7 +149,11 @@ public class FtSet {
 
     public static native int GetLastMemory();
 
+    public static native int GetLcdLeftRight();
+
     public static native int GetLcdMode();
+
+    public static native int GetLcdUpDown();
 
     public static native int GetLcmType();
 
@@ -227,6 +239,8 @@ public class FtSet {
 
     public static native int GetUiStyle();
 
+    public static native int GetUpdateReq();
+
     public static native int GetUsb1Spd();
 
     public static native int GetUsb2Spd();
@@ -246,6 +260,8 @@ public class FtSet {
     public static native int GetXuNiDisc();
 
     public static native int GetYjtId(byte[] bArr, int i);
+
+    public static native int GetiicMfi();
 
     public static native int Getlgb1();
 
@@ -301,6 +317,8 @@ public class FtSet {
 
     public static native int SetAMsd(int i);
 
+    public static native int SetAccoffFilter(int i);
+
     public static native int SetAmpstring(int i);
 
     public static native int SetApkForbid(int i);
@@ -330,6 +348,10 @@ public class FtSet {
     public static native int SetCamMir(int i);
 
     public static native int SetCamTrack(int i);
+
+    public static native int SetCamType(int i);
+
+    public static native int SetCanS(byte b, int i);
 
     public static native int SetCanSubT(int i);
 
@@ -371,6 +393,8 @@ public class FtSet {
 
     public static native int SetFanEn(int i);
 
+    public static native int SetFastAVM(int i);
+
     public static native int SetFcamMir(int i);
 
     public static native int SetFcamTime(int i);
@@ -407,7 +431,11 @@ public class FtSet {
 
     public static native int SetLastMemory(int i);
 
+    public static native int SetLcdLeftRight(int i);
+
     public static native int SetLcdMode(int i);
+
+    public static native int SetLcdUpDown(int i);
 
     public static native int SetLcmType(int i);
 
@@ -493,6 +521,8 @@ public class FtSet {
 
     public static native int SetUiStyle(int i);
 
+    public static native int SetUpdateReq(int i);
+
     public static native int SetUsb1Spd(int i);
 
     public static native int SetUsb2Spd(int i);
@@ -512,6 +542,8 @@ public class FtSet {
     public static native int SetXuNiDisc(int i);
 
     public static native int SetYjtId(byte[] bArr, int i);
+
+    public static native int SetiicMfi(int i);
 
     public static native int Setlgb1(int i);
 
@@ -554,6 +586,6 @@ public class FtSet {
     public static native int Setyw9(int i);
 
     static {
-        System.loadLibrary("ts70xhw");
+        System.loadLibrary("ts59xhw");
     }
 }

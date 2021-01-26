@@ -19,8 +19,9 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
     public static final int ITEM_CONV_OPEN = 2;
     public static final int ITEM_DOOR_UNLOCK = 4;
     public static final int ITEM_GYSHCXG = 6;
+    public static final int ITEM_INTERIOR_MONITOR = 8;
     public static final int ITEM_LOCK_TITLE = 3;
-    private static final int ITEM_MAX = 7;
+    private static final int ITEM_MAX = 8;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_OPEN_TITLE = 1;
     public static final String TAG = "CanGolfSetOCActivity";
@@ -33,6 +34,7 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
     private CanItemBlankTextList mItemDoorLockTitle;
     private CanItemPopupList mItemDoorUnlock;
     private CanItemCheckList mItemGysSW;
+    private CanItemCheckList mItemInteriorMonitoring;
     private CanItemBlankTextList mItemWinOptTitle;
     private CanScrollList mManager;
     private CanDataInfo.GolfOpeningAndClosing mOCData = new CanDataInfo.GolfOpeningAndClosing();
@@ -68,6 +70,7 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
             this.mItemAutoLockSW.SetCheck(this.mOCData.fgAutoLocking);
             this.mItemAcousticSW.SetCheck(this.mOCData.fgAcousticConfirm);
             this.mItemGysSW.SetCheck(this.mOCData.fgGyshwxg);
+            this.mItemInteriorMonitoring.SetCheck(this.mOCData.InteriorMonitoring);
         }
     }
 
@@ -97,7 +100,7 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
     /* access modifiers changed from: protected */
     public void InitUI() {
         this.mManager = new CanScrollList(this);
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 1; i <= 8; i++) {
             InitItem(i);
         }
     }
@@ -105,7 +108,7 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
     /* access modifiers changed from: protected */
     public void LayoutUI() {
         this.mManager.RemoveAllViews();
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 1; i <= 8; i++) {
             AddItem(i);
         }
     }
@@ -137,6 +140,9 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
                 break;
             case 7:
                 ret = 0;
+                break;
+            case 8:
+                ret = 1;
                 break;
         }
         return i2b(ret);
@@ -171,6 +177,10 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
                 this.mItemAcousticSW = new CanItemCheckList(this, R.string.can_acoustic_confirm);
                 this.mItemAcousticSW.SetIdClickListener(this, 7);
                 return;
+            case 8:
+                this.mItemInteriorMonitoring = new CanItemCheckList(this, R.string.can_interior_monitoring);
+                this.mItemInteriorMonitoring.SetIdClickListener(this, 8);
+                return;
             default:
                 return;
         }
@@ -201,6 +211,9 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
                 case 7:
                     this.mManager.AddView(this.mItemAcousticSW.GetView());
                     return;
+                case 8:
+                    this.mManager.AddView(this.mItemInteriorMonitoring.GetView());
+                    return;
                 default:
                     return;
             }
@@ -213,10 +226,13 @@ public class CanGolfSetOCActivity extends CanGolfBaseActivity implements View.On
                 CanJni.GolfSendCmd(114, Neg(this.mOCData.fgAutoLocking));
                 return;
             case 6:
-                CanJni.GolfSendCmd(116, Neg(this.mOCData.fgGyshwxg));
+                CanJni.GolfSendCmd(115, Neg(this.mOCData.fgGyshwxg));
                 return;
             case 7:
                 CanJni.GolfSendCmd(201, Neg(this.mOCData.fgAcousticConfirm));
+                return;
+            case 8:
+                CanJni.GolfSendCmd(116, Neg(this.mOCData.InteriorMonitoring));
                 return;
             default:
                 return;

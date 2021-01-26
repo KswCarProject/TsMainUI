@@ -4,7 +4,6 @@ import com.Tn.Tr.T.T;
 import com.Tr.T.T.T9;
 import com.Tr.T.T.TZ;
 import com.Tr.T.T.Tn;
-import com.lgb.canmodule.Can;
 import java.io.IOException;
 
 /* compiled from: Proguard */
@@ -34,7 +33,7 @@ public interface T {
 
         public static Ty[] Tn() {
             if (TN == null) {
-                synchronized (com.Tr.T.T.Ty.f241T) {
+                synchronized (com.Tr.T.T.Ty.f244T) {
                     if (TN == null) {
                         TN = new Ty[0];
                     }
@@ -66,7 +65,7 @@ public interface T {
             this.TB = null;
             this.TK = null;
             this.TO = null;
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 
@@ -294,7 +293,7 @@ public interface T {
                     case 112:
                         this.Tq = Integer.valueOf(input.Tv());
                         continue;
-                    case Can.CAN_AUDI_ZMYT /*152*/:
+                    case 152:
                         this.TF = Boolean.valueOf(input.TZ());
                         continue;
                     case 162:
@@ -342,7 +341,7 @@ public interface T {
 
         public static C0005T[] Tn() {
             if (Tn == null) {
-                synchronized (com.Tr.T.T.Ty.f241T) {
+                synchronized (com.Tr.T.T.Ty.f244T) {
                     if (Tn == null) {
                         Tn = new C0005T[0];
                     }
@@ -358,7 +357,7 @@ public interface T {
         public C0005T T9() {
             this.Tr = null;
             this.Ty = Ty.Tn();
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 
@@ -461,7 +460,7 @@ public interface T {
             this.Tk = null;
             this.TZ = null;
             this.TE = T.C0001T.Tn();
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 

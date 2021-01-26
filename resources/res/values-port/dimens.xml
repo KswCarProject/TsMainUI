@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fs_top_btn_width">124px</dimen>
+    <dimen name="fs_top_btn_height">64px</dimen>
+    <dimen name="fs_main_btn_width">240px</dimen>
+    <dimen name="fs_main_btn_height">84px</dimen>
+    <dimen name="fs_main_btn_text_size">26px</dimen>
+    <dimen name="fs_subtv_btn_width">463px</dimen>
+    <dimen name="fs_subtv_btn_height">84px</dimen>
+    <dimen name="fs_subtv_btn_text_size">30px</dimen>
+    <dimen name="fs_vol_column_width">459px</dimen>
+    <dimen name="fs_icon_column_width">134px</dimen>
+    <dimen name="fs_vol_title_width">250px</dimen>
+    <dimen name="fs_vol_value_width">104px</dimen>
+    <dimen name="fs_can_door_title_width">240px</dimen>
+    <dimen name="fs_can_door_value_width">117px</dimen>
+</resources>

@@ -20,6 +20,5 @@ public class SDMainActivity extends Activity {
     public void onPause() {
         overridePendingTransition(0, 0);
         super.onPause();
-        overridePendingTransition(0, 0);
     }
 }

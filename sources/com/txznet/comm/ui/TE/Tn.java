@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    public static int f535T;
+    public static int f539T;
     static Integer T0 = null;
     static int T5;
     static int T6;
@@ -150,7 +150,7 @@ public class Tn {
             }
         }
         com.txznet.comm.Tr.Tr.Tn.T("mRealItemHeight:" + Th);
-        com.txznet.comm.Tr.Tr.Tn.T(" bottom: " + outRect.bottom + " ; right: " + outRect.right + " ; mScreenType:" + TO + " ; mListViewRectHeight:" + f535T + " ；sVisibleCount:" + T9);
+        com.txznet.comm.Tr.Tr.Tn.T(" bottom: " + outRect.bottom + " ; right: " + outRect.right + " ; mScreenType:" + TO + " ; mListViewRectHeight:" + f539T + " ；sVisibleCount:" + T9);
         if (Te != null) {
             T6 = Te.intValue();
         }
@@ -159,13 +159,13 @@ public class Tn {
         }
         Tn(height);
         if (Tu == 2 && Te == null) {
-            if (f535T <= 720) {
+            if (f539T <= 720) {
                 T6 = 4;
-            } else if (f535T <= 900) {
+            } else if (f539T <= 900) {
                 T6 = 5;
-            } else if (f535T <= 1080) {
+            } else if (f539T <= 1080) {
                 T6 = 6;
-            } else if (f535T <= 1260) {
+            } else if (f539T <= 1260) {
                 T6 = 7;
             } else {
                 T6 = 8;
@@ -257,16 +257,16 @@ public class Tn {
             TN = TK.booleanValue();
         }
         com.txznet.comm.Tr.Tr.Tn.T("mRealItemHeight:" + Th);
-        com.txznet.comm.Tr.Tr.Tn.T(" bottom: " + outRect.bottom + " ; right: " + outRect.right + " ; mScreenType:" + TO + " ; mListViewRectHeight:" + f535T + " ；sVisibleCount:" + T9);
+        com.txznet.comm.Tr.Tr.Tn.T(" bottom: " + outRect.bottom + " ; right: " + outRect.right + " ; mScreenType:" + TO + " ; mListViewRectHeight:" + f539T + " ；sVisibleCount:" + T9);
         Tn(height);
         if (Tu == 2 && Te == null) {
-            if (f535T <= 720) {
+            if (f539T <= 720) {
                 T6 = 4;
-            } else if (f535T <= 900) {
+            } else if (f539T <= 900) {
                 T6 = 5;
-            } else if (f535T <= 1080) {
+            } else if (f539T <= 1080) {
                 T6 = 6;
-            } else if (f535T <= 1260) {
+            } else if (f539T <= 1260) {
                 T6 = 7;
             } else {
                 T6 = 8;
@@ -340,14 +340,14 @@ public class Tn {
             TN = TK.booleanValue();
         }
         com.txznet.comm.Tr.Tr.Tn.T("mRealItemHeight:" + Th);
-        com.txznet.comm.Tr.Tr.Tn.T(" bottom: " + outRect.bottom + " ; right: " + outRect.right + " ; mScreenType:" + TO + " ; mListViewRectHeight:" + f535T + " ；sVisibleCount:" + T9);
+        com.txznet.comm.Tr.Tr.Tn.T(" bottom: " + outRect.bottom + " ; right: " + outRect.right + " ; mScreenType:" + TO + " ; mListViewRectHeight:" + f539T + " ；sVisibleCount:" + T9);
         Tn(height);
         Ty(width);
         T(true);
     }
 
     public static boolean T() {
-        return f535T > Tr;
+        return f539T > Tr;
     }
 
     public static int Tr() {
@@ -400,17 +400,17 @@ public class Tn {
                             case 1:
                             case 3:
                                 Ty = conHeight;
-                                f535T = conHeight - TZ;
+                                f539T = conHeight - TZ;
                                 return;
                             case 2:
                                 switch (TO) {
                                     case 1:
                                         Ty = conHeight;
-                                        f535T = (conHeight - TZ) - Tv;
+                                        f539T = (conHeight - TZ) - Tv;
                                         return;
                                     default:
                                         Ty = conHeight;
-                                        f535T = (conHeight - TZ) - T5;
+                                        f539T = (conHeight - TZ) - T5;
                                         return;
                                 }
                             default:
@@ -418,7 +418,7 @@ public class Tn {
                         }
                     } else {
                         Ty = conHeight;
-                        f535T = conHeight - TZ;
+                        f539T = conHeight - TZ;
                         return;
                     }
                 case 2:
@@ -427,18 +427,18 @@ public class Tn {
                             case 1:
                             case 3:
                                 Ty = conHeight - Tv;
-                                f535T = (conHeight - TZ) - Tv;
+                                f539T = (conHeight - TZ) - Tv;
                                 return;
                             case 2:
                                 Ty = (conHeight - Tv) - T5;
-                                f535T = ((conHeight - TZ) - Tv) - T5;
+                                f539T = ((conHeight - TZ) - Tv) - T5;
                                 return;
                             default:
                                 return;
                         }
                     } else {
                         Ty = conHeight - Tv;
-                        f535T = (conHeight - TZ) - Tv;
+                        f539T = (conHeight - TZ) - Tv;
                         return;
                     }
                 default:
@@ -456,124 +456,124 @@ public class Tn {
             r4 = 1
             java.lang.Class<com.txznet.comm.ui.TE.Tn> r3 = com.txznet.comm.ui.TE.Tn.class
             monitor-enter(r3)
-            java.lang.Integer r2 = Tj     // Catch:{ all -> 0x00c1 }
+            java.lang.Integer r2 = Tj     // Catch:{ all -> 0x00c6 }
             if (r2 == 0) goto L_0x0010
-            java.lang.Integer r2 = Tj     // Catch:{ all -> 0x00c1 }
-            int r1 = r2.intValue()     // Catch:{ all -> 0x00c1 }
+            java.lang.Integer r2 = Tj     // Catch:{ all -> 0x00c6 }
+            int r1 = r2.intValue()     // Catch:{ all -> 0x00c6 }
         L_0x000e:
             monitor-exit(r3)
             return r1
         L_0x0010:
             if (r8 != 0) goto L_0x001e
-            com.txznet.comm.ui.TE.Tn$T r2 = TV     // Catch:{ all -> 0x00c1 }
+            com.txznet.comm.ui.TE.Tn$T r2 = TV     // Catch:{ all -> 0x00c6 }
             if (r2 == 0) goto L_0x001e
-            com.txznet.comm.ui.TE.Tn$T r2 = TV     // Catch:{ all -> 0x00c1 }
-            int r1 = r2.T()     // Catch:{ all -> 0x00c1 }
+            com.txznet.comm.ui.TE.Tn$T r2 = TV     // Catch:{ all -> 0x00c6 }
+            int r1 = r2.T()     // Catch:{ all -> 0x00c6 }
             if (r1 > 0) goto L_0x000e
         L_0x001e:
-            int r2 = Tn     // Catch:{ all -> 0x00c1 }
+            int r2 = Tn     // Catch:{ all -> 0x00c6 }
             if (r2 <= 0) goto L_0x0027
             if (r8 != 0) goto L_0x0027
-            int r1 = Tn     // Catch:{ all -> 0x00c1 }
+            int r1 = Tn     // Catch:{ all -> 0x00c6 }
             goto L_0x000e
         L_0x0027:
-            int r2 = Tu     // Catch:{ all -> 0x00c1 }
-            if (r2 != r4) goto L_0x00b5
-            int r2 = Th     // Catch:{ all -> 0x00c1 }
-            int r4 = Ts     // Catch:{ all -> 0x00c1 }
+            int r2 = Tu     // Catch:{ all -> 0x00c6 }
+            if (r2 != r4) goto L_0x00ba
+            int r2 = Th     // Catch:{ all -> 0x00c6 }
+            int r4 = Ts     // Catch:{ all -> 0x00c6 }
             if (r2 <= r4) goto L_0x0035
-            int r2 = Ts     // Catch:{ all -> 0x00c1 }
-            Th = r2     // Catch:{ all -> 0x00c1 }
+            int r2 = Ts     // Catch:{ all -> 0x00c6 }
+            Th = r2     // Catch:{ all -> 0x00c6 }
         L_0x0035:
-            int r2 = f535T     // Catch:{ all -> 0x00c1 }
-            if (r2 <= 0) goto L_0x0088
-            int r2 = Th     // Catch:{ all -> 0x00c1 }
+            int r2 = f539T     // Catch:{ all -> 0x00c6 }
+            if (r2 <= 0) goto L_0x008a
+            int r2 = Th     // Catch:{ all -> 0x00c6 }
             if (r2 != 0) goto L_0x0040
             r2 = 1
-            Th = r2     // Catch:{ all -> 0x00c1 }
+            Th = r2     // Catch:{ all -> 0x00c6 }
         L_0x0040:
-            int r2 = f535T     // Catch:{ all -> 0x00c1 }
-            int r4 = Th     // Catch:{ all -> 0x00c1 }
+            int r2 = f539T     // Catch:{ all -> 0x00c6 }
+            int r4 = Th     // Catch:{ all -> 0x00c6 }
             int r0 = r2 / r4
-            int r2 = T6     // Catch:{ all -> 0x00c1 }
-            if (r0 <= r2) goto L_0x00c9
-            int r0 = T6     // Catch:{ all -> 0x00c1 }
-            boolean r2 = TN     // Catch:{ all -> 0x00c1 }
-            if (r2 == 0) goto L_0x00c4
-            int r2 = f535T     // Catch:{ all -> 0x00c1 }
+            int r2 = T6     // Catch:{ all -> 0x00c6 }
+            if (r0 <= r2) goto L_0x00ce
+            int r0 = T6     // Catch:{ all -> 0x00c6 }
+            boolean r2 = TN     // Catch:{ all -> 0x00c6 }
+            if (r2 == 0) goto L_0x00c9
+            int r2 = f539T     // Catch:{ all -> 0x00c6 }
             int r2 = r2 / r0
-            double r4 = (double) r2     // Catch:{ all -> 0x00c1 }
-            double r4 = java.lang.Math.ceil(r4)     // Catch:{ all -> 0x00c1 }
-            int r2 = (int) r4     // Catch:{ all -> 0x00c1 }
-            Tn = r2     // Catch:{ all -> 0x00c1 }
+            double r4 = (double) r2     // Catch:{ all -> 0x00c6 }
+            double r4 = java.lang.Math.ceil(r4)     // Catch:{ all -> 0x00c6 }
+            int r2 = (int) r4     // Catch:{ all -> 0x00c6 }
+            Tn = r2     // Catch:{ all -> 0x00c6 }
         L_0x005b:
-            T9 = r0     // Catch:{ all -> 0x00c1 }
-            int r2 = T9     // Catch:{ all -> 0x00c1 }
-            int r4 = Tn     // Catch:{ all -> 0x00c1 }
+            T9 = r0     // Catch:{ all -> 0x00c6 }
+            int r2 = T9     // Catch:{ all -> 0x00c6 }
+            int r4 = Tn     // Catch:{ all -> 0x00c6 }
             int r2 = r2 * r4
-            Tk = r2     // Catch:{ all -> 0x00c1 }
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch:{ all -> 0x00c1 }
-            r2.<init>()     // Catch:{ all -> 0x00c1 }
+            Tk = r2     // Catch:{ all -> 0x00c6 }
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch:{ all -> 0x00c6 }
+            r2.<init>()     // Catch:{ all -> 0x00c6 }
             java.lang.String r4 = "RectHeight:"
-            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c1 }
-            int r4 = f535T     // Catch:{ all -> 0x00c1 }
-            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c1 }
+            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c6 }
+            int r4 = f539T     // Catch:{ all -> 0x00c6 }
+            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c6 }
             java.lang.String r4 = ",ItemH:"
-            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c1 }
-            int r4 = Tn     // Catch:{ all -> 0x00c1 }
-            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c1 }
-            java.lang.String r2 = r2.toString()     // Catch:{ all -> 0x00c1 }
-            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r2)     // Catch:{ all -> 0x00c1 }
-        L_0x0088:
-            int r2 = T9     // Catch:{ all -> 0x00c1 }
-            if (r2 <= 0) goto L_0x00b1
-            com.txznet.comm.Tr.Tn r2 = com.txznet.comm.Tr.Tn.Tr()     // Catch:{ all -> 0x00c1 }
+            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c6 }
+            int r4 = Tn     // Catch:{ all -> 0x00c6 }
+            java.lang.StringBuilder r2 = r2.append(r4)     // Catch:{ all -> 0x00c6 }
+            java.lang.String r2 = r2.toString()     // Catch:{ all -> 0x00c6 }
+            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r2)     // Catch:{ all -> 0x00c6 }
+        L_0x008a:
+            int r2 = T9     // Catch:{ all -> 0x00c6 }
+            if (r2 <= 0) goto L_0x00b6
+            com.txznet.comm.Tr.Tn r2 = com.txznet.comm.Tr.Tn.Tr()     // Catch:{ all -> 0x00c6 }
             java.lang.String r4 = "com.txznet.txz"
             java.lang.String r5 = "txz.record.ui.event.display.count"
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch:{ all -> 0x00c1 }
-            r6.<init>()     // Catch:{ all -> 0x00c1 }
-            int r7 = T9     // Catch:{ all -> 0x00c1 }
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00c1 }
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch:{ all -> 0x00c6 }
+            r6.<init>()     // Catch:{ all -> 0x00c6 }
+            int r7 = T9     // Catch:{ all -> 0x00c6 }
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00c6 }
             java.lang.String r7 = ""
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00c1 }
-            java.lang.String r6 = r6.toString()     // Catch:{ all -> 0x00c1 }
-            byte[] r6 = r6.getBytes()     // Catch:{ all -> 0x00c1 }
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00c6 }
+            java.lang.String r6 = r6.toString()     // Catch:{ all -> 0x00c6 }
+            byte[] r6 = r6.getBytes()     // Catch:{ all -> 0x00c6 }
             r7 = 0
-            r2.T((java.lang.String) r4, (java.lang.String) r5, (byte[]) r6, (com.txznet.comm.Tr.Tn.Tr) r7)     // Catch:{ all -> 0x00c1 }
-        L_0x00b1:
-            int r1 = Tn     // Catch:{ all -> 0x00c1 }
+            r2.T((java.lang.String) r4, (java.lang.String) r5, (byte[]) r6, (com.txznet.comm.Tr.Tn.Tr) r7)     // Catch:{ all -> 0x00c6 }
+        L_0x00b6:
+            int r1 = Tn     // Catch:{ all -> 0x00c6 }
             goto L_0x000e
-        L_0x00b5:
-            int r2 = Th     // Catch:{ all -> 0x00c1 }
-            int r4 = TG     // Catch:{ all -> 0x00c1 }
+        L_0x00ba:
+            int r2 = Th     // Catch:{ all -> 0x00c6 }
+            int r4 = TG     // Catch:{ all -> 0x00c6 }
             if (r2 <= r4) goto L_0x0035
-            int r2 = TG     // Catch:{ all -> 0x00c1 }
-            Th = r2     // Catch:{ all -> 0x00c1 }
+            int r2 = TG     // Catch:{ all -> 0x00c6 }
+            Th = r2     // Catch:{ all -> 0x00c6 }
             goto L_0x0035
-        L_0x00c1:
+        L_0x00c6:
             r2 = move-exception
             monitor-exit(r3)
             throw r2
-        L_0x00c4:
-            int r2 = Th     // Catch:{ all -> 0x00c1 }
-            Tn = r2     // Catch:{ all -> 0x00c1 }
-            goto L_0x005b
         L_0x00c9:
-            if (r0 != 0) goto L_0x00d6
-            int r2 = Tn     // Catch:{ all -> 0x00c1 }
-            if (r2 <= 0) goto L_0x00d3
-            int r1 = Tn     // Catch:{ all -> 0x00c1 }
+            int r2 = Th     // Catch:{ all -> 0x00c6 }
+            Tn = r2     // Catch:{ all -> 0x00c6 }
+            goto L_0x005b
+        L_0x00ce:
+            if (r0 != 0) goto L_0x00db
+            int r2 = Tn     // Catch:{ all -> 0x00c6 }
+            if (r2 <= 0) goto L_0x00d8
+            int r1 = Tn     // Catch:{ all -> 0x00c6 }
             goto L_0x000e
-        L_0x00d3:
+        L_0x00d8:
             r2 = 1
-            Tn = r2     // Catch:{ all -> 0x00c1 }
-        L_0x00d6:
-            int r2 = f535T     // Catch:{ all -> 0x00c1 }
+            Tn = r2     // Catch:{ all -> 0x00c6 }
+        L_0x00db:
+            int r2 = f539T     // Catch:{ all -> 0x00c6 }
             int r2 = r2 / r0
-            double r4 = (double) r2     // Catch:{ all -> 0x00c1 }
-            double r4 = java.lang.Math.ceil(r4)     // Catch:{ all -> 0x00c1 }
-            int r2 = (int) r4     // Catch:{ all -> 0x00c1 }
-            Tn = r2     // Catch:{ all -> 0x00c1 }
+            double r4 = (double) r2     // Catch:{ all -> 0x00c6 }
+            double r4 = java.lang.Math.ceil(r4)     // Catch:{ all -> 0x00c6 }
+            int r2 = (int) r4     // Catch:{ all -> 0x00c6 }
+            Tn = r2     // Catch:{ all -> 0x00c6 }
             goto L_0x005b
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.ui.TE.Tn.T(boolean):int");

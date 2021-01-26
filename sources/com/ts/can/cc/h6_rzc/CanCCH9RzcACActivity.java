@@ -110,9 +110,9 @@ public class CanCCH9RzcACActivity extends CanBaseActivity implements UserCallBac
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, 148, this.mIcons[i]);
         }
-        this.mACMode[0] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 68, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 24);
-        this.mACMode[1] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 145, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 25);
-        this.mACMode[2] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 222, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 26);
+        this.mACMode[0] = addButton(305, 68, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 24);
+        this.mACMode[1] = addButton(305, 145, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 25);
+        this.mACMode[2] = addButton(305, 222, R.drawable.can_rh7_icon02_up, R.drawable.can_rh7_icon02_dn, 26);
         this.mACMode[3] = addButton(385, 105, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 34);
         this.mACMode[4] = addButton(385, 175, R.drawable.can_rh7_icon04_up, R.drawable.can_rh7_icon04_dn, 35);
         this.mRearACMode[0] = addButton(365, 345, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 27);

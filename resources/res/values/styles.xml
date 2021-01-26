@@ -16,6 +16,29 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/noAnimation</item>
     </style>
+    <style name="ThemeA">
+        <item name="android:windowBackground">@android:color/background_dark</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/customAnimation</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <style name="ThemeFull">
+        <item name="android:windowAnimationStyle">@style/customAnimation</item>
+    </style>
+    <style name="customAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/zoomin</item>
+        <item name="android:activityOpenExitAnimation">@anim/slidedown</item>
+        <item name="android:activityCloseEnterAnimation">@anim/zoomin</item>
+        <item name="android:activityCloseExitAnimation">@anim/slidedown</item>
+        <item name="android:taskOpenEnterAnimation">@anim/zoomin</item>
+        <item name="android:taskOpenExitAnimation">@anim/slidedown</item>
+        <item name="android:taskCloseEnterAnimation">@anim/zoomin</item>
+        <item name="android:taskCloseExitAnimation">@anim/slidedown</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/zoomin</item>
+        <item name="android:taskToFrontExitAnimation">@anim/slidedown</item>
+        <item name="android:taskToBackEnterAnimation">@anim/zoomin</item>
+        <item name="android:taskToBackExitAnimation">@anim/slidedown</item>
+    </style>
     <style name="Theme.AppTheme2">
         <item name="android:windowAnimationStyle">@null</item>
     </style>
@@ -53,6 +76,15 @@
         <item name="android:taskToBackEnterAnimation">@null</item>
         <item name="android:taskToBackExitAnimation">@null</item>
     </style>
+    <style name="config_progress">
+        <item name="android:maxWidth">42px</item>
+        <item name="android:maxHeight">42px</item>
+        <item name="android:indeterminateDrawable">@drawable/config_progress</item>
+        <item name="android:minWidth">42px</item>
+        <item name="android:minHeight">42px</item>
+    </style>
+    <style name="Animations">
+    </style>
     <style name="TranslucentNoAnimationUserAvm">
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowAnimationStyle">@null</item>
@@ -69,8 +101,6 @@
         <item name="android:taskToBackEnterAnimation">@null</item>
         <item name="android:taskToBackExitAnimation">@null</item>
         <item name="android:windowShowWallpaper">false</item>
-    </style>
-    <style name="Animations">
     </style>
     <style name="NoTitleBar.FullScreen">
         <item name="android:windowBackground">@color/transparent</item>

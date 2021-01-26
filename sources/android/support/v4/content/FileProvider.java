@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
+import com.android.SdkConstants;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -224,7 +225,7 @@ public class FileProvider extends ContentProvider {
                 } else {
                     path = path2.substring(rootPath2.length() + 1);
                 }
-                return new Uri.Builder().scheme("content").authority(this.mAuthority).encodedPath(Uri.encode(mostSpecific.getKey()) + '/' + Uri.encode(path, "/")).build();
+                return new Uri.Builder().scheme(SdkConstants.ATTR_CONTENT).authority(this.mAuthority).encodedPath(Uri.encode(mostSpecific.getKey()) + '/' + Uri.encode(path, "/")).build();
             } catch (IOException e) {
                 throw new IllegalArgumentException("Failed to resolve canonical path for " + file);
             }

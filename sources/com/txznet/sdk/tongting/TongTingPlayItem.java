@@ -4,7 +4,7 @@ package com.txznet.sdk.tongting;
 public class TongTingPlayItem {
 
     /* renamed from: T  reason: collision with root package name */
-    String f885T;
+    String f889T;
     long T5;
     String T9;
     int TE;
@@ -18,7 +18,7 @@ public class TongTingPlayItem {
         this.T5 = id;
         this.TE = sid;
         this.Tk = favourFlag;
-        this.f885T = title;
+        this.f889T = title;
         this.Tr = logo;
         this.Ty = source;
         this.Tn = artists;
@@ -27,11 +27,11 @@ public class TongTingPlayItem {
     }
 
     public String toString() {
-        return "PlayItem{title='" + this.f885T + '\'' + ", logo='" + this.Tr + '\'' + ", source='" + this.Ty + '\'' + ", artists='" + this.Tn + '\'' + ", albumName='" + this.T9 + '\'' + ", favourFlag=" + this.Tk + ", playState=" + this.TZ + ", sid=" + this.TE + ", id=" + this.T5 + '}';
+        return "PlayItem{title='" + this.f889T + '\'' + ", logo='" + this.Tr + '\'' + ", source='" + this.Ty + '\'' + ", artists='" + this.Tn + '\'' + ", albumName='" + this.T9 + '\'' + ", favourFlag=" + this.Tk + ", playState=" + this.TZ + ", sid=" + this.TE + ", id=" + this.T5 + '}';
     }
 
     public String getTitle() {
-        return this.f885T;
+        return this.f889T;
     }
 
     public String getLogo() {

@@ -19,7 +19,7 @@ public class CanHondaDaRzcAmpSetView extends CanScrollCarInfoView implements Can
     public static final int ITEM_AMP_SUBWOF = 5;
     public static final int ITEM_AMP_TRE = 2;
     public static final int ITEM_AMP_VOL = 8;
-    private CanDataInfo.HondaAmpData mAmpData;
+    private CanDataInfo.HondaRzcAmpInfo mAmpData;
 
     public CanHondaDaRzcAmpSetView(Activity activity) {
         super(activity, 10);
@@ -28,7 +28,7 @@ public class CanHondaDaRzcAmpSetView extends CanScrollCarInfoView implements Can
     public void onItem(int id, int item) {
         switch (id) {
             case 6:
-                CanJni.HondaDaSetAmp(7, item);
+                CanJni.HondDARzcAmpSet(7, item);
                 return;
             default:
                 return;
@@ -38,25 +38,25 @@ public class CanHondaDaRzcAmpSetView extends CanScrollCarInfoView implements Can
     public void onChanged(int id, int pos) {
         switch (id) {
             case 0:
-                CanJni.HondaDaSetAmp(1, pos);
+                CanJni.HondDARzcAmpSet(1, pos);
                 return;
             case 1:
-                CanJni.HondaDaSetAmp(2, pos);
+                CanJni.HondDARzcAmpSet(2, pos);
                 return;
             case 2:
-                CanJni.HondaDaSetAmp(3, pos);
+                CanJni.HondDARzcAmpSet(3, pos);
                 return;
             case 3:
-                CanJni.HondaDaSetAmp(4, pos);
+                CanJni.HondDARzcAmpSet(4, pos);
                 return;
             case 4:
-                CanJni.HondaDaSetAmp(5, pos);
+                CanJni.HondDARzcAmpSet(5, pos);
                 return;
             case 5:
-                CanJni.HondaDaSetAmp(6, pos);
+                CanJni.HondDARzcAmpSet(6, pos);
                 return;
             case 8:
-                CanJni.HondaDaSetAmp(9, pos);
+                CanJni.HondDARzcAmpSet(9, pos);
                 return;
             default:
                 return;
@@ -66,7 +66,7 @@ public class CanHondaDaRzcAmpSetView extends CanScrollCarInfoView implements Can
     public void onClick(View v) {
         switch (((Integer) v.getTag()).intValue()) {
             case 7:
-                CanJni.HondaDaSetAmp(8, Neg(this.mAmpData.Dts));
+                CanJni.HondDARzcAmpSet(8, Neg(this.mAmpData.Dts));
                 return;
             case 9:
                 new CanItemMsgBox(9, getActivity(), R.string.can_cmp_reset_notice, this);
@@ -116,7 +116,7 @@ public class CanHondaDaRzcAmpSetView extends CanScrollCarInfoView implements Can
         iArr14[1] = 40;
         iArr14[2] = 1;
         iArr13[8] = iArr14;
-        this.mAmpData = new CanDataInfo.HondaAmpData();
+        this.mAmpData = new CanDataInfo.HondaRzcAmpInfo();
     }
 
     /* access modifiers changed from: protected */
@@ -125,7 +125,7 @@ public class CanHondaDaRzcAmpSetView extends CanScrollCarInfoView implements Can
     }
 
     public void ResetData(boolean check) {
-        CanJni.HondaDaGetAmp(this.mAmpData);
+        CanJni.HondDARzcGetAmpInfo(this.mAmpData);
         if (!i2b(this.mAmpData.UpdateOnce)) {
             return;
         }
@@ -154,7 +154,7 @@ public class CanHondaDaRzcAmpSetView extends CanScrollCarInfoView implements Can
     public void onOK(int param) {
         switch (param) {
             case 9:
-                CanJni.HondaDaSetAmp(10, 0);
+                CanJni.HondDARzcAmpSet(10, 0);
                 return;
             default:
                 return;

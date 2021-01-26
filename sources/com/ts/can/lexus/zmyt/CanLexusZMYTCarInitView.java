@@ -3,6 +3,7 @@ package com.ts.can.lexus.zmyt;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanFunc;
@@ -45,8 +46,8 @@ public class CanLexusZMYTCarInitView extends CanScrollCarInfoView {
             m_AuxConfigb = FtSet.Getlgb3() & 15;
             updateItem(0, m_AuxConfigb);
         }
-        if (m_Airb != ((FtSet.Getlgb3() & 240) >> 4) || !check) {
-            m_Airb = (FtSet.Getlgb3() & 240) >> 4;
+        if (m_Airb != ((FtSet.Getlgb3() & Can.CAN_VOLKS_XP) >> 4) || !check) {
+            m_Airb = (FtSet.Getlgb3() & Can.CAN_VOLKS_XP) >> 4;
             updateItem(1, m_Airb == 0 ? 1 : 0);
         }
         if (m_AuxLIn2b != ((FtSet.Getlgb3() & 3840) >> 8) || !check) {
@@ -69,7 +70,7 @@ public class CanLexusZMYTCarInitView extends CanScrollCarInfoView {
         switch (((Integer) v.getTag()).intValue()) {
             case 1:
                 int temp = FtSet.Getlgb3() & 65295;
-                if (((FtSet.Getlgb3() & 240) >> 4) > 0) {
+                if (((FtSet.Getlgb3() & Can.CAN_VOLKS_XP) >> 4) > 0) {
                     FtSet.Setlgb3(temp);
                 } else {
                     FtSet.Setlgb3(temp | 16);
@@ -93,7 +94,7 @@ public class CanLexusZMYTCarInitView extends CanScrollCarInfoView {
     }
 
     public static int IsHaveAir() {
-        if (((FtSet.Getlgb3() & 240) >> 4) > 0) {
+        if (((FtSet.Getlgb3() & Can.CAN_VOLKS_XP) >> 4) > 0) {
             return 0;
         }
         return 1;

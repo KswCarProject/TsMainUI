@@ -12,7 +12,7 @@
         <item>소프트웨어 버전</item>
     </array>
     <array name="set_genera_options">
-        <item>대기 시간</item>
+        <item>슬립 모드</item>
         <item>Speech Recognition</item>
         <item>AssistiveTouch</item>
         <item>후진 시 경고음 음량 조절</item>
@@ -39,10 +39,11 @@
         <item>운전 중 영상 표시 금지</item>
         <item>후방 보조선</item>
         <item>후방 경고선</item>
-        <item>Mirror Rear Camera</item>
+        <item>미러 후면 카메라</item>
         <item>에어컨</item>
         <item>후방 영상</item>
         <item>전면 카메라</item>
+        <item>카메라 유형</item>
     </array>
     <array name="set_navi_options">
         <item>지도 자동 실행</item>

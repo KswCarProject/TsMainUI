@@ -12,10 +12,10 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanCadillacACControlView implements View.OnTouchListener {
@@ -125,7 +125,7 @@ public class CanCadillacACControlView implements View.OnTouchListener {
     }
 
     private void initHighViews() {
-        this.mManager.AddImage(0, 0, CanToyotaDJCarDeviceView.ITEM_PLAY, 287).setBackgroundResource(R.drawable.cadg_ac_bg02);
+        this.mManager.AddImage(0, 0, 768, 287).setBackgroundResource(R.drawable.cadg_ac_bg02);
         this.mBtnClose = AddBtn(16, 24, 0, 88, 34, R.drawable.cadg_ac_close_up, R.drawable.cadg_ac_close_dn);
         this.mBtnLtTempInc = AddBtn(1, 58, 40, 73, 50, R.drawable.cad_ac_lred_up, R.drawable.cad_ac_lred_dn);
         this.mBtnLtTempDec = AddBtn(2, 80, 112, 73, 50, R.drawable.cad_ac_lblue_up, R.drawable.cad_ac_lblue_dn);
@@ -155,7 +155,7 @@ public class CanCadillacACControlView implements View.OnTouchListener {
     }
 
     private void initLowViews() {
-        this.mManager.AddImage(0, 0, CanToyotaDJCarDeviceView.ITEM_PLAY, 287).setBackgroundResource(R.drawable.cad_ac_bg02);
+        this.mManager.AddImage(0, 0, 768, 287).setBackgroundResource(R.drawable.cad_ac_bg02);
         this.mBtnLtTempInc = AddBtn(1, 58, 31, 73, 50, R.drawable.cad_ac_lred_up, R.drawable.cad_ac_lred_dn);
         this.mBtnLtTempDec = AddBtn(2, 80, 108, 73, 50, R.drawable.cad_ac_lblue_up, R.drawable.cad_ac_lblue_dn);
         this.mBtnWindDec = AddBtn(3, 147, 16, 122, 54, R.drawable.cad_ac_refan_up, R.drawable.cad_ac_refan_dn);
@@ -174,7 +174,7 @@ public class CanCadillacACControlView implements View.OnTouchListener {
     }
 
     private void initSbHighViews() {
-        this.mManager.AddImage(0, 0, CanToyotaDJCarDeviceView.ITEM_PLAY, 287).setBackgroundResource(R.drawable.cadg_ac_bg02);
+        this.mManager.AddImage(0, 0, 768, 287).setBackgroundResource(R.drawable.cadg_ac_bg02);
         this.mBtnClose = AddBtn(16, 24, 0, 88, 34, R.drawable.cadg_ac_close_up, R.drawable.cadg_ac_close_dn);
         this.mBtnLtTempInc = AddBtn(1, 58, 40, 73, 50, R.drawable.cad_ac_lred_up, R.drawable.cad_ac_lred_dn);
         this.mBtnLtTempDec = AddBtn(2, 80, 112, 73, 50, R.drawable.cad_ac_lblue_up, R.drawable.cad_ac_lblue_dn);
@@ -220,7 +220,6 @@ public class CanCadillacACControlView implements View.OnTouchListener {
         if (this.mAcInfo.PWR == 0) {
             this.mBtnFrontWind.SetSel(0);
             this.mBtnAuto.SetSel(0);
-            this.mBtnRearHot.SetSel(0);
             if (this.mBtnAc != null) {
                 this.mBtnAc.SetSel(0);
             }
@@ -230,7 +229,6 @@ public class CanCadillacACControlView implements View.OnTouchListener {
         } else {
             this.mBtnFrontWind.SetSel(this.mAcInfo.fgDFBL);
             this.mBtnAuto.SetSel(this.mAcInfo.nAutoLight);
-            this.mBtnRearHot.SetSel(this.mAcInfo.fgRearLight);
             if (this.mBtnAc != null) {
                 this.mBtnAc.SetSel(this.mAcInfo.fgAC);
             }
@@ -238,6 +236,7 @@ public class CanCadillacACControlView implements View.OnTouchListener {
                 this.mBtnSync.SetSel(this.mAcInfo.fgDual);
             }
         }
+        this.mBtnRearHot.SetSel(this.mAcInfo.fgRearLight);
         if (this.mAcInfo.fgAQS == 1) {
             this.mBtnLoopMode.setDrawable(R.drawable.cad_ac_a_up, R.drawable.cad_ac_a_dn);
         } else if (this.mAcInfo.fgInnerLoop != 0) {
@@ -316,7 +315,6 @@ public class CanCadillacACControlView implements View.OnTouchListener {
         if (this.mAcInfo.PWR == 0) {
             this.mBtnFrontWind.SetSel(0);
             this.mBtnAuto.SetSel(0);
-            this.mBtnRearHot.SetSel(0);
             if (this.mBtnAc != null) {
                 this.mBtnAc.SetSel(0);
             }
@@ -326,7 +324,6 @@ public class CanCadillacACControlView implements View.OnTouchListener {
         } else {
             this.mBtnFrontWind.SetSel(this.mAcInfo.fgDFBL);
             this.mBtnAuto.SetSel(this.mAcInfo.nAutoLight);
-            this.mBtnRearHot.SetSel(this.mAcInfo.fgRearLight);
             if (this.mBtnAc != null) {
                 this.mBtnAc.SetSel(this.mAcInfo.fgAC);
             }
@@ -334,6 +331,7 @@ public class CanCadillacACControlView implements View.OnTouchListener {
                 this.mBtnSync.SetSel(this.mAcInfo.fgDual);
             }
         }
+        this.mBtnRearHot.SetSel(this.mAcInfo.fgRearLight);
         if (this.mAcInfo.fgAQS == 1) {
             this.mBtnLoopMode.setDrawable(R.drawable.cad_ac_a_up, R.drawable.cad_ac_a_dn);
         } else if (this.mAcInfo.fgInnerLoop != 0) {
@@ -513,7 +511,7 @@ public class CanCadillacACControlView implements View.OnTouchListener {
                         CanJni.GmSbAcSet(4, 1);
                         break;
                     case 7:
-                        CanJni.GmSbAcSet(6, 241);
+                        CanJni.GmSbAcSet(6, Can.CAN_SITECHDEV_CW);
                         break;
                     case 8:
                         CanJni.GmSbAcSet(6, Can.CAN_MZD_LUOMU);
@@ -669,7 +667,7 @@ public class CanCadillacACControlView implements View.OnTouchListener {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(28);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(17);
         return temp;
     }

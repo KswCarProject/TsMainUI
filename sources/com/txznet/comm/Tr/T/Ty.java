@@ -7,7 +7,7 @@ import android.support.v4.view.accessibility.AccessibilityEventCompat;
 public class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final String f361T = (Environment.getExternalStorageDirectory() + "/txz/udp_port.txz");
+    public static final String f365T = (Environment.getExternalStorageDirectory() + "/txz/udp_port.txz");
     private static Ty Tr = new Ty();
 
     private Ty() {
@@ -43,11 +43,11 @@ public class Ty {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public String f362T;
+        public String f366T;
         public int Tr;
 
         public T(String host, int port) {
-            this.f362T = host;
+            this.f366T = host;
             this.Tr = port;
         }
     }

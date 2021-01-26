@@ -1,13 +1,13 @@
 package com.txznet.sdk.bean;
 
+import com.android.SdkConstants;
 import com.txznet.comm.Ty.Tr;
-import com.txznet.sdk.tongting.IConstantData;
 
 /* compiled from: Proguard */
 public class WechatContact {
 
     /* renamed from: T  reason: collision with root package name */
-    protected String f868T;
+    protected String f872T;
     protected boolean T9;
     protected boolean Tn;
     protected String Tr;
@@ -18,19 +18,19 @@ public class WechatContact {
 
     public WechatContact(byte[] json) {
         Tr builder = new Tr(json);
-        setId((String) builder.T(IConstantData.KEY_ID, String.class));
-        setIcon((String) builder.T("icon", String.class));
+        setId((String) builder.T("id", String.class));
+        setIcon((String) builder.T(SdkConstants.ATTR_ICON, String.class));
         setNick((String) builder.T("nick", String.class));
         setBlocked(((Boolean) builder.T("blocked", Boolean.class)).booleanValue());
         setIsGroup(((Boolean) builder.T("isgroup", Boolean.class)).booleanValue());
     }
 
     public String getId() {
-        return this.f868T;
+        return this.f872T;
     }
 
     public void setId(String id) {
-        this.f868T = id;
+        this.f872T = id;
     }
 
     public String getIcon() {

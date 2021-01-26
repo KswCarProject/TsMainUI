@@ -14,17 +14,19 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tr.T;
 import com.txznet.comm.Tr.Tr.TE;
 import com.txznet.comm.Tr.Tr.TZ;
 import com.txznet.comm.Tr.Tr.Th;
 import com.txznet.comm.ui.IKeepClass;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.TXZWheelControlManager;
-import com.txznet.sdk.tongting.IConstantData;
 import com.txznet.txz.comm.R;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import org.texustek.mirror.aidl.BinderName;
 
 /* compiled from: Proguard */
 public abstract class WinDialog implements IKeepClass {
@@ -32,7 +34,7 @@ public abstract class WinDialog implements IKeepClass {
     /* access modifiers changed from: private */
 
     /* renamed from: T  reason: collision with root package name */
-    public int f590T;
+    public int f594T;
     /* access modifiers changed from: private */
     public com.txznet.comm.Ty.Ty T5;
     /* access modifiers changed from: private */
@@ -130,7 +132,7 @@ public abstract class WinDialog implements IKeepClass {
         }
 
         public boolean onKeyDown(int keyCode, KeyEvent event) {
-            WinDialog.this.doReport("key", "" + event.getKeyCode());
+            WinDialog.this.doReport(BinderName.KEY, new StringBuilder().append(TXZResourceManager.STYLE_DEFAULT).append(event.getKeyCode()).toString());
             return WinDialog.this.onKeyDown(keyCode, event);
         }
 
@@ -272,10 +274,10 @@ public abstract class WinDialog implements IKeepClass {
                 return;
             case 23:
                 if (this.TF >= 0 && this.TF < this.Tq.size()) {
-                    this.Tq.get(this.TF).f616T.post(new com.txznet.txz.util.T.T<Integer>(Integer.valueOf(this.TF)) {
+                    this.Tq.get(this.TF).f620T.post(new com.txznet.txz.util.T.T<Integer>(Integer.valueOf(this.TF)) {
                         public void run() {
                             WinDialog.this.doReport("focus", "clickFocus", ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).Tr);
-                            ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f616T.performClick();
+                            ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f620T.performClick();
                         }
                     });
                     return;
@@ -294,11 +296,11 @@ public abstract class WinDialog implements IKeepClass {
         } else {
             com.txznet.comm.Tr.Tr.Tn.T("update focus :" + this.Tq.size());
             for (int i = 0; i < this.Tq.size(); i++) {
-                this.Tq.get(i).f616T.post(new com.txznet.txz.util.T.T<Integer>(Integer.valueOf(i)) {
+                this.Tq.get(i).f620T.post(new com.txznet.txz.util.T.T<Integer>(Integer.valueOf(i)) {
                     public void run() {
                         boolean z;
-                        ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f616T.setFocusable(WinDialog.this.TF == ((Integer) this.Ty).intValue());
-                        View view = ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f616T;
+                        ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f620T.setFocusable(WinDialog.this.TF == ((Integer) this.Ty).intValue());
+                        View view = ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f620T;
                         if (WinDialog.this.TF == ((Integer) this.Ty).intValue()) {
                             z = true;
                         } else {
@@ -308,7 +310,7 @@ public abstract class WinDialog implements IKeepClass {
                         if (((Integer) this.Ty).intValue() == WinDialog.this.TF) {
                             com.txznet.comm.Tr.Tr.Tn.T("update focus position:" + this.Ty + ",id:" + ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).Tr);
                             WinDialog.this.doReport("focus", "obtainFocus", ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).Tr);
-                            ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f616T.requestFocus();
+                            ((T9) WinDialog.this.Tq.get(((Integer) this.Ty).intValue())).f620T.requestFocus();
                         }
                     }
                 });
@@ -433,7 +435,7 @@ public abstract class WinDialog implements IKeepClass {
     }
 
     protected WinDialog(Ty data, boolean init) {
-        this.f590T = 0;
+        this.f594T = 0;
         this.TB = new Runnable() {
             public void run() {
                 if (WinDialog.this.T5 == null) {
@@ -453,7 +455,7 @@ public abstract class WinDialog implements IKeepClass {
         };
         this.Tk = new TXZWheelControlManager.OnTXZWheelControlListener() {
             public void onKeyEvent(int eventId) {
-                WinDialog.this.doReport("wheelControl", "onKeyEvent", "" + eventId);
+                WinDialog.this.doReport("wheelControl", "onKeyEvent", new StringBuilder().append(TXZResourceManager.STYLE_DEFAULT).append(eventId).toString());
                 if (!WinDialog.this.onWheelControlKeyEvent(eventId)) {
                     switch (eventId) {
                         case 13:
@@ -630,7 +632,7 @@ public abstract class WinDialog implements IKeepClass {
                 }
 
                 public String getTaskId() {
-                    return WinDialog.this.getDialogType() + "@" + WinDialog.this.hashCode();
+                    return WinDialog.this.getDialogType() + SdkConstants.PREFIX_RESOURCE_REF + WinDialog.this.hashCode();
                 }
 
                 public String needTts() {
@@ -687,9 +689,9 @@ public abstract class WinDialog implements IKeepClass {
         runOnUiGround(new Runnable() {
             public void run() {
                 long unused = WinDialog.this.Th = WinDialog.this.T6 = SystemClock.elapsedRealtime();
-                if (WinDialog.this.f590T != 0) {
-                    Th.T(WinDialog.this.f590T);
-                    int unused2 = WinDialog.this.f590T = 0;
+                if (WinDialog.this.f594T != 0) {
+                    Th.T(WinDialog.this.f594T);
+                    int unused2 = WinDialog.this.f594T = 0;
                 }
             }
         }, 0);
@@ -727,7 +729,7 @@ public abstract class WinDialog implements IKeepClass {
             view.setVisibility(0);
             return;
         }
-        view.setText("");
+        view.setText(TXZResourceManager.STYLE_DEFAULT);
         view.setVisibility(8);
     }
 
@@ -823,14 +825,14 @@ public abstract class WinDialog implements IKeepClass {
             preemptType = Th.Tr.PREEMPT_TYPE_IMMEADIATELY;
         }
         if (this.Ty.T6 != null || (!imediately && !preemptImediately)) {
-            String tts = this.Ty.T6 != null ? this.Ty.T6 : "";
+            String tts = this.Ty.T6 != null ? this.Ty.T6 : TXZResourceManager.STYLE_DEFAULT;
             if (this.TE != null) {
-                this.f590T = Th.T(tts, "$BEEP", preemptType, callback);
+                this.f594T = Th.T(tts, "$BEEP", preemptType, callback);
             } else {
-                this.f590T = Th.T(tts, preemptType, callback);
+                this.f594T = Th.T(tts, preemptType, callback);
             }
         } else if (this.TE != null) {
-            this.f590T = Th.Tr("$BEEP", preemptType, callback);
+            this.f594T = Th.Tr("$BEEP", preemptType, callback);
         } else {
             callback.onBegin();
             callback.onEnd();
@@ -889,14 +891,14 @@ public abstract class WinDialog implements IKeepClass {
     public static class T9 {
 
         /* renamed from: T  reason: collision with root package name */
-        public View f616T;
+        public View f620T;
         public String Tr;
 
         public T9(View view, String id) {
             if (view == null || TextUtils.isEmpty(id)) {
                 throw new RuntimeException("view or id can't be null!");
             }
-            this.f616T = view;
+            this.f620T = view;
             this.Tr = id;
         }
     }
@@ -1012,7 +1014,7 @@ public abstract class WinDialog implements IKeepClass {
         T run;
         long t = SystemClock.elapsedRealtime();
         com.txznet.comm.Ty.Tr json = new com.txznet.comm.Ty.Tr();
-        json.T(IConstantData.KEY_ID, (Object) getReportDialogId());
+        json.T("id", (Object) getReportDialogId());
         if (this.Tv > 0) {
             json.T("showTime", (Object) Long.valueOf(t - this.Tv));
         }
@@ -1033,7 +1035,7 @@ public abstract class WinDialog implements IKeepClass {
 
     public void doReport(String type, String... param) {
         com.txznet.comm.Ty.Tr json = TF();
-        json.T(IConstantData.KEY_TYPE, (Object) type);
+        json.T("type", (Object) type);
         json.T("param", (Object) param);
         TE.T(7, json.Ty());
     }

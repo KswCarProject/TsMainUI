@@ -8,12 +8,15 @@ import android.content.pm.ResolveInfo;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+import com.ts.tsspeechlib.ManagerInitListener;
 import com.ts.tsspeechlib.car.ITsSpeechCar;
 import java.util.List;
 
 public class TsCarManager {
     public static final String TAG = "TsCarManager";
     public static TsCarManager carManager;
+    /* access modifiers changed from: private */
+    public ManagerInitListener carListener;
     private Context mContext;
     /* access modifiers changed from: private */
     public ITsSpeechCar mSpeechCarService;
@@ -21,11 +24,17 @@ public class TsCarManager {
         public void onServiceDisconnected(ComponentName arg0) {
             Log.d(TsCarManager.TAG, "鍒濆鍖栧け璐ワ紒");
             TsCarManager.this.mSpeechCarService = null;
+            if (TsCarManager.this.carListener != null) {
+                TsCarManager.this.carListener.initResult(4, false);
+            }
         }
 
         public void onServiceConnected(ComponentName arg0, IBinder binder) {
             Log.d(TsCarManager.TAG, "鍒濆鍖栨垚鍔燂紒");
             TsCarManager.this.mSpeechCarService = ITsSpeechCar.Stub.asInterface(binder);
+            if (TsCarManager.this.carListener != null) {
+                TsCarManager.this.carListener.initResult(4, true);
+            }
         }
     };
 
@@ -36,8 +45,9 @@ public class TsCarManager {
         return carManager;
     }
 
-    public void initManager(Context context) {
+    public void initManager(Context context, ManagerInitListener listener) {
         this.mContext = context;
+        this.carListener = listener;
         bindCarService();
     }
 
@@ -201,6 +211,84 @@ public class TsCarManager {
         }
     }
 
+    public int GetTotalKilometers() {
+        try {
+            if (this.mSpeechCarService == null) {
+                return 0;
+            }
+            this.mSpeechCarService.GetTotalKilometers();
+            return 0;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public int GetOilLeftover() {
+        try {
+            if (this.mSpeechCarService == null) {
+                return 0;
+            }
+            this.mSpeechCarService.GetOilLeftover();
+            return 0;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public int GetLeftTurnSignal() {
+        try {
+            if (this.mSpeechCarService == null) {
+                return 0;
+            }
+            this.mSpeechCarService.GetLeftTurnSignal();
+            return 0;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public int GetRightTurnSignal() {
+        try {
+            if (this.mSpeechCarService == null) {
+                return 0;
+            }
+            this.mSpeechCarService.GetRightTurnSignal();
+            return 0;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public int GetEmergency() {
+        try {
+            if (this.mSpeechCarService == null) {
+                return 0;
+            }
+            this.mSpeechCarService.GetEmergency();
+            return 0;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public int GetSpeed() {
+        try {
+            if (this.mSpeechCarService == null) {
+                return 0;
+            }
+            this.mSpeechCarService.GetSpeed();
+            return 0;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
     private void bindCarService() {
         Intent intent = new Intent();
         intent.setAction("com.ts.tsspeechlib.car.TsCarService");
@@ -212,7 +300,7 @@ public class TsCarManager {
         }
     }
 
-    public Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
+    private Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
         List<ResolveInfo> resolveInfo = context.getPackageManager().queryIntentServices(implicitIntent, 0);
         if (resolveInfo == null || resolveInfo.size() != 1) {
             return null;

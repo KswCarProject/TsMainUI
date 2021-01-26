@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView android:textSize="27px" android:textColor="@android:color/black" android:gravity="left|center_vertical|center_horizontal|center" android:id="@+id/switch_value2" android:layout_width="150px" android:layout_height="wrap_content" android:text="switch" android:layout_centerVertical="true"/>
-    <Switch android:id="@+id/switch_ctrl2" android:layout_width="90px" android:layout_height="50px" android:layout_marginLeft="185px" android:textOn="" android:textOff="" android:thumb="@drawable/setup_switch_up" android:layout_centerVertical="true" android:track="@drawable/setup_switch_track_up" android:switchMinWidth="90px" android:thumbTextPadding="25px"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="right" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="27px" android:textColor="@android:color/white" android:gravity="right|center_vertical|center_horizontal|center" android:id="@+id/switch_value2" android:layout_width="140px" android:layout_height="wrap_content" android:text="switch" android:layout_centerVertical="true"/>
+    <Switch android:id="@+id/switch_ctrl2" android:layout_width="68px" android:layout_height="35px" android:layout_marginLeft="17px" android:textOn="" android:textOff="" android:thumb="@drawable/set_eq_up" android:layout_toRightOf="@+id/switch_value2" android:layout_centerVertical="true" android:track="@drawable/set_eq_track_up" android:switchMinWidth="68px" android:thumbTextPadding="2px"/>
 </RelativeLayout>

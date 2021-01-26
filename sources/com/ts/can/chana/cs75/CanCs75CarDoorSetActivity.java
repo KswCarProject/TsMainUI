@@ -21,7 +21,8 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
     public static final int ITEM_DLBSYSZ = 9;
     public static final int ITEM_ECLS = 14;
     public static final int ITEM_JBSFKSSSZ = 10;
-    private static final int ITEM_MAX = 14;
+    public static final int ITEM_KJKZCC = 15;
+    private static final int ITEM_MAX = 15;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_SKTC = 11;
     public static final int ITEM_XCZDLS = 2;
@@ -35,6 +36,7 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
     private static final int[] mCcycsjszArr = {R.string.can_mzd_cx4_mode_off, R.string.can_mzd_cx4_time_30s, R.string.can_mzd_cx4_time_60s, R.string.can_mzd_cx4_time_90s, R.string.can_mzd_cx4_time_120s};
     private static final int[] mDlbsyszArr = {R.string.can_xchmwgbs, R.string.can_xunche, R.string.can_mwgbs};
     private static final int[] mJbsfkfsArr = {R.string.can_dghlb, R.string.can_only_light, R.string.can_only_lb};
+    private static final int[] mKjkzccArr = {R.string.can_mzd_cx4_mode_off, R.string.can_tqms, R.string.can_teramont_open};
     private static final int[] mYkjsArr = {R.string.can_remotedoor_all, R.string.can_remotedoor_driver};
     protected CanItemSwitchList mItemCcdgnsz;
     protected CanItemPopupList mItemCcycsjsz;
@@ -42,6 +44,7 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
     protected CanItemPopupList mItemDlbsysz;
     protected CanItemSwitchList mItemEcls;
     protected CanItemPopupList mItemJbsfksssz;
+    protected CanItemPopupList mItemKjkzcc;
     protected CanItemSwitchList mItemSKTCsz;
     protected CanItemSwitchList mItemXczdls;
     protected CanItemSwitchList mItemXhzdls;
@@ -132,12 +135,16 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
             this.mSetData.YlgytcUpdate = 0;
             this.mItemYLGYTCsz.SetCheck(SwSet(this.mSetData.Ylgytc));
         }
-        if (!i2b(this.mSetData.EclsUpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mSetData.EclsUpdate)) {
+        if (i2b(this.mSetData.EclsUpdateOnce) && (!check || i2b(this.mSetData.EclsUpdate))) {
             this.mSetData.EclsUpdate = 0;
             this.mItemEcls.SetCheck(SwSet(this.mSetData.Ecls));
+        }
+        if (!i2b(this.mSetData.CcUpdateOnce)) {
+            return;
+        }
+        if (!check || i2b(this.mSetData.CcUpdate)) {
+            this.mSetData.CcUpdate = 0;
+            this.mItemKjkzcc.SetSel(this.mSetData.Cc - 1);
         }
     }
 
@@ -198,11 +205,12 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
         this.mItemYKTCsz = AddCheckItem(R.string.can_yktc, 12);
         this.mItemYLGYTCsz = AddCheckItem(R.string.can_ylgytc, 13);
         this.mItemEcls = AddCheckItem(R.string.can_carset_ecls, 14);
+        this.mItemKjkzcc = AddPopupItem(R.string.can_fast_contro_windows, mKjkzccArr, 15);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 14; i++) {
+        for (int i = 1; i <= 15; i++) {
             ShowItem(i);
         }
     }
@@ -238,7 +246,7 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
                 ret = 1;
                 break;
             case 6:
-                if (CanJni.GetSubType() == 5 || CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 5 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                     ret = 1;
                     break;
                 }
@@ -254,7 +262,7 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
                     break;
                 }
             case 9:
-                if (CanJni.GetSubType() == 5 || CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 5 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                     ret = 1;
                     break;
                 }
@@ -265,25 +273,28 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
                 }
                 break;
             case 11:
-                if (CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                     ret = 1;
                     break;
                 }
-                break;
             case 12:
-                if (CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                     ret = 1;
                     break;
                 }
-                break;
             case 13:
-                if (CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 11 || CanJni.GetSubType() == 18) {
                     ret = 1;
                     break;
                 }
-                break;
             case 14:
                 ret = 1;
+                break;
+            case 15:
+                if (CanJni.GetSubType() == 15) {
+                    ret = 1;
+                    break;
+                }
                 break;
         }
         return i2b(ret);
@@ -334,6 +345,9 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
                 return;
             case 14:
                 this.mItemEcls.ShowGone(show);
+                return;
+            case 15:
+                this.mItemKjkzcc.ShowGone(show);
                 return;
             default:
                 return;
@@ -421,6 +435,9 @@ public class CanCs75CarDoorSetActivity extends CanBaseActivity implements View.O
                 return;
             case 10:
                 CanJni.Cs75CarSet(22, item + 1);
+                return;
+            case 15:
+                CanJni.Cs75CarSet(65, item + 1);
                 return;
             default:
                 return;

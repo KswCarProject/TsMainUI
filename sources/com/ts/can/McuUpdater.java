@@ -3,6 +3,7 @@ package com.ts.can;
 import android.os.SystemClock;
 import android.util.Log;
 import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Mcu;
 
 /* compiled from: CanMcuUpdateActivity */
@@ -64,7 +65,7 @@ class McuUpdater {
             setSta(1);
             this.mRevUpdateAck = false;
             this.mLastUpdateTick = SystemClock.uptimeMillis();
-            this.mUpdateFile = "";
+            this.mUpdateFile = TXZResourceManager.STYLE_DEFAULT;
             if (getMcuUpdateData()) {
                 Mcu.McuUpdateStart();
                 sendStart();
@@ -243,7 +244,7 @@ class McuUpdater {
                 }
             default:
                 this.mReadCnt = 0;
-                String strData = "";
+                String strData = TXZResourceManager.STYLE_DEFAULT;
                 for (int i = 0; i <= this.mReadCnt; i++) {
                     strData = String.valueOf(strData) + String.format("%02X ", new Object[]{Byte.valueOf(this.mReadBuf[i])});
                 }

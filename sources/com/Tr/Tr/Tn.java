@@ -14,6 +14,6 @@ public final class Tn extends Tk {
     }
 
     public static Tn T() {
-        return f258T ? new Tn() : Ty;
+        return f261T ? new Tn() : Ty;
     }
 }

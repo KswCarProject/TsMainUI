@@ -35,7 +35,7 @@ public class CanFordFiestaWcCarSetView extends CanScrollCarInfoView {
             case 3:
                 this.mValues[3] = item;
                 CanJni.FordOldFiestaWcCarSet(count(this.mValues), 0, 0, 0);
-                setPrefrences(MainSet.SP_XH_DMAX, this.mValues[3]);
+                setPrefrences("3", this.mValues[3]);
                 break;
         }
         ResetData(false);
@@ -49,12 +49,12 @@ public class CanFordFiestaWcCarSetView extends CanScrollCarInfoView {
             case 1:
                 this.mValues[1] = Neg(this.mValues[1]);
                 CanJni.FordOldFiestaWcCarSet(count(this.mValues), 0, 0, 0);
-                setPrefrences(MainSet.SP_XPH5, this.mValues[1]);
+                setPrefrences("1", this.mValues[1]);
                 break;
             case 2:
                 this.mValues[2] = Neg(this.mValues[2]);
                 CanJni.FordOldFiestaWcCarSet(count(this.mValues), 0, 0, 0);
-                setPrefrences(MainSet.SP_RLF_KORON, this.mValues[2]);
+                setPrefrences("2", this.mValues[2]);
                 break;
             case 4:
                 this.mValues[4] = Neg(this.mValues[4]);

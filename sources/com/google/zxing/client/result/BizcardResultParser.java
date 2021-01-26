@@ -12,8 +12,8 @@ public final class BizcardResultParser extends AbstractDoCoMoResultParser {
         }
         String fullName = buildName(matchSingleDoCoMoPrefixedField("N:", rawText, true), matchSingleDoCoMoPrefixedField("X:", rawText, true));
         String title = matchSingleDoCoMoPrefixedField("T:", rawText, true);
-        String org = matchSingleDoCoMoPrefixedField("C:", rawText, true);
-        return new AddressBookParsedResult(maybeWrap(fullName), (String[]) null, (String) null, buildPhoneNumbers(matchSingleDoCoMoPrefixedField("B:", rawText, true), matchSingleDoCoMoPrefixedField("M:", rawText, true), matchSingleDoCoMoPrefixedField("F:", rawText, true)), (String[]) null, maybeWrap(matchSingleDoCoMoPrefixedField("E:", rawText, true)), (String[]) null, (String) null, (String) null, matchDoCoMoPrefixedField("A:", rawText, true), (String[]) null, org, (String) null, title, (String[]) null, (String[]) null);
+        String org2 = matchSingleDoCoMoPrefixedField("C:", rawText, true);
+        return new AddressBookParsedResult(maybeWrap(fullName), (String[]) null, (String) null, buildPhoneNumbers(matchSingleDoCoMoPrefixedField("B:", rawText, true), matchSingleDoCoMoPrefixedField("M:", rawText, true), matchSingleDoCoMoPrefixedField("F:", rawText, true)), (String[]) null, maybeWrap(matchSingleDoCoMoPrefixedField("E:", rawText, true)), (String[]) null, (String) null, (String) null, matchDoCoMoPrefixedField("A:", rawText, true), (String[]) null, org2, (String) null, title, (String[]) null, (String[]) null);
     }
 
     private static String[] buildPhoneNumbers(String number1, String number2, String number3) {

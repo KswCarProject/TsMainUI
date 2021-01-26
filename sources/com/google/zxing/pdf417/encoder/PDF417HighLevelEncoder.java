@@ -7,7 +7,6 @@ import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
 import java.util.Arrays;
 import java.util.List;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 final class PDF417HighLevelEncoder {
     private static final int BYTE_COMPACTION = 1;
@@ -28,8 +27,8 @@ final class PDF417HighLevelEncoder {
     private static final int SUBMODE_MIXED = 2;
     private static final int SUBMODE_PUNCTUATION = 3;
     private static final int TEXT_COMPACTION = 0;
-    private static final byte[] TEXT_MIXED_RAW = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, 35, 45, 46, WrcManager.WrcCallback.MINI_KEY_3, 47, 43, 37, 42, 61, 94, 0, 32, 0, 0, 0};
-    private static final byte[] TEXT_PUNCTUATION_RAW = {59, 60, 62, 64, 91, 92, 93, 95, 96, 126, WrcManager.WrcCallback.MINI_KEY_1, 13, 9, 44, 58, 10, 45, 46, WrcManager.WrcCallback.MINI_KEY_3, 47, WrcManager.WrcCallback.MINI_KEY_2, 124, 42, 40, 41, 63, 123, 125, 39, 0};
+    private static final byte[] TEXT_MIXED_RAW = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 38, 13, 9, 44, 58, 35, 45, 46, 36, 47, 43, 37, 42, 61, 94, 0, 32, 0, 0, 0};
+    private static final byte[] TEXT_PUNCTUATION_RAW = {59, 60, 62, 64, 91, 92, 93, 95, 96, 126, 33, 13, 9, 44, 58, 10, 45, 46, 36, 47, 34, 124, 42, 40, 41, 63, 123, 125, 39, 0};
 
     static {
         Arrays.fill(MIXED, (byte) -1);

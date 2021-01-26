@@ -13,7 +13,7 @@ import java.nio.channels.ServerSocketChannel;
 public class Tn {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final File f909T = new File(com.txznet.comm.Tr.T.Tr().getApplicationInfo().dataDir, "../com.txznet.txz/RecorderCenter.port");
+    public static final File f913T = new File(com.txznet.comm.Tr.T.Tr().getApplicationInfo().dataDir, "../com.txznet.txz/RecorderCenter.port");
     private static byte[] T5 = null;
     private static int T6 = 0;
     static Selector T9 = null;
@@ -65,8 +65,8 @@ public class Tn {
         Ty();
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:23:0x009a A[SYNTHETIC, Splitter:B:23:0x009a] */
-    /* JADX WARNING: Removed duplicated region for block: B:29:0x00a6 A[SYNTHETIC, Splitter:B:29:0x00a6] */
+    /* JADX WARNING: Removed duplicated region for block: B:23:0x009e A[SYNTHETIC, Splitter:B:23:0x009e] */
+    /* JADX WARNING: Removed duplicated region for block: B:29:0x00aa A[SYNTHETIC, Splitter:B:29:0x00aa] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private static void Ty() {
         /*
@@ -81,41 +81,41 @@ public class Tn {
             r6 = 22342(0x5746, float:3.1308E-41)
             Tr = r6
             r3 = 0
-            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch:{ Exception -> 0x007d }
-            java.io.File r6 = f909T     // Catch:{ Exception -> 0x007d }
-            r4.<init>(r6)     // Catch:{ Exception -> 0x007d }
+            java.io.FileInputStream r4 = new java.io.FileInputStream     // Catch:{ Exception -> 0x0080 }
+            java.io.File r6 = f913T     // Catch:{ Exception -> 0x0080 }
+            r4.<init>(r6)     // Catch:{ Exception -> 0x0080 }
             r6 = 2
-            byte[] r0 = new byte[r6]     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
+            byte[] r0 = new byte[r6]     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
             r6 = 0
             r7 = 2
-            int r6 = r4.read(r0, r6, r7)     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-            if (r8 != r6) goto L_0x0058
+            int r6 = r4.read(r0, r6, r7)     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+            if (r8 != r6) goto L_0x005a
             r6 = 1
-            byte r6 = r0[r6]     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
+            byte r6 = r0[r6]     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
             int r6 = r6 << 8
             r7 = 0
-            byte r7 = r0[r7]     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
+            byte r7 = r0[r7]     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
             r6 = r6 | r7
             r7 = 65535(0xffff, float:9.1834E-41)
             r5 = r6 & r7
-            if (r5 >= 0) goto L_0x003e
+            if (r5 >= 0) goto L_0x003f
             r6 = 65536(0x10000, float:9.18355E-41)
             int r5 = r5 + r6
-        L_0x003e:
-            Tr = r5     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-            r6.<init>()     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
+        L_0x003f:
+            Tr = r5     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+            r6.<init>()     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
             java.lang.String r7 = "load record port: "
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-            int r7 = Tr     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-            java.lang.String r6 = r6.toString()     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r6)     // Catch:{ Exception -> 0x00b2, all -> 0x00af }
-        L_0x0058:
-            if (r4 == 0) goto L_0x00b5
-            r4.close()     // Catch:{ IOException -> 0x0077 }
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+            int r7 = Tr     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+            java.lang.String r6 = r6.toString()     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r6)     // Catch:{ Exception -> 0x00b6, all -> 0x00b3 }
+        L_0x005a:
+            if (r4 == 0) goto L_0x00b9
+            r4.close()     // Catch:{ IOException -> 0x007a }
             r3 = r4
-        L_0x005e:
+        L_0x0060:
             java.lang.StringBuilder r6 = new java.lang.StringBuilder
             r6.<init>()
             java.lang.String r7 = "final record port: "
@@ -125,51 +125,51 @@ public class Tn {
             java.lang.String r6 = r6.toString()
             com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r6)
             return
-        L_0x0077:
+        L_0x007a:
             r1 = move-exception
             r1.printStackTrace()
             r3 = r4
-            goto L_0x005e
-        L_0x007d:
+            goto L_0x0060
+        L_0x0080:
             r1 = move-exception
-        L_0x007e:
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch:{ all -> 0x00a3 }
-            r6.<init>()     // Catch:{ all -> 0x00a3 }
+        L_0x0081:
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch:{ all -> 0x00a7 }
+            r6.<init>()     // Catch:{ all -> 0x00a7 }
             java.lang.String r7 = "load record port exception: "
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00a3 }
-            java.lang.String r7 = r1.getMessage()     // Catch:{ all -> 0x00a3 }
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00a3 }
-            java.lang.String r6 = r6.toString()     // Catch:{ all -> 0x00a3 }
-            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r6)     // Catch:{ all -> 0x00a3 }
-            if (r3 == 0) goto L_0x005e
-            r3.close()     // Catch:{ IOException -> 0x009e }
-            goto L_0x005e
-        L_0x009e:
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00a7 }
+            java.lang.String r7 = r1.getMessage()     // Catch:{ all -> 0x00a7 }
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch:{ all -> 0x00a7 }
+            java.lang.String r6 = r6.toString()     // Catch:{ all -> 0x00a7 }
+            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r6)     // Catch:{ all -> 0x00a7 }
+            if (r3 == 0) goto L_0x0060
+            r3.close()     // Catch:{ IOException -> 0x00a2 }
+            goto L_0x0060
+        L_0x00a2:
             r1 = move-exception
             r1.printStackTrace()
-            goto L_0x005e
-        L_0x00a3:
+            goto L_0x0060
+        L_0x00a7:
             r6 = move-exception
-        L_0x00a4:
-            if (r3 == 0) goto L_0x00a9
-            r3.close()     // Catch:{ IOException -> 0x00aa }
-        L_0x00a9:
+        L_0x00a8:
+            if (r3 == 0) goto L_0x00ad
+            r3.close()     // Catch:{ IOException -> 0x00ae }
+        L_0x00ad:
             throw r6
-        L_0x00aa:
+        L_0x00ae:
             r1 = move-exception
             r1.printStackTrace()
-            goto L_0x00a9
-        L_0x00af:
+            goto L_0x00ad
+        L_0x00b3:
             r6 = move-exception
             r3 = r4
-            goto L_0x00a4
-        L_0x00b2:
+            goto L_0x00a8
+        L_0x00b6:
             r1 = move-exception
             r3 = r4
-            goto L_0x007e
-        L_0x00b5:
+            goto L_0x0081
+        L_0x00b9:
             r3 = r4
-            goto L_0x005e
+            goto L_0x0060
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.txz.util.recordcenter.Tn.Ty():void");
     }
@@ -229,7 +229,7 @@ public class Tn {
             r = len;
         }
         for (T rec : Te) {
-            if (!(rec == null || rec.f910T == 1)) {
+            if (!(rec == null || rec.f914T == 1)) {
                 rec.T(data, 0, r);
             }
         }
@@ -240,7 +240,7 @@ public class Tn {
     private static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        int f910T;
+        int f914T;
         com.txznet.txz.util.recordcenter.T.T T9;
         private Runnable TZ;
         private Runnable Tk;
@@ -265,8 +265,8 @@ public class Tn {
     /* access modifiers changed from: private */
     public static void Tr(int state, byte[] data, int offset, int len) {
         for (T rec : Te) {
-            if (!(rec == null || 1 == rec.f910T)) {
-                if (4 == rec.f910T && 3 == state) {
+            if (!(rec == null || 1 == rec.f914T)) {
+                if (4 == rec.f914T && 3 == state) {
                     if (Tk || TZ) {
                         if (rec.Ty > 0) {
                             try {
@@ -277,7 +277,7 @@ public class Tn {
                         rec.T(0);
                     }
                     rec.T(data, offset, len);
-                } else if (rec.f910T == state) {
+                } else if (rec.f914T == state) {
                     rec.T(data, offset, len);
                 }
             }

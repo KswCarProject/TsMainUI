@@ -2,6 +2,7 @@ package com.google.zxing;
 
 import com.google.zxing.common.BitArray;
 import com.google.zxing.common.BitMatrix;
+import com.txznet.sdk.TXZResourceManager;
 
 public final class BinaryBitmap {
     private final Binarizer binarizer;
@@ -57,7 +58,7 @@ public final class BinaryBitmap {
         try {
             return getBlackMatrix().toString();
         } catch (NotFoundException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 }

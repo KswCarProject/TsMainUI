@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/camera_container" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@+id/btn_containers">
+        <RelativeLayout android:id="@+id/front_camera_container" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <com.ts.backcar.AutoFitTextureView android:id="@+id/tv_front_camera" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <TextView android:textSize="30px" android:textColor="#000" android:id="@+id/tv_front_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16px" android:layout_marginRight="16px" android:text="Front" android:layout_alignParentRight="true"/>
+            <ImageView android:id="@+id/iv_recording_front" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16px" android:layout_marginTop="16px" android:src="@drawable/ic_recording"/>
+        </RelativeLayout>
+        <View android:id="@+id/line_view" android:background="#ffffbd" android:layout_width="2px" android:layout_height="match_parent"/>
+        <RelativeLayout android:id="@+id/back_camera_container" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+            <com.ts.backcar.AutoFitTextureView android:id="@+id/tv_back_camera" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            <TextView android:textSize="30px" android:textColor="#000" android:id="@+id/tv_back_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16px" android:layout_marginRight="16px" android:text="Rear" android:layout_alignParentRight="true"/>
+            <ImageView android:id="@+id/iv_recording_back" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16px" android:layout_marginTop="16px" android:src="@drawable/ic_recording"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/btn_containers" android:padding="10px" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+        <ImageView android:id="@+id/btn_start_record" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <ImageView android:id="@+id/btn_take_photo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40px"/>
+        <ImageView android:id="@+id/btn_display_list" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40px"/>
+        <ImageView android:id="@+id/btn_switch_mode" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40px"/>
+    </LinearLayout>
+</RelativeLayout>

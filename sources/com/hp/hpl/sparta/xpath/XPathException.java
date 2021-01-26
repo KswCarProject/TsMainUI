@@ -1,5 +1,6 @@
 package com.hp.hpl.sparta.xpath;
 
+import com.txznet.sdk.TXZResourceManager;
 import java.io.IOException;
 
 public class XPathException extends Exception {
@@ -40,11 +41,11 @@ public class XPathException extends Exception {
             case -3:
                 return simpleStreamTokenizer.sval;
             case -2:
-                return new StringBuffer().append(simpleStreamTokenizer.nval).append("").toString();
+                return new StringBuffer().append(simpleStreamTokenizer.nval).append(TXZResourceManager.STYLE_DEFAULT).toString();
             case -1:
                 return "<end of expression>";
             default:
-                return new StringBuffer().append((char) simpleStreamTokenizer.ttype).append("").toString();
+                return new StringBuffer().append((char) simpleStreamTokenizer.ttype).append(TXZResourceManager.STYLE_DEFAULT).toString();
         }
     }
 

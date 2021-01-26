@@ -8,10 +8,12 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanBaseACView;
+import com.ts.can.CanCameraUI;
 import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanGeelyRzcACView extends CanBaseACView {
@@ -19,6 +21,7 @@ public class CanGeelyRzcACView extends CanBaseACView {
     public static final int ITEM_AC_MAX = 1;
     public static final int ITEM_AQS = 23;
     public static final int ITEM_AUTO = 4;
+    public static final int ITEM_ECO = 25;
     public static final int ITEM_FORE_WIND = 5;
     public static final int ITEM_ION = 24;
     public static final int ITEM_LOOP = 3;
@@ -44,6 +47,7 @@ public class CanGeelyRzcACView extends CanBaseACView {
     private ParamButton mBtnAcMax;
     private ParamButton mBtnAqs;
     private ParamButton mBtnAuto;
+    private ParamButton mBtnEco;
     private ParamButton mBtnForeWind;
     private ParamButton mBtnIon;
     private ParamButton mBtnLoop;
@@ -104,6 +108,7 @@ public class CanGeelyRzcACView extends CanBaseACView {
                     case 22:
                     case 23:
                     case 24:
+                    case 25:
                         CanJni.GeelyCarAcSet(0, 0, 0, 0, 0, 0);
                         break;
                 }
@@ -166,6 +171,9 @@ public class CanGeelyRzcACView extends CanBaseACView {
                 case 24:
                     CanJni.GeelyCarAcSet(0, 0, 0, 0, 0, 32);
                     break;
+                case 25:
+                    CanJni.GeelyCarAcSet(0, 0, 0, 0, 0, 64);
+                    break;
             }
         }
         return false;
@@ -199,9 +207,9 @@ public class CanGeelyRzcACView extends CanBaseACView {
         this.mBtnRtTempDec = AddBtn(14, 890, KeyDef.RKEY_res1, R.drawable.can_jeep_ac_leng_up, R.drawable.can_jeep_ac_leng_dn);
         this.mBtnRtTempInc = AddBtn(13, 890, 124, R.drawable.can_jeep_ac_re_up, R.drawable.can_jeep_ac_re_dn);
         this.mTvRtTemp = AddTemp(889, Can.CAN_FORD_SYNC3, 95, 51);
-        this.mBtnWdPx = AddBtn(9, KeyDef.RKEY_CMMB_PBC, Can.CAN_JAC_REFINE_OD, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
-        this.mBtnWdDn = AddBtn(11, 460, Can.CAN_JAC_REFINE_OD, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
-        this.mBtnWdUp = AddBtn(21, 607, Can.CAN_JAC_REFINE_OD, R.drawable.can_jeep_ac_09_up, R.drawable.can_jeep_ac_09_dn);
+        this.mBtnWdPx = AddBtn(9, KeyDef.RKEY_CMMB_PBC, 150, R.drawable.can_jeep_ac_01_up, R.drawable.can_jeep_ac_01_dn);
+        this.mBtnWdDn = AddBtn(11, 460, 150, R.drawable.can_jeep_ac_03_up, R.drawable.can_jeep_ac_03_dn);
+        this.mBtnWdUp = AddBtn(21, 607, 150, R.drawable.can_jeep_ac_09_up, R.drawable.can_jeep_ac_09_dn);
         this.mBtnOff = AddBtn(17, 0, 407, R.drawable.can_jeep_ac_off_up, R.drawable.can_jeep_ac_off_dn);
         this.mBtnWindDec = AddBtn(18, 134, 407, R.drawable.can_jeep_ac_xfans_up, R.drawable.can_jeep_ac_xfans_dn);
         this.mBtnWindInc = AddBtn(19, 763, 407, R.drawable.can_jeep_ac_dfans_up, R.drawable.can_jeep_ac_dfans_dn);
@@ -211,12 +219,13 @@ public class CanGeelyRzcACView extends CanBaseACView {
         this.mIvWindAuto = addImage(457, 450, R.drawable.can_yl_wind_auto);
         this.mBtnSync = AddBtn(20, 893, 407, R.drawable.can_jeep_ac_sync_up, R.drawable.can_jeep_ac_sync_dn);
         this.mTvWindVal = AddTemp(717, 441, 32, 40);
-        this.mBtnMode = AddBtn(22, KeyDef.RKEY_CMMB_PBC, 290, R.drawable.can_jeep_but_ac_mode_up, R.drawable.can_jeep_but_ac_mode_dn);
-        this.mBtnAqs = AddBtn(23, 460, 290, R.drawable.can_jeep_ac_aqs_up, R.drawable.can_jeep_ac_aqs_dn);
-        this.mBtnIon = AddBtn(24, 607, 290, R.drawable.can_jeep_ac_ion_up, R.drawable.can_jeep_ac_ion_dn);
+        this.mBtnEco = AddBtn(25, Can.CAN_SE_DX7_RZC, 290, R.drawable.can_jeep_ac_eco_up, R.drawable.can_jeep_ac_eco_dn);
+        this.mBtnMode = AddBtn(22, 385, 290, R.drawable.can_jeep_but_ac_mode_up, R.drawable.can_jeep_but_ac_mode_dn);
+        this.mBtnAqs = AddBtn(23, CanCameraUI.BTN_CHANA_ALSVINV7_MODE3, 290, R.drawable.can_jeep_ac_aqs_up, R.drawable.can_jeep_ac_aqs_dn);
+        this.mBtnIon = AddBtn(24, 679, 290, R.drawable.can_jeep_ac_ion_up, R.drawable.can_jeep_ac_ion_dn);
         this.mIvIonLev = new CustomImgView[3];
         for (int i = 0; i < 3; i++) {
-            this.mIvIonLev[i] = addImage(720, 348 - (i * 6), R.drawable.can_jeep_ac_ye);
+            this.mIvIonLev[i] = addImage(KeyDef.SKEY_SEEKDN_4, 348 - (i * 6), R.drawable.can_jeep_ac_ye);
             this.mIvIonLev[i].Show(false);
         }
     }
@@ -258,7 +267,7 @@ public class CanGeelyRzcACView extends CanBaseACView {
         this.mBtnSync.SetSel(this.mACInfo.fgDual);
         if (15 == this.mACInfo.nWindValue) {
             this.mWindProg.SetCurPos(0);
-            this.mTvWindVal.setText("");
+            this.mTvWindVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mIvWindAuto.Show(true);
         } else {
             this.mWindProg.SetCurPos(this.mACInfo.nWindValue);
@@ -266,6 +275,7 @@ public class CanGeelyRzcACView extends CanBaseACView {
             this.mIvWindAuto.Show(false);
         }
         this.mBtnAqs.SetSel(this.mACInfo.fgAQS);
+        this.mBtnEco.SetSel(this.mACInfo.fgEco);
         for (int i2 = 0; i2 < 3; i2++) {
             if (this.mACInfo.fgIon > i2) {
                 this.mIvIonLev[i2].Show(true);

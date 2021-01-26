@@ -8,6 +8,7 @@ import com.Ty.T.T.T.Tr.Tr;
 import com.Ty.T.Tr.T.T.Ty;
 import com.Ty.T.Tr.T.TZ;
 import com.Ty.T.Ty.T9;
+import com.android.SdkConstants;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -55,7 +56,7 @@ public class T {
 
     public static com.Ty.T.T.Tr.T T(Context context, int memoryCacheSize) {
         if (memoryCacheSize == 0) {
-            ActivityManager am = (ActivityManager) context.getSystemService("activity");
+            ActivityManager am = (ActivityManager) context.getSystemService(SdkConstants.TAG_ACTIVITY);
             int memoryClass = am.getMemoryClass();
             if (Tn() && Ty(context)) {
                 memoryClass = T(am);
@@ -100,7 +101,7 @@ public class T {
     private static class C0011T implements ThreadFactory {
 
         /* renamed from: T  reason: collision with root package name */
-        private static final AtomicInteger f307T = new AtomicInteger(1);
+        private static final AtomicInteger f310T = new AtomicInteger(1);
         private final int T9;
         private final String Tn;
         private final ThreadGroup Tr;
@@ -109,7 +110,7 @@ public class T {
         C0011T(int threadPriority, String threadNamePrefix) {
             this.T9 = threadPriority;
             this.Tr = Thread.currentThread().getThreadGroup();
-            this.Tn = threadNamePrefix + f307T.getAndIncrement() + "-thread-";
+            this.Tn = threadNamePrefix + f310T.getAndIncrement() + "-thread-";
         }
 
         public Thread newThread(Runnable r) {

@@ -104,7 +104,7 @@ public class CanFordRzcACActivity extends CanBaseActivity implements UserCallBac
     private void initCommonScreen() {
         this.mManager.GetLayout().setBackgroundResource(R.drawable.can_ac_yh4_bg);
         for (int i = 0; i < this.mIvRearWinds.length; i++) {
-            this.mIvRearWinds[i] = AddImage((i * 32) + Can.CAN_AUDI_ZMYT, 24, 22, 50, R.drawable.can_ac_yh_fl_up, R.drawable.can_ac_yh_fl_dn);
+            this.mIvRearWinds[i] = AddImage((i * 32) + 152, 24, 22, 50, R.drawable.can_ac_yh_fl_up, R.drawable.can_ac_yh_fl_dn);
         }
         for (int i2 = 0; i2 < this.mIvRearTemps.length; i2++) {
             this.mIvRearTemps[i2] = AddImage((i2 * 28) + 710, 24, 22, 50, R.drawable.can_ac_yh_fl_up, R.drawable.can_ac_yh_fl_blue);
@@ -128,11 +128,11 @@ public class CanFordRzcACActivity extends CanBaseActivity implements UserCallBac
         AddButton(CanCameraUI.BTN_GEELY_YJX6_FXP, 355, 5, R.drawable.can_ac_yh_jianb_up, R.drawable.can_ac_yh_jianb_dn);
         for (int i3 = 0; i3 < this.mIvWinds.length; i3++) {
             if (i3 < 3) {
-                this.mIvWinds[i3] = this.mManager.AddImage((i3 * 26) + CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST4, KeyDef.RKEY_ST, R.drawable.can_ac_yh_fl_up);
+                this.mIvWinds[i3] = this.mManager.AddImage((i3 * 26) + CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST4, 297, R.drawable.can_ac_yh_fl_up);
             } else if (i3 == 3) {
-                this.mIvWinds[i3] = this.mManager.AddImage(CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE2, KeyDef.RKEY_ST, R.drawable.can_ac_yh_fl_up);
+                this.mIvWinds[i3] = this.mManager.AddImage(CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE2, 297, R.drawable.can_ac_yh_fl_up);
             } else {
-                this.mIvWinds[i3] = this.mManager.AddImage(((i3 - 4) * 26) + 665, KeyDef.RKEY_ST, R.drawable.can_ac_yh_fl_up);
+                this.mIvWinds[i3] = this.mManager.AddImage(((i3 - 4) * 26) + 665, 297, R.drawable.can_ac_yh_fl_up);
             }
         }
         this.mIvAutoIcon = this.mManager.AddImage(272, 180, R.drawable.can_ac_yh_bg01);

@@ -37,7 +37,7 @@ public final class Tn extends Tj {
             char c = contents.charAt(i);
             if (c < ' ' || c > '~') {
                 switch (c) {
-                    case 241:
+                    case Can.CAN_SITECHDEV_CW /*241*/:
                     case Can.CAN_MZD_LUOMU /*242*/:
                     case Can.CAN_MZD_TXB /*243*/:
                     case Can.CAN_BYD_M6_DJ /*244*/:
@@ -56,7 +56,7 @@ public final class Tn extends Tj {
             int newCodeSet = T(contents, position, codeSet);
             if (newCodeSet == codeSet) {
                 switch (contents.charAt(position)) {
-                    case 241:
+                    case Can.CAN_SITECHDEV_CW /*241*/:
                         patternIndex2 = 102;
                         break;
                     case Can.CAN_MZD_LUOMU /*242*/:
@@ -89,14 +89,14 @@ public final class Tn extends Tj {
                 }
                 codeSet = newCodeSet;
             }
-            patterns.add(Ty.f280T[patternIndex2]);
+            patterns.add(Ty.f283T[patternIndex2]);
             checkSum += patternIndex2 * checkWeight;
             if (position != 0) {
                 checkWeight++;
             }
         }
-        patterns.add(Ty.f280T[checkSum % 103]);
-        patterns.add(Ty.f280T[106]);
+        patterns.add(Ty.f283T[checkSum % 103]);
+        patterns.add(Ty.f283T[106]);
         int codeWidth = 0;
         for (int[] next : patterns) {
             int length2 = next.length;

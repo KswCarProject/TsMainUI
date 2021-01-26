@@ -27,7 +27,7 @@ public interface T {
             this.Ty = null;
             this.Tn = null;
             this.T9 = null;
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 

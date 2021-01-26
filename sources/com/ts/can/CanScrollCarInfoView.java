@@ -359,4 +359,7 @@ public abstract class CanScrollCarInfoView extends CanBaseCarInfoView implements
 
     public void doOnFinish() {
     }
+
+    public void doOnStart() {
+    }
 }

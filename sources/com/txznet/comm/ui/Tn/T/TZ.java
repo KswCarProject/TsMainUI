@@ -55,16 +55,16 @@ public class TZ extends Ty {
 
     public void T9() {
         super.T9();
-        if (this.f557T == null) {
+        if (this.f561T == null) {
             Tn.T("init weightRecord:" + Tr + ",weightContent:" + Ty);
-            this.f557T = new LinearLayout(com.txznet.comm.Tr.T.Tr());
+            this.f561T = new LinearLayout(com.txznet.comm.Tr.T.Tr());
             this.Tn = new LinearLayout.LayoutParams(-1, -1);
-            this.f557T.setLayoutParams(this.Tn);
-            this.f557T.setOrientation(0);
-            this.f557T.setWeightSum((float) (Tr + Ty));
+            this.f561T.setLayoutParams(this.Tn);
+            this.f561T.setOrientation(0);
+            this.f561T.setWeightSum((float) (Tr + Ty));
             this.Th = new FrameLayout(com.txznet.comm.Tr.T.Tr());
             this.T6 = new LinearLayout.LayoutParams(0, -1, (float) Tr);
-            this.f557T.addView(this.Th, this.T6);
+            this.f561T.addView(this.Th, this.T6);
             this.T9 = new FrameLayout(com.txznet.comm.Tr.T.Tr());
             this.Tk = new LinearLayout.LayoutParams(0, -1, (float) Ty);
             this.T9.setPadding((int) Tr.Tn("x24"), 0, (int) Tr.Tn("x24"), 0);
@@ -74,7 +74,7 @@ public class TZ extends Ty {
             this.T5 = new Ty(com.txznet.comm.Tr.T.Tr());
             this.Tv = new FrameLayout.LayoutParams(-1, -1);
             this.T9.addView(this.T5.T(), this.Tv);
-            this.f557T.addView(this.T9, this.Tk);
+            this.f561T.addView(this.T9, this.Tk);
         } else if (this.T9 != null) {
             this.T9.setPadding((int) Tr.Tn("x24"), 0, (int) Tr.Tn("x24"), 0);
         }

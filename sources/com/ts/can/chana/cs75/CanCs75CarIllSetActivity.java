@@ -16,12 +16,14 @@ import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollList;
 
 public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
+    public static final int ITEM_FWDGN = 10;
     public static final int ITEM_FWDLD = 4;
     public static final int ITEM_FWDLDDJ = 6;
     public static final int ITEM_FWDYS = 7;
+    public static final int ITEM_FWDYYSDGN = 11;
     public static final int ITEM_FWDZDTJ = 8;
     public static final int ITEM_FWDZDTJFS = 9;
-    private static final int ITEM_MAX = 9;
+    private static final int ITEM_MAX = 11;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_RJXCD = 3;
     public static final int ITEM_YJZX = 2;
@@ -33,6 +35,8 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
     private static final int[] mQzdysArr = {R.string.can_mzd_cx4_mode_off, R.string.can_10s, R.string.can_30s, R.string.can_60s, R.string.can_mzd_cx4_time_120s};
     private static final int[] mYjzxArr = {R.string.can_mzd_cx4_mode_off, R.string.can_3c, R.string.can_5c, R.string.can_7c};
     protected CanItemPopupList mItemFwdYs;
+    protected CanItemSwitchList mItemFwdYysdgn;
+    protected CanItemSwitchList mItemFwdgn;
     protected CanItemSwitchList mItemFwdld;
     private CanItemProgressList mItemFwdlddj;
     protected CanItemSwitchList mItemFwdzdtj;
@@ -103,12 +107,20 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
             this.mSetData.FwdzdtjUpdate = 0;
             this.mItemFwdzdtj.SetCheck(SwSet(this.mSetData.Fwdzdtj));
         }
-        if (!i2b(this.mSetData.FwdzdtjfsUpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mSetData.FwdzdtjfsUpdate)) {
+        if (i2b(this.mSetData.FwdzdtjfsUpdateOnce) && (!check || i2b(this.mSetData.FwdzdtjfsUpdate))) {
             this.mSetData.FwdzdtjfsUpdate = 0;
             this.mItemFwdzdtjfs.SetSel(this.mSetData.Fwdzdtjfs - 1);
+        }
+        if (i2b(this.mSetData.FwdgnUpdateOnce) && (!check || i2b(this.mSetData.FwdgnUpdate))) {
+            this.mSetData.FwdgnUpdate = 0;
+            this.mItemFwdgn.SetCheck(this.mSetData.Fwdgn - 1);
+        }
+        if (!i2b(this.mSetData.FwdyysdgnUpdateOnce)) {
+            return;
+        }
+        if (!check || i2b(this.mSetData.FwdyysdgnUpdate)) {
+            this.mSetData.FwdyysdgnUpdate = 0;
+            this.mItemFwdYysdgn.SetCheck(this.mSetData.Fwdyysdgn - 1);
         }
     }
 
@@ -129,6 +141,10 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
         CanJni.Cs75CarQuery(82, 54);
         Sleep(10);
         CanJni.Cs75CarQuery(82, 55);
+        Sleep(10);
+        CanJni.Cs75CarQuery(82, 71);
+        Sleep(10);
+        CanJni.Cs75CarQuery(82, 72);
     }
 
     /* access modifiers changed from: protected */
@@ -160,11 +176,13 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
         this.mItemFwdYs = AddPopupItem(R.string.can_fwd_color, mFWDYSArr, 7);
         this.mItemFwdzdtj = AddCheckItem(R.string.can_fwd_auto_adjust, 8);
         this.mItemFwdzdtjfs = AddPopupItem(R.string.can_fwd_auto_adjust_method, mFwdZdtjfs, 9);
+        this.mItemFwdgn = AddCheckItem(R.string.can_fwd_kg, 10);
+        this.mItemFwdYysdgn = AddCheckItem(R.string.can_fwdyyld, 11);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= 11; i++) {
             ShowItem(i);
         }
     }
@@ -212,13 +230,14 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
                     break;
                 }
             case 7:
-                if (CanJni.GetSubType() != 11) {
+                if (CanJni.GetSubType() != 11 && CanJni.GetSubType() != 18) {
                     ret = 0;
                     break;
                 } else {
                     ret = 1;
                     break;
                 }
+                break;
             case 8:
                 if (CanJni.GetSubType() != 12) {
                     ret = 0;
@@ -229,6 +248,15 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
                 }
             case 9:
                 if (CanJni.GetSubType() != 12) {
+                    ret = 0;
+                    break;
+                } else {
+                    ret = 1;
+                    break;
+                }
+            case 10:
+            case 11:
+                if (CanJni.GetSubType() != 18) {
                     ret = 0;
                     break;
                 } else {
@@ -269,6 +297,12 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
                 return;
             case 9:
                 this.mItemFwdzdtjfs.ShowGone(show);
+                return;
+            case 10:
+                this.mItemFwdgn.ShowGone(show);
+                return;
+            case 11:
+                this.mItemFwdYysdgn.ShowGone(show);
                 return;
             default:
                 return;
@@ -315,6 +349,12 @@ public class CanCs75CarIllSetActivity extends CanBaseActivity implements View.On
                 return;
             case 8:
                 CanJni.Cs75CarSet(54, NegSwSet(this.mSetData.Fwdzdtj));
+                return;
+            case 10:
+                CanJni.Cs75CarSet(71, NegSwSet(this.mSetData.Fwdgn));
+                return;
+            case 11:
+                CanJni.Cs75CarSet(72, NegSwSet(this.mSetData.Fwdyysdgn));
                 return;
             default:
                 return;

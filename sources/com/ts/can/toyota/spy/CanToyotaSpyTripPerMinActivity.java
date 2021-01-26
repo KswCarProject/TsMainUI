@@ -11,10 +11,10 @@ import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
-import com.ts.can.CanCameraUI;
 import com.ts.canview.CanVerticalBar;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanToyotaSpyTripPerMinActivity extends CanBaseActivity implements UserCallBack, View.OnClickListener {
     private static final int ID_CLEAR = 1281;
@@ -123,7 +123,7 @@ public class CanToyotaSpyTripPerMinActivity extends CanBaseActivity implements U
             case 2:
                 return "L/100KM";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -181,7 +181,7 @@ public class CanToyotaSpyTripPerMinActivity extends CanBaseActivity implements U
             this.mDW.setText(GetDWStr(this.mCurrentData.DW));
             int base = 10;
             if (this.mCurrentData.DW == 0) {
-                max2 = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max2 = 600;
                 base = 20;
             } else {
                 max2 = 300;
@@ -198,7 +198,7 @@ public class CanToyotaSpyTripPerMinActivity extends CanBaseActivity implements U
         if (!check || i2b(this.m15MinData.Update)) {
             this.m15MinData.Update = 0;
             if (this.m15MinData.DW == 0) {
-                max = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max = 600;
             } else {
                 max = 300;
             }

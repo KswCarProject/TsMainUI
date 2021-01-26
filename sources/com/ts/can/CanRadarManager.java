@@ -5,6 +5,8 @@ import android.util.Log;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
+import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 
 public class CanRadarManager {
@@ -53,6 +55,9 @@ public class CanRadarManager {
         this.mData.fgHaveCamera = i2b(FtSet.GetCamFix());
         this.mData.DelayTick = 2000;
         this.mData.fgHaveRadar = CanJni.IsHaveRadar();
+        if (FtSet.Getyw14() == 2) {
+            this.mData.fgHaveRadar = false;
+        }
         this.mData.fgHaveForeRadar = CanJni.IsHaveForeRadar();
         if (this.mData.fgHaveRadar) {
             if (!this.mData.fgHaveCamera) {
@@ -113,7 +118,7 @@ public class CanRadarManager {
                 boolean isForeUpdate = i2b(Can.mRadarForeInfo.Update);
                 boolean isLeftUpdate = i2b(Can.mRadarLeftInfo.Update);
                 boolean isRightUpdate = i2b(Can.mRadarRightInfo.Update);
-                if (!isForeUpdate && (!CanJni.IsHaveLrRadar() || (!isLeftUpdate && !isRightUpdate))) {
+                if ((!isForeUpdate && (!CanJni.IsHaveLrRadar() || (!isLeftUpdate && !isRightUpdate))) || MainSet.GetInstance().GetCamType() == 3) {
                     InvalidRadarWin();
                     return;
                 } else if (IsRadarWin()) {
@@ -125,7 +130,7 @@ public class CanRadarManager {
                         case 0:
                             this.mData.WaitStartTick = GetTickCount();
                             this.mData.WaitStatus = 1;
-                            Log.d("", "WaitStatus_ForeDelayBegin");
+                            Log.d(TXZResourceManager.STYLE_DEFAULT, "WaitStatus_ForeDelayBegin");
                             return;
                         case 2:
                             GotoForeRadarWin();

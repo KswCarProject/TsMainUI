@@ -3,6 +3,7 @@ package com.ts.can.vw.golf.wc;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -94,7 +95,7 @@ public class CanGolfWcSetTyresActivity extends CanBaseActivity implements View.O
         this.mItemSpeedWarn.SetIdClickListener(this, 2);
         this.mItemWarnAt = new CanItemProgressList((Context) this, R.string.can_speed_warn);
         this.mItemWarnAt.SetIdCallBack(3, this);
-        this.mItemWarnAt.SetMinMax(30, 240);
+        this.mItemWarnAt.SetMinMax(30, Can.CAN_VOLKS_XP);
         this.mItemWarnAt.SetStep(10);
         this.mItemWarnAt.SetUserValText();
         this.mItemWarnAt.SetCurVal(30);

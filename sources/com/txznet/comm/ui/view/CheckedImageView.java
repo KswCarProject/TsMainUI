@@ -11,7 +11,7 @@ import com.txznet.txz.comm.R;
 public class CheckedImageView extends ImageView implements IKeepClass {
 
     /* renamed from: T  reason: collision with root package name */
-    protected boolean f650T;
+    protected boolean f654T;
     private Drawable Tr;
     private Drawable Ty;
 
@@ -36,11 +36,11 @@ public class CheckedImageView extends ImageView implements IKeepClass {
     }
 
     public void setChecked(boolean checked) {
-        this.f650T = checked;
+        this.f654T = checked;
         setImageDrawable(checked ? this.Tr : this.Ty);
     }
 
     public boolean isChecked() {
-        return this.f650T;
+        return this.f654T;
     }
 }

@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private byte[] f905T;
+    private byte[] f909T;
     private int Tn;
     private int Tr;
     private int Ty;
@@ -17,11 +17,11 @@ public class Tr {
     }
 
     public Tr(int cacheSize) {
-        this.f905T = null;
+        this.f909T = null;
         this.Tr = 0;
         this.Ty = 0;
         this.Tn = 0;
-        this.f905T = new byte[cacheSize];
+        this.f909T = new byte[cacheSize];
     }
 
     public String T() {
@@ -39,11 +39,11 @@ public class Tr {
             int readIndex = this.Tr;
             if (writeIndex != readIndex) {
                 if (writeIndex > readIndex) {
-                    r = writer.T(this.f905T, readIndex, writeIndex - readIndex);
+                    r = writer.T(this.f909T, readIndex, writeIndex - readIndex);
                 } else {
-                    r = writer.T(this.f905T, readIndex, this.f905T.length - readIndex);
+                    r = writer.T(this.f909T, readIndex, this.f909T.length - readIndex);
                 }
-                int readIndex2 = (readIndex + r) % this.f905T.length;
+                int readIndex2 = (readIndex + r) % this.f909T.length;
                 if (fIndex == this.Tn) {
                     this.Tr = readIndex2;
                 } else {
@@ -67,19 +67,19 @@ public class Tr {
                 ret = (readIndex - writeIndex2) - 4;
                 Tn.Ty("discard record data size[" + (len - ret) + "], read[" + readIndex + "], write[" + writeIndex2 + "]: " + T());
             }
-            System.arraycopy(data, offset, this.f905T, writeIndex2, ret);
+            System.arraycopy(data, offset, this.f909T, writeIndex2, ret);
             writeIndex = writeIndex2 + ret;
-        } else if (len <= this.f905T.length - writeIndex2) {
-            System.arraycopy(data, offset, this.f905T, writeIndex2, len);
-            writeIndex = (writeIndex2 + len) % this.f905T.length;
+        } else if (len <= this.f909T.length - writeIndex2) {
+            System.arraycopy(data, offset, this.f909T, writeIndex2, len);
+            writeIndex = (writeIndex2 + len) % this.f909T.length;
         } else if (readIndex == 0) {
-            ret = (this.f905T.length - writeIndex2) - 1;
+            ret = (this.f909T.length - writeIndex2) - 1;
             Tn.Ty("discard record data size: " + (len - ret) + "], read[" + readIndex + "], write[" + writeIndex2 + "]: " + T());
-            System.arraycopy(data, offset, this.f905T, writeIndex2, ret);
+            System.arraycopy(data, offset, this.f909T, writeIndex2, ret);
             writeIndex = writeIndex2 + ret;
         } else {
-            int ret2 = this.f905T.length - writeIndex2;
-            System.arraycopy(data, offset, this.f905T, writeIndex2, ret2);
+            int ret2 = this.f909T.length - writeIndex2;
+            System.arraycopy(data, offset, this.f909T, writeIndex2, ret2);
             if (fIndex != this.Tn) {
                 return -999;
             }

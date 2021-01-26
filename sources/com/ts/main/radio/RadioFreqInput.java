@@ -1,6 +1,7 @@
 package com.ts.main.radio;
 
 import android.content.Context;
+import android.support.v4.view.ViewCompat;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.ts.MainUI.R;
@@ -9,6 +10,7 @@ import com.ts.other.CustomDialog;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Radio;
 
 public class RadioFreqInput extends CustomDialog implements View.OnClickListener {
@@ -23,7 +25,7 @@ public class RadioFreqInput extends CustomDialog implements View.OnClickListener
     private RelativeLayout mLayout;
     private RelativeLayoutManager mManager;
     protected String mStrFreq;
-    private String[] mStrNum = {"0", MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX, MainSet.SP_KS_QOROS, MainSet.SP_LM_WR, MainSet.SP_YSJ_QP, MainSet.SP_TW_CJW, MainSet.SP_FLKJ, MainSet.SP_FXCARPLAY};
+    private String[] mStrNum = {"0", "1", "2", "3", MainSet.SP_KS_QOROS, MainSet.SP_TW_CJW, MainSet.SP_XS_DZ, MainSet.SP_PCBA_VOL, "8", "9"};
     private CustomTextView mTvInput;
 
     public RadioFreqInput(Context context) {
@@ -31,7 +33,7 @@ public class RadioFreqInput extends CustomDialog implements View.OnClickListener
     }
 
     public void createDlg(Context context) {
-        this.mStrFreq = "";
+        this.mStrFreq = TXZResourceManager.STYLE_DEFAULT;
         this.mContext = context;
         super.create(R.layout.radio_input_dlg, context);
         this.mLayout = (RelativeLayout) this.mWindow.findViewById(R.id.radio_input_layout);
@@ -78,9 +80,9 @@ public class RadioFreqInput extends CustomDialog implements View.OnClickListener
         AddViewWrapContent(btn, x, y);
         btn.setOnClickListener(this);
         if (id == 13) {
-            btn.setText(this.mContext.getResources().getString(R.string.set_general_ok));
-            btn.setGravity(17);
-            btn.setTextSize(22.0f);
+            btn.setTextSize(0, 36.0f);
+            btn.setText(17039370);
+            btn.setTextColor(ViewCompat.MEASURED_STATE_MASK);
         }
         return btn;
     }
@@ -147,7 +149,7 @@ public class RadioFreqInput extends CustomDialog implements View.OnClickListener
     /* access modifiers changed from: protected */
     public void decStr() {
         if (this.mStrFreq.length() <= 1) {
-            this.mStrFreq = "";
+            this.mStrFreq = TXZResourceManager.STYLE_DEFAULT;
         } else {
             this.mStrFreq = this.mStrFreq.substring(0, this.mStrFreq.length() - 1);
         }

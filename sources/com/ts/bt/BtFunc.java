@@ -5,12 +5,83 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.SparseIntArray;
 import android.view.View;
+import com.ts.main.common.MainUI;
 import com.yyw.ts70xhw.KeyDef;
 
 public class BtFunc {
-    private static SparseIntArray key2Id = new SparseIntArray();
     /* access modifiers changed from: private */
     public static Activity mBtDialActivity = null;
+    /* access modifiers changed from: private */
+    public static DealBtCallKey mDealBtCall = new DealBtCallKey() {
+        SparseIntArray key2Id = new SparseIntArray();
+
+        public int dealBtCallKey(int key) {
+            View v;
+            int viewId = 0;
+            switch (key) {
+                case 29:
+                case 273:
+                    viewId = findViewId(key, "bt_btn_dial_call");
+                    break;
+                case 30:
+                case 274:
+                    viewId = findViewId(key, "bt_btn_dial_end");
+                    break;
+                case 41:
+                case 285:
+                    viewId = findViewId(key, "bt_btn_dial_numj");
+                    break;
+                case 42:
+                case 286:
+                    viewId = findViewId(key, "bt_btn_dial_numx");
+                    break;
+                case KeyDef.RKEY_DEL /*335*/:
+                    viewId = findViewId(key, "bt_btn_dial_bkspace");
+                    break;
+                default:
+                    if (key < 275 || key > 284) {
+                        if (key >= 31 && key <= 40) {
+                            viewId = findNumKeyId(key, 31);
+                            break;
+                        }
+                    } else {
+                        viewId = findNumKeyId(key, 275);
+                        break;
+                    }
+                    break;
+            }
+            if (viewId <= 0 || viewId == 0 || BtFunc.mBtDialActivity == null || (v = BtFunc.mBtDialActivity.findViewById(viewId)) == null) {
+                return 0;
+            }
+            v.performClick();
+            return 1;
+        }
+
+        private int findNumKeyId(int key, int startKey) {
+            if (key < startKey || key > startKey + 9) {
+                return 0;
+            }
+            int id = this.key2Id.get(key);
+            if (id == 0) {
+                return findViewId(key, "bt_btn_dial_num" + (key - startKey));
+            }
+            return id;
+        }
+
+        private int findViewId(int key, String name) {
+            try {
+                int viewId = Class.forName("com.ts.MainUI.R$id").getDeclaredField(name).getInt((Object) null);
+                if (viewId <= 0) {
+                    return viewId;
+                }
+                this.key2Id.put(key, viewId);
+                return viewId;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
+            }
+        }
+    };
     public static Application.ActivityLifecycleCallbacks mLifecyleCallbacks = new Application.ActivityLifecycleCallbacks() {
         public void onActivityCreated(Activity arg0, Bundle arg1) {
         }
@@ -19,10 +90,14 @@ public class BtFunc {
         }
 
         public void onActivityPaused(Activity activity) {
+            if (activity.getClass().getName().equals("com.ts.bt.BtDialActivity")) {
+                MainUI.unregisterBtCallKey(BtFunc.mDealBtCall);
+            }
         }
 
         public void onActivityResumed(Activity activity) {
             if (activity.getClass().getName().equals("com.ts.bt.BtDialActivity")) {
+                MainUI.registerBtCallKey(BtFunc.mDealBtCall);
                 BtFunc.mBtDialActivity = activity;
             }
         }
@@ -40,6 +115,10 @@ public class BtFunc {
         }
     };
 
+    public interface DealBtCallKey {
+        int dealBtCallKey(int i);
+    }
+
     public static int DealKey(int nkey) {
         BtExe bt = BtExe.getBtInstance();
         if (bt == null) {
@@ -49,7 +128,7 @@ public class BtFunc {
             case 29:
             case 273:
             case KeyDef.SKEY_CALLUP_1 /*814*/:
-                dealBtCallKey(nkey);
+                bt.answer();
                 return 1;
             case 30:
             case 274:
@@ -57,15 +136,15 @@ public class BtFunc {
                 bt.hangup();
                 return 1;
             case 44:
-            case KeyDef.RKEY_NEXT /*291*/:
+            case 291:
                 bt.musicNext();
                 return 1;
             case 45:
-            case KeyDef.RKEY_PRE /*292*/:
+            case 292:
                 bt.musicPrev();
                 return 1;
             case 60:
-            case KeyDef.RKEY_MEDIA_PP /*299*/:
+            case 299:
             case KeyDef.SKEY_PP_1 /*824*/:
                 bt.musicPP();
                 return 1;
@@ -98,36 +177,5 @@ public class BtFunc {
             default:
                 return 1;
         }
-    }
-
-    private static int findViewId(int key, String name) {
-        try {
-            int viewId = Class.forName("com.ts.MainUI.R$id").getDeclaredField(name).getInt((Object) null);
-            if (viewId <= 0) {
-                return viewId;
-            }
-            key2Id.put(key, viewId);
-            return viewId;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 0;
-        }
-    }
-
-    public static int dealBtCallKey(int key) {
-        View v;
-        int viewId = 0;
-        switch (key) {
-            case 29:
-            case 273:
-            case KeyDef.SKEY_CALLUP_1 /*814*/:
-                viewId = findViewId(key, "bt_btn_dial_call");
-                break;
-        }
-        if (viewId <= 0 || viewId == 0 || mBtDialActivity == null || (v = mBtDialActivity.findViewById(viewId)) == null) {
-            return 0;
-        }
-        v.performClick();
-        return 1;
     }
 }

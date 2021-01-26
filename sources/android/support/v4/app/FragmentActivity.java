@@ -20,6 +20,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import com.android.SdkConstants;
+import com.autochips.camera.util.DVRConst;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -156,7 +158,7 @@ public class FragmentActivity extends Activity {
     public View onCreateView(String name, @NonNull Context context, @NonNull AttributeSet attrs) {
         Fragment fragment = null;
         int containerId = 0;
-        if (!"fragment".equals(name)) {
+        if (!SdkConstants.VIEW_FRAGMENT.equals(name)) {
             return super.onCreateView(name, context, attrs);
         }
         String fname = attrs.getAttributeValue((String) null, "class");
@@ -566,7 +568,7 @@ public class FragmentActivity extends Activity {
                         pkgname = "android";
                         break;
                     case 2130706432:
-                        pkgname = "app";
+                        pkgname = SdkConstants.APP_PREFIX;
                         break;
                     default:
                         try {
@@ -595,7 +597,7 @@ public class FragmentActivity extends Activity {
         int N;
         writer.print(prefix);
         if (view == null) {
-            writer.println("null");
+            writer.println(DVRConst.UNKOWN_CAMERA_ID);
             return;
         }
         writer.println(viewToString(view));

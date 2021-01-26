@@ -1,5 +1,6 @@
 package com.Tr.T.T;
 
+import com.android.SdkConstants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
@@ -7,12 +8,12 @@ import java.io.UnsupportedEncodingException;
 public final class Tr {
 
     /* renamed from: T  reason: collision with root package name */
-    private final byte[] f240T;
+    private final byte[] f243T;
     private final int Tr;
     private int Ty;
 
     private Tr(byte[] bArr, int i, int i2) {
-        this.f240T = bArr;
+        this.f243T = bArr;
         this.Ty = i;
         this.Tr = i + i2;
     }
@@ -91,7 +92,7 @@ public final class Tr {
     }
 
     public void T(String str) throws IOException {
-        byte[] bytes = str.getBytes("UTF-8");
+        byte[] bytes = str.getBytes(SdkConstants.INI_CHARSET);
         TZ(bytes.length);
         Ty(bytes);
     }
@@ -171,7 +172,7 @@ public final class Tr {
 
     public static int Tr(String str) {
         try {
-            byte[] bytes = str.getBytes("UTF-8");
+            byte[] bytes = str.getBytes(SdkConstants.INI_CHARSET);
             return bytes.length + TE(bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported.");
@@ -212,7 +213,7 @@ public final class Tr {
         if (this.Ty == this.Tr) {
             throw new T(this.Ty, this.Tr);
         }
-        byte[] bArr = this.f240T;
+        byte[] bArr = this.f243T;
         int i = this.Ty;
         this.Ty = i + 1;
         bArr[i] = b;
@@ -228,7 +229,7 @@ public final class Tr {
 
     public void Tr(byte[] bArr, int i, int i2) throws IOException {
         if (this.Tr - this.Ty >= i2) {
-            System.arraycopy(bArr, i, this.f240T, this.Ty, i2);
+            System.arraycopy(bArr, i, this.f243T, this.Ty, i2);
             this.Ty += i2;
             return;
         }

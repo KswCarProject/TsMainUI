@@ -1,7 +1,6 @@
 package com.txznet.comm.ui.TZ.T;
 
 import com.lgb.canmodule.Can;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.txznet.comm.ui.TE.T;
 import java.util.HashMap;
 
@@ -46,7 +45,7 @@ public class Ty extends T {
     }
 
     public Ty() {
-        this.f539T = 15;
+        this.f543T = 15;
         this.Tr = 44;
         this.Ty = 44;
         this.Tn = 56;
@@ -70,7 +69,7 @@ public class Ty extends T {
         this.TA = 10;
         this.Tx = 10;
         this.T0 = 10;
-        this.Tb = MediaDef.PROGRESS_MAX;
+        this.Tb = 1000;
         this.TM = 800;
     }
 }

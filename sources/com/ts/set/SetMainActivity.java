@@ -27,17 +27,40 @@ public class SetMainActivity extends Activity implements View.OnClickListener {
         UISetSroView.Show(this);
     }
 
+    /* access modifiers changed from: protected */
+    public void onResume() {
+        overridePendingTransition(0, 0);
+        super.onResume();
+    }
+
     private void initSetOptions() {
         for (int i = 0; i < 9; i++) {
             if (isHaveOption(i)) {
+                if (i == 8 && MainSet.GetInstance().IsTwcjw()) {
+                    addSystemUpdate();
+                }
                 addSetOption(i);
             }
         }
     }
 
+    private void addSystemUpdate() {
+        if (MainSet.GetInstance().IsHaveApk("com.forfan.systemupgrade")) {
+            ViewGroup layout = (ViewGroup) UISetSroView.inflater.inflate(R.layout.set_main_item, (ViewGroup) null);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(1024, 79);
+            params.setMargins(0, 5, 0, 0);
+            layout.setOnClickListener(this);
+            layout.setTag(100);
+            ((ImageView) layout.findViewById(R.id.set_icon)).setBackgroundResource(R.drawable.setup_main_update);
+            ((TextView) layout.findViewById(R.id.set_text)).setText(R.string.set_main_sys_update);
+            ((ImageView) layout.findViewById(R.id.set_arrow)).setBackgroundResource(R.drawable.setup_arrow);
+            UISetSroView.m_llSetMain.addView(layout, params);
+        }
+    }
+
     private void addSetOption(int setOpt) {
         ViewGroup layout = (ViewGroup) UISetSroView.inflater.inflate(R.layout.set_main_item, (ViewGroup) null);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(1280, 79);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(1024, 79);
         params.setMargins(0, 5, 0, 0);
         layout.setOnClickListener(this);
         layout.setTag(Integer.valueOf(setOpt));
@@ -55,6 +78,17 @@ public class SetMainActivity extends Activity implements View.OnClickListener {
     }
 
     public void onClick(View v) {
-        WinShow.GotoWin(11, ((Integer) v.getTag()).intValue());
+        String ShowInfo;
+        int nGetID = ((Integer) v.getTag()).intValue();
+        if (nGetID == 100) {
+            if (getResources().getString(R.string.custom_num_show).equals("TSKJ")) {
+                ShowInfo = String.valueOf(getResources().getString(R.string.custom_num)) + MainSet.GetHMIVersion();
+            } else {
+                ShowInfo = String.valueOf(getResources().getString(R.string.custom_num_show)) + MainSet.GetHMIVersion();
+            }
+            MainSet.GetInstance().openApplication(this, "com.forfan.systemupgrade", "HMI", ShowInfo);
+            return;
+        }
+        WinShow.GotoWin(11, nGetID);
     }
 }

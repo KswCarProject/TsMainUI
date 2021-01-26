@@ -11,9 +11,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.R;
-import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.yyw.ts70xhw.KeyDef;
@@ -162,7 +160,7 @@ public class CanHondaWcRadioView extends CanRelativeCarInfoView implements View.
                         }
                         view.drawImage(CanHondaWcRadioView.mFreqNumArr[Bai], 444, 0);
                         view.drawImage(CanHondaWcRadioView.mFreqNumArr[Shi], 492, 0);
-                        view.drawImage(CanHondaWcRadioView.mFreqNumArr[Ge], CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 0);
+                        view.drawImage(CanHondaWcRadioView.mFreqNumArr[Ge], 540, 0);
                     } else {
                         if (CanHondaWcRadioView.this.mCurFreqData.Freq >= 1000) {
                             view.drawImage(CanHondaWcRadioView.mFreqNumArr[1], 386, 0);
@@ -180,7 +178,7 @@ public class CanHondaWcRadioView extends CanRelativeCarInfoView implements View.
         this.mBtnStepDec.setStateUpDn(R.drawable.can_yg_radio_prev_up, R.drawable.can_yg_radio_prev_dn);
         this.mBtnStepDec.setTag(1);
         this.mBtnStepDec.setOnClickListener(this);
-        this.mBtnStepInc = addButton(CanToyotaDJCarDeviceView.ITEM_PLAY, 135);
+        this.mBtnStepInc = addButton(768, 135);
         this.mBtnStepInc.setStateUpDn(R.drawable.can_yg_radio_down_up, R.drawable.can_yg_radio_down_dn);
         this.mBtnStepInc.setTag(2);
         this.mBtnStepInc.setOnClickListener(this);

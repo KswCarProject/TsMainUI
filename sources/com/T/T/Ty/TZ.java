@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class TZ implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TZ f206T = new TZ();
+    public static final TZ f209T = new TZ();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         serializer.Tv().T(((AtomicLong) object).get());

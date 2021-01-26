@@ -5,9 +5,13 @@
     <color name="vol_bar_up">#ffffffff</color>
     <color name="vol_bar_dn">#ffff0000</color>
     <color name="background">#00080808</color>
+    <color name="tblack">#00000000</color>
+    <color name="black">#ff000000</color>
     <color name="set_num_color">#ffffffff</color>
     <color name="set_general_sd">#ffffffff</color>
     <color name="set_general_color">#ff000000</color>
     <color name="set_vmdisk">#ff000000</color>
+    <color name="chartview_start_color">#00baff</color>
+    <color name="chartview_end_color">#00baff</color>
     <color name="transparent">#00000000</color>
 </resources>

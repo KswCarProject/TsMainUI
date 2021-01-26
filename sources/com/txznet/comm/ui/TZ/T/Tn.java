@@ -45,7 +45,7 @@ public class Tn extends T {
     }
 
     public Tn() {
-        this.f539T = 15;
+        this.f543T = 15;
         this.Tr = 48;
         this.Ty = 48;
         this.Tn = 56;

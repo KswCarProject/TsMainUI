@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 public abstract class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    protected LinearLayout f557T;
+    protected LinearLayout f561T;
 
     public abstract Object T(int i, View view, ViewGroup.LayoutParams layoutParams);
 
@@ -25,7 +25,7 @@ public abstract class Ty {
     }
 
     public View Tn() {
-        return this.f557T;
+        return this.f561T;
     }
 
     public void T9() {

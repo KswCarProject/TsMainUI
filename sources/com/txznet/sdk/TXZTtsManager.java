@@ -1,6 +1,7 @@
 package com.txznet.sdk;
 
 import android.text.TextUtils;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Tr.Tr.Th;
 import com.txznet.comm.Tr.Tr.Tr;
@@ -15,7 +16,7 @@ public class TXZTtsManager {
     private static TXZTtsManager Tr = new TXZTtsManager();
 
     /* renamed from: T  reason: collision with root package name */
-    TtsTool f839T = null;
+    TtsTool f843T = null;
     private Boolean T5 = null;
     private String T9 = null;
     private Boolean TE = null;
@@ -79,8 +80,8 @@ public class TXZTtsManager {
         if (this.T9 != null) {
             setTtsModel(this.T9);
         }
-        if (this.f839T != null) {
-            setTtsTool(this.f839T);
+        if (this.f843T != null) {
+            setTtsTool(this.f843T);
         }
         if (this.Tk != null) {
             setBufferTime(this.Tk.intValue());
@@ -278,8 +279,8 @@ public class TXZTtsManager {
 
     public void setDefaultAudioStream(int stream) {
         this.Ty = Integer.valueOf(stream);
-        Th.f390T = stream;
-        Tn.Tr().T("com.txznet.txz", "comm.config.tts.setDefaultAudioStream", ("" + stream).getBytes(), (Tn.Tr) null);
+        Th.f394T = stream;
+        Tn.Tr().T("com.txznet.txz", "comm.config.tts.setDefaultAudioStream", (TXZResourceManager.STYLE_DEFAULT + stream).getBytes(), (Tn.Tr) null);
     }
 
     public void setVoiceSpeed(int speed) {
@@ -289,7 +290,7 @@ public class TXZTtsManager {
             speed = 100;
         }
         this.Tn = Integer.valueOf(speed);
-        Tn.Tr().T("com.txznet.txz", "comm.tts.set.voicespeed", ("" + speed).toString().getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "comm.tts.set.voicespeed", (TXZResourceManager.STYLE_DEFAULT + speed).toString().getBytes(), (Tn.Tr) null);
         if (TXZConfigManager.getInstance().Tr != null) {
             TXZConfigManager.getInstance().Tr.setTtsVoiceSpeed(speed);
         }
@@ -298,19 +299,19 @@ public class TXZTtsManager {
 
     public void setTtsModel(String ttsModelPath) {
         if (ttsModelPath == null) {
-            ttsModelPath = "";
+            ttsModelPath = TXZResourceManager.STYLE_DEFAULT;
         }
         this.T9 = ttsModelPath;
         Tn.Tr().T("com.txznet.txz", "comm.tts.set.modelrole", ttsModelPath.getBytes(), (Tn.Tr) null);
     }
 
     public void setTtsDelay(long delay) {
-        Tn.Tr().T("com.txznet.txz", "comm.tts.set.ttsdelay", (delay + "").toString().getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "comm.tts.set.ttsdelay", (delay + TXZResourceManager.STYLE_DEFAULT).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setBufferTime(int nTime) {
         this.Tk = Integer.valueOf(nTime);
-        Tn.Tr().T("com.txznet.txz", "comm.tts.set.buffettime", ("" + nTime).toString().getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "comm.tts.set.buffettime", (TXZResourceManager.STYLE_DEFAULT + nTime).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setBeepResources(String beepPath) {
@@ -359,16 +360,16 @@ public class TXZTtsManager {
 
     public void enableDownVolumeWhenNav(boolean enable) {
         this.TE = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "comm.tts.set.enableDownVolume", ("" + enable).toString().getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "comm.tts.set.enableDownVolume", (TXZResourceManager.STYLE_DEFAULT + enable).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void forceShowTTSChoiceView(boolean enable) {
         this.T5 = Boolean.valueOf(enable);
-        Tn.Tr().T("com.txznet.txz", "comm.tts.set.forceShowChoiceView", ("" + enable).toString().getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "comm.tts.set.forceShowChoiceView", (TXZResourceManager.STYLE_DEFAULT + enable).toString().getBytes(), (Tn.Tr) null);
     }
 
     public void setTtsTool(TtsTool tool) {
-        this.f839T = tool;
+        this.f843T = tool;
         if (tool == null) {
             TXZService.T("tool.tts.", (TXZService.T) null);
             Tn.Tr().T("com.txznet.txz", "txz.tool.tts.clearTool", (byte[]) null, (Tn.Tr) null);
@@ -378,10 +379,10 @@ public class TXZTtsManager {
             public byte[] T(String packageName, String command, final byte[] data) {
                 if ("start".equals(command)) {
                     com.txznet.comm.Ty.Tr json = new com.txznet.comm.Ty.Tr(data);
-                    int stream = ((Integer) json.T("stream", Integer.class, Integer.valueOf(Th.f390T))).intValue();
-                    String text = (String) json.T("text", String.class);
+                    int stream = ((Integer) json.T("stream", Integer.class, Integer.valueOf(Th.f394T))).intValue();
+                    String text = (String) json.T(SdkConstants.ATTR_TEXT, String.class);
                     com.txznet.comm.Tr.Tr.Tn.T("tts tool start: stream=" + stream + ", text=" + text);
-                    TXZTtsManager.this.f839T.start(stream, text, new TtsCallback() {
+                    TXZTtsManager.this.f843T.start(stream, text, new TtsCallback() {
                         public void onSuccess() {
                             Tn.Tr().T("com.txznet.txz", "txz.tool.tts.onSuccess", data, (Tn.Tr) null);
                         }
@@ -396,9 +397,9 @@ public class TXZTtsManager {
                     });
                 } else if ("cancel".equals(command)) {
                     com.txznet.comm.Tr.Tr.Tn.T("tts tool cancel");
-                    TXZTtsManager.this.f839T.cancel();
+                    TXZTtsManager.this.f843T.cancel();
                 } else if ("setOption".equals(command)) {
-                    TXZTtsManager.this.f839T.setOption(new TtsOption());
+                    TXZTtsManager.this.f843T.setOption(new TtsOption());
                 }
                 return null;
             }

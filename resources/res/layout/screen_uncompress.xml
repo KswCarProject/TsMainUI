@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:background="#000" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="25px" android:textColor="#ffffffff" android:id="@+id/uncomperssText0" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="160px" android:text="" android:layout_centerHorizontal="true"/>
+    <Button android:textSize="35px" android:id="@+id/Btnuncomperss" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="280px" android:text="开始拷贝" android:layout_centerHorizontal="true"/>
+    <Button android:textSize="35px" android:id="@+id/Btnuncomperssoff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="360px" android:text="关闭界面" android:layout_centerHorizontal="true"/>
+</RelativeLayout>

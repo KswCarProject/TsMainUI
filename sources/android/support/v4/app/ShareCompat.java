@@ -14,6 +14,7 @@ import android.text.Spanned;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.android.SdkConstants;
 import java.util.ArrayList;
 
 public class ShareCompat {
@@ -47,11 +48,11 @@ public class ShareCompat {
             while (i < end) {
                 char c = text.charAt(i);
                 if (c == '<') {
-                    out.append("&lt;");
+                    out.append(SdkConstants.LT_ENTITY);
                 } else if (c == '>') {
-                    out.append("&gt;");
+                    out.append(SdkConstants.GT_ENTITY);
                 } else if (c == '&') {
-                    out.append("&amp;");
+                    out.append(SdkConstants.AMP_ENTITY);
                 } else if (c > '~' || c < ' ') {
                     out.append("&#" + c + ";");
                 } else if (c == ' ') {

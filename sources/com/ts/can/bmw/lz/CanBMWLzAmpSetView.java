@@ -78,7 +78,7 @@ public class CanBMWLzAmpSetView extends CanScrollCarInfoView {
         iArr8[1] = 20;
         iArr8[2] = 1;
         iArr7[3] = iArr8;
-        this.mPopValueIds[4] = new int[]{R.string.app_name};
+        this.mPopValueIds[4] = new int[]{R.string.app_name, R.string.app_name};
         this.mAmpData = new CanDataInfo.BmwLz_AmpData();
     }
 

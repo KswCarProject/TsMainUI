@@ -20,14 +20,6 @@ public class AutoBootUp extends BroadcastReceiver {
                 startIntent.setPackage("com.ts.MainUI");
                 context.startService(startIntent);
             }
-        } else if (TsMode.ACTION_QB_POWERON.equals(action)) {
-            Evc.mSystemState = 1;
-            Log.w(TAG, "######## Acc On (1)!");
-            if (context != null) {
-                context.startService(new Intent("android.intent.action.MAIN_SERVICE"));
-            }
-        } else if (TsMode.ACTION_QB_POWEROFF.equals(action)) {
-            Log.d(TAG, "get QB_POWEROFF ");
         }
         if ("android.media.GIS_AUDIO_STATUS_ACTION".equals(action)) {
             Log.d(TAG, "get GIS_AUDIO_STATUS_ACTION ");

@@ -10,14 +10,14 @@ public enum PlayerStatus {
     
 
     /* renamed from: T  reason: collision with root package name */
-    private final String f871T;
+    private final String f875T;
 
     private PlayerStatus(String str) {
-        this.f871T = str;
+        this.f875T = str;
     }
 
     public String toStatusString() {
-        return this.f871T;
+        return this.f875T;
     }
 
     public static PlayerStatus fromStatusString(String str) {

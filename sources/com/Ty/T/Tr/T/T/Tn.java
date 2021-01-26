@@ -14,7 +14,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
 
     /* renamed from: T  reason: collision with root package name */
-    transient Ty<E> f309T;
+    transient Ty<E> f312T;
     private final int T9;
     private final Condition TZ;
     private final Condition Tk;
@@ -26,12 +26,12 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
     static final class Ty<E> {
 
         /* renamed from: T  reason: collision with root package name */
-        E f311T;
+        E f314T;
         Ty<E> Tr;
         Ty<E> Ty;
 
         Ty(E x) {
-            this.f311T = x;
+            this.f314T = x;
         }
     }
 
@@ -53,9 +53,9 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         if (this.Tn >= this.T9) {
             return false;
         }
-        Ty<E> f = this.f309T;
+        Ty<E> f = this.f312T;
         node.Ty = f;
-        this.f309T = node;
+        this.f312T = node;
         if (this.Tr == null) {
             this.Tr = node;
         } else {
@@ -73,8 +73,8 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         Ty<E> l = this.Tr;
         node.Tr = l;
         this.Tr = node;
-        if (this.f309T == null) {
-            this.f309T = node;
+        if (this.f312T == null) {
+            this.f312T = node;
         } else {
             l.Ty = node;
         }
@@ -84,15 +84,15 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
     }
 
     private E Tk() {
-        Ty<E> f = this.f309T;
+        Ty<E> f = this.f312T;
         if (f == null) {
             return null;
         }
         Ty<E> n = f.Ty;
-        E e = f.f311T;
-        f.f311T = null;
+        E e = f.f314T;
+        f.f314T = null;
         f.Ty = f;
-        this.f309T = n;
+        this.f312T = n;
         if (n == null) {
             this.Tr = null;
         } else {
@@ -109,12 +109,12 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
             return null;
         }
         Ty<E> p = l.Tr;
-        E e = l.f311T;
-        l.f311T = null;
+        E e = l.f314T;
+        l.f314T = null;
         l.Tr = l;
         this.Tr = p;
         if (p == null) {
-            this.f309T = null;
+            this.f312T = null;
         } else {
             p.Ty = null;
         }
@@ -134,7 +134,7 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         } else {
             p.Ty = n;
             n.Tr = p;
-            x.f311T = null;
+            x.f314T = null;
             this.Tn--;
             this.TZ.signal();
         }
@@ -279,7 +279,7 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         ReentrantLock lock = this.Ty;
         lock.lock();
         try {
-            return this.f309T == null ? null : this.f309T.f311T;
+            return this.f312T == null ? null : this.f312T.f314T;
         } finally {
             lock.unlock();
         }
@@ -292,8 +292,8 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         ReentrantLock lock = this.Ty;
         lock.lock();
         try {
-            for (Ty<E> p = this.f309T; p != null; p = p.Ty) {
-                if (o.equals(p.f311T)) {
+            for (Ty<E> p = this.f312T; p != null; p = p.Ty) {
+                if (o.equals(p.f314T)) {
                     T(p);
                     return true;
                 }
@@ -371,7 +371,7 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
             try {
                 int n = Math.min(maxElements, this.Tn);
                 for (int i = 0; i < n; i++) {
-                    c.add(this.f309T.f311T);
+                    c.add(this.f312T.f314T);
                     Tk();
                 }
                 return n;
@@ -402,8 +402,8 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         ReentrantLock lock = this.Ty;
         lock.lock();
         try {
-            for (Ty<E> p = this.f309T; p != null; p = p.Ty) {
-                if (o.equals(p.f311T)) {
+            for (Ty<E> p = this.f312T; p != null; p = p.Ty) {
+                if (o.equals(p.f314T)) {
                     return true;
                 }
             }
@@ -419,11 +419,11 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         lock.lock();
         try {
             Object[] a = new Object[this.Tn];
-            Ty<E> p = this.f309T;
+            Ty<E> p = this.f312T;
             int k = 0;
             while (p != null) {
                 int k2 = k + 1;
-                a[k] = p.f311T;
+                a[k] = p.f314T;
                 p = p.Ty;
                 k = k2;
             }
@@ -442,10 +442,10 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
             if (length < this.Tn) {
                 a2 = (Object[]) ((Object[]) Array.newInstance(a.getClass().getComponentType(), this.Tn));
             }
-            Ty<E> p = this.f309T;
+            Ty<E> p = this.f312T;
             int k = 0;
             while (p != null) {
-                a2[k] = p.f311T;
+                a2[k] = p.f314T;
                 p = p.Ty;
                 k++;
             }
@@ -463,14 +463,14 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         ReentrantLock lock = this.Ty;
         lock.lock();
         try {
-            Ty<E> p = this.f309T;
+            Ty<E> p = this.f312T;
             if (p == null) {
                 sb = "[]";
             } else {
                 StringBuilder sb2 = new StringBuilder();
                 sb2.append('[');
                 while (true) {
-                    E e = p.f311T;
+                    E e = p.f314T;
                     if (e == this) {
                         e = "(this Collection)";
                     }
@@ -494,16 +494,16 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
         ReentrantLock lock = this.Ty;
         lock.lock();
         try {
-            Ty<E> f = this.f309T;
+            Ty<E> f = this.f312T;
             while (f != null) {
-                f.f311T = null;
+                f.f314T = null;
                 Ty<E> n = f.Ty;
                 f.Tr = null;
                 f.Ty = null;
                 f = n;
             }
             this.Tr = null;
-            this.f309T = null;
+            this.f312T = null;
             this.Tn = 0;
             this.TZ.signalAll();
         } finally {
@@ -519,7 +519,7 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
     private abstract class T implements Iterator<E> {
 
         /* renamed from: T  reason: collision with root package name */
-        Ty<E> f310T;
+        Ty<E> f313T;
         private Ty<E> Tn;
         E Tr;
 
@@ -533,8 +533,8 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
             ReentrantLock lock = Tn.this.Ty;
             lock.lock();
             try {
-                this.f310T = T();
-                this.Tr = this.f310T == null ? null : this.f310T.f311T;
+                this.f313T = T();
+                this.Tr = this.f313T == null ? null : this.f313T.f314T;
             } finally {
                 lock.unlock();
             }
@@ -546,7 +546,7 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
                 if (s == null) {
                     return null;
                 }
-                if (s.f311T != null) {
+                if (s.f314T != null) {
                     return s;
                 }
                 if (s == n) {
@@ -561,22 +561,22 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
             ReentrantLock lock = Tn.this.Ty;
             lock.lock();
             try {
-                this.f310T = Tr(this.f310T);
-                this.Tr = this.f310T == null ? null : this.f310T.f311T;
+                this.f313T = Tr(this.f313T);
+                this.Tr = this.f313T == null ? null : this.f313T.f314T;
             } finally {
                 lock.unlock();
             }
         }
 
         public boolean hasNext() {
-            return this.f310T != null;
+            return this.f313T != null;
         }
 
         public E next() {
-            if (this.f310T == null) {
+            if (this.f313T == null) {
                 throw new NoSuchElementException();
             }
-            this.Tn = this.f310T;
+            this.Tn = this.f313T;
             E x = this.Tr;
             Tr();
             return x;
@@ -591,7 +591,7 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
             ReentrantLock lock = Tn.this.Ty;
             lock.lock();
             try {
-                if (n.f311T != null) {
+                if (n.f314T != null) {
                     Tn.this.T(n);
                 }
             } finally {
@@ -608,7 +608,7 @@ public class Tn<E> extends AbstractQueue<E> implements T<E>, Serializable {
 
         /* access modifiers changed from: package-private */
         public Ty<E> T() {
-            return Tn.this.f309T;
+            return Tn.this.f312T;
         }
 
         /* access modifiers changed from: package-private */

@@ -7,6 +7,28 @@ import android.os.Parcel;
 import android.os.RemoteException;
 
 public interface ITsSpeechCar extends IInterface {
+    int[] GetCarDoorInfo() throws RemoteException;
+
+    int[] GetCarFrRadar() throws RemoteException;
+
+    int[] GetCarLrRadar() throws RemoteException;
+
+    int GetEmergency() throws RemoteException;
+
+    int GetLeftTurnSignal() throws RemoteException;
+
+    int GetOilLeftover() throws RemoteException;
+
+    int GetRightTurnSignal() throws RemoteException;
+
+    int GetSpeed() throws RemoteException;
+
+    int GetTotalKilometers() throws RemoteException;
+
+    int IsCameraMode() throws RemoteException;
+
+    int getLineEps() throws RemoteException;
+
     void onCloseAllCarwindow() throws RemoteException;
 
     void onCloseCarwindow(String str) throws RemoteException;
@@ -41,6 +63,17 @@ public interface ITsSpeechCar extends IInterface {
 
     public static abstract class Stub extends Binder implements ITsSpeechCar {
         private static final String DESCRIPTOR = "com.ts.tsspeechlib.car.ITsSpeechCar";
+        static final int TRANSACTION_GetCarDoorInfo = 24;
+        static final int TRANSACTION_GetCarFrRadar = 25;
+        static final int TRANSACTION_GetCarLrRadar = 26;
+        static final int TRANSACTION_GetEmergency = 21;
+        static final int TRANSACTION_GetLeftTurnSignal = 19;
+        static final int TRANSACTION_GetOilLeftover = 18;
+        static final int TRANSACTION_GetRightTurnSignal = 20;
+        static final int TRANSACTION_GetSpeed = 22;
+        static final int TRANSACTION_GetTotalKilometers = 17;
+        static final int TRANSACTION_IsCameraMode = 27;
+        static final int TRANSACTION_getLineEps = 23;
         static final int TRANSACTION_onCloseAllCarwindow = 13;
         static final int TRANSACTION_onCloseCarwindow = 15;
         static final int TRANSACTION_onCloseSkylight = 11;
@@ -158,6 +191,72 @@ public interface ITsSpeechCar extends IInterface {
                     data.enforceInterface(DESCRIPTOR);
                     onHeatRearwindow();
                     reply.writeNoException();
+                    return true;
+                case 17:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result = GetTotalKilometers();
+                    reply.writeNoException();
+                    reply.writeInt(_result);
+                    return true;
+                case 18:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result2 = GetOilLeftover();
+                    reply.writeNoException();
+                    reply.writeInt(_result2);
+                    return true;
+                case 19:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result3 = GetLeftTurnSignal();
+                    reply.writeNoException();
+                    reply.writeInt(_result3);
+                    return true;
+                case 20:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result4 = GetRightTurnSignal();
+                    reply.writeNoException();
+                    reply.writeInt(_result4);
+                    return true;
+                case 21:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result5 = GetEmergency();
+                    reply.writeNoException();
+                    reply.writeInt(_result5);
+                    return true;
+                case 22:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result6 = GetSpeed();
+                    reply.writeNoException();
+                    reply.writeInt(_result6);
+                    return true;
+                case 23:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result7 = getLineEps();
+                    reply.writeNoException();
+                    reply.writeInt(_result7);
+                    return true;
+                case 24:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result8 = GetCarDoorInfo();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result8);
+                    return true;
+                case 25:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result9 = GetCarFrRadar();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result9);
+                    return true;
+                case 26:
+                    data.enforceInterface(DESCRIPTOR);
+                    int[] _result10 = GetCarLrRadar();
+                    reply.writeNoException();
+                    reply.writeIntArray(_result10);
+                    return true;
+                case 27:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result11 = IsCameraMode();
+                    reply.writeNoException();
+                    reply.writeInt(_result11);
                     return true;
                 case 1598968902:
                     reply.writeString(DESCRIPTOR);
@@ -389,6 +488,160 @@ public interface ITsSpeechCar extends IInterface {
                     _data.writeInterfaceToken(Stub.DESCRIPTOR);
                     this.mRemote.transact(16, _data, _reply, 0);
                     _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetTotalKilometers() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(17, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetOilLeftover() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(18, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetLeftTurnSignal() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(19, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetRightTurnSignal() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(20, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetEmergency() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(21, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int GetSpeed() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(22, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int getLineEps() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(23, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] GetCarDoorInfo() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(24, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] GetCarFrRadar() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(25, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int[] GetCarLrRadar() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(26, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.createIntArray();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int IsCameraMode() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(27, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
                 } finally {
                     _reply.recycle();
                     _data.recycle();

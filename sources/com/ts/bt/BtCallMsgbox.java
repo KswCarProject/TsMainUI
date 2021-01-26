@@ -1,10 +1,10 @@
 package com.ts.bt;
 
-import android.bluetooth.BluetoothHeadsetClientCall;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.telecom.Call;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.ts.MainUI.R;
 import com.ts.main.common.MainUI;
-import com.yyw.ts70xhw.KeyDef;
+import com.txznet.sdk.TXZResourceManager;
 import java.util.List;
 import java.util.Map;
 
@@ -53,7 +53,7 @@ public class BtCallMsgbox implements DialogInterface.OnDismissListener, DialogIn
     RelativeLayout mRv1;
     private String mStrOldCallName;
     private String mStrOldNo;
-    public String mStrSta = "";
+    public String mStrSta = TXZResourceManager.STYLE_DEFAULT;
     private TextView mTvName;
     private TextView mTvName1;
     private TextView mTvNo;
@@ -89,7 +89,7 @@ public class BtCallMsgbox implements DialogInterface.OnDismissListener, DialogIn
     /* access modifiers changed from: package-private */
     public void initView() {
         this.v = (RelativeLayout) ((LayoutInflater) this.mContext.getSystemService("layout_inflater")).inflate(R.layout.bt_msgbox, (ViewGroup) null);
-        InitWinManager(this.mContext, this.v, KeyDef.RKEY_MEDIA_TITLE, 45, 667, 177);
+        InitWinManager(this.mContext, this.v, 182, 45, 667, 177);
         this.mTvName = (TextView) this.v.findViewById(R.id.bt_calling_name);
         this.mTvNo = (TextView) this.v.findViewById(R.id.bt_calling_no);
         this.mTvState = (TextView) this.v.findViewById(R.id.bt_calling_state);
@@ -110,7 +110,7 @@ public class BtCallMsgbox implements DialogInterface.OnDismissListener, DialogIn
     /* access modifiers changed from: package-private */
     public void initViewSupportMeeting() {
         this.v = (RelativeLayout) ((LayoutInflater) this.mContext.getSystemService("layout_inflater")).inflate(R.layout.bt_msgbox_s, (ViewGroup) null);
-        InitWinManager(this.mContext, this.v, KeyDef.RKEY_MEDIA_SUBT, 45, 660, Can.CAN_TEANA_OLD_DJ);
+        InitWinManager(this.mContext, this.v, 182, 45, 660, Can.CAN_TEANA_OLD_DJ);
         this.mTvName = (TextView) this.v.findViewById(R.id.bt_calling_name);
         this.mTvNo = (TextView) this.v.findViewById(R.id.bt_calling_no);
         this.mTvState = (TextView) this.v.findViewById(R.id.bt_calling_state);
@@ -198,11 +198,11 @@ public class BtCallMsgbox implements DialogInterface.OnDismissListener, DialogIn
             this.bt.answer();
         } else if (id == R.id.btn_calling_exchange) {
             if (BtExe.getBtInstance().isMultiCall()) {
-                this.bt.answer(1);
+                this.bt.hold();
             }
         } else if (id == R.id.btn_calling_merge) {
             if (BtExe.getBtInstance().isMultiCall()) {
-                this.bt.answer();
+                this.bt.mergeCalls();
             }
         } else if (id == R.id.btn_calling_kb || id == R.id.btn_calling_kb_s) {
             if (MainUI.IsCameraMode() == 0) {
@@ -266,72 +266,74 @@ public class BtCallMsgbox implements DialogInterface.OnDismissListener, DialogIn
         boolean isPhoneMeeting = BtExe.getBtInstance().isPhoneMeeting();
         int i = 0;
         for (Map.Entry<String, PhoneCall> element : BtExe.getBtInstance().mCallMap.entrySet()) {
-            String strKey = element.getKey();
             PhoneCall strValue = element.getValue();
+            String strKey = strValue.getCallNumber();
             String strName = strValue.getCallName();
             int state = strValue.getCallState();
-            String mStrState = "";
-            if (state == 0) {
+            String mStrState = TXZResourceManager.STYLE_DEFAULT;
+            if (state == 4) {
                 long second = strValue.getCallActiveSecond();
                 mStrState = String.format("%02d:%02d:%02d", new Object[]{Long.valueOf(second / 3600), Long.valueOf((second / 60) % 60), Long.valueOf(second % 60)});
-            } else if (state == 1) {
+            } else if (state == 3) {
                 mStrState = this.mRes.getString(R.string.str_bt_held);
-            } else if (state == 2 || state == 3) {
+            } else if (state == 9 || state == 1) {
                 mStrState = this.mRes.getString(R.string.str_bt_call_out);
-            } else if (state == 4 || state == 5) {
+            } else if (state == 2) {
                 mStrState = this.mRes.getString(R.string.str_bt_call_in);
-            } else if (state == 5) {
+            } else if (state == 8) {
                 mStrState = this.mRes.getString(R.string.str_bt_waiting);
             } else if (state == 7) {
                 mStrState = this.mRes.getString(R.string.str_bt_call_end);
             }
-            if (state == 4 || state == 5) {
-                showView(this.answerButton, true);
-                showView(this.kbButton, false);
-            } else {
-                showView(this.answerButton, false);
-                showView(this.kbButton, true);
-            }
-            if (BtExe.isCallback) {
-                if (state == 4 || state == 5) {
-                    showView(this.mBtnAnswer, true);
-                    showView(this.mBtnKb, false);
+            if (!BtExe.isHideDialog) {
+                if (state == 2) {
+                    showView(this.answerButton, true);
+                    showView(this.kbButton, false);
                 } else {
-                    showView(this.mBtnAnswer, false);
-                    showView(this.mBtnKb, true);
+                    showView(this.answerButton, false);
+                    showView(this.kbButton, true);
                 }
-            }
-            if (isPhoneMeeting) {
-                if (size > 2) {
-                    if (i == 0) {
+                if (BtExe.isCallback) {
+                    if (state == 2) {
+                        showView(this.mBtnAnswer, true);
+                        showView(this.mBtnKb, false);
+                    } else {
+                        showView(this.mBtnAnswer, false);
+                        showView(this.mBtnKb, true);
+                    }
+                }
+                if (isPhoneMeeting) {
+                    if (size > 2) {
+                        if (i == 0) {
+                            this.mTvName.setText(this.mRes.getString(R.string.str_bt_phone_meeting));
+                            this.mTvState.setText(mStrState);
+                        } else if (i == size - 1) {
+                            if (!TextUtils.isEmpty(strName)) {
+                                this.mTvName1.setText(strName);
+                            } else {
+                                this.mTvName1.setText(strKey);
+                            }
+                            this.mTvState1.setText(mStrState);
+                        }
+                    } else if (i == 0) {
                         this.mTvName.setText(this.mRes.getString(R.string.str_bt_phone_meeting));
                         this.mTvState.setText(mStrState);
-                    } else if (i == size - 1) {
-                        if (!TextUtils.isEmpty(strName)) {
-                            this.mTvName1.setText(strName);
-                        } else {
-                            this.mTvName1.setText(strKey);
-                        }
-                        this.mTvState1.setText(mStrState);
                     }
                 } else if (i == 0) {
-                    this.mTvName.setText(this.mRes.getString(R.string.str_bt_phone_meeting));
+                    if (!TextUtils.isEmpty(strName)) {
+                        this.mTvName.setText(strName);
+                    } else {
+                        this.mTvName.setText(strKey);
+                    }
                     this.mTvState.setText(mStrState);
+                } else if (i == 1) {
+                    if (!TextUtils.isEmpty(strName)) {
+                        this.mTvName1.setText(strName);
+                    } else {
+                        this.mTvName1.setText(strKey);
+                    }
+                    this.mTvState1.setText(mStrState);
                 }
-            } else if (i == 0) {
-                if (!TextUtils.isEmpty(strName)) {
-                    this.mTvName.setText(strName);
-                } else {
-                    this.mTvName.setText(strKey);
-                }
-                this.mTvState.setText(mStrState);
-            } else if (i == 1) {
-                if (!TextUtils.isEmpty(strName)) {
-                    this.mTvName1.setText(strName);
-                } else {
-                    this.mTvName1.setText(strKey);
-                }
-                this.mTvState1.setText(mStrState);
             }
             i++;
         }
@@ -344,7 +346,7 @@ public class BtCallMsgbox implements DialogInterface.OnDismissListener, DialogIn
         } else {
             this.mLv2.setVisibility(0);
         }
-        if (BtExe.isCallback) {
+        if (!BtExe.isHideDialog && BtExe.isCallback) {
             if (BtExe.getBtInstance().isMultiCall()) {
                 this.mBtnExchange.setSelected(false);
                 this.mBtnMerge.setSelected(false);
@@ -360,11 +362,15 @@ public class BtCallMsgbox implements DialogInterface.OnDismissListener, DialogIn
                 showView(this.mRv1, false);
             }
         }
-        List<BluetoothHeadsetClientCall> callList = BtExe.getCurrentCalls();
-        if (callList == null || callList.size() == 0) {
+        List<Call> callList = BtExe.getCurrentCalls();
+        if (!BtExe.isHideDialog) {
+            if (callList == null || callList.size() == 0) {
+                Hide();
+            } else if (callList != null && callList.size() > 0) {
+                Show(1);
+            }
+        } else if (callList == null || callList.size() == 0) {
             Hide();
-        } else if (callList != null && callList.size() > 0) {
-            Show(1);
         }
     }
 

@@ -21,7 +21,7 @@ public interface T {
 
         public static C0007T[] Tn() {
             if (TE == null) {
-                synchronized (Ty.f241T) {
+                synchronized (Ty.f244T) {
                     if (TE == null) {
                         TE = new C0007T[0];
                     }
@@ -41,7 +41,7 @@ public interface T {
             this.T9 = null;
             this.Tk = null;
             this.TZ = null;
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 
@@ -162,7 +162,7 @@ public interface T {
 
         public Tr Tn() {
             this.Tr = C0007T.Tn();
-            this.f238T = -1;
+            this.f241T = -1;
             return this;
         }
 

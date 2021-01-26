@@ -8,7 +8,9 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import com.android.SdkConstants;
 import com.ts.MainUI.R;
+import com.ts.bt.BtExe;
 import com.ts.main.common.MainSet;
 import com.ts.main.common.WinShow;
 import com.ts.main.txz.TxzReg;
@@ -40,9 +42,10 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
     SetItemPopupList VoiceState;
     SetMainItemNoIcon bootLogo;
     int[] nBackCarValue = {R.string.set_general_backcarvol_none, R.string.set_general_backcarvol_min, R.string.set_general_backcarvol_mid, R.string.set_general_backcarvol_high};
-    int[] nIdleTimeValue = {R.string.set_general_idletime_0, R.string.set_general_idletime_10M, R.string.set_general_idletime_20M, R.string.set_general_idletime_30M, R.string.set_general_idletime_60M};
+    int[] nIdleTimeValue = {R.string.set_common_switch_off, R.string.set_common_switch_on};
     int[] nVmcdValue = {R.string.set_general_voice_min, R.string.set_general_voice_mid, R.string.set_general_voice_high};
     int[] nVoiceState = {R.string.set_general_voice_wakeup_all, R.string.set_general_voice_wakeup_v, R.string.set_general_voice_wakeup_b, R.string.set_general_voice_wakeup_off};
+    int[] nVoiceStateLow = {R.string.set_common_switch_off, R.string.set_common_switch_on};
     private String[] setGeneraOptions;
     SetMainItemTopName topname;
 
@@ -64,8 +67,6 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
     public void onResume() {
         this.IdleDelayTime.SetSel(FtSet.GetStandByTime());
         this.KeyTouchSW.SetSwitch(FtSet.GetTouchBall());
-        Log.i(TAG, "StSet.GetParkMute()=" + StSet.GetParkMute());
-        Log.i(TAG, "StSet.GetSpeechMode()=" + FtSet.GetSpeechMode());
         this.VoiceState.SetSel(FtSet.GetSpeechMode());
         this.BackCarVolume.SetSel(StSet.GetParkMute());
         this.VoiceLin.SetSel(FtSet.GetXuNiDisc());
@@ -90,7 +91,7 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
                 SettingGerenalActivity.this.finish();
             }
         });
-        UISetSroView.AddView(this.topname.GetView(), 1280, 80);
+        UISetSroView.AddView(this.topname.GetView(), 1024, -2);
         this.setGeneraOptions = getResources().getStringArray(R.array.set_genera_options);
         for (int setOpt = 0; setOpt < 8; setOpt++) {
             if (isHaveOption(setOpt)) {
@@ -108,7 +109,7 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
                         this.VoiceLin = new SetItemPopupList((Context) this, 0, this.nVmcdValue, (SetItemPopupList.onPopItemClick) this);
                         this.VoiceLin.SetId(5);
                         this.VoiceLin.GetBtn().setText(this.setGeneraOptions[5]);
-                        if (isZh() && MainSet.GetInstance().IsHaveApk("com.txznet.txz")) {
+                        if (isZh() && MainSet.GetInstance().IsHaveApk("com.ts.myvoice")) {
                             UISetSroView.AddView(this.VoiceState.GetView());
                             UISetSroView.AddView(this.VoiceLin.GetView());
                             break;
@@ -116,8 +117,12 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
                     case 2:
                         this.KeyTouchSW = new SetMainItemSw(this, this.setGeneraOptions[setOpt]);
                         this.KeyTouchSW.SetUserCallback(setOpt, this);
-                        UISetSroView.AddView(this.KeyTouchSW.GetView());
-                        break;
+                        if (!MainSet.GetInstance().IsHaveApk("com.ts.mytouch")) {
+                            break;
+                        } else {
+                            UISetSroView.AddView(this.KeyTouchSW.GetView());
+                            break;
+                        }
                     case 3:
                         this.BackCarVolume = new SetItemPopupList((Context) this, 0, this.nBackCarValue, (SetItemPopupList.onPopItemClick) this);
                         this.BackCarVolume.SetId(setOpt);
@@ -141,7 +146,9 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
                     case 7:
                         this.SystemBoot = new SetMainItemNoIcon(this, this.setGeneraOptions[setOpt]);
                         this.SystemBoot.SetUserCallback(setOpt, this);
-                        if (MainSet.GetInstance().Is3561() && getResources().getIdentifier("system_recover_optioned", "string", getPackageName()) <= 0) {
+                        if (getResources().getIdentifier("system_recovery_option", SdkConstants.TAG_STRING, getPackageName()) == 0) {
+                            break;
+                        } else {
                             UISetSroView.AddView(this.SystemBoot.GetView());
                             break;
                         }
@@ -189,14 +196,22 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
         switch (((Integer) arg0.getTag()).intValue()) {
             case 4:
                 this.BootLogoDialog = new SettingNumInuptDlg();
-                this.BootLogoDialog.createDlg(this, this, 4);
-                return;
+                String password = getResources().getString(R.string.custom_bootlogo_num);
+                if (password.length() > 4) {
+                    this.BootLogoDialog.createDlg(this, this, password.length());
+                    return;
+                } else {
+                    this.BootLogoDialog.createDlg(this, this, 4);
+                    return;
+                }
             case 6:
                 this.FtSetDialog = new SetItemDialog(this, R.string.set_general_Recovery, new View.OnClickListener() {
                     public void onClick(View arg0) {
                         switch (((Integer) arg0.getTag()).intValue()) {
                             case 16:
                                 StSet.SetDefault();
+                                BtExe.getBtInstance().clearBtData();
+                                MainSet.GetInstance().SystemReset();
                                 Mcu.SendXKey(19);
                                 SettingGerenalActivity.this.FtSetDialog.Hide();
                                 return;
@@ -219,8 +234,7 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
                     public void onClick(View arg0) {
                         switch (((Integer) arg0.getTag()).intValue()) {
                             case 16:
-                                Mcu.SendXKey(21);
-                                SettingGerenalActivity.this.sendBroadcast(new Intent("android.intent.action.MASTER_CLEAR"));
+                                MainSet.GetInstance().SystemClear();
                                 SettingGerenalActivity.this.BootDialog.Hide();
                                 return;
                             case 17:
@@ -267,8 +281,7 @@ public class SettingGerenalActivity extends Activity implements CompoundButton.O
         if (val.equals(getResources().getString(R.string.custom_bootlogo_num))) {
             WinShow.GotoWin(17, 0);
         } else if (val.equals("2648")) {
-            Mcu.SendXKey(21);
-            sendBroadcast(new Intent("android.intent.action.MASTER_CLEAR"));
+            MainSet.GetInstance().SystemClear();
         }
     }
 }

@@ -8,7 +8,7 @@ import java.net.InetAddress;
 public class TC implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static TC f197T = new TC();
+    public static TC f200T = new TC();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         if (object == null) {

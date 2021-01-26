@@ -15,10 +15,6 @@
     <string name="str_bt_ok">Tamam</string>
     <string name="str_bt_cancel">iptal</string>
     <string name="str_bt_dial">Aranan</string>
-    <string name="tpms_general_bar">Bar</string>
-    <string name="tpms_general_psi">Psi</string>
-    <string name="tpms_general_satrt">Start study</string>
-    <string name="tpms_general_end">Cancel study</string>
     <string name="str_setting_title">Setup</string>
     <string name="set_general_automatic">Auto</string>
     <string name="set_sound_jazz">Jazz</string>
@@ -28,7 +24,7 @@
     <string name="set_sound_pop">Pop</string>
     <string name="set_sound_rock">Rock</string>
     <string name="set_balance_center">Merkez</string>
-    <string name="set_balance_examp">Ex Amp</string>
+    <string name="set_balance_examp">EXT AMP</string>
     <string name="set_balance_loud">Yüksek ses</string>
     <string name="set_balance_subwoof">SubWoof</string>
     <string name="set_general_backcarvol_none">Hiçbiri</string>
@@ -100,6 +96,10 @@
     <string name="vol_common_navivol">Navi Ses</string>
     <string name="vol_common_mut">Sessiz</string>
     <string name="del_common_no_apk">No APP</string>
+    <string name="tpms_general_bar">Bar</string>
+    <string name="tpms_general_psi">Psi</string>
+    <string name="tpms_general_satrt">Start study</string>
+    <string name="tpms_general_end">Cancel study</string>
     <string name="title_activity_can_door">Kapı</string>
     <string name="title_activity_can_mcu_update">MCU güncellemesi</string>
     <string name="title_activity_can_camera">CanCameraActivity</string>
@@ -270,7 +270,7 @@
     <string name="can_tyres_tpms">TPMS</string>
     <string name="can_winter_tyres">Kış lastikleri</string>
     <string name="can_tpms_box">Tüm lastik basınçları gereken değerlere uyuyor mu?</string>
-    <string name="can_confirm">aleyhte</string>
+    <string name="can_confirm">onayla</string>
     <string name="can_tpms_tip1">4 lastik basıncının tümü</string>
     <string name="can_tpms_tip2">kontrol edildi ve</string>
     <string name="can_tpms_tip3">doğru ayarlanmış ise lütfen</string>
@@ -1508,4 +1508,7 @@
     <string name="can_rt_hot">Sağ koltuk ısıtma</string>
     <string name="can_amp_mode">kip</string>
     <string name="can_amp_all">Herşey</string>
+    <string name="can_assist_start">Başlat</string>
+    <string name="can_assist_cancel">İptal</string>
+    <string name="can_assist_back">Geri</string>
 </resources>

@@ -10,14 +10,16 @@ import com.ts.can.CanScrollCarInfoView;
 
 public class CanGMCarInfoView extends CanScrollCarInfoView {
     public static final int ITEM_AC = 2;
+    public static final int ITEM_CAR_INFO = 10;
     public static final int ITEM_CAR_TYPE = 0;
     public static final int ITEM_CDS = 5;
     public static final int ITEM_CONV = 4;
     public static final int ITEM_HYBRID = 8;
+    public static final int ITEM_KEY_SET = 9;
     public static final int ITEM_LANGUAGE = 7;
     public static final int ITEM_LIGHT = 3;
     public static final int ITEM_LOCK = 1;
-    private static final int ITEM_MAX = 8;
+    private static final int ITEM_MAX = 9;
     private static final int ITEM_MIN = 0;
     public static final int ITEM_OTHER = 6;
     public static final String TAG = "CanGMCarInfoActivity";
@@ -26,7 +28,7 @@ public class CanGMCarInfoView extends CanScrollCarInfoView {
     private boolean mbLayout;
 
     public CanGMCarInfoView(Activity activity) {
-        super(activity, 9);
+        super(activity, 11);
     }
 
     public void onItem(int id, int item) {
@@ -41,9 +43,12 @@ public class CanGMCarInfoView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_car_type_select, R.string.can_car_lock_set, R.string.can_ac_set, R.string.can_c4_l_light, R.string.can_sshbl, R.string.can_cds, R.string.can_other_set, R.string.can_lang_set, R.string.can_hybrid_image};
-        this.mItemIcons = new int[]{R.drawable.can_icon_esc, R.drawable.can_icon_lock, R.drawable.can_icon_ac, R.drawable.can_icon_light, R.drawable.can_icon_service, R.drawable.can_icon_cds, R.drawable.can_icon_setup, R.drawable.can_icon_tyres, R.drawable.can_icon_hybrid};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON};
+        this.mItemTitleIds = new int[]{R.string.can_car_type_select, R.string.can_car_lock_set, R.string.can_ac_set, R.string.can_c4_l_light, R.string.can_sshbl, R.string.can_cds, R.string.can_other_set, R.string.can_lang_set, R.string.can_hybrid_image, R.string.can_key_set, R.string.can_vehi_status};
+        this.mItemIcons = new int[]{R.drawable.can_icon_esc, R.drawable.can_icon_lock, R.drawable.can_icon_ac, R.drawable.can_icon_light, R.drawable.can_icon_service, R.drawable.can_icon_cds, R.drawable.can_icon_setup, R.drawable.can_icon_tyres, R.drawable.can_icon_hybrid, R.drawable.can_golf_icon12, R.drawable.can_icon_car};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON};
+        if (CanJni.GetSubType() != 6) {
+            this.mItemVisibles[9] = 0;
+        }
     }
 
     public void ResetData(boolean check) {
@@ -55,7 +60,7 @@ public class CanGMCarInfoView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <= 9; i++) {
             ShowItem(i);
         }
     }
@@ -78,6 +83,7 @@ public class CanGMCarInfoView extends CanScrollCarInfoView {
             case 6:
                 return 1;
             case 7:
+            case 10:
                 return 1;
             default:
                 return 0;

@@ -16,11 +16,13 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
     public static final int BTN_HISTORY = 1;
     public static boolean mThis = false;
+    private CanDataInfo.HondaYLLCData_3 mBatData;
     private ParamButton mBtnHistory;
     private CustomTextView[] mCenTitle;
     private CustomTextView[] mConsump;
@@ -29,7 +31,9 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
     private CustomTextView[] mMark;
     private MyProgressBar[] mProg;
     private CustomTextView mRange;
+    private CustomTextView mSoc;
     private String mStrRange;
+    private String mStrSoc;
     private CustomTextView[] mTitle;
 
     public CanHondaDaRzcConsumpCurrentView(Activity activity) {
@@ -39,6 +43,7 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
     /* access modifiers changed from: protected */
     public void InitUI() {
         this.mCurData = new CanDataInfo.HondaYLLCData_1();
+        this.mBatData = new CanDataInfo.HondaYLLCData_3();
         if (MainSet.GetScreenType() == 5) {
             initScreen_1280x480();
         } else {
@@ -90,7 +95,7 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
         this.mMark[1] = this.mManager.AddCusText(694, 59, 45, 34);
         this.mMark[1].setGravity(17);
         this.mMark[1].SetPxSize(30);
-        this.mMark[1].setText(MainSet.SP_XH_FORD);
+        this.mMark[1].setText("10");
         this.mMark[2] = this.mManager.AddCusText(KeyDef.SKEY_PP_1, 59, 45, 34);
         this.mMark[2].setGravity(21);
         this.mMark[2].SetPxSize(30);
@@ -108,6 +113,14 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
         SetCommBtn(this.mBtnHistory, R.string.can_lsxx);
         this.mBtnHistory.setTag(1);
         this.mBtnHistory.setOnClickListener(this);
+        this.mStrSoc = String.valueOf(getActivity().getResources().getString(R.string.can_dfqc_battery_e)) + ':';
+        this.mSoc = this.mManager.AddCusText(187, 365, KeyDef.RKEY_RDS_TA, 50);
+        this.mSoc.setText(this.mStrSoc);
+        this.mSoc.setGravity(19);
+        this.mSoc.SetPxSize(40);
+        if (CanJni.GetSubType() != 6) {
+            this.mSoc.ShowGone(false);
+        }
     }
 
     private void initCommonScreen() {
@@ -156,7 +169,7 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
         this.mMark[1] = this.mManager.AddCusText(CanCameraUI.BTN_TRUMPCHI_GS7_MODE8, 79, 45, 34);
         this.mMark[1].setGravity(17);
         this.mMark[1].SetPxSize(30);
-        this.mMark[1].setText(MainSet.SP_XH_FORD);
+        this.mMark[1].setText("10");
         this.mMark[2] = this.mManager.AddCusText(697, 79, 45, 34);
         this.mMark[2].setGravity(21);
         this.mMark[2].SetPxSize(30);
@@ -174,6 +187,14 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
         SetCommBtn(this.mBtnHistory, R.string.can_lsxx);
         this.mBtnHistory.setTag(1);
         this.mBtnHistory.setOnClickListener(this);
+        this.mStrSoc = String.valueOf(getActivity().getResources().getString(R.string.can_dfqc_battery_e)) + ':';
+        this.mSoc = this.mManager.AddCusText(60, 390, KeyDef.RKEY_RDS_TA, 50);
+        this.mSoc.setText(this.mStrSoc);
+        this.mSoc.setGravity(19);
+        this.mSoc.SetPxSize(40);
+        if (CanJni.GetSubType() != 6) {
+            this.mSoc.ShowGone(false);
+        }
     }
 
     public void doOnResume() {
@@ -212,10 +233,7 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
 
     public void ResetData(boolean check) {
         CanJni.HondaDAGetConsumpCurrnt(this.mCurData);
-        if (!i2b(this.mCurData.UpdateOnce)) {
-            return;
-        }
-        if (!check || i2b(this.mCurData.Update)) {
+        if (i2b(this.mCurData.UpdateOnce) && (!check || i2b(this.mCurData.Update))) {
             this.mCurData.Update = 0;
             this.mMark[1].setText(new StringBuilder(String.valueOf(this.mCurData.Yhlc / 2)).toString());
             this.mMark[2].setText(new StringBuilder(String.valueOf(this.mCurData.Yhlc)).toString());
@@ -242,6 +260,14 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
             this.mConsump[1].setText(GetYhVal(this.mCurData.Dqpjyh, this.mCurData.DwDqlspjyh));
             this.mConsump[2].setText(GetYhVal(this.mCurData.Lspjyh, this.mCurData.DwDqlspjyh));
             this.mRange.setText(String.format("%s %s", new Object[]{this.mStrRange, GetRangeVal(this.mCurData.Range, this.mCurData.DwRange)}));
+        }
+        CanJni.HondaDAGetBatInfo(this.mBatData);
+        if (!i2b(this.mBatData.UpdateOnce)) {
+            return;
+        }
+        if (!check || i2b(this.mBatData.Update)) {
+            this.mBatData.Update = 0;
+            this.mSoc.setText(String.format("%s %d %%", new Object[]{this.mStrSoc, Integer.valueOf(this.mBatData.Sydl)}));
         }
     }
 
@@ -270,7 +296,7 @@ public class CanHondaDaRzcConsumpCurrentView extends CanRelativeCarInfoView {
             case 2:
                 return "l/100km";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

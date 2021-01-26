@@ -16,16 +16,18 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
     public static final int ITEM_DDZDYG = 6;
     public static final int ITEM_HSJZD = 7;
     public static final int ITEM_JSBSTSY = 8;
-    private static final int ITEM_MAX = 14;
+    private static final int ITEM_MAX = 16;
     private static final int ITEM_MIN = 1;
     public static final int ITEM_WHSJJDSDTJ = 11;
     public static final int ITEM_WHSJJDZDTJ1 = 12;
     public static final int ITEM_WHSJJDZDTJ2 = 13;
+    public static final int ITEM_WXCD = 16;
     public static final int ITEM_XLXGYKQ = 14;
     public static final int ITEM_YGWH = 5;
     public static final int ITEM_YKJS = 1;
     public static final int ITEM_YKQCTC = 4;
     public static final int ITEM_ZDJS = 3;
+    public static final int ITEM_ZDYGGN = 15;
     public static final int ITEM_ZNZDBS = 9;
     public static final int ITEM_ZNZDJS = 10;
     public static final String TAG = "CanGqcqSetAttachActivity";
@@ -36,10 +38,12 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
     private CanItemPopupList mItemWhsjjdsdtj;
     private CanItemPopupList mItemWhsjjdzdtj_1;
     private CanItemPopupList mItemWhsjjdzdtj_2;
+    private CanItemSwitchList mItemWxcd;
     private CanItemPopupList mItemYgwh;
     private CanItemPopupList mItemYkjs;
     private CanItemPopupList mItemYkqctc;
     private CanItemPopupList mItemZdjs;
+    private CanItemPopupList mItemZdyggn;
     private CanItemPopupList mItemZnzdbs;
     private CanItemPopupList mItemZnzdjs;
     private CanItemPopupList mItemxlxgykq;
@@ -84,6 +88,8 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
                 this.mItemWhsjjdzdtj_2.ShowGone(false);
             }
             this.mItemxlxgykq.SetSel(this.mSetData.Xlxgykq - 1);
+            this.mItemZdyggn.SetSel(this.mSetData.Zdyggn - 1);
+            this.mItemWxcd.SetCheck(this.mSetData.Wxcd - 1);
         }
     }
 
@@ -123,12 +129,14 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
         this.mItemWhsjjdzdtj_1 = AddPopupItem(R.string.can_trumpchi_whsjdjzdtj, this.mSWArr, 12);
         this.mItemWhsjjdzdtj_2 = AddPopupItem(R.string.can_trumpchi_whsjdjzdtj_2, this.mWhsjjdzdtjArr, 13);
         this.mItemxlxgykq = AddPopupItem(R.string.can_xlxgykq, this.mXlxgykqjArr, 14);
+        this.mItemZdyggn = AddPopupItem(R.string.can_zdys, this.mSWArr, 15);
+        this.mItemWxcd = AddCheckItem(R.string.can_wxcd, 16);
         LayoutUI();
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 14; i++) {
+        for (int i = 1; i <= 16; i++) {
             ShowItem(i);
         }
     }
@@ -177,6 +185,12 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
                 ret = 0;
                 break;
             case 14:
+                ret = 1;
+                break;
+            case 15:
+                ret = 1;
+                break;
+            case 16:
                 ret = 1;
                 break;
         }
@@ -229,6 +243,12 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
             case 14:
                 this.mItemxlxgykq.ShowGone(show);
                 return;
+            case 15:
+                this.mItemZdyggn.ShowGone(show);
+                return;
+            case 16:
+                this.mItemWxcd.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -253,7 +273,13 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
     }
 
     public void onClick(View v) {
-        int intValue = ((Integer) v.getTag()).intValue();
+        switch (((Integer) v.getTag()).intValue()) {
+            case 16:
+                CarSet(44, Neg(this.mSetData.Wxcd - 1));
+                return;
+            default:
+                return;
+        }
     }
 
     public void UserAll() {
@@ -303,6 +329,9 @@ public class CanGqcqSetAttachActivity extends CanGqcqBaseActivity implements Vie
                 return;
             case 14:
                 CarSet(39, item);
+                return;
+            case 15:
+                CarSet(40, item);
                 return;
             default:
                 return;

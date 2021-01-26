@@ -7,7 +7,7 @@ import com.Tr.Tr.Tr.Tr;
 public final class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final int[] f249T = {4, 6, 6, 8, 8, 8, 8, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
+    private static final int[] f252T = {4, 6, 6, 8, 8, 8, 8, 8, 8, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
 
     public static T T(byte[] data, int minECCPercent, int userSpecifiedLayers) {
         int wordSize;
@@ -26,7 +26,7 @@ public final class Ty {
                 throw new IllegalArgumentException(String.format("Illegal value %s for layers", new Object[]{Integer.valueOf(userSpecifiedLayers)}));
             }
             totalBitsInLayer = T(layers, compact);
-            wordSize = f249T[layers];
+            wordSize = f252T[layers];
             int usableBitsInLayers = totalBitsInLayer - (totalBitsInLayer % wordSize);
             stuffedBits = T(bits, wordSize);
             if (stuffedBits.T() + eccBits > usableBitsInLayers) {
@@ -47,8 +47,8 @@ public final class Ty {
                 }
                 totalBitsInLayer = T(layers, compact);
                 if (totalSizeBits <= totalBitsInLayer) {
-                    if (wordSize != f249T[layers]) {
-                        wordSize = f249T[layers];
+                    if (wordSize != f252T[layers]) {
+                        wordSize = f252T[layers];
                         stuffedBits = T(bits, wordSize);
                     }
                     int usableBitsInLayers2 = totalBitsInLayer - (totalBitsInLayer % wordSize);
@@ -233,7 +233,7 @@ public final class Ty {
             case 10:
                 return com.Tr.Tr.Tr.T.T.Tr;
             case 12:
-                return com.Tr.Tr.Tr.T.T.f283T;
+                return com.Tr.Tr.Tr.T.T.f286T;
             default:
                 throw new IllegalArgumentException("Unsupported word size " + wordSize);
         }

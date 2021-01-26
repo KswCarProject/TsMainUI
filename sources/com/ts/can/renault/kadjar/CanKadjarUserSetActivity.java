@@ -13,7 +13,6 @@ import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanItemSwitchList;
 import com.ts.canview.CanScrollBaseActivity;
-import com.ts.main.common.MainSet;
 
 public class CanKadjarUserSetActivity extends CanScrollBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange, CanItemFsSetList.onFsSetClick {
     protected static final int ITEM_CMZDSS = 5;
@@ -34,7 +33,7 @@ public class CanKadjarUserSetActivity extends CanScrollBaseActivity implements V
     protected static final int ITEM_ZNYSXT = 7;
     public static final String TAG = "CanKadjarUserSetActivity";
     protected static final int[] mColorArr = {R.string.can_magoten_light_color_2, R.string.can_color_red, R.string.can_color_blue, R.string.can_purple, R.string.can_orange_color};
-    protected static final String[] mTsylArr = {MainSet.SP_XPH5, MainSet.SP_RLF_KORON, MainSet.SP_XH_DMAX};
+    protected static final String[] mTsylArr = {"1", "2", "3"};
     protected CanItemSwitchList mItemCmzdss;
     protected CanItemSwitchList mItemDcshyskq;
     protected CanItemSwitchList mItemFwd;

@@ -14,7 +14,6 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanBaseACView;
 import com.ts.can.CanCameraUI;
-import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
 import com.ts.canview.RelativeLayoutContainer;
 import com.ts.other.ParamButton;
 import com.yyw.ts70xhw.KeyDef;
@@ -99,7 +98,7 @@ public class CanSitechDevCwACView extends CanBaseACView {
     private void SendKey(int id, int para) {
         switch (id) {
             case 0:
-                CanJni.SitechDevCwAcKey(Can.CAN_CHANA_CS75_WC, para);
+                CanJni.SitechDevCwAcKey(160, para);
                 return;
             case 1:
                 CanJni.SitechDevCwAcKey(161, para);
@@ -168,7 +167,7 @@ public class CanSitechDevCwACView extends CanBaseACView {
             this.mBtnFrontHeat = this.mContainer.addButton(165, Can.CAN_CC_HF_DJ);
             this.mBtnRearHeat = this.mContainer.addButton(165, KeyDef.RKEY_RDS_TA);
             this.mBtnAuto = this.mContainer.addButton(668, 430);
-            this.mBtnPtc = this.mContainer.addButton(CanToyotaDJCarDeviceView.ITEM_PLAY, 430);
+            this.mBtnPtc = this.mContainer.addButton(768, 430);
             this.mBtnOff = this.mContainer.addButton(868, 430);
             this.mBtnModeHead = this.mContainer.addButton(568, 430);
             this.mBtnAcMax = this.mContainer.addButton(668, 430);
@@ -179,7 +178,7 @@ public class CanSitechDevCwACView extends CanBaseACView {
             this.mBtnFrontHeat = this.mContainer.addButton(165, Can.CAN_CC_HF_DJ);
             this.mBtnRearHeat = this.mContainer.addButton(165, KeyDef.RKEY_RDS_TA);
             this.mBtnAuto = this.mContainer.addButton(668, 430);
-            this.mBtnPtc = this.mContainer.addButton(CanToyotaDJCarDeviceView.ITEM_PLAY, 430);
+            this.mBtnPtc = this.mContainer.addButton(768, 430);
             this.mBtnOff = this.mContainer.addButton(568, 430);
             this.mBtnModeHead = this.mContainer.addButton(165, KeyDef.RKEY_RDS_TA);
             this.mBtnAcMax = this.mContainer.addButton(668, 430);
@@ -193,7 +192,7 @@ public class CanSitechDevCwACView extends CanBaseACView {
             this.mBtnFrontHeat = this.mContainer.addButton(165, Can.CAN_CC_HF_DJ);
             this.mBtnRearHeat = this.mContainer.addButton(165, KeyDef.RKEY_RDS_TA);
             this.mBtnAuto = this.mContainer.addButton(668, 430);
-            this.mBtnPtc = this.mContainer.addButton(CanToyotaDJCarDeviceView.ITEM_PLAY, 430);
+            this.mBtnPtc = this.mContainer.addButton(768, 430);
             this.mBtnOff = this.mContainer.addButton(868, 430);
             this.mBtnModeHead = this.mContainer.addButton(568, 430);
             this.mBtnAcMax = this.mContainer.addButton(668, 430);
@@ -213,7 +212,7 @@ public class CanSitechDevCwACView extends CanBaseACView {
         this.mWindLayout.setOrientation(0);
         this.mWindLayout.addView(windPoint);
         this.mContainer.addView(this.mTempLayout, 110, 42, 38, 363);
-        this.mContainer.addView(this.mWindLayout, 208, 473, KeyDef.RKEY_MEDIA_ZOOM, 38);
+        this.mContainer.addView(this.mWindLayout, 208, 473, 309, 38);
         this.mIvWindLs = this.mContainer.addImage(CanCameraUI.BTN_TRUMPCHI_GS4_MODE3, 32, R.drawable.can_ky3x_shine_ls);
         this.mIvWindRs = this.mContainer.addImage(675, 32, R.drawable.can_ky3x_shine_rs);
         this.mIvWindLc = this.mContainer.addImage(281, 203, R.drawable.can_ky3x_shine_lc);

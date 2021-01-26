@@ -266,7 +266,7 @@ public class CanFordMondeoWcCarACView extends CanBaseACView {
         this.mBtnModeFront = AddButton(274, 138, 6, R.drawable.can_ac_yh_wd_up, R.drawable.can_ac_yh_wd_dn);
         this.mBtnModeHead = AddButton(274, 216, 7, R.drawable.can_ac_yh_jt1_up, R.drawable.can_ac_yh_jt1_dn);
         this.mBtnModeFoot = AddButton(274, 285, 8, R.drawable.can_ac_yh_jt2_up, R.drawable.can_ac_yh_jt2_dn);
-        this.mBtnPower = AddButton(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 25, 9, R.drawable.can_ac_yh_gj_up, R.drawable.can_ac_yh_gj_dn);
+        this.mBtnPower = AddButton(540, 25, 9, R.drawable.can_ac_yh_gj_up, R.drawable.can_ac_yh_gj_dn);
         this.mBtnMaxFront = AddButton(124, 405, 10, R.drawable.can_ac_yh_wmax_up, R.drawable.can_ac_yh_wmax_dn);
         this.mBtnAuto = AddButton(Can.CAN_TOYOTA_SP_XP, 405, 11, R.drawable.can_ac_yh_auto01_up, R.drawable.can_ac_yh_auto01_dn);
         this.mBtnAc = AddButton(382, 405, 12, R.drawable.can_ac_yh_ac_up, R.drawable.can_ac_yh_ac_dn);

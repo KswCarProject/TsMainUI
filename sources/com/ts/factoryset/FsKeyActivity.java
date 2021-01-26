@@ -9,7 +9,6 @@ import com.ts.factoryset.FsInputDlg;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.yyw.ts70xhw.FtSet;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 public class FsKeyActivity extends FsBaseActivity {
     public static final String TAG = "FsKeyActivity";
@@ -230,7 +229,7 @@ public class FsKeyActivity extends FsBaseActivity {
     }
 
     public static int byteArrayToInt(byte[] b, int offset) {
-        return (b[offset + 0] & 255) | ((b[offset + 1] & 255) << 8) | ((b[offset + 2] & 255) << WrcManager.WrcCallback.KEY_CENTER) | ((b[offset + 3] & 255) << 24);
+        return (b[offset + 0] & 255) | ((b[offset + 1] & 255) << 8) | ((b[offset + 2] & 255) << 16) | ((b[offset + 3] & 255) << 24);
     }
 
     /* access modifiers changed from: package-private */

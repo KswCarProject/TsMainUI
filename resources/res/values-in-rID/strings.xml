@@ -25,7 +25,7 @@
     <string name="set_sound_pop">Pop</string>
     <string name="set_sound_rock">Rock</string>
     <string name="set_balance_center">Center</string>
-    <string name="set_balance_examp">Ex Amp</string>
+    <string name="set_balance_examp">EXT AMP</string>
     <string name="set_balance_loud">Loud</string>
     <string name="set_balance_subwoof">SubWoof</string>
     <string name="set_general_sound_min">Bas</string>
@@ -70,7 +70,6 @@
     <string name="str_dsp_loudness">Kekerasan</string>
     <string name="str_dsp_front">Depan</string>
     <string name="str_dsp_rear">Belakang</string>
-    <string name="app_name">Ts3561</string>
     <string name="title_activity_radio_main">Radio</string>
     <string name="title_activity_aux_main">Aux In</string>
     <string name="title_activity_cmmb_main">DTV</string>
@@ -103,7 +102,7 @@
     <string name="title_activity_tpmsmain">TPMS</string>
     <string name="title_activity_tpmsset_main">Setting</string>
     <string name="title_activity_weather">BT SWC</string>
-    <string name="title_activity_adasmain">ADAS</string>
+    <string name="title_activity_adasmain">DSP</string>
     <string name="title_activity_360view">Tampilan 360</string>
     <string name="str_bt_bluetooth">bluebooth</string>
     <string name="title_activity_Dialer">Phone</string>

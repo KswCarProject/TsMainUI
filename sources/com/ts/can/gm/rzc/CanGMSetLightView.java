@@ -8,6 +8,7 @@ import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
 
 public class CanGMSetLightView extends CanScrollCarInfoView {
+    private static final int ITEM_CSFWDYSSZ = 4;
     public static final int ITEM_DDYS = 1;
     private static final int ITEM_MAX = 1;
     private static final int ITEM_MIN = 0;
@@ -20,7 +21,7 @@ public class CanGMSetLightView extends CanScrollCarInfoView {
     private boolean mbLayout;
 
     public CanGMSetLightView(Activity activity) {
-        super(activity, 4);
+        super(activity, 5);
     }
 
     public void onItem(int Id, int item) {
@@ -34,15 +35,30 @@ public class CanGMSetLightView extends CanScrollCarInfoView {
     }
 
     public void onChanged(int id, int pos) {
+        switch (id) {
+            case 4:
+                CanJni.GMCarCtrl(32, pos);
+                return;
+            default:
+                return;
+        }
     }
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_xcd, R.string.can_lsddys, R.string.can_left_or_right_hand_traffic, R.string.can_adaptive_forward_lighting};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
+        this.mItemTitleIds = new int[]{R.string.can_xcd, R.string.can_lsddys, R.string.can_left_or_right_hand_traffic, R.string.can_adaptive_forward_lighting, R.string.can_fwd_color};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.CHECK, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.PROGRESS};
         this.mPopValueIds[1] = mDdysArr;
         this.mPopValueIds[2] = mLeftOrRightHandTrafficArr;
         this.mPopValueIds[3] = mAdaptiveForwardLightingArr;
+        int[][] iArr = this.mProgressAttrs;
+        int[] iArr2 = new int[4];
+        iArr2[1] = 18;
+        iArr2[2] = 1;
+        iArr[4] = iArr2;
+        if (CanJni.GetSubType() != 8) {
+            this.mItemVisibles[4] = 0;
+        }
     }
 
     /* access modifiers changed from: protected */
@@ -73,6 +89,7 @@ public class CanGMSetLightView extends CanScrollCarInfoView {
             updateItem(1, this.mSetData.LSDDYS);
             updateItem(2, this.mSetData.LtOrRtTraffic);
             updateItem(3, this.mSetData.AdtForwardLight);
+            updateItem(4, this.mSetData.Fwdys);
         }
     }
 

@@ -8,7 +8,7 @@ import java.util.TimeZone;
 public class TrA implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static final TrA f216T = new TrA();
+    public static final TrA f219T = new TrA();
 
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
         if (object == null) {

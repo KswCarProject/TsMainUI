@@ -1,5 +1,6 @@
 package com.google.zxing.client.result;
 
+import com.android.SdkConstants;
 import com.google.zxing.Result;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -129,7 +130,7 @@ public abstract class ResultParser {
 
     static String urlDecode(String encoded) {
         try {
-            return URLDecoder.decode(encoded, "UTF-8");
+            return URLDecoder.decode(encoded, SdkConstants.INI_CHARSET);
         } catch (UnsupportedEncodingException uee) {
             throw new IllegalStateException(uee);
         }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="set_main_options">
+        <item>Загальні</item>
+        <item>Дисплей</item>
+        <item>Гучність</item>
+        <item>Звук</item>
+        <item>Відео</item>
+        <item>Навігація</item>
+        <item>BT</item>
+        <item>Налаштування керма</item>
+        <item>Про пристрій</item>
+    </array>
+    <array name="set_genera_options">
+        <item>Режим сну</item>
+        <item>Розпізнання мови</item>
+        <item>Помічник</item>
+        <item>Гучність при паркуванні</item>
+        <item>Логотип</item>
+        <item>Virtual CD Storage Device</item>
+        <item>Зкидання всіх налаштувань</item>
+        <item>Зтерти зміст</item>
+    </array>
+    <array name="set_display_options">
+        <item>Налаштування підсвічування вдень</item>
+        <item>Налаштування підсвічування вночі</item>
+        <item>Авто</item>
+        <item>Колір кнопок</item>
+    </array>
+    <array name="set_volume_options">
+        <item>Гучність медіа</item>
+        <item>Гучність навігаціі</item>
+        <item>Гучність BT</item>
+        <item>Гучність дзвінка</item>
+        <item>Гучність сигналу</item>
+        <item>Гучність системи</item>
+    </array>
+    <array name="set_video_options">
+        <item>Відео у русі</item>
+        <item>Паркувальні лінії</item>
+        <item>Попереджувальні лінії</item>
+        <item>Дзеркальне відображення камери</item>
+        <item>Кондиціонер</item>
+        <item>Камера заднього огляду</item>
+        <item>Передня камера</item>
+        <item>Тип камери</item>
+    </array>
+    <array name="set_navi_options">
+        <item>Автостарт навигації</item>
+        <item>Шлях до файлу</item>
+        <item>Гучність наві+медіа</item>
+    </array>
+    <array name="set_bt_options">
+        <item>PIN код</item>
+        <item>Автоз&apos;єднання</item>
+        <item>Автовідповідь</item>
+    </array>
+    <array name="set_eqpment_options">
+        <item>HMI</item>
+        <item>MCU</item>
+        <item>MEDIA</item>
+        <item>CAN</item>
+        <item>BTV</item>
+        <item>DVDROM</item>
+    </array>
+    <array name="str_dsp_flags">
+        <item>32</item>
+        <item>64</item>
+        <item>128</item>
+        <item>256</item>
+        <item>512</item>
+        <item>1k</item>
+        <item>1.5k</item>
+        <item>2k</item>
+        <item>2.5k</item>
+        <item>3k</item>
+        <item>3.5k</item>
+        <item>4k</item>
+        <item>4.5k</item>
+        <item>5k</item>
+        <item>5.5k</item>
+        <item>6k</item>
+        <item>7k</item>
+        <item>8k</item>
+        <item>9k</item>
+        <item>10k</item>
+        <item>11k</item>
+        <item>12k</item>
+        <item>13k</item>
+        <item>14k</item>
+        <item>15k</item>
+        <item>16k</item>
+        <item>17k</item>
+        <item>18k</item>
+        <item>19k</item>
+        <item>20k</item>
+    </array>
+    <array name="str_dsp_subwoofer_arrays">
+        <item>Gain</item>
+        <item>Low frequency</item>
+        <item>Harmonic</item>
+    </array>
+    <array name="str_dsp_loudness_arrays">
+        <item>Low frequency</item>
+        <item>Gain</item>
+        <item>High frequency</item>
+        <item>Gain</item>
+    </array>
+</resources>

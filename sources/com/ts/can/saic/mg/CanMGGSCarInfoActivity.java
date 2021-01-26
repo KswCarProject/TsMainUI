@@ -19,21 +19,29 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
     public static final int ITEM_AVM_SET = 8;
     public static final int ITEM_CAR_TYPE = 1;
     public static final int ITEM_CONV = 6;
+    public static final int ITEM_DRIVE_ASS = 10;
     public static final int ITEM_FIND_LIGHT = 4;
     public static final int ITEM_FS_SET = 7;
     public static final int ITEM_HOME_LIGHT = 3;
+    public static final int ITEM_JSMS = 12;
     public static final int ITEM_LOCK = 2;
-    private static final int ITEM_MAX = 8;
+    private static final int ITEM_MAX = 12;
     private static final int ITEM_MIN = 1;
+    public static final int ITEM_SYSTEM = 11;
+    public static final int ITEM_TPMS = 9;
     public static final String TAG = "CanMGGSCarInfoActivity";
     private CanItemIcoList mItemAC;
     private CanItemIcoList mItemAvmSet;
     private CanItemIcoList mItemCarType;
     private CanItemIcoList mItemConv;
+    private CanItemIcoList mItemDriveAss;
     private CanItemIcoList mItemFindLight;
     private CanItemIcoList mItemFsSet;
     private CanItemIcoList mItemHomeLight;
+    private CanItemIcoList mItemJsms;
     private CanItemIcoList mItemLock;
+    private CanItemIcoList mItemSystem;
+    private CanItemIcoList mItemTpms;
     private CanScrollList mManager;
     private boolean mbLayout;
 
@@ -79,12 +87,16 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
         this.mItemHomeLight = AddIcoItem(R.drawable.can_icon_light, R.string.can_bwhj_light, 3);
         this.mItemFindLight = AddIcoItem(R.drawable.can_icon_light2, R.string.can_xcd, 4);
         this.mItemAC = AddIcoItem(R.drawable.can_icon_ac, R.string.can_ac_set, 5);
+        this.mItemTpms = AddIcoItem(R.drawable.can_icon_tyres, R.string.can_tyres_tpms, 9);
+        this.mItemDriveAss = AddIcoItem(R.drawable.can_icon_leida, R.string.can_jsfz, 10);
+        this.mItemJsms = AddIcoItem(R.drawable.can_icon_factory, R.string.can_psa_wc_jsms, 12);
+        this.mItemSystem = AddIcoItem(R.drawable.can_icon_gps, R.string.can_system, 11);
         this.mItemFsSet = AddIcoItem(R.drawable.can_icon_factory, R.string.can_factory_set, 7);
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 8; i++) {
+        for (int i = 1; i <= 12; i++) {
             ShowItem(i);
         }
     }
@@ -100,29 +112,19 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
                 }
                 break;
             case 2:
-                if (1 != CanJni.GetSubType() && 2 != CanJni.GetSubType() && 3 != CanJni.GetSubType() && 4 != CanJni.GetSubType() && 5 != CanJni.GetSubType() && 6 != CanJni.GetSubType() && 7 != CanJni.GetSubType() && 8 != CanJni.GetSubType() && 9 != CanJni.GetSubType() && 10 != CanJni.GetSubType() && 11 != CanJni.GetSubType() && 12 != CanJni.GetSubType()) {
+                if (CanJni.GetSubType() == 0 || 14 == CanJni.GetSubType()) {
                     ret = 1;
-                    break;
-                } else {
-                    ret = 0;
                     break;
                 }
-                break;
             case 3:
-                if (1 != CanJni.GetSubType() && 2 != CanJni.GetSubType() && 3 != CanJni.GetSubType() && 4 != CanJni.GetSubType() && 5 != CanJni.GetSubType() && 6 != CanJni.GetSubType() && 7 != CanJni.GetSubType() && 8 != CanJni.GetSubType() && 9 != CanJni.GetSubType() && 10 != CanJni.GetSubType() && 11 != CanJni.GetSubType() && 12 != CanJni.GetSubType()) {
+                if (CanJni.GetSubType() == 0) {
                     ret = 1;
-                    break;
-                } else {
-                    ret = 0;
                     break;
                 }
                 break;
             case 4:
-                if (1 != CanJni.GetSubType() && 2 != CanJni.GetSubType() && 3 != CanJni.GetSubType() && 4 != CanJni.GetSubType() && 5 != CanJni.GetSubType() && 6 != CanJni.GetSubType() && 7 != CanJni.GetSubType() && 8 != CanJni.GetSubType() && 9 != CanJni.GetSubType() && 10 != CanJni.GetSubType() && 11 != CanJni.GetSubType() && 12 != CanJni.GetSubType()) {
+                if (CanJni.GetSubType() == 0) {
                     ret = 1;
-                    break;
-                } else {
-                    ret = 0;
                     break;
                 }
                 break;
@@ -136,16 +138,14 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
                 }
                 break;
             case 6:
-                if (1 == CanJni.GetSubType() || 2 == CanJni.GetSubType() || 3 == CanJni.GetSubType() || 4 == CanJni.GetSubType() || 5 == CanJni.GetSubType() || 6 == CanJni.GetSubType() || 7 == CanJni.GetSubType() || 8 == CanJni.GetSubType() || 9 == CanJni.GetSubType() || 10 == CanJni.GetSubType() || 11 == CanJni.GetSubType() || 12 == CanJni.GetSubType()) {
+                if (CanJni.GetSubType() != 0) {
                     ret = 1;
                     break;
                 }
+                break;
             case 7:
-                if (1 != CanJni.GetSubType() && 2 != CanJni.GetSubType() && 3 != CanJni.GetSubType() && 4 != CanJni.GetSubType() && 5 != CanJni.GetSubType() && 6 != CanJni.GetSubType() && 7 != CanJni.GetSubType() && 8 != CanJni.GetSubType() && 9 != CanJni.GetSubType() && 10 != CanJni.GetSubType() && 11 != CanJni.GetSubType() && 12 != CanJni.GetSubType()) {
+                if (CanJni.GetSubType() == 0) {
                     ret = 1;
-                    break;
-                } else {
-                    ret = 0;
                     break;
                 }
                 break;
@@ -154,6 +154,20 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
                     ret = 1;
                     break;
                 }
+            case 9:
+                if (13 == CanJni.GetSubType()) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 10:
+            case 11:
+            case 12:
+                if (14 == CanJni.GetSubType()) {
+                    ret = 1;
+                    break;
+                }
+                break;
         }
         return i2b(ret);
     }
@@ -186,6 +200,18 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
             case 8:
                 this.mItemAvmSet.ShowGone(show);
                 return;
+            case 9:
+                this.mItemTpms.ShowGone(show);
+                return;
+            case 10:
+                this.mItemDriveAss.ShowGone(show);
+                return;
+            case 11:
+                this.mItemSystem.ShowGone(show);
+                return;
+            case 12:
+                this.mItemJsms.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -215,8 +241,13 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
                 enterSubWin(CanMGCarTypeActivity.class);
                 return;
             case 2:
-                enterSubWin(CanMGGSLockActivity.class);
-                return;
+                if (14 == CanJni.GetSubType()) {
+                    CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 10);
+                    return;
+                } else {
+                    enterSubWin(CanMGGSLockActivity.class);
+                    return;
+                }
             case 3:
                 enterSubWin(CanMGGSHomeLightActivity.class);
                 return;
@@ -224,11 +255,19 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
                 enterSubWin(CanMGGSFindLightActivity.class);
                 return;
             case 5:
-                enterSubWin(CanMGGSACActivity.class);
-                return;
+                if (14 == CanJni.GetSubType()) {
+                    CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 12);
+                    return;
+                } else {
+                    enterSubWin(CanMGGSACActivity.class);
+                    return;
+                }
             case 6:
                 if (2 == CanJni.GetSubType()) {
                     enterSubWin(CanMGRx5ConvActivity.class);
+                    return;
+                } else if (14 == CanJni.GetSubType()) {
+                    CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 11);
                     return;
                 } else {
                     enterSubWin(CanMGConvActivity.class);
@@ -239,6 +278,18 @@ public class CanMGGSCarInfoActivity extends CanMGGSBaseActivity implements View.
                 return;
             case 8:
                 CanFunc.showCanActivity(CanCarInfoSub1Activity.class, -1);
+                return;
+            case 9:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 0);
+                return;
+            case 10:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 13);
+                return;
+            case 11:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 14);
+                return;
+            case 12:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 15);
                 return;
             default:
                 return;

@@ -68,7 +68,7 @@ public class ContextCompat {
         if (version >= 8) {
             single = ContextCompatFroyo.getExternalCacheDir(context);
         } else {
-            single = buildPath(Environment.getExternalStorageDirectory(), DIR_ANDROID, "data", context.getPackageName(), DIR_CACHE);
+            single = buildPath(Environment.getExternalStorageDirectory(), DIR_ANDROID, "data", context.getPackageName(), "cache");
         }
         return new File[]{single};
     }

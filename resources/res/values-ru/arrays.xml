@@ -1,5 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <array name="mcu_update_msg">
+        <item>Нет процесса обновления</item>
+        <item>Ошибка обновления</item>
+        <item>Обновление! Не отключать питание до окончания</item>
+        <item>Шифрование чипа</item>
+        <item>Ошибка очистки памяти</item>
+        <item>Память очищена</item>
+        <item>Обновление успешно; Пожалуйста, перезагрузите устройство!</item>
+    </array>
+    <array name="can_service_notice_array">
+        <item>Советы по уходу</item>
+        <item>Истекающий</item>
+        <item>Проверьте введеную дату</item>
+        <item>Обратитесь на сервис</item>
+    </array>
+    <array name="can_by_service_array">
+        <item>Моторное масло</item>
+        <item>Техосмотр</item>
+        <item>Тормозная жидкость</item>
+        <item>Обязательная проверка выхлопных газов</item>
+        <item>Обязательнаый техосмотр</item>
+        <item>Накладка переднего тормоза</item>
+        <item>Накладка заднего тормоза</item>
+        <item>Тип топлива</item>
+        <item>Проверка в движении</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_tsy">
+        <item />
+        <item>Убедитесь в безопасности маневра</item>
+        <item>Парк-пилот недоступен</item>
+        <item>Меняйте сторону указателем поворота</item>
+        <item>Выберите переднюю передачу</item>
+        <item>Место не найдено, двигайтесь вперед</item>
+        <item>Остановка рядом с парковочным местом</item>
+        <item>Нажмите △▽, и задайте парковочное положение</item>
+        <item>Отрегулируйте положение парковки</item>
+        <item>Парк-пилот отменен</item>
+        <item>Двигайтесь назад</item>
+        <item>Остановитесь и включите задний ход</item>
+        <item>Двигайтесь вперед</item>
+        <item>Остановитесь и включите переднюю передачу</item>
+        <item>Парк-пилот закончен</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Центральный руль</item>
+        <item>Удалить прицеп</item>
+        <item>VDC должен быть включен</item>
+        <item>Закройте дверь, чтобы начать</item>
+        <item>Системная ошибка</item>
+        <item>Ошибка Парк-пилот</item>
+        <item>Превышение скорости</item>
+        <item>Рулевое управление вмешалось</item>
+        <item>Трейлер включен</item>
+        <item>VDC включен</item>
+        <item>Дверь открыта / Ремень не пристегнут</item>
+        <item>Время истекло</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Двигатель не заведен</item>
+        <item>ESP не активен</item>
+        <item>Передний механизм за пределами парковочного места</item>
+        <item>Невозможно возобновить работу</item>
+        <item>NULL</item>
+        <item>Стоп</item>
+        <item>Выберите передачу заднего хода</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Проверьте окружение</item>
+        <item>Остановитесь возле парковочного места, чтобы начать помощь при парковке</item>
+        <item>NULL</item>
+        <item>Снизить скорость</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>NULL</item>
+        <item>Поворот руля</item>
+        <item>Двигайтесь вперед с осторожностью</item>
+        <item>Двигайтесь назад с осторожностью</item>
+        <item>Проверьте препятствие</item>
+    </array>
+    <array name="can_nissan_xtral_rvs_declare">
+        <item>Как пользоваться Bay Parking</item>
+        <item>① Поместите синее поле в свободное место</item>
+        <item>② Красные линии показывают пределы системы</item>
+        <item>③ Нажмите «Старт», чтобы запустить автоматическое управление»</item>
+        <item>* Нет функции предотвращения препятствий, всегда проверяйте окружение</item>
+        <item>* Тормозить вручную</item>
+        <item>* Отпустите рулевое колесо при автоматическом управлении</item>
+    </array>
     <array name="can_ent_aux_arrays">
         <item>Панель быстрого доступа</item>
         <item>Меню включение Idrive интерфейса</item>
@@ -10,14 +127,5 @@
         <item>Обновлено</item>
         <item>Состояние обновления</item>
         <item>Ошибка обновления</item>
-    </array>
-    <array name="WeekDay">
-        <item>星期天</item>
-        <item>星期一</item>
-        <item>星期二</item>
-        <item>星期三</item>
-        <item>星期四</item>
-        <item>星期五</item>
-        <item>星期六</item>
     </array>
 </resources>

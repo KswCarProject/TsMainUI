@@ -1,19 +1,27 @@
 package com.ts.MainUI;
 
 import android.util.Log;
-import com.mediatek.miravision.setting.MiraVisionJni;
-import com.mediatek.pq.PictureQuality;
+import com.mediatek.galleryfeature.pq.filter.Filter;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 
 public class TsDisplay {
+    public static final int CAM_MAX = 70;
     private static String TAG = "TsDisplay";
     private static TsDisplay mDisplay = null;
+    Filter MyFilter = new Filter();
+    private int[] mTcon = new int[40];
+    int nBrightness = 0;
+    int nContanst = 0;
     private int nDelayTime = 0;
+    int nHue;
     private int nSetData = 255;
     public int nSetTcon = 1;
     private int nSrcMode = 255;
+    int nSrcxx = 255;
+    int nSta = 0;
+    int nsharpness = 0;
 
     public void SetSrcMute(int nTime) {
         Mcu.BklTurnInt(0);
@@ -29,43 +37,43 @@ public class TsDisplay {
     }
 
     public void Inint() {
-        if (FtSet.GetCam8824() != 0) {
-            SetDispParat(0);
-        }
         this.nSrcMode = 255;
         this.nDelayTime = 0;
         this.nSetData = 255;
-        Log.i(TAG, "nNowPQMode==" + MiraVisionJni.nativeGetPictureMode());
-        MiraVisionJni.Range conRange = MiraVisionJni.getContrastIndexRange();
-        Log.i(TAG, "conRange.max==" + conRange.max);
-        Log.i(TAG, "conRange.min==" + conRange.min);
-        Log.i(TAG, "conRange.defaultValue==" + conRange.defaultValue);
-        Log.i(TAG, "getContrastIndex==" + MiraVisionJni.getContrastIndex());
-        MiraVisionJni.Range statusRange = MiraVisionJni.getSaturationIndexRange();
-        Log.i(TAG, "statusRange.max==" + statusRange.max);
-        Log.i(TAG, "statusRange.min==" + statusRange.min);
-        Log.i(TAG, "statusRange.defaultValue==" + statusRange.defaultValue);
-        Log.i(TAG, "getSaturationIndex==" + MiraVisionJni.getSaturationIndex());
-        MiraVisionJni.Range bretnessRange = MiraVisionJni.getPicBrightnessIndexRange();
-        Log.i(TAG, "bretnessRange.max==" + bretnessRange.max);
-        Log.i(TAG, "bretnessRange.min==" + bretnessRange.min);
-        Log.i(TAG, "bretnessRange.defaultValue==" + bretnessRange.defaultValue);
-        Log.i(TAG, "getPicBrightnessIndex==" + MiraVisionJni.getPicBrightnessIndex());
-        MiraVisionJni.Range sharpbretnessRange = MiraVisionJni.getSharpnessIndexRange();
-        Log.i(TAG, "sharpbretnessRange.max==" + sharpbretnessRange.max);
-        Log.i(TAG, "sharpbretnessRange.min==" + sharpbretnessRange.min);
-        Log.i(TAG, "sharpbretnessRange.defaultValue==" + sharpbretnessRange.defaultValue);
-        Log.i(TAG, "getSharpnessIndex==" + MiraVisionJni.getSharpnessIndex());
-        MiraVisionJni.Range ColorEffectRange = MiraVisionJni.getContrastIndexRange();
-        Log.i(TAG, "ColorEffectRange.max==" + ColorEffectRange.max);
-        Log.i(TAG, "ColorEffectRange.min==" + ColorEffectRange.min);
-        Log.i(TAG, "ColorEffectRange.defaultValue==" + ColorEffectRange.defaultValue);
-        Log.i(TAG, "getColorEffectIndex==" + MiraVisionJni.getColorEffectIndex());
-        MiraVisionJni.Range DCEffectRange = MiraVisionJni.getDynamicContrastIndexRange();
-        Log.i(TAG, "DCEffectRange.max==" + DCEffectRange.max);
-        Log.i(TAG, "DCEffectRange.min==" + DCEffectRange.min);
-        Log.i(TAG, "DCEffectRange.defaultValue==" + DCEffectRange.defaultValue);
-        Log.i(TAG, "getDynamicContrastIndex==" + MiraVisionJni.getDynamicContrastIndex());
+        FtSet.GetTconVal(this.mTcon);
+        this.nBrightness = CheckVal(this.mTcon[0]) - 1;
+        if (this.nBrightness < 0) {
+            this.nBrightness = 0;
+        }
+        this.nContanst = CheckVal(this.mTcon[1]) + 1;
+        if (this.nContanst > 9) {
+            this.nContanst = 9;
+        }
+        this.nHue = (CheckVal(this.mTcon[2]) + 1) * 25;
+        this.nSta = CheckVal(this.mTcon[3]) + 2;
+        if (this.nSta > 9) {
+            this.nSta = 9;
+        }
+        this.nsharpness = 2;
+        if (this.nsharpness > 9) {
+            this.nsharpness = 9;
+        }
+        Log.d(TAG, "nBrightness=" + this.nBrightness);
+        Log.d(TAG, "nContanst=" + this.nContanst);
+        Log.d(TAG, "nsharpness=" + this.nsharpness);
+        Log.d(TAG, "nHue=" + this.nHue);
+        Log.d(TAG, "nSta=" + this.nSta);
+        this.MyFilter.nativeSetBrightnessAdjIndex(this.nBrightness);
+        this.MyFilter.nativeSetContrastAdjIndex(this.nContanst);
+        this.MyFilter.nativeSetHueAdjIndex(this.nHue);
+        this.MyFilter.nativeSetSatAdjIndex(this.nSta);
+        this.MyFilter.nativeSetSharpAdjIndex(this.nsharpness);
+        this.MyFilter.nativeSetGrassToneHIndex(9);
+        this.MyFilter.nativeSetGrassToneSIndex(9);
+        this.MyFilter.nativeSetSkinToneHIndex(4);
+        this.MyFilter.nativeSetSkinToneSIndex(9);
+        this.MyFilter.nativeSetSkyToneHIndex(9);
+        this.MyFilter.nativeSetSkyToneSIndex(9);
     }
 
     /* access modifiers changed from: package-private */
@@ -84,37 +92,42 @@ public class TsDisplay {
         this.nSetData = nMode;
     }
 
+    public void SetDispGarma(int nSrc) {
+        Log.i(TAG, "SetDispGarma" + nSrc);
+        switch (nSrc) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+                Iop.SetGamma(1);
+                return;
+            default:
+                Iop.SetGamma(0);
+                return;
+        }
+    }
+
     public void SetDispParat(int nSrc) {
         Log.d(TAG, "SetDispParat ==" + nSrc);
-        if (FtSet.GetTconAdj() != 0) {
-            if (FtSet.GetCam8824() != 0) {
-                if (nSrc >= 0) {
-                    Mcu.SendLCDColor(nSrc, Iop.GetColor(nSrc, 0), Iop.GetColor(nSrc, 1), Iop.GetColor(nSrc, 2), Iop.GetColor(nSrc, 3));
-                }
-            } else if (nSrc >= 0) {
-                Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_BRIGHTNESS)" + Iop.GetColor(nSrc, 0));
-                Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_CONTRAST)" + Iop.GetColor(nSrc, 1));
-                Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_SATURATION)" + Iop.GetColor(nSrc, 3));
-                Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_HUE)" + Iop.GetColor(nSrc, 2));
-                PictureQuality.setPictureMode(2);
-                MiraVisionJni.nativeEnablePQColor(1);
-                PictureQuality.enablePQ(1);
-                PictureQuality.enableColorEffect(1);
-                PictureQuality.enableDynamicContrast(1);
-                PictureQuality.enableSharpness(1);
-                MiraVisionJni.setPicBrightnessIndex(CheckVal(Iop.GetColor(nSrc, 0)));
-                MiraVisionJni.setContrastIndex(CheckVal(Iop.GetColor(nSrc, 1)));
-                MiraVisionJni.setSaturationIndex(CheckVal(Iop.GetColor(nSrc, 3)));
-                MiraVisionJni.setSharpnessIndex(CheckVal(Iop.GetColor(nSrc, 2)));
-                Log.d(TAG, "MiraVisionJni.getPicBrightnessIndex()==" + MiraVisionJni.getPicBrightnessIndex());
-                Log.d(TAG, "IMiraVisionJni.getContrastIndex()==" + MiraVisionJni.getContrastIndex());
-                Log.d(TAG, "MiraVisionJni.getSaturationIndex()==" + MiraVisionJni.getSaturationIndex());
-                Log.d(TAG, "MiraVisionJni.getColorEffectIndex()==" + MiraVisionJni.getColorEffectIndex());
-                Log.d(TAG, "MiraVisionJni.getSharpnessIndex()==" + MiraVisionJni.getSharpnessIndex());
-                Log.d(TAG, "MiraVisionJni.getDynamicContrastIndex()==" + MiraVisionJni.getDynamicContrastIndex());
-            } else {
-                PictureQuality.setPictureMode(1);
-            }
+        if (this.nSrcxx != nSrc) {
+            this.nSrcxx = nSrc;
+            SetDispGarma(nSrc);
+        }
+        if (nSrc < 0) {
+            this.MyFilter.nativeSetBrightnessAdjIndex(this.nBrightness);
+            this.MyFilter.nativeSetContrastAdjIndex(this.nContanst);
+            this.MyFilter.nativeSetHueAdjIndex(this.nHue);
+            this.MyFilter.nativeSetSatAdjIndex(this.nSta);
+            this.MyFilter.nativeSetSharpAdjIndex(this.nsharpness);
+        } else if (FtSet.GetTconAdj() == 1 || nSrc == 0) {
+            this.MyFilter.nativeSetBrightnessAdjIndex(CheckVal(Iop.GetColor(nSrc, 0)));
+            this.MyFilter.nativeSetContrastAdjIndex(CheckVal(Iop.GetColor(nSrc, 1)));
+            this.MyFilter.nativeSetSatAdjIndex(CheckVal(Iop.GetColor(nSrc, 3)));
+            this.MyFilter.nativeSetHueAdjIndex((CheckVal(Iop.GetColor(nSrc, 2)) + 1) * 25);
+            Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_BRIGHTNESS)" + Iop.GetColor(nSrc, 0));
+            Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_CONTRAST)" + Iop.GetColor(nSrc, 1));
+            Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_SATURATION)" + Iop.GetColor(nSrc, 3));
+            Log.d(TAG, "Iop.GetColor(nSrc, Iop.CVBS_HUE)" + Iop.GetColor(nSrc, 2));
         }
     }
 
@@ -141,29 +154,18 @@ public class TsDisplay {
     }
 
     public void UIValStep(int nSrc, int nType, int nStep) {
-        int nVal;
         if (nSrc > 3) {
             Log.d(TAG, "UIValStep error nSrc == " + nSrc);
         } else if (nType > 3) {
             Log.d(TAG, "UIValStep error nType == " + nType);
         } else {
-            int nVal2 = Iop.GetColor(nSrc, nType);
+            int nVal = Iop.GetColor(nSrc, nType);
             if (nStep == 1) {
-                if (FtSet.GetCam8824() != 0) {
-                    nVal = nVal2 + 1;
-                } else {
-                    nVal = nVal2 + 10;
-                }
-                Iop.SetColor(nSrc, nType, nVal);
+                Iop.SetColor(nSrc, nType, nVal + 10);
                 SetDispParat(nSrc);
                 return;
             }
-            if (FtSet.GetCam8824() == 0) {
-                nVal2 -= 10;
-            } else if (nVal2 > 0) {
-                nVal2--;
-            }
-            Iop.SetColor(nSrc, nType, nVal2);
+            Iop.SetColor(nSrc, nType, nVal - 10);
             SetDispParat(nSrc);
         }
     }

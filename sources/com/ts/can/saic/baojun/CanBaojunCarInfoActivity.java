@@ -10,24 +10,31 @@ import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
+import com.ts.can.CanBaseCarInfoActivity;
 import com.ts.canview.CanItemCarType;
+import com.ts.canview.CanItemMsgBox;
 import com.ts.canview.CanItemPopupList;
 import com.ts.canview.CanItemSwitchList;
+import com.ts.canview.CanItemTextBtnList;
 import com.ts.canview.CanScrollList;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Mcu;
 
-public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick {
+public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemMsgBox.onMsgBoxClick {
     public static final int ITEM_CARMERA = 1;
     public static final int ITEM_HSJZDZD = 3;
-    private static final int ITEM_MAX = 3;
+    private static final int ITEM_MAX = 5;
     private static final int ITEM_MIN = 1;
+    public static final int ITEM_SETUP = 5;
+    public static final int ITEM_TYJC = 4;
     public static final int ITEM_TYPE = 2;
     public static final String TAG = "CanNissanCarInfoActivity";
-    private static final String[] mTypeArr = {"730", "730(2015,2017),560,510", "530"};
+    private static final String[] mTypeArr = {"730", "730(2015,2017),560,510", "530", "RS-3(2020) "};
     private CanItemSwitchList mItemCamera;
     private CanItemCarType mItemCarType;
     private CanItemSwitchList mItemHsjzdzd;
+    private CanItemTextBtnList mItemSetup;
+    private CanItemTextBtnList mItemTyjc;
     private CanScrollList mManager;
     private CanDataInfo.Baojun_Info mSetData = new CanDataInfo.Baojun_Info();
     private boolean mbLayout;
@@ -77,12 +84,16 @@ public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.On
         this.mItemCarType = new CanItemCarType((Context) this, R.string.can_car_type_select, mTypeArr, 2, (CanItemPopupList.onPopItemClick) this);
         this.mManager.AddView(this.mItemCarType.GetView());
         this.mItemHsjzdzd = AddCheckItem(R.string.can_zdhsjzd, 3);
+        this.mItemTyjc = AddTextBtn(R.string.can_tpms_reset_notice, 4);
+        this.mItemSetup = new CanItemTextBtnList((Context) this, R.string.can_vehi_setup);
+        this.mItemSetup.SetIdClickListener(this, 5);
+        this.mManager.AddView(this.mItemSetup.GetView());
         LayoutUI();
     }
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= 5; i++) {
             ShowItem(i);
         }
     }
@@ -93,6 +104,15 @@ public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.On
         switch (item) {
             case 3:
                 if (CanJni.GetSubType() == 2) {
+                    ret = 1;
+                    break;
+                }
+                break;
+            case 4:
+                ret = 1;
+                break;
+            case 5:
+                if (CanJni.GetSubType() == 3) {
                     ret = 1;
                     break;
                 }
@@ -124,6 +144,12 @@ public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.On
             case 3:
                 this.mItemHsjzdzd.ShowGone(show);
                 return;
+            case 4:
+                this.mItemTyjc.ShowGone(show);
+                return;
+            case 5:
+                this.mItemSetup.ShowGone(show);
+                return;
             default:
                 return;
         }
@@ -137,6 +163,13 @@ public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.On
         return item;
     }
 
+    private CanItemTextBtnList AddTextBtn(int text, int id) {
+        CanItemTextBtnList btn = new CanItemTextBtnList((Context) this, text);
+        btn.SetIdClickListener(this, id);
+        this.mManager.AddView(btn.GetView());
+        return btn;
+    }
+
     public void onClick(View v) {
         switch (((Integer) v.getTag()).intValue()) {
             case 1:
@@ -145,6 +178,12 @@ public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.On
                 return;
             case 3:
                 CanJni.BaojunCarSet(1, NegSwSet(this.mSetData.Hsjzdzd));
+                return;
+            case 4:
+                new CanItemMsgBox(4, this, R.string.can_cmp_reset_notice, this);
+                return;
+            case 5:
+                enterSubWin(CanBaseCarInfoActivity.class);
                 return;
             default:
                 return;
@@ -160,6 +199,16 @@ public class CanBaojunCarInfoActivity extends CanBaseActivity implements View.On
             Log.d("CanNissanCarInfoActivity", "Select = " + item);
             FtSet.SetCanSubT(item);
             Mcu.SendXKey(20);
+        }
+    }
+
+    public void onOK(int param) {
+        switch (param) {
+            case 4:
+                CanJni.BaojunCarSet(2, 1);
+                return;
+            default:
+                return;
         }
     }
 }

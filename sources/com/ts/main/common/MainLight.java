@@ -16,16 +16,12 @@ public class MainLight implements SeekBar.OnSeekBarChangeListener {
     public static final int DISPLAY_SHOW_TIME = 60;
     static MainLight MyLight = null;
     private static final String TAG = "MainVolume";
-    public static final int VOL_BAR_OUTPOSY = -79;
     public static final int VOL_BAR_SIZEX = 463;
     public static final int VOL_BAR_SIZEY = 80;
+    private RelativeLayout mFloatLayoutLight;
     private RelativeLayout mFloatLayoutNaw = null;
-    private RelativeLayout mFloatLayoutScreenFor;
-    private RelativeLayout mFloatLayoutVol;
     SeekBar mSeekBar;
-    Application m_Application;
     Context m_Context;
-    public int nAidlVolumeShow = 0;
     int nLiangdu = 255;
     int nNUm = 0;
     int nShowTime = 0;
@@ -51,12 +47,12 @@ public class MainLight implements SeekBar.OnSeekBarChangeListener {
     }
 
     public void Inint(Application MyApplication, Context MyContext) {
-        this.m_Application = MyApplication;
-        this.m_Context = MyContext;
-        this.mFloatLayoutVol = (RelativeLayout) LayoutInflater.from(MyApplication).inflate(R.layout.main_light, (ViewGroup) null);
-        this.mSeekBar = (SeekBar) this.mFloatLayoutVol.findViewById(R.id.seekBar1);
-        this.mSeekBar.setOnSeekBarChangeListener(this);
-        InintVolBar();
+        if (this.m_Context == null) {
+            this.m_Context = MyContext;
+            this.mFloatLayoutLight = (RelativeLayout) LayoutInflater.from(MyApplication).inflate(R.layout.main_light, (ViewGroup) null);
+            this.mSeekBar = (SeekBar) this.mFloatLayoutLight.findViewById(R.id.seekBar1);
+            this.mSeekBar.setOnSeekBarChangeListener(this);
+        }
     }
 
     public void DealTask() {
@@ -89,12 +85,12 @@ public class MainLight implements SeekBar.OnSeekBarChangeListener {
         }
     }
 
-    public void InintVolBar() {
-        if (this.mFloatLayoutNaw != this.mFloatLayoutVol) {
+    public void InintLightBar() {
+        if (this.mFloatLayoutNaw != this.mFloatLayoutLight) {
             Destroy();
-            this.mFloatLayoutNaw = this.mFloatLayoutVol;
+            this.mFloatLayoutNaw = this.mFloatLayoutLight;
             InintWinManage(VOL_BAR_SIZEX, 0, this.m_Context);
-            this.wManager.addView(this.mFloatLayoutVol, this.wmParams);
+            this.wManager.addView(this.mFloatLayoutLight, this.wmParams);
         }
     }
 
@@ -107,22 +103,20 @@ public class MainLight implements SeekBar.OnSeekBarChangeListener {
     }
 
     public void WinShow() {
-        if (this.mFloatLayoutNaw != this.mFloatLayoutScreenFor) {
-            InintVolBar();
-            if (this.mFloatLayoutVol == this.mFloatLayoutNaw) {
-                this.wmParams.height = 80;
-                this.mFloatLayoutVol.setVisibility(0);
-                this.nShowTime = 60;
-                this.wManager.updateViewLayout(this.mFloatLayoutVol, this.wmParams);
-            }
+        InintLightBar();
+        if (this.mFloatLayoutLight == this.mFloatLayoutNaw) {
+            this.wmParams.height = 80;
+            this.mFloatLayoutLight.setVisibility(0);
+            this.nShowTime = 60;
+            this.wManager.updateViewLayout(this.mFloatLayoutLight, this.wmParams);
         }
     }
 
     public void WinHide() {
-        if (this.mFloatLayoutVol == this.mFloatLayoutNaw) {
+        if (this.mFloatLayoutLight == this.mFloatLayoutNaw) {
             this.wmParams.height = 0;
-            this.mFloatLayoutVol.setVisibility(8);
-            this.wManager.updateViewLayout(this.mFloatLayoutVol, this.wmParams);
+            this.mFloatLayoutLight.setVisibility(8);
+            this.wManager.updateViewLayout(this.mFloatLayoutLight, this.wmParams);
         }
     }
 

@@ -6,13 +6,13 @@ import java.util.Arrays;
 public class T9 {
 
     /* renamed from: T  reason: collision with root package name */
-    private final CharSequence f291T;
+    private final CharSequence f294T;
     private final byte[] Tn;
     private final int Tr;
     private final int Ty;
 
     public T9(CharSequence codewords, int numcols, int numrows) {
-        this.f291T = codewords;
+        this.f294T = codewords;
         this.Ty = numcols;
         this.Tr = numrows;
         this.Tn = new byte[(numcols * numrows)];
@@ -111,7 +111,7 @@ public class T9 {
             col += this.Ty;
             row += 4 - ((this.Ty + 4) % 8);
         }
-        if ((this.f291T.charAt(pos) & (1 << (8 - bit))) == 0) {
+        if ((this.f294T.charAt(pos) & (1 << (8 - bit))) == 0) {
             z = false;
         }
         T(col, row, z);

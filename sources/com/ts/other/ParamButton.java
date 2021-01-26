@@ -16,8 +16,13 @@ public class ParamButton extends Button {
     private static ViewGroup mFsLayout;
     private static int mFsYDt;
     private Context mContext;
+    private int mFocusResId = 0;
+    private int mNormalResId = 0;
     private int mParam;
     private int mParam2;
+    private int mPressResId = 0;
+    private int mSelectResId = 0;
+    private String mThemeName;
 
     public ParamButton(Context context) {
         super(context);
@@ -59,12 +64,15 @@ public class ParamButton extends Button {
 
     public void setStateDrawable(int normal, int pressed, int selected) {
         Drawable iSelected = null;
-        Resources res = this.mContext.getResources();
+        Resources resources = this.mContext.getResources();
         StateListDrawable sd = new StateListDrawable();
-        Drawable iNormal = normal <= 0 ? null : res.getDrawable(normal);
-        Drawable iPressed = pressed <= 0 ? null : res.getDrawable(pressed);
+        this.mNormalResId = normal;
+        this.mPressResId = pressed;
+        this.mSelectResId = selected;
+        Drawable iNormal = normal <= 0 ? null : getThemeDrawable(normal);
+        Drawable iPressed = pressed <= 0 ? null : getThemeDrawable(pressed);
         if (selected > 0) {
-            iSelected = res.getDrawable(selected);
+            iSelected = getThemeDrawable(selected);
         }
         sd.addState(new int[]{16842913}, iSelected);
         sd.addState(new int[]{16842919}, iPressed);
@@ -75,12 +83,15 @@ public class ParamButton extends Button {
 
     public void setStateFocus(int normal, int pressedSel, int focused) {
         Drawable iFocused = null;
-        Resources res = this.mContext.getResources();
+        Resources resources = this.mContext.getResources();
         StateListDrawable sd = new StateListDrawable();
-        Drawable iNormal = normal <= 0 ? null : res.getDrawable(normal);
-        Drawable iPressed = pressedSel <= 0 ? null : res.getDrawable(pressedSel);
+        this.mNormalResId = normal;
+        this.mPressResId = pressedSel;
+        this.mFocusResId = focused;
+        Drawable iNormal = normal <= 0 ? null : getThemeDrawable(normal);
+        Drawable iPressed = pressedSel <= 0 ? null : getThemeDrawable(pressedSel);
         if (focused > 0) {
-            iFocused = res.getDrawable(focused);
+            iFocused = getThemeDrawable(focused);
         }
         sd.addState(new int[]{16842913}, iPressed);
         sd.addState(new int[]{16842919}, iPressed);
@@ -92,13 +103,17 @@ public class ParamButton extends Button {
 
     public void setStateFocus(int normal, int pressedSel, int selected, int focused) {
         Drawable iFocused = null;
-        Resources res = this.mContext.getResources();
+        Resources resources = this.mContext.getResources();
         StateListDrawable sd = new StateListDrawable();
-        Drawable iNormal = normal <= 0 ? null : res.getDrawable(normal);
-        Drawable iPressed = pressedSel <= 0 ? null : res.getDrawable(pressedSel);
-        Drawable iSelected = selected < 0 ? null : res.getDrawable(selected);
+        this.mNormalResId = normal;
+        this.mPressResId = pressedSel;
+        this.mFocusResId = focused;
+        this.mSelectResId = selected;
+        Drawable iNormal = normal <= 0 ? null : getThemeDrawable(normal);
+        Drawable iPressed = pressedSel <= 0 ? null : getThemeDrawable(pressedSel);
+        Drawable iSelected = selected <= 0 ? null : getThemeDrawable(selected);
         if (focused > 0) {
-            iFocused = res.getDrawable(focused);
+            iFocused = getThemeDrawable(focused);
         }
         sd.addState(new int[]{16842908}, iFocused);
         sd.addState(new int[]{16842913}, iSelected);
@@ -162,5 +177,35 @@ public class ParamButton extends Button {
 
     public void SetBgTransparent() {
         setBackgroundColor(0);
+    }
+
+    public void setTheme(String name) {
+        this.mThemeName = name;
+        if (this.mFocusResId > 0 && this.mSelectResId > 0) {
+            setStateFocus(this.mNormalResId, this.mPressResId, this.mSelectResId, this.mFocusResId);
+        } else if (this.mFocusResId > 0) {
+            setStateFocus(this.mNormalResId, this.mPressResId, this.mFocusResId);
+        } else {
+            setStateDrawable(this.mNormalResId, this.mPressResId, this.mSelectResId);
+        }
+    }
+
+    private int getNewThemeResId(int resId) {
+        if (this.mThemeName == null || resId <= 0) {
+            return resId;
+        }
+        String entryName = this.mContext.getResources().getResourceEntryName(resId);
+        if (entryName != null && !entryName.endsWith(this.mThemeName) && (resId = this.mContext.getResources().getIdentifier(String.valueOf(entryName) + "_" + this.mThemeName, "drawable", this.mContext.getPackageName())) <= 0) {
+            new Exception("can't find themed drawable named " + entryName + "_" + this.mThemeName).printStackTrace();
+        }
+        return resId;
+    }
+
+    private Drawable getThemeDrawable(int resId) {
+        int themeId;
+        if (resId > 0 && (themeId = getNewThemeResId(resId)) > 0) {
+            return this.mContext.getResources().getDrawable(themeId);
+        }
+        return null;
     }
 }

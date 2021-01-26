@@ -23,8 +23,8 @@ public class CanBencWithCDACUI implements UserCallBack {
     public static final String TAG = "CanBencWithCDACUI";
     protected static Context mContext;
     static CanBencWithCDACUI mInstance;
-    protected static boolean mIsAC;
-    protected static boolean mfgJump;
+    protected static boolean mIsAC = false;
+    protected static boolean mfgJump = false;
     private CustomImgView mAC;
     private CanDataInfo.CAN_ACInfo mACInfo;
     private CustomImgView[] mAirMode = new CustomImgView[4];
@@ -71,26 +71,28 @@ public class CanBencWithCDACUI implements UserCallBack {
     }
 
     public void InitAc(Context context) {
-        if (this.mLayout == null && context != null) {
-            mContext = context;
-            this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_ac_benc_withcd, (ViewGroup) null);
-            if (MainSet.GetScreenType() == 5) {
-                InintWinManage(1280, 75, 0, 0, mContext);
-            } else if (MainSet.GetScreenType() == 9) {
-                InintWinManage(1920, 75, 0, 0, mContext);
-            } else {
-                InintWinManage(1024, 97, 0, 0, mContext);
-            }
-            this.wManager.addView(this.mLayout, this.wmParams);
-            this.mManager = new RelativeLayoutManager(this.mLayout);
-            if (MainSet.GetScreenType() == 5) {
-                initViews();
-            } else if (MainSet.GetScreenType() == 9) {
-                initViews_1920x720();
-            } else {
-                initViews_1024x600();
-            }
-            onPause();
+        if (this.mLayout != null || context == null) {
+            Log.d(TAG, "Already have instance");
+            return;
+        }
+        Log.d(TAG, "InitAc");
+        mContext = context;
+        this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_ac_benc_withcd, (ViewGroup) null);
+        if (MainSet.GetScreenType() == 5) {
+            InintWinManage(1280, 75, 0, 0, mContext);
+        } else if (MainSet.GetScreenType() == 9) {
+            InintWinManage(1920, 75, 0, 0, mContext);
+        } else {
+            InintWinManage(1024, 97, 0, 0, mContext);
+        }
+        this.wManager.addView(this.mLayout, this.wmParams);
+        this.mManager = new RelativeLayoutManager(this.mLayout);
+        if (MainSet.GetScreenType() == 5) {
+            initViews();
+        } else if (MainSet.GetScreenType() == 9) {
+            initViews_1920x720();
+        } else {
+            initViews_1024x600();
         }
     }
 
@@ -156,11 +158,11 @@ public class CanBencWithCDACUI implements UserCallBack {
         this.mTvRtTemp = AddTemp(1154, 8, 108, 63);
         this.mWindIcon = this.mManager.AddImage(146, 8, R.drawable.main_ac_fan_up);
         this.mTvWindTemp = AddText(Can.CAN_SAIL_RW550_MG6_WC, 8, 108, 63);
-        this.mPeople = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx00_up);
-        this.mAirMode[0] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx01_dn);
-        this.mAirMode[1] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx02_dn);
-        this.mAirMode[2] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx03_dn);
-        this.mAirMode[3] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx04_dn);
+        this.mPeople = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx00_up);
+        this.mAirMode[0] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx01_dn);
+        this.mAirMode[1] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx02_dn);
+        this.mAirMode[2] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx03_dn);
+        this.mAirMode[3] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx04_dn);
         this.mAC = this.mManager.AddImage(448, 8);
         this.mAC.setStateDrawable(R.drawable.main_ac_aco_up, R.drawable.main_ac_aco_dn);
         this.mFrontMax = this.mManager.AddImage(595, 8);
@@ -212,6 +214,7 @@ public class CanBencWithCDACUI implements UserCallBack {
 
     /* access modifiers changed from: protected */
     public void onResume() {
+        InitAc(CanFunc.mContext);
         ResetData(false);
         this.mLayout.setVisibility(0);
         Log.d(TAG, "-----onResume-----");

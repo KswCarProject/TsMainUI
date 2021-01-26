@@ -34,7 +34,6 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-import com.ts.dvdplayer.definition.MediaDef;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -1440,7 +1439,7 @@ public class ViewPager extends ViewGroup {
             case 1:
                 if (this.mIsBeingDragged) {
                     VelocityTracker velocityTracker = this.mVelocityTracker;
-                    velocityTracker.computeCurrentVelocity(MediaDef.PROGRESS_MAX, (float) this.mMaximumVelocity);
+                    velocityTracker.computeCurrentVelocity(1000, (float) this.mMaximumVelocity);
                     int initialVelocity = (int) VelocityTrackerCompat.getXVelocity(velocityTracker, this.mActivePointerId);
                     this.mPopulatePending = true;
                     int width = getClientWidth();
@@ -1712,7 +1711,7 @@ public class ViewPager extends ViewGroup {
             throw new IllegalStateException("No fake drag in progress. Call beginFakeDrag first.");
         }
         VelocityTracker velocityTracker = this.mVelocityTracker;
-        velocityTracker.computeCurrentVelocity(MediaDef.PROGRESS_MAX, (float) this.mMaximumVelocity);
+        velocityTracker.computeCurrentVelocity(1000, (float) this.mMaximumVelocity);
         int initialVelocity = (int) VelocityTrackerCompat.getXVelocity(velocityTracker, this.mActivePointerId);
         this.mPopulatePending = true;
         int width = getClientWidth();

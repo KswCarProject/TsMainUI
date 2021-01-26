@@ -12,8 +12,10 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanCarInfoSub1Activity;
 import com.ts.can.CanFunc;
 import com.ts.can.CanRelativeCarInfoView;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanPSAScrRzcDriveInfoView extends CanRelativeCarInfoView {
@@ -71,7 +73,7 @@ public class CanPSAScrRzcDriveInfoView extends CanRelativeCarInfoView {
         addImage(35, 17, R.drawable.can_psa_bg);
         this.mBtnLt[0] = AddBtn(0, 66, 41, R.drawable.can_psa_car_up, R.drawable.can_psa_car_dn);
         this.mBtnLt[1] = AddBtn(1, 66, Can.CAN_LEXUS_ZMYT, R.drawable.can_psa_01_up, R.drawable.can_psa_01_dn);
-        this.mBtnLt[2] = AddBtn(2, 66, 370, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
+        this.mBtnLt[2] = AddBtn(2, 66, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, R.drawable.can_psa_02_up, R.drawable.can_psa_02_dn);
         this.mIvIco0[0] = addImage(354, 170, R.drawable.can_psa_icon_station);
         this.mIvIco0[1] = addImage(CanCameraUI.BTN_TRUMPCHI_GS7_MODE7, 170, R.drawable.can_psa_icon_oil);
         this.mIvIco0[2] = addImage(767, 170, R.drawable.can_psa_icon_flags);
@@ -315,7 +317,7 @@ public class CanPSAScrRzcDriveInfoView extends CanRelativeCarInfoView {
             case 2:
                 return "MPG";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

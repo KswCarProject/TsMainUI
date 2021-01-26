@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class TXZWheelControlManager {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final TXZWheelControlManager f858T = new TXZWheelControlManager();
+    private static final TXZWheelControlManager f862T = new TXZWheelControlManager();
     private long T9;
     private HashSet<Integer> TE;
     private OnTXZGlobalWheelControlListener TZ;
@@ -38,7 +38,7 @@ public class TXZWheelControlManager {
     }
 
     public static TXZWheelControlManager getInstance() {
-        return f858T;
+        return f862T;
     }
 
     /* access modifiers changed from: package-private */
@@ -50,7 +50,7 @@ public class TXZWheelControlManager {
             Tn.Tr().T("com.txznet.txz", "comm.wheelcontrol.connectionstatus", (byte[]) null, (Tn.Tr) null);
         }
         if (this.Tn != null) {
-            Tn.Tr().T("com.txznet.txz", "comm.wheelcontrol.setlistener", ("" + this.T9).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.txz", "comm.wheelcontrol.setlistener", (TXZResourceManager.STYLE_DEFAULT + this.T9).getBytes(), (Tn.Tr) null);
         }
         if (this.TZ != null && !this.TE.isEmpty()) {
             Tr jsonBuilder = new Tr();
@@ -131,7 +131,7 @@ public class TXZWheelControlManager {
             }
             this.Tn.add(listener);
             this.T9 = SystemClock.elapsedRealtime();
-            Tn.Tr().T("com.txznet.txz", "comm.wheelcontrol.setlistener", ("" + this.T9).getBytes(), (Tn.Tr) null);
+            Tn.Tr().T("com.txznet.txz", "comm.wheelcontrol.setlistener", (TXZResourceManager.STYLE_DEFAULT + this.T9).getBytes(), (Tn.Tr) null);
         }
     }
 

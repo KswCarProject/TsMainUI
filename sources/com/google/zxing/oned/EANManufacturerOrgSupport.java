@@ -72,14 +72,14 @@ final class EANManufacturerOrgSupport {
             add(new int[]{531}, "MK");
             add(new int[]{535}, "MT");
             add(new int[]{539}, "IE");
-            add(new int[]{CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST10}, "BE/LU");
+            add(new int[]{540, CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST10}, "BE/LU");
             add(new int[]{560}, "PT");
             add(new int[]{569}, "IS");
             add(new int[]{CanCameraUI.BTN_CHANA_CS75_MODE1, 579}, "DK");
             add(new int[]{590}, "PL");
             add(new int[]{594}, "RO");
             add(new int[]{599}, "HU");
-            add(new int[]{CanCameraUI.BTN_GOLF_WC_MODE1, CanCameraUI.BTN_GOLF_WC_MODE2}, "ZA");
+            add(new int[]{600, CanCameraUI.BTN_GOLF_WC_MODE2}, "ZA");
             add(new int[]{603}, "GH");
             add(new int[]{608}, "BH");
             add(new int[]{609}, "MU");

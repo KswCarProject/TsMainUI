@@ -2,6 +2,8 @@ package com.ts.can;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -15,11 +17,13 @@ import com.ts.canview.CanVerticalBar;
 import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanToyotaTripPerMinActivity extends CanToyotaBaseActivity implements UserCallBack, View.OnClickListener {
     private static final int ID_CLEAR = 1281;
     private static final int ID_HISTORY = 1280;
     public static final String TAG = "CanToyotaTripPerMinActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private CanVerticalBar[] m15Min = new CanVerticalBar[15];
     private CanDataInfo.ToyotaConsump15Min m15MinData = new CanDataInfo.ToyotaConsump15Min();
     private ParamButton mBtnClear;
@@ -39,13 +43,13 @@ public class CanToyotaTripPerMinActivity extends CanToyotaBaseActivity implement
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
-        if (MainSet.GetScreenType() == 3) {
-            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
-            lp.width = 1024;
-            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
-            lp.gravity = 17;
-            this.mManager.GetLayout().setLayoutParams(lp);
-        }
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mManager.GetLayout().setLayoutParams(lp);
         String[] strLtArray = getResources().getStringArray(R.array.can_cam_yh_title);
         TextView[] tvLtVal = new TextView[3];
         for (int i = 0; i < 3; i++) {
@@ -100,7 +104,11 @@ public class CanToyotaTripPerMinActivity extends CanToyotaBaseActivity implement
         if (MainSet.GetScreenType() == 3) {
             this.mManager.GetLayout().setScaleX(0.78f);
             this.mManager.GetLayout().setScaleY(0.79f);
+            return;
         }
+        this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     /* access modifiers changed from: protected */
@@ -141,7 +149,7 @@ public class CanToyotaTripPerMinActivity extends CanToyotaBaseActivity implement
             case 3:
                 return "MPG Imp";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -199,7 +207,7 @@ public class CanToyotaTripPerMinActivity extends CanToyotaBaseActivity implement
             this.mDW.setText(GetDWStr(this.mCurrentData.DW));
             int base = 10;
             if (this.mCurrentData.DW == 0 || 3 == this.mCurrentData.DW) {
-                max2 = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max2 = 600;
                 base = 20;
             } else {
                 max2 = 300;
@@ -216,7 +224,7 @@ public class CanToyotaTripPerMinActivity extends CanToyotaBaseActivity implement
         if (!check || i2b(this.m15MinData.Update)) {
             this.m15MinData.Update = 0;
             if (this.m15MinData.DW == 0 || 3 == this.m15MinData.DW) {
-                max = CanCameraUI.BTN_GOLF_WC_MODE1;
+                max = 600;
             } else {
                 max = 300;
             }

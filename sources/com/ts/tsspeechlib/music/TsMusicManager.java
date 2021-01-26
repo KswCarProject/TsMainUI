@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
+import com.ts.tsspeechlib.ManagerInitListener;
 import com.ts.tsspeechlib.music.ITsSpeechMusic;
 import java.util.List;
 
@@ -17,15 +18,23 @@ public class TsMusicManager {
     private Context mContext;
     /* access modifiers changed from: private */
     public ITsSpeechMusic mSpeechMusicService;
+    /* access modifiers changed from: private */
+    public ManagerInitListener musicListener;
     ServiceConnection sconn = new ServiceConnection() {
         public void onServiceDisconnected(ComponentName arg0) {
             Log.d(TsMusicManager.TAG, "鍒濆鍖栧け璐ワ紒");
             TsMusicManager.this.mSpeechMusicService = null;
+            if (TsMusicManager.this.musicListener != null) {
+                TsMusicManager.this.musicListener.initResult(2, false);
+            }
         }
 
         public void onServiceConnected(ComponentName arg0, IBinder binder) {
             Log.d(TsMusicManager.TAG, "鍒濆鍖栨垚鍔燂紒");
             TsMusicManager.this.mSpeechMusicService = ITsSpeechMusic.Stub.asInterface(binder);
+            if (TsMusicManager.this.musicListener != null) {
+                TsMusicManager.this.musicListener.initResult(2, true);
+            }
         }
     };
 
@@ -36,8 +45,9 @@ public class TsMusicManager {
         return musicManager;
     }
 
-    public void initManager(Context context) {
+    public void initManager(Context context, ManagerInitListener listener) {
         this.mContext = context;
+        this.musicListener = listener;
         bindMusicService();
     }
 
@@ -81,6 +91,69 @@ public class TsMusicManager {
         }
     }
 
+    public int getMusicState() {
+        try {
+            if (this.mSpeechMusicService == null) {
+                return 0;
+            }
+            int musicState = this.mSpeechMusicService.getMusicState();
+            return 0;
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public void onMusicPlay() {
+        try {
+            if (this.mSpeechMusicService != null) {
+                this.mSpeechMusicService.onMusicPlay();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onMusicPause() {
+        try {
+            if (this.mSpeechMusicService != null) {
+                this.mSpeechMusicService.onMusicPause();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onMusicPrev() {
+        try {
+            if (this.mSpeechMusicService != null) {
+                this.mSpeechMusicService.onMusicPrev();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onMusicNext() {
+        try {
+            if (this.mSpeechMusicService != null) {
+                this.mSpeechMusicService.onMusicNext();
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setMusicPlayMode(int mode) {
+        try {
+            if (this.mSpeechMusicService != null) {
+                this.mSpeechMusicService.setMusicPlayMode(mode);
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void bindMusicService() {
         Intent intent = new Intent();
         intent.setAction("com.ts.tsspeechlib.music.TsMusicService");
@@ -92,7 +165,7 @@ public class TsMusicManager {
         }
     }
 
-    public Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
+    private Intent createExplicitFromImplicitIntent(Context context, Intent implicitIntent) {
         List<ResolveInfo> resolveInfo = context.getPackageManager().queryIntentServices(implicitIntent, 0);
         if (resolveInfo == null || resolveInfo.size() != 1) {
             return null;

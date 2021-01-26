@@ -3,6 +3,14 @@ package com.ts.can;
 import android.util.Log;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarFuncView;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarInfoView;
+import com.ts.can.audi.lz.CanAudiLzWithCDCarInitView;
+import com.ts.can.audi.lz.CanAudiLzWithCDUpdateView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarFuncView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarInfoView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDCarInitView;
+import com.ts.can.audi.xbs.CanAudiXbsWithCDUpdateView;
 import com.ts.can.audi.xhd.CanAudiWithCDCarFuncView;
 import com.ts.can.audi.xhd.CanAudiWithCDCarInfoView;
 import com.ts.can.audi.xhd.CanAudiWithCDCarInitView;
@@ -12,6 +20,8 @@ import com.ts.can.baic.wc.hss6.CanBaicHSS6WcAirSetView;
 import com.ts.can.baic.wc.hss6.CanBaicHSS6WcCameraSetView;
 import com.ts.can.baic.wc.hss6.CanBaicHSS6WcCarInfoSetView;
 import com.ts.can.baic.wc.hss6.CanBaicHSS6WcYiBiaoSetView;
+import com.ts.can.benc.wc.Metris.CanBencMetrisWcCarSetView;
+import com.ts.can.benc.withcd.CanBencWithCDAutoBreakView;
 import com.ts.can.benc.withcd.CanBencWithCDCarSetView;
 import com.ts.can.bmw.lz.CanBMWLzAmpSetView;
 import com.ts.can.bmw.lz.CanBMWLzCarSetView;
@@ -37,12 +47,17 @@ import com.ts.can.cc.dj.hf.CanHfDjCarStatusView;
 import com.ts.can.cc.dj.hf.CanHfDjSeatStatusView;
 import com.ts.can.cc.h6_rzc.CanCCH6RzcCarSeatSetView;
 import com.ts.can.cc.h6_rzc.CanCCH6RzcCarSeatStatusView;
+import com.ts.can.cc.h6_rzc.CanCcRzcAvmSetView;
+import com.ts.can.cc.h6_rzc.CanCcRzcDrivAssistSetView;
 import com.ts.can.cc.wc.CanCCWcAmpSetView;
 import com.ts.can.cc.wc.CanCCWcCarSetView;
 import com.ts.can.cc.wc.CanCCWcCarTypeView;
 import com.ts.can.cc.wc.CanCCWcLangSetView;
 import com.ts.can.cc.wc.h2.CanCCH2WcCameraSetView;
+import com.ts.can.cc.wc.h6.CanWcH6AVMSetView;
+import com.ts.can.cc.wc.h6.CanWcH6AmpSetView;
 import com.ts.can.cc.wc.h6.CanWcH6CarSetView;
+import com.ts.can.cc.wc.h6.CanWcH6LangSetView;
 import com.ts.can.cc.wc.h6.CanWcH6LightSetView;
 import com.ts.can.chana.cs75.CanCs75CameraSetView;
 import com.ts.can.chana.od.CanChanaODAirSetView;
@@ -51,6 +66,7 @@ import com.ts.can.chana.od.CanChanaODCarSetView;
 import com.ts.can.chana.wc.CanCs75WcCarSetActivity;
 import com.ts.can.chana.wc.CanCs75WcVehicleInfoView;
 import com.ts.can.chana.wc.cos.CanChanACosCarSetView;
+import com.ts.can.chana.wc.cos.CanChanACosDvrSetView;
 import com.ts.can.chana.wc.cos.CanChanACosTPMSView;
 import com.ts.can.chana.wc.os.CanChanaWcCarSetView;
 import com.ts.can.chery.wc.CanCheryWcCarDrivAssistSetView;
@@ -84,6 +100,9 @@ import com.ts.can.df.wc.ax7.CanDfFsWcCarSetView;
 import com.ts.can.df.wc.ax7.CanDfFsWcDriveInfoView;
 import com.ts.can.df.wc.jy.CanJYX5WcLightSetView;
 import com.ts.can.df.wc.jy.CanJYX5WcLockSetView;
+import com.ts.can.faw.dj.b70.CanB70DjCDView;
+import com.ts.can.faw.dj.b70.CanB70DjRadioView;
+import com.ts.can.faw.dj.b70.CanB70DjSetView;
 import com.ts.can.faw.t3.b30.CanFawB30T3BatteryStatusView;
 import com.ts.can.faw.t3.b30.CanFawB30T3CarSetView;
 import com.ts.can.faw.t3.b30.CanFawB30T3MachineStatusView;
@@ -99,12 +118,18 @@ import com.ts.can.fiat.wc.CanFiatWcCarSetView;
 import com.ts.can.fiat.wc.CanFiatWcDriveInfoView;
 import com.ts.can.fiat.wc.CanFiatWcLangSetInfoView;
 import com.ts.can.fiat.wc.CanFiatWcUnitSetView;
+import com.ts.can.ford.dj.CanFordDjCarSetView;
 import com.ts.can.ford.f150.CanFordF150CarSetView;
 import com.ts.can.ford.rzc.CanFordRzcAmpSetView;
 import com.ts.can.ford.rzc.CanFordRzcCarSetView;
 import com.ts.can.ford.rzc.CanFordRzcChairSetView;
+import com.ts.can.ford.rzc.CanFordRzcChargeMixView;
+import com.ts.can.ford.rzc.CanFordRzcDriveAssistSetView;
+import com.ts.can.ford.rzc.CanFordRzcLockSetView;
+import com.ts.can.ford.rzc.CanFordRzcOtherSetView;
 import com.ts.can.ford.rzc.CanFordRzcSetLightView;
 import com.ts.can.ford.rzc.CanFordRzcTpmsView;
+import com.ts.can.ford.rzc.CanFordRzcZnxfSetView;
 import com.ts.can.ford.wc.CanFordWcActiveParkView;
 import com.ts.can.ford.wc.CanFordWcAmpSetView;
 import com.ts.can.ford.wc.CanFordWcCarSetView;
@@ -129,12 +154,15 @@ import com.ts.can.geely.comm.CanGeelyRzcMixInfoView;
 import com.ts.can.geely.comm.CanGeelyX3TpmsView;
 import com.ts.can.geely.rzc.CanGeelyRzcCarAvmView;
 import com.ts.can.geely.rzc.CanGeelyRzcCarInfoView;
+import com.ts.can.geely.rzc.CanGeelyRzcPM25View;
 import com.ts.can.gm.comm.CanGMHybridView;
 import com.ts.can.gm.od.captiva.CanGmCaptivaOdPcInfoView;
 import com.ts.can.gm.onstar.CanOnStarWifiView;
 import com.ts.can.gm.rzc.CanGL8RearACView;
 import com.ts.can.gm.rzc.CanGMActivityParkView;
 import com.ts.can.gm.rzc.CanGMCarTypeView;
+import com.ts.can.gm.rzc.CanGMOpelKeyView;
+import com.ts.can.gm.rzc.CanGMRzcCarInfoView;
 import com.ts.can.gm.rzc.CanGMSetACView;
 import com.ts.can.gm.rzc.CanGMSetCDSView;
 import com.ts.can.gm.rzc.CanGMSetConvView;
@@ -154,6 +182,8 @@ import com.ts.can.gm.wc.CanGMWcSetLockView;
 import com.ts.can.gm.wc.CanGMWcSetOtherView;
 import com.ts.can.gm.wc.CanGMWcTPMSView;
 import com.ts.can.gm.wc.CanGMWcVehicleInfoView;
+import com.ts.can.gm.wc.enclave.CanGmEnclaveWcSetACView;
+import com.ts.can.gm.wc.enclave.CanGmEnclaveWcSetLanguageView;
 import com.ts.can.hant.rzc.CanHantElectCarBaseInfoSetView;
 import com.ts.can.hant.rzc.CanHantElectCarDriveSetView;
 import com.ts.can.hant.rzc.CanHantElectCarKeyLockSetView;
@@ -196,9 +226,19 @@ import com.ts.can.honda.wc.accord9.CanAccord9WcDistanceSetView;
 import com.ts.can.honda.wc.accord9.CanAccord9WcLightLockSetView;
 import com.ts.can.honda.wc.accord9.CanAccord9WcSystemSetView;
 import com.ts.can.honda.wc.crown.CanCrownWcAmpSetView;
+import com.ts.can.ht.x7.CanHtX5LightSetView;
+import com.ts.can.hyundai.CanHyundaiAmpSetView;
 import com.ts.can.hyundai.CanHyundaiBocheNaviSetView;
 import com.ts.can.hyundai.CanHyundaiCarSetView;
+import com.ts.can.hyundai.rzc.CanHyunDaiRzcNllctView;
+import com.ts.can.hyundai.rzc.CanHyundaiRzcAirSetView;
+import com.ts.can.hyundai.rzc.CanHyundaiRzcCdszSetView;
+import com.ts.can.hyundai.rzc.CanHyundaiRzcEcoSetView;
+import com.ts.can.hyundai.rzc.CanHyundaiRzcJsmsSetView;
+import com.ts.can.hyundai.rzc.CanHyundaiRzcLightSetView;
+import com.ts.can.hyundai.rzc.CanHyundaiRzcNyxxView;
 import com.ts.can.hyundai.rzc.CanHyundaiRzcParkingSetView;
+import com.ts.can.hyundai.rzc.CanHyundaiRzcYyszSetView;
 import com.ts.can.hyundai.wc.CanHyundaiWc360CameraSetView;
 import com.ts.can.hyundai.wc.CanHyundaiWcCarSetView;
 import com.ts.can.hyundai.wc.CanHyundaiWcSetAmpView;
@@ -213,6 +253,9 @@ import com.ts.can.jac.wc.CanJACRefineWcDrivAssistSetView;
 import com.ts.can.jac.wc.CanJACRefineWcNLXXSetView;
 import com.ts.can.jiangling.myx.CanJiangLingMyxCarSetView;
 import com.ts.can.kawei.wc.CanKaWeiWcTpmsView;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarFuncView;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytCarInitView;
+import com.ts.can.landrover.zmyt.CanLandRoverZmytUpdateView;
 import com.ts.can.landwind.od.CanLandWindOdCarSetView;
 import com.ts.can.landwind.od.CanLandWindOdTpmsView;
 import com.ts.can.landwind.rzc.CanLandWindCarSetView;
@@ -228,6 +271,7 @@ import com.ts.can.luxgen.od.CanLuxgenOdCarSetView;
 import com.ts.can.luxgen.wc.CanLuxgenWCCarMainTainView;
 import com.ts.can.luxgen.wc.CanLuxgenWCCarSetView;
 import com.ts.can.mahindra.wc.CanMahindraWcCarSetView;
+import com.ts.can.mitsubishi.outlander.CanMitSubiShiOutLanderCarSetView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcCarSetView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcDriveInfoView;
 import com.ts.can.mitsubishi.rzc.CanMitsubshiRzcSetAmpView;
@@ -238,7 +282,10 @@ import com.ts.can.mzd.hc.CanMzdHcKeySetView;
 import com.ts.can.mzd.lz.CanMzdLzKeySetView;
 import com.ts.can.mzd.rzc.CanMzdRzcCarOilView;
 import com.ts.can.mzd.rzc.CanMzdRzcCarSetView;
+import com.ts.can.mzd.rzc.CanMzdRzcCarTpmsView;
+import com.ts.can.mzd.rzc.CanMzdRzcClbySetView;
 import com.ts.can.mzd.rzc.CanMzdRzcDetailInfoView;
+import com.ts.can.mzd.rzc.CanMzdRzcServiceInfoView;
 import com.ts.can.mzd.rzc.CanMzdRzcistopinfoView;
 import com.ts.can.mzd.wc.CanMzdWcAmpSetView;
 import com.ts.can.mzd.wc.CanMzdWcCDView;
@@ -253,6 +300,8 @@ import com.ts.can.nissan.wc.rich6.CanNissanRich6WcBodyInfoView;
 import com.ts.can.nissan.wc.rich6.CanNissanRich6WcCarSetView;
 import com.ts.can.nissan.wc.rich6.CanNissanRich6WcDriveView;
 import com.ts.can.nissan.wc.rich6.CanNissanRich6WcTpmsInfoView;
+import com.ts.can.nissan.xc.teana.CanTeanaOldXcAmpSetView;
+import com.ts.can.nissan.xc.teana.CanTeanaOldXcCarSetView;
 import com.ts.can.obd.dst.CanSciDstCarSetView;
 import com.ts.can.obd.dst.CanSciDstTPMSView;
 import com.ts.can.porsche.lz.CanPorscheLzSetView;
@@ -262,6 +311,16 @@ import com.ts.can.porsche.od.CanPorscheOdStatueView;
 import com.ts.can.porsche.od.CanPorscheOdTPMSView;
 import com.ts.can.psa.CanPSAAirSetView;
 import com.ts.can.psa.CanPSAAmpSetView;
+import com.ts.can.psa.rzc.CanPSARzcAirSetView;
+import com.ts.can.psa.rzc.CanPSARzcAmpSetView;
+import com.ts.can.psa.rzc.CanPSARzcCheckInfoView;
+import com.ts.can.psa.rzc.CanPSARzcCruiseSpeedView;
+import com.ts.can.psa.rzc.CanPSARzcDriveInfoView;
+import com.ts.can.psa.rzc.CanPSARzcFuncInfoView;
+import com.ts.can.psa.rzc.CanPSARzcLangView;
+import com.ts.can.psa.rzc.CanPSARzcMemTabView;
+import com.ts.can.psa.rzc.CanPSARzcSpeedLimitView;
+import com.ts.can.psa.rzc.CanPSARzcWarnInfoView;
 import com.ts.can.psa.rzc.scr.CanPSAScrRzcAmpSetView;
 import com.ts.can.psa.rzc.scr.CanPSAScrRzcDriveInfoView;
 import com.ts.can.psa.rzc.scr.CanPSAScrRzcKeySetView;
@@ -278,14 +337,33 @@ import com.ts.can.psa.wc.CanPSAWCUnitSetInfoView;
 import com.ts.can.psa.wc.CanPSAWCWarnInfoView;
 import com.ts.can.renault.kadjar.CanKadjarHudSetView;
 import com.ts.can.renault.kadjar.CanKadjarZyamSetView;
+import com.ts.can.renault.renault.CanRenaultCarSetView;
 import com.ts.can.renault.renault.CanRenaultDriveComputeView;
+import com.ts.can.renault.wc.CanRenaultWcAdasSetView;
+import com.ts.can.renault.wc.CanRenaultWcCarSetView;
+import com.ts.can.renault.wc.CanRenaultWcDefaultSetView;
+import com.ts.can.renault.wc.CanRenaultWcDriveAssistSetView;
 import com.ts.can.renault.wc.CanRenaultWcDriveComputeView;
+import com.ts.can.renault.wc.CanRenaultWcLangSetView;
+import com.ts.can.renault.wc.CanRenaultWcLockSetView;
+import com.ts.can.renault.wc.CanRenaultWcOtherSetView;
+import com.ts.can.saic.baojun.CanBaojunRs3LightSetView;
+import com.ts.can.saic.baojun.CanBaojunRs3LockSetView;
+import com.ts.can.saic.baojun.CanBaojunRs3ModeSetView;
+import com.ts.can.saic.baojun.CanBaojunRs3OtherSetView;
 import com.ts.can.saic.dt.v80.CanDtV80BatteryGroupView;
 import com.ts.can.saic.dt.v80.CanDtV80BatteryInfosView;
 import com.ts.can.saic.dt.v80.CanDtV80BatteryStateView;
 import com.ts.can.saic.dt.v80.CanDtV80BatteryView;
 import com.ts.can.saic.dt.v80.CanDtV80BmsInfosView;
+import com.ts.can.saic.mg.CanMGCarTpmsView;
 import com.ts.can.saic.mg.CanMgCarAvmSetView;
+import com.ts.can.saic.mg.mg6.CanMg6RzcAirSetView;
+import com.ts.can.saic.mg.mg6.CanMg6RzcCDriveAssView;
+import com.ts.can.saic.mg.mg6.CanMg6RzcConvSetView;
+import com.ts.can.saic.mg.mg6.CanMg6RzcJsmsSetView;
+import com.ts.can.saic.mg.mg6.CanMg6RzcLockSetView;
+import com.ts.can.saic.mg.mg6.CanMg6RzcSystemSetView;
 import com.ts.can.saic.t60_rzc.CanDtT60RzcTpmsView;
 import com.ts.can.saic.wc.CanSaicRWMGWcCarAirSetView;
 import com.ts.can.saic.wc.CanSaicRWMGWcCarDrivAssistSetView;
@@ -311,6 +389,7 @@ import com.ts.can.subuar.xp.CanSubuarDrivingAidsView;
 import com.ts.can.swm.rzc.CanSwmRzcAssistSetView;
 import com.ts.can.swm.rzc.CanSwmRzcAvmSetView;
 import com.ts.can.swm.rzc.CanSwmRzcCarSetView;
+import com.ts.can.tata.lz.CanTataLzCarSetView;
 import com.ts.can.tata.wc.CanTataWcCarSetView;
 import com.ts.can.toyota.dj.CanToyotaDJAmpSetView;
 import com.ts.can.toyota.dj.CanToyotaDJRearSystemView;
@@ -327,12 +406,15 @@ import com.ts.can.vw.rzc.golf.CanGolfRzcConvConsumersView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcDrivingDataView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcEModeView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcEleDZXSView;
+import com.ts.can.vw.rzc.golf.CanGolfRzcElecJsmsView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcLangSetView;
+import com.ts.can.vw.rzc.golf.CanGolfRzcNlhsSetView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcSeatDriveProfileView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcSetMainView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcTeramontSeatDriveProfileView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcVehicleStatusView;
 import com.ts.can.zh.wc.v3h3.CanZhWcCarInfoSetView;
+import com.ts.can.zotye.e200.CanZotyeE200RzcDriveInfoView;
 import com.ts.can.zotye.x5.wc.CanZoyteX5WcTpmsView;
 
 public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
@@ -360,6 +442,9 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else if (id == 6) {
                     this.mBaseView = new CanGolfRzcLangSetView(this);
                     return;
+                } else if (id == 8) {
+                    this.mBaseView = new CanGolfRzcNlhsSetView(this);
+                    return;
                 } else if (id == -6) {
                     this.mBaseView = new CanGolfRzcEModeView(this);
                     return;
@@ -368,6 +453,9 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     return;
                 } else if (id == -8) {
                     this.mBaseView = new CanGolfRzcSeatDriveProfileView(this);
+                    return;
+                } else if (id == -9) {
+                    this.mBaseView = new CanGolfRzcElecJsmsView(this);
                     return;
                 } else {
                     return;
@@ -415,6 +503,25 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else if (id == 2) {
                     this.mBaseView = new CanHyundaiCarSetView(this);
                     return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanHyundaiAmpSetView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 16:
+                if (id == 0) {
+                    this.mBaseView = new CanBaojunRs3ModeSetView(this);
+                    return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanBaojunRs3LightSetView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanBaojunRs3LockSetView(this);
+                    return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanBaojunRs3OtherSetView(this);
+                    return;
                 } else {
                     return;
                 }
@@ -428,8 +535,30 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 if (id == -1) {
                     this.mBaseView = new CanMgCarAvmSetView(this);
                     return;
+                } else if (id == 0) {
+                    this.mBaseView = new CanMGCarTpmsView(this);
+                    return;
+                } else if (id == 10) {
+                    this.mBaseView = new CanMg6RzcLockSetView(this);
+                    return;
+                } else if (id == 11) {
+                    this.mBaseView = new CanMg6RzcConvSetView(this);
+                    return;
+                } else if (id == 12) {
+                    this.mBaseView = new CanMg6RzcAirSetView(this);
+                    return;
+                } else if (id == 13) {
+                    this.mBaseView = new CanMg6RzcCDriveAssView(this);
+                    return;
+                } else if (id == 14) {
+                    this.mBaseView = new CanMg6RzcSystemSetView(this);
+                    return;
+                } else if (id == 15) {
+                    this.mBaseView = new CanMg6RzcJsmsSetView(this);
+                    return;
+                } else {
+                    return;
                 }
-                return;
             case 27:
                 if (id == 2) {
                     this.mBaseView = new CanJACCarSetView(this);
@@ -489,6 +618,18 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else {
                     return;
                 }
+            case 56:
+                if (id == 0) {
+                    this.mBaseView = new CanMitSubiShiOutLanderCarSetView(this);
+                    return;
+                }
+                return;
+            case 60:
+                if (id == 0) {
+                    this.mBaseView = new CanZotyeE200RzcDriveInfoView(this);
+                    return;
+                }
+                return;
             case 65:
                 if (id == -1) {
                     this.mBaseView = new CanBMWMiniUpdateView(this);
@@ -513,7 +654,7 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 }
             case 72:
                 if (id == 0) {
-                    this.mBaseView = new CanGeelyRzcCarInfoView(this);
+                    this.mBaseView = new CanGeelyRzcPM25View(this);
                     return;
                 } else if (id == 1) {
                     this.mBaseView = new CanGeelyX3TpmsView(this);
@@ -523,6 +664,9 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     return;
                 } else if (id == 3) {
                     this.mBaseView = new CanGeelyRzcMixInfoView(this);
+                    return;
+                } else if (id == 4) {
+                    this.mBaseView = new CanGeelyRzcCarInfoView(this);
                     return;
                 } else {
                     return;
@@ -540,9 +684,21 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else if (id == -2) {
                     this.mBaseView = new CanCCH6RzcCarSeatStatusView(this);
                     return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanCcRzcDrivAssistSetView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanCcRzcAvmSetView(this);
+                    return;
                 } else {
                     return;
                 }
+            case 86:
+                if (id == 0) {
+                    this.mBaseView = new CanHtX5LightSetView(this);
+                    return;
+                }
+                return;
             case 98:
                 if (id == 0) {
                     this.mBaseView = new CanBaicEc5CarSetView(this);
@@ -553,8 +709,33 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 if (id == 1) {
                     this.mBaseView = new CanHyundaiRzcParkingSetView(this);
                     return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanHyundaiRzcAirSetView(this);
+                    return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanHyundaiRzcLightSetView(this);
+                    return;
+                } else if (id == 4) {
+                    this.mBaseView = new CanHyundaiRzcYyszSetView(this);
+                    return;
+                } else if (id == 5) {
+                    this.mBaseView = new CanHyundaiRzcEcoSetView(this);
+                    return;
+                } else if (id == 6) {
+                    this.mBaseView = new CanHyundaiRzcNyxxView(this);
+                    return;
+                } else if (id == 7) {
+                    this.mBaseView = new CanHyunDaiRzcNllctView(this);
+                    return;
+                } else if (id == 8) {
+                    this.mBaseView = new CanHyundaiRzcCdszSetView(this);
+                    return;
+                } else if (id == 9) {
+                    this.mBaseView = new CanHyundaiRzcJsmsSetView(this);
+                    return;
+                } else {
+                    return;
                 }
-                return;
             case 110:
                 if (id == 2) {
                     this.mBaseView = new CanJACRefineWcDrivAssistSetView(this);
@@ -575,8 +756,12 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 if (id == 0) {
                     this.mBaseView = new CanRenaultDriveComputeView(this);
                     return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanRenaultCarSetView(this);
+                    return;
+                } else {
+                    return;
                 }
-                return;
             case 122:
                 if (id == 1) {
                     this.mBaseView = new CanGolfCarAirSetView(this);
@@ -589,6 +774,40 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     return;
                 }
                 return;
+            case 127:
+                if (id == 1) {
+                    this.mBaseView = new CanPSARzcDriveInfoView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanPSARzcCheckInfoView(this);
+                    return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanPSARzcWarnInfoView(this);
+                    return;
+                } else if (id == 4) {
+                    this.mBaseView = new CanPSARzcFuncInfoView(this);
+                    return;
+                } else if (id == 5) {
+                    this.mBaseView = new CanPSARzcCruiseSpeedView(this);
+                    return;
+                } else if (id == 6) {
+                    this.mBaseView = new CanPSARzcSpeedLimitView(this);
+                    return;
+                } else if (id == 7) {
+                    this.mBaseView = new CanPSARzcMemTabView(this);
+                    return;
+                } else if (id == 8) {
+                    this.mBaseView = new CanPSARzcLangView(this);
+                    return;
+                } else if (id == 9) {
+                    this.mBaseView = new CanPSARzcAmpSetView(this);
+                    return;
+                } else if (id == 10) {
+                    this.mBaseView = new CanPSARzcAirSetView(this);
+                    return;
+                } else {
+                    return;
+                }
             case 128:
                 if (id == -1) {
                     this.mBaseView = new CanToyotaRearDisplayView(this);
@@ -596,8 +815,15 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 }
                 return;
             case Can.CAN_BENC_ZMYT:
-                this.mBaseView = new CanBencWithCDCarSetView(this);
-                return;
+                if (id == 0) {
+                    this.mBaseView = new CanBencWithCDCarSetView(this);
+                    return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanBencWithCDAutoBreakView(this);
+                    return;
+                } else {
+                    return;
+                }
             case 142:
                 if (id == -1) {
                     this.mBaseView = new CanGolfWcHHDLSTView(this);
@@ -626,6 +852,21 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     return;
                 } else if (id == 7) {
                     this.mBaseView = new CanFordRzcChairSetView(this);
+                    return;
+                } else if (id == 8) {
+                    this.mBaseView = new CanFordRzcChargeMixView(this);
+                    return;
+                } else if (id == 9) {
+                    this.mBaseView = new CanFordRzcZnxfSetView(this);
+                    return;
+                } else if (id == 10) {
+                    this.mBaseView = new CanFordRzcDriveAssistSetView(this);
+                    return;
+                } else if (id == 11) {
+                    this.mBaseView = new CanFordRzcLockSetView(this);
+                    return;
+                } else if (id == 12) {
+                    this.mBaseView = new CanFordRzcOtherSetView(this);
                     return;
                 } else {
                     return;
@@ -685,7 +926,7 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
             case 149:
                 this.mBaseView = new CanNissanWcAmpSetView(this);
                 return;
-            case Can.CAN_JAC_REFINE_OD:
+            case 150:
                 if (id == 0) {
                     this.mBaseView = new CanJACRefineOdCarSetView(this);
                     return;
@@ -735,7 +976,7 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else {
                     return;
                 }
-            case Can.CAN_AUDI_ZMYT:
+            case 152:
                 if (id == 0) {
                     this.mBaseView = new CanAudiWithCDCarInfoView(this);
                     return;
@@ -748,7 +989,7 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else {
                     return;
                 }
-            case Can.CAN_HYUNDAI_WC:
+            case 153:
                 if (id == 0) {
                     this.mBaseView = new CanHyundaiWcSetAmpView(this);
                     return;
@@ -850,7 +1091,7 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else {
                     return;
                 }
-            case Can.CAN_CHANA_CS75_WC:
+            case 160:
                 if (id == 0) {
                     this.mBaseView = new CanCs75WcVehicleInfoView(this);
                     return;
@@ -949,6 +1190,12 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else {
                     return;
                 }
+            case 165:
+                if (id == 0) {
+                    this.mBaseView = new CanBencMetrisWcCarSetView(this);
+                    return;
+                }
+                return;
             case 167:
                 if (id == 0) {
                     this.mBaseView = new CanDtV80BatteryGroupView(this);
@@ -988,6 +1235,15 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     return;
                 } else if (id == 1) {
                     this.mBaseView = new CanWcH6CarSetView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanWcH6AVMSetView(this);
+                    return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanWcH6AmpSetView(this);
+                    return;
+                } else if (id == 4) {
+                    this.mBaseView = new CanWcH6LangSetView(this);
                     return;
                 } else {
                     return;
@@ -1209,13 +1465,19 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     this.mBaseView = new com.ts.can.gm.rzc.CanGMHybridView(this);
                     return;
                 } else if (id == 9) {
-                    this.mBaseView = new CanOnStarWifiView(this);
+                    this.mBaseView = new CanGMOpelKeyView(this);
+                    return;
+                } else if (id == 10) {
+                    this.mBaseView = new CanGMRzcCarInfoView(this);
                     return;
                 } else if (id == -1) {
                     this.mBaseView = new CanGL8RearACView(this);
                     return;
                 } else if (id == -2) {
                     this.mBaseView = new CanGMActivityParkView(this);
+                    return;
+                } else if (id == -3) {
+                    this.mBaseView = new CanOnStarWifiView(this);
                     return;
                 } else {
                     return;
@@ -1245,8 +1507,30 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 if (id == 0) {
                     this.mBaseView = new CanRenaultWcDriveComputeView(this);
                     return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanRenaultWcCarSetView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanRenaultWcLangSetView(this);
+                    return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanRenaultWcAdasSetView(this);
+                    return;
+                } else if (id == 4) {
+                    this.mBaseView = new CanRenaultWcDriveAssistSetView(this);
+                    return;
+                } else if (id == 5) {
+                    this.mBaseView = new CanRenaultWcLockSetView(this);
+                    return;
+                } else if (id == 6) {
+                    this.mBaseView = new CanRenaultWcOtherSetView(this);
+                    return;
+                } else if (id == 7) {
+                    this.mBaseView = new CanRenaultWcDefaultSetView(this);
+                    return;
+                } else {
+                    return;
                 }
-                return;
             case 217:
                 if (id == 0) {
                     this.mBaseView = new CanLuxgenOdCarSetView(this);
@@ -1351,7 +1635,7 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     return;
                 }
                 return;
-            case 241:
+            case Can.CAN_SITECHDEV_CW:
                 if (id == 1) {
                     this.mBaseView = new CanSitechDevCwCarSetView(this);
                     return;
@@ -1439,6 +1723,9 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else if (id == 1) {
                     this.mBaseView = new CanChanACosTPMSView(this);
                     return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanChanACosDvrSetView(this);
+                    return;
                 } else {
                     return;
                 }
@@ -1499,6 +1786,15 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                     return;
                 } else if (id == 3) {
                     this.mBaseView = new CanMzdRzcistopinfoView(this);
+                    return;
+                } else if (id == 4) {
+                    this.mBaseView = new CanMzdRzcCarTpmsView(this);
+                    return;
+                } else if (id == 5) {
+                    this.mBaseView = new CanMzdRzcClbySetView(this);
+                    return;
+                } else if (id == 6) {
+                    this.mBaseView = new CanMzdRzcServiceInfoView(this);
                     return;
                 } else {
                     return;
@@ -1775,6 +2071,96 @@ public class CanCarInfoSub1Activity extends CanBaseCarInfoActivity {
                 } else {
                     return;
                 }
+            case 289:
+                if (id == 0) {
+                    this.mBaseView = new CanLandRoverZmytCarFuncView(this);
+                    return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanLandRoverZmytCarInitView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanLandRoverZmytUpdateView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 292:
+                if (id == 0) {
+                    this.mBaseView = new CanFordDjCarSetView(this);
+                    return;
+                }
+                return;
+            case 293:
+                if (id == -1) {
+                    this.mBaseView = new CanB70DjCDView(this);
+                    return;
+                } else if (id == -2) {
+                    this.mBaseView = new CanB70DjRadioView(this);
+                    return;
+                } else if (id == -3) {
+                    this.mBaseView = new CanB70DjSetView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 294:
+                if (id == 0) {
+                    this.mBaseView = new CanTeanaOldXcCarSetView(this);
+                    return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanTeanaOldXcAmpSetView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 298:
+                if (id == 0) {
+                    this.mBaseView = new CanAudiLzWithCDCarInfoView(this);
+                    return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanAudiLzWithCDCarFuncView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanAudiLzWithCDCarInitView(this);
+                    return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanAudiLzWithCDUpdateView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 300:
+                if (id == 2) {
+                    this.mBaseView = new CanGmEnclaveWcSetACView(this);
+                    return;
+                } else if (id == 10) {
+                    this.mBaseView = new CanGmEnclaveWcSetLanguageView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 303:
+                if (id == 0) {
+                    this.mBaseView = new CanAudiXbsWithCDCarInfoView(this);
+                    return;
+                } else if (id == 1) {
+                    this.mBaseView = new CanAudiXbsWithCDCarFuncView(this);
+                    return;
+                } else if (id == 2) {
+                    this.mBaseView = new CanAudiXbsWithCDCarInitView(this);
+                    return;
+                } else if (id == 3) {
+                    this.mBaseView = new CanAudiXbsWithCDUpdateView(this);
+                    return;
+                } else {
+                    return;
+                }
+            case 307:
+                if (id == 0) {
+                    this.mBaseView = new CanTataLzCarSetView(this);
+                    return;
+                }
+                return;
             default:
                 return;
         }

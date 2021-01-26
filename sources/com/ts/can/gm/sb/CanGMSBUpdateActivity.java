@@ -13,7 +13,6 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanIF;
-import com.ts.dvdplayer.definition.MediaDef;
 import com.txznet.sdk.TXZPoiSearchManager;
 import com.yyw.ts70xhw.Mcu;
 
@@ -27,7 +26,7 @@ public class CanGMSBUpdateActivity extends Activity {
             if (id == R.id.xt5_update_start) {
                 char[] mcuVer = new char[32];
                 Mcu.GetMcuVer(mcuVer);
-                if ((Character.digit(mcuVer[6], 10) * 100000) + (Character.digit(mcuVer[7], 10) * TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) + (Character.digit(mcuVer[8], 10) * MediaDef.PROGRESS_MAX) + (Character.digit(mcuVer[9], 10) * 100) + (Character.digit(mcuVer[10], 10) * 10) + Character.digit(mcuVer[11], 10) >= 180130) {
+                if ((Character.digit(mcuVer[6], 10) * 100000) + (Character.digit(mcuVer[7], 10) * TXZPoiSearchManager.DEFAULT_SEARCH_TIMEOUT) + (Character.digit(mcuVer[8], 10) * 1000) + (Character.digit(mcuVer[9], 10) * 100) + (Character.digit(mcuVer[10], 10) * 10) + Character.digit(mcuVer[11], 10) >= 180130) {
                     CanGMSBUpdateActivity.this.mUpdater.startUpdate();
                 } else {
                     Toast.makeText(CanGMSBUpdateActivity.this.getApplicationContext(), "请更新MCU", 0).show();

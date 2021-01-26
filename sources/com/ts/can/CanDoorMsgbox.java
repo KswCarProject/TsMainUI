@@ -14,7 +14,6 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.main.common.MainSet;
-import com.ts.main.navigationbar.NaviBarService;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
 import com.yyw.ts70xhw.FtSet;
@@ -27,7 +26,7 @@ public class CanDoorMsgbox implements DialogInterface.OnDismissListener, DialogI
     private CanDataInfo.CAN_DoorInfo mDoor = new CanDataInfo.CAN_DoorInfo();
     private CustomImgView mImgLtBelt;
     private CustomImgView mImgRtBelt;
-    protected boolean mIsShow;
+    protected boolean mIsShow = false;
     private CustomImgView mIvHead;
     private CustomImgView mIvLF;
     private CustomImgView mIvLR;
@@ -40,6 +39,7 @@ public class CanDoorMsgbox implements DialogInterface.OnDismissListener, DialogI
 
     public void Update() {
         if (fsNeedShowDoor()) {
+            Init(CanFunc.mContext);
             UpdateDoorUI();
             Show(1);
         }
@@ -52,9 +52,9 @@ public class CanDoorMsgbox implements DialogInterface.OnDismissListener, DialogI
     public void Init(Context context) {
         if (this.mDlg != null) {
             Log.d(TAG, "Already have instance");
-            Hide();
             return;
         }
+        Log.d(TAG, "Init");
         this.mDlg = new AlertDialog.Builder(context).create();
         this.mDlg.getWindow().setType(2003);
         this.mDlg.setOnDismissListener(this);
@@ -158,7 +158,7 @@ public class CanDoorMsgbox implements DialogInterface.OnDismissListener, DialogI
         if (val != 0) {
             this.mDlg.show();
             SetShowFlg(true);
-            this.nDoorDispTime = NaviBarService.FIRST_SYSTEM_WINDOW;
+            this.nDoorDispTime = 2000;
             return;
         }
         this.mDlg.hide();

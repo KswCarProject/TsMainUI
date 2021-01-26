@@ -12,9 +12,10 @@ import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.canview.MyProgressBar;
-import com.ts.dvdplayer.definition.MediaDef;
+import com.ts.factoryset.AtcDisplaySettingsUtils;
 import com.ts.main.common.MainSet;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGolfRzcConvConsumersView extends CanRelativeCarInfoView {
     public static final String TAG = "CanGolfConvConsumersActivity";
@@ -78,11 +79,11 @@ public class CanGolfRzcConvConsumersView extends CanRelativeCarInfoView {
         this.mConCenter.setTextSize(0, 25.0f);
         this.mConCenter.setTextColor(-1);
         this.mConMax = this.mManager.AddText(877, 440, 100, 30);
-        this.mConMax.setText(MainSet.SP_XPH5);
+        this.mConMax.setText("1");
         this.mConMax.setGravity(21);
         this.mConMax.setTextSize(0, 25.0f);
         this.mConMax.setTextColor(-1);
-        this.mConDW = this.mManager.AddText(877, 370, 100, 40);
+        this.mConDW = this.mManager.AddText(877, AtcDisplaySettingsUtils.SPECIFIC_Y_SMALL2, 100, 40);
         this.mConDW.setText("km/h");
         this.mConDW.setGravity(21);
         this.mConDW.setTextSize(0, 25.0f);
@@ -124,7 +125,7 @@ public class CanGolfRzcConvConsumersView extends CanRelativeCarInfoView {
                     if (this.mInfoData.Info[i] < this.mStrTip.length) {
                         this.mInfo[i].setText(this.mStrTip[this.mInfoData.Info[i]]);
                     } else {
-                        this.mInfo[i].setText("");
+                        this.mInfo[i].setText(TXZResourceManager.STYLE_DEFAULT);
                     }
                 }
                 for (int i2 = num; i2 < 3; i2++) {
@@ -142,8 +143,8 @@ public class CanGolfRzcConvConsumersView extends CanRelativeCarInfoView {
                 if (1 == this.mConsumersData.DW) {
                     this.mConDW.setText("l/h");
                     this.mConCenter.setText("1/2");
-                    this.mConMax.setText(MainSet.SP_XPH5);
-                    max = MediaDef.PROGRESS_MAX;
+                    this.mConMax.setText("1");
+                    max = 1000;
                 } else {
                     this.mConDW.setText("gal/h");
                     this.mConCenter.setText("1/8");

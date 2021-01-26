@@ -3,7 +3,10 @@ package com.ts.can.gm.comm;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
@@ -15,9 +18,10 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
 import com.ts.canview.RelativeLayoutContainer;
+import com.ts.main.common.MainSet;
 import com.ts.other.ParamButton;
 import com.txznet.sdk.TXZPoiSearchManager;
-import com.yyw.ts70xhw.KeyDef;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGL8ACActivity extends CanGMBaseActivity implements UserCallBack, View.OnClickListener {
     private static int AC_SHOW_TIME = TXZPoiSearchManager.DEFAULT_NEARBY_RADIUS;
@@ -36,6 +40,7 @@ public class CanGL8ACActivity extends CanGMBaseActivity implements UserCallBack,
     private static final int ITEM_TEMP_SYNC = 14;
     private static final int ITEM_WIND_DECREASE = 9;
     private static final int ITEM_WIND_INCREASE = 8;
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private boolean isACJump = false;
     private CanDataInfo.CAN_ACInfo mAcInfo;
     private ParamButton mBtnAC;
@@ -59,12 +64,25 @@ public class CanGL8ACActivity extends CanGMBaseActivity implements UserCallBack,
     public void onCreate(Bundle arg0) {
         super.onCreate(arg0);
         setContentView(R.layout.activity_can_comm_relative);
+        this.mContainer = new RelativeLayoutContainer(this);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mContainer.getContainer().getLayoutParams();
+        if (MainSet.GetScreenType() == 3 && CanFunc.getInstance().IsCore() == 1) {
+            mDisplayMetrics.heightPixels = 600;
+        }
+        lp.width = 1024;
+        lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+        lp.gravity = 17;
+        this.mContainer.getContainer().setLayoutParams(lp);
         this.isACJump = CanFunc.IsCanActivityJumped(this);
         initUI();
+        this.mContainer.getContainer().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+        this.mContainer.getContainer().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+        Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
     }
 
     private void initUI() {
-        this.mContainer = new RelativeLayoutContainer(this);
         this.mContainer.setBackgroundResource(R.drawable.can_gl18_ac_bg01);
         this.mTvLeftTemp = this.mContainer.addText(49, Can.CAN_BJ20_WC, 110, 75);
         this.mTvRightTemp = this.mContainer.addText(862, Can.CAN_BJ20_WC, 110, 75);
@@ -74,15 +92,15 @@ public class CanGL8ACActivity extends CanGMBaseActivity implements UserCallBack,
         this.mTvSyncState = this.mContainer.addText(455, 183, 113, 44);
         this.mTvWindState = this.mContainer.addText(372, 280);
         this.mContainer.setTextStyle(this.mTvLeftTemp, 0, 17, -1, 30).setTextStyle(this.mTvRightTemp, 0, 17, -1, 30).setTextStyle2(this.mTvACToggle, R.string.can_gl8_2017_close, 17, 14).setColorUpSelList(this.mTvACToggle, -1, Color.parseColor("#FFCC00")).setTextStyle2(this.mTvAuto, R.string.can_gl8_2017_auto, 17, 20).setColorUpDnSelList(this.mTvAuto, -1, Color.parseColor("#FFCC00")).setIdClickListener(this.mTvAuto, 12, this).setTextStyle2(this.mTvRearSeat, R.string.can_gl8_2017_rear_seat, 17, 20).setColorUpDnList(this.mTvRearSeat, -1, Color.parseColor("#FFCC00")).setIdClickListener(this.mTvRearSeat, 13, this).setTextStyle2(this.mTvSyncState, R.string.can_gl8_2017_sync_already, 17, 18).setColorUpDnSelList(this.mTvSyncState, -1, Color.parseColor("#06ebf9")).setIdClickListener(this.mTvSyncState, 14, this).setTextStyle(this.mTvWindState, 0, 17, -1, 18);
-        this.mIvWindIcon = this.mContainer.addImage(375, KeyDef.RKEY_FR, R.drawable.can_gl18_ac_fan_00);
+        this.mIvWindIcon = this.mContainer.addImage(375, 294, R.drawable.can_gl18_ac_fan_00);
         this.mBtnAC = this.mContainer.addButton(261, 70);
         this.mBtnLoop = this.mContainer.addButton(389, 67);
         ParamButton windDecrease = this.mContainer.addButton(Can.CAN_TOYOTA_SP_XP, 284);
         ParamButton windIncrease = this.mContainer.addButton(671, 284);
         ParamButton leftIncrease = this.mContainer.addButton(49, 68);
-        ParamButton leftDecrease = this.mContainer.addButton(49, KeyDef.RKEY_FR);
+        ParamButton leftDecrease = this.mContainer.addButton(49, 294);
         ParamButton rightIncrease = this.mContainer.addButton(858, 68);
-        ParamButton rightDecrease = this.mContainer.addButton(858, KeyDef.RKEY_FR);
+        ParamButton rightDecrease = this.mContainer.addButton(858, 294);
         this.mBtnHeadMode = this.mContainer.addButton(176, 445);
         this.mBtnHeadFootMode = this.mContainer.addButton(360, 445);
         this.mBtnFootMode = this.mContainer.addButton(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST2, 445);
@@ -144,8 +162,8 @@ public class CanGL8ACActivity extends CanGMBaseActivity implements UserCallBack,
     }
 
     private void updateTempValue(String ltTemp, String rtTemp) {
-        this.mTvLeftTemp.setText(TextUtils.isEmpty(ltTemp) ? "" : ltTemp.replace("℃", "°"));
-        this.mTvRightTemp.setText(TextUtils.isEmpty(rtTemp) ? "" : rtTemp.replace("℃", "°"));
+        this.mTvLeftTemp.setText(TextUtils.isEmpty(ltTemp) ? TXZResourceManager.STYLE_DEFAULT : ltTemp.replace("℃", "°"));
+        this.mTvRightTemp.setText(TextUtils.isEmpty(rtTemp) ? TXZResourceManager.STYLE_DEFAULT : rtTemp.replace("℃", "°"));
     }
 
     private void updateACState(int autoAc, int ac) {

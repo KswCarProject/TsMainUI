@@ -1,12 +1,24 @@
 package com.ts.bt;
 
+import com.txznet.sdk.TXZResourceManager;
+
 public class PhoneCall {
     private long callActiveSecond = 0;
     private long callActiveTick = 0;
-    private String callName = "";
+    private String callName = TXZResourceManager.STYLE_DEFAULT;
+    private String callNumber = TXZResourceManager.STYLE_DEFAULT;
     private int callState = -1;
-    private String callTime = "";
-    private String callType = "";
+    private String callTime = TXZResourceManager.STYLE_DEFAULT;
+    private String callType = TXZResourceManager.STYLE_DEFAULT;
+    private boolean isBluetoothCall;
+
+    public String getCallNumber() {
+        return this.callNumber;
+    }
+
+    public void setCallNumber(String callNumber2) {
+        this.callNumber = callNumber2;
+    }
 
     public String getCallType() {
         return this.callType;
@@ -56,7 +68,15 @@ public class PhoneCall {
         this.callTime = callTime2;
     }
 
+    public boolean isBluetoothCall() {
+        return this.isBluetoothCall;
+    }
+
+    public void setBluetoothCall(boolean isBluetoothCall2) {
+        this.isBluetoothCall = isBluetoothCall2;
+    }
+
     public String toString() {
-        return "PhoneCall [callType=" + this.callType + ", callName=" + this.callName + ", callActiveTick=" + this.callActiveTick + ", callActiveSecond=" + this.callActiveSecond + ", callState=" + this.callState + ", callTime=" + this.callTime + "]";
+        return "PhoneCall [callNumber=" + this.callNumber + ", callType=" + this.callType + ", callName=" + this.callName + ", callActiveTick=" + this.callActiveTick + ", callActiveSecond=" + this.callActiveSecond + ", callState=" + this.callState + ", callTime=" + this.callTime + ", isBluetoothCall=" + this.isBluetoothCall + "]";
     }
 }

@@ -6,6 +6,7 @@ import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanGMWcCarStatusView extends CanScrollCarInfoView {
     private CanDataInfo.GmWcDisInfo mDisInfo;
@@ -56,7 +57,7 @@ public class CanGMWcCarStatusView extends CanScrollCarInfoView {
             case 1:
                 return String.format("%.1f %s", new Object[]{Float.valueOf(((float) value) / 10.0f), "Mile"});
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -71,7 +72,7 @@ public class CanGMWcCarStatusView extends CanScrollCarInfoView {
             case 3:
                 return String.format("%.1f %s", new Object[]{Float.valueOf(((float) value) / 10.0f), "L/H"});
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 

@@ -1,8 +1,10 @@
 package com.ts.can.ford;
 
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
@@ -37,6 +39,7 @@ public class CanFordEscapeACActivity extends CanBaseActivity implements UserCall
     private static final int ITEM_WIND_DECREASE = 5;
     private static final int ITEM_WIND_INCREASE = 4;
     public static final String TAG = "CanFordEscapeACActivity";
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     private CanDataInfo.CAN_ACInfo mAcInfo;
     protected boolean mAutoFinish = false;
     private ParamButton mBtnAc;
@@ -65,10 +68,20 @@ public class CanFordEscapeACActivity extends CanBaseActivity implements UserCall
 
     private void InitUI() {
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
         if (MainSet.GetScreenType() == 3) {
             initScreen_768x1024();
         } else {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+            lp.width = 1024;
+            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+            lp.gravity = 17;
+            this.mManager.GetLayout().setLayoutParams(lp);
             initCommonScreen();
+            this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+            this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+            Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
         }
         this.mfgJump = CanFunc.IsCanActivityJumped(this);
     }
@@ -96,12 +109,12 @@ public class CanFordEscapeACActivity extends CanBaseActivity implements UserCall
         this.mBtnModeHead = AddButton(Can.CAN_LEXUS_IZ, 167, 168, 58, 7, R.drawable.can_ac_yh_jt1_up, R.drawable.can_ac_yh_jt1_dn);
         this.mBtnModeFoot = AddButton(Can.CAN_SAIL_RW550_MG6_WC, Can.CAN_ZH_H530, 168, 58, 8, R.drawable.can_ac_yh_jt2_up, R.drawable.can_ac_yh_jt2_dn);
         this.mBtnPower = AddButton(350, 24, 68, 46, 9, R.drawable.can_ac_yh_gj_up, R.drawable.can_ac_yh_gj_dn);
-        this.mBtnMaxFront = AddButton(93, KeyDef.RKEY_MEDIA_ZOOM, 97, 59, 10, R.drawable.can_ac_yh_wmax_up, R.drawable.can_ac_yh_wmax_dn);
-        this.mBtnAuto = AddButton(189, KeyDef.RKEY_MEDIA_ZOOM, 97, 59, 11, R.drawable.can_ac_yh_auto_up, R.drawable.can_ac_yh_auto_dn);
-        this.mBtnAc = AddButton(287, KeyDef.RKEY_MEDIA_ZOOM, 97, 59, 12, R.drawable.can_ac_yh_ac_up, R.drawable.can_ac_yh_ac_dn);
-        this.mBtnMaxAc = AddButton(384, KeyDef.RKEY_MEDIA_ZOOM, 97, 59, 13, R.drawable.can_ac_yh_mac_up, R.drawable.can_ac_yh_mac_dn);
-        this.mBtnLoop = AddButton(482, KeyDef.RKEY_MEDIA_ZOOM, 97, 59, 14, R.drawable.can_ac_yh_wxh_up, R.drawable.can_ac_yh_wxh_dn);
-        this.mBtnDual = AddButton(CanCameraUI.BTN_CAMERY_2018_MODE1, KeyDef.RKEY_MEDIA_ZOOM, 97, 59, 15, R.drawable.can_ac_yh_dual_up, R.drawable.can_ac_yh_dual_dn);
+        this.mBtnMaxFront = AddButton(93, 309, 97, 59, 10, R.drawable.can_ac_yh_wmax_up, R.drawable.can_ac_yh_wmax_dn);
+        this.mBtnAuto = AddButton(189, 309, 97, 59, 11, R.drawable.can_ac_yh_auto_up, R.drawable.can_ac_yh_auto_dn);
+        this.mBtnAc = AddButton(287, 309, 97, 59, 12, R.drawable.can_ac_yh_ac_up, R.drawable.can_ac_yh_ac_dn);
+        this.mBtnMaxAc = AddButton(384, 309, 97, 59, 13, R.drawable.can_ac_yh_mac_up, R.drawable.can_ac_yh_mac_dn);
+        this.mBtnLoop = AddButton(482, 309, 97, 59, 14, R.drawable.can_ac_yh_wxh_up, R.drawable.can_ac_yh_wxh_dn);
+        this.mBtnDual = AddButton(CanCameraUI.BTN_CAMERY_2018_MODE1, 309, 97, 59, 15, R.drawable.can_ac_yh_dual_up, R.drawable.can_ac_yh_dual_dn);
         this.mIvAutoIcon = this.mManager.AddImageEx(199, 83, 372, 199, R.drawable.can_ac_yh_bg01);
         this.mIvAutoIcon.setVisibility(4);
     }

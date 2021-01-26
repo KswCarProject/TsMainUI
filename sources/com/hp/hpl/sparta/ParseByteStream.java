@@ -1,5 +1,6 @@
 package com.hp.hpl.sparta;
 
+import com.android.SdkConstants;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -49,18 +50,18 @@ class ParseByteStream implements ParseSource {
     }
 
     private static String fixEncoding(String str) {
-        return str.toLowerCase().equals("utf8") ? "UTF-8" : str;
+        return str.toLowerCase().equals("utf8") ? SdkConstants.INI_CHARSET : str;
     }
 
     private static String guessEncoding(String str, byte[] bArr, int i, ParseLog parseLog) throws IOException {
         String str2;
         if (i != 4) {
             parseLog.error(i <= 0 ? "no characters in input" : new StringBuffer().append("less than 4 characters in input: \"").append(new String(bArr, 0, i)).append("\"").toString(), str, 1);
-            str2 = "UTF-8";
+            str2 = SdkConstants.INI_CHARSET;
         } else {
-            str2 = (equals(bArr, 65279) || equals(bArr, -131072) || equals(bArr, 65534) || equals(bArr, -16842752) || equals(bArr, 60) || equals(bArr, 1006632960) || equals(bArr, 15360) || equals(bArr, 3932160)) ? "UCS-4" : equals(bArr, 3932223) ? "UTF-16BE" : equals(bArr, 1006649088) ? "UTF-16LE" : equals(bArr, 1010792557) ? "UTF-8" : equals(bArr, 1282385812) ? "EBCDIC" : (equals(bArr, -2) || equals(bArr, -257)) ? "UTF-16" : "UTF-8";
+            str2 = (equals(bArr, 65279) || equals(bArr, -131072) || equals(bArr, 65534) || equals(bArr, -16842752) || equals(bArr, 60) || equals(bArr, 1006632960) || equals(bArr, 15360) || equals(bArr, 3932160)) ? "UCS-4" : equals(bArr, 3932223) ? "UTF-16BE" : equals(bArr, 1006649088) ? "UTF-16LE" : equals(bArr, 1010792557) ? SdkConstants.INI_CHARSET : equals(bArr, 1282385812) ? "EBCDIC" : (equals(bArr, -2) || equals(bArr, -257)) ? "UTF-16" : SdkConstants.INI_CHARSET;
         }
-        if (!str2.equals("UTF-8")) {
+        if (!str2.equals(SdkConstants.INI_CHARSET)) {
             parseLog.note(new StringBuffer().append("From start ").append(hex(bArr[0])).append(" ").append(hex(bArr[1])).append(" ").append(hex(bArr[2])).append(" ").append(hex(bArr[3])).append(" deduced encoding = ").append(str2).toString(), str, 1);
         }
         return str2;

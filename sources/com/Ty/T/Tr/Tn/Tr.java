@@ -1,5 +1,7 @@
 package com.Ty.T.Tr.Tn;
 
+import com.android.SdkConstants;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
@@ -13,10 +15,10 @@ public interface Tr {
         HTTP("http"),
         HTTPS("https"),
         FILE("file"),
-        CONTENT("content"),
-        ASSETS("assets"),
+        CONTENT(SdkConstants.ATTR_CONTENT),
+        ASSETS(SdkConstants.FD_ASSETS),
         DRAWABLE("drawable"),
-        UNKNOWN("");
+        UNKNOWN(TXZResourceManager.STYLE_DEFAULT);
         
         private String T5;
         private String TE;

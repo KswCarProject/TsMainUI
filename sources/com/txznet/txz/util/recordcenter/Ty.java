@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.Tn.Tr.TZ.T;
 import com.Tr.T.T.T9;
 import com.txznet.comm.Tr.Tr.Tn;
+import com.txznet.sdk.TXZResourceManager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,9 +17,9 @@ import java.util.zip.CRC32;
 public class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    public static String f911T;
+    public static String f915T;
     public static boolean Tr = new File(T(), "test_definit_voice_name.debug").exists();
-    private static String Ty = "";
+    private static String Ty = TXZResourceManager.STYLE_DEFAULT;
     private int T5 = 0;
     private RandomAccessFile T9;
     private T.C0004T TE;
@@ -100,7 +101,7 @@ public class Ty {
             CRC32 mCrc32 = new CRC32();
             mCrc32.update(mBuffer);
             this.TZ = mCrc32.getValue();
-            byte[] mEncryptedBuffer = com.txznet.txz.util.T.T(com.txznet.txz.util.Tn.T(this.TE.TE + "" + this.TZ + Ty), mBuffer);
+            byte[] mEncryptedBuffer = com.txznet.txz.util.T.T(com.txznet.txz.util.Tn.T(this.TE.TE + TXZResourceManager.STYLE_DEFAULT + this.TZ + Ty), mBuffer);
             this.T9.seek(6);
             this.T9.writeLong(this.TZ);
             this.T9.seek((long) (this.T5 + 30));

@@ -15,10 +15,6 @@
     <string name="str_bt_ok">حسنا</string>
     <string name="str_bt_cancel">إلغاء</string>
     <string name="str_bt_dial">يتصل</string>
-    <string name="tpms_general_bar">Bar</string>
-    <string name="tpms_general_psi">Psi</string>
-    <string name="tpms_general_satrt">Start study</string>
-    <string name="tpms_general_end">Cancel study</string>
     <string name="str_setting_title">إنشاء</string>
     <string name="set_general_automatic">Auto</string>
     <string name="set_sound_jazz">سيدي</string>
@@ -28,7 +24,7 @@
     <string name="set_sound_pop">فرقعة</string>
     <string name="set_sound_rock">صخرة</string>
     <string name="set_balance_center">Center</string>
-    <string name="set_balance_examp">Ex Amp</string>
+    <string name="set_balance_examp">EXT AMP</string>
     <string name="set_balance_loud">Loud</string>
     <string name="set_balance_subwoof">SubWoof</string>
     <string name="set_general_backcarvol_none">لا شيء</string>
@@ -84,7 +80,7 @@
     <string name="title_activity_tpmsmain">TPMS</string>
     <string name="title_activity_tpmsset_main">Setting</string>
     <string name="title_activity_weather">BT SWC</string>
-    <string name="title_activity_adasmain">أداس</string>
+    <string name="title_activity_adasmain">DSP</string>
     <string name="video_state_none">No Signal</string>
     <string name="video_state_forbiden">لا يمكنك مشاهدة الفيديو أثناء القيادة</string>
     <string name="hello_world">Hello world!</string>
@@ -100,4 +96,14 @@
     <string name="vol_common_navivol">نافي حجم</string>
     <string name="vol_common_mut">أخرس</string>
     <string name="del_common_no_apk">No APP</string>
+    <string name="tpms_general_bar">Bar</string>
+    <string name="tpms_general_psi">Psi</string>
+    <string name="tpms_general_satrt">Start study</string>
+    <string name="tpms_general_end">Cancel study</string>
+    <string name="support_ten_eqband">1</string>
+    <string name="back_title">تخزين</string>
+    <string name="cur_zijie">GB</string>
+    <string name="totle_zijie1">تستخدم من</string>
+    <string name="totle_zijie2">GB</string>
+    <string name="already_used">مستخدم</string>
 </resources>

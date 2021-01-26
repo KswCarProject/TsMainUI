@@ -2,7 +2,6 @@ package com.ts.can.honda.accord;
 
 import android.os.Bundle;
 import android.view.View;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -26,15 +25,15 @@ public class CanAccordCameraStatusActivity extends CanAccordBaseActivity impleme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
-        this.mBtnGj = this.mManager.AddButton(68, Can.CAN_CHANA_CS75_WC);
+        this.mBtnGj = this.mManager.AddButton(68, 160);
         this.mBtnGj.setTag(1);
         this.mBtnGj.setDrawable(R.drawable.can_yg_mode_gj_up, R.drawable.can_yg_mode_gj_dn);
         this.mBtnGj.setOnClickListener(this);
-        this.mBtnBz = this.mManager.AddButton(387, Can.CAN_CHANA_CS75_WC);
+        this.mBtnBz = this.mManager.AddButton(387, 160);
         this.mBtnBz.setTag(2);
         this.mBtnBz.setDrawable(R.drawable.can_yg_mode_bz_up, R.drawable.can_yg_mode_bz_dn);
         this.mBtnBz.setOnClickListener(this);
-        this.mBtnFj = this.mManager.AddButton(705, Can.CAN_CHANA_CS75_WC);
+        this.mBtnFj = this.mManager.AddButton(705, 160);
         this.mBtnFj.setTag(3);
         this.mBtnFj.setDrawable(R.drawable.can_yg_mode_fj_up, R.drawable.can_yg_mode_fj_dn);
         this.mBtnFj.setOnClickListener(this);

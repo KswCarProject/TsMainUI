@@ -8,6 +8,7 @@ import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
 
 public class CanFordRzcAmpSetView extends CanScrollCarInfoView {
+    protected static final int ITEM_ALL = 8;
     protected static final int ITEM_EQ = 7;
     protected static final int ITEM_SPEED_VOLUME_ADJUSTMENT = 6;
     protected static final int ITEM_VOL_ATTENUATION = 4;
@@ -19,7 +20,7 @@ public class CanFordRzcAmpSetView extends CanScrollCarInfoView {
     private CanDataInfo.FordRzcAmpData mAmpData;
 
     public CanFordRzcAmpSetView(Activity activity) {
-        super(activity, 8);
+        super(activity, 9);
     }
 
     public void onItem(int id, int item) {
@@ -27,6 +28,15 @@ public class CanFordRzcAmpSetView extends CanScrollCarInfoView {
             CanJni.FordRzcAmpSet(5, item);
         } else if (id == 7) {
             CanJni.FordRzcAmpSet(6, item);
+        } else if (id != 8) {
+        } else {
+            if (item == 1) {
+                CanJni.FordRzcAmpSet(7, 2);
+            } else if (item == 2) {
+                CanJni.FordRzcAmpSet(7, 1);
+            } else {
+                CanJni.FordRzcAmpSet(7, item);
+            }
         }
     }
 
@@ -58,8 +68,8 @@ public class CanFordRzcAmpSetView extends CanScrollCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_vol, R.string.can_vol_high, R.string.can_vol_middle, R.string.can_vol_low, R.string.can_vol_attenuation, R.string.can_vol_balance, R.string.can_a_s_l, R.string.can_eq};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
+        this.mItemTitleIds = new int[]{R.string.can_vol, R.string.can_vol_high, R.string.can_vol_middle, R.string.can_vol_low, R.string.can_vol_attenuation, R.string.can_vol_balance, R.string.can_a_s_l, R.string.can_eq, R.string.can_park_dir_c};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.PROGRESS, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP, CanScrollCarInfoView.Item.POP};
         this.mPopValueIds[6] = new int[]{R.string.can_trunk_close, R.string.can_cdjd, R.string.can_cdzj, R.string.can_cdjg};
         this.mPopValueIds[7] = new int[]{R.string.can_cch9_surround_sound_key1, R.string.can_cch9_surround_sound_key2};
         this.mAmpData = new CanDataInfo.FordRzcAmpData();
@@ -98,6 +108,7 @@ public class CanFordRzcAmpSetView extends CanScrollCarInfoView {
         iArr12[1] = 7;
         iArr12[2] = 1;
         iArr11[5] = iArr12;
+        this.mPopValueIds[8] = new int[]{R.string.can_zc, R.string.can_hp, R.string.can_driver_window};
     }
 
     public void ResetData(boolean check) {
@@ -115,6 +126,7 @@ public class CanFordRzcAmpSetView extends CanScrollCarInfoView {
             updateItem(5, this.mAmpData.Bal - 7);
             updateItem(6, this.mAmpData.VolWithSpeed);
             updateItem(7, this.mAmpData.EQ);
+            updateItem(8, this.mAmpData.All);
         }
     }
 

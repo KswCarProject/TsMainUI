@@ -63,7 +63,7 @@ public class CanGolfRzcTyresSetView extends CanScrollCarInfoView implements CanI
         int[] iArr2 = new int[5];
         iArr2[1] = R.drawable.can_golf_icon10;
         this.mItemIcons = iArr2;
-        this.mProgressAttrs[4] = new int[]{20, Can.CAN_JAC_REFINE_OD, 5, 1};
+        this.mProgressAttrs[4] = new int[]{20, 150, 5, 1};
         this.mTyresData = new CanDataInfo.GolfTyres();
         this.mAdtTyres = new CanDataInfo.GolfAdtTyres();
     }
@@ -87,12 +87,12 @@ public class CanGolfRzcTyresSetView extends CanScrollCarInfoView implements CanI
                 showItem(4, this.mTyresData.fgSpeedWarning);
             }
             if (this.mTyresData.SpeedDW == 0) {
-                ((CanItemProgressList) this.mItemObjects[4]).SetMinMax(30, 240);
+                ((CanItemProgressList) this.mItemObjects[4]).SetMinMax(30, Can.CAN_VOLKS_XP);
                 ((CanItemProgressList) this.mItemObjects[4]).SetStep(10);
                 updateItem(4, this.mTyresData.Data, this.mTyresData.Data + "km/h");
                 return;
             }
-            ((CanItemProgressList) this.mItemObjects[4]).SetMinMax(20, Can.CAN_JAC_REFINE_OD);
+            ((CanItemProgressList) this.mItemObjects[4]).SetMinMax(20, 150);
             ((CanItemProgressList) this.mItemObjects[4]).SetStep(5);
             updateItem(4, this.mTyresData.Data, this.mTyresData.Data + "mph");
         }

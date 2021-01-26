@@ -17,13 +17,13 @@ class Ty implements TZ {
                 break;
             }
             char c = context.Tr();
-            context.f292T++;
+            context.f295T++;
             int lastCharSize = T(c, buffer);
             int curCodewordCount = context.Tn() + ((buffer.length() / 3) << 1);
             context.Ty(curCodewordCount);
             int available = context.T5().Tk() - curCodewordCount;
             if (context.TZ()) {
-                if (buffer.length() % 3 == 0 && (newMode = Tv.T(context.T(), context.f292T, T())) != T()) {
+                if (buffer.length() % 3 == 0 && (newMode = Tv.T(context.T(), context.f295T, T())) != T()) {
                     context.Tr(newMode);
                     break;
                 }
@@ -43,7 +43,7 @@ class Ty implements TZ {
     private int T(TE context, StringBuilder buffer, StringBuilder removed, int lastCharSize) {
         int count = buffer.length();
         buffer.delete(count - lastCharSize, count);
-        context.f292T--;
+        context.f295T--;
         int lastCharSize2 = T(context.Tr(), removed);
         context.Th();
         return lastCharSize2;
@@ -76,7 +76,7 @@ class Ty implements TZ {
             if (context.TZ()) {
                 context.T(254);
             }
-            context.f292T--;
+            context.f295T--;
         } else if (rest == 0) {
             while (buffer.length() >= 3) {
                 T(context, buffer);

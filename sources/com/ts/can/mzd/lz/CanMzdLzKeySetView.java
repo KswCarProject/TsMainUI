@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
@@ -70,10 +71,10 @@ public class CanMzdLzKeySetView extends CanRelativeCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitUI() {
-        AddTextBtn(1, 144, 240, "Hour");
+        AddTextBtn(1, 144, Can.CAN_VOLKS_XP, "Hour");
         AddBtn(2, KeyDef.RKEY_RADIO_6S, 185, R.drawable.can_mzd_clock_up, R.drawable.can_mzd_clock_dn);
-        AddTextBtn(3, CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST9, 240, "Min");
-        AddTextBtn(4, 732, 240, "AMB");
+        AddTextBtn(3, CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST9, Can.CAN_VOLKS_XP, "Min");
+        AddTextBtn(4, 732, Can.CAN_VOLKS_XP, "AMB");
     }
 
     public void ResetData(boolean check) {

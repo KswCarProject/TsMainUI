@@ -16,6 +16,7 @@ import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanGMActivityParkView extends CanRelativeCarInfoView {
@@ -41,16 +42,16 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                 case 3:
                     view.drawImage(R.drawable.can_gm_park_b_car, 468, 193);
                     view.drawImage(R.drawable.can_gm_park_01, 552, 210);
-                    view.drawImage(R.drawable.can_gm_park_r_01, 626, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_r_01, 626, 152);
                     return false;
                 case 2:
                 case 4:
                     view.drawImage(R.drawable.can_gm_park_b_car, 656, 193);
                     view.drawImage(R.drawable.can_gm_park_02, CanCameraUI.BTN_GOLF_WC_MODE2, 210);
-                    view.drawImage(R.drawable.can_gm_park_l_01, 467, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_l_01, 467, 152);
                     return false;
                 case 9:
-                    view.drawImage(R.drawable.can_gm_park_r_02, 626, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_r_02, 626, 152);
                     view.drawImage(R.drawable.can_gm_park_b_car, 487, 112);
                     view.drawImage(R.drawable.can_gm_park_10, KeyDef.RKEY_RDS_PTY, Can.CAN_FORD_WC);
                     view.drawImage(R.drawable.can_gm_park_11, KeyDef.RKEY_res2, Can.CAN_MZD_LUOMU);
@@ -58,7 +59,7 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                     view.drawImage(R.drawable.can_gm_park_12, CanCameraUI.BTN_VW_WC_MODE3, 112);
                     return false;
                 case 13:
-                    view.drawImage(R.drawable.can_gm_park_l_02, 467, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_l_02, 467, 152);
                     view.drawImage(R.drawable.can_gm_park_b_car, 599, 112);
                     view.drawImage(R.drawable.can_gm_park_10, KeyDef.RKEY_RDS_PTY, Can.CAN_FORD_WC);
                     view.drawImage(R.drawable.can_gm_park_11, KeyDef.RKEY_res2, Can.CAN_MZD_LUOMU);
@@ -68,7 +69,7 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                 case 17:
                     view.drawImage(R.drawable.can_gm_park_b_car, 468, 204);
                     view.drawImage(R.drawable.can_gm_park_01, 552, 221);
-                    view.drawImage(R.drawable.can_gm_park_h_r_01, CanCameraUI.BTN_CCH9_MODE14, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_h_r_01, CanCameraUI.BTN_CCH9_MODE14, 152);
                     return false;
                 case 18:
                     view.drawImage(R.drawable.can_gm_park_b_car, 656, 204);
@@ -76,7 +77,7 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                     view.drawImage(R.drawable.can_gm_park_h_l_01, 434, 149);
                     return false;
                 case 19:
-                    view.drawImage(R.drawable.can_gm_park_h_r_02, CanCameraUI.BTN_CCH9_MODE14, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_h_r_02, CanCameraUI.BTN_CCH9_MODE14, 152);
                     view.drawImage(R.drawable.can_gm_park_b_car, 487, 112);
                     view.drawImage(R.drawable.can_gm_park_10, KeyDef.RKEY_RDS_PTY, Can.CAN_FORD_WC);
                     view.drawImage(R.drawable.can_gm_park_11, KeyDef.RKEY_res2, Can.CAN_MZD_LUOMU);
@@ -95,7 +96,7 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                     view.drawImage(R.drawable.can_gm_park_16, 582, 129);
                     view.drawImage(R.drawable.can_gm_park_p, KeyDef.RKEY_RDS_PTY, Can.CAN_FORD_WC);
                     view.drawImage(R.drawable.can_gm_park_11, KeyDef.RKEY_res2, Can.CAN_MZD_LUOMU);
-                    view.drawImage(R.drawable.can_gm_park_l_02, 467, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_l_02, 467, 152);
                     view.drawImage(R.drawable.can_gm_park_r, 350, KeyDef.RKEY_RADIO_5S);
                     view.drawImage(R.drawable.can_gm_park_b_car, 477, 193);
                     return false;
@@ -104,23 +105,23 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                     view.drawImage(R.drawable.can_gm_park_p, KeyDef.RKEY_RDS_PTY, Can.CAN_FORD_WC);
                     view.drawImage(R.drawable.can_gm_park_11, KeyDef.RKEY_res2, Can.CAN_MZD_LUOMU);
                     view.drawImage(R.drawable.can_gm_park_r, 350, KeyDef.RKEY_RADIO_5S);
-                    view.drawImage(R.drawable.can_gm_park_r_02, 626, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_r_02, 626, 152);
                     view.drawImage(R.drawable.can_gm_park_b_car, CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE4, 194);
                     return false;
                 case 35:
                     view.drawImage(R.drawable.can_gm_park_b_car, 468, 193);
                     view.drawImage(R.drawable.can_gm_park_01, 552, 210);
-                    view.drawImage(R.drawable.can_gm_park_r_03, 626, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_r_03, 626, 152);
                     return false;
                 case 36:
                     view.drawImage(R.drawable.can_gm_park_b_car, 656, 193);
                     view.drawImage(R.drawable.can_gm_park_02, CanCameraUI.BTN_GOLF_WC_MODE2, 210);
-                    view.drawImage(R.drawable.can_gm_park_l_03, 467, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_l_03, 467, 152);
                     return false;
                 case 37:
                     view.drawImage(R.drawable.can_gm_park_b_car, 468, 204);
                     view.drawImage(R.drawable.can_gm_park_01, 552, 221);
-                    view.drawImage(R.drawable.can_gm_park_h_r_03, CanCameraUI.BTN_CCH9_MODE14, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_h_r_03, CanCameraUI.BTN_CCH9_MODE14, 152);
                     return false;
                 case 38:
                     view.drawImage(R.drawable.can_gm_park_b_car, 656, 204);
@@ -133,7 +134,7 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                 case 42:
                     view.drawImage(R.drawable.can_gm_park_b_car, 468, 204);
                     view.drawImage(R.drawable.can_gm_park_19, 489, 148);
-                    view.drawImage(R.drawable.can_gm_park_r_03, 626, Can.CAN_AUDI_ZMYT);
+                    view.drawImage(R.drawable.can_gm_park_r_03, 626, 152);
                     return false;
                 default:
                     return false;
@@ -197,10 +198,10 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
         this.mParkVertical.setBackgroundResource(R.drawable.btn_gm_park_vertical);
         this.mParkVertical.setId(2);
         this.mImgCarDir = this.mManager.AddImageEx(89, KeyDef.RKEY_RADIO_3S, 67, 64, R.drawable.can_gm_park_08);
-        this.mParkLeft = this.mManager.AddButton(18, KeyDef.RKEY_LOC, 88, 115);
+        this.mParkLeft = this.mManager.AddButton(18, 298, 88, 115);
         this.mParkLeft.setBackgroundResource(R.drawable.btn_gm_park_vertical);
         this.mParkLeft.setId(3);
-        this.mParkRight = this.mManager.AddButton(137, KeyDef.RKEY_LOC, 88, 115);
+        this.mParkRight = this.mManager.AddButton(137, 298, 88, 115);
         this.mParkRight.setBackgroundResource(R.drawable.btn_gm_park_vertical_r);
         this.mParkRight.setId(4);
         this.mParkHorizonal.setOnClickListener(this);
@@ -318,7 +319,7 @@ public class CanGMActivityParkView extends CanRelativeCarInfoView {
                 this.mParkInfo.setText(this.mParkInfoArray[tsMsg - 10]);
                 return;
             default:
-                this.mParkInfo.setText("");
+                this.mParkInfo.setText(TXZResourceManager.STYLE_DEFAULT);
                 return;
         }
     }

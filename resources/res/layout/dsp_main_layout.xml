@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/btn_dsp_subwoofer" android:background="@drawable/btn_dsp_main_box" android:layout_width="170px" android:layout_height="56px" android:layout_marginLeft="171px" android:layout_marginTop="23px">
+        <TextView android:textSize="26px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_dsp_subwoofer" android:singleLine="true" android:drawableLeft="@drawable/dsp_main_icon_zdy" android:drawablePadding="10px" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/btn_dsp_eq" android:background="@drawable/btn_dsp_main_box" android:layout_width="170px" android:layout_height="56px" android:layout_marginLeft="0px" android:layout_marginTop="23px">
+        <TextView android:textSize="26px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_dsp_eq" android:singleLine="true" android:drawableLeft="@drawable/dsp_main_icon_eq" android:drawablePadding="10px" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/btn_dsp_balance" android:background="@drawable/btn_dsp_main_box" android:layout_width="170px" android:layout_height="56px" android:layout_marginLeft="342px" android:layout_marginTop="23px">
+        <TextView android:textSize="26px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_dsp_balance" android:singleLine="true" android:drawableLeft="@drawable/dsp_main_icon_ph" android:drawablePadding="10px" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/btn_dsp_sound_field" android:background="@drawable/btn_dsp_main_box" android:layout_width="170px" android:layout_height="56px" android:layout_marginLeft="512px" android:layout_marginTop="23px">
+        <TextView android:textSize="26px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_dsp_loudness" android:singleLine="true" android:drawableLeft="@drawable/dsp_main_icon_sc" android:drawablePadding="10px" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/btn_dsp_emperor" android:background="@drawable/btn_dsp_main_box" android:layout_width="170px" android:layout_height="56px" android:layout_marginLeft="683px" android:layout_marginTop="23px">
+        <TextView android:textSize="26px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_dsp_emperor" android:singleLine="true" android:drawableLeft="@drawable/dsp_main_icon_hdw" android:drawablePadding="10px" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout android:id="@+id/btn_dsp_advanced" android:background="@drawable/btn_dsp_main_box" android:layout_width="170px" android:layout_height="56px" android:layout_marginLeft="854px" android:layout_marginTop="23px">
+        <TextView android:textSize="26px" android:textColor="@android:color/white" android:ellipsize="end" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/str_dsp_advanced" android:singleLine="true" android:drawableLeft="@drawable/dsp_main_icon_gj" android:drawablePadding="10px" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</merge>

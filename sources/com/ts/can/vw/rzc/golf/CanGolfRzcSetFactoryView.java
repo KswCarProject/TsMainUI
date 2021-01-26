@@ -3,6 +3,7 @@ package com.ts.can.vw.rzc.golf;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.view.View;
+import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanScrollCarInfoView;
@@ -17,10 +18,11 @@ public class CanGolfRzcSetFactoryView extends CanScrollCarInfoView implements Ca
     public static final int ITEM_MW = 4;
     public static final int ITEM_OC = 5;
     public static final int ITEM_PM = 2;
+    public static final int ITEM_ZYSZ = 8;
     protected View mCurItem;
 
     public CanGolfRzcSetFactoryView(Activity activity) {
-        super(activity, 8);
+        super(activity, 9);
     }
 
     public void onItem(int id, int item) {
@@ -44,13 +46,18 @@ public class CanGolfRzcSetFactoryView extends CanScrollCarInfoView implements Ca
 
     /* access modifiers changed from: protected */
     public void InitData() {
-        this.mItemTitleIds = new int[]{R.string.can_all_settings, R.string.can_drivet_assist, R.string.can_park_and_m, R.string.can_light, R.string.can_mirr_and_wiper, R.string.can_open_and_close, R.string.can_mfd, R.string.can_cdsz};
-        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON};
-        this.mItemIcons = new int[]{R.drawable.can_golf_icon14, R.drawable.can_golf_icon02, R.drawable.can_golf_icon04, R.drawable.can_golf_icon05, R.drawable.can_golf_icon06, R.drawable.can_golf_icon07, R.drawable.can_golf_icon08, R.drawable.can_icon_setup};
-        if (CanJni.GetSubType() == 4) {
+        this.mItemTitleIds = new int[]{R.string.can_all_settings, R.string.can_drivet_assist, R.string.can_park_and_m, R.string.can_light, R.string.can_mirr_and_wiper, R.string.can_open_and_close, R.string.can_mfd, R.string.can_cdsz, R.string.can_magoten_chair};
+        this.mItemTypes = new CanScrollCarInfoView.Item[]{CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON, CanScrollCarInfoView.Item.ICON};
+        this.mItemIcons = new int[]{R.drawable.can_golf_icon14, R.drawable.can_golf_icon02, R.drawable.can_golf_icon04, R.drawable.can_golf_icon05, R.drawable.can_golf_icon06, R.drawable.can_golf_icon07, R.drawable.can_golf_icon08, R.drawable.can_icon_setup, R.drawable.can_icon_service};
+        if (CanJni.GetSubType() == 4 || CanJni.GetSubType() == 5) {
             this.mItemVisibles[7] = 1;
         } else {
             this.mItemVisibles[7] = 0;
+        }
+        if (CanJni.GetSubType() == 5) {
+            this.mItemVisibles[8] = 1;
+        } else {
+            this.mItemVisibles[8] = 0;
         }
     }
 
@@ -88,6 +95,9 @@ public class CanGolfRzcSetFactoryView extends CanScrollCarInfoView implements Ca
                 return;
             case 7:
                 CanJni.GolfSendCmd(202, 1);
+                return;
+            case 8:
+                CanJni.GolfSendCmd(Can.CAN_SAIL_RW550_MG6_WC, 1);
                 return;
             default:
                 return;

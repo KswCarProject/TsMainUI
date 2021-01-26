@@ -14,6 +14,7 @@ import com.ts.other.CustomImgView;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanTeanaWcVolUI implements UserCallBack {
@@ -87,7 +88,7 @@ public class CanTeanaWcVolUI implements UserCallBack {
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(40);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(49);
         return temp;
     }
@@ -110,7 +111,7 @@ public class CanTeanaWcVolUI implements UserCallBack {
     private void updateACUI() {
         Log.d(TAG, "mVolInfo.Vol =" + this.mVolInfo.Vol);
         if (this.mVolInfo.Vol == 0) {
-            this.mVolVal.setText("");
+            this.mVolVal.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mMuteSta.setSelected(true);
         } else if (this.mVolInfo.Vol <= 40) {
             this.mVolVal.setText(String.format("%02d", new Object[]{Integer.valueOf(this.mVolInfo.Vol)}));

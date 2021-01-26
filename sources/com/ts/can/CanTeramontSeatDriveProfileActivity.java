@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
@@ -47,19 +46,19 @@ public class CanTeramontSeatDriveProfileActivity extends CanBaseActivity impleme
     }
 
     private void initCommon(String[] mProfileArray) {
-        this.mDrvieProfile[0] = this.mManager.AddImage(115, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[0] = this.mManager.AddImage(115, 150, 190, 184);
         this.mDrvieProfile[0].setStateDrawable(R.drawable.can_dzjcms_car05_up, R.drawable.can_dzjcms_car05_dn, R.drawable.can_dzjcms_car05_dn);
         this.mDrvieProfile[0].setTag(0);
         this.mDrvieProfile[0].setOnClickListener(this);
-        this.mDrvieProfile[1] = this.mManager.AddImage(KeyDef.RKEY_ANGLEDN, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[1] = this.mManager.AddImage(KeyDef.RKEY_ANGLEDN, 150, 190, 184);
         this.mDrvieProfile[1].setStateDrawable(R.drawable.can_dzjcms_car06_up, R.drawable.can_dzjcms_car06_dn, R.drawable.can_dzjcms_car06_dn);
         this.mDrvieProfile[1].setTag(1);
         this.mDrvieProfile[1].setOnClickListener(this);
-        this.mDrvieProfile[2] = this.mManager.AddImage(CanCameraUI.BTN_GEELY_YJX6_MODE2, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[2] = this.mManager.AddImage(CanCameraUI.BTN_GEELY_YJX6_MODE2, 150, 190, 184);
         this.mDrvieProfile[2].setStateDrawable(R.drawable.can_dzjcms_car07_up, R.drawable.can_dzjcms_car07_dn, R.drawable.can_dzjcms_car07_dn);
         this.mDrvieProfile[2].setTag(2);
         this.mDrvieProfile[2].setOnClickListener(this);
-        this.mDrvieProfile[3] = this.mManager.AddImage(724, Can.CAN_JAC_REFINE_OD, 190, 184);
+        this.mDrvieProfile[3] = this.mManager.AddImage(724, 150, 190, 184);
         this.mDrvieProfile[3].setStateDrawable(R.drawable.can_dzjcms_car08_up, R.drawable.can_dzjcms_car08_dn, R.drawable.can_dzjcms_car08_dn);
         this.mDrvieProfile[3].setTag(3);
         this.mDrvieProfile[3].setOnClickListener(this);
@@ -103,7 +102,7 @@ public class CanTeramontSeatDriveProfileActivity extends CanBaseActivity impleme
     }
 
     private void QueryData() {
-        CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+        CanJni.GolfQuery(64, 160);
     }
 
     /* access modifiers changed from: protected */

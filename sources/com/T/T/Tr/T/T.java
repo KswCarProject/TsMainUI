@@ -35,7 +35,7 @@ public abstract class T implements T7 {
         } else if (lexer.Tn() == 12) {
             lexer.T();
             if (lexer.Tn() == 4) {
-                if (com.T.T.T.f128T.equals(lexer.Tf())) {
+                if (com.T.T.T.f131T.equals(lexer.Tf())) {
                     lexer.T();
                     parser.Tr(17);
                     Class<?> type = TZ.T(lexer.Tf());

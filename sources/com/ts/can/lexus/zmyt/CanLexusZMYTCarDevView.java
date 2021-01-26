@@ -18,7 +18,6 @@ import com.ts.MainUI.R;
 import com.ts.MainUI.TsDisplay;
 import com.ts.backcar.AutoFitTextureView;
 import com.ts.backcar.BackcarService;
-import com.ts.bt.BtExe;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanCarDeviceActivity;
 import com.ts.can.CanFunc;
@@ -29,6 +28,7 @@ import com.ts.main.common.MainSet;
 import com.ts.other.CustomImgView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.KeyDef;
@@ -46,6 +46,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
     public static final int PAGE_POW_OF = 0;
     public static final int PAGE_RADIO = 1;
     public static final int PAGE_USB = 5;
+    public static int mBtCnt = 0;
     public static final int[] mDsicNumArr = {R.drawable.lkss_disc_01, R.drawable.lkss_disc_02, R.drawable.lkss_disc_03, R.drawable.lkss_disc_04, R.drawable.lkss_disc_05, R.drawable.lkss_disc_06};
     private static int mLastDiscSta = 0;
     private static int mLastTextSta = 0;
@@ -263,11 +264,11 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
         this.mTextR_ST.setTextSize(0, 20.0f);
         this.mTextcd_usb1 = AddText(417, 164, 71, 23);
         this.mTextcd_usb1.setTextSize(0, 20.0f);
-        this.mTextcd_usb2 = AddText(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 164, 71, 23);
+        this.mTextcd_usb2 = AddText(540, 164, 71, 23);
         this.mTextcd_usb2.setTextSize(0, 20.0f);
         this.mTextcd_usb3 = AddText(417, 200, 71, 44);
         this.mTextcd_usb3.setTextSize(0, 35.0f);
-        this.mTextcd_usb4 = AddText(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 200, 71, 44);
+        this.mTextcd_usb4 = AddText(540, 200, 71, 44);
         this.mTextcd_usb4.setTextSize(0, 35.0f);
         this.mTextcd_usbTime = AddText(CanCameraUI.BTN_SENOVA_SUB_BJ40_MODE3, Can.CAN_LEXUS_IZ, 139, 35);
         this.mTextcd_usbTime.setTextSize(0, 30.0f);
@@ -278,7 +279,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
         this.mTextcd_usbTime.setGravity(17);
         this.mTextLeftName = AddText(417, 194, 123, 60);
         this.mTextRightValue = AddText(550, 194, 123, 60);
-        this.mTextString = AddText(KeyDef.RKEY_RADIO_5S, 204, 450, Can.CAN_CHANA_CS75_WC);
+        this.mTextString = AddText(KeyDef.RKEY_RADIO_5S, 204, 450, 160);
         this.mTextString.setGravity(17);
         this.mImgBt = getRelativeManager().AddImage(371, 119, R.drawable.lkss_bt);
         this.mImgPhone = getRelativeManager().AddImage(CanCameraUI.BTN_TRUMPCHI_GS4_MODE2, 119, R.drawable.lkss_xinhao_01);
@@ -306,7 +307,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
         this.mImgRPT = getRelativeManager().AddImage(587, 128, R.drawable.lkss_logo2);
         this.mImgScan = getRelativeManager().AddImage(681, 127, R.drawable.lkss_logo1);
         this.mBtnUp = addButton(417, 264, R.drawable.can_sync_seekup_up, R.drawable.can_sync_seekup_dn, 16);
-        this.mBtnDn = addButton(CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST1, 264, R.drawable.can_sync_seekdn_up, R.drawable.can_sync_seekdn_dn, 17);
+        this.mBtnDn = addButton(540, 264, R.drawable.can_sync_seekdn_up, R.drawable.can_sync_seekdn_dn, 17);
     }
 
     private void InitData() {
@@ -405,21 +406,21 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
         try {
             return new String(data, 0, len, "GBK");
         } catch (UnsupportedEncodingException e) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
     private void UpdateText() {
         if (this.mBaseData.ShowMode == 15) {
-            this.mTextLeftName.setText("");
-            this.mTextRightValue.setText("");
+            this.mTextLeftName.setText(TXZResourceManager.STYLE_DEFAULT);
+            this.mTextRightValue.setText(TXZResourceManager.STYLE_DEFAULT);
             if (this.mBaseData.StrInfo == 0) {
-                this.mTextLogo.setText("");
+                this.mTextLogo.setText(TXZResourceManager.STYLE_DEFAULT);
             }
             this.mTextString.setText(byte2ASCIIString(this.mBaseData.Str, this.mBaseData.StrLen));
             return;
         }
-        this.mTextString.setText("");
+        this.mTextString.setText(TXZResourceManager.STYLE_DEFAULT);
         if (this.mBaseData.ShowMode == 1) {
             this.mTextLeftName.setText("VOL");
             if (this.mBaseData.Vol > 63 || this.mBaseData.Vol < 0) {
@@ -430,13 +431,13 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
         }
         if (this.mBaseData.ShowMode == 2) {
             this.mTextLeftName.setText("MUTE");
-            this.mTextRightValue.setText("");
+            this.mTextRightValue.setText(TXZResourceManager.STYLE_DEFAULT);
         }
         if (this.mBaseData.ShowMode == 3) {
             switch (this.mBaseData.AudioMode) {
                 case 0:
-                    this.mTextLeftName.setText("");
-                    this.mTextRightValue.setText("");
+                    this.mTextLeftName.setText(TXZResourceManager.STYLE_DEFAULT);
+                    this.mTextRightValue.setText(TXZResourceManager.STYLE_DEFAULT);
                     return;
                 case 1:
                     this.mTextLeftName.setText("BAS");
@@ -481,7 +482,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
             this.mImgLogo.setImageResource(R.drawable.lkss_radio_logo);
             this.mTextLogo.setText(getRadioBand(this.mBaseData.Band));
             if (this.mBaseData.Pre == 0) {
-                this.mTextR_TR.setText("");
+                this.mTextR_TR.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 this.mTextR_TR.setText(String.format("P%d", new Object[]{Integer.valueOf(this.mBaseData.Pre)}));
             }
@@ -500,8 +501,8 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
             this.mTextcd_usb1.setText("DISC");
             this.mTextcd_usb2.setText("TR");
             this.mTextcd_usb3.setText(getNormalText(this.mBaseData.DiscNum, 1, 6));
-            this.mTextcd_usb4.setText(getNormalText(this.mBaseData.Track, 1, 240));
-            this.mTextcd_usbTime.setText(String.valueOf(getPlayNormalText(this.mBaseData.PlayMin, 0, 240)) + ":" + getPlayNormalText(this.mBaseData.PlaySec, 0, 59));
+            this.mTextcd_usb4.setText(getNormalText(this.mBaseData.Track, 1, Can.CAN_VOLKS_XP));
+            this.mTextcd_usbTime.setText(String.valueOf(getPlayNormalText(this.mBaseData.PlayMin, 0, Can.CAN_VOLKS_XP)) + ":" + getPlayNormalText(this.mBaseData.PlaySec, 0, 59));
         } else if (this.mBaseData.Mode == 3) {
             ShowPage(3);
             this.mTextLogo.setText("AUX");
@@ -511,17 +512,17 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
             this.mImgLogo.setImageResource(R.drawable.lkss_btmusic_logo);
             this.mTextLogo.setText("BT");
             this.mTextcd_usb2.setText("TR");
-            this.mTextcd_usb4.setText(getNormalText(this.mBaseData.BtTrack, 1, 240));
-            this.mTextcd_usbTime.setText(String.valueOf(getPlayNormalText(this.mBaseData.BtPlayMin, 0, 240)) + ":" + getPlayNormalText(this.mBaseData.BtPlaySec, 0, 59));
+            this.mTextcd_usb4.setText(getNormalText(this.mBaseData.BtTrack, 1, Can.CAN_VOLKS_XP));
+            this.mTextcd_usbTime.setText(String.valueOf(getPlayNormalText(this.mBaseData.BtPlayMin, 0, Can.CAN_VOLKS_XP)) + ":" + getPlayNormalText(this.mBaseData.BtPlaySec, 0, 59));
         } else if (this.mBaseData.Mode == 5) {
             ShowPage(5);
             this.mImgLogo.setImageResource(R.drawable.lkss_usb_logo);
             this.mTextLogo.setText("USB");
             this.mTextcd_usb1.setText("FLD");
             this.mTextcd_usb2.setText("FILE");
-            this.mTextcd_usb3.setText(getNormalText(this.mBaseData.UsbFolder, 1, 240));
-            this.mTextcd_usb4.setText(getNormalText(this.mBaseData.UsbTrack, 1, 240));
-            this.mTextcd_usbTime.setText(String.valueOf(getPlayNormalText(this.mBaseData.UsbPlayMin, 0, 240)) + ":" + getPlayNormalText(this.mBaseData.UsbPlaySec, 0, 59));
+            this.mTextcd_usb3.setText(getNormalText(this.mBaseData.UsbFolder, 1, Can.CAN_VOLKS_XP));
+            this.mTextcd_usb4.setText(getNormalText(this.mBaseData.UsbTrack, 1, Can.CAN_VOLKS_XP));
+            this.mTextcd_usbTime.setText(String.valueOf(getPlayNormalText(this.mBaseData.UsbPlayMin, 0, Can.CAN_VOLKS_XP)) + ":" + getPlayNormalText(this.mBaseData.UsbPlaySec, 0, 59));
         } else if (this.mBaseData.Mode == 6) {
             ShowPage(6);
             this.mTextLogo.setText("TEL");
@@ -554,16 +555,16 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
                 this.mBtnUp.setVisibility(8);
                 return;
             }
-            this.mTextLeftName.setText("");
-            this.mTextRightValue.setText("");
-            this.mTextString.setText("");
+            this.mTextLeftName.setText(TXZResourceManager.STYLE_DEFAULT);
+            this.mTextRightValue.setText(TXZResourceManager.STYLE_DEFAULT);
+            this.mTextString.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mBtnDn.setVisibility(8);
             this.mBtnUp.setVisibility(8);
             return;
         }
-        this.mTextLeftName.setText("");
-        this.mTextRightValue.setText("");
-        this.mTextString.setText("");
+        this.mTextLeftName.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTextRightValue.setText(TXZResourceManager.STYLE_DEFAULT);
+        this.mTextString.setText(TXZResourceManager.STYLE_DEFAULT);
         this.mImgLogo.setImageResource(R.drawable.lkss_close_logo);
         this.mImgBg.setVisibility(0);
         this.mImgLine.setVisibility(4);
@@ -596,7 +597,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
             }
         }
         if (this.mBaseData.Scan == 0) {
-            this.mTextScan.setText("");
+            this.mTextScan.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mImgScan.setVisibility(8);
         } else if (this.mBaseData.Scan == 1) {
             this.mTextScan.setText("SCAN");
@@ -606,7 +607,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
             this.mImgScan.setVisibility(8);
         }
         if (this.mBaseData.Rpt == 0) {
-            this.mTextRPT.setText("");
+            this.mTextRPT.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mImgRPT.setVisibility(8);
         } else if (this.mBaseData.Rpt == 1) {
             this.mTextRPT.setText("RPT");
@@ -616,7 +617,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
             this.mImgRPT.setVisibility(8);
         }
         if (this.mBaseData.Rand == 0) {
-            this.mTextRand.setText("");
+            this.mTextRand.setText(TXZResourceManager.STYLE_DEFAULT);
             this.mImgRand.setVisibility(8);
         } else if (this.mBaseData.Rand == 1) {
             this.mTextRand.setText("RAND");
@@ -731,7 +732,7 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
             case 16:
                 return "AM";
             default:
-                return "";
+                return TXZResourceManager.STYLE_DEFAULT;
         }
     }
 
@@ -791,13 +792,31 @@ public class CanLexusZMYTCarDevView extends CanRelativeCarInfoView implements Vi
     }
 
     public static void DealDevEvent() {
-        BtExe bt = BtExe.getBtInstance();
-        if (mOldBtSta != bt.getSta() && FtSet.IsIconExist(1) == 0) {
-            mOldBtSta = bt.getSta();
-            if ((mOldBtSta == 3 || mOldBtSta == 2 || mOldBtSta == 4) && CanIF.IsExdMode()) {
-                Iop.RstPort(1);
-            } else {
-                Iop.RstPort(0);
+        if (FtSet.IsIconExist(1) == 0) {
+            switch (mOldBtSta) {
+                case 0:
+                    if (Iop.GetMediaOrBlue() > 0) {
+                        mOldBtSta = 1;
+                        mBtCnt = 10;
+                        break;
+                    }
+                    break;
+                case 1:
+                    if (mBtCnt <= 0) {
+                        mOldBtSta = 2;
+                        Iop.RstPort(1);
+                        break;
+                    } else {
+                        mBtCnt--;
+                        break;
+                    }
+                case 2:
+                    if (Iop.GetMediaOrBlue() == 0) {
+                        Iop.RstPort(0);
+                        mOldBtSta = 0;
+                        break;
+                    }
+                    break;
             }
         }
         if (CanIF.mGpsVoiceDelay > 0) {

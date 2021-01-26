@@ -119,7 +119,7 @@ public class CanFordSync3UIActivity extends CanFordBaseActivity implements UserC
 
     private void initCommonScreen() {
         this.mManager.AddImageEx(0, 432, 1024, 114, R.drawable.can_sync_left_bg);
-        this.mManager.AddImageEx(690, 14, KeyDef.RKEY_RADIO_SCAN, 412, R.drawable.can_sync_right_box);
+        this.mManager.AddImageEx(690, 14, 296, 412, R.drawable.can_sync_right_box);
         this.mManager.AddImageEx(41, 14, 628, 412, R.drawable.can_sync_center_bg);
         this.mBtnLtApp = AddImgBtn(3, 23, 438, R.drawable.can_sync_app_up, R.drawable.can_sync_app_dn);
         this.mBtnLtInfo = AddImgBtn(0, 188, 438, R.drawable.can_sync_left_info_up, R.drawable.can_sync_left_info_dn);

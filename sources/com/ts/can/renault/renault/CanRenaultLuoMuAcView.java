@@ -127,7 +127,7 @@ public class CanRenaultLuoMuAcView extends CanBaseACView {
         setTextStyle(18, Color.parseColor("#ffffff"), 80, 17);
         this.mWindIcons = new CustomImgView[8];
         this.mWindIcons[0] = addImage(872, KeyDef.RKEY_MEDIA_10, mIcons[0]);
-        this.mWindIcons[1] = addImage(872, KeyDef.RKEY_FF, mIcons[1]);
+        this.mWindIcons[1] = addImage(872, 293, mIcons[1]);
         this.mWindIcons[2] = addImage(872, 264, mIcons[2]);
         this.mWindIcons[3] = addImage(872, Can.CAN_ZH_WC, mIcons[3]);
         this.mWindIcons[4] = addImage(872, Can.CAN_SAIL_RW550_MG6_WC, mIcons[4]);

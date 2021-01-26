@@ -20,10 +20,9 @@ public class CanToyotaCarTypeActivity extends CanToyotaBaseActivity implements V
     private static final int ITEM_MIN = 1;
     public static final int ITEM_TYPE = 1;
     public static final String TAG = "CanToyotaCarTypeActivity";
-    private static final int[] mTypeArr = {R.string.can_type_other, R.string.can_toyota_rav4_2016, R.string.can_camery_2018, R.string.can_toyota_corolla_od};
-    private static final int[] mTypeRzcArr = {R.string.can_type_other, R.string.can_toyota_rav4_2016, R.string.can_camery_2018};
     private CanItemCarType mItemCarType;
     private CanScrollList mManager;
+    private String[] mTypeArr;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle arg0) {
@@ -60,10 +59,11 @@ public class CanToyotaCarTypeActivity extends CanToyotaBaseActivity implements V
     public void InitUI() {
         this.mManager = new CanScrollList(this);
         if (CanJni.GetCanType() == 128) {
-            this.mItemCarType = new CanItemCarType((Context) this, R.string.can_car_type_select, mTypeRzcArr, 1, (CanItemPopupList.onPopItemClick) this);
+            this.mTypeArr = getResources().getStringArray(R.array.can_fs_declare_128);
         } else {
-            this.mItemCarType = new CanItemCarType((Context) this, R.string.can_car_type_select, mTypeArr, 1, (CanItemPopupList.onPopItemClick) this);
+            this.mTypeArr = getResources().getStringArray(R.array.can_fs_declare_3);
         }
+        this.mItemCarType = new CanItemCarType((Context) this, R.string.can_car_type_select, this.mTypeArr, 1, (CanItemPopupList.onPopItemClick) this);
         this.mManager.AddView(this.mItemCarType.GetView());
     }
 

@@ -1,6 +1,7 @@
 package com.Tr.T.T;
 
 import com.ts.main.common.ShellUtils;
+import com.txznet.sdk.TXZResourceManager;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -10,7 +11,7 @@ import java.lang.reflect.Method;
 public final class Tk {
     public static <T extends T9> String T(T t) {
         if (t == null) {
-            return "";
+            return TXZResourceManager.STYLE_DEFAULT;
         }
         StringBuffer stringBuffer = new StringBuffer();
         try {

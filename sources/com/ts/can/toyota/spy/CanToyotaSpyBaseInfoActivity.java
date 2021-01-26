@@ -3,6 +3,7 @@ package com.ts.can.toyota.spy;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,6 +18,7 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanFunc;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.KeyDef;
 
@@ -82,14 +84,14 @@ public class CanToyotaSpyBaseInfoActivity extends CanBaseActivity implements Use
         addImage(683, 429, R.drawable.canvw_road_haul_up);
         this.mOilItem = addText(80, KeyDef.RKEY_MEDIA_SLOW, R.string.can_rest_oil, -1, false);
         this.mTempItem = addText(117, 180, R.string.can_lqywd, -1, false);
-        this.mDistanceItem = addText(855, 445, R.string.can_trav_time, -16777216, true);
+        this.mDistanceItem = addText(855, 445, R.string.can_trav_time, ViewCompat.MEASURED_STATE_MASK, true);
         this.mElctricItem = addText(218, 78, R.string.can_battery, -1, false);
         this.mSeatBeltItem = addText(365, 5, R.string.can_belt);
         this.mTrunkUpItem = addText(720, 78, R.string.can_trunk, -1, false);
         this.mParkingItem = addText(KeyDef.SKEY_CALLDN_4, 180, R.string.can_brake, -1, false);
         this.mWashingItem = addText(859, KeyDef.RKEY_MEDIA_SLOW, R.string.can_wash, -1, false);
-        this.mRPMItem = addText(161, 445, R.string.can_rpm, -16777216, true);
-        this.mSpeedItem = addText(515, 445, R.string.can_curspeed, -16777216, true);
+        this.mRPMItem = addText(161, 445, R.string.can_rpm, ViewCompat.MEASURED_STATE_MASK, true);
+        this.mSpeedItem = addText(515, 445, R.string.can_curspeed, ViewCompat.MEASURED_STATE_MASK, true);
     }
 
     private ImageView addImage(int x, int y, int iconId) {
@@ -210,7 +212,7 @@ public class CanToyotaSpyBaseInfoActivity extends CanBaseActivity implements Use
         }
         if (fgSS) {
             this.mParkingIcon.setSelected(true);
-            this.mParkingItem.setText("");
+            this.mParkingItem.setText(TXZResourceManager.STYLE_DEFAULT);
         } else {
             this.mParkingIcon.setSelected(false);
             this.mParkingItem.setText(R.string.can_normal);

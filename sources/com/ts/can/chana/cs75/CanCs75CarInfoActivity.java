@@ -167,14 +167,13 @@ public class CanCs75CarInfoActivity extends CanBaseActivity implements View.OnCl
                     break;
                 }
             case 9:
-                if (CanJni.GetSubType() != 4 && CanJni.GetSubType() != 5 && CanJni.GetSubType() != 9 && CanJni.GetSubType() != 8 && CanJni.GetSubType() != 13) {
+                if (CanJni.GetSubType() != 4 && CanJni.GetSubType() != 5 && CanJni.GetSubType() != 9 && CanJni.GetSubType() != 8 && CanJni.GetSubType() != 13 && CanJni.GetSubType() != 15) {
                     ret = 0;
                     break;
                 } else {
                     ret = 1;
                     break;
                 }
-                break;
             case 10:
                 ret = 1;
                 break;

@@ -1,5 +1,7 @@
 package com.hp.hpl.sparta.xpath;
 
+import com.android.SdkConstants;
+
 public abstract class AttrExpr extends BooleanExpr {
     private final String attrName_;
 
@@ -12,6 +14,6 @@ public abstract class AttrExpr extends BooleanExpr {
     }
 
     public String toString() {
-        return new StringBuffer().append("@").append(this.attrName_).toString();
+        return new StringBuffer().append(SdkConstants.PREFIX_RESOURCE_REF).append(this.attrName_).toString();
     }
 }

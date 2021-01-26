@@ -11,6 +11,7 @@ import com.txznet.comm.Tr.Tr.Tv;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZConfigManager;
 import com.txznet.sdk.TXZNetDataProvider;
+import com.txznet.sdk.TXZResourceManager;
 import com.txznet.sdk.TXZWheelControlManager;
 
 /* compiled from: Proguard */
@@ -36,7 +37,7 @@ public class Ty {
             return TE(packageName, command, data);
         }
         if (command.startsWith("comm.subscribe.broadcast")) {
-            Tn.Tr().T(packageName, "", (byte[]) null, (Tn.Tr) null);
+            Tn.Tr().T(packageName, TXZResourceManager.STYLE_DEFAULT, (byte[]) null, (Tn.Tr) null);
             return null;
         } else if (command.startsWith("comm.config.")) {
             return Tn(packageName, command.substring("comm.config.".length()), data);
@@ -69,7 +70,7 @@ public class Ty {
                 }
                 if (command.equals("comm.PackageInfo")) {
                     Tr json = new Tr();
-                    json.T("versionCode", (Object) Integer.valueOf(com.txznet.comm.Tn.T.f353T));
+                    json.T("versionCode", (Object) Integer.valueOf(com.txznet.comm.Tn.T.f357T));
                     json.T("versionName", (Object) com.txznet.comm.Tn.T.Tr);
                     json.T("sourceDir", (Object) T.Tr().getApplicationInfo().sourceDir);
                     json.T("versionCompile", (Object) TXZConfigManager.VERSION);
@@ -115,7 +116,7 @@ public class Ty {
                 }
             }.start();
         } else if (command.equals("tts.setDefaultAudioStream")) {
-            Th.f390T = Integer.parseInt(new String(data));
+            Th.f394T = Integer.parseInt(new String(data));
         } else if (command.equals("restore")) {
             com.txznet.comm.Tr.Tr.Tr.TE();
         }

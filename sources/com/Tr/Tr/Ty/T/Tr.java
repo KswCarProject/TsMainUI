@@ -20,8 +20,8 @@ final class Tr implements TZ {
                 break;
             }
             buffer.append(context.Tr());
-            context.f292T++;
-            int newMode = Tv.T(context.T(), context.f292T, T());
+            context.f295T++;
+            int newMode = Tv.T(context.T(), context.f295T, T());
             if (newMode != T()) {
                 context.Tr(newMode);
                 break;

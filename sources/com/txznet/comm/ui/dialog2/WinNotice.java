@@ -13,7 +13,7 @@ public abstract class WinNotice extends WinMessageBox {
     public static class T extends WinMessageBox.Tr {
 
         /* renamed from: T  reason: collision with root package name */
-        String[] f636T;
+        String[] f640T;
 
         public void T() {
             if (this.TG == null) {
@@ -53,8 +53,8 @@ public abstract class WinNotice extends WinMessageBox {
 
         public T T(String text, String[] cmds) {
             super.T6(text);
-            this.f636T = cmds;
-            if (this.f636T != null) {
+            this.f640T = cmds;
+            if (this.f640T != null) {
                 T(new WinDialog.Tr() {
                     public void T(WinDialog win, String cmd) {
                         ((WinNotice) win).onSpeakOk();
@@ -64,7 +64,7 @@ public abstract class WinNotice extends WinMessageBox {
                     public String T(WinDialog win) {
                         return "ok";
                     }
-                }, this.f636T);
+                }, this.f640T);
             }
             return this;
         }

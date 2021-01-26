@@ -5,8 +5,8 @@ import android.util.Log;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.main.common.MainSet;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.Mcu;
-import net.easyconn.platform.wrc.core.WrcManager;
 
 /* compiled from: CanCadillacXt5UpdateActivity */
 class McuUpdater {
@@ -62,7 +62,7 @@ class McuUpdater {
             setSta(1);
             this.mRevUpdateAck = false;
             this.mLastUpdateTick = SystemClock.uptimeMillis();
-            this.mUpdateFile = "";
+            this.mUpdateFile = TXZResourceManager.STYLE_DEFAULT;
             if (getMcuUpdateData()) {
                 sendStart();
                 setSta(2);
@@ -142,7 +142,7 @@ class McuUpdater {
             this.mSendData[0] = 46;
             this.mSendData[1] = -80;
             this.mSendData[2] = 69;
-            this.mSendData[3] = WrcManager.WrcCallback.MINI_KEY_1;
+            this.mSendData[3] = 33;
             this.mSendData[4] = (byte) (offset >> 8);
             this.mSendData[5] = (byte) offset;
             this.mSendData[6] = 64;
@@ -166,7 +166,7 @@ class McuUpdater {
             this.mSendData[0] = 46;
             this.mSendData[1] = -80;
             this.mSendData[2] = 3;
-            this.mSendData[3] = WrcManager.WrcCallback.MINI_KEY_1;
+            this.mSendData[3] = 33;
             this.mSendData[4] = -1;
             this.mSendData[5] = -1;
             for (int i3 = 1; i3 < 6; i3++) {

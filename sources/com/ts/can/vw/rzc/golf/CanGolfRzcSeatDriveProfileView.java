@@ -6,7 +6,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
@@ -152,7 +151,7 @@ public class CanGolfRzcSeatDriveProfileView extends CanRelativeCarInfoView {
     }
 
     public void QueryData() {
-        CanJni.GolfQuery(64, Can.CAN_CHANA_CS75_WC);
+        CanJni.GolfQuery(64, 160);
     }
 
     private long GetTickCount() {

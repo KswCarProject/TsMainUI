@@ -4,11 +4,11 @@ import android.app.Activity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
-import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.other.ParamButton;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanToyotaRearDisplayView extends CanRelativeCarInfoView {
     private static final int BTN_POWER = 0;
@@ -16,7 +16,7 @@ public class CanToyotaRearDisplayView extends CanRelativeCarInfoView {
     private static final int BTN_REAR_LOCK = 1;
     private static final int BTN_REAR_MODE = 2;
     private static final int BTN_STOP = 3;
-    private static String[] mCDStateArray = {" ", "Load", "Wait", "Reading", "Play", "", "Eject", "Error"};
+    private static String[] mCDStateArray = {" ", "Load", "Wait", "Reading", "Play", TXZResourceManager.STYLE_DEFAULT, "Eject", "Error"};
     private static String[] mStateArray = {"OFF", "DISC", "DISC CD", "DISC DVD", "SD", "USB", "A/V"};
     private ParamButton mBtnPower;
     private ParamButton mBtnRearLock;
@@ -57,9 +57,9 @@ public class CanToyotaRearDisplayView extends CanRelativeCarInfoView {
 
     /* access modifiers changed from: protected */
     public void InitUI() {
-        this.mTVState = addText((int) Can.CAN_JAC_REFINE_OD, 100, 0);
+        this.mTVState = addText(150, 100, 0);
         this.mTVCDState = addText((int) CanCameraUI.BTN_GEELY_YJX6_MODE1, 100, 0);
-        this.mTVError = addText((int) CanCameraUI.BTN_CC_WC_DIRECTION1, (int) Can.CAN_JAC_REFINE_OD, 0);
+        this.mTVError = addText((int) CanCameraUI.BTN_CC_WC_DIRECTION1, 150, 0);
         this.mTVState.setTextColor(-1);
         this.mTVCDState.setTextColor(-1);
         this.mTVError.setTextColor(-1);
@@ -93,13 +93,13 @@ public class CanToyotaRearDisplayView extends CanRelativeCarInfoView {
             this.mXdpData.Update = 0;
             int state = this.mXdpData.Mode;
             if (state < 0 || state > 6) {
-                this.mTVState.setText("");
+                this.mTVState.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 this.mTVState.setText(mStateArray[state]);
             }
             int cdState = this.mXdpData.CdSta;
             if (cdState < 0 || cdState > 7) {
-                this.mTVCDState.setText("");
+                this.mTVCDState.setText(TXZResourceManager.STYLE_DEFAULT);
             } else {
                 this.mTVCDState.setText(mCDStateArray[cdState]);
             }

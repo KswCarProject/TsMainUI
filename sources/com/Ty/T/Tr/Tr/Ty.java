@@ -12,7 +12,7 @@ import com.Ty.T.Tr.Tn.Tr;
 public class Ty {
 
     /* renamed from: T  reason: collision with root package name */
-    private final String f343T;
+    private final String f346T;
     private final boolean T5;
     private final Tn T9;
     private final Object TE;
@@ -24,7 +24,7 @@ public class Ty {
     private final String Ty;
 
     public Ty(String imageKey, String imageUri, String originalImageUri, T9 targetSize, TE viewScaleType, Tr downloader, com.Ty.T.Tr.Ty displayOptions) {
-        this.f343T = imageKey;
+        this.f346T = imageKey;
         this.Tr = imageUri;
         this.Ty = originalImageUri;
         this.Tn = targetSize;
@@ -68,7 +68,7 @@ public class Ty {
     }
 
     public String T() {
-        return this.f343T;
+        return this.f346T;
     }
 
     public String Tr() {

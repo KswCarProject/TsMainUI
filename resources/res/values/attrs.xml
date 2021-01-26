@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="gif_src" format="reference">
+    </attr>
+    <attr name="auth_play" format="boolean">
+    </attr>
+    <attr name="play_count" format="integer">
+    </attr>
+    <attr name="end_last_frame" format="boolean">
+    </attr>
+</resources>

@@ -96,16 +96,16 @@ public class CanKoleosXpACActivity extends CanBaseActivity implements UserCallBa
         for (int i = 0; i < this.mWindIcons.length; i++) {
             this.mWindIcons[i] = addImage(191, Can.CAN_TEANA_OLD_DJ, this.mIcons[i]);
         }
-        this.mACMode[0] = addButton(KeyDef.RKEY_MEDIA_ANGLE, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
-        this.mACMode[1] = addButton(KeyDef.RKEY_MEDIA_ANGLE, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
-        this.mACMode[2] = addButton(KeyDef.RKEY_MEDIA_ANGLE, KeyDef.RKEY_MEDIA_OSD, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 9);
+        this.mACMode[0] = addButton(305, 78, R.drawable.can_rh7_icon01_up, R.drawable.can_rh7_icon01_dn, 6);
+        this.mACMode[1] = addButton(305, Can.CAN_LIEBAO_WC, R.drawable.can_rh7_icon03_up, R.drawable.can_rh7_icon03_dn, 8);
+        this.mACMode[2] = addButton(305, KeyDef.RKEY_MEDIA_OSD, R.drawable.can_rh7_icon05_up, R.drawable.can_rh7_icon05_dn, 9);
         this.mStatusWindow = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 70, R.drawable.can_rh7_window_up, R.drawable.can_rh7_window_dn, 10);
         this.mStatusOutLoop = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 182, R.drawable.can_rh7_nxh_up, R.drawable.can_rh7_wxh_dn, 12);
-        this.mStatusAc = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, KeyDef.RKEY_AMS, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
+        this.mStatusAc = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 295, R.drawable.can_rh7_ac_up, R.drawable.can_rh7_ac_dn, 15);
         this.mStatusDual = addButton(CanCameraUI.BTN_LANDWIND_3D_LEFT_DOWN, 398, R.drawable.can_rh7_dual_up, R.drawable.can_rh7_dual_dn, 11);
         this.mStatusRearWindow = addButton(757, 70, R.drawable.can_rh7_window02_up, R.drawable.can_rh7_window02_dn, 16);
         this.mStatusMode = addButton(757, 182, R.drawable.can_rh7_mode_up, R.drawable.can_rh7_mode_dn, 21);
-        this.mStatusAuto = addButton(757, KeyDef.RKEY_AMS, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn, 13);
+        this.mStatusAuto = addButton(757, 295, R.drawable.can_rh7_auto_up, R.drawable.can_rh7_auto_dn, 13);
         this.mStatusLoopAuto = addButton(757, 398, R.drawable.can_rh7_autoloop_up, R.drawable.can_rh7_autoloop_dn, 17);
         this.mStatusNormal = addButton(200, 20, R.drawable.conditioning_eco_01_up, R.drawable.conditioning_eco_01_dn, 19);
         this.mStatusFast = addButton(450, 20, R.drawable.conditioning_fast_up, R.drawable.conditioning_fast_dn, 20);

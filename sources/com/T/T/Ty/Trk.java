@@ -12,7 +12,7 @@ import java.util.TreeMap;
 public class Trk implements Trh {
 
     /* renamed from: T  reason: collision with root package name */
-    public static Trk f222T = new Trk();
+    public static Trk f225T = new Trk();
 
     /* JADX INFO: finally extract failed */
     public void T(T7 serializer, Object object, Object fieldName, Type fieldType) throws IOException {
@@ -41,7 +41,7 @@ public class Trk implements Trh {
             Trh preWriter = null;
             boolean first = true;
             if (out.T(TrG.WriteClassName)) {
-                out.Tr(T.f128T);
+                out.Tr(T.f131T);
                 out.T(object.getClass().getName());
                 first = false;
             }

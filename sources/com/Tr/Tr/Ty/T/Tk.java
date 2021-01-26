@@ -16,11 +16,11 @@ final class Tk implements TZ {
                 break;
             }
             T(context.Tr(), buffer);
-            context.f292T++;
+            context.f295T++;
             if (buffer.length() >= 4) {
                 context.T(T((CharSequence) buffer, 0));
                 buffer.delete(0, 4);
-                if (Tv.T(context.T(), context.f292T, T()) != T()) {
+                if (Tv.T(context.T(), context.f295T, T()) != T()) {
                     context.Tr(0);
                     break;
                 }
@@ -66,7 +66,7 @@ final class Tk implements TZ {
                 }
                 if (restInAscii) {
                     context.Th();
-                    context.f292T -= restChars;
+                    context.f295T -= restChars;
                 } else {
                     context.T(encoded);
                 }

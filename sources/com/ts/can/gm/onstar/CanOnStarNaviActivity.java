@@ -2,8 +2,10 @@ package com.ts.can.gm.onstar;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanDataInfo;
 import com.lgb.canmodule.CanJni;
@@ -12,6 +14,7 @@ import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
+import com.ts.can.CanFunc;
 import com.ts.can.CanIF;
 import com.ts.canview.CanItemProgressList;
 import com.ts.canview.CanVerticalBar;
@@ -32,6 +35,7 @@ public class CanOnStarNaviActivity extends CanBaseActivity implements UserCallBa
     public static final int ITEM_UPDATE = 6;
     public static final String TAG = "CanOnStarNaviActivity";
     protected static final int[] mDirectArr = {R.drawable.can_onstar_indicate00, R.drawable.can_onstar_indicate01, R.drawable.can_onstar_indicate02, R.drawable.can_onstar_indicate03, R.drawable.can_onstar_indicate04, R.drawable.can_onstar_indicate05, R.drawable.can_onstar_indicate06, R.drawable.can_onstar_indicate07, R.drawable.can_onstar_indicate08, R.drawable.can_onstar_indicate09, R.drawable.can_onstar_indicate0a, R.drawable.can_onstar_indicate0b, R.drawable.can_onstar_indicate0c, R.drawable.can_onstar_indicate0d, R.drawable.can_onstar_indicate0e, R.drawable.can_onstar_indicate0f, R.drawable.can_onstar_indicate10, R.drawable.can_onstar_indicate11, R.drawable.can_onstar_indicate12, R.drawable.can_onstar_indicate13, R.drawable.can_onstar_indicate14, R.drawable.can_onstar_indicate15, R.drawable.can_onstar_indicate16, R.drawable.can_onstar_indicate17, R.drawable.can_onstar_indicate18, R.drawable.can_onstar_indicate19, R.drawable.can_onstar_indicate1a, R.drawable.can_onstar_indicate1b, R.drawable.can_onstar_indicate1c, R.drawable.can_onstar_indicate1d, R.drawable.can_onstar_indicate1e, R.drawable.can_onstar_indicate1f, R.drawable.can_onstar_indicate20};
+    protected static DisplayMetrics mDisplayMetrics = new DisplayMetrics();
     protected ParamButton mBtnCancel;
     protected ParamButton mBtnDesInfo;
     protected ParamButton mBtnNextSta;
@@ -59,12 +63,22 @@ public class CanOnStarNaviActivity extends CanBaseActivity implements UserCallBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_can_comm_relative);
         this.mManager = new RelativeLayoutManager(this, R.id.can_comm_layout);
+        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
+        Log.d("nyw", String.format("%d,%d", new Object[]{Integer.valueOf(mDisplayMetrics.widthPixels), Integer.valueOf(mDisplayMetrics.heightPixels)}));
         if (MainSet.GetScreenType() == 3) {
             initScreen_768x1024();
         } else if (MainSet.GetScreenType() == 5) {
             initScreen_1280x480();
         } else {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.mManager.GetLayout().getLayoutParams();
+            lp.width = 1024;
+            lp.height = CanCameraUI.BTN_NISSAN_XTRAL_RVS_ASSIST6;
+            lp.gravity = 17;
+            this.mManager.GetLayout().setLayoutParams(lp);
             initCommonScreen();
+            this.mManager.GetLayout().setScaleX((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f);
+            this.mManager.GetLayout().setScaleY((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f);
+            Log.d("nyw", String.format("%.2f,%.2f", new Object[]{Float.valueOf((((float) mDisplayMetrics.widthPixels) * 1.0f) / 1024.0f), Float.valueOf((((float) mDisplayMetrics.heightPixels) * 1.0f) / 600.0f)}));
         }
         Resources res = getResources();
         this.mStrDes = res.getString(R.string.can_zdxx);
@@ -74,7 +88,7 @@ public class CanOnStarNaviActivity extends CanBaseActivity implements UserCallBa
     }
 
     private void initScreen_1280x480() {
-        this.mManager.AddImage(Can.CAN_JAC_REFINE_OD, 10, R.drawable.can_onstar_bg);
+        this.mManager.AddImage(150, 10, R.drawable.can_onstar_bg);
         this.mImgDirect = this.mManager.AddImage(260, 43, 116, 117);
         this.mProgress = new CanVerticalBar(this, R.drawable.can_sponstar_pro_dn, R.drawable.can_sponstar_pro_up);
         this.mProgress.setMinMax(0.0f, 100.0f);
@@ -102,30 +116,34 @@ public class CanOnStarNaviActivity extends CanBaseActivity implements UserCallBa
 
     private void initScreen_768x1024() {
         this.mManager.AddImage(0, 0, R.drawable.can_onstar_bg);
-        this.mImgDirect = this.mManager.AddImage(23, 43, 116, 117);
+        int nY = 0;
+        if (CanFunc.getInstance().IsCore() == 1) {
+            nY = 35;
+        }
+        this.mImgDirect = this.mManager.AddImage(23, nY + 43, 116, 117);
         this.mProgress = new CanVerticalBar(this, R.drawable.can_sponstar_pro_dn, R.drawable.can_sponstar_pro_up);
         this.mProgress.setMinMax(0.0f, 100.0f);
-        this.mManager.AddViewWrapContent(this.mProgress, 186, 28);
-        CustomTextView tv = this.mManager.AddCusText(28, 0, 110, 38);
+        this.mManager.AddViewWrapContent(this.mProgress, 186, nY + 28);
+        CustomTextView tv = this.mManager.AddCusText(28, nY + 0, 110, 38);
         tv.setGravity(17);
         tv.setText(R.string.can_onstar_direct);
         tv.SetPxSize(36);
-        this.mDesText = addInfoText(255, 22, 500, 35);
-        this.mCommText = addInfoText(255, 57, 500, 35);
-        this.mNextDisText = addInfoText(255, 105, 500, 35);
-        this.mTotalDisText = addInfoText(255, 141, 500, 35);
-        this.mBtnRepeat = addBtnLong(20, 204, 354, 64, R.string.can_onstar_repeat, 1);
-        this.mBtnDesInfo = addBtnLong(395, 204, 354, 64, R.string.can_onstar_des_info, 5);
-        this.mBtnUpdate = addBtnLong(395, 273, 354, 64, R.string.can_onstar_update, 6);
-        this.mBtnCancel = addBtnLong(395, 343, 354, 64, R.string.can_onstar_cancle, 7);
-        this.mBtnPreview = addBtnShort(20, KeyDef.RKEY_MEDIA_ZOOM, 174, 64, R.string.can_onstar_preview, 2);
-        this.mBtnPrevSta = addBtnShort(200, 273, 174, 64, R.string.can_onstar_last_sta, 3);
-        this.mBtnNextSta = addBtnShort(200, 343, 174, 64, R.string.can_onstar_next_sta, 4);
+        this.mDesText = addInfoText(255, nY + 22, 500, 35);
+        this.mCommText = addInfoText(255, nY + 57, 500, 35);
+        this.mNextDisText = addInfoText(255, nY + 105, 500, 35);
+        this.mTotalDisText = addInfoText(255, nY + 141, 500, 35);
+        this.mBtnRepeat = addBtnLong(20, nY + 204, 354, 64, R.string.can_onstar_repeat, 1);
+        this.mBtnDesInfo = addBtnLong(395, nY + 204, 354, 64, R.string.can_onstar_des_info, 5);
+        this.mBtnUpdate = addBtnLong(395, nY + 273, 354, 64, R.string.can_onstar_update, 6);
+        this.mBtnCancel = addBtnLong(395, nY + 343, 354, 64, R.string.can_onstar_cancle, 7);
+        this.mBtnPreview = addBtnShort(20, nY + 309, 174, 64, R.string.can_onstar_preview, 2);
+        this.mBtnPrevSta = addBtnShort(200, nY + 273, 174, 64, R.string.can_onstar_last_sta, 3);
+        this.mBtnNextSta = addBtnShort(200, nY + 343, 174, 64, R.string.can_onstar_next_sta, 4);
     }
 
     private void initCommonScreen() {
         this.mManager.AddImage(34, 30, R.drawable.can_onstar_bg);
-        this.mImgDirect = this.mManager.AddImage(62, 58, Can.CAN_JAC_REFINE_OD, Can.CAN_JAC_REFINE_OD);
+        this.mImgDirect = this.mManager.AddImage(62, 58, 150, 150);
         this.mProgress = new CanVerticalBar(this, R.drawable.can_onstar_pro_dn, R.drawable.can_onstar_pro_up);
         this.mProgress.setMinMax(0.0f, 100.0f);
         this.mManager.AddViewWrapContent(this.mProgress, 266, 38);

@@ -6,6 +6,7 @@ import com.lgb.canmodule.Can;
 import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.UserCallBack;
+import com.ts.can.audi.rzc.CanAudiQ5RzcACView;
 import com.ts.can.baic.ec180.CanBaicEcACView;
 import com.ts.can.baic.od.senova.CanSenovaOdACView;
 import com.ts.can.baic.wc.m50f.CanVenuciaWcM50FACView;
@@ -21,11 +22,14 @@ import com.ts.can.chana.wc.cx70.CanChanAWcCx70ACView;
 import com.ts.can.chery.wc.CanCheryWcCarACView;
 import com.ts.can.chrysler.wc.CanChryslerWcACView;
 import com.ts.can.chrysler.wc.compass.CanCompassWcACView;
+import com.ts.can.chrysler.wc.journey.CanChryslerJourneyWcACView;
 import com.ts.can.df.ax7.CanDFAX7CarACView;
 import com.ts.can.df.fg_rzc.CanDFFGRzcACView;
+import com.ts.can.df.venucia_rzc.CanVenuciaRzcACView;
 import com.ts.can.df.wc.CanVenuciaWcACView;
 import com.ts.can.df.wc.ax7.CanDfFsWcACView;
 import com.ts.can.faw.B50.CanB50RzcACView;
+import com.ts.can.faw.t3.rjm.CanGeelyGeaAcView;
 import com.ts.can.ford.wc.CanFordWcCarACView;
 import com.ts.can.ford.wc.mondeo.CanFordMondeoWcCarACView;
 import com.ts.can.ford.xfy.CanFordEdgeXfyACView;
@@ -36,6 +40,7 @@ import com.ts.can.gm.wc.CanGMWcACView;
 import com.ts.can.hm.wc.fml.CanHMFMLWcCarACView;
 import com.ts.can.hm.wc.v70.CanHMV70WcCarACView;
 import com.ts.can.honda.cyt.accord7.CanAccord7CYTACView;
+import com.ts.can.honda.dj.accord7.CanAccord7DjACView;
 import com.ts.can.honda.rzc.CanHondaDaRzcAcView;
 import com.ts.can.honda.wc.CanHondaWcACView;
 import com.ts.can.honda.wc.crown.CanCrownWcACView;
@@ -44,15 +49,24 @@ import com.ts.can.kawei.wc.CanKaWeiWcACView;
 import com.ts.can.landwind.od.CanLandWindOdAcView;
 import com.ts.can.lexus.lz.CanLexusLZIs250ACView;
 import com.ts.can.nissan.dj.teana.CanTeanaOldDjACView;
+import com.ts.can.nissan.xc.teana.CanTeanaOldXcACView;
+import com.ts.can.psa.rzc.CanPSARzcAcView;
+import com.ts.can.renault.baogu.CanRenaultBaoguACView;
 import com.ts.can.renault.renault.CanRenaultLuoMuAcView;
+import com.ts.can.saic.baojun.CanBaojunRs3CarACView;
+import com.ts.can.saic.mg.CanMG6RzcACView;
 import com.ts.can.saic.wc.CanSaicRWMGWcACView;
 import com.ts.can.sitechdev.cw.CanSitechDevCwACView;
 import com.ts.can.swm.rzc.CanSwmRzcACView;
+import com.ts.can.tata.lz.CanTataLzACView;
 import com.ts.can.tata.wc.CanTataWcACView;
 import com.ts.can.toyota.dj.CanToyotaDJACView;
 import com.ts.can.toyota.rzc.CanToyotaRzcACView;
+import com.ts.can.toyota.wc.crown_h.CanCrownhWcACView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcACView;
 import com.ts.can.vw.rzc.golf.CanGolfRzcTeramonACView;
+import com.ts.can.weichai.wc.CanWeiChaiWcACView;
+import com.ts.can.zh.h3.CanZhRzcACView;
 import com.ts.can.zotye.x5.CanZotyetT500ACView;
 import com.ts.main.common.MainSet;
 
@@ -85,8 +99,20 @@ public class CanBaseACActivity extends CanBaseActivity implements UserCallBack {
                     this.mBaseACView = new CanGolfRzcACView(this);
                     return;
                 }
+            case 16:
+                this.mBaseACView = new CanBaojunRs3CarACView(this);
+                return;
+            case 26:
+                this.mBaseACView = new CanMG6RzcACView(this);
+                return;
+            case 47:
+                this.mBaseACView = new CanVenuciaRzcACView(this);
+                return;
             case 52:
                 this.mBaseACView = new CanDFAX7CarACView(this);
+                return;
+            case 59:
+                this.mBaseACView = new CanZhRzcACView(this);
                 return;
             case 60:
                 this.mBaseACView = new CanZotyetT500ACView(this);
@@ -103,6 +129,9 @@ public class CanBaseACActivity extends CanBaseActivity implements UserCallBack {
             case 73:
                 this.mBaseACView = new CanChanAACView(this);
                 return;
+            case 75:
+                this.mBaseACView = new CanAccord7DjACView(this);
+                return;
             case 78:
                 this.mBaseACView = new CanCCH6RzcACView(this);
                 return;
@@ -114,6 +143,9 @@ public class CanBaseACActivity extends CanBaseActivity implements UserCallBack {
                     this.mBaseACView = new CanRenaultLuoMuAcView(this);
                     return;
                 }
+                return;
+            case 127:
+                this.mBaseACView = new CanPSARzcAcView(this);
                 return;
             case 128:
                 this.mBaseACView = new CanToyotaRzcACView(this);
@@ -134,8 +166,13 @@ public class CanBaseACActivity extends CanBaseActivity implements UserCallBack {
                 this.mBaseACView = new CanTrumpchiWcACView(this);
                 return;
             case 162:
-                this.mBaseACView = new CanChryslerWcACView(this);
-                return;
+                if (subType == 7 || subType == 8) {
+                    this.mBaseACView = new CanChryslerJourneyWcACView(this);
+                    return;
+                } else {
+                    this.mBaseACView = new CanChryslerWcACView(this);
+                    return;
+                }
             case 166:
                 this.mBaseACView = new CanVenuciaWcACView(this);
                 return;
@@ -197,7 +234,7 @@ public class CanBaseACActivity extends CanBaseActivity implements UserCallBack {
             case Can.CAN_BYD_S6_S7:
                 this.mBaseACView = new CanBydS6S7ACView(this);
                 return;
-            case 241:
+            case Can.CAN_SITECHDEV_CW:
                 if (MainSet.GetInstance().bIsEnableCan()) {
                     this.mBaseACView = new CanSitechDevCwACView(this);
                     return;
@@ -229,6 +266,27 @@ public class CanBaseACActivity extends CanBaseActivity implements UserCallBack {
                 return;
             case 288:
                 this.mBaseACView = new CanHondaDaRzcAcView(this);
+                return;
+            case 290:
+                this.mBaseACView = new CanWeiChaiWcACView(this);
+                return;
+            case 294:
+                this.mBaseACView = new CanTeanaOldXcACView(this);
+                return;
+            case 295:
+                this.mBaseACView = new CanAudiQ5RzcACView(this);
+                return;
+            case 299:
+                this.mBaseACView = new CanGeelyGeaAcView(this);
+                return;
+            case 302:
+                this.mBaseACView = new CanCrownhWcACView(this);
+                return;
+            case 306:
+                this.mBaseACView = new CanRenaultBaoguACView(this);
+                return;
+            case 307:
+                this.mBaseACView = new CanTataLzACView(this);
                 return;
             default:
                 if (CanFunc.IsCanActivityJumped(this)) {

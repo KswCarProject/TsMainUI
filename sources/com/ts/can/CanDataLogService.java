@@ -129,7 +129,7 @@ public class CanDataLogService extends Service implements View.OnClickListener {
                 if (actionId != 6 && actionId != 3 && event.getKeyCode() != 4) {
                     return true;
                 }
-                String s = view.getText().toString();
+                String s = view.getText().toString().toLowerCase();
                 if (!TextUtils.isEmpty(s) && s.length() == 1) {
                     s = "0" + s;
                 }

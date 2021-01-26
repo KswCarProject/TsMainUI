@@ -12,6 +12,7 @@ import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanRelativeCarInfoView;
 import com.ts.other.CustomImgView;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanKaWeiWcTpmsView extends CanRelativeCarInfoView {
     protected CustomImgView[] mIvTyres;
@@ -109,7 +110,7 @@ public class CanKaWeiWcTpmsView extends CanRelativeCarInfoView {
         if (i2b(warn & 1)) {
             return getString(R.string.can_wdbj);
         }
-        return "";
+        return TXZResourceManager.STYLE_DEFAULT;
     }
 
     public void SetVal(int id, int press, int temp, int warn) {

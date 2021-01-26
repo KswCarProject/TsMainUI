@@ -124,11 +124,11 @@ public class CanLexushZmytACUI implements UserCallBack {
         this.mTvRtTemp = AddTemp(1154, 8, 108, 63);
         this.mWindIcon = this.mManager.AddImage(146, 8, R.drawable.main_ac_fan_up);
         this.mTvWindTemp = AddText(Can.CAN_SAIL_RW550_MG6_WC, 8, 108, 63);
-        this.mPeople = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx00_up);
-        this.mAirMode[0] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx01_dn);
-        this.mAirMode[1] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx02_dn);
-        this.mAirMode[2] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx03_dn);
-        this.mAirMode[3] = this.mManager.AddImage(KeyDef.RKEY_FR, 8, R.drawable.main_ac_fx04_dn);
+        this.mPeople = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx00_up);
+        this.mAirMode[0] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx01_dn);
+        this.mAirMode[1] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx02_dn);
+        this.mAirMode[2] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx03_dn);
+        this.mAirMode[3] = this.mManager.AddImage(294, 8, R.drawable.main_ac_fx04_dn);
         this.mAC = this.mManager.AddImage(448, 8);
         this.mAC.setStateDrawable(R.drawable.main_ac_aco_up, R.drawable.main_ac_aco_dn);
         this.mFrontMax = this.mManager.AddImage(595, 8);

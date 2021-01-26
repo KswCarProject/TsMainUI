@@ -8,17 +8,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.autochips.storage.EnvironmentATC;
 import com.ts.MainUI.Evc;
 import com.ts.MainUI.MainTask;
 import com.ts.MainUI.R;
 import com.ts.MainUI.UserCallBack;
 import com.yyw.ts70xhw.FtSet;
+import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 import com.yyw.ts70xhw.Radio;
 
 public class FactoryRadioTestActivity extends Activity implements UserCallBack {
-    static EnvironmentATC EnvATC = null;
     private static final String TAG = "[scj]Test";
     public static final int TEST_FK = 2;
     public static final int TEST_IO = 1;
@@ -131,7 +130,11 @@ public class FactoryRadioTestActivity extends Activity implements UserCallBack {
     /* access modifiers changed from: protected */
     public void onResume() {
         MainTask.GetInstance().SetUserCallBack(this);
-        Evc.GetInstance().evol_vol_set(8);
+        if (Iop.DspSupport() == 1) {
+            Evc.GetInstance().evol_vol_set(12);
+        } else {
+            Evc.GetInstance().evol_vol_set(8);
+        }
         this.nStep = 0;
         UpdateDisp(0);
         Radio.TuneSearch(1);

@@ -2,6 +2,7 @@ package com.txznet.comm.Tr.Tr;
 
 import android.os.Environment;
 import com.Tn.Tr.Tn.T;
+import com.android.SdkConstants;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.txz.T.Ty;
 import java.util.HashSet;
@@ -11,7 +12,7 @@ import java.util.Set;
 public class Tk {
 
     /* renamed from: T  reason: collision with root package name */
-    private static final String f401T = (Environment.getExternalStorageDirectory().getPath() + "/txz/plugin/");
+    private static final String f405T = (Environment.getExternalStorageDirectory().getPath() + "/txz/plugin/");
     private static boolean Tr = false;
 
     public static void T(byte[] data) {
@@ -20,7 +21,7 @@ public class Tk {
             T(pluginFile);
             if (pluginFile.T5.intValue() != 2) {
                 HashSet<String> files = new HashSet<>();
-                files.add(T(pluginFile, ".jar"));
+                files.add(T(pluginFile, SdkConstants.DOT_JAR));
                 com.txznet.T.T.T(0, (Set<String>) files);
             }
             switch (pluginFile.T5.intValue()) {
@@ -32,7 +33,7 @@ public class Tk {
                     return;
                 case 2:
                 case 3:
-                    Ty.T(T(pluginFile, ".jar"), pluginFile.Ty, pluginFile.TZ);
+                    Ty.T(T(pluginFile, SdkConstants.DOT_JAR), pluginFile.Ty, pluginFile.TZ);
                     return;
                 default:
                     return;
@@ -45,8 +46,8 @@ public class Tk {
         Tn.T("Plugin:download plugin error", (Throwable) e);
     }
 
-    /* JADX WARNING: Removed duplicated region for block: B:15:0x005d A[SYNTHETIC, Splitter:B:15:0x005d] */
-    /* JADX WARNING: Removed duplicated region for block: B:20:0x0066 A[SYNTHETIC, Splitter:B:20:0x0066] */
+    /* JADX WARNING: Removed duplicated region for block: B:15:0x0060 A[SYNTHETIC, Splitter:B:15:0x0060] */
+    /* JADX WARNING: Removed duplicated region for block: B:20:0x0069 A[SYNTHETIC, Splitter:B:20:0x0069] */
     /* JADX WARNING: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
     /* Code decompiled incorrectly, please refer to instructions dump. */
     private static void T(com.Tn.Tr.Tn.T.C0006T r9) {
@@ -70,60 +71,60 @@ public class Tk {
             java.lang.String r6 = ".chk"
             java.lang.String r1 = T(r9, r6)
             r4 = 0
-            java.io.FileOutputStream r5 = new java.io.FileOutputStream     // Catch:{ IOException -> 0x0052 }
-            java.io.File r6 = new java.io.File     // Catch:{ IOException -> 0x0052 }
-            r6.<init>(r1)     // Catch:{ IOException -> 0x0052 }
-            r5.<init>(r6)     // Catch:{ IOException -> 0x0052 }
-            byte[] r6 = r0.getBytes()     // Catch:{ IOException -> 0x006f, all -> 0x006c }
-            r5.write(r6)     // Catch:{ IOException -> 0x006f, all -> 0x006c }
-            if (r5 == 0) goto L_0x004d
-            r5.close()     // Catch:{ IOException -> 0x004f }
-        L_0x004d:
-            r4 = r5
-        L_0x004e:
-            return
+            java.io.FileOutputStream r5 = new java.io.FileOutputStream     // Catch:{ IOException -> 0x0054 }
+            java.io.File r6 = new java.io.File     // Catch:{ IOException -> 0x0054 }
+            r6.<init>(r1)     // Catch:{ IOException -> 0x0054 }
+            r5.<init>(r6)     // Catch:{ IOException -> 0x0054 }
+            byte[] r6 = r0.getBytes()     // Catch:{ IOException -> 0x0072, all -> 0x006f }
+            r5.write(r6)     // Catch:{ IOException -> 0x0072, all -> 0x006f }
+            if (r5 == 0) goto L_0x004f
+            r5.close()     // Catch:{ IOException -> 0x0051 }
         L_0x004f:
+            r4 = r5
+        L_0x0050:
+            return
+        L_0x0051:
             r6 = move-exception
             r4 = r5
-            goto L_0x004e
-        L_0x0052:
+            goto L_0x0050
+        L_0x0054:
             r3 = move-exception
-        L_0x0053:
-            r3.printStackTrace()     // Catch:{ all -> 0x0063 }
+        L_0x0055:
+            r3.printStackTrace()     // Catch:{ all -> 0x0066 }
             java.lang.String r6 = "Plugin:create check file failed"
-            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r6, (java.lang.Throwable) r3)     // Catch:{ all -> 0x0063 }
-            if (r4 == 0) goto L_0x004e
-            r4.close()     // Catch:{ IOException -> 0x0061 }
-            goto L_0x004e
-        L_0x0061:
-            r6 = move-exception
-            goto L_0x004e
-        L_0x0063:
-            r6 = move-exception
+            com.txznet.comm.Tr.Tr.Tn.T((java.lang.String) r6, (java.lang.Throwable) r3)     // Catch:{ all -> 0x0066 }
+            if (r4 == 0) goto L_0x0050
+            r4.close()     // Catch:{ IOException -> 0x0064 }
+            goto L_0x0050
         L_0x0064:
-            if (r4 == 0) goto L_0x0069
-            r4.close()     // Catch:{ IOException -> 0x006a }
-        L_0x0069:
-            throw r6
-        L_0x006a:
-            r7 = move-exception
-            goto L_0x0069
+            r6 = move-exception
+            goto L_0x0050
+        L_0x0066:
+            r6 = move-exception
+        L_0x0067:
+            if (r4 == 0) goto L_0x006c
+            r4.close()     // Catch:{ IOException -> 0x006d }
         L_0x006c:
+            throw r6
+        L_0x006d:
+            r7 = move-exception
+            goto L_0x006c
+        L_0x006f:
             r6 = move-exception
             r4 = r5
-            goto L_0x0064
-        L_0x006f:
+            goto L_0x0067
+        L_0x0072:
             r3 = move-exception
             r4 = r5
-            goto L_0x0053
+            goto L_0x0055
         */
         throw new UnsupportedOperationException("Method not decompiled: com.txznet.comm.Tr.Tr.Tk.T(com.Tn.Tr.Tn.T$T):void");
     }
 
     private static String T(T.C0006T pluginFile, String suffix) {
         if (pluginFile.T5.intValue() == 2) {
-            return f401T + pluginFile.Tr + "/current/" + pluginFile.Ty + suffix;
+            return f405T + pluginFile.Tr + "/current/" + pluginFile.Ty + suffix;
         }
-        return f401T + pluginFile.Tr + "/" + pluginFile.Ty + suffix;
+        return f405T + pluginFile.Tr + "/" + pluginFile.Ty + suffix;
     }
 }

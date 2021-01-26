@@ -12,6 +12,7 @@ import com.ts.MainUI.UserCallBack;
 import com.ts.can.CanBaseActivity;
 import com.ts.can.CanCameraUI;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 import com.yyw.ts70xhw.KeyDef;
 
 public class CanCs75CarDisplayInfoActivity extends CanBaseActivity implements UserCallBack {
@@ -33,7 +34,7 @@ public class CanCs75CarDisplayInfoActivity extends CanBaseActivity implements Us
         addText(100, 300, (int) KeyDef.SKEY_PP_1, 50, R.string.can_sybylc);
         this.mTripRest = addText((int) CanCameraUI.BTN_TRUMPCHI_GS4_MODE1, 350, (int) Can.CAN_ZH_H530, 70, "-- KM");
         this.mTripRest.setTextSize(0, 45.0f);
-        this.mOilMark = addText(100, 430, (int) KeyDef.SKEY_PP_1, 50, "");
+        this.mOilMark = addText(100, 430, (int) KeyDef.SKEY_PP_1, 50, TXZResourceManager.STYLE_DEFAULT);
     }
 
     private TextView addText(int x, int y, int w, int h, String textId) {

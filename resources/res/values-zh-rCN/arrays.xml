@@ -1,246 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="str_fs_rev_volarr">
-        <item>无</item>
-        <item>弱</item>
-        <item>中</item>
-        <item>强</item>
-    </array>
-    <array name="str_fsrad_zonearray">
-        <item>亚洲</item>
-        <item>欧洲</item>
-        <item>美洲1</item>
-        <item>美洲2</item>
-        <item>巴西</item>
-        <item>日本</item>
-        <item>巴西2</item>
-        <item>日本2</item>
-        <item>巴西3</item>
-    </array>
-    <array name="str_fsdoor_title">
-        <item>前门反</item>
-        <item>后门反</item>
-        <item>后备箱</item>
-        <item>前盖</item>
-        <item>方控上下曲</item>
-        <item>车内温度</item>
-        <item>温度单位</item>
-        <item>全景图标</item>
-        <item>车外温度</item>
-        <item>P档雷达显示</item>
-    </array>
-    <array name="str_fsother_title">
-        <item>显示屏类型</item>
-        <item>手刹设置</item>
-        <item>外部UART</item>
-        <item>DVR类型</item>
-        <item>DTV类型</item>
-        <item>电容屏类型</item>
-        <item>倒车音量抑制</item>
-        <item>倒车检测</item>
-        <item>倒车镜像</item>
-        <item>开机启动导航</item>
-        <item>多彩灯选项</item>
-        <item>开机画面选项</item>
-        <item>方控学习选项</item>
-        <item>开机警告画面</item>
-        <item>插拔记忆</item>
-        <item>USB1速度</item>
-        <item>USB2速度</item>
-        <item>USB2调试</item>
-        <item>编码器左右交换</item>
-        <item>调试信息输出</item>
-        <item>电视输出格式</item>
-        <item>蓝牙名字</item>
-        <item>SD交换</item>
-        <item>卫星定位模式</item>
-    </array>
-    <array name="str_fsother_arrayoff">
-        <item>不检测</item>
-        <item>不镜像</item>
-        <item>不启动</item>
-        <item>无</item>
-        <item>无</item>
-        <item>无</item>
-        <item>无</item>
-        <item>不记忆</item>
-        <item>high</item>
-        <item>high</item>
-        <item>关闭</item>
-        <item>不交换</item>
-        <item>关闭</item>
-        <item>NTSC</item>
-        <item>蓝牙名字</item>
-        <item>不交换</item>
-        <item>GPS+BD</item>
-    </array>
-    <array name="str_fsother_arrayon">
-        <item>检测</item>
-        <item>镜像</item>
-        <item>启动</item>
-        <item>有</item>
-        <item>有</item>
-        <item>有</item>
-        <item>有</item>
-        <item>记忆</item>
-        <item>low</item>
-        <item>low</item>
-        <item>开启</item>
-        <item>交换</item>
-        <item>开启</item>
-        <item>PAL</item>
-        <item>蓝牙名字</item>
-        <item>交换</item>
-        <item>GPS+GNS</item>
-    </array>
-    <array name="str_fsother_arraylcmstype">
-        <item>10-IPS</item>
-        <item>7-IPS</item>
-        <item>9-IPS</item>
-        <item>LVDS</item>
-    </array>
-    <array name="str_fsother_arraybrake">
-        <item>用户选择默认关</item>
-        <item>强制忽略</item>
-        <item>强制开启</item>
-        <item>用户选择默认开</item>
-    </array>
-    <array name="str_fsother_arrparkmute">
-        <item>无</item>
-        <item>弱</item>
-        <item>中</item>
-        <item>强</item>
-    </array>
-    <array name="menu_ico_arr">
-        <item>导航</item>
-        <item>收音机</item>
-        <item>DVD</item>
-        <item>外挂DVD</item>
-        <item>视频</item>
-        <item>音频</item>
-        <item>蓝牙音乐</item>
-        <item>数字电视</item>
-        <item>模拟电视</item>
-        <item>AVIN</item>
-        <item>OBD</item>
-        <item>IPOD</item>
-        <item>POD</item>
-        <item>虚拟六碟</item>
-        <item>原车设备</item>
-        <item>原车收音</item>
-        <item>360全景</item>
-        <item>蓝牙</item>
-        <item>设置</item>
-        <item>安吉星</item>
-        <item>SYNC</item>
-        <item>车辆信息</item>
-        <item>胎压</item>
-        <item>行车记录</item>
-        <item>前置摄像</item>
-        <item>空调</item>
-        <item>DSP</item>
-        <item>电话</item>
-        <item>蓝牙方控</item>
-        <item>Carplay</item>
-    </array>
-    <array name="can_type_array">
-        <item>无协议</item>
-        <item>大众</item>
-        <item>高尔夫</item>
-        <item>丰田</item>
-        <item>12款思域、CRV</item>
-        <item>本田DA系统(杰德、凌派、缤智...)</item>
-        <item>日产天籁，奇骏，楼兰</item>
-        <item>14款霸道</item>
-        <item>通用全系</item>
-        <item>雅阁9代</item>
-        <item>赛欧3（睿志诚）</item>
-        <item>标雪</item>
-        <item>TS全系</item>
-        <item>福特全系</item>
-        <item>现代全系</item>
-        <item>克莱斯勒车系</item>
-        <item>宝骏</item>
-        <item>广汽传祺系列</item>
-        <item>荣威550</item>
-        <item>荣威系列</item>
-        <item>14款歌诗图</item>
-        <item>老马自达，欧宝</item>
-        <item>11款B70</item>
-        <item>14款B70</item>
-        <item>奔腾X80</item>
-        <item>荣威950</item>
-        <item>15款名爵锐腾</item>
-        <item>江淮瑞风S2,S3</item>
-        <item>江铃</item>
-        <item>16款吉普自由光</item>
-        <item>众泰云100</item>
-    </array>
-    <array name="fs_vol_item_arr">
-        <item>收音机</item>
-        <item>DISC</item>
-        <item>USB</item>
-        <item>SD</item>
-        <item>蓝牙音乐</item>
-        <item>数字电视</item>
-        <item>模拟电视</item>
-        <item>AUX1</item>
-        <item>AUX2</item>
-        <item>IPOD</item>
-        <item>虚拟六碟</item>
-        <item>原车音源</item>
-        <item>默认导航音量</item>
-        <item>默认电话音量</item>
-        <item>开机最大增益</item>
-        <item>蓝牙MIC增益</item>
-        <item>通话音量增益</item>
-    </array>
-    <array name="tpms_general_mode">
-        <item>关闭报警</item>
-        <item>单次报警</item>
-        <item>持续报警</item>
-    </array>
-    <array name="tpms_general_disp">
-        <item>温度单位</item>
-        <item>压力单位</item>
-        <item>温度上限</item>
-        <item>压力上限</item>
-        <item>压力下限</item>
-    </array>
-    <array name="tpms_general_error">
-        <item>漏气</item>
-        <item>低电压</item>
-        <item>无信号</item>
-        <item>气压低</item>
-        <item>气压高</item>
-        <item>开始学习</item>
-        <item>学习中</item>
-    </array>
-    <array name="ctouch_general">
-        <item>电源</item>
-        <item>主页</item>
-        <item>返回</item>
-        <item>音量+</item>
-        <item>音量-</item>
-        <item>导航</item>
-        <item>接听</item>
-        <item>挂断</item>
-        <item>上曲</item>
-        <item>下曲</item>
-        <item>出碟</item>
-        <item>搜台</item>
-        <item>模式</item>
-        <item>静音</item>
-        <item>停止</item>
-        <item>暂停</item>
-        <item>收音</item>
-        <item>DVD</item>
-        <item>音乐</item>
-        <item>应用</item>
-        <item>亮度</item>
-        <item>电源静音</item>
-        <item>清除</item>
-    </array>
     <array name="set_main_options">
         <item>通用设置</item>
         <item>显示设置</item>
@@ -253,7 +12,7 @@
         <item>关于设备</item>
     </array>
     <array name="set_genera_options">
-        <item>待机时间</item>
+        <item>休眠模式</item>
         <item>语音识别</item>
         <item>悬浮球</item>
         <item>倒车音量抑制</item>
@@ -284,6 +43,7 @@
         <item>空调显示</item>
         <item>后视输出</item>
         <item>前置摄像</item>
+        <item>摄像头类型</item>
     </array>
     <array name="set_navi_options">
         <item>开机自动进入导航</item>
@@ -313,6 +73,213 @@
         <item>低频增益</item>
         <item>高频点</item>
         <item>高频增益</item>
+    </array>
+    <array name="tpms_general_mode">
+        <item>关闭报警</item>
+        <item>单次报警</item>
+        <item>持续报警</item>
+    </array>
+    <array name="tpms_general_disp">
+        <item>温度单位</item>
+        <item>压力单位</item>
+        <item>温度上限</item>
+        <item>压力上限</item>
+        <item>压力下限</item>
+    </array>
+    <array name="tpms_general_error">
+        <item>漏气</item>
+        <item>低电压</item>
+        <item>无信号</item>
+        <item>气压低</item>
+        <item>气压高</item>
+        <item>开始学习</item>
+        <item>学习中</item>
+        <item>温度高</item>
+    </array>
+    <array name="ctouch_general">
+        <item>电源关屏</item>
+        <item>主页</item>
+        <item>返回</item>
+        <item>音量+</item>
+        <item>音量-</item>
+        <item>导航</item>
+        <item>接听</item>
+        <item>挂断</item>
+        <item>上曲</item>
+        <item>下曲</item>
+        <item>出碟</item>
+        <item>搜台</item>
+        <item>模式</item>
+        <item>静音</item>
+        <item>停止</item>
+        <item>暂停</item>
+        <item>收音</item>
+        <item>DVD</item>
+        <item>音乐</item>
+        <item>应用</item>
+        <item>亮度</item>
+        <item>电源静音</item>
+        <item>电源主页</item>
+        <item>出碟主页</item>
+        <item>出碟静音</item>
+        <item>蓝牙音乐</item>
+        <item>出碟导航</item>
+        <item>语音</item>
+        <item>音效</item>
+        <item>车辆信息</item>
+        <item>旋转</item>
+        <item>清除</item>
+    </array>
+    <array name="menu_ico_arr">
+        <item>导航</item>
+        <item>收音机</item>
+        <item>DVD</item>
+        <item>外挂DVD</item>
+        <item>视频</item>
+        <item>音频</item>
+        <item>蓝牙音乐</item>
+        <item>数字电视</item>
+        <item>模拟电视</item>
+        <item>AVIN</item>
+        <item>OBD</item>
+        <item>IPOD</item>
+        <item>POD</item>
+        <item>360全景</item>
+        <item>原车设备</item>
+        <item>原车收音</item>
+        <item>原车360</item>
+        <item>蓝牙</item>
+        <item>车机设置</item>
+        <item>安吉星</item>
+        <item>SYNC</item>
+        <item>车辆信息</item>
+        <item>胎压</item>
+        <item>行车记录</item>
+        <item>前置摄像</item>
+        <item>空调</item>
+        <item>DSP</item>
+        <item>电话</item>
+        <item>蓝牙方控</item>
+        <item>Carplay</item>
+    </array>
+    <array name="str_fsrad_zonearray">
+        <item>亚洲</item>
+        <item>欧洲</item>
+        <item>美洲1</item>
+        <item>美洲2</item>
+        <item>巴西</item>
+        <item>日本</item>
+        <item>巴西2</item>
+        <item>日本2</item>
+    </array>
+    <array name="str_fsdoor_title">
+        <item>前门反</item>
+        <item>后门反</item>
+        <item>后备箱</item>
+        <item>前盖</item>
+        <item>方控上下曲</item>
+        <item>车内温度</item>
+        <item>温度单位</item>
+        <item>全景图标</item>
+        <item>车外温度</item>
+        <item>P档雷达显示</item>
+    </array>
+    <array name="str_fs_rev_volarr">
+        <item>无</item>
+        <item>弱</item>
+        <item>中</item>
+        <item>强</item>
+    </array>
+    <array name="str_fsother_title">
+        <item>显示屏类型</item>
+        <item>手刹设置</item>
+        <item>外部UART</item>
+        <item>DVR类型</item>
+        <item>DTV类型</item>
+        <item>电容屏类型</item>
+        <item>倒车音量抑制</item>
+        <item>倒车检测</item>
+        <item>倒车镜像</item>
+        <item>开机启动导航</item>
+        <item>多彩灯选项</item>
+        <item>开机画面选项</item>
+        <item>方控学习选项</item>
+        <item>开机警告画面</item>
+        <item>插拔记忆</item>
+        <item>USB1速度</item>
+        <item>USB2速度</item>
+        <item>USB2调试</item>
+        <item>编码器左右交换</item>
+        <item>调试信息输出</item>
+        <item>电视输出格式</item>
+        <item>蓝牙名字</item>
+        <item>SD交换</item>
+        <item>卫星定位模式</item>
+    </array>
+    <array name="str_fsother_camtype">
+        <item>CVBS</item>
+        <item>AHD-720P-25</item>
+        <item>AHD-1080P-25</item>
+        <item>360全景</item>
+        <item>360-720P-后视</item>
+        <item>MIPI-用户自定义</item>
+        <item>AHD-720P-30</item>
+        <item>AHD-1080P-30</item>
+        <item>TVI-720P-25</item>
+        <item>TVI-720P-30</item>
+        <item>360-720P-前+后视</item>
+    </array>
+    <array name="str_fsother_lcd_rotate">
+        <item>正常</item>
+        <item>顺时针90度</item>
+        <item>上下翻转</item>
+        <item>逆时针90度</item>
+    </array>
+    <array name="str_fsother_machine_rotate">
+        <item>顺时针90度</item>
+        <item>逆时针90度</item>
+    </array>
+    <array name="str_fsother_arraylcmstype">
+        <item>10-IPS</item>
+        <item>7-IPS</item>
+        <item>9-IPS</item>
+        <item>LVDS</item>
+    </array>
+    <array name="str_fsother_arraybrake">
+        <item>用户选择默认关</item>
+        <item>强制忽略</item>
+        <item>强制开启</item>
+        <item>用户选择默认开</item>
+    </array>
+    <array name="str_fsother_arrparkmute">
+        <item>无</item>
+        <item>弱</item>
+        <item>中</item>
+        <item>强</item>
+    </array>
+    <array name="can_type_array">
+        <item>无协议</item>
+        <item>大众</item>
+        <item>高尔夫</item>
+    </array>
+    <array name="fs_vol_item_arr">
+        <item>收音机</item>
+        <item>DISC</item>
+        <item>USB</item>
+        <item>SD</item>
+        <item>蓝牙音乐</item>
+        <item>数字电视</item>
+        <item>模拟电视</item>
+        <item>AUX1</item>
+        <item>AUX2</item>
+        <item>IPOD</item>
+        <item>虚拟六碟</item>
+        <item>原车音源</item>
+        <item>默认导航音量</item>
+        <item>默认电话音量</item>
+        <item>开机最大增益</item>
+        <item>蓝牙MIC增益</item>
+        <item>通话音量增益</item>
     </array>
     <array name="mcu_update_msg">
         <item>未进入升级流程</item>
@@ -372,6 +339,12 @@
         <item>下一曲</item>
         <item>Eject</item>
         <item>加载中</item>
+    </array>
+    <array name="can_teanaoldxc_car_play_sta">
+        <item>播放</item>
+        <item>停止</item>
+        <item>暂停</item>
+        <item />
     </array>
     <array name="can_fist_set_title">
         <item>里程单位</item>
@@ -833,6 +806,19 @@
         <item>RTC唤醒</item>
         <item>故障</item>
         <item>预留</item>
+    </array>
+    <array name="can_hyundai_zgxs_arrays">
+        <item>无</item>
+        <item>90KM/H</item>
+        <item>100KM/H</item>
+        <item>110KM/H</item>
+        <item>120KM/H</item>
+        <item>130KM/H</item>
+    </array>
+    <array name="can_hyundai_hxnyzs_arrays">
+        <item>等级1</item>
+        <item>等级2</item>
+        <item>等级3</item>
     </array>
     <array name="can_gc_week_arrays">
         <item>周一</item>
@@ -1928,6 +1914,15 @@
         <item>* Brake manually</item>
         <item>* Release steering wheel during auto steer</item>
     </array>
+    <array name="can_nissan_teana_rvs_declare">
+        <item>泊车辅助</item>
+        <item>将车停在泊车位旁，按“△▽”键使蓝框</item>
+        <item>对准泊车位，然后按Start键</item>
+        <item />
+        <item />
+        <item />
+        <item />
+    </array>
     <array name="can_cdzt_arrays">
         <item>未充电</item>
         <item>行驶充电</item>
@@ -1998,6 +1993,11 @@
         <item>POS FRONT</item>
         <item>POS REAR</item>
         <item>POS DRIVER</item>
+    </array>
+    <array name="can_CCH9_auto_speed_lock_array">
+        <item>关闭</item>
+        <item>8km/h</item>
+        <item>15km/h</item>
     </array>
     <array name="can_auto_speed_lock_array">
         <item>关闭</item>
@@ -2105,6 +2105,23 @@
         <item>马来西亚508</item>
         <item>RZC</item>
     </array>
+    <array name="can_landrover_scr_car_type">
+        <item>路虎揽胜运动版2014款</item>
+        <item>路虎揽胜运动版2015款</item>
+        <item>路虎揽胜运动版2016款</item>
+        <item>路虎揽胜2013款</item>
+        <item>路虎揽胜2014款</item>
+        <item>路虎揽胜2015款</item>
+        <item>路虎揽胜2016款</item>
+        <item>路虎发现2017款</item>
+        <item>路虎揽胜极光2012、2013、2014、2015款</item>
+        <item>路虎捷豹发现神行2016款</item>
+        <item>路虎捷豹发现神行2017款</item>
+        <item>路虎捷豹发现神行2018款</item>
+        <item>路虎捷豹发现神行2019款</item>
+        <item>路虎发现（进口）2015款</item>
+        <item>路虎发现（进口）2016款</item>
+    </array>
     <array name="can_fs_declare_162_direction">
         <item>北</item>
         <item>东北</item>
@@ -2140,6 +2157,13 @@
         <item>CD错误</item>
         <item>正常</item>
         <item>无CD</item>
+    </array>
+    <array name="can_ford_car_play_sta">
+        <item />
+        <item>无CD碟</item>
+        <item>正在读取光碟</item>
+        <item>正在弹出光碟</item>
+        <item>光盘错误</item>
     </array>
     <array name="can_ford_fiesta_wc_warninfo">
         <item>发动机机油油压低，请安全停车</item>
@@ -2189,6 +2213,55 @@
         <item>车门开启，请实施制动</item>
         <item>防盗系统被触发请检查车辆</item>
     </array>
+    <array name="can_ford_mondeo_mix">
+        <item />
+        <item>混合驱动</item>
+        <item>正在为高压蓄电池充电</item>
+        <item>怠速</item>
+        <item>怠速充电</item>
+        <item>电力驱动</item>
+        <item>引擎驱动</item>
+        <item>已遥控启动</item>
+        <item>充电完成</item>
+        <item>快速充电完成</item>
+        <item>正在快速充电</item>
+    </array>
+    <array name="can_ford_mondeo_start_tip">
+        <item />
+        <item>驱动力需求</item>
+        <item>速度过快</item>
+        <item>加热器需求</item>
+        <item>空挡</item>
+        <item>引擎温度过低</item>
+        <item>蓄电池充电中</item>
+        <item>低速档</item>
+        <item>正常运行</item>
+        <item>低利用率</item>
+        <item>燃油保养</item>
+        <item>引擎制动启动</item>
+        <item>蓄电池温度</item>
+    </array>
+    <array name="can_ford_mondeo_mix_para">
+        <item>其他</item>
+        <item>空调</item>
+        <item>燃油</item>
+        <item>引擎</item>
+        <item>驱动</item>
+        <item>电机</item>
+        <item>插电</item>
+    </array>
+    <array name="can_cc_h7_cd_sta">
+        <item>无碟</item>
+        <item>播放</item>
+        <item>加载</item>
+        <item>读取</item>
+        <item>出碟</item>
+        <item>暂停</item>
+        <item>停止</item>
+        <item />
+        <item>换曲</item>
+        <item>错误</item>
+    </array>
     <array name="can_fs_declare_1">
         <item>大众老平台（迈腾、昊锐、途观、高尔夫6等）（睿志诚）</item>
     </array>
@@ -2197,11 +2270,12 @@
         <item>17款迈腾,18款迈腾</item>
         <item>17款途观L *需选空调</item>
         <item>17款途昂，柯迪亚克 *需选空调</item>
-        <item>帕萨特(混动)</item>
+        <item>帕萨特(混动),20款途观L(混动)</item>
+        <item>捷达 VS7、20 款宝来、19 款辉昂、20 款高尔夫纯电、20款宝来纯电、20 款迈腾、19款朗逸纯电动</item>
     </array>
     <array name="can_fs_declare_3">
         <item>12款,15款凯美瑞、13款RAV4、13款新锐志、14款卡罗拉、14款雷凌、15款汉兰达</item>
-        <item>16款RAV4 *需专用MCU</item>
+        <item>16款RAV4</item>
         <item>18款凯美瑞</item>
         <item>竖屏专用老款卡罗拉（欧迪）</item>
     </array>
@@ -2309,6 +2383,10 @@
         <item>睿晟威OBD</item>
         <item>现代(*xzc特别版)</item>
         <item>19款起亚智跑高配</item>
+        <item>19款起亚Optima 高配（俄罗斯）</item>
+        <item>19款现代索纳塔9（俄罗斯）</item>
+        <item>19款起亚智跑高配（俄罗斯）</item>
+        <item>20款KX5（俄罗斯）</item>
     </array>
     <array name="can_fs_declare_15">
         <item>10款大切基诺，10款指南者，10款酷博、14款指南者、14款自由客、10款牧马人、10款酷威(欣朴，比纳瑞)</item>
@@ -2317,6 +2395,7 @@
         <item>宝骏730</item>
         <item>宝骏560，15款，17款宝骏730</item>
         <item>宝骏530,五菱宏光S3 2018</item>
+        <item>20款新宝骏 RS-3</item>
     </array>
     <array name="can_fs_declare_17">
         <item>GA3</item>
@@ -2336,6 +2415,10 @@
         <item>19款GM6</item>
         <item>19款GA6</item>
         <item>20款GS4</item>
+        <item>20款GM8</item>
+        <item>20款GS5</item>
+        <item>17款GS3 高配 *需选空调</item>
+        <item>21款GS3 *需选空调</item>
     </array>
     <array name="can_fs_declare_18">
         <item>荣威550方控类型1</item>
@@ -2380,6 +2463,8 @@
         <item>19款荣威i6</item>
         <item>19款名爵EZS</item>
         <item>19款荣威RX8</item>
+        <item>20款ZS</item>
+        <item>19款荣威MG6 *需选空调</item>
     </array>
     <array name="can_fs_declare_27">
         <item>瑞风S2 S3 17款瑞风S3 16款瑞风M4,17款M5</item>
@@ -2473,6 +2558,8 @@
         <item>17款T90 *需选空调</item>
         <item>18款D60 *需选空调</item>
         <item>18款T70 *需选空调</item>
+        <item>20款T60 *需选空调</item>
+        <item>20款T70 *需选空调</item>
     </array>
     <array name="can_fs_declare_48">
         <item>13款B50</item>
@@ -2513,6 +2600,7 @@
         <item>科雷傲中配,土耳其MEGANE中配</item>
         <item>科雷傲高配,土耳其MEGANE高配</item>
         <item>2009~2016款科雷傲（保留原车主机）*需选原车设备</item>
+        <item>科雷嘉,卡缤,巴西版 SANDERO,DUSTER,CAPTUR *Xzc特别版</item>
     </array>
     <array name="can_fs_declare_56">
         <item>欧蓝德 原车无功放</item>
@@ -2529,6 +2617,11 @@
         <item>捷途X70</item>
         <item>18款瑞虎7</item>
         <item>18款瑞虎8</item>
+        <item>20款捷途X70M</item>
+        <item>20款瑞虎7</item>
+        <item>20款瑞虎3X</item>
+        <item>20款瑞虎8</item>
+        <item>15款瑞虎5</item>
     </array>
     <array name="can_fs_declare_58">
         <item>标致301、308、、雪铁龙爱丽舍等</item>
@@ -2546,6 +2639,7 @@
     </array>
     <array name="can_fs_declare_59">
         <item>中华V3高配（鑫巴斯,睿志诚兼容）,H3（睿志诚）</item>
+        <item>中华V6（睿志诚）*需选空调</item>
     </array>
     <array name="can_fs_declare_60">
         <item>大迈X5,17款大迈X5,黄海N2,18款君马S70</item>
@@ -2555,6 +2649,7 @@
         <item>SR9 *需选空调</item>
         <item>T300 *需选空调</item>
         <item>19款野马博骏 *需选空调</item>
+        <item>18款众泰E200 *需选空调</item>
     </array>
     <array name="can_fs_declare_61">
     </array>
@@ -2582,20 +2677,23 @@
         <item>CX-4，昂科塞拉 ,CX-5,阿特兹*需选原车设备（鑫巴斯，比纳瑞,欧迪）</item>
     </array>
     <array name="can_fs_declare_70">
-        <item>风光360 330S 580 ,370，五十铃D-MAX,瑞迈，18款330S，16款金杯X30L(海狮)</item>
+        <item>风光360 330S 580 ,370，五十铃D-MAX,瑞迈，18款330S，16款金杯X30L(海狮)，20款铃拓</item>
         <item>18款580（全景）*需选空调</item>
         <item>易至EV3</item>
         <item>18款S560</item>
+        <item>18款牧游侠/20款牧游侠中低配</item>
+        <item>19款瑞迈</item>
+        <item>18款庆玲</item>
     </array>
     <array name="can_fs_declare_71">
-        <item>16款B50,17款X80,17款X40</item>
+        <item>16款B50,17款X80,17款X40，16款B30</item>
         <item>17款X80低配</item>
         <item>18款森雅R9</item>
         <item>18款CX65</item>
         <item>19款B50 *需选空调</item>
     </array>
     <array name="can_fs_declare_72">
-        <item>16款GS，GL,远景</item>
+        <item>16款GS，GL,远景,15款宝腾PERSONA</item>
         <item>16款远景SUV,X6</item>
         <item>远景X1 *需选空调</item>
         <item>博瑞，博越 *需选空调</item>
@@ -2604,12 +2702,21 @@
         <item>18款远景X3</item>
         <item>EC7</item>
         <item>15款远景</item>
-        <item>18款远景</item>
+        <item>18~20款远景</item>
         <item>博越 .全景 *需选空调</item>
-        <item>19款帝豪</item>
+        <item>19~20款帝豪</item>
         <item>19款帝豪电动版</item>
         <item>19款帝豪GL混动</item>
         <item>18款帝豪</item>
+        <item>18款远景S1</item>
+        <item>19款吉利GS,GL</item>
+        <item>19~20款远景X3</item>
+        <item>20款远景X6</item>
+        <item>20款GL,GS</item>
+        <item>20款博越pro</item>
+        <item>16~18款博越</item>
+        <item>19~20款缤越</item>
+        <item>20款GSe</item>
     </array>
     <array name="can_fs_declare_73">
         <item>CS75,17款CS75,欧尚</item>
@@ -2624,9 +2731,14 @@
         <item>17款CX70</item>
         <item>CS75(右视，长按方控模式切换右视)</item>
         <item>科赛</item>
-        <item>18款CS75(右视，长按方控模式切换右视)</item>
+        <item>18,20款CS75(长按方控模式切换右视)</item>
         <item>长安悦翔2019</item>
         <item>19款CS15</item>
+        <item>20款欧尚X7</item>
+        <item>19款长安逸动</item>
+        <item>19款长安CS35 PLUS</item>
+        <item>19款长安欧尚科尚</item>
+        <item>19款长安悦翔低配</item>
     </array>
     <array name="can_fs_declare_74">
         <item>力帆720/820/650EV</item>
@@ -2649,11 +2761,15 @@
         <item>17款哈弗H6,17款M6</item>
         <item>17款哈弗H6 Couple 红标</item>
         <item>17款哈弗H6 Couple 蓝标</item>
-        <item>18款哈弗H6</item>
-        <item>18款哈弗H9</item>
+        <item>18款哈弗H6,19款H6运动版</item>
+        <item>哈弗H9</item>
         <item>16款哈弗H6 Couple</item>
         <item>19款哈弗H6 Couple</item>
-        <item>19款哈弗H6</item>
+        <item>18~20款哈弗H6</item>
+        <item>19款哈弗H7</item>
+        <item>20款哈弗H4</item>
+        <item>20款哈弗F7</item>
+        <item>19款长城炮</item>
     </array>
     <array name="can_fs_declare_79">
         <item>其他</item>
@@ -2711,7 +2827,7 @@
         <item>博越</item>
     </array>
     <array name="can_fs_declare_92">
-        <item>景逸X5 高配</item>
+        <item>17~19款景逸X5,20款T5,19款SX6 高配</item>
         <item>低配，中配</item>
     </array>
     <array name="can_fs_declare_93">
@@ -2726,11 +2842,14 @@
         <item>雅阁九代 2.4 *需选原车收音机</item>
     </array>
     <array name="can_fs_declare_97">
-        <item>M3,T3</item>
+        <item>M3</item>
+        <item>T3</item>
+        <item>T5</item>
+        <item>T5.AVM</item>
     </array>
     <array name="can_fs_declare_98">
         <item>EC180</item>
-        <item>EC5 *需选空调</item>
+        <item>19款EC5 *需选空调</item>
     </array>
     <array name="can_fs_declare_99">
         <item>15款悦翔V7,16款悦翔V7</item>
@@ -2747,15 +2866,18 @@
         <item>K4凯绅</item>
         <item>18款起亚智跑</item>
         <item>10~15款现代IX35低配</item>
-        <item>18款索纳塔9低配</item>
-        <item>18款索纳塔9中配</item>
-        <item>18款索纳塔9高配</item>
+        <item>18款索纳塔9(混动)低配</item>
+        <item>18款索纳塔9(混动)中配</item>
+        <item>18款索纳塔9(混动)高配</item>
         <item>19款现代菲斯塔</item>
         <item>19款现代胜达IX45 全景</item>
         <item>19款现代胜达IX45</item>
         <item>19款现代途胜 全景</item>
         <item>19款起亚KX5</item>
-        <item>19款起亚K3</item>
+        <item>19款起亚K3(新能源)</item>
+        <item>20款起亚KX3傲跑</item>
+        <item>19款起亚K5(新能源)</item>
+        <item>20款现代昂希诺纯电动</item>
     </array>
     <array name="can_fs_declare_103">
         <item>大众老平台（迈腾、昊锐、途观、高尔夫6等）</item>
@@ -2782,6 +2904,7 @@
         <item>瑞风S2_Mini/S3/S5</item>
         <item>Iev6e</item>
         <item>T8</item>
+        <item>瑞风S2(海外) 全景</item>
     </array>
     <array name="can_fs_declare_111">
     </array>
@@ -2840,17 +2963,22 @@
         <item>G10,EV30等</item>
         <item>大通 T60</item>
         <item>大通 V80</item>
-        <item>大通 G50</item>
+        <item>19款大通 G50</item>
+        <item>19款大通 T70</item>
+        <item>19款大通 V90</item>
     </array>
     <array name="can_fs_declare_127">
         <item>其他车型</item>
         <item>14款408,308s，16款308 *需选空调</item>
         <item>19款408 *需选空调</item>
+        <item>C4(BR)</item>
+        <item>3008，13及13以前的408等，保留原车小屏</item>
     </array>
     <array name="can_fs_declare_128">
-        <item>12~17款凯美瑞、13~15款RAV4、09~13款新锐志、13~19款卡罗拉、14~19款雷凌、15~18款汉兰达,08~18霸道，15~18塞纳 ,18款奕泽，18款CHR，19款亚洲龙， (台湾版:19款卡罗拉，19款RAV4,06~15款大霸王(Previa),98~05款雷克萨斯RX300), (日规/马来西亚版：98~05款雷克萨斯RX300,06~15款大霸王(Previa))</item>
+        <item>12~17款凯美瑞、13~15款RAV4、09~13款新锐志、13~19款卡罗拉、14~19款雷凌、15~18款汉兰达,08~18霸道，15~18塞纳 ,18款奕泽，18款CHR，19款亚洲龙， 20款威兰达 ， 15-18 款 Hilux, (台湾版:19款卡罗拉，19款RAV4,06~15款大霸王(Previa),98~05款雷克萨斯RX300), (日规/马来西亚版：98~05款雷克萨斯RX300,06~15款大霸王(Previa),98-03 款兰德酷路泽 LC100)</item>
         <item>16款RAV4</item>
         <item>18款凯美瑞 *需选空调</item>
+        <item>20款RAV4,20款威兰达，CHR-EV</item>
     </array>
     <array name="can_fs_declare_129">
         <item>途锐 *需选空调</item>
@@ -2888,6 +3016,8 @@
     <array name="can_fs_declare_137">
     </array>
     <array name="can_fs_declare_138">
+        <item>其他</item>
+        <item>CVBS输入</item>
     </array>
     <array name="can_fs_declare_139">
         <item>蒙迪欧致胜(威驰) *需选空调</item>
@@ -2895,6 +3025,8 @@
     <array name="can_fs_declare_140">
         <item>普通车型</item>
         <item>奔驰新A换屏</item>
+        <item>NTG5.5(带触摸)</item>
+        <item>普通车型(原车全景)</item>
     </array>
     <array name="can_fs_declare_141">
     </array>
@@ -2911,6 +3043,8 @@
         <item>RAV4</item>
         <item>凯美瑞</item>
         <item>卡罗拉</item>
+        <item>亚洲龙</item>
+        <item>18款雷克萨斯ES200,09款ES350，保留主机 *需选原车设备</item>
     </array>
     <array name="can_fs_declare_145">
         <item>马自达系列（马自达5，CX7），奔腾（奔腾B50，B70),奇瑞（A3）,海南马自达（福美来，M3，S7,S5），比亚迪（F3,速锐），传祺（GA3）,</item>
@@ -2927,6 +3061,12 @@
         <item>19款金牛座</item>
         <item>19款领界</item>
         <item>19款探险者</item>
+        <item>12款福克斯，翼博，翼虎，13款嘉年华 (保留CD)*需选原车设备</item>
+        <item>17~18款翼虎(保留CD) *需选原车设备</item>
+        <item>19~20款福克斯 (保留CD)*需选原车设备</item>
+        <item>18款蒙迪欧混动</item>
+        <item>19款翼虎</item>
+        <item>20款锐际</item>
     </array>
     <array name="can_fs_declare_148">
         <item>世嘉</item>
@@ -2967,6 +3107,7 @@
         <item>19款天籁,20款轩逸</item>
         <item>奇骏 19款 *带全景车型长按方控上一曲为全景按键</item>
         <item>20款纳瓦拉</item>
+        <item>21款轩逸</item>
     </array>
     <array name="can_fs_declare_150">
         <item>瑞风S2 S3 17款瑞风S3 16款瑞风M4</item>
@@ -3023,6 +3164,7 @@
         <item>锐界 2018款</item>
         <item>撼路者 低配 2018款</item>
         <item>撼路者 高配 2018款</item>
+        <item>Ford Transit 2020</item>
     </array>
     <array name="can_fs_declare_159">
         <item>AX7(16-20低配) *20款需选空调</item>
@@ -3049,8 +3191,11 @@
         <item>自由光中配(专业版，专业版智能包)</item>
         <item>自由光高配(优越版，全能版)</item>
         <item>自由侠（国内）</item>
-        <item>19款自由侠（国外）</item>
+        <item>指南者</item>
         <item>19款菲亚特500L（国外）</item>
+        <item>19款自由侠（国外）</item>
+        <item>13款道奇酷威全拆</item>
+        <item>13款道奇酷威保留主机 *需选原车设备</item>
     </array>
     <array name="can_fs_declare_164">
         <item>保留</item>
@@ -3091,9 +3236,12 @@
     </array>
     <array name="can_fs_declare_172">
         <item>13~16款哈弗H6,M6,14~18款哈弗H6运动版</item>
-        <item>17款哈弗H6 *需选空调</item>
-        <item>19款哈弗H6 Coupe</item>
-        <item>19款哈弗F7 *需选空调</item>
+        <item>哈弗H2</item>
+        <item>15~16款哈弗H6 Coupe</item>
+        <item>17~至今哈弗H6,H2S,H4 *需选空调</item>
+        <item>18款哈弗H6 Coupe</item>
+        <item>19款哈弗H6 Coupe.Avm</item>
+        <item>19款哈弗F7.Avm *需选空调</item>
         <item>20款风骏7</item>
     </array>
     <array name="can_fs_declare_173">
@@ -3146,6 +3294,7 @@
     </array>
     <array name="can_fs_declare_183">
         <item>08款天籁（威驰）*需选原车设备</item>
+        <item>08款天籁（威驰,海外）*需选原车设备</item>
     </array>
     <array name="can_fs_declare_192">
         <item>海马V70 2016(威驰) *需选空调</item>
@@ -3157,6 +3306,10 @@
         <item>13款蒙迪欧，18款翼博(手动空调) *需选空调</item>
         <item>13款蒙迪欧，18款翼博(自动空调) *需选空调</item>
     </array>
+    <array name="can_fs_declare_198">
+        <item>其他车型</item>
+        <item>全景</item>
+    </array>
     <array name="can_fs_declare_199">
         <item>04~07款天籁,奇骏不带全景等其他车型</item>
         <item>楼兰</item>
@@ -3166,6 +3319,7 @@
         <item>奇骏高配（*倒车辅助）</item>
         <item>2020款轩逸（欧迪）</item>
         <item>08~12款天籁 （台湾版）原车显示从倒车视频输入 *需选原车设备</item>
+        <item>2020款天籁（*倒车辅助）</item>
     </array>
     <array name="can_fs_declare_200">
         <item>速锐，S6 *S6需选空调</item>
@@ -3188,18 +3342,26 @@
         <item>CT200(11~17款)</item>
     </array>
     <array name="can_fs_declare_210">
-        <item>英朗、新君威、新君越、威朗、科鲁兹、爱唯欧、迈瑞宝、昂科拉、迈瑞宝XL,GL8 2017 *GL8 需选空调</item>
+        <item>英朗、新君威、新君越、威朗、科鲁兹、爱唯欧、迈瑞宝、昂科拉、迈瑞宝XL、GL8 2017 *GL8 需选空调</item>
         <item>GL8（商务版）</item>
         <item>昂科拉（低配）</item>
-        <item>18款君威 *需选空调</item>
+        <item>18款君威，20款开拓者 *需选空调</item>
         <item>沃兰多中低配</item>
         <item>沃兰多中顶配</item>
+        <item>欧宝11~17款 Astra J、17~19款 Corsa E、15~19款 Insignia、08~10款Astra H、11款Corsa D、08款Combo</item>
+        <item>20款昂科威</item>
+        <item>GL8 爱维亚</item>
+        <item>19款科鲁泽低配</item>
+        <item>21款科鲁泽低配</item>
+        <item>20款GL8 652T低配</item>
+        <item>20款GL8 652T中高配</item>
+        <item>15款GL8 2.4L 豪华版</item>
     </array>
     <array name="can_fs_declare_211">
         <item>比亚迪宋，E5, G5,奔驰 B200 （欧迪）</item>
     </array>
     <array name="can_fs_declare_213">
-        <item>CLK300,A180,14款ML350CDI，16款ML320,04~12 A级，05~11款B级，06~14款R级，05~11款ML级，05~13款GL级，03~13款威霆，威雅诺</item>
+        <item>CLK300,A180,14款ML350CDI，16款ML320,04~12 A级，05~11款B级，06~14款R级，05~11款ML级，05~13款GL级，03~13款威霆，威雅诺 ,16~18款威霆</item>
     </array>
     <array name="can_fs_declare_214">
         <item>长安欧尚，X70a(威驰)</item>
@@ -3208,7 +3370,7 @@
         <item>东风风光360,330S,370,580,560(欧迪)</item>
     </array>
     <array name="can_fs_declare_216">
-        <item>卡缤，科雷嘉,达斯特，CLIO4低配,DUSTER,Megane2,Megane3,Megane4,Fluence(威驰)</item>
+        <item>卡缤，科雷嘉,达斯特，CLIO4低配,DUSTER,Megane2,Megane3,Megane4,Fluence,Latitude，19款科雷缤(威驰)</item>
     </array>
     <array name="can_fs_declare_217">
         <item>纳智捷(欧迪) *需选原车设备</item>
@@ -3227,6 +3389,7 @@
     </array>
     <array name="can_fs_declare_221">
         <item>2011~2017保时捷,11款卡宴（路征）</item>
+        <item>2011~2017保时捷,11款卡宴 *全景（路征）</item>
     </array>
     <array name="can_fs_declare_222">
         <item>X55、X25</item>
@@ -3275,6 +3438,9 @@
         <item>比亚迪速锐/G5/S6/S7(华宇科技)</item>
         <item>比亚迪速锐/G5/S6/S7(华宇科技) *帶全景</item>
     </array>
+    <array name="can_fs_declare_238">
+        <item>15~17款DX7,18款DX3,19款DX5</item>
+    </array>
     <array name="can_fs_declare_240">
         <item>大众老平台（迈腾、昊锐、途观、高尔夫6等）（欣朴）</item>
     </array>
@@ -3314,24 +3480,29 @@
         <item>10款霸道自动空调 专用竖屏UI支持</item>
     </array>
     <array name="can_fs_declare_254">
-        <item>12~15款菲翔，14~15款致悦，TORO,DOBLO,EGE,FLORLNO *方控类型1</item>
-        <item>12~15款菲翔，14~15款致悦，TORO,DOBLO,EGE,FLORLNO *方控类型2</item>
+        <item>12~15款菲翔，14~15款致悦，TORO,DOBLO,EGE,FLORLNO,500L,LINEA,PUNTO *方控类型1</item>
+        <item>12~15款菲翔，14~15款致悦，TORO,DOBLO,EGE,FLORLNO,500L,LINEA,PUNTO *方控类型2</item>
     </array>
     <array name="can_fs_declare_255">
         <item>19款科赛高配 *需选空调</item>
         <item>19款科赛低配</item>
         <item>19款欧尚A800 *需选空调</item>
         <item>18款长安CS55</item>
+        <item>20款欧尚X7中配</item>
+        <item>20款欧尚X7高配</item>
+        <item>19款CS35 PLUS</item>
     </array>
     <array name="can_fs_declare_259">
         <item>其他车型</item>
         <item>T5 *需选原车设备</item>
     </array>
     <array name="can_fs_declare_260">
-        <item>MZD 3 *原车设备</item>
+        <item>马自达 3 *原车设备</item>
         <item>CX-4 *原车设备</item>
-        <item>MZD3 CX-3 CX-4(台湾) *原车设备</item>
-        <item>MZD3 CX-3 CX-4(台湾) 保留原车功放 *原车设备</item>
+        <item>马自达3 CX-3 CX-4(台湾) *原车设备</item>
+        <item>马自达3 CX-3 CX-4(台湾) 保留原车功放 *原车设备</item>
+        <item>20款马自达 3</item>
+        <item>20款阿特兹</item>
     </array>
     <array name="can_fs_declare_263">
         <item>英朗、新君威、新君越、威朗、科鲁兹、爱唯欧、迈瑞宝、昂科拉、迈瑞宝XL,GL8 2017 *GL8 需选空调</item>
@@ -3349,9 +3520,10 @@
         <item>Aegea 2019</item>
         <item>500l 2013</item>
         <item>500l 2019</item>
+        <item>Panda 2017</item>
     </array>
     <array name="can_fs_declare_265">
-        <item>18款奕歌，19款欧蓝德，18款帕杰罗,20款帕杰罗运动版</item>
+        <item>18款奕歌，19款欧蓝德，18款帕杰罗,20款帕杰罗运动版，20款帕杰罗劲畅</item>
         <item>19款奕歌(台湾版)</item>
     </array>
     <array name="can_fs_declare_266">
@@ -3408,6 +3580,9 @@
         <item>低配</item>
         <item>高配</item>
     </array>
+    <array name="can_fs_declare_282">
+        <item>18款斯威G01,20款潍柴U70</item>
+    </array>
     <array name="can_fs_declare_284">
         <item>MPV Tepee,04~13款307，10~13款408，408SW,408CC,13~19款3008，马来西亚508</item>
     </array>
@@ -3424,6 +3599,55 @@
         <item>雅阁10/19款英斯派</item>
         <item>2015~2018款奥德赛(台湾版.全景)</item>
         <item>晧影</item>
+        <item>理念 EV-1</item>
+    </array>
+    <array name="can_fs_declare_289">
+        <item>其他车型</item>
+        <item>路虎揽胜运动版（14款），捷豹FTYPE 13款（进口版）</item>
+    </array>
+    <array name="can_fs_declare_290">
+        <item>18款D50，潍柴U60V</item>
+    </array>
+    <array name="can_fs_declare_292">
+        <item>09~15款嘉年华，翼虎</item>
+    </array>
+    <array name="can_fs_declare_293">
+        <item>B70 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_294">
+        <item>天籁公爵 *需选原车设备</item>
+    </array>
+    <array name="can_fs_declare_295">
+        <item>08~13款TT,04~12款A3,03~07款A4,13~18款Q3</item>
+        <item>10~18款奥迪Q5中低配</item>
+    </array>
+    <array name="can_fs_declare_296">
+        <item>低配</item>
+        <item>高配</item>
+    </array>
+    <array name="can_fs_declare_299">
+        <item>卡罗拉 领先版</item>
+        <item>卡罗拉 e+ 先锋版</item>
+        <item>轩逸 大客户Base版</item>
+        <item>东风风神A60 出租版</item>
+        <item>东风风神E70</item>
+        <item>吉利几何A</item>
+    </array>
+    <array name="can_fs_declare_302">
+        <item>本田皇冠高配（威驰） *需选空调,原车设备</item>
+    </array>
+    <array name="can_fs_declare_305">
+        <item>2010~2013款XC60</item>
+    </array>
+    <array name="can_fs_declare_306">
+        <item>自动空调 *需选空调</item>
+        <item>手动空调 *需选空调</item>
+    </array>
+    <array name="can_fs_declare_307">
+        <item>HEXA *需选空调</item>
+    </array>
+    <array name="can_fs_declare_310">
+        <item>途锐 *需选空调</item>
     </array>
     <array name="can_auto_array">
         <item>无协议</item>
@@ -3494,7 +3718,7 @@
         <item>宝马 MINI</item>
         <item>启辰ER70</item>
         <item>东风 风光 580（威驰）</item>
-        <item>三菱欧蓝德 09-11（欣朴）</item>
+        <item>三菱欧蓝德 09~11（欣朴）</item>
         <item>马自达CX-4（鑫巴斯，比纳瑞,欧迪）</item>
         <item>东风风光系列（睿志诚）</item>
         <item>一汽奔腾（睿志诚）</item>
@@ -3518,7 +3742,7 @@
         <item>凯翼3x</item>
         <item>比亚迪F6（道俊）</item>
         <item>吉利博越（睿志诚）</item>
-        <item>东风景逸X5（睿志诚）</item>
+        <item>东风风行（睿志诚）</item>
         <item>BS M3</item>
         <item>奔腾B50 （老款，欣朴）</item>
         <item>福美来（欣朴）</item>
@@ -3636,7 +3860,7 @@
         <item>雷克萨斯(中码易通)</item>
         <item>雅阁8，思铂睿（路征）</item>
         <item>OBD(比纳瑞)</item>
-        <item>通用车系（睿志诚）</item>
+        <item>通用车系，欧宝（睿志诚）</item>
         <item>比亚迪,奔驰（欧迪）</item>
         <item>汉唐(电动车)</item>
         <item>奔驰系列（睿志诚）</item>
@@ -3664,7 +3888,7 @@
         <item>中华V3,H3（威驰）</item>
         <item>克莱斯勒个别车型（和驰）</item>
         <item>郑州日产锐琪6（威驰）</item>
-        <item>东南DX7,DX3,DX5（睿志诚）</item>
+        <item>东南汽车（睿志诚）</item>
         <item>雪佛兰科帕奇（欧迪）</item>
         <item>大众(欣朴)</item>
         <item>Dev1（CW）</item>
@@ -3708,13 +3932,36 @@
         <item>T3</item>
         <item>马恒达（威驰）</item>
         <item>依维柯（睿志诚）</item>
-        <item>斯威（睿志诚）</item>
+        <item>斯威,潍柴（睿志诚）</item>
         <item>H5</item>
         <item>标雪保留屏（睿志诚）</item>
         <item>斯巴鲁（欣朴）</item>
         <item>一汽B30-T3</item>
         <item>卡威（威驰）</item>
         <item>本田DA(睿志诚)</item>
+        <item>路虎系列(中码易通)</item>
+        <item>潍柴(威驰)</item>
+        <item>ISUZU(欣朴)</item>
+        <item>福特(道俊)</item>
+        <item>奔腾B70(道俊)</item>
+        <item>天籁公爵(和驰)</item>
+        <item>奥迪(睿志诚)</item>
+        <item>依维柯V2（睿志诚）</item>
+        <item>19,21款英朗（威驰）</item>
+        <item>奥迪（路征）</item>
+        <item>T3弱加盟</item>
+        <item>通用昂科雷(威驰)</item>
+        <item>奇瑞瑞虎5(欣朴)</item>
+        <item>13代皇冠高配(威驰)</item>
+        <item>奥迪（鑫巴斯）</item>
+        <item>三菱欧蓝德（威驰）</item>
+        <item>沃尔沃（睿志诚）</item>
+        <item>雷诺（宝谷）</item>
+        <item>塔塔（路征）</item>
+        <item>悍马（欧迪）</item>
+        <item>宝马（睿智城）</item>
+        <item>途锐（路征）</item>
+        <item>魔级便（弗浪）</item>
     </array>
     <array name="can_car_kinds_array">
         <item>全部车型</item>
@@ -3723,14 +3970,5 @@
         <item>鑫巴斯</item>
         <item>威驰</item>
         <item>欧迪</item>
-    </array>
-    <array name="WeekDay">
-        <item>星期天</item>
-        <item>星期一</item>
-        <item>星期二</item>
-        <item>星期三</item>
-        <item>星期四</item>
-        <item>星期五</item>
-        <item>星期六</item>
     </array>
 </resources>

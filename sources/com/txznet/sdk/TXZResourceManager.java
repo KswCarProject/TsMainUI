@@ -3,12 +3,12 @@ package com.txznet.sdk;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.Tn.Tr.TE.T;
+import com.android.SdkConstants;
 import com.ts.can.bmw.mini.CanBMWMiniServiceDetailActivity;
 import com.txznet.comm.Tr.Tn;
 import com.txznet.comm.Ty.Tr;
 import com.txznet.sdk.TXZService;
 import com.txznet.sdk.bean.Poi;
-import com.txznet.sdk.tongting.IConstantData;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ public class TXZResourceManager {
     private static TXZResourceManager Ty = new TXZResourceManager();
 
     /* renamed from: T  reason: collision with root package name */
-    String f793T = null;
+    String f797T = null;
     /* access modifiers changed from: private */
     public Map<Long, Runnable> T5 = new HashMap();
     private RecordWin T9 = null;
@@ -168,8 +168,8 @@ public class TXZResourceManager {
 
     /* access modifiers changed from: package-private */
     public void T() {
-        if (this.f793T != null) {
-            setVoiceStyle(this.f793T);
+        if (this.f797T != null) {
+            setVoiceStyle(this.f797T);
         }
         if (this.mAllResourceFile != null) {
             Tn.Tr().T("com.txznet.txz", "txz.resource.replaceResourceFile", this.mAllResourceFile.getBytes(), (Tn.Tr) null);
@@ -186,9 +186,9 @@ public class TXZResourceManager {
             } else {
                 com.txznet.comm.Tr.Tr.Tn.T("mHasSetHudRecordWin:" + this.Tr);
                 if (this.Tr) {
-                    Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", "true".getBytes(), (Tn.Tr) null);
+                    Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
                 } else {
-                    Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", "false".getBytes(), (Tn.Tr) null);
+                    Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", SdkConstants.VALUE_FALSE.getBytes(), (Tn.Tr) null);
                 }
                 setRecordWin(this.T9);
             }
@@ -203,7 +203,7 @@ public class TXZResourceManager {
 
     public void setVoiceStyle(String style) {
         if (style == null) {
-            style = "";
+            style = STYLE_DEFAULT;
         }
         Tn.Tr().T("com.txznet.txz", "txz.resource.setStyle", style.getBytes(), (Tn.Tr) null);
     }
@@ -245,7 +245,7 @@ public class TXZResourceManager {
                             Object old = tar.get(k);
                             if (!(old instanceof JSONObject)) {
                                 JSONObject t = new JSONObject();
-                                t.put("", old);
+                                t.put(STYLE_DEFAULT, old);
                                 tar.put(k, t);
                             }
                             n = tar.getJSONObject(k);
@@ -337,11 +337,11 @@ public class TXZResourceManager {
             }
 
             public void onSelectContact(int index) {
-                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.selected", new Tr().T(CanBMWMiniServiceDetailActivity.KEY_INDEX, (Object) Integer.valueOf(index)).T(IConstantData.KEY_TYPE, (Object) 0).toString().getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.selected", new Tr().T(CanBMWMiniServiceDetailActivity.KEY_INDEX, (Object) Integer.valueOf(index)).T("type", (Object) 0).toString().getBytes(), (Tn.Tr) null);
             }
 
             public void onSelectWxContact(int index) {
-                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.selected", new Tr().T(CanBMWMiniServiceDetailActivity.KEY_INDEX, (Object) Integer.valueOf(index)).T(IConstantData.KEY_TYPE, (Object) 1).toString().getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.selected", new Tr().T(CanBMWMiniServiceDetailActivity.KEY_INDEX, (Object) Integer.valueOf(index)).T("type", (Object) 1).toString().getBytes(), (Tn.Tr) null);
             }
 
             public void onClose() {
@@ -354,7 +354,7 @@ public class TXZResourceManager {
             }
 
             public void onClickCancel() {
-                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.button.cancel", new Tr().T(IConstantData.KEY_TYPE, (Object) 0).toString().getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.button.cancel", new Tr().T("type", (Object) 0).toString().getBytes(), (Tn.Tr) null);
             }
 
             public void onClickHelpIcon() {
@@ -368,7 +368,7 @@ public class TXZResourceManager {
 
             public void onSelectListItem(RecordWin.RecordWinOperateListener.ListType listType, int index, String speech) {
                 int type = -1;
-                switch (AnonymousClass6.f800T[listType.ordinal()]) {
+                switch (AnonymousClass6.f804T[listType.ordinal()]) {
                     case 1:
                         type = 0;
                         break;
@@ -383,30 +383,30 @@ public class TXZResourceManager {
                         break;
                 }
                 if (type != -1) {
-                    Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.selected", new Tr().T(CanBMWMiniServiceDetailActivity.KEY_INDEX, (Object) Integer.valueOf(index)).T(IConstantData.KEY_TYPE, (Object) Integer.valueOf(type)).T("speech", (Object) speech).toString().getBytes(), (Tn.Tr) null);
+                    Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.selected", new Tr().T(CanBMWMiniServiceDetailActivity.KEY_INDEX, (Object) Integer.valueOf(index)).T("type", (Object) Integer.valueOf(type)).T("speech", (Object) speech).toString().getBytes(), (Tn.Tr) null);
                 }
             }
 
             public void onScreenSupportCount(int count) {
-                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.display.count", (count + "").getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.display.count", (count + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
             }
 
             public void useDefaultSelector(boolean useDefault) {
-                Tn.Tr().T("com.txznet.txz", "txz.selector.useNewSelector", (useDefault + "").getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.selector.useNewSelector", (useDefault + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
             }
 
             public void onSelectItemRight(int position) {
-                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.right", (position + "").getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.item.right", (position + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
             }
 
             public void onDisplayLvOnTouchListener(int motionEventAction) {
-                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.list.ontouch", (motionEventAction + "").getBytes(), (Tn.Tr) null);
+                Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.list.ontouch", (motionEventAction + TXZResourceManager.STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
             }
 
             public void onDisplayPageClick(RecordWin.RecordWinOperateListener.ListType eventType, RecordWin.RecordWinOperateListener.ClickType type) {
                 Tr jb = new Tr();
                 if (eventType == RecordWin.RecordWinOperateListener.ListType.AudioList || eventType == RecordWin.RecordWinOperateListener.ListType.PoiList || eventType == RecordWin.RecordWinOperateListener.ListType.WxContactList || eventType == RecordWin.RecordWinOperateListener.ListType.CommList) {
-                    jb.T(IConstantData.KEY_TYPE, (Object) 1);
+                    jb.T("type", (Object) 1);
                 }
                 if (type == RecordWin.RecordWinOperateListener.ClickType.PREPAGE) {
                     jb.T("clicktype", (Object) 1);
@@ -444,19 +444,19 @@ public class TXZResourceManager {
                         win.onProgressChanged(progress.intValue());
                     }
                 } else if (command.equals("chat.sys")) {
-                    win.showSysText((String) new Tr(data).T("text", String.class));
+                    win.showSysText((String) new Tr(data).T(SdkConstants.ATTR_TEXT, String.class));
                 } else if (command.equals("chat.usr")) {
-                    win.showUsrText((String) new Tr(data).T("text", String.class));
+                    win.showUsrText((String) new Tr(data).T(SdkConstants.ATTR_TEXT, String.class));
                 } else if (command.equals("chat.usr_part")) {
-                    win.showUsrPartText((String) new Tr(data).T("text", String.class));
-                } else if (command.equals(IConstantData.KEY_DATA)) {
+                    win.showUsrPartText((String) new Tr(data).T(SdkConstants.ATTR_TEXT, String.class));
+                } else if (command.equals("data")) {
                     if (data != null) {
                         win.showData(new String(data));
                     }
                 } else if (command.equals("list")) {
                     if (data != null) {
                         try {
-                            Integer type = (Integer) new Tr(data).T(IConstantData.KEY_TYPE, Integer.class);
+                            Integer type = (Integer) new Tr(data).T("type", Integer.class);
                             if (type == null || type.intValue() == 0) {
                                 if (type != null && type.intValue() == 0) {
                                     win.showContactChoice(new String(data));
@@ -559,7 +559,7 @@ public class TXZResourceManager {
         cfg.T("reserveInner", (Object) Boolean.valueOf(reserveInner));
         Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare", cfg.Ty(), (Tn.Tr) null);
         com.txznet.comm.Tr.Tr.Tn.T("txz.record.win.prepare.hud.false");
-        Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", "false".getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", SdkConstants.VALUE_FALSE.getBytes(), (Tn.Tr) null);
     }
 
     public void setHudRecordWin(RecordWin recordWin) {
@@ -568,7 +568,7 @@ public class TXZResourceManager {
         setRecordWin(recordWin);
         this.Tr = true;
         com.txznet.comm.Tr.Tr.Tn.T("txz.record.win.prepare.hud.true");
-        Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", "true".getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.record.win.prepare.hud", SdkConstants.VALUE_TRUE.getBytes(), (Tn.Tr) null);
     }
 
     public void setHelpWin(final HelpWin helpWin) {
@@ -608,7 +608,7 @@ public class TXZResourceManager {
                 sence = 2;
                 break;
         }
-        Tn.Tr().T("com.txznet.txz", "txz.record.win.enterSpecifyAsrSence", ("" + sence).getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.record.win.enterSpecifyAsrSence", (STYLE_DEFAULT + sence).getBytes(), (Tn.Tr) null);
     }
 
     /* renamed from: com.txznet.sdk.TXZResourceManager$6  reason: invalid class name */
@@ -616,7 +616,7 @@ public class TXZResourceManager {
     static /* synthetic */ class AnonymousClass6 {
 
         /* renamed from: T  reason: collision with root package name */
-        static final /* synthetic */ int[] f800T = new int[RecordWin.RecordWinOperateListener.ListType.values().length];
+        static final /* synthetic */ int[] f804T = new int[RecordWin.RecordWinOperateListener.ListType.values().length];
 
         static {
             Ty = new int[AsrScene.values().length];
@@ -642,19 +642,19 @@ public class TXZResourceManager {
             } catch (NoSuchFieldError e5) {
             }
             try {
-                f800T[RecordWin.RecordWinOperateListener.ListType.ContactList.ordinal()] = 1;
+                f804T[RecordWin.RecordWinOperateListener.ListType.ContactList.ordinal()] = 1;
             } catch (NoSuchFieldError e6) {
             }
             try {
-                f800T[RecordWin.RecordWinOperateListener.ListType.WxContactList.ordinal()] = 2;
+                f804T[RecordWin.RecordWinOperateListener.ListType.WxContactList.ordinal()] = 2;
             } catch (NoSuchFieldError e7) {
             }
             try {
-                f800T[RecordWin.RecordWinOperateListener.ListType.AudioList.ordinal()] = 3;
+                f804T[RecordWin.RecordWinOperateListener.ListType.AudioList.ordinal()] = 3;
             } catch (NoSuchFieldError e8) {
             }
             try {
-                f800T[RecordWin.RecordWinOperateListener.ListType.PoiList.ordinal()] = 4;
+                f804T[RecordWin.RecordWinOperateListener.ListType.PoiList.ordinal()] = 4;
             } catch (NoSuchFieldError e9) {
             }
         }
@@ -678,13 +678,13 @@ public class TXZResourceManager {
         jObj.T("hintText", (Object) hintText);
         jObj.T("keepScene", (Object) Boolean.valueOf(keepScene));
         jObj.T("needSpeak", (Object) Boolean.valueOf(needSpeak));
-        jObj.T(IConstantData.KEY_DATA, (Object) data);
+        jObj.T("data", (Object) data);
         Tn.Tr().T("com.txznet.txz", "txz.record.win.enterSpecifyAsrScene", jObj.Ty(), (Tn.Tr) null);
     }
 
     public void onPageInfoClick(int eventType, int clickType) {
         Tr jb = new Tr();
-        jb.T(IConstantData.KEY_TYPE, (Object) Integer.valueOf(eventType));
+        jb.T("type", (Object) Integer.valueOf(eventType));
         jb.T("clicktype", (Object) Integer.valueOf(clickType));
         Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.display.page", jb.Ty(), (Tn.Tr) null);
     }
@@ -704,7 +704,7 @@ public class TXZResourceManager {
     public void showPoiList(List<Poi> pois, String city, String keywords) {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put(IConstantData.KEY_TYPE, 1);
+            jsonObject.put("type", 1);
             jsonObject.put("city", city);
             jsonObject.put("keywords", keywords);
             if (pois != null && pois.size() > 0) {
@@ -722,11 +722,11 @@ public class TXZResourceManager {
 
     public void setRecordWin2PoiNoResultMsgType(boolean justText) {
         this.TE = Boolean.valueOf(justText);
-        Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.poinoresult", (justText + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.record.ui.event.poinoresult", (justText + STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 
     public void speakTextOnRecordWin(String text, boolean close, Runnable endRunnable) {
-        speakTextOnRecordWin("", text, close, endRunnable);
+        speakTextOnRecordWin(STYLE_DEFAULT, text, close, endRunnable);
     }
 
     public void speakTextOnRecordWin(String resId, String text, boolean close, Runnable oRun) {
@@ -752,7 +752,7 @@ public class TXZResourceManager {
             }
         });
         Tr json = new Tr();
-        json.T("text", (Object) text);
+        json.T(SdkConstants.ATTR_TEXT, (Object) text);
         json.T("close", (Object) Boolean.valueOf(close));
         json.T("resId", (Object) resId);
         json.T(TXZCameraManager.REMOTE_NAME_TASK_ID, (Object) Long.valueOf(taskId));
@@ -826,6 +826,6 @@ public class TXZResourceManager {
     }
 
     public void cancelDialog(int taskId) {
-        Tn.Tr().T("com.txznet.txz", "txz.record.win.cancel.dialog", (taskId + "").getBytes(), (Tn.Tr) null);
+        Tn.Tr().T("com.txznet.txz", "txz.record.win.cancel.dialog", (taskId + STYLE_DEFAULT).getBytes(), (Tn.Tr) null);
     }
 }

@@ -24,7 +24,7 @@ public final class Tv extends Ts {
             if (!TO.T(contents)) {
                 throw new IllegalArgumentException("Contents do not pass checksum");
             }
-            int parities = T5.f271T[Integer.parseInt(contents.substring(0, 1))];
+            int parities = T5.f274T[Integer.parseInt(contents.substring(0, 1))];
             boolean[] result = new boolean[95];
             int pos = Tr(result, 0, TO.Tr, true) + 0;
             for (int i = 1; i <= 6; i++) {

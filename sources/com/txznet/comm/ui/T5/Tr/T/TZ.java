@@ -67,7 +67,7 @@ public class TZ extends Ts {
         viewAdapter.Ty = true;
         viewAdapter.Tn = this;
         viewAdapter.Tr = Ty(data);
-        viewAdapter.f462T = data.Ty();
+        viewAdapter.f466T = data.Ty();
         return viewAdapter;
     }
 
@@ -88,20 +88,20 @@ public class TZ extends Ts {
         llContent.setLayoutAnimation(Ty.T());
         llContent.setLayoutAnimationListener(new Animation.AnimationListener() {
             public void onAnimationStart(Animation animation) {
-                if (TZ.this.f463T != null) {
-                    TZ.this.f463T.T(animation, 1);
+                if (TZ.this.f467T != null) {
+                    TZ.this.f467T.T(animation, 1);
                 }
             }
 
             public void onAnimationRepeat(Animation animation) {
-                if (TZ.this.f463T != null) {
-                    TZ.this.f463T.T(animation, 2);
+                if (TZ.this.f467T != null) {
+                    TZ.this.f467T.T(animation, 2);
                 }
             }
 
             public void onAnimationEnd(Animation animation) {
-                if (TZ.this.f463T != null) {
-                    TZ.this.f463T.T(animation, 3);
+                if (TZ.this.f467T != null) {
+                    TZ.this.f467T.T(animation, 3);
                 }
             }
         });
@@ -189,7 +189,7 @@ public class TZ extends Ts {
         nameTv.setTextSize((float) y24);
         layout2.addView(nameTv);
         tvView.setText(String.valueOf(position + 1));
-        roundImageView.setImageDrawable(T(itemView.getContext(), poi.f455T));
+        roundImageView.setImageDrawable(T(itemView.getContext(), poi.f459T));
         nameTv.setText(poi.Tr);
         if (showDivider) {
             View view = new View(itemView.getContext());

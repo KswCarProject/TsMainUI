@@ -2,14 +2,13 @@ package com.Tr.Tr.Ty.T;
 
 import com.Tr.Tr.Tr;
 import com.lgb.canmodule.Can;
-import com.ts.can.CanCameraUI;
 import com.yyw.ts70xhw.KeyDef;
 
 /* compiled from: Proguard */
 public class Th {
 
     /* renamed from: T  reason: collision with root package name */
-    static final Th[] f293T;
+    static final Th[] f296T;
     private static Th[] Tn;
     private final int T5;
     private final boolean T9;
@@ -21,8 +20,8 @@ public class Th {
     public final int Ty;
 
     static {
-        Th[] thArr = {new Th(false, 3, 5, 8, 8, 1), new Th(false, 5, 7, 10, 10, 1), new Th(true, 5, 7, 16, 6, 1), new Th(false, 8, 10, 12, 12, 1), new Th(true, 10, 11, 14, 6, 2), new Th(false, 12, 12, 14, 14, 1), new Th(true, 16, 14, 24, 10, 1), new Th(false, 18, 14, 16, 16, 1), new Th(false, 22, 18, 18, 18, 1), new Th(true, 22, 18, 16, 10, 2), new Th(false, 30, 20, 20, 20, 1), new Th(true, 32, 24, 16, 14, 2), new Th(false, 36, 24, 22, 22, 1), new Th(false, 44, 28, 24, 24, 1), new Th(true, 49, 28, 22, 14, 2), new Th(false, 62, 36, 14, 14, 4), new Th(false, 86, 42, 16, 16, 4), new Th(false, 114, 48, 18, 18, 4), new Th(false, 144, 56, 20, 20, 4), new Th(false, 174, 68, 22, 22, 4), new Th(false, 204, 84, 24, 24, 4, 102, 42), new Th(false, 280, 112, 14, 14, 16, Can.CAN_BENC_ZMYT, 56), new Th(false, 368, 144, 16, 16, 16, 92, 36), new Th(false, 456, 192, 18, 18, 16, 114, 48), new Th(false, CanCameraUI.BTN_CHANA_CS75_MODE7, Can.CAN_ZH_H530, 20, 20, 16, 144, 56), new Th(false, 696, 272, 22, 22, 16, 174, 68), new Th(false, KeyDef.SKEY_CALLUP_3, KeyDef.RKEY_AVIN, 24, 24, 16, 136, 56), new Th(false, 1050, 408, 18, 18, 36, 175, 68), new Th(false, 1304, 496, 20, 20, 36, 163, 62), new Tn()};
-        f293T = thArr;
+        Th[] thArr = {new Th(false, 3, 5, 8, 8, 1), new Th(false, 5, 7, 10, 10, 1), new Th(true, 5, 7, 16, 6, 1), new Th(false, 8, 10, 12, 12, 1), new Th(true, 10, 11, 14, 6, 2), new Th(false, 12, 12, 14, 14, 1), new Th(true, 16, 14, 24, 10, 1), new Th(false, 18, 14, 16, 16, 1), new Th(false, 22, 18, 18, 18, 1), new Th(true, 22, 18, 16, 10, 2), new Th(false, 30, 20, 20, 20, 1), new Th(true, 32, 24, 16, 14, 2), new Th(false, 36, 24, 22, 22, 1), new Th(false, 44, 28, 24, 24, 1), new Th(true, 49, 28, 22, 14, 2), new Th(false, 62, 36, 14, 14, 4), new Th(false, 86, 42, 16, 16, 4), new Th(false, 114, 48, 18, 18, 4), new Th(false, 144, 56, 20, 20, 4), new Th(false, 174, 68, 22, 22, 4), new Th(false, 204, 84, 24, 24, 4, 102, 42), new Th(false, 280, 112, 14, 14, 16, Can.CAN_BENC_ZMYT, 56), new Th(false, 368, 144, 16, 16, 16, 92, 36), new Th(false, 456, 192, 18, 18, 16, 114, 48), new Th(false, 576, Can.CAN_ZH_H530, 20, 20, 16, 144, 56), new Th(false, 696, 272, 22, 22, 16, 174, 68), new Th(false, KeyDef.SKEY_CALLUP_3, KeyDef.RKEY_AVIN, 24, 24, 16, 136, 56), new Th(false, 1050, 408, 18, 18, 36, 175, 68), new Th(false, 1304, 496, 20, 20, 36, 163, 62), new Tn()};
+        f296T = thArr;
         Tn = thArr;
     }
 

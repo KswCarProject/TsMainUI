@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class Tn extends TM {
 
     /* renamed from: T  reason: collision with root package name */
-    public List<T> f448T;
+    public List<T> f452T;
     public Double T9;
     public Double TZ;
     public Double Tk;
@@ -23,7 +23,7 @@ public class Tn extends TM {
     public static class T {
 
         /* renamed from: T  reason: collision with root package name */
-        public List<Double[]> f449T;
+        public List<Double[]> f453T;
         public int Tr = 0;
         public String Ty = null;
     }
@@ -34,7 +34,7 @@ public class Tn extends TM {
 
     public void T(String data) {
         if (!TextUtils.isEmpty(data)) {
-            this.f448T = new ArrayList();
+            this.f452T = new ArrayList();
             try {
                 JSONObject js = new JSONObject(data);
                 if (js.has("local")) {
@@ -54,16 +54,16 @@ public class Tn extends TM {
                                 T info = new T();
                                 JSONObject json = trafficArray.getJSONObject(i);
                                 info.Tr = json.getInt("status");
-                                info.f449T = Tr(json.getString("line"));
-                                this.f448T.add(info);
+                                info.f453T = Tr(json.getString("line"));
+                                this.f452T.add(info);
                             }
                         }
                     }
                 }
             } catch (Exception e) {
             }
-            if (this.f448T.size() <= 0) {
-                this.f448T = null;
+            if (this.f452T.size() <= 0) {
+                this.f452T = null;
             }
         }
     }

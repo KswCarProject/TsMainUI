@@ -7,7 +7,19 @@ import android.os.Parcel;
 import android.os.RemoteException;
 
 public interface ITsSpeechRadio extends IInterface {
+    void CloseRadioCh() throws RemoteException;
+
+    void OpenRadioCh() throws RemoteException;
+
+    void SeekDn() throws RemoteException;
+
+    void SeekUp() throws RemoteException;
+
+    void TurnBandAndFq(int i, int i2) throws RemoteException;
+
     void closeRadio() throws RemoteException;
+
+    int getRadioBand() throws RemoteException;
 
     int getRadioState() throws RemoteException;
 
@@ -23,9 +35,19 @@ public interface ITsSpeechRadio extends IInterface {
 
     void openRadio() throws RemoteException;
 
+    void setMixVolumeSize(int i) throws RemoteException;
+
+    void setSoundCoexistence(int i) throws RemoteException;
+
     public static abstract class Stub extends Binder implements ITsSpeechRadio {
         private static final String DESCRIPTOR = "com.ts.tsspeechlib.radio.ITsSpeechRadio";
+        static final int TRANSACTION_CloseRadioCh = 15;
+        static final int TRANSACTION_OpenRadioCh = 14;
+        static final int TRANSACTION_SeekDn = 13;
+        static final int TRANSACTION_SeekUp = 12;
+        static final int TRANSACTION_TurnBandAndFq = 16;
         static final int TRANSACTION_closeRadio = 5;
+        static final int TRANSACTION_getRadioBand = 11;
         static final int TRANSACTION_getRadioState = 8;
         static final int TRANSACTION_onNextFreq = 2;
         static final int TRANSACTION_onPrevFreq = 1;
@@ -33,6 +55,8 @@ public interface ITsSpeechRadio extends IInterface {
         static final int TRANSACTION_onRadioFM = 6;
         static final int TRANSACTION_onSelectedFreq = 3;
         static final int TRANSACTION_openRadio = 4;
+        static final int TRANSACTION_setMixVolumeSize = 9;
+        static final int TRANSACTION_setSoundCoexistence = 10;
 
         public Stub() {
             attachInterface(this, DESCRIPTOR);
@@ -95,6 +119,47 @@ public interface ITsSpeechRadio extends IInterface {
                     int _result = getRadioState();
                     reply.writeNoException();
                     reply.writeInt(_result);
+                    return true;
+                case 9:
+                    data.enforceInterface(DESCRIPTOR);
+                    setMixVolumeSize(data.readInt());
+                    reply.writeNoException();
+                    return true;
+                case 10:
+                    data.enforceInterface(DESCRIPTOR);
+                    setSoundCoexistence(data.readInt());
+                    reply.writeNoException();
+                    return true;
+                case 11:
+                    data.enforceInterface(DESCRIPTOR);
+                    int _result2 = getRadioBand();
+                    reply.writeNoException();
+                    reply.writeInt(_result2);
+                    return true;
+                case 12:
+                    data.enforceInterface(DESCRIPTOR);
+                    SeekUp();
+                    reply.writeNoException();
+                    return true;
+                case 13:
+                    data.enforceInterface(DESCRIPTOR);
+                    SeekDn();
+                    reply.writeNoException();
+                    return true;
+                case 14:
+                    data.enforceInterface(DESCRIPTOR);
+                    OpenRadioCh();
+                    reply.writeNoException();
+                    return true;
+                case 15:
+                    data.enforceInterface(DESCRIPTOR);
+                    CloseRadioCh();
+                    reply.writeNoException();
+                    return true;
+                case 16:
+                    data.enforceInterface(DESCRIPTOR);
+                    TurnBandAndFq(data.readInt(), data.readInt());
+                    reply.writeNoException();
                     return true;
                 case 1598968902:
                     reply.writeString(DESCRIPTOR);
@@ -219,6 +284,115 @@ public interface ITsSpeechRadio extends IInterface {
                     this.mRemote.transact(8, _data, _reply, 0);
                     _reply.readException();
                     return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void setMixVolumeSize(int size) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(size);
+                    this.mRemote.transact(9, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void setSoundCoexistence(int state) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(state);
+                    this.mRemote.transact(10, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public int getRadioBand() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(11, _data, _reply, 0);
+                    _reply.readException();
+                    return _reply.readInt();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void SeekUp() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(12, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void SeekDn() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(13, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void OpenRadioCh() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(14, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void CloseRadioCh() throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(15, _data, _reply, 0);
+                    _reply.readException();
+                } finally {
+                    _reply.recycle();
+                    _data.recycle();
+                }
+            }
+
+            public void TurnBandAndFq(int nBand, int fq) throws RemoteException {
+                Parcel _data = Parcel.obtain();
+                Parcel _reply = Parcel.obtain();
+                try {
+                    _data.writeInterfaceToken(Stub.DESCRIPTOR);
+                    _data.writeInt(nBand);
+                    _data.writeInt(fq);
+                    this.mRemote.transact(16, _data, _reply, 0);
+                    _reply.readException();
                 } finally {
                     _reply.recycle();
                     _data.recycle();

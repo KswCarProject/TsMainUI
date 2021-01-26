@@ -15,11 +15,12 @@ import com.ts.canview.CanScrollList;
 public class CanCCH9RzcCarInfoActivity extends CanBaseActivity implements UserCallBack, CanItemPopupList.onPopItemClick {
     private static final int ITEM_ALTITUDE = 4;
     public static final int ITEM_BSQYW = 6;
+    public static final int ITEM_DCDLZT = 9;
     public static final int ITEM_DQYYL = 8;
     private static final int ITEM_FRONTWHEELTQUERATIO = 1;
     private static final int ITEM_INCLINATION = 2;
     public static final int ITEM_LQYWD = 5;
-    private static final int ITEM_MAX = 8;
+    private static final int ITEM_MAX = 9;
     private static final int ITEM_MIN = 0;
     private static final int ITEM_SLOPE = 0;
     private static final int ITEM_TRAILER = 3;
@@ -30,6 +31,7 @@ public class CanCCH9RzcCarInfoActivity extends CanBaseActivity implements UserCa
     private CanDataInfo.H9CarSet2 mH9CarSet2 = new CanDataInfo.H9CarSet2();
     private CanItemTitleValList mInclinationItem;
     private CanItemTitleValList mItemBsqyw;
+    private CanItemTitleValList mItemDcdlzt;
     private CanItemTitleValList mItemDqyyl;
     private CanItemTitleValList mItemLqywd;
     private CanItemTitleValList mItemXdcdy;
@@ -58,6 +60,7 @@ public class CanCCH9RzcCarInfoActivity extends CanBaseActivity implements UserCa
         this.mItemBsqyw = AddItemTitleVal(R.string.can_bsqyw, 6);
         this.mItemXdcdy = AddItemTitleVal(R.string.can_xdcdy, 7);
         this.mItemDqyyl = AddItemTitleVal(R.string.can_dqyyl, 8);
+        this.mItemDcdlzt = AddItemTitleVal(R.string.can_dcdlzt, 9);
     }
 
     /* access modifiers changed from: protected */
@@ -87,7 +90,7 @@ public class CanCCH9RzcCarInfoActivity extends CanBaseActivity implements UserCa
             case 5:
             case 6:
             case 7:
-                if (CanJni.GetSubType() == 3 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11) {
+                if (CanJni.GetSubType() == 3 || CanJni.GetSubType() == 7 || CanJni.GetSubType() == 8 || CanJni.GetSubType() == 10 || CanJni.GetSubType() == 11 || CanJni.GetSubType() == 13) {
                     ret = 1;
                     break;
                 }
@@ -96,6 +99,12 @@ public class CanCCH9RzcCarInfoActivity extends CanBaseActivity implements UserCa
                     ret = 1;
                     break;
                 }
+            case 9:
+                if (CanJni.GetSubType() == 8) {
+                    ret = 1;
+                    break;
+                }
+                break;
         }
         return i2b(ret);
     }
@@ -131,13 +140,16 @@ public class CanCCH9RzcCarInfoActivity extends CanBaseActivity implements UserCa
             case 8:
                 this.mItemDqyyl.ShowGone(show);
                 return;
+            case 9:
+                this.mItemDcdlzt.ShowGone(show);
+                return;
             default:
                 return;
         }
     }
 
     private void LayoutUI() {
-        for (int i = 0; i <= 8; i++) {
+        for (int i = 0; i <= 9; i++) {
             ShowItem(i);
         }
     }
@@ -188,6 +200,7 @@ public class CanCCH9RzcCarInfoActivity extends CanBaseActivity implements UserCa
             this.mItemBsqyw.SetVal(String.format("%d ℃", new Object[]{Integer.valueOf(this.mCarData.Bsqyw - 40)}));
             this.mItemXdcdy.SetVal(String.format("%.2fV", new Object[]{Double.valueOf(((double) this.mCarData.Xdcdy) * 0.25d)}));
             this.mItemDqyyl.SetVal(String.format("%.2fKpa", new Object[]{Double.valueOf(((double) this.mCarData.Dqyyl) * 0.59d)}));
+            this.mItemDcdlzt.SetVal(String.format("%d %%", new Object[]{Integer.valueOf(this.mCarData.Dcdlzt)}));
         }
     }
 

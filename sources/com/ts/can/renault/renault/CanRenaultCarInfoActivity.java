@@ -16,12 +16,14 @@ import com.ts.canview.CanScrollBaseActivity;
 
 public class CanRenaultCarInfoActivity extends CanScrollBaseActivity implements View.OnClickListener, UserCallBack, CanItemPopupList.onPopItemClick, CanItemProgressList.onPosChange {
     protected static final int ITEM_DRIVE_INFO = 1;
-    protected static final int ITEM_MAX = 1;
+    protected static final int ITEM_MAX = 2;
     protected static final int ITEM_MIN = 0;
     protected static final int ITEM_PARK_ASS = 0;
+    protected static final int ITEM_SET = 2;
     public static final String TAG = "CanRenaultCarInfoActivity";
     protected CanItemIcoList mItemDriveInfo;
     protected CanItemIcoList mItemParkAss;
+    protected CanItemIcoList mItemSet;
     protected boolean mbLayout;
 
     /* access modifiers changed from: protected */
@@ -34,6 +36,7 @@ public class CanRenaultCarInfoActivity extends CanScrollBaseActivity implements 
     public void InitUI() {
         this.mItemParkAss = AddIcoItem((View.OnClickListener) this, R.drawable.can_icon_cds, R.string.can_bcfz, 0);
         this.mItemDriveInfo = AddIcoItem((View.OnClickListener) this, R.drawable.can_icon_wm, R.string.can_car_drive_info, 1);
+        this.mItemSet = AddIcoItem((View.OnClickListener) this, R.drawable.can_icon_service, R.string.can_base_setup, 2);
         LayoutUI();
     }
 
@@ -64,7 +67,7 @@ public class CanRenaultCarInfoActivity extends CanScrollBaseActivity implements 
 
     /* access modifiers changed from: protected */
     public void LayoutUI() {
-        for (int i = 0; i <= 1; i++) {
+        for (int i = 0; i <= 2; i++) {
             ShowItem(i);
         }
     }
@@ -77,6 +80,9 @@ public class CanRenaultCarInfoActivity extends CanScrollBaseActivity implements 
                 ret = 1;
                 break;
             case 1:
+                ret = 1;
+                break;
+            case 2:
                 ret = 1;
                 break;
         }
@@ -92,6 +98,9 @@ public class CanRenaultCarInfoActivity extends CanScrollBaseActivity implements 
                 return;
             case 1:
                 this.mItemDriveInfo.ShowGone(show);
+                return;
+            case 2:
+                this.mItemSet.ShowGone(show);
                 return;
             default:
                 return;
@@ -109,6 +118,9 @@ public class CanRenaultCarInfoActivity extends CanScrollBaseActivity implements 
                 return;
             case 1:
                 CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 0);
+                return;
+            case 2:
+                CanFunc.showCanActivity(CanCarInfoSub1Activity.class, 1);
                 return;
             default:
                 return;

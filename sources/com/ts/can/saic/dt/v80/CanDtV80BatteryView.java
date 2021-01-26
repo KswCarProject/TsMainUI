@@ -10,8 +10,6 @@ import com.lgb.canmodule.CanJni;
 import com.ts.MainUI.R;
 import com.ts.can.CanCameraUI;
 import com.ts.can.CanScrollCarInfoView;
-import com.ts.dvdplayer.definition.MediaDef;
-import com.ts.main.navigationbar.NaviBarService;
 
 public class CanDtV80BatteryView extends CanScrollCarInfoView {
     private String[] mBatteryWorkArray;
@@ -105,7 +103,7 @@ public class CanDtV80BatteryView extends CanScrollCarInfoView {
         if (i2b(this.mInfo.UpdateOnce) && (!check || i2b(this.mInfo.Update))) {
             this.mInfo.Update = 0;
             updateValue(3, 0, 16777214, new int[]{16777215}, this.mInfo.Zlc, String.format("%.1f", new Object[]{Float.valueOf(((float) this.mInfo.Zlc) * 0.1f)}));
-            updateValue(4, 0, NaviBarService.FIRST_SYSTEM_WINDOW, new int[]{65535}, this.mInfo.Speed, String.format("%.1f", new Object[]{Float.valueOf(((float) this.mInfo.Speed) * 0.1f)}));
+            updateValue(4, 0, 2000, new int[]{65535}, this.mInfo.Speed, String.format("%.1f", new Object[]{Float.valueOf(((float) this.mInfo.Speed) * 0.1f)}));
         }
         CanJni.SaicDtV80GetBmsWarn(this.mWarn);
         if (!i2b(this.mWarn.UpdateOnce)) {
@@ -113,7 +111,7 @@ public class CanDtV80BatteryView extends CanScrollCarInfoView {
         }
         if (!check || i2b(this.mWarn.Update)) {
             this.mWarn.Update = 0;
-            updateValue(2, 0, MediaDef.PROGRESS_MAX, new int[0], this.mWarn.Soc, String.valueOf(String.format("%.1f", new Object[]{Float.valueOf(((float) this.mWarn.Soc) * 0.1f)})) + "%");
+            updateValue(2, 0, 1000, new int[0], this.mWarn.Soc, String.valueOf(String.format("%.1f", new Object[]{Float.valueOf(((float) this.mWarn.Soc) * 0.1f)})) + "%");
         }
     }
 

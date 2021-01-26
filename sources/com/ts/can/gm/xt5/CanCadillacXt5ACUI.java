@@ -19,6 +19,7 @@ import com.ts.canview.MyProgressBar;
 import com.ts.other.CustomTextView;
 import com.ts.other.ParamButton;
 import com.ts.other.RelativeLayoutManager;
+import com.txznet.sdk.TXZResourceManager;
 
 public class CanCadillacXt5ACUI implements UserCallBack, CanItemProgressList.onPosChange, View.OnTouchListener {
     public static final int ITEM_AC = 5;
@@ -73,44 +74,46 @@ public class CanCadillacXt5ACUI implements UserCallBack, CanItemProgressList.onP
     }
 
     public void InitAc(Context context) {
-        if (this.mLayout != null || context == null || 88 != CanJni.GetCanType()) {
-            return;
-        }
-        if (CanJni.GetSubType() == 3 || CanJni.GetSubType() == 10) {
-            mContext = context;
-            this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_ac_cadillax_xt5, (ViewGroup) null);
-            InintWinManage(800, 269, 0, 0, mContext);
-            this.wManager.addView(this.mLayout, this.wmParams);
-            this.mManager = new RelativeLayoutManager(this.mLayout);
-            this.mTvLtTemp = AddTemp(0, 110, 135, 57);
-            this.mTvRtTemp = AddTemp(679, 110, 135, 57);
-            this.mWindProg = new MyProgressBar(mContext, R.drawable.xt5_ac_pro_up, R.drawable.xt5_ac_pro_dn);
-            this.mWindProg.SetMinMax(0, 7);
-            this.mWindProg.SetCurPos(1);
-            this.mManager.AddViewWrapContent(this.mWindProg, 222, 120);
-            this.mWindAuto = AddText(360, 116, 79, 29);
-            this.mWindAuto.setText("自动");
-            this.mWindAuto.setTextColor(-256);
-            this.mWindAuto.setVisibility(8);
-            this.mModeAuto = AddText(360, 178, 79, 29);
-            this.mModeAuto.setTextColor(-256);
-            this.mAcAuto = AddText(130, 127, 79, 29);
-            this.mAcAuto.setText("自动");
-            this.mAcAuto.setTextColor(-1);
-            this.mBtnAC = AddText(130, 97, 79, 29);
-            this.mBtnAC.setText("制冷");
-            this.mBtnAC.setTag(5);
-            this.mBtnAC.setTextColor(-1);
-            this.mBtnAC.setOnTouchListener(this);
-            this.mTvAirSync = AddTemp(284, 24, Can.CAN_LIEBAO_WC, 51);
-            this.mTvAirSync.setText("同步温度");
-            this.mTvAirSync.setTextColor(-1);
-            this.mBtnAirMode[0] = AddBtn(1, 9, 174, 117, 95, R.drawable.xt5_ac_bt01_up, R.drawable.xt5_ac_bt01_dn);
-            this.mBtnAirMode[1] = AddBtn(2, Can.CAN_CC_HF_DJ, 174, 117, 95, R.drawable.xt5_ac_bt02_up, R.drawable.xt5_ac_bt02_dn);
-            this.mBtnAirMode[2] = AddBtn(3, 452, 174, 117, 95, R.drawable.xt5_ac_bt03_up, R.drawable.xt5_ac_bt03_dn);
-            this.mBtnAirMode[3] = AddBtn(4, 675, 174, 117, 95, R.drawable.xt5_ac_bt04_up, R.drawable.xt5_ac_bt04_dn);
-            this.mBtnLoopMode = AddBtn(6, 593, 103, 77, 49, R.drawable.xt5_ac_wxh_up, R.drawable.xt5_ac_nxh_dn);
-            onPause();
+        if (this.mLayout != null || context == null) {
+            Log.d(TAG, "Already have instance");
+        } else if (88 != CanJni.GetCanType()) {
+        } else {
+            if (CanJni.GetSubType() == 3 || CanJni.GetSubType() == 10) {
+                Log.d(TAG, "Init");
+                mContext = context;
+                this.mLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(R.layout.activity_can_ac_cadillax_xt5, (ViewGroup) null);
+                InintWinManage(800, 269, 0, 0, mContext);
+                this.wManager.addView(this.mLayout, this.wmParams);
+                this.mManager = new RelativeLayoutManager(this.mLayout);
+                this.mTvLtTemp = AddTemp(0, 110, 135, 57);
+                this.mTvRtTemp = AddTemp(679, 110, 135, 57);
+                this.mWindProg = new MyProgressBar(mContext, R.drawable.xt5_ac_pro_up, R.drawable.xt5_ac_pro_dn);
+                this.mWindProg.SetMinMax(0, 7);
+                this.mWindProg.SetCurPos(1);
+                this.mManager.AddViewWrapContent(this.mWindProg, 222, 120);
+                this.mWindAuto = AddText(360, 116, 79, 29);
+                this.mWindAuto.setText("自动");
+                this.mWindAuto.setTextColor(-256);
+                this.mWindAuto.setVisibility(8);
+                this.mModeAuto = AddText(360, 178, 79, 29);
+                this.mModeAuto.setTextColor(-256);
+                this.mAcAuto = AddText(130, 127, 79, 29);
+                this.mAcAuto.setText("自动");
+                this.mAcAuto.setTextColor(-1);
+                this.mBtnAC = AddText(130, 97, 79, 29);
+                this.mBtnAC.setText("制冷");
+                this.mBtnAC.setTag(5);
+                this.mBtnAC.setTextColor(-1);
+                this.mBtnAC.setOnTouchListener(this);
+                this.mTvAirSync = AddTemp(284, 24, Can.CAN_LIEBAO_WC, 51);
+                this.mTvAirSync.setText("同步温度");
+                this.mTvAirSync.setTextColor(-1);
+                this.mBtnAirMode[0] = AddBtn(1, 9, 174, 117, 95, R.drawable.xt5_ac_bt01_up, R.drawable.xt5_ac_bt01_dn);
+                this.mBtnAirMode[1] = AddBtn(2, Can.CAN_CC_HF_DJ, 174, 117, 95, R.drawable.xt5_ac_bt02_up, R.drawable.xt5_ac_bt02_dn);
+                this.mBtnAirMode[2] = AddBtn(3, 452, 174, 117, 95, R.drawable.xt5_ac_bt03_up, R.drawable.xt5_ac_bt03_dn);
+                this.mBtnAirMode[3] = AddBtn(4, 675, 174, 117, 95, R.drawable.xt5_ac_bt04_up, R.drawable.xt5_ac_bt04_dn);
+                this.mBtnLoopMode = AddBtn(6, 593, 103, 77, 49, R.drawable.xt5_ac_wxh_up, R.drawable.xt5_ac_nxh_dn);
+            }
         }
     }
 
@@ -143,13 +146,14 @@ public class CanCadillacXt5ACUI implements UserCallBack, CanItemProgressList.onP
     public CustomTextView AddText(int x, int y, int w, int h) {
         CustomTextView temp = this.mManager.AddCusText(x, y, w, h);
         temp.SetPxSize(28);
-        temp.setText("");
+        temp.setText(TXZResourceManager.STYLE_DEFAULT);
         temp.setGravity(17);
         return temp;
     }
 
     /* access modifiers changed from: protected */
     public void onResume() {
+        InitAc(CanFunc.mContext);
         ResetData(false);
         this.mLayout.setVisibility(0);
         Log.d(TAG, "-----onResume-----");
@@ -198,7 +202,7 @@ public class CanCadillacXt5ACUI implements UserCallBack, CanItemProgressList.onP
         } else if (this.mACInfo.fgRearLight != 0) {
             this.mModeAuto.setText("除霜");
         } else {
-            this.mModeAuto.setText("");
+            this.mModeAuto.setText(TXZResourceManager.STYLE_DEFAULT);
         }
         if (this.mACInfo.fgAutoAC != 0) {
             this.mAcAuto.setTextColor(-256);

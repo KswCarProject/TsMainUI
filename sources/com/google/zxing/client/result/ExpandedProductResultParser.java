@@ -4,7 +4,6 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.ts.can.CanCameraUI;
 import com.ts.can.toyota.dj.CanToyotaDJCarDeviceView;
-import com.ts.main.common.MainSet;
 import java.util.HashMap;
 
 public final class ExpandedProductResultParser extends ResultParser {
@@ -49,7 +48,7 @@ public final class ExpandedProductResultParser extends ResultParser {
                         }
                         break;
                     case CanCameraUI.BTN_LANDWINDOD_3D_FRONT /*1567*/:
-                        if (ai.equals(MainSet.SP_XH_FORD)) {
+                        if (ai.equals("10")) {
                             c = 2;
                             break;
                         }

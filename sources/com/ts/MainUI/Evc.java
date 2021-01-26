@@ -2,23 +2,18 @@ package com.ts.MainUI;
 
 import android.content.Context;
 import android.media.AudioManager;
-import android.media.AudioSystem;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
+import android.os.SystemProperties;
 import android.util.Log;
 import com.txznet.sdk.bean.Poi;
 import com.yyw.ts70xhw.FtSet;
 import com.yyw.ts70xhw.Iop;
 import com.yyw.ts70xhw.Mcu;
 import com.yyw.ts70xhw.StSet;
+import java.io.IOException;
 
 public class Evc implements AudioManager.OnAudioFocusChangeListener {
-    private static final int COMMON_PARA_SIZE = 24;
-    private static final int CONSTANT_256 = 256;
-    private static final int CONSTANT_32 = 32;
-    private static final int DATA_SIZE = 1444;
     public static final int MAX_VOL_GAIN = 88;
-    public static final int NAVI_VOICE_DELAY = 500;
+    static final String MeM_FILE = "/mnt/sdcard/mem.ini";
     public static final int PHONE_CALLIN = 1;
     public static final int PHONE_IDLE = 0;
     public static final int PHONE_TALKING = 2;
@@ -26,114 +21,51 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
     /* access modifiers changed from: private */
     public static String TAG = "Evcsetting";
     public static final int V0L_GAIN_MAX = 100;
-    private static final int VOLUME_SIZE = 22;
     public static final int VOL_MAX = 30;
     public static final int WORKMODE_BT_VOL = 19;
     public static final int WORKMODE_NAVI_VOL = 18;
+    public static boolean bNaviToLow = false;
     public static boolean bNaviVol = false;
     private static Evc mEvc = null;
     public static int mSystemState = 0;
-    public static int nNaviHunyin = 0;
+    private static int nNaviHunyin = 1;
     public static int nNaviSpeeShow = 0;
     public static int nNaviSpeeking = 0;
     public int Alarm_vol_max = 15;
     public int Gis_vol_max = 100;
+    private int[] MaxV = {27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5};
     public int NaviVoiceDelay = 0;
     public int Other_vol_max = 30;
-    public int PhoneState;
     public int Ring_vol_max = 100;
     public int Sys_vol_max = 100;
     public boolean bGoogle = false;
+    boolean bMix = false;
     private boolean bMusicChange = false;
-    boolean bNaviforce;
-    boolean bPopMuteDisable = false;
-    private int[] g_VolDbtb;
-    private int[] g_VolDbtbGlsz;
-    private AudioManager mAudioManager;
-    protected EvcCallBack mEvcCallBack;
-    private TelephonyManager mTelephonyManager;
+    boolean bNaviforce = false;
+    public boolean bPopMuteEnable = false;
+    boolean bRequefocus = true;
+    private int[] cpuT = {95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117};
+    private int[] g_VolDbtb = {1, 3, 8, 13, 18, 23, 28, 30, 36, 42, 47, 52, 56, 60, 63, 66, 69, 71, 74, 76, 77, 80, 84, 85, 87, 89, 92, 94, 97, 99, 100};
+    private AudioManager mAudioManager = null;
+    protected EvcCallBack mEvcCallBack = null;
     private Context m_context;
-    int nCheckNavi;
-    public int nIsGlsx = 0;
-    int nMuteState;
-    int nPer;
-    public int nWorkModeMute = 0;
+    String memString = "test";
+    public int nCheckCpu = 0;
+    int nCheckNavi = 0;
+    int nCpuMode = -1;
+    int nLastTemp = 0;
+    int nMixSize = -1;
+    int nOldmode = 0;
+    int nPer = 0;
+    int nRestMode = 0;
+    int nVolTempMax = 30;
+    private int nWorkModeMute = 30;
     public int nWorkModeReq = 0;
+    int nnUM = 0;
     public int volume_max = 30;
 
-    public Evc() {
-        int[] iArr = new int[31];
-        iArr[1] = 3;
-        iArr[2] = 8;
-        iArr[3] = 13;
-        iArr[4] = 18;
-        iArr[5] = 23;
-        iArr[6] = 28;
-        iArr[7] = 30;
-        iArr[8] = 36;
-        iArr[9] = 42;
-        iArr[10] = 47;
-        iArr[11] = 52;
-        iArr[12] = 54;
-        iArr[13] = 56;
-        iArr[14] = 58;
-        iArr[15] = 66;
-        iArr[16] = 67;
-        iArr[17] = 71;
-        iArr[18] = 74;
-        iArr[19] = 76;
-        iArr[20] = 77;
-        iArr[21] = 80;
-        iArr[22] = 84;
-        iArr[23] = 85;
-        iArr[24] = 87;
-        iArr[25] = 89;
-        iArr[26] = 92;
-        iArr[27] = 94;
-        iArr[28] = 97;
-        iArr[29] = 99;
-        iArr[30] = 100;
-        this.g_VolDbtb = iArr;
-        int[] iArr2 = new int[31];
-        iArr2[1] = 20;
-        iArr2[2] = 26;
-        iArr2[3] = 30;
-        iArr2[4] = 34;
-        iArr2[5] = 38;
-        iArr2[6] = 40;
-        iArr2[7] = 42;
-        iArr2[8] = 44;
-        iArr2[9] = 45;
-        iArr2[10] = 47;
-        iArr2[11] = 52;
-        iArr2[12] = 54;
-        iArr2[13] = 56;
-        iArr2[14] = 58;
-        iArr2[15] = 66;
-        iArr2[16] = 67;
-        iArr2[17] = 71;
-        iArr2[18] = 74;
-        iArr2[19] = 76;
-        iArr2[20] = 77;
-        iArr2[21] = 80;
-        iArr2[22] = 84;
-        iArr2[23] = 85;
-        iArr2[24] = 87;
-        iArr2[25] = 89;
-        iArr2[26] = 92;
-        iArr2[27] = 94;
-        iArr2[28] = 97;
-        iArr2[29] = 99;
-        iArr2[30] = 100;
-        this.g_VolDbtbGlsz = iArr2;
-        this.mAudioManager = null;
-        this.mTelephonyManager = null;
-        this.nCheckNavi = 0;
-        this.nMuteState = 0;
-        this.PhoneState = 0;
-        this.mEvcCallBack = null;
-        this.bNaviforce = false;
-        this.nPer = 0;
+    public void SetPopMuteTime(int nTime) {
+        this.nWorkModeMute = nTime;
     }
 
     public static Evc GetInstance() {
@@ -143,17 +75,71 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         return mEvc;
     }
 
+    /* access modifiers changed from: package-private */
+    public int GetCpuTemp() {
+        return ((int) ThermalInfoUtil.GetCputemp()) / 1000;
+    }
+
+    /* access modifiers changed from: package-private */
+    public void CheckCpuTemp() {
+        int nTempNaw = GetCpuTemp();
+        int nVol = Iop.GetVolume(0);
+        Log.d(TAG, "CPU TEMP ==" + nTempNaw);
+        if (nTempNaw > this.nLastTemp) {
+            int i = this.cpuT.length - 1;
+            while (true) {
+                if (i >= 0) {
+                    if (nTempNaw >= this.cpuT[i] && nVol >= this.MaxV[i] && this.nCpuMode < i) {
+                        this.nCpuMode = i;
+                        this.nVolTempMax = this.MaxV[i];
+                        SetMusicVolume(this.MaxV[i]);
+                        break;
+                    }
+                    i--;
+                } else {
+                    break;
+                }
+            }
+        } else if (nTempNaw < this.nLastTemp && this.nCpuMode >= 0 && nTempNaw < this.cpuT[this.nCpuMode] - 5) {
+            if (this.nCpuMode > 5) {
+                this.nCpuMode -= 5;
+                this.nVolTempMax = this.MaxV[this.nCpuMode];
+            } else {
+                this.nCpuMode = -1;
+                this.nVolTempMax = this.volume_max;
+            }
+            SetMusicVolume(nVol);
+        }
+        this.nLastTemp = nTempNaw;
+    }
+
     public int task(int mode) {
-        if (mode == 2 && this.nCheckNavi == 0) {
-            this.nCheckNavi = 1;
-            ChechNaviStream();
+        if (this.nOldmode != mode) {
+            if (this.nOldmode == 3 && mode == 0) {
+                this.nRestMode = 5;
+            }
+            this.nOldmode = mode;
+        }
+        if (this.nRestMode > 0) {
+            this.nRestMode--;
+            if (this.nRestMode == 0) {
+                ResetVol();
+            }
+        }
+        this.nnUM++;
+        if (this.nnUM > 150) {
+            this.nnUM = 0;
+            if (this.nCheckCpu == 1 && Mcu.GetReverse() == 0) {
+                CheckCpuTemp();
+            }
         }
         if (this.NaviVoiceDelay > 0) {
-            Log.d(TAG, "NaviVoiceDelay==" + this.NaviVoiceDelay);
             this.NaviVoiceDelay--;
             if (this.NaviVoiceDelay == 0) {
                 SetGisMute(false);
-                Iop.NaviSpeaking(0);
+                if (!this.bMix) {
+                    Iop.NaviSpeaking(0);
+                }
                 nNaviSpeeking = 0;
                 if (this.bMusicChange) {
                     SetMusicVolume(Iop.GetVolume(0));
@@ -161,30 +147,11 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
                 }
             }
         }
-        if (this.nIsGlsx == 1) {
-            if (Iop.GetMute() == 0 && Iop.GetVolume(0) == 0 && nNaviSpeeking == 0 && Iop.GetMediaOrBlue() == 0) {
-                Mcu.SetMutestate((byte) 1);
-                this.nMuteState = 1;
-                Log.d(TAG, "nIsGlsx set mute");
-            } else if (this.nMuteState == 1) {
-                Mcu.SetMutestate((byte) 0);
-                this.nMuteState = 0;
-                Log.d(TAG, "nIsGlsx clear mute");
-            }
-        }
-        if (this.bPopMuteDisable) {
-            this.bPopMuteDisable = false;
+        if (this.bPopMuteEnable) {
+            this.bPopMuteEnable = false;
             Iop.PopMuteDelay(20);
         }
         return Iop.EvolTask(mode);
-    }
-
-    public void ChechNaviStream() {
-        int nVol;
-        if (this.mAudioManager != null && StSet.GetNvol() != (nVol = this.mAudioManager.getStreamVolume(10))) {
-            Log.d(TAG, "nVol==" + nVol);
-            Log.d(TAG, "StSet.GetNvol()==" + StSet.GetNvol());
-        }
     }
 
     /* access modifiers changed from: package-private */
@@ -192,12 +159,11 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         this.Sys_vol_max = this.mAudioManager.getStreamMaxVolume(1);
         this.Alarm_vol_max = this.mAudioManager.getStreamMaxVolume(4);
         this.Ring_vol_max = this.mAudioManager.getStreamMaxVolume(2);
-        this.Gis_vol_max = this.mAudioManager.getStreamMaxVolume(10);
         Log.d(TAG, "Sys_vol_max==" + this.Sys_vol_max);
         Log.d(TAG, "AudioManager.STREAM_MUSIC==" + this.mAudioManager.getStreamVolume(3));
         Log.d(TAG, "getStreamMaxVolume AudioManager.STREAM_MUSIC==" + this.mAudioManager.getStreamMaxVolume(3));
-        Log.d(TAG, "AudioManager.STREAM_GIS==" + this.mAudioManager.getStreamVolume(10));
-        Log.d(TAG, "getStreamMaxVolume AudioManager.STREAM_GIS==" + this.mAudioManager.getStreamMaxVolume(10));
+        Log.d(TAG, "AudioManager.STREAM_GIS==" + this.mAudioManager.getStreamVolume(11));
+        Log.d(TAG, "getStreamMaxVolume AudioManager.STREAM_GIS==" + this.mAudioManager.getStreamMaxVolume(11));
         Log.d(TAG, "AudioManager.STREAM_BLUETOOTH_SCO==" + this.mAudioManager.getStreamVolume(6));
         Log.d(TAG, "getStreamMaxVolume AudioManager.STREAM_BLUETOOTH_SCO==" + this.mAudioManager.getStreamMaxVolume(6));
         Log.d(TAG, "AudioManager.STREAM_ALARM==" + this.mAudioManager.getStreamVolume(4));
@@ -212,29 +178,21 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         Log.d(TAG, "getStreamMaxVolume AudioManager.STREAM_SYSTEM_ENFORCED==" + this.mAudioManager.getStreamMaxVolume(7));
     }
 
-    class MyOhoneListener extends PhoneStateListener {
-        MyOhoneListener() {
+    /* access modifiers changed from: package-private */
+    public void ResetVol() {
+        if (bNaviToLow) {
+            this.Gis_vol_max = 30;
         }
-
-        public void onCallStateChanged(int state, String incomingNumber) {
-            Log.i(Evc.TAG, "incomingNumber==" + incomingNumber);
-            Log.i(Evc.TAG, "state==" + state);
-            switch (state) {
-                case 0:
-                    Iop.BlueSpeaking(0);
-                    Evc.this.PhoneState = 0;
-                    break;
-                case 1:
-                    Iop.BlueSpeaking(1);
-                    Evc.this.PhoneState = 1;
-                    break;
-                case 2:
-                    Iop.BlueSpeaking(1);
-                    Evc.this.PhoneState = 2;
-                    break;
-            }
-            super.onCallStateChanged(state, incomingNumber);
+        if (!bNaviToLow || StSet.GetNvol() <= 30) {
+            SetGisVolume(StSet.GetNvol(), true);
+        } else {
+            SetGisVolume(15, true);
         }
+        SetBtVolume(Iop.GetVolume(1));
+        SetSystemVolume(StSet.GetSvol());
+        SetRingVolume(StSet.GetRvol());
+        SetAlarmVolume(StSet.GetAvol());
+        SetMusicVolume(Iop.GetVolume(0));
     }
 
     public void InintEvc(Context aContext) {
@@ -243,19 +201,7 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
             this.mAudioManager = (AudioManager) this.m_context.getSystemService(Poi.PoiAction.ACTION_AUDIO);
             Log.i(TAG, "SetMyContext mAudioManager==" + this.mAudioManager);
         }
-        if (this.mTelephonyManager == null) {
-            this.mTelephonyManager = (TelephonyManager) this.m_context.getSystemService("phone");
-        }
-        this.mTelephonyManager.listen(new MyOhoneListener(), 32);
-        CheckVolMax();
-        SetNotificationVoume(1);
-        SetSystemEnforceVoume(1);
-        SetMusicVolume(Iop.GetVolume(0));
-        SetGisVolume(StSet.GetNvol(), true);
-        SetBtVolume(Iop.GetVolume(1));
-        SetSystemVolume(StSet.GetSvol());
-        SetRingVolume(StSet.GetRvol());
-        SetAlarmVolume(StSet.GetAvol());
+        ResetVol();
         Log.i(TAG, "StSet.GetWorkMode() == " + Iop.GetWorkMode());
     }
 
@@ -263,7 +209,7 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         if (this.mAudioManager != null) {
             return 1;
         }
-        this.mAudioManager.setAudPolicyStrategy(10, 3, nScal);
+        this.mAudioManager.setAudPolicyStrategy(11, 3, nScal);
         return 1;
     }
 
@@ -279,10 +225,52 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         this.mEvcCallBack = cb;
     }
 
+    public boolean IsHaveDisk() {
+        String Val = SystemProperties.get("forfan.usbdvd.index");
+        if (Val != null && Val.equals("1")) {
+            return TsFile.fileIsExists("/dev/block/sr1");
+        }
+        if (Val == null || !Val.equals("0")) {
+            return TsFile.fileIsExists("/dev/block/sr0");
+        }
+        return TsFile.fileIsExists("/dev/block/sr0");
+    }
+
+    public void DiskStop() {
+        String Val = SystemProperties.get("forfan.usbdvd.index");
+        if (Val != null && Val.equals("1")) {
+            Iop.DiscStop(1);
+        } else if (Val == null || !Val.equals("0")) {
+            Iop.DiscStop(0);
+            Log.e(TAG, "DiscStop 0 but val=null");
+        } else {
+            Iop.DiscStop(0);
+        }
+    }
+
+    public void DiskEject() {
+        String Val = SystemProperties.get("forfan.usbdvd.index");
+        if (Val != null && Val.equals("1")) {
+            Iop.DiscEject(1);
+            Log.e(TAG, "DiskEject(1) =");
+        } else if (Val == null || !Val.equals("0")) {
+            Iop.DiscEject(0);
+            Log.e(TAG, "DiskEject 0 but val=null");
+        } else {
+            Iop.DiscEject(0);
+            Log.e(TAG, "DiskEject(0) =");
+        }
+    }
+
+    public void SetNoFocusChange() {
+        this.bRequefocus = false;
+    }
+
     public void evol_workmode_set(int newmode) {
+        Log.i(TAG, "evol_workmode_set  newmode==" + newmode);
         if (newmode == 0) {
             if (this.nWorkModeReq != newmode) {
-                this.bPopMuteDisable = true;
+                this.bPopMuteEnable = true;
             }
             if (this.mAudioManager != null) {
                 Log.i(TAG, "abandonAudioFocus  newmode==" + newmode);
@@ -294,19 +282,18 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
             }
         } else if (!(this.mAudioManager == null || this.nWorkModeReq == newmode)) {
             if (this.nWorkModeMute != 0) {
-                Iop.PopMuteDelay(this.nWorkModeMute);
+                this.bPopMuteEnable = true;
             }
-            this.bPopMuteDisable = true;
-            Log.i(TAG, "requestAudioFocus  newmode==" + newmode);
-            int result = this.mAudioManager.requestAudioFocus(this, 3, 1);
-            this.mAudioManager.requestAudioFocus(this, 3, 2);
-            if (result != 1) {
-                Log.e(TAG, "could not get audio focus");
-            } else {
-                Log.e(TAG, "could  get audio focus == " + this.mAudioManager.isMusicActive());
+            if (this.bRequefocus) {
+                Log.i(TAG, "requestAudioFocus  newmode= AUDIOFOCUS_GAIN_TRANSIENT=" + newmode);
+                if (this.mAudioManager.requestAudioFocus(this, 3, 2) != 1) {
+                    Log.e(TAG, "could not get audio focus");
+                } else {
+                    Log.i(TAG, "could  get audio focus 11== " + this.mAudioManager.isMusicActive());
+                }
             }
         }
-        if (FtSet.IsIconExist(2) == 1 && newmode != 2) {
+        if (newmode != 2 && IsHaveDisk()) {
             Log.i(TAG, "DiscStop==" + newmode);
             new Thread() {
                 public void run() {
@@ -315,15 +302,19 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    Iop.DiscStop();
+                    Evc.this.DiskStop();
                 }
             }.start();
+        }
+        if (newmode != 0) {
+            WriteMem("test");
         }
         Iop.SetWorkMode(newmode);
         if (!(this.nWorkModeReq == newmode || this.mEvcCallBack == null)) {
             this.mEvcCallBack.DealWorkMode(this.nWorkModeReq, newmode);
         }
         this.nWorkModeReq = newmode;
+        this.bRequefocus = true;
     }
 
     public void SetVolAllChannelGain(int nVolGain) {
@@ -421,33 +412,47 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
     }
 
     public void Evol_vol_tune(int updn) {
-        int nVol;
         Log.i(TAG, "Evol_vol_tune == " + updn + "nNaviSpeeking=" + nNaviSpeeking + " nNaviSpeeShow = " + nNaviSpeeShow);
         evol_mut_set(0);
         if (!bNaviVol || (nNaviSpeeking != 1 && nNaviSpeeShow <= 0)) {
             int nSta = Iop.GetMediaOrBlue();
             Iop.AdjVolume(nSta, updn);
-            int nVol2 = Iop.GetVolume(nSta);
+            int nVol = Iop.GetVolume(nSta);
             if (nSta == 1) {
-                SetBtVolume(nVol2);
+                SetBtVolume(nVol);
             } else {
-                SetMusicVolume(nVol2);
+                SetMusicVolume(nVol);
             }
         } else {
-            int nVol3 = StSet.GetNvol();
+            int nVol2 = StSet.GetNvol();
             if (updn == 1) {
-                if (nVol3 + 3 < this.Gis_vol_max) {
-                    nVol = nVol3 + 3;
+                if (bNaviToLow) {
+                    nVol2++;
+                    if (nVol2 > this.Gis_vol_max) {
+                        nVol2 = this.Gis_vol_max;
+                    }
+                } else if (nVol2 + 3 < this.Gis_vol_max) {
+                    nVol2 += 3;
                 } else {
-                    nVol = this.Gis_vol_max;
+                    nVol2 = this.Gis_vol_max;
                 }
-            } else if (nVol3 > 3) {
-                nVol = nVol3 - 3;
+            } else if (bNaviToLow) {
+                if (nVol2 > 0) {
+                    nVol2--;
+                }
+            } else if (nVol2 > 3) {
+                nVol2 -= 3;
             } else {
-                nVol = 0;
+                nVol2 = 0;
             }
-            evol_navivol_set(nVol);
+            evol_navivol_set(nVol2);
         }
+    }
+
+    private boolean IsNaviState() {
+        Boolean getGISAudiostatus = new Boolean(false);
+        Log.i(TAG, "getGISAudiostatus == " + getGISAudiostatus);
+        return getGISAudiostatus.booleanValue();
     }
 
     /* access modifiers changed from: package-private */
@@ -460,32 +465,24 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         this.bMusicChange = true;
     }
 
-    public void evol_mix_set(int onoff, boolean bMute) {
-        if (onoff == 1) {
-            SetGisMute(false);
-            if (nNaviHunyin == 1) {
-                ChVolForNavi(bMute);
-            }
-            SetGisVolume(StSet.GetNvol(), true);
-            Iop.NaviSpeaking(onoff);
-            this.NaviVoiceDelay = 0;
-        } else if (!this.bNaviforce) {
-            this.NaviVoiceDelay = 50;
-        } else {
-            this.NaviVoiceDelay = 500;
-        }
+    public void SetNaviVolDn(int nPercent) {
+        this.nPer = nPercent;
     }
 
     public void evol_navi_set(int onoff, boolean bMute) {
         if (onoff == 1) {
             SetGisMute(false);
-            if (nNaviHunyin == 1) {
-                ChVolForNavi(bMute);
-            }
-            if (this.nPer <= 0 || this.nPer > 100) {
-                SetGisVolume(StSet.GetNvol(), true);
+            if (Iop.GetMediaOrBlue() == 1) {
+                SetGisVolume(0, false);
             } else {
-                SetGisVolume((StSet.GetNvol() * this.nPer) / 100, false);
+                if (nNaviHunyin == 1) {
+                    ChVolForNavi(bMute);
+                }
+                if (this.nPer <= 0 || this.nPer > 100) {
+                    SetGisVolume(StSet.GetNvol(), true);
+                } else {
+                    SetGisVolume((StSet.GetNvol() * this.nPer) / 100, false);
+                }
             }
             Iop.NaviSpeaking(onoff);
             nNaviSpeeking = onoff;
@@ -497,33 +494,55 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         }
     }
 
-    public void SetNaviVolDn(int nPercent) {
-        this.nPer = nPercent;
+    public void evol_mix_set(int onoff) {
+        Log.d(TAG, "evol_mix_set==" + onoff);
+        if (onoff == 1) {
+            this.nMixSize = StSet.Getmvwns();
+            StSet.Setmvwns(100);
+            Iop.NaviSpeaking(onoff);
+            this.bMix = true;
+            return;
+        }
+        Iop.NaviSpeaking(onoff);
+        if (this.nMixSize >= 0 && this.nMixSize <= 100) {
+            StSet.Setmvwns(this.nMixSize);
+            this.nMixSize = -1;
+        }
+        this.bMix = false;
     }
 
     public void evol_navi_set_force(int onoff) {
         if (onoff == 1) {
             SetGisMute(false);
-            if (nNaviHunyin == 1) {
-                ChVolForNavi(false);
-            }
-            if (this.nPer <= 0 || this.nPer > 100) {
-                SetGisVolume(StSet.GetNvol(), true);
+            if (Iop.GetMediaOrBlue() == 1) {
+                SetGisVolume(0, false);
             } else {
-                SetGisVolume((StSet.GetNvol() * this.nPer) / 100, false);
+                if (nNaviHunyin == 1) {
+                    ChVolForNavi(false);
+                }
+                if (this.nPer <= 0 || this.nPer > 100) {
+                    SetGisVolume(StSet.GetNvol(), true);
+                } else {
+                    SetGisVolume((StSet.GetNvol() * this.nPer) / 100, false);
+                }
             }
             Iop.NaviSpeaking(onoff);
             nNaviSpeeking = onoff;
-            this.NaviVoiceDelay = 500;
+            this.NaviVoiceDelay = 1000;
             this.bNaviforce = true;
             return;
         }
-        this.NaviVoiceDelay = 20;
+        this.NaviVoiceDelay = 5;
         this.bNaviforce = false;
     }
 
     public void evol_blue_set(int onoff) {
         Iop.BlueSpeaking(onoff);
+        if (onoff == 1) {
+            SetGisVolume(0, false);
+        } else {
+            SetGisVolume(StSet.GetNvol(), false);
+        }
     }
 
     public void evol_bal_set(int bal) {
@@ -594,13 +613,26 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
 
     public void SetMicGain() {
         Log.d(TAG, "SetMicGain" + FtSet.GetBtMicGain());
-        int nGain = FtSet.GetBtMicGain() - 33;
+        int nGain = FtSet.GetBtMicGain() - 39;
         if (nGain < 0) {
             nGain = 0;
         } else if (nGain > 15) {
             nGain = 15;
         }
         SetMicDigitalEnhance(nGain);
+    }
+
+    private void mtkdsp_send_init() {
+        SetMicGain();
+    }
+
+    private void mtkdsp_send_micgain(int gain) {
+        if (gain <= 63) {
+        }
+    }
+
+    private void mtkdsp_send_lud(int lud) {
+        Iop.LudSet(lud);
     }
 
     private int GetVolGain(int nVol, int VolMax) {
@@ -610,15 +642,12 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         if (nVol > VolMax) {
             nVol = VolMax;
         }
-        if (this.nIsGlsx == 1) {
-            return this.g_VolDbtbGlsz[nVol];
-        }
         return this.g_VolDbtb[nVol];
     }
 
     public int SetGisMute(boolean bMute) {
         if (this.mAudioManager != null) {
-            this.mAudioManager.setStreamMute(10, bMute);
+            this.mAudioManager.setStreamMute(11, bMute);
             return 1;
         }
         Log.d(TAG, "mAudioManager==null SetGisMute" + bMute);
@@ -628,7 +657,11 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
     private int SetGisVolume(int u4Vol, boolean bSave) {
         Log.d(TAG, "SetGisVolume==" + u4Vol);
         if (this.mAudioManager != null) {
-            this.mAudioManager.setStreamVolume(10, u4Vol, 0);
+            if (bNaviToLow) {
+                this.mAudioManager.setStreamVolume(11, (u4Vol * 100) / this.Gis_vol_max, 0);
+            } else {
+                this.mAudioManager.setStreamVolume(11, u4Vol, 0);
+            }
             if (!bSave) {
                 return 1;
             }
@@ -639,10 +672,19 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
         return 1;
     }
 
+    private int SetBtMute(boolean bMute) {
+        if (this.mAudioManager != null) {
+            this.mAudioManager.setStreamMute(0, bMute);
+            return 1;
+        }
+        Log.d(TAG, "mAudioManager==null SetGisMute" + bMute);
+        return 0;
+    }
+
     private int SetBtVolume(int u4Vol) {
         Log.d(TAG, "SetBtVolume" + u4Vol);
         if (this.mAudioManager != null) {
-            this.mAudioManager.setStreamVolume(0, (int) (((double) u4Vol) * 2.5d), 0);
+            this.mAudioManager.setStreamVolume(0, u4Vol * 3, 0);
             return 1;
         }
         Log.d(TAG, "mAudioManager==null STREAM_BLUETOOTH_SCO" + u4Vol);
@@ -715,12 +757,18 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
     }
 
     public int SetMusicVolume(int u4Vol) {
-        Log.d(TAG, "SetMuscVolume" + u4Vol + "==" + GetVolGain(u4Vol, this.volume_max));
-        if (this.mAudioManager != null) {
+        if (this.mAudioManager == null) {
+            Log.d(TAG, "mAudioManager==null STREAM_MUSIC" + u4Vol);
+        } else if (this.nCheckCpu == 1) {
+            Log.d(TAG, "SetMuscVolume u4Vol=" + u4Vol);
+            Log.d(TAG, "SetMuscVolume nVolTempMax==" + this.nVolTempMax);
+            this.mAudioManager.setStreamVolume(3, GetVolGain(u4Vol, this.nVolTempMax), 0);
+        } else {
+            Log.d(TAG, "SetMuscVolume" + u4Vol);
+            Log.d(TAG, "SetMuscVolume setStreamVolume " + GetVolGain(u4Vol, this.volume_max));
             this.mAudioManager.setStreamVolume(3, GetVolGain(u4Vol, this.volume_max), 0);
-            return 1;
+            Log.d(TAG, "SetMuscVolume GetStreamVolume " + this.mAudioManager.getStreamVolume(3));
         }
-        Log.d(TAG, "mAudioManager==null STREAM_MUSIC" + u4Vol);
         return 1;
     }
 
@@ -748,9 +796,6 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
                 return;
             case -2:
                 Log.i(TAG, "AUDIOFOCUS_LOSS_TRANSIENT lost audio focus");
-                Log.i(TAG, "onAudioFocusChange  nWorkModeReq==" + this.nWorkModeReq);
-                Log.i(TAG, "onAudioFocusChange  Evol.workmode==" + Iop.GetWorkMode());
-                Log.i(TAG, "Iop.GetMediaOrBlue()==" + Iop.GetMediaOrBlue());
                 if (this.mEvcCallBack != null) {
                     this.mEvcCallBack.AudioFocusTRANSIENT(Iop.GetWorkMode(), false);
                 }
@@ -763,7 +808,7 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
                 Log.i(TAG, "AUDIOFOCUS_LOSS lost audio focus");
                 Log.i(TAG, "onAudioFocusChange  nWorkModeReq==" + this.nWorkModeReq);
                 Log.i(TAG, "onAudioFocusChange  Evol.workmode==" + Iop.GetWorkMode());
-                if (this.nWorkModeReq == Iop.GetWorkMode()) {
+                if (this.nWorkModeReq == Iop.GetWorkMode() && Iop.GetWorkMode() != 10) {
                     evol_workmode_set(0);
                     return;
                 }
@@ -784,21 +829,33 @@ public class Evc implements AudioManager.OnAudioFocusChangeListener {
     }
 
     private boolean SetMicDigitalEnhance(int inputValue) {
-        if (inputValue < 0 || inputValue > 15) {
-            return false;
-        }
-        byte[] mData = new byte[DATA_SIZE];
-        for (int n = 0; n < DATA_SIZE; n++) {
-            mData[n] = 0;
-        }
-        if (AudioSystem.getEmParameter(mData, DATA_SIZE) != 0) {
-            return false;
-        }
-        mData[92] = (byte) (inputValue % 256);
-        mData[93] = (byte) (inputValue / 256);
-        if (AudioSystem.setEmParameter(mData, DATA_SIZE) == 0) {
+        if (this.mAudioManager == null) {
             return true;
         }
-        return false;
+        this.mAudioManager.setParameters("atcDigtalGain=" + inputValue);
+        return true;
+    }
+
+    public String ReadMem() {
+        if (TsFile.fileIsExists(MeM_FILE)) {
+            try {
+                this.memString = TsFile.readFileSdcardFile(MeM_FILE);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return this.memString;
+    }
+
+    public void WriteMem(String str) {
+        if (str != null) {
+            try {
+                this.memString = str;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            TsFile.writeFileSdcardFile(MeM_FILE, this.memString);
+        }
     }
 }
